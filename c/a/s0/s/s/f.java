@@ -25,25 +25,23 @@ public class f implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f13907e;
+    public Activity f13587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f13908f;
+    public View f13588f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f13909g;
+    public ViewGroup f13589g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f13910h;
+    public View f13590h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f13911i;
+    public TextView f13591i;
 
     /* renamed from: j  reason: collision with root package name */
-    public WindowManager f13912j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public WindowManager.LayoutParams f13913k;
+    public WindowManager f13592j;
+    public WindowManager.LayoutParams k;
     public int l;
     public int m;
     public float n;
@@ -61,7 +59,7 @@ public class f implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f13914e;
+        public final /* synthetic */ f f13593e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -78,14 +76,14 @@ public class f implements View.OnClickListener {
                     return;
                 }
             }
-            this.f13914e = fVar;
+            this.f13593e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13914e.e();
+                this.f13593e.e();
             }
         }
     }
@@ -111,30 +109,30 @@ public class f implements View.OnClickListener {
         if (activity == null) {
             return;
         }
-        this.f13907e = activity;
+        this.f13587e = activity;
         this.r = c.a.d.f.p.n.f(activity, R.dimen.tbds114);
         this.p = c.a.d.f.p.n.f(activity, R.dimen.tbds84);
         this.q = c.a.d.f.p.n.f(activity, R.dimen.tbds44);
         this.m = c.a.d.f.p.n.f(activity, R.dimen.tbds222);
         this.l = c.a.d.f.p.n.f(activity, R.dimen.tbds29);
         View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
-        this.f13909g = (ViewGroup) inflate.findViewById(R.id.layout_container);
-        this.f13910h = inflate.findViewById(R.id.background);
-        this.f13911i = (TextView) inflate.findViewById(R.id.toast_tv);
-        this.f13908f = inflate;
-        this.f13910h.setBackgroundDrawable(b());
-        this.f13911i.setMaxLines(1);
-        this.f13911i.setGravity(17);
-        this.f13911i.setTextSize(0, c.a.d.f.p.n.f(activity, R.dimen.tbfontsize40));
-        this.f13911i.setTextColor(this.f13907e.getResources().getColor(R.color.CAM_X0101));
-        TextView textView = this.f13911i;
+        this.f13589g = (ViewGroup) inflate.findViewById(R.id.layout_container);
+        this.f13590h = inflate.findViewById(R.id.background);
+        this.f13591i = (TextView) inflate.findViewById(R.id.toast_tv);
+        this.f13588f = inflate;
+        this.f13590h.setBackgroundDrawable(b());
+        this.f13591i.setMaxLines(1);
+        this.f13591i.setGravity(17);
+        this.f13591i.setTextSize(0, c.a.d.f.p.n.f(activity, R.dimen.tbfontsize40));
+        this.f13591i.setTextColor(this.f13587e.getResources().getColor(R.color.CAM_X0101));
+        TextView textView = this.f13591i;
         int i4 = this.q;
         textView.setPadding(i4, 0, i4, 0);
-        this.f13912j = (WindowManager) this.f13907e.getSystemService("window");
+        this.f13592j = (WindowManager) this.f13587e.getSystemService("window");
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        this.f13913k = layoutParams;
-        layoutParams.width = c.a.d.f.p.n.k(this.f13907e) - (this.l * 2);
-        WindowManager.LayoutParams layoutParams2 = this.f13913k;
+        this.k = layoutParams;
+        layoutParams.width = c.a.d.f.p.n.k(this.f13587e) - (this.l * 2);
+        WindowManager.LayoutParams layoutParams2 = this.k;
         layoutParams2.height = this.r;
         layoutParams2.type = 1000;
         layoutParams2.format = -3;
@@ -142,7 +140,7 @@ public class f implements View.OnClickListener {
         layoutParams2.flags = 262152;
         layoutParams2.gravity = 81;
         layoutParams2.y = d();
-        this.f13913k.alpha = this.n;
+        this.k.alpha = this.n;
     }
 
     public static f f(Activity activity, String str) {
@@ -160,13 +158,13 @@ public class f implements View.OnClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f13907e != null && !TextUtils.isEmpty(str)) {
+            if (this.f13587e != null && !TextUtils.isEmpty(str)) {
                 String e2 = o0.e(str, 34);
-                int t = c.a.d.f.p.n.t(this.f13911i.getPaint(), e2);
-                ViewGroup.LayoutParams layoutParams = this.f13909g.getLayoutParams();
+                int t = c.a.d.f.p.n.t(this.f13591i.getPaint(), e2);
+                ViewGroup.LayoutParams layoutParams = this.f13589g.getLayoutParams();
                 layoutParams.width = t + (this.q * 2);
-                this.f13909g.setLayoutParams(layoutParams);
-                this.f13911i.setText(e2);
+                this.f13589g.setLayoutParams(layoutParams);
+                this.f13591i.setText(e2);
             }
             return this;
         }
@@ -199,15 +197,15 @@ public class f implements View.OnClickListener {
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m + UtilHelper.getNavigationBarHeight(this.f13907e) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m + UtilHelper.getNavigationBarHeight(this.f13587e) : invokeV.intValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c.a.d.f.m.e.a().removeCallbacks(this.u);
-            if (this.f13908f.getWindowToken() != null) {
-                this.f13912j.removeView(this.f13908f);
+            if (this.f13588f.getWindowToken() != null) {
+                this.f13592j.removeView(this.f13588f);
             }
         }
     }
@@ -234,8 +232,8 @@ public class f implements View.OnClickListener {
     public void i(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-            this.f13909g.setTag(obj);
-            this.f13909g.setOnClickListener(this);
+            this.f13589g.setTag(obj);
+            this.f13589g.setOnClickListener(this);
         }
     }
 
@@ -244,11 +242,11 @@ public class f implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             c.a.d.f.m.e.a().removeCallbacks(this.u);
-            View view = this.f13908f;
+            View view = this.f13588f;
             if (view != null && view.getWindowToken() != null) {
-                this.f13912j.removeView(this.f13908f);
+                this.f13592j.removeView(this.f13588f);
             }
-            this.f13912j.addView(this.f13908f, this.f13913k);
+            this.f13592j.addView(this.f13588f, this.k);
             c.a.d.f.m.e.a().postDelayed(this.u, this.o);
             return this;
         }

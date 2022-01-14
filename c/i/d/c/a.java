@@ -13,10 +13,10 @@ public abstract class a<E> extends p1<E> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f31007e;
+    public final int f30036e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f31008f;
+    public int f30037f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(int i2) {
@@ -45,14 +45,14 @@ public abstract class a<E> extends p1<E> {
     public final boolean hasNext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31008f < this.f31007e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30037f < this.f30036e : invokeV.booleanValue;
     }
 
     @Override // java.util.ListIterator
     public final boolean hasPrevious() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31008f > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30037f > 0 : invokeV.booleanValue;
     }
 
     @Override // java.util.Iterator, java.util.ListIterator
@@ -61,8 +61,8 @@ public abstract class a<E> extends p1<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (hasNext()) {
-                int i2 = this.f31008f;
-                this.f31008f = i2 + 1;
+                int i2 = this.f30037f;
+                this.f30037f = i2 + 1;
                 return a(i2);
             }
             throw new NoSuchElementException();
@@ -74,7 +74,7 @@ public abstract class a<E> extends p1<E> {
     public final int nextIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31008f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30037f : invokeV.intValue;
     }
 
     @Override // java.util.ListIterator
@@ -83,8 +83,8 @@ public abstract class a<E> extends p1<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (hasPrevious()) {
-                int i2 = this.f31008f - 1;
-                this.f31008f = i2;
+                int i2 = this.f30037f - 1;
+                this.f30037f = i2;
                 return a(i2);
             }
             throw new NoSuchElementException();
@@ -96,7 +96,7 @@ public abstract class a<E> extends p1<E> {
     public final int previousIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31008f - 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30037f - 1 : invokeV.intValue;
     }
 
     public a(int i2, int i3) {
@@ -115,7 +115,7 @@ public abstract class a<E> extends p1<E> {
             }
         }
         c.i.d.a.n.t(i3, i2);
-        this.f31007e = i2;
-        this.f31008f = i3;
+        this.f30036e = i2;
+        this.f30037f = i3;
     }
 }

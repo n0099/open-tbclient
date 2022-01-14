@@ -32,25 +32,23 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f51021e;
+    public final Paint f49075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f51022f;
+    public final Paint f49076f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Path f51023g;
+    public final Path f49077g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51024h;
+    public int f49078h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f51025i;
+    public b f49079i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f51026j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f51027k;
+    public int f49080j;
+    public int k;
     public int l;
     public int m;
     public final c<c.a.d.n.d.a> mCallback;
@@ -124,13 +122,13 @@ public class FrsAnomalyImg extends AppCompatImageView {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f51028b;
+        public int f49081b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f51029c;
+        public int f49082c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f51030d;
+        public int f49083d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -150,7 +148,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f51028b = i2;
+                this.f49081b = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -160,7 +158,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.f51029c = i2;
+                this.f49082c = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -170,7 +168,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f51030d = i2;
+                this.f49083d = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -212,9 +210,9 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            b bVar = this.f51025i;
+            b bVar = this.f49079i;
             if (bVar != null) {
-                return (int) Math.round(this.f51025i.f51030d / Math.tan(Math.toRadians((int) (((bVar.f51028b + 90) / 2) + 0.5d))));
+                return (int) Math.round(this.f49079i.f49083d / Math.tan(Math.toRadians((int) (((bVar.f49081b + 90) / 2) + 0.5d))));
             }
             return 0;
         }
@@ -225,9 +223,9 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            b bVar = this.f51025i;
+            b bVar = this.f49079i;
             if (bVar != null) {
-                return (int) Math.round(this.f51025i.a * Math.tan(Math.toRadians(bVar.f51028b)));
+                return (int) Math.round(this.f49079i.a * Math.tan(Math.toRadians(bVar.f49081b)));
             }
             return 0;
         }
@@ -238,9 +236,9 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            b bVar = this.f51025i;
+            b bVar = this.f49079i;
             if (bVar != null) {
-                return (int) Math.round(getA() * Math.sin(Math.toRadians(bVar.f51028b)));
+                return (int) Math.round(getA() * Math.sin(Math.toRadians(bVar.f49081b)));
             }
             return 0;
         }
@@ -251,9 +249,9 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            b bVar = this.f51025i;
+            b bVar = this.f49079i;
             if (bVar != null) {
-                return (int) Math.round(getA() * Math.cos(Math.toRadians(bVar.f51028b)));
+                return (int) Math.round(getA() * Math.cos(Math.toRadians(bVar.f49081b)));
             }
             return 0;
         }
@@ -264,9 +262,9 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            b bVar = this.f51025i;
+            b bVar = this.f49079i;
             if (bVar != null) {
-                return bVar.f51029c;
+                return bVar.f49082c;
             }
             return 0;
         }
@@ -277,7 +275,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            b bVar = this.f51025i;
+            b bVar = this.f49079i;
             if (bVar != null) {
                 return bVar.a;
             }
@@ -290,7 +288,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             i();
-            this.f51022f.setColor(SkinManager.getColor(R.color.CAM_X0210));
+            this.f49076f.setColor(SkinManager.getColor(R.color.CAM_X0210));
             invalidate();
         }
     }
@@ -298,8 +296,8 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f51026j = Math.max(getPaddingLeft(), getPaddingRight());
-            this.f51027k = Math.max(getPaddingTop(), getPaddingBottom());
+            this.f49080j = Math.max(getPaddingLeft(), getPaddingRight());
+            this.k = Math.max(getPaddingTop(), getPaddingBottom());
         }
     }
 
@@ -331,35 +329,35 @@ public class FrsAnomalyImg extends AppCompatImageView {
                 float min = Math.min(this.l / this.q, this.m / this.r);
                 this.t.postScale(min, min);
                 this.s.setLocalMatrix(this.t);
-                this.f51021e.setShader(this.s);
+                this.f49075e.setShader(this.s);
             } else {
                 float f2 = (this.m / 2.0f) / this.o;
                 this.t.postScale(f2, f2);
                 this.t.postTranslate((this.l - (this.n * f2)) / 2.0f, (this.m - (this.o * f2)) / 2.0f);
                 this.p.setLocalMatrix(this.t);
-                this.f51021e.setShader(this.p);
+                this.f49075e.setShader(this.p);
             }
-            this.f51023g.moveTo(this.f51026j, this.f51024h + this.f51027k);
-            Path path = this.f51023g;
-            int i2 = this.f51026j;
-            int i3 = this.f51027k;
-            path.quadTo(i2, i3, this.f51024h + i2, i3);
-            this.f51023g.quadTo(this.f51024h + this.f51026j, this.f51027k, (getWidth() - this.f51024h) - this.f51026j, this.f51027k);
-            this.f51023g.quadTo(getWidth() - this.f51026j, this.f51027k, getWidth() - this.f51026j, this.f51024h + this.f51027k);
-            this.f51023g.quadTo(getWidth() - this.f51026j, this.f51024h + this.f51027k, getWidth() - this.f51026j, ((getHeight() - this.f51024h) - this.f51027k) - getTenonHeigh());
-            this.f51023g.quadTo(getWidth() - this.f51026j, (getHeight() - this.f51027k) - getTenonHeigh(), (getWidth() - this.f51024h) - this.f51026j, (getHeight() - this.f51027k) - getTenonHeigh());
-            this.f51023g.quadTo((getWidth() - this.f51024h) - this.f51026j, (getHeight() - this.f51027k) - getTenonHeigh(), getA() + getB() + getDistance(), (getHeight() - this.f51027k) - getTenonHeigh());
-            this.f51023g.quadTo(getDistance() + getB(), (getHeight() - this.f51027k) - getTenonHeigh(), (getDistance() + getB()) - getC(), ((getHeight() - this.f51027k) - getTenonHeigh()) + getD());
-            this.f51023g.quadTo((getDistance() + getB()) - getC(), ((getHeight() - this.f51027k) - getTenonHeigh()) + getD(), getDistance(), getHeight() - this.f51027k);
-            this.f51023g.quadTo(getDistance(), getHeight() - this.f51027k, (getDistance() - getB()) + getC(), ((getHeight() - this.f51027k) - getTenonHeigh()) + getD());
-            this.f51023g.quadTo(getDistance() - getB(), (getHeight() - this.f51027k) - getTenonHeigh(), (getDistance() - getB()) - getC(), (getHeight() - this.f51027k) - getTenonHeigh());
-            this.f51023g.quadTo((getDistance() - getB()) - getC(), (getHeight() - this.f51027k) - getTenonHeigh(), this.f51026j + this.f51024h, (getHeight() - this.f51027k) - getTenonHeigh());
-            this.f51023g.quadTo(this.f51026j, (getHeight() - this.f51027k) - getTenonHeigh(), this.f51026j, ((getHeight() - this.f51024h) - this.f51027k) - getTenonHeigh());
-            this.f51023g.quadTo(this.f51026j, ((getHeight() - this.f51024h) - this.f51027k) - getTenonHeigh(), this.f51026j, this.f51024h + this.f51027k);
-            this.f51023g.close();
+            this.f49077g.moveTo(this.f49080j, this.f49078h + this.k);
+            Path path = this.f49077g;
+            int i2 = this.f49080j;
+            int i3 = this.k;
+            path.quadTo(i2, i3, this.f49078h + i2, i3);
+            this.f49077g.quadTo(this.f49078h + this.f49080j, this.k, (getWidth() - this.f49078h) - this.f49080j, this.k);
+            this.f49077g.quadTo(getWidth() - this.f49080j, this.k, getWidth() - this.f49080j, this.f49078h + this.k);
+            this.f49077g.quadTo(getWidth() - this.f49080j, this.f49078h + this.k, getWidth() - this.f49080j, ((getHeight() - this.f49078h) - this.k) - getTenonHeigh());
+            this.f49077g.quadTo(getWidth() - this.f49080j, (getHeight() - this.k) - getTenonHeigh(), (getWidth() - this.f49078h) - this.f49080j, (getHeight() - this.k) - getTenonHeigh());
+            this.f49077g.quadTo((getWidth() - this.f49078h) - this.f49080j, (getHeight() - this.k) - getTenonHeigh(), getA() + getB() + getDistance(), (getHeight() - this.k) - getTenonHeigh());
+            this.f49077g.quadTo(getDistance() + getB(), (getHeight() - this.k) - getTenonHeigh(), (getDistance() + getB()) - getC(), ((getHeight() - this.k) - getTenonHeigh()) + getD());
+            this.f49077g.quadTo((getDistance() + getB()) - getC(), ((getHeight() - this.k) - getTenonHeigh()) + getD(), getDistance(), getHeight() - this.k);
+            this.f49077g.quadTo(getDistance(), getHeight() - this.k, (getDistance() - getB()) + getC(), ((getHeight() - this.k) - getTenonHeigh()) + getD());
+            this.f49077g.quadTo(getDistance() - getB(), (getHeight() - this.k) - getTenonHeigh(), (getDistance() - getB()) - getC(), (getHeight() - this.k) - getTenonHeigh());
+            this.f49077g.quadTo((getDistance() - getB()) - getC(), (getHeight() - this.k) - getTenonHeigh(), this.f49080j + this.f49078h, (getHeight() - this.k) - getTenonHeigh());
+            this.f49077g.quadTo(this.f49080j, (getHeight() - this.k) - getTenonHeigh(), this.f49080j, ((getHeight() - this.f49078h) - this.k) - getTenonHeigh());
+            this.f49077g.quadTo(this.f49080j, ((getHeight() - this.f49078h) - this.k) - getTenonHeigh(), this.f49080j, this.f49078h + this.k);
+            this.f49077g.close();
             if (this.u) {
-                canvas.drawPath(this.f51023g, this.f51022f);
-                canvas.drawPath(this.f51023g, this.f51021e);
+                canvas.drawPath(this.f49077g, this.f49076f);
+                canvas.drawPath(this.f49077g, this.f49075e);
             }
         }
     }
@@ -380,7 +378,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f51024h = i2;
+            this.f49078h = i2;
             return this;
         }
         return (FrsAnomalyImg) invokeI.objValue;
@@ -390,7 +388,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {
-            this.f51025i = bVar;
+            this.f49079i = bVar;
             return this;
         }
         return (FrsAnomalyImg) invokeL.objValue;
@@ -429,16 +427,16 @@ public class FrsAnomalyImg extends AppCompatImageView {
                 return;
             }
         }
-        this.f51024h = 0;
-        this.f51025i = null;
-        this.f51026j = 0;
-        this.f51027k = 0;
+        this.f49078h = 0;
+        this.f49079i = null;
+        this.f49080j = 0;
+        this.k = 0;
         this.t = new Matrix();
         this.mCallback = new a(this);
-        this.f51021e = new Paint();
+        this.f49075e = new Paint();
         Paint paint = new Paint();
-        this.f51022f = paint;
+        this.f49076f = paint;
         paint.setStyle(Paint.Style.FILL);
-        this.f51023g = new Path();
+        this.f49077g = new Path();
     }
 }

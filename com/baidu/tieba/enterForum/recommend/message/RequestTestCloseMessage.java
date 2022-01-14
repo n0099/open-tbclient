@@ -18,7 +18,7 @@ public class RequestTestCloseMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f44252common;
+    public CommonReq f42632common;
     public long fromPage;
     public long testId;
 
@@ -47,7 +47,7 @@ public class RequestTestCloseMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f65333common = this.f44252common;
+            builder.f62893common = this.f42632common;
             builder.test_id = Long.valueOf(this.testId);
             builder.from_page = Long.valueOf(this.fromPage);
             if (z) {
@@ -63,7 +63,7 @@ public class RequestTestCloseMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f44252common = commonReq;
+            this.f42632common = commonReq;
         }
     }
 

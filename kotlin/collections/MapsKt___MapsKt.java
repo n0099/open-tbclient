@@ -282,7 +282,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <K, V> Double m1143maxOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> function1) {
+    public static final <K, V> Double m1155maxOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
             double doubleValue = function1.invoke((Object) it.next()).doubleValue();
@@ -441,7 +441,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <K, V> Double m1147minOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> function1) {
+    public static final <K, V> Double m1159minOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
             double doubleValue = function1.invoke((Object) it.next()).doubleValue();
@@ -598,7 +598,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <K, V> float m1141maxOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
+    public static final <K, V> float m1153maxOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((Object) it.next()).floatValue();
@@ -614,7 +614,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <K, V> Float m1144maxOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
+    public static final <K, V> Float m1156maxOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((Object) it.next()).floatValue();
@@ -630,7 +630,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <K, V> float m1145minOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
+    public static final <K, V> float m1157minOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((Object) it.next()).floatValue();
@@ -646,7 +646,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <K, V> Float m1148minOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
+    public static final <K, V> Float m1160minOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((Object) it.next()).floatValue();
@@ -676,7 +676,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <K, V, R extends Comparable<? super R>> R m1142maxOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
+    public static final <K, V, R extends Comparable<? super R>> R m1154maxOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
             R invoke = function1.invoke((Object) it.next());
@@ -713,7 +713,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <K, V, R extends Comparable<? super R>> R m1146minOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
+    public static final <K, V, R extends Comparable<? super R>> R m1158minOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
             R invoke = function1.invoke((Object) it.next());

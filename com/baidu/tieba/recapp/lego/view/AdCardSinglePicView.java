@@ -48,8 +48,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
             d dVar = adCard.picInfo;
-            if (dVar != null && !a.e(dVar.f18870c)) {
-                String str = dVar.f18870c.get(0);
+            if (dVar != null && !a.e(dVar.f18400c)) {
+                String str = dVar.f18400c.get(0);
                 boolean resizeImage = resizeImage(this.y, adCard, dVar);
                 if (!TextUtils.isEmpty(str) && resizeImage) {
                     this.mCustomRoot.setVisibility(0);
@@ -111,8 +111,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
                 setImageViewSize(tbImageView, b2, i3);
                 return true;
             }
-            int i4 = dVar.f18872e;
-            int i5 = dVar.f18871d;
+            int i4 = dVar.f18402e;
+            int i5 = dVar.f18401d;
             if (i3 > 0 && i4 > 0 && i5 > 0) {
                 int i6 = (i4 * i3) / i5;
                 if (i6 > i3) {

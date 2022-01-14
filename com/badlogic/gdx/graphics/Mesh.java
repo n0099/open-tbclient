@@ -33,20 +33,20 @@ public class Mesh implements h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Map<Application, a<Mesh>> f32079i;
+    public static final Map<Application, a<Mesh>> f31070i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final l f32080e;
+    public final l f31071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f32081f;
+    public final e f31072f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f32082g;
+    public f f31073g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Vector3 f32083h;
+    public final Vector3 f31074h;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -125,7 +125,7 @@ public class Mesh implements h {
                 return;
             }
         }
-        f32079i = new HashMap();
+        f31070i = new HashMap();
     }
 
     public Mesh(boolean z, int i2, int i3, j jVar) {
@@ -143,28 +143,28 @@ public class Mesh implements h {
                 return;
             }
         }
-        this.f32083h = new Vector3();
-        this.f32080e = o(z, i2, jVar);
-        this.f32081f = new d(z, i3);
+        this.f31074h = new Vector3();
+        this.f31071e = o(z, i2, jVar);
+        this.f31072f = new d(z, i3);
         a(c.b.b.f.a, this);
     }
 
     public static void a(Application application, Mesh mesh) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, application, mesh) == null) {
-            a<Mesh> aVar = f32079i.get(application);
+            a<Mesh> aVar = f31070i.get(application);
             if (aVar == null) {
                 aVar = new a<>();
             }
             aVar.a(mesh);
-            f32079i.put(application, aVar);
+            f31070i.put(application, aVar);
         }
     }
 
     public static void g(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, application) == null) {
-            f32079i.remove(application);
+            f31070i.remove(application);
         }
     }
 
@@ -174,8 +174,8 @@ public class Mesh implements h {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed meshes/app: { ");
-            for (Application application : f32079i.keySet()) {
-                sb.append(f32079i.get(application).f28217f);
+            for (Application application : f31070i.keySet()) {
+                sb.append(f31070i.get(application).f27361f);
                 sb.append(" ");
             }
             sb.append("}");
@@ -187,41 +187,41 @@ public class Mesh implements h {
     public static void n(Application application) {
         a<Mesh> aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, application) == null) || (aVar = f32079i.get(application)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, application) == null) || (aVar = f31070i.get(application)) == null) {
             return;
         }
-        for (int i2 = 0; i2 < aVar.f28217f; i2++) {
-            aVar.get(i2).f32080e.invalidate();
-            aVar.get(i2).f32081f.invalidate();
+        for (int i2 = 0; i2 < aVar.f27361f; i2++) {
+            aVar.get(i2).f31071e.invalidate();
+            aVar.get(i2).f31072f.invalidate();
         }
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32080e.c() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31071e.c() : invokeV.intValue;
     }
 
     @Override // c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (f32079i.get(c.b.b.f.a) != null) {
-                f32079i.get(c.b.b.f.a).i(this, true);
+            if (f31070i.get(c.b.b.f.a) != null) {
+                f31070i.get(c.b.b.f.a).i(this, true);
             }
-            this.f32080e.dispose();
-            f fVar = this.f32082g;
+            this.f31071e.dispose();
+            f fVar = this.f31073g;
             if (fVar != null) {
                 fVar.dispose();
             }
-            this.f32081f.dispose();
+            this.f31072f.dispose();
         }
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32081f.e() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31072f.e() : invokeV.intValue;
     }
 
     public BoundingBox f(BoundingBox boundingBox, int i2, int i3) {
@@ -256,33 +256,33 @@ public class Mesh implements h {
                 c2 = e2;
             }
             if (i2 >= 0 && i3 >= 1 && (i4 = i2 + i3) <= c2) {
-                FloatBuffer buffer = this.f32080e.getBuffer();
-                ShortBuffer buffer2 = this.f32081f.getBuffer();
+                FloatBuffer buffer = this.f31071e.getBuffer();
+                ShortBuffer buffer2 = this.f31072f.getBuffer();
                 i l = l(1);
-                int i5 = l.f27934e / 4;
-                int i6 = this.f32080e.b().f27939f / 4;
-                int i7 = l.f27931b;
+                int i5 = l.f27094e / 4;
+                int i6 = this.f31071e.b().f27099f / 4;
+                int i7 = l.f27091b;
                 if (i7 != 1) {
                     if (i7 != 2) {
                         if (i7 == 3) {
                             if (e2 > 0) {
                                 while (i2 < i4) {
                                     int i8 = ((buffer2.get(i2) & UShort.MAX_VALUE) * i6) + i5;
-                                    this.f32083h.set(buffer.get(i8), buffer.get(i8 + 1), buffer.get(i8 + 2));
+                                    this.f31074h.set(buffer.get(i8), buffer.get(i8 + 1), buffer.get(i8 + 2));
                                     if (matrix4 != null) {
-                                        this.f32083h.mul(matrix4);
+                                        this.f31074h.mul(matrix4);
                                     }
-                                    boundingBox.ext(this.f32083h);
+                                    boundingBox.ext(this.f31074h);
                                     i2++;
                                 }
                             } else {
                                 while (i2 < i4) {
                                     int i9 = (i2 * i6) + i5;
-                                    this.f32083h.set(buffer.get(i9), buffer.get(i9 + 1), buffer.get(i9 + 2));
+                                    this.f31074h.set(buffer.get(i9), buffer.get(i9 + 1), buffer.get(i9 + 2));
                                     if (matrix4 != null) {
-                                        this.f32083h.mul(matrix4);
+                                        this.f31074h.mul(matrix4);
                                     }
-                                    boundingBox.ext(this.f32083h);
+                                    boundingBox.ext(this.f31074h);
                                     i2++;
                                 }
                             }
@@ -290,40 +290,40 @@ public class Mesh implements h {
                     } else if (e2 > 0) {
                         while (i2 < i4) {
                             int i10 = ((buffer2.get(i2) & UShort.MAX_VALUE) * i6) + i5;
-                            this.f32083h.set(buffer.get(i10), buffer.get(i10 + 1), 0.0f);
+                            this.f31074h.set(buffer.get(i10), buffer.get(i10 + 1), 0.0f);
                             if (matrix4 != null) {
-                                this.f32083h.mul(matrix4);
+                                this.f31074h.mul(matrix4);
                             }
-                            boundingBox.ext(this.f32083h);
+                            boundingBox.ext(this.f31074h);
                             i2++;
                         }
                     } else {
                         while (i2 < i4) {
                             int i11 = (i2 * i6) + i5;
-                            this.f32083h.set(buffer.get(i11), buffer.get(i11 + 1), 0.0f);
+                            this.f31074h.set(buffer.get(i11), buffer.get(i11 + 1), 0.0f);
                             if (matrix4 != null) {
-                                this.f32083h.mul(matrix4);
+                                this.f31074h.mul(matrix4);
                             }
-                            boundingBox.ext(this.f32083h);
+                            boundingBox.ext(this.f31074h);
                             i2++;
                         }
                     }
                 } else if (e2 > 0) {
                     while (i2 < i4) {
-                        this.f32083h.set(buffer.get(((buffer2.get(i2) & UShort.MAX_VALUE) * i6) + i5), 0.0f, 0.0f);
+                        this.f31074h.set(buffer.get(((buffer2.get(i2) & UShort.MAX_VALUE) * i6) + i5), 0.0f, 0.0f);
                         if (matrix4 != null) {
-                            this.f32083h.mul(matrix4);
+                            this.f31074h.mul(matrix4);
                         }
-                        boundingBox.ext(this.f32083h);
+                        boundingBox.ext(this.f31074h);
                         i2++;
                     }
                 } else {
                     while (i2 < i4) {
-                        this.f32083h.set(buffer.get((i2 * i6) + i5), 0.0f, 0.0f);
+                        this.f31074h.set(buffer.get((i2 * i6) + i5), 0.0f, 0.0f);
                         if (matrix4 != null) {
-                            this.f32083h.mul(matrix4);
+                            this.f31074h.mul(matrix4);
                         }
-                        boundingBox.ext(this.f32083h);
+                        boundingBox.ext(this.f31074h);
                         i2++;
                     }
                 }
@@ -337,14 +337,14 @@ public class Mesh implements h {
     public ShortBuffer j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32081f.getBuffer() : (ShortBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31072f.getBuffer() : (ShortBuffer) invokeV.objValue;
     }
 
     public i l(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            j b2 = this.f32080e.b();
+            j b2 = this.f31071e.b();
             int size = b2.size();
             for (int i3 = 0; i3 < size; i3++) {
                 if (b2.d(i3).a == i2) {
@@ -359,14 +359,14 @@ public class Mesh implements h {
     public FloatBuffer m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32080e.getBuffer() : (FloatBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31071e.getBuffer() : (FloatBuffer) invokeV.objValue;
     }
 
     public final l o(boolean z, int i2, j jVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), jVar})) == null) {
-            if (c.b.b.f.f27774g != null) {
+            if (c.b.b.f.f26941g != null) {
                 return new k(z, i2, jVar);
             }
             return new c.b.b.n.m.j(z, i2, jVar);

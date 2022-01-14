@@ -6,10 +6,10 @@ public class a implements Serializable {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f60906b;
+    public long f58599b;
 
     public a(long j2, long j3) {
         this.a = j2;
-        this.f60906b = j3;
+        this.f58599b = j3;
     }
 }

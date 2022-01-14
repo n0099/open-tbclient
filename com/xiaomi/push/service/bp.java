@@ -27,13 +27,13 @@ public class bp {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, ibVar)) == null) {
-            if (ibVar.m510b()) {
+            if (ibVar.m522b()) {
                 return null;
             }
-            byte[] m508a = ibVar.m508a();
+            byte[] m520a = ibVar.m520a();
             iq a = a(ibVar.a(), ibVar.f644b);
             if (a != null) {
-                ip.a(a, m508a);
+                ip.a(a, m520a);
             }
             return a;
         }

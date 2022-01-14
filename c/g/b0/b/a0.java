@@ -21,34 +21,32 @@ public class a0 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29131b;
+    public int f28241b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29132c;
+    public int f28242c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29133d;
+    public int f28243d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29134e;
+    public int f28244e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29135f;
+    public int f28245f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SplashAD f29136g;
+    public SplashAD f28246g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f29137h;
+    public View f28247h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29138i;
+    public int f28248i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f29139j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int[] f29140k;
+    public int f28249j;
+    public int[] k;
     public int l;
     public int m;
 
@@ -69,15 +67,15 @@ public class a0 {
                 return;
             }
         }
-        this.f29140k = new int[2];
+        this.k = new int[2];
         Context appContext = GDTADManager.getInstance().getAppContext();
         int round = Math.round(Math.min(PxUtils.getDeviceHeightInPixel(appContext), PxUtils.getDeviceWidthInPixel(appContext)) * 0.3f);
         this.a = round;
-        this.f29131b = Math.round((round * 16) / 9);
-        this.f29132c = PxUtils.dpToPx(appContext, 6);
-        this.f29133d = PxUtils.dpToPx(appContext, 100);
-        this.f29134e = 1;
-        this.f29135f = 300;
+        this.f28241b = Math.round((round * 16) / 9);
+        this.f28242c = PxUtils.dpToPx(appContext, 6);
+        this.f28243d = PxUtils.dpToPx(appContext, 100);
+        this.f28244e = 1;
+        this.f28245f = 300;
     }
 
     public final void a(View view, ViewGroup viewGroup, float f2, float f3, int[] iArr, ViewGroup viewGroup2, a aVar) {
@@ -96,11 +94,11 @@ public class a0 {
             LogPrinter.d("zoomOut distX:" + f4 + " distY:" + f5, new Object[0]);
             LogPrinter.d("zoomOut containerScreenX:" + iArr2[0] + " containerScreenY:" + iArr2[1], new Object[0]);
             viewGroup2.addView(view, -1, -1);
-            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.f29131b));
+            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.f28241b));
             viewGroup2.setTranslationX(f4);
             viewGroup2.setTranslationY(f5);
             if (aVar != null) {
-                ((w.b.a) aVar).a.f29177b.zoomOutAnimationFinish();
+                ((w.b.a) aVar).a.f28286b.zoomOutAnimationFinish();
             }
         }
     }

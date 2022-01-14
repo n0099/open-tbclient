@@ -46,7 +46,7 @@ public class gs implements av.b.a {
         }
         this.f459a = false;
         this.f456a = xMPushService;
-        this.f458a = av.c.f63827b;
+        this.f458a = av.c.f61429b;
         this.f457a = bVar;
     }
 
@@ -73,21 +73,21 @@ public class gs implements av.b.a {
         if (!this.f459a || this.a == 11) {
             return;
         }
-        ex m417a = gx.m415a().m417a();
+        ex m429a = gx.m427a().m429a();
         int i2 = gu.a[this.f458a.ordinal()];
         if (i2 != 1) {
             if (i2 == 3) {
                 ewVar = ew.H;
             }
-            if (m417a != null) {
-                m417a.b(this.f455a.m373a());
-                m417a.d(this.f457a.f919b);
-                m417a.f353b = 1;
+            if (m429a != null) {
+                m429a.b(this.f455a.m385a());
+                m429a.d(this.f457a.f919b);
+                m429a.f353b = 1;
                 try {
-                    m417a.a((byte) Integer.parseInt(this.f457a.f63821g));
+                    m429a.a((byte) Integer.parseInt(this.f457a.f61423g));
                 } catch (NumberFormatException unused) {
                 }
-                gx.m415a().a(m417a);
+                gx.m427a().a(m429a);
                 return;
             }
             return;
@@ -100,16 +100,16 @@ public class gs implements av.b.a {
         } else {
             try {
                 gv.a c2 = gv.c(gx.a().a());
-                m417a.f350a = c2.a.a();
-                m417a.c(c2.f460a);
+                m429a.f350a = c2.a.a();
+                m429a.c(c2.f460a);
             } catch (NullPointerException unused2) {
-                m417a = null;
+                m429a = null;
             }
-            if (m417a != null) {
+            if (m429a != null) {
             }
         }
-        m417a.f350a = ewVar.a();
-        if (m417a != null) {
+        m429a.f350a = ewVar.a();
+        if (m429a != null) {
         }
     }
 
@@ -117,7 +117,7 @@ public class gs implements av.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f457a.a(this);
-            this.f455a = this.f456a.m612a();
+            this.f455a = this.f456a.m624a();
         }
     }
 
@@ -125,7 +125,7 @@ public class gs implements av.b.a {
     public void a(av.c cVar, av.c cVar2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, i2) == null) {
-            if (!this.f459a && cVar == av.c.f63827b) {
+            if (!this.f459a && cVar == av.c.f61429b) {
                 this.f458a = cVar2;
                 this.a = i2;
                 this.f459a = true;

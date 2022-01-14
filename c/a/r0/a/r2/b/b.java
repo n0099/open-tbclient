@@ -29,13 +29,13 @@ public class b extends z {
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f8807b;
+        public final /* synthetic */ UnitedSchemeEntity f8613b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f8808c;
+        public final /* synthetic */ String f8614c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ b f8809d;
+        public final /* synthetic */ b f8615d;
 
         public a(b bVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
@@ -52,17 +52,17 @@ public class b extends z {
                     return;
                 }
             }
-            this.f8809d = bVar;
+            this.f8615d = bVar;
             this.a = callbackHandler;
-            this.f8807b = unitedSchemeEntity;
-            this.f8808c = str;
+            this.f8613b = unitedSchemeEntity;
+            this.f8614c = str;
         }
 
         @Override // c.a.r0.a.r2.b.d.b
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f8809d.k(i2, this.a, this.f8807b, this.f8808c);
+                this.f8615d.k(i2, this.a, this.f8613b, this.f8614c);
             }
         }
     }
@@ -141,7 +141,7 @@ public class b extends z {
             }
             try {
                 jSONObject.put("volume", f2);
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str2 = "NewVolume: " + f2;
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);

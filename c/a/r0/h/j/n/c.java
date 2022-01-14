@@ -41,34 +41,32 @@ public class c {
     public GamenowDownloadButtomView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f10853b;
+    public j f10612b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.h.i.k.f.a f10854c;
+    public c.a.r0.h.i.k.f.a f10613c;
 
     /* renamed from: d  reason: collision with root package name */
-    public GameGuideConfigInfo.CloseInfo f10855d;
+    public GameGuideConfigInfo.CloseInfo f10614d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10856e;
+    public String f10615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10857f;
+    public String f10616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10858g;
+    public String f10617g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f10859h;
+    public String f10618h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f10860i;
+    public String f10619i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f10861j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f10862k;
+    public String f10620j;
+    public int k;
     public int l;
     public int m;
     public String n;
@@ -82,7 +80,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f10863e;
+        public final /* synthetic */ c f10621e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -99,17 +97,17 @@ public class c {
                     return;
                 }
             }
-            this.f10863e = cVar;
+            this.f10621e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!this.f10863e.f10859h.equals("wdview")) {
-                    if (this.f10863e.f10859h.equals("gbview") && this.f10863e.f10855d != null) {
-                        if (this.f10863e.f10855d.type != 0 && this.f10863e.f10855d.type != 1) {
-                            if (this.f10863e.f10855d.type == 2) {
+                if (!this.f10621e.f10618h.equals("wdview")) {
+                    if (this.f10621e.f10618h.equals("gbview") && this.f10621e.f10614d != null) {
+                        if (this.f10621e.f10614d.type != 0 && this.f10621e.f10614d.type != 1) {
+                            if (this.f10621e.f10614d.type == 2) {
                                 c.a.r0.h.j.r.b.n().b("gbADialogClick", "0", "", "");
                             }
                         } else {
@@ -117,9 +115,9 @@ public class c {
                         }
                     }
                 } else {
-                    c.a.r0.h.j.r.b.n().j("0", this.f10863e.f10862k, this.f10863e.l);
+                    c.a.r0.h.j.r.b.n().j("0", this.f10621e.k, this.f10621e.l);
                 }
-                this.f10863e.s(true);
+                this.f10621e.s(true);
             }
         }
     }
@@ -174,26 +172,26 @@ public class c {
 
     /* renamed from: c.a.r0.h.j.n.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0701c extends c.a.r0.a.y1.a.b.c.c {
+    public static class C0710c extends c.a.r0.a.y1.a.b.c.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f10864c;
+        public String f10622c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f10865d;
+        public String f10623d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.r0.h.i.k.f.a f10866e;
+        public c.a.r0.h.i.k.f.a f10624e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f10867f;
+        public String f10625f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f10868g;
+        public String f10626g;
 
-        public C0701c(String str, String str2, c.a.r0.h.i.k.f.a aVar, String str3, String str4) {
+        public C0710c(String str, String str2, c.a.r0.h.i.k.f.a aVar, String str3, String str4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,11 +206,11 @@ public class c {
                     return;
                 }
             }
-            this.f10865d = str;
-            this.f10864c = str2;
-            this.f10866e = aVar;
-            this.f10867f = str3;
-            this.f10868g = str4;
+            this.f10623d = str;
+            this.f10622c = str2;
+            this.f10624e = aVar;
+            this.f10625f = str3;
+            this.f10626g = str4;
         }
 
         @Override // c.a.r0.a.y1.a.b.c.a
@@ -243,7 +241,7 @@ public class c {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (a = bVar.a()) == null) {
                 return;
             }
-            c.q(a, this.f10866e, this.f10865d, this.f10864c, this.f10867f, this.f10868g);
+            c.q(a, this.f10624e, this.f10623d, this.f10622c, this.f10625f, this.f10626g);
         }
     }
 
@@ -300,10 +298,10 @@ public class c {
                 return;
             }
         }
-        this.f10856e = "";
-        this.f10857f = "";
-        this.f10858g = "";
-        this.f10861j = "";
+        this.f10615e = "";
+        this.f10616f = "";
+        this.f10617g = "";
+        this.f10620j = "";
         this.n = "";
         this.o = "";
         this.p = "";
@@ -415,22 +413,22 @@ public class c {
     public void A(String str, String str2, String str3, int i2) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048576, this, str, str2, str3, i2) == null) || (jVar = this.f10853b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048576, this, str, str2, str3, i2) == null) || (jVar = this.f10612b) == null) {
             return;
         }
         DownloadState downloadState = jVar.a;
         if (downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) {
             String str4 = this.o;
-            if (TextUtils.equals(c.a.r0.h.j.m.c.a, this.f10853b.f10892c)) {
+            if (TextUtils.equals(c.a.r0.h.j.m.c.a, this.f10612b.f10649c)) {
                 str4 = k(1, str, str2, str3);
                 if (!TextUtils.isEmpty(this.q)) {
-                    this.f10853b.c(this.q);
+                    this.f10612b.c(this.q);
                 }
             }
-            this.f10853b.f10891b = str4;
-            this.f10857f = str;
+            this.f10612b.f10648b = str4;
+            this.f10616f = str;
             if (i2 >= 0) {
-                this.f10858g = String.valueOf(i2);
+                this.f10617g = String.valueOf(i2);
             }
         }
         s(false);
@@ -439,7 +437,7 @@ public class c {
     public final void B() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jVar = this.f10853b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jVar = this.f10612b) == null) {
             return;
         }
         int i2 = b.a[jVar.a.ordinal()];
@@ -460,10 +458,10 @@ public class c {
     public final void C(String str) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (jVar = this.f10853b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (jVar = this.f10612b) == null) {
             return;
         }
-        jVar.f10892c = str;
+        jVar.f10649c = str;
     }
 
     public void D(int i2) {
@@ -484,39 +482,39 @@ public class c {
         j jVar;
         String string;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (jVar = this.f10853b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (jVar = this.f10612b) == null) {
             return;
         }
         if (jVar.a == DownloadState.DOWNLOADING) {
             GamenowDownloadButtomView gamenowDownloadButtomView = this.a;
             if (gamenowDownloadButtomView != null && gamenowDownloadButtomView.getVisibility() != 8) {
-                if (this.f10853b.f10893d < this.a.getMax()) {
+                if (this.f10612b.f10650d < this.a.getMax()) {
                     String string2 = c.a.r0.a.c1.a.c().getResources().getString(c.a.r0.h.j.k.aiapps_game_button_downloading);
-                    string = String.format(string2, this.f10853b.f10893d + "%");
+                    string = String.format(string2, this.f10612b.f10650d + "%");
                 } else {
                     string = c.a.r0.a.c1.a.c().getResources().getString(c.a.r0.h.j.k.aiapps_game_download_button_install);
                 }
                 this.a.setText(string);
-                this.a.setProgress(this.f10853b.f10893d);
+                this.a.setProgress(this.f10612b.f10650d);
             }
         } else {
-            String string3 = c.a.r0.a.c1.a.c().getResources().getString(v(this.f10853b.a));
-            if (this.f10853b.a == DownloadState.DOWNLOADED) {
+            String string3 = c.a.r0.a.c1.a.c().getResources().getString(v(this.f10612b.a));
+            if (this.f10612b.a == DownloadState.DOWNLOADED) {
                 this.a.setProgress(100);
             }
-            j jVar2 = this.f10853b;
+            j jVar2 = this.f10612b;
             if (jVar2.a == DownloadState.DOWNLOAD_PAUSED) {
-                this.a.setProgress(jVar2.f10893d);
+                this.a.setProgress(jVar2.f10650d);
             }
             this.a.setText(string3);
-            DownloadState downloadState = this.f10853b.a;
-            if ((downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) && !TextUtils.isEmpty(this.f10856e)) {
-                this.a.setText(this.f10856e);
+            DownloadState downloadState = this.f10612b.a;
+            if ((downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) && !TextUtils.isEmpty(this.f10615e)) {
+                this.a.setText(this.f10615e);
             }
         }
         if (this.a != null) {
             B();
-            this.a.setState(this.f10853b.a);
+            this.a.setState(this.f10612b.a);
             this.a.postInvalidate();
         }
     }
@@ -543,15 +541,15 @@ public class c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{aVar, str, str2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            this.f10859h = str;
-            this.f10860i = str2;
-            this.f10862k = i2;
+            this.f10618h = str;
+            this.f10619i = str2;
+            this.k = i2;
             this.l = i3;
             GameGuideConfigInfo z = c.a.r0.h.j.b.o.z();
             int color = c.a.r0.a.c1.a.c().getResources().getColor(c.a.r0.h.j.e.aiapps_download_button_blue_color);
             int color2 = c.a.r0.a.c1.a.c().getResources().getColor(c.a.r0.h.j.e.swangame_white);
             if (z != null) {
-                this.f10861j = z.configName;
+                this.f10620j = z.configName;
                 this.o = z.targetAppDownloadUrl;
                 String str3 = z.targetAppPackageId;
                 this.p = str3;
@@ -570,28 +568,28 @@ public class c {
                 if (c2 == 0) {
                     GameGuideConfigInfo.DialogInfo dialogInfo = z.dialogInfo;
                     if (dialogInfo != null) {
-                        this.f10856e = dialogInfo.buttonText;
+                        this.f10615e = dialogInfo.buttonText;
                         this.m = dialogInfo.targetType;
                         this.n = dialogInfo.target;
                     }
                 } else if (c2 == 1) {
                     GameGuideConfigInfo.CloseInfo closeInfo = z.closeInfo;
-                    this.f10855d = closeInfo;
+                    this.f10614d = closeInfo;
                     if (closeInfo != null) {
                         try {
-                            if (!TextUtils.isEmpty(closeInfo.downloadBackgroundColor) && !this.f10855d.downloadBackgroundColor.equals(StringUtil.NULL_STRING)) {
-                                color = Color.parseColor(this.f10855d.downloadBackgroundColor);
+                            if (!TextUtils.isEmpty(closeInfo.downloadBackgroundColor) && !this.f10614d.downloadBackgroundColor.equals(StringUtil.NULL_STRING)) {
+                                color = Color.parseColor(this.f10614d.downloadBackgroundColor);
                             }
-                            if (!TextUtils.isEmpty(this.f10855d.downloadTextColor) && !this.f10855d.downloadTextColor.equals(StringUtil.NULL_STRING)) {
-                                color2 = Color.parseColor(this.f10855d.downloadTextColor);
+                            if (!TextUtils.isEmpty(this.f10614d.downloadTextColor) && !this.f10614d.downloadTextColor.equals(StringUtil.NULL_STRING)) {
+                                color2 = Color.parseColor(this.f10614d.downloadTextColor);
                             }
                         } catch (IllegalArgumentException e2) {
                             if (r) {
                                 e2.printStackTrace();
                             }
                         }
-                        GameGuideConfigInfo.CloseInfo closeInfo2 = this.f10855d;
-                        this.f10856e = closeInfo2.buttonText;
+                        GameGuideConfigInfo.CloseInfo closeInfo2 = this.f10614d;
+                        this.f10615e = closeInfo2.buttonText;
                         this.m = closeInfo2.targetType;
                         this.n = closeInfo2.target;
                     }
@@ -601,15 +599,15 @@ public class c {
             if (TextUtils.equals(c.a.r0.h.j.m.c.a, this.p)) {
                 str4 = k(this.m, this.n, "", "");
             }
-            this.f10853b = j.a(str4, this.p);
+            this.f10612b = j.a(str4, this.p);
             if (!TextUtils.isEmpty(this.q)) {
-                this.f10853b.c(this.q);
+                this.f10612b.c(this.q);
             }
-            this.f10854c = aVar;
+            this.f10613c = aVar;
             GamenowDownloadButtomView gamenowDownloadButtomView = new GamenowDownloadButtomView(c.a.r0.a.c1.a.c());
             this.a = gamenowDownloadButtomView;
             gamenowDownloadButtomView.setTextSize(n0.g(16.0f)).isCornerRadius(true).setTextColor(color2).setBgColor(color).setFgColor(c.a.r0.a.c1.a.c().getResources().getColor(c.a.r0.h.j.e.aiapps_download_button_light_blue_color)).isShowProgress(true);
-            this.a.setText(this.f10856e);
+            this.a.setText(this.f10615e);
             this.a.setVisibility(0);
             this.a.setProgress(s);
             this.a.setState(DownloadState.NOT_START);
@@ -688,35 +686,35 @@ public class c {
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f10857f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f10616f : (String) invokeV.objValue;
     }
 
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f10858g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f10617g : (String) invokeV.objValue;
     }
 
     public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f10853b.f10891b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f10612b.f10648b : (String) invokeV.objValue;
     }
 
     public final void p(String str, c.a.r0.h.i.k.f.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, aVar) == null) || this.f10853b == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, aVar) == null) || this.f10612b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject.put("key_download_package_name", this.f10853b.f10892c);
-            jSONObject.put("key_download_url", this.f10853b.f10891b);
-            jSONObject2.put("from_view", this.f10859h);
-            jSONObject2.put("from_value", this.f10860i);
-            jSONObject2.put(GameGuideConfigInfo.KEY_CONFIG_NAME, this.f10861j);
-            jSONObject2.put("apk_id", this.f10853b.b());
+            jSONObject.put("key_download_package_name", this.f10612b.f10649c);
+            jSONObject.put("key_download_url", this.f10612b.f10648b);
+            jSONObject2.put("from_view", this.f10618h);
+            jSONObject2.put("from_value", this.f10619i);
+            jSONObject2.put(GameGuideConfigInfo.KEY_CONFIG_NAME, this.f10620j);
+            jSONObject2.put("apk_id", this.f10612b.b());
             jSONObject.put("download_params", jSONObject2.toString());
             if (TextUtils.equals(str, "checkPackageExpired")) {
                 jSONObject.put(GameGuideConfigInfo.KEY_PACKAGE_EXPIRE, c.a.r0.h.j.b.o.z() == null ? 0L : c.a.r0.h.j.b.o.z().packageExpire);
@@ -730,7 +728,7 @@ public class c {
         bundle.putString("data", jSONObject.toString());
         c.a.r0.a.y1.c.e.a z = c.a.r0.a.d2.d.J().z();
         if (z != null) {
-            z.W(bundle, f.class, new C0701c(this.f10853b.f10892c, str, aVar, this.f10859h, this.f10860i));
+            z.W(bundle, f.class, new C0710c(this.f10612b.f10649c, str, aVar, this.f10618h, this.f10619i));
         }
     }
 
@@ -748,39 +746,39 @@ public class c {
                 Toast.makeText(c.a.r0.a.c1.a.c(), c.a.r0.a.c1.a.c().getResources().getString(c.a.r0.h.j.k.aiapps_gamenow_network_disconnect), 0).show();
                 return;
             }
-            j jVar = this.f10853b;
+            j jVar = this.f10612b;
             if (jVar == null) {
                 return;
             }
             DownloadState downloadState = jVar.a;
             if (downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) {
                 boolean z2 = r;
-                p("startDownload", this.f10854c);
+                p("startDownload", this.f10613c);
             }
-            if (this.f10853b.a == DownloadState.DOWNLOADING && z) {
+            if (this.f10612b.a == DownloadState.DOWNLOADING && z) {
                 boolean z3 = r;
-                p("pauseDownload", this.f10854c);
+                p("pauseDownload", this.f10613c);
             }
-            if (this.f10853b.a == DownloadState.DOWNLOAD_PAUSED) {
+            if (this.f10612b.a == DownloadState.DOWNLOAD_PAUSED) {
                 boolean z4 = r;
-                p("resumeDownload", this.f10854c);
+                p("resumeDownload", this.f10613c);
             }
-            if (this.f10853b.a == DownloadState.DOWNLOAD_FAILED) {
+            if (this.f10612b.a == DownloadState.DOWNLOAD_FAILED) {
                 boolean z5 = r;
-                p("startDownload", this.f10854c);
+                p("startDownload", this.f10613c);
             }
-            if (this.f10853b.a == DownloadState.DOWNLOADED) {
+            if (this.f10612b.a == DownloadState.DOWNLOADED) {
                 boolean z6 = r;
-                this.f10854c.b();
-                p("installApp", this.f10854c);
+                this.f10613c.b();
+                p("installApp", this.f10613c);
             }
-            if (this.f10853b.a == DownloadState.INSTALLED) {
+            if (this.f10612b.a == DownloadState.INSTALLED) {
                 boolean z7 = r;
-                String e2 = this.f10854c.e();
-                if (TextUtils.isEmpty(this.f10853b.f10892c) && !TextUtils.isEmpty(e2)) {
+                String e2 = this.f10613c.e();
+                if (TextUtils.isEmpty(this.f10612b.f10649c) && !TextUtils.isEmpty(e2)) {
                     C(e2);
                 }
-                p("open_manual", this.f10854c);
+                p("open_manual", this.f10613c);
             }
         }
     }
@@ -788,23 +786,23 @@ public class c {
     public void t() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (jVar = this.f10853b) == null || TextUtils.isEmpty(jVar.f10892c) || TextUtils.isEmpty(this.p) || this.f10854c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (jVar = this.f10612b) == null || TextUtils.isEmpty(jVar.f10649c) || TextUtils.isEmpty(this.p) || this.f10613c == null) {
             return;
         }
-        if (q0.F(c.a.r0.a.c1.a.c(), this.f10853b.f10892c)) {
+        if (q0.F(c.a.r0.a.c1.a.c(), this.f10612b.f10649c)) {
             E(DownloadState.INSTALLED);
-            g(this.p, "checkPackageExpired", this.f10859h, this.f10860i, DownloadState.INSTALLED.value());
+            g(this.p, "checkPackageExpired", this.f10618h, this.f10619i, DownloadState.INSTALLED.value());
             return;
         }
-        p("checkPackageExpired", this.f10854c);
+        p("checkPackageExpired", this.f10613c);
     }
 
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f10854c = null;
+            this.f10613c = null;
             this.a = null;
-            this.f10853b = null;
+            this.f10612b = null;
         }
     }
 
@@ -835,31 +833,31 @@ public class c {
     public void w(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f10857f = str;
+            this.f10616f = str;
         }
     }
 
     public void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f10858g = str;
+            this.f10617g = str;
         }
     }
 
     public final void y(int i2) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (jVar = this.f10853b) == null || i2 == jVar.f10893d) {
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (jVar = this.f10612b) == null || i2 == jVar.f10650d) {
             return;
         }
-        jVar.f10893d = i2;
+        jVar.f10650d = i2;
         F();
     }
 
     public final void z(DownloadState downloadState) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, downloadState) == null) || (jVar = this.f10853b) == null || downloadState == jVar.a) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, downloadState) == null) || (jVar = this.f10612b) == null || downloadState == jVar.a) {
             return;
         }
         jVar.a = downloadState;

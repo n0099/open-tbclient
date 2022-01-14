@@ -9,12 +9,12 @@ import java.util.concurrent.ExecutorService;
 public class DownloadService extends Service {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f62290b = DownloadService.class.getSimpleName();
+    public static final String f59944b = DownloadService.class.getSimpleName();
     public o a;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        String str = f62290b;
+        String str = f59944b;
         StringBuilder sb = new StringBuilder();
         sb.append("onBind downloadServiceHandler != null:");
         sb.append(this.a != null);
@@ -38,7 +38,7 @@ public class DownloadService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         if (com.ss.android.socialbase.downloader.c.a.a()) {
-            com.ss.android.socialbase.downloader.c.a.b(f62290b, "Service onDestroy");
+            com.ss.android.socialbase.downloader.c.a.b(f59944b, "Service onDestroy");
         }
         o oVar = this.a;
         if (oVar != null) {
@@ -51,7 +51,7 @@ public class DownloadService extends Service {
     @Override // android.app.Service
     public int onStartCommand(final Intent intent, final int i2, final int i3) {
         if (com.ss.android.socialbase.downloader.c.a.a()) {
-            com.ss.android.socialbase.downloader.c.a.b(f62290b, "DownloadService onStartCommand");
+            com.ss.android.socialbase.downloader.c.a.b(f59944b, "DownloadService onStartCommand");
         }
         this.a.c();
         ExecutorService l = c.l();

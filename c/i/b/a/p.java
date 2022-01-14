@@ -14,15 +14,15 @@ public final class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final p f30792d;
+    public static final p f29827d;
     public transient /* synthetic */ FieldHolder $fh;
     public final float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f30793b;
+    public final float f29828b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f30794c;
+    public final int f29829c;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public final class p {
                 return;
             }
         }
-        f30792d = new p(1.0f, 1.0f);
+        f29827d = new p(1.0f, 1.0f);
     }
 
     public p(float f2, float f3) {
@@ -56,14 +56,14 @@ public final class p {
             }
         }
         this.a = f2;
-        this.f30793b = f3;
-        this.f30794c = Math.round(f2 * 1000.0f);
+        this.f29828b = f3;
+        this.f29829c = Math.round(f2 * 1000.0f);
     }
 
     public long a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 * this.f30794c : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 * this.f29829c : invokeJ.longValue;
     }
 
     public boolean equals(Object obj) {
@@ -77,7 +77,7 @@ public final class p {
                 return false;
             }
             p pVar = (p) obj;
-            return this.a == pVar.a && this.f30793b == pVar.f30793b;
+            return this.a == pVar.a && this.f29828b == pVar.f29828b;
         }
         return invokeL.booleanValue;
     }
@@ -85,6 +85,6 @@ public final class p {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((PayBeanFactory.BEAN_ID_WIDTHDRAW + Float.floatToRawIntBits(this.a)) * 31) + Float.floatToRawIntBits(this.f30793b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((PayBeanFactory.BEAN_ID_WIDTHDRAW + Float.floatToRawIntBits(this.a)) * 31) + Float.floatToRawIntBits(this.f29828b) : invokeV.intValue;
     }
 }

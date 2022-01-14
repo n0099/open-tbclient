@@ -16,16 +16,16 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1478b;
+    public int f1466b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1479c;
+    public int f1467c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f1480d;
+    public boolean f1468d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InterfaceC0028b f1481e;
+    public InterfaceC0028b f1469e;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -33,7 +33,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f1482e;
+        public final /* synthetic */ b f1470e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class b {
                     return;
                 }
             }
-            this.f1482e = bVar;
+            this.f1470e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1482e.i();
+                this.f1470e.i();
             }
         }
     }
@@ -101,11 +101,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f1479c;
+            int i2 = this.f1467c;
             if (i2 != 0) {
                 return i2;
             }
-            int i3 = this.f1478b;
+            int i3 = this.f1466b;
             return i3 != 0 ? i3 : this.a;
         }
         return invokeV.intValue;
@@ -115,17 +115,17 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             synchronized (this) {
-                if (i2 == this.f1479c) {
+                if (i2 == this.f1467c) {
                     return;
                 }
-                if ((this.f1478b == 0 || i2 != this.f1478b) && (this.f1478b != 0 || i2 != this.a)) {
-                    this.f1479c = i2;
-                    if (i2 != 0 && !this.f1480d) {
-                        this.f1480d = true;
+                if ((this.f1466b == 0 || i2 != this.f1466b) && (this.f1466b != 0 || i2 != this.a)) {
+                    this.f1467c = i2;
+                    if (i2 != 0 && !this.f1468d) {
+                        this.f1468d = true;
                         g();
                     }
                 }
-                this.f1479c = 0;
+                this.f1467c = 0;
             }
         }
     }
@@ -133,7 +133,7 @@ public class b {
     public void c(InterfaceC0028b interfaceC0028b) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0028b) == null) {
-            this.f1481e = interfaceC0028b;
+            this.f1469e = interfaceC0028b;
         }
     }
 
@@ -141,10 +141,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                if (this.f1479c != this.a) {
-                    this.f1478b = this.f1479c;
+                if (this.f1467c != this.a) {
+                    this.f1466b = this.f1467c;
                 }
-                this.f1479c = 0;
+                this.f1467c = 0;
             }
         }
     }
@@ -153,10 +153,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                if (this.f1478b != 0) {
-                    this.a = this.f1478b;
+                if (this.f1466b != 0) {
+                    this.a = this.f1466b;
                 }
-                this.f1478b = 0;
+                this.f1466b = 0;
             }
         }
     }
@@ -172,7 +172,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this) {
-                this.f1480d = false;
+                this.f1468d = false;
             }
         }
     }
@@ -184,12 +184,12 @@ public class b {
         }
         while (true) {
             e();
-            int i2 = this.f1478b;
+            int i2 = this.f1466b;
             if (i2 == 0) {
                 h();
                 return;
             }
-            InterfaceC0028b interfaceC0028b = this.f1481e;
+            InterfaceC0028b interfaceC0028b = this.f1469e;
             if (interfaceC0028b != null) {
                 interfaceC0028b.a(i2);
             }

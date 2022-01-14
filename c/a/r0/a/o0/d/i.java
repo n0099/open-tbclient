@@ -14,10 +14,10 @@ public class i extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f8227c;
+    public final String f8045c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f8228d;
+    public final String f8046d;
 
     public i(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class i extends b {
                 return;
             }
         }
-        this.f8227c = str;
-        this.f8228d = str2;
+        this.f8045c = str;
+        this.f8046d = str2;
         this.a = "firstMeaningfulPainted";
     }
 
@@ -43,8 +43,8 @@ public class i extends b {
     public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, TextUtils.isEmpty(this.f8227c) ? "" : this.f8227c);
-            map.put("pageUrl", TextUtils.isEmpty(this.f8228d) ? "" : this.f8228d);
+            map.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, TextUtils.isEmpty(this.f8045c) ? "" : this.f8045c);
+            map.put("pageUrl", TextUtils.isEmpty(this.f8046d) ? "" : this.f8046d);
         }
     }
 }

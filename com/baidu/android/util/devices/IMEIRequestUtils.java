@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.s;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IMEIRequestUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class IMEIRequestUtils {
             if (AppRuntime.getAppContext() == null) {
                 return str;
             }
-            if (!DeviceUtil.OSInfo.hasMarshMallow() || AppRuntime.getAppContext().checkSelfPermission(s.f57419c) == 0) {
+            if (!DeviceUtil.OSInfo.hasMarshMallow() || AppRuntime.getAppContext().checkSelfPermission(s.f55242c) == 0) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
                     String deviceId = telephonyManager != null ? telephonyManager.getDeviceId() : null;

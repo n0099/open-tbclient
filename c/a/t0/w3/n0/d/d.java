@@ -12,7 +12,7 @@ public class d {
     public HashSet<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25658b;
+    public String f24940b;
 
     public d() {
         Interceptable interceptable = $ic;

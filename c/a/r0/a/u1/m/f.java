@@ -18,14 +18,14 @@ public class f implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f9631f = true;
+    public static boolean f9422f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f9632g = -1;
+    public static int f9423g = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f9633e;
+    public final String f9424e;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -87,7 +87,7 @@ public class f implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
                 return;
             }
         }
-        this.f9633e = str;
+        this.f9424e = str;
     }
 
     public final void a(@NonNull HybridUbcFlow hybridUbcFlow) {
@@ -99,13 +99,13 @@ public class f implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
             return;
         }
         c.a.r0.a.h0.t.h.a aVar = (c.a.r0.a.h0.t.h.a) hybridUbcFlow.k("fmp_data_record");
-        if ("fmp_callback".equals(this.f9633e)) {
+        if ("fmp_callback".equals(this.f9424e)) {
             String str = "Current Record FMP - " + g2.a + ":" + g2.g();
             if (aVar == null || (a3 = aVar.a()) == null) {
                 return;
             }
             String str2 = "First Page Record FMP - " + a3.a + ":" + a3.g();
-        } else if ("callback_on_submit".equals(this.f9633e)) {
+        } else if ("callback_on_submit".equals(this.f9424e)) {
             String str3 = "Real Report FMP - " + g2.a + ":" + g2.g();
             if (aVar == null || (a2 = aVar.a()) == null) {
                 return;
@@ -121,21 +121,21 @@ public class f implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
             synchronized (this) {
-                if (f9631f) {
-                    if (f9632g == -1) {
+                if (f9422f) {
+                    if (f9423g == -1) {
                         c.a.r0.a.c1.a.g0().getSwitch("swan_next_env_delay", 600);
-                        f9632g = 600;
+                        f9423g = 600;
                     }
-                    q0.b0(new a(this), f9632g);
+                    q0.b0(new a(this), f9423g);
                 }
                 if (k.a) {
                     getClass().getName();
-                    String str = "enable=" + f9631f + ", delay=" + f9632g;
+                    String str = "enable=" + f9422f + ", delay=" + f9423g;
                 }
-                if ("fmp_callback".equals(this.f9633e)) {
-                    f9631f = false;
-                } else if ("callback_on_submit".equals(this.f9633e)) {
-                    f9631f = true;
+                if ("fmp_callback".equals(this.f9424e)) {
+                    f9422f = false;
+                } else if ("callback_on_submit".equals(this.f9424e)) {
+                    f9422f = true;
                 }
                 if (k.a && hybridUbcFlow != null) {
                     a(hybridUbcFlow);

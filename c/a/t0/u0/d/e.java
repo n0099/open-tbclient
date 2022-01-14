@@ -11,10 +11,10 @@ public class e extends x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f24650h;
+    public String f23968h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f24651i;
+    public boolean f23969i;
 
     public e(String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class e extends x {
                 return;
             }
         }
-        this.f24650h = str;
-        this.f24651i = z;
+        this.f23968h = str;
+        this.f23969i = z;
         i(0);
     }
 }

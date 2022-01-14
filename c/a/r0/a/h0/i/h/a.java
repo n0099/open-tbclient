@@ -18,24 +18,24 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f6652d;
+    public static final boolean f6511d;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6653b;
+    public boolean f6512b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.r0.a.h0.i.g.b.a f6654c;
+    public final c.a.r0.a.h0.i.g.b.a f6513c;
 
     /* renamed from: c.a.r0.a.h0.i.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0365a implements a.b {
+    public class C0374a implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0365a(a aVar) {
+        public C0374a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public class a {
                 c.a.r0.a.h0.i.f.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
                 c.a.r0.a.h0.i.e.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
                 this.a.e(networkStatus);
-                if (a.f6652d) {
+                if (a.f6511d) {
                     String str = ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc();
                 }
             }
@@ -112,7 +112,7 @@ public class a {
                 return;
             }
         }
-        f6652d = k.a;
+        f6511d = k.a;
     }
 
     public a() {
@@ -128,27 +128,27 @@ public class a {
                 return;
             }
         }
-        this.f6654c = new c.a.r0.a.h0.i.g.b.a();
+        this.f6513c = new c.a.r0.a.h0.i.g.b.a();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f6654c.a(new C0365a(this));
+            this.f6513c.a(new C0374a(this));
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f6653b) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f6512b) {
             if (this.a == 0) {
-                boolean z = f6652d;
+                boolean z = f6511d;
                 this.a = System.currentTimeMillis();
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.a > 2000) {
-                boolean z2 = f6652d;
+                boolean z2 = f6511d;
                 c();
                 g();
             }
@@ -171,7 +171,7 @@ public class a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f6653b = c.a.r0.a.d2.d.J().l() != 1;
+            this.f6512b = c.a.r0.a.d2.d.J().l() != 1;
             this.a = 0L;
         }
     }
@@ -179,8 +179,8 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f6653b = false;
-            boolean z = f6652d;
+            this.f6512b = false;
+            boolean z = f6511d;
         }
     }
 }

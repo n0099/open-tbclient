@@ -3,7 +3,7 @@ package c.a.t0.o1.c.e;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.d0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.j, CardViewHolder<c.a.t0.g0.k>> implements c.a.t0.t.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,13 +33,13 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.j, CardViewHolder<c.a.t0.g0.k>> 
     public String p;
     public d0 q;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends d0<c.a.t0.g0.f0.j> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f20708b;
+        public final /* synthetic */ b f20156b;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.j, CardViewHolder<c.a.t0.g0.k>> 
                     return;
                 }
             }
-            this.f20708b = bVar;
+            this.f20156b = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,15 +64,15 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.j, CardViewHolder<c.a.t0.g0.k>> 
         /* renamed from: d */
         public void a(View view, c.a.t0.g0.f0.j jVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) || view == null || this.f20708b.o == null || this.f20708b.o.j() == null || jVar == null || jVar.getThreadData() == null || StringUtils.isNull(jVar.getThreadData().v1())) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) || view == null || this.f20156b.o == null || this.f20156b.o.j() == null || jVar == null || jVar.getThreadData() == null || StringUtils.isNull(jVar.getThreadData().v1())) {
                 return;
             }
-            c.a.t0.o1.c.c.b(view, jVar, view == this.f20708b.o.K() ? 1 : 2);
-            if (view != this.f20708b.o.p.getCommentContainer() && view != this.f20708b.o.q.getCommentContainer()) {
-                if (this.f20708b.o.K() == null || view.getId() != this.f20708b.o.K().getId() || jVar.getThreadData() == null || jVar.getThreadData().o1() == null || !jVar.getThreadData().o1().isLegalYYLiveData()) {
+            c.a.t0.o1.c.c.b(view, jVar, view == this.f20156b.o.K() ? 1 : 2);
+            if (view != this.f20156b.o.p.getCommentContainer() && view != this.f20156b.o.q.getCommentContainer()) {
+                if (this.f20156b.o.K() == null || view.getId() != this.f20156b.o.K().getId() || jVar.getThreadData() == null || jVar.getThreadData().o1() == null || !jVar.getThreadData().o1().isLegalYYLiveData()) {
                     return;
                 }
-                d2 threadData = jVar.getThreadData();
+                e2 threadData = jVar.getThreadData();
                 AlaInfoData o1 = threadData.o1();
                 int calculateLiveType = YYLiveUtil.calculateLiveType(jVar.getThreadData().o1());
                 String str = StringUtils.isNull(jVar.getThreadData().o1().appId) ? null : jVar.getThreadData().o1().appId;

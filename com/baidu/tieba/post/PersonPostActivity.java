@@ -82,7 +82,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f49243e;
+        public final /* synthetic */ PersonPostActivity f47391e;
 
         public a(PersonPostActivity personPostActivity) {
             Interceptable interceptable = $ic;
@@ -99,14 +99,14 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f49243e = personPostActivity;
+            this.f47391e = personPostActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49243e.finish();
+                this.f47391e.finish();
             }
         }
     }
@@ -117,7 +117,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f49244e;
+        public final /* synthetic */ PersonPostActivity f47392e;
 
         public b(PersonPostActivity personPostActivity) {
             Interceptable interceptable = $ic;
@@ -134,16 +134,16 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f49244e = personPostActivity;
+            this.f47392e = personPostActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f49244e.mRecycleBinRedTip.getVisibility() == 0 ? "1" : "2").param("obj_locate", 1));
-                this.f49244e.showRecycleBinRedTip(false);
-                UrlManager.getInstance().dealOneLink(this.f49244e.getPageContext(), new String[]{PersonPostActivity.THREAD_RECYCLE_BIN_URL});
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f47392e.mRecycleBinRedTip.getVisibility() == 0 ? "1" : "2").param("obj_locate", 1));
+                this.f47392e.showRecycleBinRedTip(false);
+                UrlManager.getInstance().dealOneLink(this.f47392e.getPageContext(), new String[]{PersonPostActivity.THREAD_RECYCLE_BIN_URL});
             }
         }
     }
@@ -216,12 +216,12 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f41700c = fragment;
+        bVar.f40268c = fragment;
         bVar.a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.dayTextColorResId = c.a.t0.y2.a.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(c.a.t0.y2.b.fontsize32));
-        bVar.f41699b = fragmentTabIndicator;
+        bVar.f40267b = fragmentTabIndicator;
         this.mTabHost.addTabSpec(bVar);
     }
 
@@ -275,7 +275,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             relativeLayout.setOnClickListener(new b(this));
             this.mRecycleBinTitle = (TextView) this.mRecycleBinLayout.findViewById(c.a.t0.y2.d.tv_recycle_bin);
             this.mRecycleBinRedTip = (ImageView) this.mRecycleBinLayout.findViewById(c.a.t0.y2.d.iv_recycle_bin_red_tip);
-            if (c.a.s0.s.g0.b.j().g(c.a.s0.s.g0.b.n("key_person_post_recycle_bin_red_tip_show"), false)) {
+            if (c.a.s0.s.h0.b.k().h(c.a.s0.s.h0.b.o("key_person_post_recycle_bin_red_tip_show"), false)) {
                 this.mRecycleBinRedTip.setVisibility(0);
             } else {
                 this.mRecycleBinRedTip.setVisibility(8);
@@ -613,11 +613,11 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
         if (z && imageView.getVisibility() == 8) {
             this.mRecycleBinRedTip.setVisibility(0);
-            c.a.s0.s.g0.b.j().t(c.a.s0.s.g0.b.n("key_person_post_recycle_bin_red_tip_show"), true);
+            c.a.s0.s.h0.b.k().u(c.a.s0.s.h0.b.o("key_person_post_recycle_bin_red_tip_show"), true);
         } else if (z || this.mRecycleBinRedTip.getVisibility() != 0) {
         } else {
             this.mRecycleBinRedTip.setVisibility(8);
-            c.a.s0.s.g0.b.j().t(c.a.s0.s.g0.b.n("key_person_post_recycle_bin_red_tip_show"), false);
+            c.a.s0.s.h0.b.k().u(c.a.s0.s.h0.b.o("key_person_post_recycle_bin_red_tip_show"), false);
         }
     }
 }

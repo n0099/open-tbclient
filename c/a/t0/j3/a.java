@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.c2;
+import c.a.s0.s.q.d2;
 import c.a.s0.s.q.o0;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.card.data.BaseCardInfo;
@@ -32,11 +32,11 @@ public class a {
 
     /* renamed from: c.a.t0.j3.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1127a implements Comparator<o0> {
+    public static class C1141a implements Comparator<o0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1127a() {
+        public C1141a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,9 +94,9 @@ public class a {
                         c.a.s0.s.q.e eVar = new c.a.s0.s.q.e();
                         m.o4 = eVar;
                         eVar.a = str;
-                        eVar.f13665b = i2;
-                        eVar.f13671h = m.m4;
-                        eVar.f13672i = false;
+                        eVar.f13350b = i2;
+                        eVar.f13356h = m.m4;
+                        eVar.f13357i = false;
                         hashSet.add(m);
                     }
                 }
@@ -117,9 +117,9 @@ public class a {
                 return 0;
             }
             int i3 = -1;
-            for (int k2 = c.a.t0.x1.o.k.a.k(list) - 1; k2 >= 0 && !(c.a.t0.x1.o.k.a.d(list, k2) instanceof o0); k2--) {
-                if (c.a.t0.x1.o.k.a.d(list, k2) instanceof c2) {
-                    int i4 = ((c2) c.a.t0.x1.o.k.a.d(list, k2)).position;
+            for (int k = c.a.t0.x1.o.k.a.k(list) - 1; k >= 0 && !(c.a.t0.x1.o.k.a.d(list, k) instanceof o0); k--) {
+                if (c.a.t0.x1.o.k.a.d(list, k) instanceof d2) {
+                    int i4 = ((d2) c.a.t0.x1.o.k.a.d(list, k)).position;
                     if (i4 != i3) {
                         i2++;
                         i3 = i4;
@@ -183,8 +183,8 @@ public class a {
             StringBuilder sb = new StringBuilder();
             if (!z && !c.a.t0.x1.o.k.a.e(list)) {
                 int i2 = 0;
-                for (int k2 = c.a.t0.x1.o.k.a.k(list) - 1; k2 >= 0 && i2 < 6; k2--) {
-                    if ((c.a.t0.x1.o.k.a.d(list, k2) instanceof o0) && (o0Var = (o0) c.a.t0.x1.o.k.a.d(list, k2)) != null && !n(o0Var.m())) {
+                for (int k = c.a.t0.x1.o.k.a.k(list) - 1; k >= 0 && i2 < 6; k--) {
+                    if ((c.a.t0.x1.o.k.a.d(list, k) instanceof o0) && (o0Var = (o0) c.a.t0.x1.o.k.a.d(list, k)) != null && !n(o0Var.m())) {
                         sb.append(o0Var.f() + 1);
                         sb.append(",");
                         i2++;
@@ -312,13 +312,13 @@ public class a {
             for (int i4 = 0; i4 < list.size(); i4++) {
                 o0 o0Var = (o0) c.a.t0.x1.o.k.a.d(list, i4);
                 if (o0Var != null && o0Var.m() != null) {
-                    int k2 = c.a.t0.x1.o.k.a.k(list2);
+                    int k = c.a.t0.x1.o.k.a.k(list2);
                     int g2 = g(o0Var.m()) - 1;
                     if (g2 < 0) {
                         s(o0Var.m());
                     } else {
                         int f2 = o0Var.c() ? o0Var.f() : g2 + i2;
-                        if (f2 > k2) {
+                        if (f2 > k) {
                             s(o0Var.m());
                         } else {
                             o0Var.setPosition(f2);
@@ -477,7 +477,7 @@ public class a {
     public static void t(List<o0> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, list) == null) {
-            Collections.sort(list, new C1127a());
+            Collections.sort(list, new C1141a());
         }
     }
 

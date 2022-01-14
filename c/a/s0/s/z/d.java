@@ -21,7 +21,7 @@ public abstract class d implements h {
     public final l a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Method> f14011b;
+    public final HashMap<String, Method> f13684b;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: c.a.s0.s.z.d */
     /* JADX WARN: Multi-variable type inference failed */
@@ -41,9 +41,9 @@ public abstract class d implements h {
             }
         }
         this.a = lVar;
-        this.f14011b = new HashMap<>();
+        this.f13684b = new HashMap<>();
         b(getClass());
-        if (this.f14011b.isEmpty()) {
+        if (this.f13684b.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
@@ -53,7 +53,7 @@ public abstract class d implements h {
         Object invoke;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
-            Method method = this.f14011b.get(str);
+            Method method = this.f13684b.get(str);
             if (method != null) {
                 o oVar = (o) method.getAnnotation(o.class);
                 String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
@@ -132,7 +132,7 @@ public abstract class d implements h {
                         str = method.getName();
                     }
                     method.setAccessible(true);
-                    this.f14011b.put(str, method);
+                    this.f13684b.put(str, method);
                 }
             }
             Class<? super Object> superclass = cls.getSuperclass();

@@ -12,13 +12,13 @@ public class f implements com.kwad.sdk.core.b {
     public SceneImpl a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f58364b = 0;
+    public long f56161b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f58365c = 0;
+    public long f56162c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58366d;
+    public String f56163d;
 
     public f(KsScene ksScene) {
         this.a = (SceneImpl) ksScene;
@@ -50,9 +50,9 @@ public class f implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = this.a.toJson();
-        t.a(json, "pageScene", this.f58364b);
-        t.a(json, "subPageScene", this.f58365c);
-        t.a(json, "sdkExtraData", this.f58366d);
+        t.a(json, "pageScene", this.f56161b);
+        t.a(json, "subPageScene", this.f56162c);
+        t.a(json, "sdkExtraData", this.f56163d);
         String a = a(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
         if (a != null) {
             t.a(json, PrefetchEvent.EVENT_DATA_EXTRA_DATA, a);

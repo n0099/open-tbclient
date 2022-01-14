@@ -82,7 +82,7 @@ public class DialogLoginHelper {
     public static String getOneKeyLoginActivityLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? d.p() ? "new_start_1" : d.q() ? "new_start_2" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? d.m() ? "new_start_1" : d.n() ? "new_start_2" : "" : (String) invokeV.objValue;
     }
 
     public static void skipToLoginDialogActivity(t0 t0Var) {

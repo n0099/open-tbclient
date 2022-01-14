@@ -29,13 +29,13 @@ public class c {
     public final HashMap<String, Long> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, String> f5398b;
+    public final HashMap<String, String> f5285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f5399c;
+    public boolean f5286c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5400d;
+    public boolean f5287d;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -43,10 +43,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a f5401e;
+        public final /* synthetic */ b.a f5288e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f5402f;
+        public final /* synthetic */ c f5289f;
 
         public a(c cVar, b.a aVar) {
             Interceptable interceptable = $ic;
@@ -63,15 +63,15 @@ public class c {
                     return;
                 }
             }
-            this.f5402f = cVar;
-            this.f5401e = aVar;
+            this.f5289f = cVar;
+            this.f5288e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5402f.j(this.f5401e);
+                this.f5289f.j(this.f5288e);
             }
         }
     }
@@ -106,16 +106,16 @@ public class c {
             }
         }
         this.a = new HashMap<>();
-        this.f5398b = new HashMap<>();
-        this.f5399c = false;
-        this.f5400d = false;
+        this.f5285b = new HashMap<>();
+        this.f5286c = false;
+        this.f5287d = false;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.clear();
-            this.f5398b.clear();
+            this.f5285b.clear();
         }
     }
 
@@ -123,7 +123,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                this.f5400d = true;
+                this.f5287d = true;
             }
         }
     }
@@ -147,7 +147,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                z = this.f5400d;
+                z = this.f5287d;
             }
             return z;
         }
@@ -158,8 +158,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
             synchronized (this) {
-                if (!this.f5400d) {
-                    this.f5398b.put(str, str2);
+                if (!this.f5287d) {
+                    this.f5285b.put(str, str2);
                 }
             }
         }
@@ -169,7 +169,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             synchronized (this) {
-                if (!this.f5400d && !this.a.containsKey(str)) {
+                if (!this.f5287d && !this.a.containsKey(str)) {
                     this.a.put(str, Long.valueOf(System.currentTimeMillis()));
                 }
             }
@@ -190,8 +190,8 @@ public class c {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f5400d = false;
-            this.f5399c = false;
+            this.f5287d = false;
+            this.f5286c = false;
         }
     }
 
@@ -199,10 +199,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             synchronized (this) {
-                if (this.f5399c) {
+                if (this.f5286c) {
                     return;
                 }
-                this.f5399c = true;
+                this.f5286c = true;
                 h.r(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
                 HybridUbcFlow p = h.p(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
                 p.E("type", "naWebdegrade");
@@ -212,7 +212,7 @@ public class c {
                     ubcFlowEvent.h(entry.getValue().longValue());
                     p.F(ubcFlowEvent);
                 }
-                for (Map.Entry<String, String> entry2 : this.f5398b.entrySet()) {
+                for (Map.Entry<String, String> entry2 : this.f5285b.entrySet()) {
                     c.a.r0.a.e0.d.i("WebStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
                     p.D(entry2.getKey(), entry2.getValue());
                 }

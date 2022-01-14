@@ -17,22 +17,22 @@ public abstract class a {
     public InterfaceC0011a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1151b;
+    public int f1149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f1152c;
+    public a f1150c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.a1.h.c f1153d;
+    public c.a.a1.h.c f1151d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f1154e;
+    public volatile boolean f1152e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f1155f;
+    public volatile boolean f1153f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1156g;
+    public String f1154g;
 
     /* renamed from: c.a.a1.h.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -72,13 +72,13 @@ public abstract class a {
             if (str2 == null) {
                 str2 = "";
             }
-            if (TextUtils.isEmpty(this.f1156g)) {
+            if (TextUtils.isEmpty(this.f1154g)) {
                 sb = new StringBuilder();
                 fileNameWithOutExtention = FileUtils.removeExtention(str);
             } else {
                 fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
                 sb = new StringBuilder();
-                sb.append(this.f1156g);
+                sb.append(this.f1154g);
             }
             sb.append(fileNameWithOutExtention);
             sb.append(str2);
@@ -92,7 +92,7 @@ public abstract class a {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f1151b = i2;
+            this.f1149b = i2;
         }
     }
 
@@ -108,16 +108,16 @@ public abstract class a {
     public void f(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f1152c = aVar;
+            this.f1150c = aVar;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f1155f) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f1153f) {
             return;
         }
-        this.f1154e = true;
+        this.f1152e = true;
         InterfaceC0011a interfaceC0011a = this.a;
         if (interfaceC0011a != null) {
             interfaceC0011a.d(getClass().getName() + str, this);
@@ -132,7 +132,7 @@ public abstract class a {
         if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (interfaceC0011a = this.a) == null) {
             return;
         }
-        interfaceC0011a.c(this.f1151b, i2);
+        interfaceC0011a.c(this.f1149b, i2);
     }
 
     public boolean j(c.a.a1.h.c cVar) {
@@ -154,19 +154,19 @@ public abstract class a {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f1151b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f1149b : invokeV.intValue;
     }
 
     public void l(c.a.a1.h.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            this.f1153d = cVar;
+            this.f1151d = cVar;
             InterfaceC0011a interfaceC0011a = this.a;
             if (interfaceC0011a != null) {
-                interfaceC0011a.c(this.f1151b, 100);
+                interfaceC0011a.c(this.f1149b, 100);
                 this.a.b(this);
             }
-            a aVar = this.f1152c;
+            a aVar = this.f1150c;
             if (aVar != null) {
                 aVar.d(cVar);
             }
@@ -176,13 +176,13 @@ public abstract class a {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f1152c == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f1150c == null : invokeV.booleanValue;
     }
 
     public c.a.a1.h.c n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f1153d : (c.a.a1.h.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f1151d : (c.a.a1.h.c) invokeV.objValue;
     }
 
     public void o() {

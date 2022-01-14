@@ -2,8 +2,7 @@ package c.a.s0.s.m;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.o4.s;
-import c.a.t0.w3.s0.g;
+import c.a.t0.p4.s;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,31 +37,29 @@ public class c {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "6".equals(a) : invokeV.booleanValue;
     }
 
-    public static void e(String str, String str2, String str3, String str4) {
+    public static void e(String str, String str2, String str3, String str4, String str5) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, str4) == null) || WriteActivityConfig.isAsyncWriting()) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, str4, str5) == null) || WriteActivityConfig.isAsyncWriting()) {
             return;
         }
         a = str;
         if (str != null && str.equals("7")) {
-            g.k().z(true);
-            g.k().x(str2);
+            c.a.t0.w3.s0.b.k().z(true);
+            c.a.t0.w3.s0.b.k().x(str2);
             i2 = 7;
         } else if (TextUtils.equals(str, "8")) {
-            g.k().y(8);
-            g.k().x(str2);
+            c.a.t0.w3.s0.b.k().y(8);
+            c.a.t0.w3.s0.b.k().x(str2);
             i2 = 8;
         } else {
             i2 = 6;
         }
         if (s.b()) {
-            s.i(null, null, null, null, i2, Boolean.TRUE, str3, str4);
-        } else if (!s.b() && str3 != null) {
-            s.m(false, false, null, null, null, null, i2, Boolean.TRUE, str3, str4);
-        } else {
-            s.l(false, false, null, null, null, null, i2, Boolean.TRUE);
+            s.h(null, null, null, null, i2, Boolean.TRUE, str3, str4, str5);
+            return;
         }
+        s.k(false, false, null, null, null, null, i2, Boolean.TRUE, str3, str4, str5);
     }
 
     public static void f(String str) {

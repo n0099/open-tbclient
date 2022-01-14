@@ -13,7 +13,7 @@ public final class f extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f19766b;
+    public boolean f19253b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(boolean z) {
@@ -33,7 +33,7 @@ public final class f extends b {
                 return;
             }
         }
-        this.f19766b = z;
+        this.f19253b = z;
     }
 
     @Override // c.a.t0.m0.f.d.e.b
@@ -45,7 +45,7 @@ public final class f extends b {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(timer, "timer");
             Intrinsics.checkNotNullParameter(config, "config");
-            return this.f19766b && (o = item.e().o()) != null && o.longValue() == 0;
+            return this.f19253b && (o = item.e().o()) != null && o.longValue() == 0;
         }
         return invokeLLL.booleanValue;
     }

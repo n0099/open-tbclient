@@ -17,7 +17,7 @@ public class d implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6997b;
+    public static final boolean f6847b;
     public transient /* synthetic */ FieldHolder $fh;
     public final LruCache<String, Long> a;
 
@@ -34,7 +34,7 @@ public class d implements a {
                 return;
             }
         }
-        f6997b = k.a;
+        f6847b = k.a;
     }
 
     public d(int i2) {
@@ -54,7 +54,7 @@ public class d implements a {
         }
         i2 = i2 <= 0 ? 10 : i2;
         this.a = new LruCache<>(i2);
-        if (f6997b) {
+        if (f6847b) {
             String str = "lru size - " + i2;
         }
     }
@@ -64,7 +64,7 @@ public class d implements a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (f6997b) {
+            if (f6847b) {
                 String str3 = "prelink LRU size - " + this.a.size();
             }
             Long l = this.a.get(str2);
@@ -73,7 +73,7 @@ public class d implements a {
             }
             b bVar = new b();
             bVar.a = ProcessUtils.getCurProcessName();
-            bVar.f6995b = l.longValue();
+            bVar.f6845b = l.longValue();
             return bVar;
         }
         return (b) invokeLL.objValue;
@@ -85,7 +85,7 @@ public class d implements a {
         if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (f6997b) {
+        if (f6847b) {
             String str3 = "record : appId-" + str + ", url-" + str2;
         }
         this.a.put(str2, Long.valueOf(System.currentTimeMillis()));

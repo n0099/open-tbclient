@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c<V> implements c.a.t0.o2.f.a<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InterestSelectionStyleAModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.o2.a.a f21397b;
+    public c.a.t0.o2.a.a f20831b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaseInterestSelectionFragment f21398c;
+    public BaseInterestSelectionFragment f20832c;
 
     public c(BaseInterestSelectionFragment baseInterestSelectionFragment, c.a.t0.o2.a.a aVar) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class c<V> implements c.a.t0.o2.f.a<V> {
                 return;
             }
         }
-        this.f21398c = baseInterestSelectionFragment;
-        this.f21397b = aVar;
+        this.f20832c = baseInterestSelectionFragment;
+        this.f20831b = aVar;
         this.a = new InterestSelectionStyleAModel(aVar, this);
     }
 
@@ -43,7 +43,7 @@ public class c<V> implements c.a.t0.o2.f.a<V> {
     public void a(V v) {
         BaseInterestSelectionFragment baseInterestSelectionFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, v) == null) || (baseInterestSelectionFragment = this.f21398c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, v) == null) || (baseInterestSelectionFragment = this.f20832c) == null) {
             return;
         }
         baseInterestSelectionFragment.onDataRes();
@@ -71,7 +71,7 @@ public class c<V> implements c.a.t0.o2.f.a<V> {
     public void onError(int i2, String str) {
         BaseInterestSelectionFragment baseInterestSelectionFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (baseInterestSelectionFragment = this.f21398c) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (baseInterestSelectionFragment = this.f20832c) == null) {
             return;
         }
         baseInterestSelectionFragment.onError(str);

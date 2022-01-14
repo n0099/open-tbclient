@@ -22,13 +22,13 @@ public class b {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f18135b;
+    public ImageView f17694b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f18136c;
+    public Context f17695c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f18137d;
+    public TextView f17696d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -56,12 +56,12 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.f18136c = context;
+            this.f17695c = context;
             View inflate = LayoutInflater.from(context).inflate(R.layout.tail_management_add_item, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.f18137d = (TextView) this.a.findViewById(R.id.tail_management_new_text);
-            this.f18135b = (ImageView) this.a.findViewById(R.id.tail_management_new_button);
+            this.f17696d = (TextView) this.a.findViewById(R.id.tail_management_new_text);
+            this.f17694b = (ImageView) this.a.findViewById(R.id.tail_management_new_button);
             return this.a;
         }
         return (View) invokeL.objValue;
@@ -70,14 +70,14 @@ public class b {
     public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f18135b.setOnClickListener(onClickListener);
+            this.f17694b.setOnClickListener(onClickListener);
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f18137d.setText(String.format(this.f18136c.getString(R.string.tail_management_available), Integer.valueOf(i2)));
+            this.f17696d.setText(String.format(this.f17695c.getString(R.string.tail_management_available), Integer.valueOf(i2)));
         }
     }
 }

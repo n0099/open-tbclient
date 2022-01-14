@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.message.a.g$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -78,14 +78,14 @@ public class g extends c {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i2), str, str2, bArr, bArr2})) == null) {
             if (m.a(context, bArr, str2, bArr2)) {
                 String[] strArr = new String[2];
-                if (i2 == k.f33341b.b() || i2 == k.f33342c.b()) {
+                if (i2 == k.f32283b.b() || i2 == k.f32284c.b()) {
                     strArr[0] = new String(bArr2);
                     strArr[1] = null;
-                } else if (i2 == k.f33346g.b()) {
+                } else if (i2 == k.f32288g.b()) {
                     PublicMsg a = i.a(context, str2, str, bArr2);
                     strArr[0] = a.mDescription;
                     strArr[1] = a.mCustomContent;
-                } else if (i2 == k.f33348i.b()) {
+                } else if (i2 == k.f32290i.b()) {
                     strArr[0] = new String(bArr2);
                     JSONObject jSONObject = new JSONObject();
                     try {
@@ -113,7 +113,7 @@ public class g extends c {
             String e2 = kVar.e();
             String h2 = kVar.h();
             int i3 = kVar.i();
-            byte[] k2 = kVar.k();
+            byte[] k = kVar.k();
             String f2 = kVar.f();
             int b2 = kVar.b();
             com.baidu.android.pushservice.a.d a = com.baidu.android.pushservice.a.d.a(this.a, e2);
@@ -139,7 +139,7 @@ public class g extends c {
                         intent.putExtra("baidu_message_type", i3);
                         intent.putExtra("baidu_message_body", bArr);
                         intent.putExtra("app_id", e2);
-                        intent.putExtra("baidu_message_secur_info", k2);
+                        intent.putExtra("baidu_message_secur_info", k);
                         intent.putExtra("notify_id", b2);
                         intent.putExtra("widget_badge_info", kVar.c());
                         if (!TextUtils.isEmpty(a3.mCustomContent)) {

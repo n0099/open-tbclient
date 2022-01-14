@@ -213,8 +213,8 @@ public class EasterEggH5Service extends Service {
                     }
                     HashMap<String, String> b2 = aVar.b();
                     if (b2 != null) {
-                        this.a.mHttpRule.d(b2);
-                        this.a.mSocketRule.d(b2);
+                        this.a.mHttpRule.c(b2);
+                        this.a.mSocketRule.c(b2);
                         return;
                     }
                     return;
@@ -335,11 +335,11 @@ public class EasterEggH5Service extends Service {
             MessageManager.getInstance().registerListener(this.onWriteReadListener);
             c.a.t0.r0.g.a aVar = new c.a.t0.r0.g.a(0);
             this.mHttpRule = aVar;
-            aVar.c(this.onHitEventListener);
+            aVar.b(this.onHitEventListener);
             MessageManager.getInstance().addMessageRule(this.mHttpRule);
             c.a.t0.r0.g.b bVar = new c.a.t0.r0.g.b(0);
             this.mSocketRule = bVar;
-            bVar.c(this.onHitEventListener);
+            bVar.b(this.onHitEventListener);
             MessageManager.getInstance().addMessageRule(this.mSocketRule);
         }
     }

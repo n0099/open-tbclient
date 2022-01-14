@@ -25,12 +25,12 @@ public class a extends z {
 
     /* renamed from: c.a.r0.j.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0739a implements d.c {
+    public class C0748a implements d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0739a(a aVar) {
+        public C0748a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public class a extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 JSONObject a = z.a(unitedSchemeEntity, "params");
                 if (a == null) {
                     l(g.aiapps_debug_game_core_params_empty);
@@ -116,9 +116,9 @@ public class a extends z {
                     return false;
                 }
                 b.a();
-                d.C0251d c0251d = new d.C0251d();
-                c0251d.a = k(context, optString);
-                new c.a.r0.a.k0.b().e(c0251d, b.c().getPath(), new C0739a(this));
+                d.C0260d c0260d = new d.C0260d();
+                c0260d.a = k(context, optString);
+                new c.a.r0.a.k0.b().e(c0260d, b.c().getPath(), new C0748a(this));
                 return false;
             }
             return false;

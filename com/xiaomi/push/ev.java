@@ -20,31 +20,31 @@ public final class ev {
     public static final /* synthetic */ ev[] f344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ev f63423b;
+    public static final ev f61041b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ev f63424c;
+    public static final ev f61042c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ev f63425d;
+    public static final ev f61043d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ev f63426e;
+    public static final ev f61044e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ev f63427f;
+    public static final ev f61045f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ev f63428g;
+    public static final ev f61046g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ev f63429h;
+    public static final ev f61047h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ev f63430i;
+    public static final ev f61048i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final ev f63431j;
+    public static final ev f61049j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -64,17 +64,17 @@ public final class ev {
             }
         }
         a = new ev("COMMAND_REGISTER", 0, MiPushClient.COMMAND_REGISTER);
-        f63423b = new ev("COMMAND_UNREGISTER", 1, MiPushClient.COMMAND_UNREGISTER);
-        f63424c = new ev("COMMAND_SET_ALIAS", 2, MiPushClient.COMMAND_SET_ALIAS);
-        f63425d = new ev("COMMAND_UNSET_ALIAS", 3, MiPushClient.COMMAND_UNSET_ALIAS);
-        f63426e = new ev("COMMAND_SET_ACCOUNT", 4, MiPushClient.COMMAND_SET_ACCOUNT);
-        f63427f = new ev("COMMAND_UNSET_ACCOUNT", 5, MiPushClient.COMMAND_UNSET_ACCOUNT);
-        f63428g = new ev("COMMAND_SUBSCRIBE_TOPIC", 6, MiPushClient.COMMAND_SUBSCRIBE_TOPIC);
-        f63429h = new ev("COMMAND_UNSUBSCRIBE_TOPIC", 7, MiPushClient.COMMAND_UNSUBSCRIBE_TOPIC);
-        f63430i = new ev("COMMAND_SET_ACCEPT_TIME", 8, MiPushClient.COMMAND_SET_ACCEPT_TIME);
+        f61041b = new ev("COMMAND_UNREGISTER", 1, MiPushClient.COMMAND_UNREGISTER);
+        f61042c = new ev("COMMAND_SET_ALIAS", 2, MiPushClient.COMMAND_SET_ALIAS);
+        f61043d = new ev("COMMAND_UNSET_ALIAS", 3, MiPushClient.COMMAND_UNSET_ALIAS);
+        f61044e = new ev("COMMAND_SET_ACCOUNT", 4, MiPushClient.COMMAND_SET_ACCOUNT);
+        f61045f = new ev("COMMAND_UNSET_ACCOUNT", 5, MiPushClient.COMMAND_UNSET_ACCOUNT);
+        f61046g = new ev("COMMAND_SUBSCRIBE_TOPIC", 6, MiPushClient.COMMAND_SUBSCRIBE_TOPIC);
+        f61047h = new ev("COMMAND_UNSUBSCRIBE_TOPIC", 7, MiPushClient.COMMAND_UNSUBSCRIBE_TOPIC);
+        f61048i = new ev("COMMAND_SET_ACCEPT_TIME", 8, MiPushClient.COMMAND_SET_ACCEPT_TIME);
         ev evVar = new ev("COMMAND_CHK_VDEVID", 9, "check-vdeviceid");
-        f63431j = evVar;
-        f344a = new ev[]{a, f63423b, f63424c, f63425d, f63426e, f63427f, f63428g, f63429h, f63430i, evVar};
+        f61049j = evVar;
+        f344a = new ev[]{a, f61041b, f61042c, f61043d, f61044e, f61045f, f61046g, f61047h, f61048i, evVar};
     }
 
     public ev(String str, int i2, String str2) {

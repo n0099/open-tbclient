@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,10 +22,8 @@ public class t extends a<c.a.s0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f4296j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ThreadLinkView f4297k;
+    public View f4214j;
+    public ThreadLinkView k;
     public TextView l;
     public c.a.s0.s.q.a m;
 
@@ -48,19 +46,19 @@ public class t extends a<c.a.s0.s.q.a> {
             }
         }
         if (TbadkCoreApplication.getInst().getPersonalizeViewData().p != null && TbadkCoreApplication.getInst().getPersonalizeViewData().p.getParent() == null) {
-            this.f4296j = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
+            this.f4214j = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
         } else {
-            this.f4296j = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
+            this.f4214j = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
         }
-        this.f4297k = (ThreadLinkView) this.f4296j.findViewById(R.id.link_thread_root);
-        this.l = (TextView) this.f4296j.findViewById(R.id.link_seg_title);
+        this.k = (ThreadLinkView) this.f4214j.findViewById(R.id.link_thread_root);
+        this.l = (TextView) this.f4214j.findViewById(R.id.link_seg_title);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4296j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4214j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -71,9 +69,9 @@ public class t extends a<c.a.s0.s.q.a> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null) {
                 this.m = aVar;
-                d2 threadData = aVar.getThreadData();
+                e2 threadData = aVar.getThreadData();
                 c.a.t0.g0.m.j(threadData, this.l);
-                this.f4297k.setData(threadData);
+                this.k.setData(threadData);
                 return;
             }
             f().setVisibility(8);
@@ -84,7 +82,7 @@ public class t extends a<c.a.s0.s.q.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            this.f4297k.onChangeSkinType();
+            this.k.onChangeSkinType();
             c.a.s0.s.q.a aVar = this.m;
             if (aVar == null || aVar.getThreadData() == null) {
                 return;

@@ -23,10 +23,10 @@ public class MapFragment extends Fragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public MapView f36495b;
+    public MapView f35296b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaiduMapOptions f36496c;
+    public BaiduMapOptions f35297c;
 
     static {
         InterceptResult invokeClinit;
@@ -73,7 +73,7 @@ public class MapFragment extends Fragment {
                 return;
             }
         }
-        this.f36496c = baiduMapOptions;
+        this.f35297c = baiduMapOptions;
     }
 
     public static MapFragment newInstance() {
@@ -92,7 +92,7 @@ public class MapFragment extends Fragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MapView mapView = this.f36495b;
+            MapView mapView = this.f35296b;
             if (mapView == null) {
                 return null;
             }
@@ -104,7 +104,7 @@ public class MapFragment extends Fragment {
     public MapView getMapView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36495b : (MapView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35296b : (MapView) invokeV.objValue;
     }
 
     @Override // android.app.Fragment
@@ -144,8 +144,8 @@ public class MapFragment extends Fragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            MapView mapView = new MapView(getActivity(), this.f36496c);
-            this.f36495b = mapView;
+            MapView mapView = new MapView(getActivity(), this.f35297c);
+            this.f35296b = mapView;
             return mapView;
         }
         return (View) invokeLLL.objValue;
@@ -164,7 +164,7 @@ public class MapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroyView();
-            this.f36495b.onDestroy();
+            this.f35296b.onDestroy();
         }
     }
 
@@ -181,7 +181,7 @@ public class MapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            this.f36495b.onPause();
+            this.f35296b.onPause();
         }
     }
 
@@ -190,7 +190,7 @@ public class MapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            this.f36495b.onResume();
+            this.f35296b.onResume();
         }
     }
 

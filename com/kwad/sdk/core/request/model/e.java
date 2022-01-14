@@ -11,10 +11,10 @@ public class e implements com.kwad.sdk.core.b {
     public static e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f58362b;
+    public double f56159b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f58363c;
+    public double f56160c;
 
     public static e a() {
         e eVar = a;
@@ -25,8 +25,8 @@ public class e implements com.kwad.sdk.core.b {
         if (a2 != null) {
             e eVar2 = new e();
             a = eVar2;
-            eVar2.f58362b = a2.getLatitude();
-            a.f58363c = a2.getLongitude();
+            eVar2.f56159b = a2.getLatitude();
+            a.f56160c = a2.getLongitude();
         }
         return a;
     }
@@ -38,8 +38,8 @@ public class e implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "latitude", this.f58362b);
-        t.a(jSONObject, "longitude", this.f58363c);
+        t.a(jSONObject, "latitude", this.f56159b);
+        t.a(jSONObject, "longitude", this.f56160c);
         return jSONObject;
     }
 }

@@ -27,14 +27,14 @@ public class e {
 
     public static PerfClientReport a(PerfClientReport perfClientReport, String str) {
         InterceptResult invokeLL;
-        long[] m133a;
+        long[] m145a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, perfClientReport, str)) == null) {
-            if (perfClientReport == null || (m133a = m133a(str)) == null) {
+            if (perfClientReport == null || (m145a = m145a(str)) == null) {
                 return null;
             }
-            perfClientReport.perfCounts = m133a[0];
-            perfClientReport.perfLatencies = m133a[1];
+            perfClientReport.perfCounts = m145a[0];
+            perfClientReport.perfLatencies = m145a[1];
             return perfClientReport;
         }
         return (PerfClientReport) invokeLL.objValue;
@@ -46,15 +46,15 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             PerfClientReport perfClientReport = null;
             try {
-                String[] m134a = m134a(str);
-                if (m134a == null || m134a.length < 4 || TextUtils.isEmpty(m134a[0]) || TextUtils.isEmpty(m134a[1]) || TextUtils.isEmpty(m134a[2]) || TextUtils.isEmpty(m134a[3])) {
+                String[] m146a = m146a(str);
+                if (m146a == null || m146a.length < 4 || TextUtils.isEmpty(m146a[0]) || TextUtils.isEmpty(m146a[1]) || TextUtils.isEmpty(m146a[2]) || TextUtils.isEmpty(m146a[3])) {
                     return null;
                 }
                 perfClientReport = PerfClientReport.getBlankInstance();
-                perfClientReport.production = Integer.parseInt(m134a[0]);
-                perfClientReport.clientInterfaceId = m134a[1];
-                perfClientReport.reportType = Integer.parseInt(m134a[2]);
-                perfClientReport.code = Integer.parseInt(m134a[3]);
+                perfClientReport.production = Integer.parseInt(m146a[0]);
+                perfClientReport.clientInterfaceId = m146a[1];
+                perfClientReport.reportType = Integer.parseInt(m146a[2]);
+                perfClientReport.code = Integer.parseInt(m146a[3]);
                 return perfClientReport;
             } catch (Exception unused) {
                 com.xiaomi.channel.commonutils.logger.b.c("parse per key error");
@@ -74,7 +74,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static HashMap<String, String> m132a(String str) {
+    public static HashMap<String, String> m144a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
@@ -155,7 +155,7 @@ public class e {
             try {
                 file = new File(str + ".lock");
                 try {
-                    y.m695a(file);
+                    y.m707a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
@@ -339,25 +339,25 @@ public class e {
         FileLock fileLock = null;
         try {
             File file = new File(str + ".lock");
-            y.m695a(file);
+            y.m707a(file);
             randomAccessFile = new RandomAccessFile(file, "rw");
         } catch (Throwable unused) {
             randomAccessFile = null;
         }
         try {
             fileLock = randomAccessFile.getChannel().lock();
-            HashMap<String, String> m132a = m132a(str);
+            HashMap<String, String> m144a = m144a(str);
             for (com.xiaomi.clientreport.data.a aVar : aVarArr) {
                 if (aVar != null) {
                     String a = a((PerfClientReport) aVar);
                     long j2 = ((PerfClientReport) aVar).perfCounts;
                     long j3 = ((PerfClientReport) aVar).perfLatencies;
                     if (!TextUtils.isEmpty(a) && j2 > 0 && j3 >= 0) {
-                        a(m132a, a, j2, j3);
+                        a(m144a, a, j2, j3);
                     }
                 }
             }
-            a(str, m132a);
+            a(str, m144a);
             if (fileLock != null && fileLock.isValid()) {
                 try {
                     fileLock.release();
@@ -403,12 +403,12 @@ public class e {
             if (TextUtils.isEmpty(str2)) {
                 sb = new StringBuilder();
             } else {
-                long[] m133a = m133a(str2);
-                if (m133a == null || m133a[0] <= 0 || m133a[1] < 0) {
+                long[] m145a = m145a(str2);
+                if (m145a == null || m145a[0] <= 0 || m145a[1] < 0) {
                     sb = new StringBuilder();
                 } else {
-                    j2 += m133a[0];
-                    j3 += m133a[1];
+                    j2 += m145a[0];
+                    j3 += m145a[1];
                     sb = new StringBuilder();
                 }
             }
@@ -420,7 +420,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static long[] m133a(String str) {
+    public static long[] m145a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
@@ -441,7 +441,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String[] m134a(String str) {
+    public static String[] m146a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {

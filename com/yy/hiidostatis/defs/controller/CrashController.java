@@ -274,7 +274,7 @@ public class CrashController {
             jSONObject.put(BaseStatisContent.SESSIONID, this.mStatisAPI.getSession());
             jSONObject.put(BaseStatisContent.SDKVER, HdStatisConfig.getConfig(this.mStatisAPI.getOption().getAppkey()).getSdkVer());
             jSONObject.put("imei", CommonFiller.getIMEI(this.mContext));
-            jSONObject.put(BaseStatisContent.MAC, CommonFiller.getMacAddr(this.mContext));
+            jSONObject.put("mac", CommonFiller.getMacAddr(this.mContext));
             jSONObject.put(BaseStatisContent.SJP, ArdUtil.getSjp(this.mContext));
             jSONObject.put("sjm", ArdUtil.getSjm(this.mContext));
             jSONObject.put("sys", 2);

@@ -23,13 +23,13 @@ public class e {
     public static final String a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f31588b;
+    public static int f30596b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, b> f31589c;
+    public static Map<String, b> f30597c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<String> f31590d;
+    public static List<String> f30598d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,8 +45,8 @@ public class e {
                 return;
             }
         }
-        f31589c = new HashMap();
-        f31590d = new ArrayList();
+        f30597c = new HashMap();
+        f30598d = new ArrayList();
     }
 
     public e() {
@@ -70,10 +70,10 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (e.class) {
                 try {
-                    bVar = f31589c.containsKey(str) ? f31589c.get(str) : null;
+                    bVar = f30597c.containsKey(str) ? f30597c.get(str) : null;
                     if (bVar == null) {
                         bVar = new b(str);
-                        f31589c.put(str, bVar);
+                        f30597c.put(str, bVar);
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -90,12 +90,12 @@ public class e {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
             try {
                 synchronized (e.class) {
-                    if (f31589c.containsKey(str)) {
-                        f31590d.add(f31589c.get(str).toString());
-                        f31589c.remove(str);
+                    if (f30597c.containsKey(str)) {
+                        f30598d.add(f30597c.get(str).toString());
+                        f30597c.remove(str);
                     }
-                    if (f31588b != 1 && !f31590d.isEmpty()) {
-                        f31588b = 1;
+                    if (f30596b != 1 && !f30598d.isEmpty()) {
+                        f30596b = 1;
                         new Timer().schedule(new TimerTask(context) { // from class: cn.com.chinatelecom.gateway.lib.b.e.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -166,9 +166,9 @@ public class e {
         try {
             ArrayList arrayList = new ArrayList();
             synchronized (e.class) {
-                arrayList.addAll(f31590d);
-                f31588b = 0;
-                f31590d.clear();
+                arrayList.addAll(f30598d);
+                f30596b = 0;
+                f30598d.clear();
             }
             if (arrayList.isEmpty()) {
                 return;

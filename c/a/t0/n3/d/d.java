@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class d extends a {
                 intent.setAction("android.intent.action.SEND");
                 intent.putExtra("android.intent.extra.TEXT", str);
                 intent.setType("text/plain");
-                Context context = this.f20292b;
+                Context context = this.f19756b;
                 if (c.a.t0.n3.f.a.startActivity(context, Intent.createChooser(intent, context.getString(R.string.share_to)))) {
                     if (bVar != null) {
                         bVar.onShare(0, 1);
@@ -64,7 +64,7 @@ public class d extends a {
                     return;
                 }
             }
-            n.L(c(), R.string.share_empty_tip);
+            n.M(c(), R.string.share_empty_tip);
             if (bVar != null) {
                 bVar.onShare(0, 2);
             }

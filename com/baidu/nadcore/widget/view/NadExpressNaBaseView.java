@@ -8,11 +8,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.b.e;
-import c.a.c0.h0.c0.a;
-import c.a.c0.h0.e0.b;
-import c.a.c0.h0.e0.c;
-import c.a.c0.p.o;
+import c.a.c0.d.e;
+import c.a.c0.k0.x.a;
+import c.a.c0.k0.z.b;
+import c.a.c0.k0.z.c;
+import c.a.c0.s.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.feed.AdFeedBaseView;
@@ -127,7 +127,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewStatChangeListener(c.a.c0.h0.c0.b bVar) {
+    public void setViewStatChangeListener(c.a.c0.k0.x.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             super.setViewStatChangeListener(bVar);
@@ -153,7 +153,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
             updateTitleColor(adBaseModel);
             TextView textView = this.mTitle;
             if (textView != null) {
-                textView.setText(adBaseModel.f38219d.f2230e);
+                textView.setText(adBaseModel.f37016d.f2236e);
             }
         }
     }
@@ -171,7 +171,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
                 if (aVar != null) {
                     this.mNadExpressOperateBar.h(aVar);
                 }
-                c.a.c0.h0.c0.b bVar = this.mFeedListener;
+                c.a.c0.k0.x.b bVar = this.mFeedListener;
                 if (bVar != null) {
                     this.mNadExpressOperateBar.f(bVar);
                 }
@@ -188,7 +188,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, adBaseModel) == null) || adBaseModel == null || this.mTitle == null) {
             return;
         }
-        int i2 = adBaseModel.f38217b ? c.a.c0.b.b.NAD_FC4 : c.a.c0.b.b.NAD_FC1;
+        int i2 = adBaseModel.f37014b ? c.a.c0.d.b.NAD_FC4 : c.a.c0.d.b.NAD_FC1;
         TextView textView = this.mTitle;
         textView.setTextColor(textView.getContext().getResources().getColor(i2));
     }

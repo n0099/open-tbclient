@@ -19,7 +19,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f46498common;
+    public CommonReq f44779common;
     public long fid;
     public String firstDir;
     public boolean isVideoTopic;
@@ -54,7 +54,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f65199common = getCommon();
+            builder.f62759common = getCommon();
             builder.fid = Long.valueOf(this.fid);
             String str = this.prefix;
             if (str != null) {
@@ -82,7 +82,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46498common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44779common : (CommonReq) invokeV.objValue;
     }
 
     public long getFid() {
@@ -118,7 +118,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, commonReq) == null) {
-            this.f46498common = commonReq;
+            this.f44779common = commonReq;
         }
     }
 

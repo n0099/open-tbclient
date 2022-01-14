@@ -104,10 +104,10 @@ public abstract class d0<K, V> extends h0 implements Map<K, V> {
     }
 
     @Override // java.util.Map
-    public V put(K k2, V v) {
+    public V put(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, k2, v)) == null) ? delegate().put(k2, v) : (V) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, k, v)) == null) ? delegate().put(k, v) : (V) invokeLL.objValue;
     }
 
     @Override // java.util.Map

@@ -70,10 +70,10 @@ public final class MapWithDefaultImpl<K, V> implements MapWithDefault<K, V> {
     }
 
     @Override // kotlin.collections.MapWithDefault
-    public V getOrImplicitDefault(K k2) {
+    public V getOrImplicitDefault(K k) {
         Map<K, V> map = getMap();
-        V v = map.get(k2);
-        return (v != null || map.containsKey(k2)) ? v : this.f998default.invoke(k2);
+        V v = map.get(k);
+        return (v != null || map.containsKey(k)) ? v : this.f998default.invoke(k);
     }
 
     public int getSize() {
@@ -100,7 +100,7 @@ public final class MapWithDefaultImpl<K, V> implements MapWithDefault<K, V> {
     }
 
     @Override // java.util.Map
-    public V put(K k2, V v) {
+    public V put(K k, V v) {
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 

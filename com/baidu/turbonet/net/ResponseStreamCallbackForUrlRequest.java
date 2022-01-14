@@ -18,12 +18,12 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f52253c;
+    public static ExecutorService f50235c;
     public transient /* synthetic */ FieldHolder $fh;
     public PipedOutputStreamAndroid25 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RequestBodyOutputStream f52254b;
+    public RequestBodyOutputStream f50236b;
 
     /* loaded from: classes13.dex */
     public final class a implements Runnable {
@@ -31,16 +31,16 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public UrlRequest f52255e;
+        public UrlRequest f50237e;
 
         /* renamed from: f  reason: collision with root package name */
-        public UrlResponseInfo f52256f;
+        public UrlResponseInfo f50238f;
 
         /* renamed from: g  reason: collision with root package name */
-        public InputStream f52257g;
+        public InputStream f50239g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ResponseStreamCallbackForUrlRequest f52258h;
+        public final /* synthetic */ ResponseStreamCallbackForUrlRequest f50240h;
 
         public a(ResponseStreamCallbackForUrlRequest responseStreamCallbackForUrlRequest, UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, InputStream inputStream) {
             Interceptable interceptable = $ic;
@@ -57,17 +57,17 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
                     return;
                 }
             }
-            this.f52258h = responseStreamCallbackForUrlRequest;
-            this.f52255e = urlRequest;
-            this.f52256f = urlResponseInfo;
-            this.f52257g = inputStream;
+            this.f50240h = responseStreamCallbackForUrlRequest;
+            this.f50237e = urlRequest;
+            this.f50238f = urlResponseInfo;
+            this.f50239g = inputStream;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52258h.i(this.f52255e, this.f52256f, this.f52257g);
+                this.f50240h.i(this.f50237e, this.f50238f, this.f50239g);
             }
         }
     }
@@ -85,7 +85,7 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
                 return;
             }
         }
-        f52253c = Executors.newCachedThreadPool();
+        f50235c = Executors.newCachedThreadPool();
     }
 
     public ResponseStreamCallbackForUrlRequest() {
@@ -106,7 +106,7 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public final void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, urlRequest, urlResponseInfo) == null) {
-            RequestBodyOutputStream requestBodyOutputStream = this.f52254b;
+            RequestBodyOutputStream requestBodyOutputStream = this.f50236b;
             if (requestBodyOutputStream != null) {
                 try {
                     requestBodyOutputStream.e();
@@ -128,7 +128,7 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlRequest, urlResponseInfo, urlRequestException) == null) {
             c.a.u0.a.a.c("ChromiumNetwork", "****** onFailed, url is: %s, error is: %s", urlResponseInfo.h(), urlRequestException);
-            RequestBodyOutputStream requestBodyOutputStream = this.f52254b;
+            RequestBodyOutputStream requestBodyOutputStream = this.f50236b;
             if (requestBodyOutputStream != null) {
                 try {
                     requestBodyOutputStream.e();
@@ -166,7 +166,7 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
             c.a.u0.a.a.h("ChromiumNetwork", "*** Headers Are *** %s", urlResponseInfo.a());
             this.a = new PipedOutputStreamAndroid25();
             try {
-                f52253c.execute(new a(this, urlRequest, urlResponseInfo, new PipedInputStreamAndroid25(this.a, 4096)));
+                f50235c.execute(new a(this, urlRequest, urlResponseInfo, new PipedInputStreamAndroid25(this.a, 4096)));
                 urlRequest.read(ByteBuffer.allocateDirect(32768));
             } catch (Exception e2) {
                 c.a.u0.a.a.c("ChromiumNetwork", "Exception in onResponseStarted ", e2);

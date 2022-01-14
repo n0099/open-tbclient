@@ -34,7 +34,7 @@ public final class BottomRetainer implements a {
     public final Lazy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Lazy f44037b;
+    public final Lazy f42428b;
 
     @Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\b\u0002\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\f\u001a\u00020\rH\u0016J(\u0010\u000e\u001a\u00020\u00032\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u0016H\u0016J\u0010\u0010\u0017\u001a\u00020\r2\u0006\u0010\u0018\u001a\u00020\u0010H\u0016J\u0018\u0010\u0019\u001a\u00020\r2\u0006\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001bH\u0016R\u001c\u0010\u0005\u001a\u0010\u0012\f\u0012\n \b*\u0004\u0018\u00010\u00070\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u0002\u001a\u00020\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\u0004¨\u0006\u001d"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$AkRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", "ratio", "", "(F)V", "lastVisibleEntities", "Ljava/util/TreeSet;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer$SpaceHolder;", "kotlin.jvm.PlatformType", "getRatio", "()F", "setRatio", "clear", "", "layout", "drawItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", "update", "start", "", "end", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes12.dex */
@@ -44,7 +44,7 @@ public final class BottomRetainer implements a {
         public float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final TreeSet<a.d> f44038b;
+        public final TreeSet<a.d> f42429b;
 
         public AkRetainer(float f2) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public final class BottomRetainer implements a {
                 }
             }
             this.a = f2;
-            this.f44038b = new TreeSet<>(new a.e());
+            this.f42429b = new TreeSet<>(new a.e());
         }
 
         /* JADX WARN: Removed duplicated region for block: B:49:0x0124  */
@@ -96,9 +96,9 @@ public final class BottomRetainer implements a {
                 }
                 a.d dVar2 = r13;
                 a.d dVar3 = new a.d(drawItem, drawItem.j(), (int) f2.h(), (int) f2.g(), (int) f2.q(), (int) f2.d(), 0, 0, 0L, FileUtils.S_IRWXU, null);
-                synchronized (this.f44038b) {
+                synchronized (this.f42429b) {
                     if (!(f2.p() && f2.e() == config.o())) {
-                        TreeSet<a.d> treeSet = this.f44038b;
+                        TreeSet<a.d> treeSet = this.f42429b;
                         if (!(treeSet instanceof Collection) || !treeSet.isEmpty()) {
                             for (a.d dVar4 : treeSet) {
                                 dVar = dVar2;
@@ -164,13 +164,13 @@ public final class BottomRetainer implements a {
                             BdLog.v("DanmakuEngine [Retainer] range: " + new IntRange(dVar.g(), dVar.a()) + " with targetHolder " + bVar2.b());
                             a.d a2 = bVar2.a();
                             if (a2 != null) {
-                                this.f44038b.remove(a2);
+                                this.f42429b.remove(a2);
                             }
                             Float valueOf = Float.valueOf(dVar.g());
                             a.d a3 = bVar2.a();
                             Integer valueOf2 = a3 == null ? null : Integer.valueOf(a3.c());
                             if (valueOf2 == null) {
-                                intValue = this.f44038b.size() + 1;
+                                intValue = this.f42429b.size() + 1;
                             } else {
                                 intValue = valueOf2.intValue();
                             }
@@ -184,7 +184,7 @@ public final class BottomRetainer implements a {
                     }
                     float floatValue = ((Number) pair.component1()).floatValue();
                     boolean z4 = ((Number) pair.component2()).intValue() < 0;
-                    this.f44038b.add(dVar);
+                    this.f42429b.add(dVar);
                     if (z4 && !config.e()) {
                         drawState.y(config.o());
                         drawState.H(false);
@@ -202,8 +202,8 @@ public final class BottomRetainer implements a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
                 Intrinsics.checkNotNullParameter(item, "item");
-                synchronized (this.f44038b) {
-                    CollectionsKt__MutableCollectionsKt.removeAll(this.f44038b, new BottomRetainer$AkRetainer$remove$1$1(item));
+                synchronized (this.f42429b) {
+                    CollectionsKt__MutableCollectionsKt.removeAll(this.f42429b, new BottomRetainer$AkRetainer$remove$1$1(item));
                 }
             }
         }
@@ -212,7 +212,7 @@ public final class BottomRetainer implements a {
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f44038b.clear();
+                this.f42429b.clear();
             }
         }
 
@@ -238,7 +238,7 @@ public final class BottomRetainer implements a {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final TreeSet<a.d> f44039b;
+        public final TreeSet<a.d> f42430b;
 
         public BilibiliRetainer() {
             Interceptable interceptable = $ic;
@@ -253,7 +253,7 @@ public final class BottomRetainer implements a {
                     return;
                 }
             }
-            this.f44039b = new TreeSet<>(new a.e());
+            this.f42430b = new TreeSet<>(new a.e());
         }
 
         /* JADX WARN: Removed duplicated region for block: B:55:0x016e  */
@@ -294,7 +294,7 @@ public final class BottomRetainer implements a {
                 } else {
                     this.a = false;
                     float f3 = height;
-                    for (a.d dVar5 : SequencesKt___SequencesKt.takeWhile(CollectionsKt___CollectionsKt.asSequence(this.f44039b), new BottomRetainer$BilibiliRetainer$layout$1(this, cVar))) {
+                    for (a.d dVar5 : SequencesKt___SequencesKt.takeWhile(CollectionsKt___CollectionsKt.asSequence(this.f42430b), new BottomRetainer$BilibiliRetainer$layout$1(this, cVar))) {
                         cVar.g(cVar.c() + 1);
                         a.d dVar6 = dVar3;
                         if (Intrinsics.areEqual(dVar6, dVar5)) {
@@ -353,9 +353,9 @@ public final class BottomRetainer implements a {
                 if (!z3) {
                     a.d d2 = cVar.d();
                     if (d2 != null) {
-                        this.f44039b.remove(d2);
+                        this.f42430b.remove(d2);
                     }
-                    this.f44039b.add(dVar);
+                    this.f42430b.add(dVar);
                     dVar.h(cVar.c());
                 }
                 return height;
@@ -368,7 +368,7 @@ public final class BottomRetainer implements a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
                 Intrinsics.checkNotNullParameter(item, "item");
-                CollectionsKt__MutableCollectionsKt.removeAll(this.f44039b, new BottomRetainer$BilibiliRetainer$remove$1(item));
+                CollectionsKt__MutableCollectionsKt.removeAll(this.f42430b, new BottomRetainer$BilibiliRetainer$remove$1(item));
             }
         }
 
@@ -377,7 +377,7 @@ public final class BottomRetainer implements a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.a = true;
-                this.f44039b.clear();
+                this.f42430b.clear();
             }
         }
 
@@ -405,7 +405,7 @@ public final class BottomRetainer implements a {
             }
         }
         this.a = LazyKt__LazyJVMKt.lazy(BottomRetainer$bilibiliRetainer$2.INSTANCE);
-        this.f44037b = LazyKt__LazyJVMKt.lazy(new BottomRetainer$akRetainer$2(f2));
+        this.f42428b = LazyKt__LazyJVMKt.lazy(new BottomRetainer$akRetainer$2(f2));
     }
 
     @Override // c.a.t0.m0.h.i.a
@@ -437,7 +437,7 @@ public final class BottomRetainer implements a {
     public final AkRetainer c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (AkRetainer) this.f44037b.getValue() : (AkRetainer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (AkRetainer) this.f42428b.getValue() : (AkRetainer) invokeV.objValue;
     }
 
     @Override // c.a.t0.m0.h.i.a

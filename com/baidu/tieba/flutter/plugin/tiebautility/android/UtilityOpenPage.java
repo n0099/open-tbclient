@@ -6,7 +6,9 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
+import c.a.s0.b.d;
 import c.a.s0.e.f;
+import c.a.s0.s.q.z1;
 import c.a.s0.u.m;
 import c.a.t0.z.a;
 import com.baidu.adp.framework.MessageManager;
@@ -14,6 +16,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
@@ -23,6 +26,7 @@ import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
 import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -32,9 +36,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityOpenPageAuto;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.regex.Pattern;
 /* loaded from: classes12.dex */
 public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpenPage {
     public static /* synthetic */ Interceptable $ic;
@@ -65,6 +73,12 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         }
     }
 
+    private boolean isInteger(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? Pattern.compile("^[0-9]*$").matcher(str).matches() : invokeL.booleanValue;
+    }
+
     @Override // com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
     public void accessFollowService(TiebaUtilityOpenPageAuto.PageStringValue pageStringValue) {
         Interceptable interceptable = $ic;
@@ -78,8 +92,8 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
             }
             UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
             aVar.a = true;
-            aVar.f42214d = "1".equals(queryParameter2);
-            aVar.f42213c = queryParameter;
+            aVar.f40744d = "1".equals(queryParameter2);
+            aVar.f40743c = queryParameter;
             MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
         }
     }
@@ -264,6 +278,26 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
     public void postSignProcess(TiebaUtilityOpenPageAuto.SignProcessParam signProcessParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, signProcessParam) == null) {
+            if (d.h0() && signProcessParam != null && !ListUtils.isEmpty(signProcessParam.getSignetArray())) {
+                z1 z1Var = new z1();
+                z1Var.e(b.e(signProcessParam.getLevelUp(), 0));
+                ArrayList arrayList = new ArrayList();
+                ArrayList signetArray = signProcessParam.getSignetArray();
+                Iterator it = signetArray != null ? signetArray.iterator() : null;
+                while (it != null && it.hasNext()) {
+                    z1.a aVar = new z1.a();
+                    HashMap hashMap = (HashMap) it.next();
+                    aVar.h(b.e((String) hashMap.get("level"), 0));
+                    aVar.i((String) hashMap.get("name"));
+                    aVar.l(b.e((String) hashMap.get(ConstantHelper.LOG_TIPS_LIGHTUP), 0));
+                    aVar.j((String) hashMap.get("pict"));
+                    aVar.k((String) hashMap.get("smallPict"));
+                    arrayList.add(aVar);
+                }
+                z1Var.d(arrayList);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921663, z1Var));
+                return;
+            }
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
                 c.a.s0.t.d.f.c().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());

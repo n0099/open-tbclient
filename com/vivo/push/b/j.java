@@ -13,7 +13,7 @@ public final class j extends s {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63019b;
+    public int f60642b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j() {
@@ -32,7 +32,7 @@ public final class j extends s {
             }
         }
         this.a = -1;
-        this.f63019b = -1;
+        this.f60642b = -1;
     }
 
     @Override // com.vivo.push.b.s, com.vivo.push.o
@@ -41,7 +41,7 @@ public final class j extends s {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             aVar.a("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.a);
-            aVar.a("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f63019b);
+            aVar.a("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f60642b);
         }
     }
 
@@ -54,7 +54,7 @@ public final class j extends s {
     public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63019b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60642b : invokeV.intValue;
     }
 
     @Override // com.vivo.push.b.s, com.vivo.push.o
@@ -70,7 +70,7 @@ public final class j extends s {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.a);
-            this.f63019b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f63019b);
+            this.f60642b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f60642b);
         }
     }
 }

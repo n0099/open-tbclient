@@ -16,7 +16,7 @@ public class d implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f9545e;
+    public static final boolean f9338e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class d implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
                 return;
             }
         }
-        f9545e = k.a;
+        f9338e = k.a;
     }
 
     public d() {
@@ -56,7 +56,7 @@ public class d implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
         PMSAppInfo u;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
-            if (f9545e) {
+            if (f9338e) {
                 String str = "report: flow=" + hybridUbcFlow;
             }
             if (hybridUbcFlow == null || (u = c.a.r0.q.g.a.i().u(c.a.r0.a.d2.d.J().getAppId())) == null) {

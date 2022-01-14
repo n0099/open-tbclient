@@ -40,9 +40,13 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, aVar)) == null) {
-            File a = h.a(str);
-            if (a != null && a.exists() && a.isFile()) {
-                return BitmapFactory.decodeFile(a.getAbsolutePath());
+            try {
+                File a = h.a(str);
+                if (a != null && a.exists() && a.isFile()) {
+                    return BitmapFactory.decodeFile(a.getAbsolutePath());
+                }
+            } catch (OutOfMemoryError unused) {
+                c.a.m0.a.l.b.i().h("CacheManager", "图片请求失败，OOM");
             }
             return MaterialLoader.k(this.a).i(str, aVar);
         }

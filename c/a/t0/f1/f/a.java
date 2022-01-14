@@ -20,10 +20,10 @@ public class a implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusCha
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final FunAdButton f17735e;
+    public final FunAdButton f17305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final o f17736f;
+    public final o f17306f;
 
     public a(FunAdButton funAdButton, o oVar) {
         Interceptable interceptable = $ic;
@@ -40,18 +40,18 @@ public class a implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusCha
                 return;
             }
         }
-        this.f17735e = funAdButton;
-        this.f17736f = oVar;
+        this.f17305e = funAdButton;
+        this.f17306f = oVar;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            FunAdButton funAdButton = this.f17735e;
-            if (funAdButton != null && funAdButton.getTag() == this.f17736f) {
-                this.f17735e.setText(i2);
+            FunAdButton funAdButton = this.f17305e;
+            if (funAdButton != null && funAdButton.getTag() == this.f17306f) {
+                this.f17305e.setText(i2);
             }
-            o oVar = this.f17736f;
+            o oVar = this.f17306f;
             if (oVar != null) {
                 oVar.i(TbadkApplication.getInst().getString(i2));
             }
@@ -61,8 +61,8 @@ public class a implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusCha
     public void b(int i2) {
         FunAdButton funAdButton;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (funAdButton = this.f17735e) != null && funAdButton.getTag() == this.f17736f) {
-            this.f17735e.setProgress(i2);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (funAdButton = this.f17305e) != null && funAdButton.getTag() == this.f17306f) {
+            this.f17305e.setProgress(i2);
         }
     }
 

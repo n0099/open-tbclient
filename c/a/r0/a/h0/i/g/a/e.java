@@ -16,7 +16,7 @@ public final class e {
     public List<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6622b;
+    public boolean f6481b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class e {
             }
         }
         this.a = new ArrayList();
-        this.f6622b = false;
+        this.f6481b = false;
     }
 
     public String a() {
@@ -65,7 +65,7 @@ public final class e {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6622b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6481b : invokeV.booleanValue;
     }
 
     public void c(List<a> list) {
@@ -79,7 +79,7 @@ public final class e {
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f6622b = z;
+            this.f6481b = z;
         }
     }
 }

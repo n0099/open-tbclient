@@ -13,7 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,20 +43,20 @@ public final class a implements Serializable {
         for (int i4 = 0; i4 < length; i4++) {
             if (activityInfoArr[i4] != null) {
                 b bVar = new b();
-                bVar.f39695h = activityInfoArr[i4].configChanges;
-                bVar.f39693f = activityInfoArr[i4].flags;
+                bVar.f38379h = activityInfoArr[i4].configChanges;
+                bVar.f38377f = activityInfoArr[i4].flags;
                 bVar.l = activityInfoArr[i4].labelRes;
-                bVar.f39689b = activityInfoArr[i4].launchMode;
+                bVar.f38373b = activityInfoArr[i4].launchMode;
                 if (activityInfoArr[i4].nonLocalizedLabel != null) {
                     bVar.m = activityInfoArr[i4].nonLocalizedLabel.toString();
                 }
-                bVar.f39697j = activityInfoArr[i4].name;
-                bVar.f39698k = activityInfoArr[i4].packageName;
-                bVar.f39690c = activityInfoArr[i4].permission;
-                bVar.f39694g = activityInfoArr[i4].screenOrientation;
-                bVar.f39696i = activityInfoArr[i4].softInputMode;
-                bVar.f39692e = activityInfoArr[i4].targetActivity;
-                bVar.f39691d = activityInfoArr[i4].taskAffinity;
+                bVar.f38381j = activityInfoArr[i4].name;
+                bVar.k = activityInfoArr[i4].packageName;
+                bVar.f38374c = activityInfoArr[i4].permission;
+                bVar.f38378g = activityInfoArr[i4].screenOrientation;
+                bVar.f38380i = activityInfoArr[i4].softInputMode;
+                bVar.f38376e = activityInfoArr[i4].targetActivity;
+                bVar.f38375d = activityInfoArr[i4].taskAffinity;
                 bVar.a = activityInfoArr[i4].theme;
                 this.a.add(bVar);
             }

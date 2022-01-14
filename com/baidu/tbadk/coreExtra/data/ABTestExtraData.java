@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -35,7 +35,7 @@ public class ABTestExtraData implements Serializable {
     private void saveABTestExtraToSharedPref(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) {
-            b.j().x("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
+            b.k().y("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
         }
     }
 
@@ -66,11 +66,11 @@ public class ABTestExtraData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                String p = b.j().p("abtest_extra_info_json", null);
-                if (TextUtils.isEmpty(p)) {
+                String q = b.k().q("abtest_extra_info_json", null);
+                if (TextUtils.isEmpty(q)) {
                     return;
                 }
-                parseJson(new JSONObject(p));
+                parseJson(new JSONObject(q));
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }

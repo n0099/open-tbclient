@@ -35,13 +35,11 @@ public class a extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public HeadImageView f18960i;
+    public HeadImageView f18485i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f18961j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ApkDownloadView f18962k;
+    public TextView f18486j;
+    public ApkDownloadView k;
     public c.a.t0.x1.o.c l;
     public String m;
     public DownloadCacheKey n;
@@ -52,12 +50,12 @@ public class a extends g {
 
     /* renamed from: c.a.t0.j3.m0.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1138a implements b.a {
+    public class C1152a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1138a(a aVar) {
+        public C1152a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,8 +78,8 @@ public class a extends g {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                c.a.t0.v.a.a(this.a.f18997g.getButtonCmdScheme());
-                c.a.t0.x1.o.h.c.h(this.a.f18995e);
+                c.a.t0.v.a.a(this.a.f18517g.getButtonCmdScheme());
+                c.a.t0.x1.o.h.c.h(this.a.f18515e);
                 return false;
             }
             return invokeL.booleanValue;
@@ -94,13 +92,13 @@ public class a extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdvertAppInfo f18963e;
+        public final /* synthetic */ AdvertAppInfo f18487e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f18964f;
+        public final /* synthetic */ int f18488f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f18965g;
+        public final /* synthetic */ a f18489g;
 
         public b(a aVar, AdvertAppInfo advertAppInfo, int i2) {
             Interceptable interceptable = $ic;
@@ -117,18 +115,18 @@ public class a extends g {
                     return;
                 }
             }
-            this.f18965g = aVar;
-            this.f18963e = advertAppInfo;
-            this.f18964f = i2;
+            this.f18489g = aVar;
+            this.f18487e = advertAppInfo;
+            this.f18488f = i2;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f18965g.s(this.f18963e, this.f18964f);
-                if (this.f18965g.f18962k != null) {
-                    this.f18965g.f18962k.updata(this.f18965g.B(this.f18963e, this.f18964f));
+                this.f18489g.s(this.f18487e, this.f18488f);
+                if (this.f18489g.k != null) {
+                    this.f18489g.k.updata(this.f18489g.B(this.f18487e, this.f18488f));
                 }
                 aVar.dismiss();
             }
@@ -200,7 +198,7 @@ public class a extends g {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (downloadData = (DownloadData) customResponsedMessage.getData()) == null || TextUtils.isEmpty(this.a.m) || !this.a.m.equals(downloadData.getId())) {
                 return;
             }
-            this.a.f18962k.reset(downloadData);
+            this.a.k.reset(downloadData);
         }
     }
 
@@ -210,10 +208,10 @@ public class a extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public AdvertAppInfo f18966e;
+        public AdvertAppInfo f18490e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f18967f;
+        public final /* synthetic */ a f18491f;
 
         public e(a aVar, AdvertAppInfo advertAppInfo) {
             Interceptable interceptable = $ic;
@@ -230,8 +228,8 @@ public class a extends g {
                     return;
                 }
             }
-            this.f18967f = aVar;
-            this.f18966e = advertAppInfo;
+            this.f18491f = aVar;
+            this.f18490e = advertAppInfo;
         }
 
         @Override // android.view.View.OnClickListener
@@ -239,27 +237,27 @@ public class a extends g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (l.A()) {
-                    boolean z = view == this.f18967f.f18962k;
-                    c.a.t0.x1.o.h.c.h(this.f18967f.f18995e);
-                    if (this.f18967f.w()) {
-                        this.f18967f.f18962k.performClick();
+                    boolean z = view == this.f18491f.k;
+                    c.a.t0.x1.o.h.c.h(this.f18491f.f18515e);
+                    if (this.f18491f.w()) {
+                        this.f18491f.k.performClick();
                         return;
                     }
-                    AdvertAppInfo advertAppInfo = this.f18966e;
+                    AdvertAppInfo advertAppInfo = this.f18490e;
                     if (advertAppInfo != null) {
                         int e2 = c.a.d.f.m.b.e(advertAppInfo.l4, -1);
-                        int status = ApkDownloadView.getStatus(this.f18967f.B(this.f18966e, e2));
+                        int status = ApkDownloadView.getStatus(this.f18491f.B(this.f18490e, e2));
                         if ((6 == status || 7 == status) && l.z() && !l.H()) {
-                            this.f18967f.A(this.f18966e, e2, true, null);
+                            this.f18491f.A(this.f18490e, e2, true, null);
                             return;
                         }
-                        a aVar = this.f18967f;
-                        aVar.t(this.f18966e, e2, aVar.f18962k, z);
+                        a aVar = this.f18491f;
+                        aVar.t(this.f18490e, e2, aVar.k, z);
                         return;
                     }
                     return;
                 }
-                this.f18967f.f18996f.showToast(R.string.neterror);
+                this.f18491f.f18516f.showToast(R.string.neterror);
             }
         }
     }
@@ -295,16 +293,16 @@ public class a extends g {
             return;
         }
         if (!l.A()) {
-            n.L(this.f18996f.getPageActivity(), R.string.neterror);
+            n.M(this.f18516f.getPageActivity(), R.string.neterror);
         } else if (advertAppInfo.V4()) {
             if (TextUtils.isEmpty(str)) {
-                str = this.f18996f.getString(R.string.frs_network_tips);
+                str = this.f18516f.getString(R.string.frs_network_tips);
             }
-            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f18996f.getPageActivity());
+            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f18516f.getPageActivity());
             aVar.setMessage(str);
             aVar.setPositiveButton(R.string.alert_yes_button, new b(this, advertAppInfo, i2));
             aVar.setNegativeButton(R.string.cancel, new c(this));
-            aVar.create(this.f18996f).show();
+            aVar.create(this.f18516f).show();
         }
     }
 
@@ -335,10 +333,10 @@ public class a extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.c();
-            SkinManager.setViewTextColor(this.f18961j, R.color.CAM_X0101, 1);
-            this.f18962k.setTextColorInitSkin(R.color.CAM_X0101);
-            this.f18962k.setBackgroundSkin(R.drawable.tail_frame_action_btn_bg);
-            this.f18962k.changeSkin();
+            SkinManager.setViewTextColor(this.f18486j, R.color.CAM_X0101, 1);
+            this.k.setTextColorInitSkin(R.color.CAM_X0101);
+            this.k.setBackgroundSkin(R.drawable.tail_frame_action_btn_bg);
+            this.k.changeSkin();
         }
     }
 
@@ -348,39 +346,39 @@ public class a extends g {
         if (interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) {
             super.d(gVar);
             int i2 = 0;
-            this.f18960i.startLoad(gVar.f18879c, 10, false);
-            this.f18961j.setText(gVar.f18878b);
-            this.f18962k.setTextColor(SkinManager.getColor(R.color.CAM_X0901));
-            this.f18962k.setInitText(gVar.f18881e);
-            c.a.t0.x1.o.h.b bVar = this.f18995e;
+            this.f18485i.startLoad(gVar.f18409c, 10, false);
+            this.f18486j.setText(gVar.f18408b);
+            this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0901));
+            this.k.setInitText(gVar.f18411e);
+            c.a.t0.x1.o.h.b bVar = this.f18515e;
             if (bVar instanceof AdCard) {
                 this.p = ((AdCard) bVar).isDirectDownload();
             }
-            AdvertAppInfo advertAppInfo = this.f18994d;
+            AdvertAppInfo advertAppInfo = this.f18514d;
             if (advertAppInfo != null) {
                 e eVar = new e(this, advertAppInfo);
-                this.f18992b.setOnClickListener(eVar);
+                this.f18512b.setOnClickListener(eVar);
                 if (w()) {
-                    this.f18962k.setOnClickInterceptListener(new C1138a(this));
+                    this.k.setOnClickInterceptListener(new C1152a(this));
                 } else {
-                    this.f18962k.setOnClickListener(eVar);
+                    this.k.setOnClickListener(eVar);
                 }
                 try {
-                    if (!TextUtils.isEmpty(this.f18994d.l4)) {
-                        i2 = Integer.valueOf(this.f18994d.l4).intValue();
+                    if (!TextUtils.isEmpty(this.f18514d.l4)) {
+                        i2 = Integer.valueOf(this.f18514d.l4).intValue();
                     }
                 } catch (NumberFormatException unused) {
                 }
-                AdvertAppInfo advertAppInfo2 = this.f18994d;
+                AdvertAppInfo advertAppInfo2 = this.f18514d;
                 this.m = advertAppInfo2.x4;
                 DownloadData B = B(advertAppInfo2, i2);
                 y(B);
-                this.f18962k.setData(B);
+                this.k.setData(B);
             }
             if (!w()) {
-                this.f18962k.enableDownloadListener(this.f18996f.getUniqueId());
+                this.k.enableDownloadListener(this.f18516f.getUniqueId());
             }
-            this.r.setTag(this.f18996f.getUniqueId());
+            this.r.setTag(this.f18516f.getUniqueId());
             v();
             c();
         }
@@ -403,21 +401,21 @@ public class a extends g {
         C();
         AdDownloadData b2 = c.a.t0.v.g.e.d().b(downloadCacheKey);
         if (b2 != null) {
-            this.f18962k.onStatusChanged(b2.getCurrentState());
+            this.k.onStatusChanged(b2.getCurrentState());
         } else {
-            this.f18962k.onStatusChanged(DownloadStatus.STATUS_NONE);
+            this.k.onStatusChanged(DownloadStatus.STATUS_NONE);
         }
-        AdvertAppInfo advertAppInfo = this.f18994d;
+        AdvertAppInfo advertAppInfo = this.f18514d;
         String str = advertAppInfo != null ? advertAppInfo.p4 : "";
-        AdvertAppInfo advertAppInfo2 = this.f18994d;
+        AdvertAppInfo advertAppInfo2 = this.f18514d;
         b2.setExtInfo(advertAppInfo2 != null ? advertAppInfo2.m4 : "");
         b2.setPage(str);
-        AdvertAppInfo advertAppInfo3 = this.f18994d;
+        AdvertAppInfo advertAppInfo3 = this.f18514d;
         b2.setDeeplinkUrl(advertAppInfo3 != null ? advertAppInfo3.v4 : "");
-        AdvertAppInfo advertAppInfo4 = this.f18994d;
+        AdvertAppInfo advertAppInfo4 = this.f18514d;
         b2.setCmdScheme(advertAppInfo4 != null ? advertAppInfo4.y4 : "");
         c.a.t0.v.g.e d2 = c.a.t0.v.g.e.d();
-        ApkDownloadView apkDownloadView = this.f18962k;
+        ApkDownloadView apkDownloadView = this.k;
         c.a.t0.v.g.g.c c2 = d2.c(apkDownloadView, apkDownloadView, b2);
         this.o = new c.a.t0.v.g.h.b(c2);
         if (b2.extra().getPercent() > 0) {
@@ -431,8 +429,8 @@ public class a extends g {
         if (!(interceptable == null || interceptable.invokeLI(1048583, this, advertAppInfo, i2) == null) || advertAppInfo == null) {
             return;
         }
-        if (!z.c(this.f18996f.getPageActivity())) {
-            n.L(this.f18996f.getPageActivity(), R.string.write_external_storage_permission_denied_fun_disable);
+        if (!z.c(this.f18516f.getPageActivity())) {
+            n.M(this.f18516f.getPageActivity(), R.string.write_external_storage_permission_denied_fun_disable);
             return;
         }
         c.a.t0.x1.o.c cVar = this.l;
@@ -451,7 +449,7 @@ public class a extends g {
         String str = "status: " + status + " id: " + B.getId();
         if (status != 1) {
             if (status == 3) {
-                j.d(this.f18996f.getPageActivity(), advertAppInfo.x4);
+                j.d(this.f18516f.getPageActivity(), advertAppInfo.x4);
                 return;
             } else if (status != 5) {
                 if (status == 6 || status == 7) {
@@ -470,12 +468,12 @@ public class a extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             HeadImageView headImageView = (HeadImageView) b(R.id.user_portrait);
-            this.f18960i = headImageView;
+            this.f18485i = headImageView;
             headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
-            this.f18960i.setDefaultBgResource(R.color.CAM_X0205);
-            this.f18960i.setIsRound(true);
-            this.f18961j = (TextView) b(R.id.user_name);
-            this.f18962k = (ApkDownloadView) b(R.id.download_view);
+            this.f18485i.setDefaultBgResource(R.color.CAM_X0205);
+            this.f18485i.setIsRound(true);
+            this.f18486j = (TextView) b(R.id.user_name);
+            this.k = (ApkDownloadView) b(R.id.download_view);
             MessageManager.getInstance().registerListener(this.r);
         }
     }
@@ -483,11 +481,11 @@ public class a extends g {
     public final void v() {
         AdvertAppInfo advertAppInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && w() && (advertAppInfo = this.f18994d) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && w() && (advertAppInfo = this.f18514d) != null) {
             String downloadId = advertAppInfo.getDownloadId();
             DownloadCacheKey h2 = !TextUtils.isEmpty(downloadId) ? c.a.t0.v.g.e.d().h(downloadId) : null;
             if (h2 == null) {
-                AdvertAppInfo advertAppInfo2 = this.f18994d;
+                AdvertAppInfo advertAppInfo2 = this.f18514d;
                 h2 = DownloadCacheKey.create(downloadId, advertAppInfo2.w4, advertAppInfo2.x4);
                 c.a.t0.v.g.e.d().j(h2, null);
             }
@@ -513,7 +511,7 @@ public class a extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, downloadData) == null) {
             if (w()) {
-                ApkDownloadView apkDownloadView = this.f18962k;
+                ApkDownloadView apkDownloadView = this.k;
                 if (apkDownloadView == null) {
                     return;
                 }

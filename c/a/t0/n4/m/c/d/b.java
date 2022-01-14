@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.utils.FileUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f20522b;
+    public Handler f19973b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HandlerThread f20523c;
+    public final HandlerThread f19974c;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class b {
         }
         this.a = str;
         HandlerThread handlerThread = new HandlerThread("VideoFrameDiskCacheSaveTask");
-        this.f20523c = handlerThread;
+        this.f19974c = handlerThread;
         handlerThread.start();
     }
 
@@ -73,10 +73,10 @@ public class b {
     public void c(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
-            if (this.f20522b == null) {
-                this.f20522b = new Handler(this.f20523c.getLooper());
+            if (this.f19973b == null) {
+                this.f19973b = new Handler(this.f19974c.getLooper());
             }
-            this.f20522b.post(new j(this.a, str, bitmap));
+            this.f19973b.post(new j(this.a, str, bitmap));
         }
     }
 

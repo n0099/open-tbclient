@@ -28,7 +28,7 @@ public class d implements ShareService {
     public ShareService.IOnSocialListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f17618b;
+    public CustomMessageListener f17189b;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -75,7 +75,7 @@ public class d implements ShareService {
                 }
                 this.a.a = null;
             }
-            MessageManager.getInstance().unRegisterListener(this.a.f17618b);
+            MessageManager.getInstance().unRegisterListener(this.a.f17189b);
         }
     }
 
@@ -108,7 +108,7 @@ public class d implements ShareService {
             }
         }
         this.a = null;
-        this.f17618b = new a(this, 2921550);
+        this.f17189b = new a(this, 2921550);
     }
 
     public final void a(Context context, View view, String str, String str2, String str3, String str4, String str5, ShareService.IOnSocialListener iOnSocialListener) {
@@ -138,7 +138,7 @@ public class d implements ShareService {
                 e2.printStackTrace();
             }
             this.a = iOnSocialListener;
-            MessageManager.getInstance().registerListener(this.f17618b);
+            MessageManager.getInstance().registerListener(this.f17189b);
             if (context == null) {
                 context = TbadkCoreApplication.getInst();
             }

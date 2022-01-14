@@ -93,7 +93,7 @@ public class w {
                     for (int i5 = 0; i5 < viewCount; i5++) {
                         ICardInfo viewItem = iCardInfo.getViewItem(i5, i2);
                         if (viewItem != null) {
-                            viewItem.setBdUniqueId(c.a.t0.x1.o.e.f25920b.get(viewItem.getCardType()));
+                            viewItem.setBdUniqueId(c.a.t0.x1.o.e.f25158b.get(viewItem.getCardType()));
                             arrayList.add(viewItem);
                         }
                     }
@@ -146,7 +146,7 @@ public class w {
                         for (int i5 = 0; i5 < viewCount; i5++) {
                             ICardInfo viewItem = g2.getViewItem(i5, i2);
                             if (viewItem != null) {
-                                viewItem.setBdUniqueId(c.a.t0.x1.o.e.f25920b.get(viewItem.getCardType()));
+                                viewItem.setBdUniqueId(c.a.t0.x1.o.e.f25158b.get(viewItem.getCardType()));
                                 arrayList.add(viewItem);
                             }
                         }
@@ -177,10 +177,10 @@ public class w {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int size = c.a.t0.x1.o.e.f25920b.size();
+            int size = c.a.t0.x1.o.e.f25158b.size();
             ArrayList<BdUniqueId> arrayList = new ArrayList<>();
             for (int i2 = 0; i2 < size; i2++) {
-                arrayList.add(c.a.t0.x1.o.e.f25920b.valueAt(i2));
+                arrayList.add(c.a.t0.x1.o.e.f25158b.valueAt(i2));
             }
             return arrayList;
         }

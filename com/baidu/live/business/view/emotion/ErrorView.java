@@ -25,16 +25,16 @@ public class ErrorView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f35986e;
+    public TextView f34815e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDraweeView f35987f;
+    public SimpleDraweeView f34816f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f35988g;
+    public TextView f34817g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f35989h;
+    public b f34818h;
 
     /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
@@ -42,7 +42,7 @@ public class ErrorView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ErrorView f35990e;
+        public final /* synthetic */ ErrorView f34819e;
 
         public a(ErrorView errorView) {
             Interceptable interceptable = $ic;
@@ -59,21 +59,21 @@ public class ErrorView extends LinearLayout {
                     return;
                 }
             }
-            this.f35990e = errorView;
+            this.f34819e = errorView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (NetWorkUtils.b(this.f35990e.getContext())) {
-                    if (this.f35990e.f35989h != null) {
-                        this.f35990e.f35989h.a(view);
+                if (NetWorkUtils.b(this.f34819e.getContext())) {
+                    if (this.f34819e.f34818h != null) {
+                        this.f34819e.f34818h.a(view);
                         return;
                     }
                     return;
                 }
-                Toast.makeText(this.f35990e.getContext(), e.live_feed_net_error, 1).show();
+                Toast.makeText(this.f34819e.getContext(), e.live_feed_net_error, 1).show();
             }
         }
     }
@@ -107,7 +107,7 @@ public class ErrorView extends LinearLayout {
     public void onBindListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35986e.setOnClickListener(new a(this));
+            this.f34815e.setOnClickListener(new a(this));
         }
     }
 
@@ -115,39 +115,39 @@ public class ErrorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (NetWorkUtils.b(getContext())) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f35987f.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f34816f.getLayoutParams();
                 layoutParams.width = c.a.x.b.f.a.a(getContext(), c.a.x.b.g.b.a.a().o);
                 layoutParams.height = c.a.x.b.f.a.a(getContext(), c.a.x.b.g.b.a.a().p);
-                this.f35987f.setLayoutParams(layoutParams);
+                this.f34816f.setLayoutParams(layoutParams);
                 setImageResource(f.e().c(z));
-                this.f35988g.setText(e.live_feed_load_error);
+                this.f34817g.setText(e.live_feed_load_error);
             } else {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f35987f.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f34816f.getLayoutParams();
                 layoutParams2.width = c.a.x.b.f.a.a(getContext(), c.a.x.b.g.b.a.a().u);
                 layoutParams2.height = c.a.x.b.f.a.a(getContext(), c.a.x.b.g.b.a.a().v);
-                this.f35987f.setLayoutParams(layoutParams2);
+                this.f34816f.setLayoutParams(layoutParams2);
                 setImageResource(f.e().d(z));
-                this.f35988g.setText(e.live_feed_net_error);
+                this.f34817g.setText(e.live_feed_net_error);
             }
-            this.f35988g.setTextColor(f.e().a(getContext(), z, "color_8585852"));
-            this.f35986e.setTextColor(f.e().a(getContext(), z, "color_5252522"));
-            this.f35986e.setBackground(f.e().m(getContext(), z));
+            this.f34817g.setTextColor(f.e().a(getContext(), z, "color_8585852"));
+            this.f34815e.setTextColor(f.e().a(getContext(), z, "color_5252522"));
+            this.f34815e.setBackground(f.e().m(getContext(), z));
         }
     }
 
     public void performActionCallback() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f35989h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f34818h) == null) {
             return;
         }
-        bVar.a(this.f35986e);
+        bVar.a(this.f34815e);
     }
 
     public void setActionCallback(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f35989h = bVar;
+            this.f34818h = bVar;
         }
     }
 
@@ -156,7 +156,7 @@ public class ErrorView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 == -1) {
             return;
         }
-        this.f35987f.setActualImageResource(i2);
+        this.f34816f.setActualImageResource(i2);
     }
 
     public void toggleVisible(int i2) {
@@ -219,9 +219,9 @@ public class ErrorView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(d.live_feed_page_error_view, this);
         setOrientation(1);
         setGravity(17);
-        this.f35987f = (SimpleDraweeView) findViewById(c.errorview_img);
-        this.f35986e = (TextView) findViewById(c.errorview_clickreload);
-        this.f35988g = (TextView) findViewById(c.errorview_desc);
+        this.f34816f = (SimpleDraweeView) findViewById(c.errorview_img);
+        this.f34815e = (TextView) findViewById(c.errorview_clickreload);
+        this.f34817g = (TextView) findViewById(c.errorview_desc);
         onBindListener();
     }
 }

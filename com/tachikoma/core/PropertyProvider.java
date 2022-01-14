@@ -59,7 +59,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PropertyProvider implements IProvider<ArrayList<String>> {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, ArrayList<String>> attributeMap;

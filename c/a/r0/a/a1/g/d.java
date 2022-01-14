@@ -14,10 +14,10 @@ public class d {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5287b;
+    public static final int f5177b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ThreadPoolExecutor f5288c;
+    public static final ThreadPoolExecutor f5178c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,17 +35,17 @@ public class d {
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         a = availableProcessors;
-        f5287b = (availableProcessors * 2) + 1;
-        int i2 = f5287b;
+        f5177b = (availableProcessors * 2) + 1;
+        int i2 = f5177b;
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i2, 10000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        f5288c = threadPoolExecutor;
+        f5178c = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            f5288c.execute(runnable);
+            f5178c.execute(runnable);
         }
     }
 }

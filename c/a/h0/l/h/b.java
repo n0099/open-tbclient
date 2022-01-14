@@ -28,16 +28,16 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3593b = "payChannel";
+    public static String f3540b = "payChannel";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3594c = "installmentPeriod";
+    public static String f3541c = "installmentPeriod";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f3595d = "payType";
+    public static String f3542d = "payType";
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile b f3596e;
+    public static volatile b f3543e;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.h0.l.f a;
 
@@ -48,7 +48,7 @@ public class b {
         public final /* synthetic */ c.a.h0.l.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f3597b;
+        public final /* synthetic */ b f3544b;
 
         public a(b bVar, c.a.h0.l.a aVar) {
             Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class b {
                     return;
                 }
             }
-            this.f3597b = bVar;
+            this.f3544b = bVar;
             this.a = aVar;
         }
 
@@ -73,7 +73,7 @@ public class b {
         public void a(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f3597b.w("7", 119501, "cashier/channelAllInfo", i2);
+                this.f3544b.w("7", 119501, "cashier/channelAllInfo", i2);
                 this.a.b(th, str);
             }
         }
@@ -90,7 +90,7 @@ public class b {
                     int optInt2 = jSONObject.optInt("errno", -1);
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
                     if (optJSONObject == null || optInt != 0 || optInt2 != 0) {
-                        this.f3597b.w("7", 119503, "cashier/channelAllInfo", optInt2);
+                        this.f3544b.w("7", 119503, "cashier/channelAllInfo", optInt2);
                         String optString = jSONObject.optString("errmsg");
                         c.a.h0.l.a aVar = this.a;
                         ServerDataException serverDataException = new ServerDataException("errmsg = " + optString);
@@ -99,7 +99,7 @@ public class b {
                     }
                     this.a.c(optJSONObject);
                 } catch (JSONException unused) {
-                    this.f3597b.w("7", 119502, "cashier/channelAllInfo", -1);
+                    this.f3544b.w("7", 119502, "cashier/channelAllInfo", -1);
                     this.a.b(new ServerDataException("服务异常，请稍后重试"), "服务异常，请稍后重试");
                 }
             }
@@ -108,18 +108,18 @@ public class b {
 
     /* renamed from: c.a.h0.l.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0132b extends c.a.h0.l.a<String> {
+    public class C0140b extends c.a.h0.l.a<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.h0.l.a f3598b;
+        public final /* synthetic */ c.a.h0.l.a f3545b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f3599c;
+        public final /* synthetic */ b f3546c;
 
-        public C0132b(b bVar, String str, c.a.h0.l.a aVar) {
+        public C0140b(b bVar, String str, c.a.h0.l.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,17 +134,17 @@ public class b {
                     return;
                 }
             }
-            this.f3599c = bVar;
+            this.f3546c = bVar;
             this.a = str;
-            this.f3598b = aVar;
+            this.f3545b = aVar;
         }
 
         @Override // c.a.h0.l.a
         public void a(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f3599c.x("8", 119501, "cashier/launchpayment", i2, this.a);
-                this.f3598b.b(th, l.a().getResources().getString(i.common_error_tips));
+                this.f3546c.x("8", 119501, "cashier/launchpayment", i2, this.a);
+                this.f3545b.b(th, l.a().getResources().getString(i.common_error_tips));
             }
         }
 
@@ -158,16 +158,16 @@ public class b {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt != 0) {
-                        this.f3599c.x("8", 119503, "cashier/launchpayment", optInt, this.a);
+                        this.f3546c.x("8", 119503, "cashier/launchpayment", optInt, this.a);
                         String optString = jSONObject.optString("msg");
-                        c.a.h0.l.a aVar = this.f3598b;
+                        c.a.h0.l.a aVar = this.f3545b;
                         aVar.b(new ServerDataException("msg = " + optString), optString);
                         return;
                     }
-                    this.f3598b.c(this.f3599c.y(jSONObject.optJSONObject("data")));
+                    this.f3545b.c(this.f3546c.y(jSONObject.optJSONObject("data")));
                 } catch (JSONException unused) {
-                    this.f3599c.x("8", 119502, "cashier/launchpayment", -1, this.a);
-                    this.f3598b.b(new ServerDataException("服务异常，请稍后重试"), "服务异常，请稍后重试");
+                    this.f3546c.x("8", 119502, "cashier/launchpayment", -1, this.a);
+                    this.f3545b.b(new ServerDataException("服务异常，请稍后重试"), "服务异常，请稍后重试");
                 }
             }
         }
@@ -180,7 +180,7 @@ public class b {
         public final /* synthetic */ c.a.h0.l.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f3600b;
+        public final /* synthetic */ b f3547b;
 
         public c(b bVar, c.a.h0.l.a aVar) {
             Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class b {
                     return;
                 }
             }
-            this.f3600b = bVar;
+            this.f3547b = bVar;
             this.a = aVar;
         }
 
@@ -205,7 +205,7 @@ public class b {
         public void a(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f3600b.w("8", 119501, "cashier/pay", i2);
+                this.f3547b.w("8", 119501, "cashier/pay", i2);
                 this.a.b(th, str);
             }
         }
@@ -220,15 +220,15 @@ public class b {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt != 0) {
-                        this.f3600b.w("8", 119503, "cashier/pay", optInt);
+                        this.f3547b.w("8", 119503, "cashier/pay", optInt);
                         String optString = jSONObject.optString("msg");
                         c.a.h0.l.a aVar = this.a;
                         aVar.b(new ServerDataException("msg = " + optString), optString);
                         return;
                     }
-                    this.a.c(this.f3600b.y(jSONObject.optJSONObject("data")));
+                    this.a.c(this.f3547b.y(jSONObject.optJSONObject("data")));
                 } catch (Throwable unused) {
-                    this.f3600b.w("8", 119502, "cashier/pay", -1);
+                    this.f3547b.w("8", 119502, "cashier/pay", -1);
                     this.a.b(new ServerDataException("服务异常，请稍后重试"), "服务异常，请稍后重试");
                 }
             }
@@ -242,7 +242,7 @@ public class b {
         public final /* synthetic */ c.a.h0.l.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f3601b;
+        public final /* synthetic */ b f3548b;
 
         public d(b bVar, c.a.h0.l.a aVar) {
             Interceptable interceptable = $ic;
@@ -259,7 +259,7 @@ public class b {
                     return;
                 }
             }
-            this.f3601b = bVar;
+            this.f3548b = bVar;
             this.a = aVar;
         }
 
@@ -267,7 +267,7 @@ public class b {
         public void a(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f3601b.w(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, 119501, "cashier/sdkAdaptH5QueryPay", i2);
+                this.f3548b.w(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, 119501, "cashier/sdkAdaptH5QueryPay", i2);
                 this.a.b(th, str);
             }
         }
@@ -282,7 +282,7 @@ public class b {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt != 0) {
-                        this.f3601b.w(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, 119503, "cashier/sdkAdaptH5QueryPay", optInt);
+                        this.f3548b.w(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, 119503, "cashier/sdkAdaptH5QueryPay", optInt);
                         String optString = jSONObject.optString("msg");
                         c.a.h0.l.a aVar = this.a;
                         ServerDataException serverDataException = new ServerDataException("msg = " + optString);
@@ -291,7 +291,7 @@ public class b {
                     }
                     this.a.c(jSONObject.optJSONObject("data"));
                 } catch (Throwable unused) {
-                    this.f3601b.w(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, 119502, "cashier/sdkAdaptH5QueryPay", -1);
+                    this.f3548b.w(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, 119502, "cashier/sdkAdaptH5QueryPay", -1);
                     this.a.b(new ServerDataException("服务异常，请稍后重试"), "服务异常，请稍后重试");
                 }
             }
@@ -506,14 +506,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f3596e == null) {
+            if (f3543e == null) {
                 synchronized (b.class) {
-                    if (f3596e == null) {
-                        f3596e = new b(new c.a.h0.l.g());
+                    if (f3543e == null) {
+                        f3543e = new b(new c.a.h0.l.g());
                     }
                 }
             }
-            return f3596e;
+            return f3543e;
         }
         return (b) invokeV.objValue;
     }
@@ -524,7 +524,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundle, cVar)) == null) {
             c.a.h0.l.b bVar = new c.a.h0.l.b();
             t(bVar, bundle);
-            bVar.d(f3595d, "android");
+            bVar.d(f3542d, "android");
             n(bundle, bVar, cVar);
             return bVar;
         }
@@ -749,14 +749,14 @@ public class b {
             }
             String payChannel = payChannelEntity.getPayChannel();
             if (!TextUtils.isEmpty(payChannel)) {
-                bVar.d(f3593b, payChannel);
+                bVar.d(f3540b, payChannel);
             }
             String installmentPeriod = payChannelEntity.getInstallmentPeriod();
             if (!TextUtils.isEmpty(installmentPeriod)) {
-                bVar.d(f3594c, installmentPeriod);
+                bVar.d(f3541c, installmentPeriod);
             }
             n(bundle, bVar, i2);
-            this.a.a(c.a.h0.l.h.d.j(), i2, bVar, new C0132b(this, str, aVar));
+            this.a.a(c.a.h0.l.h.d.j(), i2, bVar, new C0140b(this, str, aVar));
         }
     }
 

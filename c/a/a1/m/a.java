@@ -15,25 +15,25 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1343b;
+    public boolean f1336b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1344c;
+    public String f1337c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1345d;
+    public String f1338d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1346e;
+    public String f1339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1347f;
+    public String f1340f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f1348g;
+    public boolean f1341g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f1349h;
+    public String f1342h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -59,13 +59,13 @@ public class a {
                 jSONObject = new JSONObject();
                 try {
                     jSONObject.put("type", this.a);
-                    jSONObject.put("doReport", this.f1343b);
-                    jSONObject.put("name", this.f1344c);
-                    jSONObject.put("code", this.f1345d);
-                    jSONObject.put("msg", this.f1346e);
-                    jSONObject.put("data", this.f1347f);
-                    jSONObject.put("isShowSpecialToast", this.f1348g);
-                    jSONObject.put("specialToast", this.f1349h);
+                    jSONObject.put("doReport", this.f1336b);
+                    jSONObject.put("name", this.f1337c);
+                    jSONObject.put("code", this.f1338d);
+                    jSONObject.put("msg", this.f1339e);
+                    jSONObject.put("data", this.f1340f);
+                    jSONObject.put("isShowSpecialToast", this.f1341g);
+                    jSONObject.put("specialToast", this.f1342h);
                 } catch (JSONException e3) {
                     e2 = e3;
                     e2.printStackTrace();
@@ -84,7 +84,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "type:" + this.a + "name:" + this.f1344c + "code:" + this.f1345d + "msg:" + this.f1346e + "data" + this.f1347f + "doReport : " + this.f1343b;
+            return "type:" + this.a + "name:" + this.f1337c + "code:" + this.f1338d + "msg:" + this.f1339e + "data" + this.f1340f + "doReport : " + this.f1336b;
         }
         return (String) invokeV.objValue;
     }

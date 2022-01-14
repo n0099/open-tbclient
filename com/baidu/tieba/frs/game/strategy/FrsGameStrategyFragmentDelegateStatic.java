@@ -111,8 +111,8 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
             cVar.a = new FrsGameStrategyMainFragment();
-            cVar.f13111e = 3;
-            cVar.f13115i = c.f13107k;
+            cVar.f12789e = 3;
+            cVar.f12793i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;

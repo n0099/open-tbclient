@@ -36,19 +36,19 @@ public class j {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3022b;
+        public String f2991b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StringBuilder f3023c;
+        public StringBuilder f2992c;
 
         /* renamed from: d  reason: collision with root package name */
-        public k f3024d;
+        public k f2993d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f3025e;
+        public boolean f2994e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f3026f;
+        public final /* synthetic */ j f2995f;
 
         public a(j jVar, String str, String str2, StringBuilder sb, k kVar) {
             Interceptable interceptable = $ic;
@@ -65,12 +65,12 @@ public class j {
                     return;
                 }
             }
-            this.f3026f = jVar;
+            this.f2995f = jVar;
             this.a = str;
-            this.f3022b = str2;
-            this.f3023c = sb;
-            this.f3024d = kVar;
-            this.f3025e = false;
+            this.f2991b = str2;
+            this.f2992c = sb;
+            this.f2993d = kVar;
+            this.f2994e = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -78,12 +78,12 @@ public class j {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                boolean g2 = this.f3026f.g(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.a, this.f3023c);
-                this.f3025e = g2;
+                boolean g2 = this.f2995f.g(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.a, this.f2992c);
+                this.f2994e = g2;
                 if (g2) {
                     return null;
                 }
-                this.f3026f.c(this.f3022b, "".getBytes(), this.f3023c);
+                this.f2995f.c(this.f2991b, "".getBytes(), this.f2992c);
                 return null;
             }
             return invokeL.objValue;
@@ -94,13 +94,13 @@ public class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 super.onPostExecute(obj);
-                if (this.f3023c.length() > 0) {
+                if (this.f2992c.length() > 0) {
                     BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                    bdStatisticsManager.error("so", "load_" + this.a + ".so", "", -9101, this.f3023c.toString(), new Object[0]);
+                    bdStatisticsManager.error("so", "load_" + this.a + ".so", "", -9101, this.f2992c.toString(), new Object[0]);
                 }
-                k kVar = this.f3024d;
+                k kVar = this.f2993d;
                 if (kVar != null) {
-                    kVar.a(this.f3025e);
+                    kVar.a(this.f2994e);
                 }
             }
         }
@@ -201,7 +201,7 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f35136g + File.separator + "lib" + str + ".so";
+            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f34001g + File.separator + "lib" + str + ".so";
         }
         return (String) invokeL.objValue;
     }
@@ -399,9 +399,9 @@ public class j {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, sb)) == null) {
-            boolean k2 = k(e(str), sb);
-            if (k2) {
-                return k2;
+            boolean k = k(e(str), sb);
+            if (k) {
+                return k;
             }
             try {
                 System.loadLibrary(str);
@@ -411,7 +411,7 @@ public class j {
                 sb.append("-Error3:");
                 sb.append(th.getClass().getName() + "-" + th.getMessage());
                 sb.append("-");
-                return k2;
+                return k;
             }
         }
         return invokeLL.booleanValue;

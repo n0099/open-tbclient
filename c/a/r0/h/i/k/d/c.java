@@ -20,19 +20,19 @@ public class c implements d.a {
     public final ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f10711b;
+    public final e f10476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final DownloadInfo f10712c;
+    public final DownloadInfo f10477c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final a f10713d;
+    public final a f10478d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f10714e;
+    public long f10479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile AtomicBoolean f10715f;
+    public volatile AtomicBoolean f10480f;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -54,24 +54,24 @@ public class c implements d.a {
                 return;
             }
         }
-        this.f10714e = System.currentTimeMillis();
-        this.f10715f = new AtomicBoolean(false);
+        this.f10479e = System.currentTimeMillis();
+        this.f10480f = new AtomicBoolean(false);
         this.a = executorService;
-        this.f10711b = eVar;
-        this.f10712c = downloadInfo;
-        this.f10713d = aVar;
+        this.f10476b = eVar;
+        this.f10477c = downloadInfo;
+        this.f10478d = aVar;
     }
 
     @Override // c.a.r0.h.i.k.d.d.a
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f10712c.getProgress() == this.f10712c.getSize()) {
-            this.f10712c.setPackageName(g.d(AppRuntime.getAppContext(), this.f10712c.getPath()));
-            this.f10712c.setStatus(DownloadState.DOWNLOADED.value());
-            this.f10711b.b(this.f10712c);
-            a aVar = this.f10713d;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f10477c.getProgress() == this.f10477c.getSize()) {
+            this.f10477c.setPackageName(g.d(AppRuntime.getAppContext(), this.f10477c.getPath()));
+            this.f10477c.setStatus(DownloadState.DOWNLOADED.value());
+            this.f10476b.b(this.f10477c);
+            a aVar = this.f10478d;
             if (aVar != null) {
-                aVar.e(this.f10712c);
+                aVar.e(this.f10477c);
             }
         }
     }
@@ -79,18 +79,18 @@ public class c implements d.a {
     @Override // c.a.r0.h.i.k.d.d.a
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f10715f.get()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f10480f.get()) {
             return;
         }
         synchronized (this) {
-            if (!this.f10715f.get()) {
-                this.f10715f.set(true);
+            if (!this.f10480f.get()) {
+                this.f10480f.set(true);
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f10714e > 1000) {
-                    this.f10711b.b(this.f10712c);
-                    this.f10714e = currentTimeMillis;
+                if (currentTimeMillis - this.f10479e > 1000) {
+                    this.f10476b.b(this.f10477c);
+                    this.f10479e = currentTimeMillis;
                 }
-                this.f10715f.set(false);
+                this.f10480f.set(false);
             }
         }
     }
@@ -98,7 +98,7 @@ public class c implements d.a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.submit(new d(this.f10711b, this.f10712c, this));
+            this.a.submit(new d(this.f10476b, this.f10477c, this));
         }
     }
 }

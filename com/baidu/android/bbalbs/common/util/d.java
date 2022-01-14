@@ -5,6 +5,7 @@ import android.os.Process;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +20,7 @@ public final class d {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? Settings.Secure.getString(context.getContentResolver(), "android_id") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID) : (String) invokeL.objValue;
     }
 
     public static String a(Context context, String str) {

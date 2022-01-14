@@ -15,7 +15,7 @@ public class a {
     public c.a.r0.a.l0.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f11580b;
+    public b f11320b;
 
     public a(c.a.r0.a.l0.c cVar) {
         Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f11580b == null) {
-                this.f11580b = new b();
+            if (this.f11320b == null) {
+                this.f11320b = new b();
             }
-            return this.f11580b;
+            return this.f11320b;
         }
         return (b) invokeV.objValue;
     }

@@ -79,18 +79,18 @@ public class b {
 
     /* renamed from: c.a.h0.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0128b {
+    public static class C0136b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f3566b;
+        public Context f3513b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f3567c;
+        public boolean f3514c;
 
-        public C0128b() {
+        public C0136b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public class b {
                 }
             }
             this.a = 1;
-            this.f3567c = false;
+            this.f3514c = false;
         }
 
         public b d() {
@@ -113,34 +113,34 @@ public class b {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this, null) : (b) invokeV.objValue;
         }
 
-        public C0128b e(Context context) {
+        public C0136b e(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                this.f3566b = context;
+                this.f3513b = context;
                 return this;
             }
-            return (C0128b) invokeL.objValue;
+            return (C0136b) invokeL.objValue;
         }
 
-        public C0128b f(boolean z) {
+        public C0136b f(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f3567c = z;
+                this.f3514c = z;
                 return this;
             }
-            return (C0128b) invokeZ.objValue;
+            return (C0136b) invokeZ.objValue;
         }
 
-        public C0128b g(int i2) {
+        public C0136b g(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
                 this.a = i2;
                 return this;
             }
-            return (C0128b) invokeI.objValue;
+            return (C0136b) invokeI.objValue;
         }
     }
 
@@ -173,8 +173,8 @@ public class b {
         void onSuccess(String str);
     }
 
-    public /* synthetic */ b(C0128b c0128b, c.a.h0.a aVar) {
-        this(c0128b);
+    public /* synthetic */ b(C0136b c0136b, c.a.h0.a aVar) {
+        this(c0136b);
     }
 
     public void a(Bundle bundle, c.a.h0.s.e.a aVar) {
@@ -253,10 +253,10 @@ public class b {
         if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, aVar, dVar) == null) {
             if (activity == null) {
                 c.a.h0.r.h.d("couponEntity is null!");
-            } else if (aVar != null && aVar.f3735b != null) {
+            } else if (aVar != null && aVar.f3681b != null) {
                 CouponListDialog couponListDialog = new CouponListDialog(activity);
                 couponListDialog.setListener(dVar);
-                couponListDialog.update(aVar.f3735b);
+                couponListDialog.update(aVar.f3681b);
                 couponListDialog.show();
             } else {
                 c.a.h0.r.h.d("couponEntity || couponItemList is null!");
@@ -264,12 +264,12 @@ public class b {
         }
     }
 
-    public b(C0128b c0128b) {
+    public b(C0136b c0136b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0128b};
+            Object[] objArr = {c0136b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -280,12 +280,12 @@ public class b {
             }
         }
         this.a = 0L;
-        if (c0128b != null) {
-            if (c0128b.f3566b != null) {
-                c.a.h0.l.h.a.b(c0128b.a);
-                c.a.h0.m.b.c(c.a.h0.m.a.d(c0128b.f3566b.getApplicationContext()));
-                l.b(c0128b.f3566b.getApplicationContext());
-                c.a.h0.r.h.f3680d = c0128b.f3567c;
+        if (c0136b != null) {
+            if (c0136b.f3513b != null) {
+                c.a.h0.l.h.a.b(c0136b.a);
+                c.a.h0.m.b.c(c.a.h0.m.a.d(c0136b.f3513b.getApplicationContext()));
+                l.b(c0136b.f3513b.getApplicationContext());
+                c.a.h0.r.h.f3626d = c0136b.f3514c;
                 return;
             }
             throw new IllegalArgumentException("context can not be null");

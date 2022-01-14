@@ -26,20 +26,20 @@ public class g extends c<UnRegisterStatus> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public void a(UnRegisterStatus unRegisterStatus) {
-        PlatformMessageSender.a(this.f61152e, !TextUtils.isEmpty(this.f61155h) ? this.f61155h : this.f61152e.getPackageName(), unRegisterStatus);
+        PlatformMessageSender.a(this.f58837e, !TextUtils.isEmpty(this.f58840h) ? this.f58840h : this.f58837e.getPackageName(), unRegisterStatus);
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        return (TextUtils.isEmpty(this.f61153f) || TextUtils.isEmpty(this.f61154g)) ? false : true;
+        return (TextUtils.isEmpty(this.f58838f) || TextUtils.isEmpty(this.f58839g)) ? false : true;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
         Intent intent = new Intent();
-        intent.putExtra("app_id", this.f61153f);
-        intent.putExtra("app_key", this.f61154g);
-        intent.putExtra("strategy_package_name", this.f61152e.getPackageName());
+        intent.putExtra("app_id", this.f58838f);
+        intent.putExtra("app_key", this.f58839g);
+        intent.putExtra("strategy_package_name", this.f58837e.getPackageName());
         intent.putExtra("strategy_type", g());
         return intent;
     }
@@ -56,8 +56,8 @@ public class g extends c<UnRegisterStatus> {
         String str;
         UnRegisterStatus unRegisterStatus = new UnRegisterStatus();
         unRegisterStatus.setCode(LightappConstants.ERRCODE_NOT_ALLOWED_BACKGROUND);
-        if (!TextUtils.isEmpty(this.f61153f)) {
-            str = TextUtils.isEmpty(this.f61154g) ? "appKey not empty" : "appKey not empty";
+        if (!TextUtils.isEmpty(this.f58838f)) {
+            str = TextUtils.isEmpty(this.f58839g) ? "appKey not empty" : "appKey not empty";
             return unRegisterStatus;
         }
         str = "appId not empty";
@@ -70,18 +70,18 @@ public class g extends c<UnRegisterStatus> {
     /* renamed from: i */
     public UnRegisterStatus e() {
         UnRegisterStatus unRegisterStatus = new UnRegisterStatus();
-        if (TextUtils.isEmpty(com.meizu.cloud.pushsdk.util.b.a(this.f61152e, this.f61155h))) {
+        if (TextUtils.isEmpty(com.meizu.cloud.pushsdk.util.b.a(this.f58837e, this.f58840h))) {
             unRegisterStatus.setCode(BasicPushStatus.SUCCESS_CODE);
             unRegisterStatus.setMessage("already unRegister PushId,dont unRegister frequently");
             unRegisterStatus.setIsUnRegisterSuccess(true);
         } else {
-            this.f61156i = o();
-            com.meizu.cloud.pushsdk.b.a.c b2 = this.f61157j.b(this.f61153f, this.f61154g, this.f61156i);
+            this.f58841i = o();
+            com.meizu.cloud.pushsdk.b.a.c b2 = this.f58842j.b(this.f58838f, this.f58839g, this.f58841i);
             if (b2.b()) {
                 unRegisterStatus = new UnRegisterStatus((String) b2.a());
                 c.k.a.a.a.b("Strategy", "network unRegisterStatus " + unRegisterStatus);
                 if (BasicPushStatus.SUCCESS_CODE.equals(unRegisterStatus.getCode())) {
-                    com.meizu.cloud.pushsdk.util.b.g(this.f61152e, "", this.f61155h);
+                    com.meizu.cloud.pushsdk.util.b.g(this.f58837e, "", this.f58840h);
                 }
             } else {
                 com.meizu.cloud.pushsdk.b.b.a c2 = b2.c();

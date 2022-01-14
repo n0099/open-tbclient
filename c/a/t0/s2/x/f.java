@@ -19,10 +19,10 @@ public class f {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f23887b;
+    public BaseFragmentActivity f23225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23888c;
+    public int f23226c;
 
     public f(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class f {
                 return;
             }
         }
-        this.f23888c = 3;
-        this.f23887b = baseFragmentActivity;
+        this.f23226c = 3;
+        this.f23225b = baseFragmentActivity;
     }
 
     public final void a(c.a.t0.s2.r.f fVar, String str) {
@@ -49,7 +49,7 @@ public class f {
             return;
         }
         if (this.a == null) {
-            this.a = new c(LayoutInflater.from(this.f23887b.getPageContext().getPageActivity()).inflate(j.pb_header_video_abstract_layout, (ViewGroup) null));
+            this.a = new c(LayoutInflater.from(this.f23225b.getPageContext().getPageActivity()).inflate(j.pb_header_video_abstract_layout, (ViewGroup) null));
         }
         this.a.m(fVar, str);
     }
@@ -69,14 +69,14 @@ public class f {
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f23888c == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f23226c == i2) {
             return;
         }
         c cVar = this.a;
         if (cVar != null) {
             cVar.o();
         }
-        this.f23888c = i2;
+        this.f23226c = i2;
     }
 
     public void d(c.a.t0.s2.r.f fVar, String str) {

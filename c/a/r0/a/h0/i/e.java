@@ -81,7 +81,7 @@ public class e {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
             eVar.a = "swan";
-            eVar.f8157b = str;
+            eVar.f7977b = str;
             eVar.a("appid", c.a.r0.a.d2.d.J().getAppId());
             eVar.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
             if (!TextUtils.isEmpty(str3)) {

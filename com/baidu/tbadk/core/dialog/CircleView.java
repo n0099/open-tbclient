@@ -23,25 +23,23 @@ public class CircleView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41591e;
+    public int f40167e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41592f;
+    public int f40168f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41593g;
+    public int f40169g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f41594h;
+    public Paint f40170h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f41595i;
+    public Paint f40171i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RectF f41596j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f41597k;
+    public RectF f40172j;
+    public int k;
 
     static {
         InterceptResult invokeClinit;
@@ -77,31 +75,31 @@ public class CircleView extends View {
                 return;
             }
         }
-        this.f41597k = 0;
+        this.k = 0;
         init();
     }
 
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41591e = getResources().getDimensionPixelSize(R.dimen.ds100);
-            this.f41592f = getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f41593g = getResources().getDimensionPixelSize(R.dimen.ds2);
+            this.f40167e = getResources().getDimensionPixelSize(R.dimen.ds100);
+            this.f40168f = getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f40169g = getResources().getDimensionPixelSize(R.dimen.ds2);
             Paint paint = new Paint();
-            this.f41594h = paint;
-            paint.setStrokeWidth(this.f41592f);
-            this.f41594h.setColor(getResources().getColor(R.color.CAM_X0111));
-            this.f41594h.setStyle(Paint.Style.STROKE);
-            this.f41594h.setAntiAlias(true);
+            this.f40170h = paint;
+            paint.setStrokeWidth(this.f40168f);
+            this.f40170h.setColor(getResources().getColor(R.color.CAM_X0111));
+            this.f40170h.setStyle(Paint.Style.STROKE);
+            this.f40170h.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f41595i = paint2;
-            paint2.setStrokeWidth(this.f41593g);
-            this.f41595i.setColor(getResources().getColor(R.color.common_color_10042));
-            this.f41595i.setStyle(Paint.Style.STROKE);
-            this.f41595i.setAntiAlias(true);
-            int i2 = this.f41592f;
-            int i3 = this.f41591e;
-            this.f41596j = new RectF(i2, i2, i3 + i2, i3 + i2);
+            this.f40171i = paint2;
+            paint2.setStrokeWidth(this.f40169g);
+            this.f40171i.setColor(getResources().getColor(R.color.common_color_10042));
+            this.f40171i.setStyle(Paint.Style.STROKE);
+            this.f40171i.setAntiAlias(true);
+            int i2 = this.f40168f;
+            int i3 = this.f40167e;
+            this.f40172j = new RectF(i2, i2, i3 + i2, i3 + i2);
         }
     }
 
@@ -109,15 +107,15 @@ public class CircleView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f41596j, 0.0f, l, false, this.f41595i);
-            canvas.drawArc(this.f41596j, 270.0f, (l * this.f41597k) / m, false, this.f41594h);
+            canvas.drawArc(this.f40172j, 0.0f, l, false, this.f40171i);
+            canvas.drawArc(this.f40172j, 270.0f, (l * this.k) / m, false, this.f40170h);
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f41597k = i2;
+            this.k = i2;
             invalidate();
         }
     }
@@ -141,7 +139,7 @@ public class CircleView extends View {
                 return;
             }
         }
-        this.f41597k = 0;
+        this.k = 0;
         init();
     }
 
@@ -163,7 +161,7 @@ public class CircleView extends View {
                 return;
             }
         }
-        this.f41597k = 0;
+        this.k = 0;
         init();
     }
 }

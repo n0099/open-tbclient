@@ -32,10 +32,8 @@ public final class b extends i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.a.t0.m0.f.a f19747j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final c.a.t0.m0.k.b f19748k;
+    public final c.a.t0.m0.f.a f19236j;
+    public final c.a.t0.m0.k.b k;
     public long l;
 
     /* loaded from: classes7.dex */
@@ -124,26 +122,26 @@ public final class b extends i {
         Intrinsics.checkNotNullParameter(renderer, "renderer");
         Intrinsics.checkNotNullParameter(layouter, "layouter");
         c.a.t0.m0.f.a aVar = new c.a.t0.m0.f.a(renderer);
-        this.f19747j = aVar;
-        this.f19748k = aVar.f();
-        c.a.t0.m0.f.e.c cVar = new c.a.t0.m0.f.e.c(this.f19747j);
-        cVar.f27733e = 1;
+        this.f19236j = aVar;
+        this.k = aVar.f();
+        c.a.t0.m0.f.e.c cVar = new c.a.t0.m0.f.e.c(this.f19236j);
+        cVar.f26900e = 1;
         Unit unit = Unit.INSTANCE;
         g(cVar);
-        DataSystem dataSystem = new DataSystem(this.f19747j);
-        dataSystem.f27733e = 2;
+        DataSystem dataSystem = new DataSystem(this.f19236j);
+        dataSystem.f26900e = 2;
         Unit unit2 = Unit.INSTANCE;
         g(dataSystem);
-        c.a.t0.m0.f.e.e.a aVar2 = new c.a.t0.m0.f.e.e.a(this.f19747j);
-        aVar2.f27733e = 3;
+        c.a.t0.m0.f.e.e.a aVar2 = new c.a.t0.m0.f.e.e.a(this.f19236j);
+        aVar2.f26900e = 3;
         Unit unit3 = Unit.INSTANCE;
         g(aVar2);
-        c.a.t0.m0.f.e.a aVar3 = new c.a.t0.m0.f.e.a(this.f19747j);
-        aVar3.f27733e = 4;
+        c.a.t0.m0.f.e.a aVar3 = new c.a.t0.m0.f.e.a(this.f19236j);
+        aVar3.f26900e = 4;
         Unit unit4 = Unit.INSTANCE;
         g(aVar3);
-        RenderSystem renderSystem = new RenderSystem(this.f19747j);
-        renderSystem.f27733e = 5;
+        RenderSystem renderSystem = new RenderSystem(this.f19236j);
+        renderSystem.f26900e = 5;
         Unit unit5 = Unit.INSTANCE;
         g(renderSystem);
         c.a.t0.m0.f.e.e.a aVar4 = (c.a.t0.m0.f.e.e.a) k(c.a.t0.m0.f.e.e.a.class);
@@ -163,7 +161,7 @@ public final class b extends i {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f19748k.d(true);
+            this.k.d(true);
             c.b.a.c.b<c.b.a.a.f> systems = l();
             Intrinsics.checkNotNullExpressionValue(systems, "systems");
             for (c.b.a.a.f fVar : systems) {
@@ -175,18 +173,18 @@ public final class b extends i {
     public final void B(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            c.a.t0.m0.k.b.f(this.f19748k, j2, 0.0f, 2, null);
-            this.f19747j.c().J();
-            this.f19747j.c().I();
-            this.f19747j.c().F();
+            c.a.t0.m0.k.b.f(this.k, j2, 0.0f, 2, null);
+            this.f19236j.c().J();
+            this.f19236j.c().I();
+            this.f19236j.c().F();
         }
     }
 
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.t0.m0.k.b.f(this.f19748k, 0L, 0.0f, 3, null);
-            this.f19748k.d(false);
+            c.a.t0.m0.k.b.f(this.k, 0L, 0.0f, 3, null);
+            this.k.d(false);
         }
     }
 
@@ -194,7 +192,7 @@ public final class b extends i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, f2) == null) {
             c.a.t0.m0.g.e.b("Engine_step");
-            this.f19748k.g(f2);
+            this.k.g(f2);
             c.a.t0.m0.g.e.a();
         }
     }
@@ -216,7 +214,7 @@ public final class b extends i {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             c.a.t0.m0.g.e.b("act");
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            c.a.t0.m0.k.b bVar = this.f19748k;
+            c.a.t0.m0.k.b bVar = this.k;
             long a2 = bVar.a() - this.l;
             update(bVar.b());
             long elapsedRealtime2 = SystemClock.elapsedRealtime() - elapsedRealtime;
@@ -257,31 +255,31 @@ public final class b extends i {
     public final c.a.t0.m0.f.a u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19747j : (c.a.t0.m0.f.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19236j : (c.a.t0.m0.f.a) invokeV.objValue;
     }
 
     public final long v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f19748k.a() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k.a() : invokeV.longValue;
     }
 
     public final c.a.t0.m0.k.b w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f19748k : (c.a.t0.m0.k.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : (c.a.t0.m0.k.b) invokeV.objValue;
     }
 
     public final boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f19748k.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.k.c() : invokeV.booleanValue;
     }
 
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f19748k.d(true);
+            this.k.d(true);
         }
     }
 

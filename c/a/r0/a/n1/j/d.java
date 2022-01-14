@@ -33,7 +33,7 @@ public class d extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            boolean z = a.f8049c;
+            boolean z = a.f7872c;
             if (bitmap == null) {
                 return false;
             }
@@ -55,7 +55,7 @@ public class d extends a {
                     }
                 }
             }
-            if (a.f8049c) {
+            if (a.f7872c) {
                 String str2 = "color = " + i2 + "图片大小 " + rect.width() + " x " + rect.height();
             }
             return true;

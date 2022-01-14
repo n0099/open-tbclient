@@ -35,7 +35,7 @@ import com.dxmpay.apollon.webmanager.SafeWebView;
 import com.dxmpay.wallet.base.widget.WalletBaseEmptyView;
 import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WapPayActivity extends LBSBaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUSCHEME = "baiduwalletjuhe";
@@ -62,7 +62,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
     public SafeWebView mWebView;
     public String title;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class OnPageCancelListener implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,14 +94,14 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends SafeWebView.SafeChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WapPayActivity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f32606b;
+        public boolean f31569b;
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
@@ -114,7 +114,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32608b;
+                    public final /* synthetic */ a f31571b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -131,7 +131,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32608b = this;
+                        this.f31571b = this;
                         this.a = jsResult;
                     }
 
@@ -148,7 +148,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32607b;
+                    public final /* synthetic */ a f31570b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -165,7 +165,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32607b = this;
+                        this.f31570b = this;
                         this.a = jsResult;
                     }
 
@@ -193,7 +193,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32610b;
+                    public final /* synthetic */ a f31573b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -210,7 +210,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32610b = this;
+                        this.f31573b = this;
                         this.a = jsResult;
                     }
 
@@ -227,7 +227,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32609b;
+                    public final /* synthetic */ a f31572b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -244,7 +244,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32609b = this;
+                        this.f31572b = this;
                         this.a = jsResult;
                     }
 
@@ -272,7 +272,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsPromptResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32612b;
+                    public final /* synthetic */ a f31575b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -289,7 +289,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32612b = this;
+                        this.f31575b = this;
                         this.a = jsPromptResult;
                     }
 
@@ -306,7 +306,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsPromptResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32611b;
+                    public final /* synthetic */ a f31574b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -323,7 +323,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32611b = this;
+                        this.f31574b = this;
                         this.a = jsPromptResult;
                     }
 
@@ -345,10 +345,10 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, webView, i2) == null) {
                 if (i2 <= 25) {
-                    this.f32606b = false;
-                } else if (!this.f32606b) {
+                    this.f31569b = false;
+                } else if (!this.f31569b) {
                     this.a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
-                    this.f32606b = true;
+                    this.f31569b = true;
                 }
                 if (i2 == 100) {
                     WapPayActivity wapPayActivity = this.a;
@@ -364,11 +364,11 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         public void onReceivedTitle(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
-                if (!this.f32606b) {
+                if (!this.f31569b) {
                     this.a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
                 super.onReceivedTitle(webView, str);
-                this.f32606b = true;
+                this.f31569b = true;
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -395,24 +395,24 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b extends SafeWebView.SafeWebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WapPayActivity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f32613b;
+        public boolean f31576b;
 
         @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) {
-                if (!this.f32613b) {
+                if (!this.f31576b) {
                     this.a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
                 super.doUpdateVisitedHistory(webView, str, z);
-                this.f32613b = true;
+                this.f31576b = true;
             }
         }
 
@@ -435,12 +435,12 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
                 String str2 = "url=" + str;
-                if (!this.f32613b) {
+                if (!this.f31576b) {
                     this.a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
                 WalletGlobalUtils.safeDismissDialog(this.a, -2);
                 super.onPageFinished(webView, str);
-                this.f32613b = false;
+                this.f31576b = false;
                 WapPayActivity wapPayActivity = this.a;
                 if (!wapPayActivity.finishedError && !TextUtils.isEmpty(wapPayActivity.title) && !this.a.title.startsWith("http") && !this.a.title.contains("错误") && !this.a.title.contains("error")) {
                     WapPayActivity wapPayActivity2 = this.a;
@@ -463,7 +463,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                 String str2 = "url=" + str;
                 WapPayActivity wapPayActivity = this.a;
                 wapPayActivity.titleBar.setTitle(wapPayActivity.mLoadingTitle);
-                if (!this.f32613b) {
+                if (!this.f31576b) {
                     this.a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
                 if (str.contains(WapPayActivity.PAGE_URL)) {
@@ -474,7 +474,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                         this.a.finish();
                     } else if (str.contains(WapPayActivity.PAY_PAY_FAILED)) {
                         Intent intent2 = new Intent();
-                        intent2.putExtra(WalletPayResultActivityConfig.PAY_RESULT, f.f31931j);
+                        intent2.putExtra(WalletPayResultActivityConfig.PAY_RESULT, f.f30928j);
                         this.a.setResult(99, intent2);
                         this.a.finish();
                     } else {
@@ -503,7 +503,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                 } else {
                     WalletGlobalUtils.safeShowDialog(this.a, -2, "");
                     super.onPageStarted(webView, str, bitmap);
-                    this.f32613b = true;
+                    this.f31576b = true;
                 }
             }
         }

@@ -20,7 +20,7 @@ public class a extends c.a.r0.a.c0.b.b {
 
     /* renamed from: c.a.r0.a.z.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0635a {
+    public static class C0644a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,7 +91,7 @@ public class a extends c.a.r0.a.c0.b.b {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? C0635a.a(this.o) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? C0644a.a(this.o) : (String) invokeV.objValue;
     }
 
     public int j() {

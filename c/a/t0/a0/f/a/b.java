@@ -1,6 +1,6 @@
 package c.a.t0.a0.f.a;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -17,11 +17,11 @@ public class b extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f14681f;
+    public static final BdUniqueId f14333f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d2 f14682e;
+    public e2 f14334e;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class b extends BaseCardInfo {
                 return;
             }
         }
-        f14681f = BdUniqueId.gen();
+        f14333f = BdUniqueId.gen();
     }
 
     public b() {
@@ -57,25 +57,25 @@ public class b extends BaseCardInfo {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            d2 threadData = getThreadData();
-            if (threadData == null || threadData.w1 == null) {
+            e2 threadData = getThreadData();
+            if (threadData == null || threadData.v1 == null) {
                 return null;
             }
-            return new StatisticItem(str).param("obj_locate", threadData.w1.a);
+            return new StatisticItem(str).param("obj_locate", threadData.v1.a);
         }
         return (StatisticItem) invokeLZ.objValue;
     }
 
-    public d2 getThreadData() {
+    public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14682e : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14334e : (e2) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f14681f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f14333f : (BdUniqueId) invokeV.objValue;
     }
 }

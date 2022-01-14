@@ -20,42 +20,42 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RestHttpDNSEnabler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "RestHttpDNSEnabler";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33578b = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
+    public static final String f32513b = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
 
     /* renamed from: c  reason: collision with root package name */
-    public static Pattern f33579c;
+    public static Pattern f32514c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ConcurrentHashMap<String, a> f33580d;
+    public static ConcurrentHashMap<String, a> f32515d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f33581e;
+    public static long f32516e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f33583b;
+        public long f32518b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f33584c;
+        public long f32519c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f33585d;
+        public boolean f32520d;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(String str) {
-            this(str, System.currentTimeMillis(), RestHttpDNSEnabler.f33581e);
+            this(str, System.currentTimeMillis(), RestHttpDNSEnabler.f32516e);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,8 +90,8 @@ public class RestHttpDNSEnabler {
                 }
             }
             this.a = str;
-            this.f33583b = j2;
-            this.f33584c = j3;
+            this.f32518b = j2;
+            this.f32519c = j3;
         }
     }
 
@@ -108,9 +108,9 @@ public class RestHttpDNSEnabler {
                 return;
             }
         }
-        f33579c = Pattern.compile(f33578b);
-        f33580d = new ConcurrentHashMap<>();
-        f33581e = 86400L;
+        f32514c = Pattern.compile(f32513b);
+        f32515d = new ConcurrentHashMap<>();
+        f32516e = 86400L;
     }
 
     public RestHttpDNSEnabler() {
@@ -131,7 +131,7 @@ public class RestHttpDNSEnabler {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            for (Map.Entry<String, a> entry : f33580d.entrySet()) {
+            for (Map.Entry<String, a> entry : f32515d.entrySet()) {
                 if (entry.getValue().a.equals(str)) {
                     return true;
                 }
@@ -145,7 +145,7 @@ public class RestHttpDNSEnabler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
-                if (f33580d.containsKey(str)) {
+                if (f32515d.containsKey(str)) {
                     return;
                 }
                 new Thread(new Runnable(context, str) { // from class: com.baidu.apollon.restnet.RestHttpDNSEnabler.1
@@ -154,7 +154,7 @@ public class RestHttpDNSEnabler {
                     public final /* synthetic */ Context a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f33582b;
+                    public final /* synthetic */ String f32517b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -172,7 +172,7 @@ public class RestHttpDNSEnabler {
                             }
                         }
                         this.a = context;
-                        this.f33582b = str;
+                        this.f32517b = str;
                     }
 
                     @Override // java.lang.Runnable
@@ -182,7 +182,7 @@ public class RestHttpDNSEnabler {
                             RestTemplate restTemplate = new RestTemplate(DxmApplicationContextImpl.getApplicationContext(this.a));
                             restTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.b());
                             ArrayList arrayList = new ArrayList();
-                            arrayList.add(new RestNameValuePair("dn", this.f33582b));
+                            arrayList.add(new RestNameValuePair("dn", this.f32517b));
                             try {
                                 String str2 = (String) restTemplate.a("http://180.76.76.112/", arrayList, "utf-8", String.class);
                                 if (str2 instanceof String) {
@@ -195,8 +195,8 @@ public class RestHttpDNSEnabler {
                                     if (TextUtils.isEmpty(trim) || !RestHttpDNSEnabler.a(trim)) {
                                         return;
                                     }
-                                    synchronized (RestHttpDNSEnabler.f33580d) {
-                                        RestHttpDNSEnabler.f33580d.put(this.f33582b, new a(trim));
+                                    synchronized (RestHttpDNSEnabler.f32515d) {
+                                        RestHttpDNSEnabler.f32515d.put(this.f32517b, new a(trim));
                                     }
                                 }
                             } catch (Exception e2) {
@@ -215,13 +215,13 @@ public class RestHttpDNSEnabler {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f33579c.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f32514c.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && a(str)) {
-            Iterator<Map.Entry<String, a>> it = f33580d.entrySet().iterator();
+            Iterator<Map.Entry<String, a>> it = f32515d.entrySet().iterator();
             while (it.hasNext()) {
                 if (it.next().getValue().a.equals(str)) {
                     it.remove();
@@ -238,11 +238,11 @@ public class RestHttpDNSEnabler {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, url)) == null) {
             String host = url.getHost();
             String url2 = url.toString();
-            for (Map.Entry<String, a> entry : f33580d.entrySet()) {
+            for (Map.Entry<String, a> entry : f32515d.entrySet()) {
                 String key = entry.getKey();
                 if (key.equals(host) || (ApollonConstants.WALLET_SPECIFIC && key.endsWith("baifubao.com") && host.endsWith("baifubao.com"))) {
-                    synchronized (f33580d) {
-                        replaceFirst = url2.replaceFirst(host, f33580d.get(key).a);
+                    synchronized (f32515d) {
+                        replaceFirst = url2.replaceFirst(host, f32515d.get(key).a);
                     }
                     return replaceFirst;
                 }

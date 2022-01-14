@@ -25,34 +25,32 @@ public class m {
     public c.a.d.a.f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25980b;
+    public int f25215b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f25981c;
+    public int f25216c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ListView f25982d;
+    public ListView f25217d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25983e;
+    public String f25218e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f25984f;
+    public int f25219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, Integer> f25985g;
+    public Map<String, Integer> f25220g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f25986h;
+    public View f25221h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f25987i;
+    public boolean f25222i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.t0.z2.e f25988j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.t0.z2.n f25989k;
+    public c.a.t0.z2.e f25223j;
+    public c.a.t0.z2.n k;
     public boolean l;
     public c.a.t0.z2.a m;
     public final CustomMessageListener n;
@@ -93,7 +91,7 @@ public class m {
                 this.a.s();
                 if (this.a.l && this.a.l) {
                     m mVar = this.a;
-                    mVar.k(mVar.f25989k.a(), this.a.f25989k.b(), this.a.f25989k.d(), this.a.f25989k.c());
+                    mVar.k(mVar.k.a(), this.a.k.b(), this.a.k.d(), this.a.k.c());
                 }
             }
         }
@@ -114,21 +112,21 @@ public class m {
                 return;
             }
         }
-        this.f25980b = 0;
-        this.f25981c = 0;
-        this.f25983e = null;
-        this.f25984f = 0;
-        this.f25985g = new HashMap();
-        this.f25987i = false;
+        this.f25215b = 0;
+        this.f25216c = 0;
+        this.f25218e = null;
+        this.f25219f = 0;
+        this.f25220g = new HashMap();
+        this.f25222i = false;
         this.l = true;
         this.m = new c.a.t0.z2.a();
         this.n = new a(this, 2000994);
         this.o = new b(this);
         this.a = fVar;
-        this.f25980b = c.a.d.f.p.n.i(fVar.getPageActivity());
-        this.f25982d = listView;
+        this.f25215b = c.a.d.f.p.n.i(fVar.getPageActivity());
+        this.f25217d = listView;
         BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.f25989k = new c.a.t0.z2.n();
+        this.k = new c.a.t0.z2.n();
         fVar.registerListener(this.n);
     }
 
@@ -144,8 +142,8 @@ public class m {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i2 = 0; i2 < this.f25982d.getChildCount(); i2++) {
-                View childAt = this.f25982d.getChildAt(i2);
+            for (int i2 = 0; i2 < this.f25217d.getChildCount(); i2++) {
+                View childAt = this.f25217d.getChildAt(i2);
                 if (childAt.getTag() instanceof c.a.t0.z2.e) {
                     ((c.a.t0.z2.e) childAt.getTag()).stopPlay();
                 }
@@ -156,21 +154,21 @@ public class m {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25983e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25218e : (String) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25984f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25219f : invokeV.intValue;
     }
 
     public int g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.f25985g.containsKey(str)) {
-                return this.f25985g.get(str).intValue();
+            if (this.f25220g.containsKey(str)) {
+                return this.f25220g.get(str).intValue();
             }
             return 0;
         }
@@ -202,7 +200,7 @@ public class m {
                 return false;
             }
             view.getLocationOnScreen(iArr);
-            return view != null && (measuredHeight = iArr[1] + (view.getMeasuredHeight() / 2)) > this.f25981c && measuredHeight < this.f25980b;
+            return view != null && (measuredHeight = iArr[1] + (view.getMeasuredHeight() / 2)) > this.f25216c && measuredHeight < this.f25215b;
         }
         return invokeL.booleanValue;
     }
@@ -212,21 +210,21 @@ public class m {
         boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)}) == null) {
-            this.f25989k.e(i2, i3, z);
-            ListView listView = this.f25982d;
+            this.k.e(i2, i3, z);
+            ListView listView = this.f25217d;
             if (listView == null || listView.getChildCount() == 0) {
                 return;
             }
-            ListView listView2 = this.f25982d;
+            ListView listView2 = this.f25217d;
             ListAdapter wrappedAdapter = listView2 instanceof BdListView ? ((BdListView) listView2).getWrappedAdapter() : listView2.getAdapter();
             if (wrappedAdapter == null || wrappedAdapter.getCount() == 0) {
                 return;
             }
-            c.a.t0.z2.e eVar = this.f25988j;
+            c.a.t0.z2.e eVar = this.f25223j;
             if (eVar != null && !i(eVar.getVideoContainer())) {
-                this.f25988j.stopPlay();
+                this.f25223j.stopPlay();
             }
-            int count = wrappedAdapter.getCount() + this.f25982d.getHeaderViewsCount() + this.f25982d.getFooterViewsCount();
+            int count = wrappedAdapter.getCount() + this.f25217d.getHeaderViewsCount() + this.f25217d.getFooterViewsCount();
             int i5 = 0;
             if (i2 == 0) {
                 z2 = true;
@@ -236,8 +234,8 @@ public class m {
             }
             if (i2 == 0 || i3 == count - 1) {
                 z3 = false;
-                for (int i7 = 0; i7 < this.f25982d.getChildCount(); i7++) {
-                    View childAt = this.f25982d.getChildAt(z2 ? i7 : (this.f25982d.getChildCount() - 1) - i7);
+                for (int i7 = 0; i7 < this.f25217d.getChildCount(); i7++) {
+                    View childAt = this.f25217d.getChildAt(z2 ? i7 : (this.f25217d.getChildCount() - 1) - i7);
                     if (childAt.getTag() instanceof c.a.t0.z2.e) {
                         c.a.t0.z2.e eVar2 = (c.a.t0.z2.e) childAt.getTag();
                         if (!z3 && i(eVar2.getVideoContainer())) {
@@ -260,10 +258,10 @@ public class m {
             int i8 = -1;
             int i9 = 0;
             while (true) {
-                if (i9 >= this.f25982d.getChildCount()) {
+                if (i9 >= this.f25217d.getChildCount()) {
                     break;
                 }
-                View childAt2 = this.f25982d.getChildAt(i9);
+                View childAt2 = this.f25217d.getChildAt(i9);
                 if (childAt2.getTag() instanceof c.a.t0.z2.e) {
                     c.a.t0.z2.e eVar3 = (c.a.t0.z2.e) childAt2.getTag();
                     if (eVar3.isPlayStarted() && i(eVar3.getVideoContainer())) {
@@ -274,8 +272,8 @@ public class m {
                 i9++;
             }
             if (i8 >= 0) {
-                while (i5 < this.f25982d.getChildCount()) {
-                    View childAt3 = this.f25982d.getChildAt(i5);
+                while (i5 < this.f25217d.getChildCount()) {
+                    View childAt3 = this.f25217d.getChildAt(i5);
                     if (i5 == i8) {
                         r(i4, childAt3);
                     } else {
@@ -292,8 +290,8 @@ public class m {
                 return;
             }
             boolean z4 = false;
-            while (i5 < this.f25982d.getChildCount()) {
-                View childAt4 = this.f25982d.getChildAt(z ? (this.f25982d.getChildCount() - 1) - i5 : i5);
+            while (i5 < this.f25217d.getChildCount()) {
+                View childAt4 = this.f25217d.getChildAt(z ? (this.f25217d.getChildCount() - 1) - i5 : i5);
                 if (childAt4.getTag() instanceof c.a.t0.z2.e) {
                     c.a.t0.z2.e eVar5 = (c.a.t0.z2.e) childAt4.getTag();
                     if (!z4 && i(eVar5.getVideoContainer())) {
@@ -319,32 +317,32 @@ public class m {
             this.o.c(i3);
             this.o.b(z);
             this.o.d(z2);
-            this.f25989k.f(z2);
+            this.k.f(z2);
             c.a.d.f.m.e.a().post(this.o);
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && this.f25985g.containsKey(str)) {
-            this.f25985g.put(str, 0);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && this.f25220g.containsKey(str)) {
+            this.f25220g.put(str, 0);
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.l) {
-            View view = this.f25986h;
+            View view = this.f25221h;
             if (view != null && (view.getTag() instanceof c.a.t0.z2.e)) {
-                c.a.t0.z2.e eVar = (c.a.t0.z2.e) this.f25986h.getTag();
-                if (this.f25987i) {
+                c.a.t0.z2.e eVar = (c.a.t0.z2.e) this.f25221h.getTag();
+                if (this.f25222i) {
                     eVar.startPlay();
                 }
-                if (this.f25986h.getTag() instanceof c.a.t0.z2.d) {
-                    ((c.a.t0.z2.d) this.f25986h.getTag()).displayAllWithoutAnim();
+                if (this.f25221h.getTag() instanceof c.a.t0.z2.d) {
+                    ((c.a.t0.z2.d) this.f25221h.getTag()).displayAllWithoutAnim();
                 }
             }
-            this.f25986h = null;
+            this.f25221h = null;
         }
     }
 
@@ -358,28 +356,28 @@ public class m {
     public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f25983e = str;
+            this.f25218e = str;
         }
     }
 
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f25984f = i2;
+            this.f25219f = i2;
         }
     }
 
     public void q(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, str, i2) == null) {
-            if (this.f25985g.containsKey(str)) {
-                if (this.f25985g.get(str).intValue() == 0) {
+            if (this.f25220g.containsKey(str)) {
+                if (this.f25220g.get(str).intValue() == 0) {
                     return;
                 }
-                this.f25985g.put(str, Integer.valueOf(i2));
+                this.f25220g.put(str, Integer.valueOf(i2));
                 return;
             }
-            this.f25985g.put(str, Integer.valueOf(i2));
+            this.f25220g.put(str, Integer.valueOf(i2));
         }
     }
 
@@ -388,7 +386,7 @@ public class m {
         if (!(interceptable == null || interceptable.invokeIL(1048591, this, i2, view) == null) || view == null) {
             return;
         }
-        this.f25986h = view;
+        this.f25221h = view;
         if (i2 == 1 && (view.getTag() instanceof c.a.t0.z2.e)) {
             c.a.t0.z2.e eVar = (c.a.t0.z2.e) view.getTag();
             if (!this.l || eVar.isPlayStarted()) {
@@ -405,8 +403,8 @@ public class m {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             c.a.d.f.m.e.a().removeCallbacks(this.m);
             c.a.d.f.m.e.a().removeCallbacks(this.o);
-            for (int i2 = 0; i2 < this.f25982d.getChildCount(); i2++) {
-                View childAt = this.f25982d.getChildAt(i2);
+            for (int i2 = 0; i2 < this.f25217d.getChildCount(); i2++) {
+                View childAt = this.f25217d.getChildAt(i2);
                 if (childAt.getTag() instanceof c.a.t0.z2.e) {
                     c.a.t0.z2.e eVar = (c.a.t0.z2.e) childAt.getTag();
                     if (eVar.isPlayStarted()) {
@@ -421,15 +419,15 @@ public class m {
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            for (int i2 = 0; i2 < this.f25982d.getChildCount(); i2++) {
-                View childAt = this.f25982d.getChildAt(i2);
+            for (int i2 = 0; i2 < this.f25217d.getChildCount(); i2++) {
+                View childAt = this.f25217d.getChildAt(i2);
                 if (childAt.getTag() instanceof c.a.t0.z2.e) {
                     c.a.t0.z2.e eVar = (c.a.t0.z2.e) childAt.getTag();
                     if (eVar.isPlayStarted()) {
                         p(eVar.getCurrentPosition());
                         o(eVar.getPlayUrl());
-                        this.f25986h = childAt;
-                        this.f25987i = eVar.isPlaying();
+                        this.f25221h = childAt;
+                        this.f25222i = eVar.isPlaying();
                         eVar.stopPlay();
                         return;
                     }

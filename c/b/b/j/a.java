@@ -14,13 +14,13 @@ public class a<T> {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f27775b;
+    public final Class<T> f26942b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f27776c;
+    public final c f26943c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.b.b.m.a f27777d;
+    public c.b.b.m.a f26944d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(String str, Class<T> cls) {
@@ -47,7 +47,7 @@ public class a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f27775b.getName();
+            return this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f26942b.getName();
         }
         return (String) invokeV.objValue;
     }
@@ -89,8 +89,8 @@ public class a<T> {
             }
         }
         this.a = str.replace(FileUtil.WINDOWS_SEPARATOR, '/');
-        this.f27775b = cls;
-        this.f27776c = cVar;
+        this.f26942b = cls;
+        this.f26943c = cVar;
     }
 
     public a(c.b.b.m.a aVar, Class<T> cls, c<T> cVar) {
@@ -109,8 +109,8 @@ public class a<T> {
             }
         }
         this.a = aVar.j().replace(FileUtil.WINDOWS_SEPARATOR, '/');
-        this.f27777d = aVar;
-        this.f27775b = cls;
-        this.f27776c = cVar;
+        this.f26944d = aVar;
+        this.f26942b = cls;
+        this.f26943c = cVar;
     }
 }

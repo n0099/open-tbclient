@@ -65,25 +65,25 @@ public class c extends Thread {
         if (aVar == null) {
             return;
         }
-        z = this.a.f34424d;
+        z = this.a.f33319d;
         try {
             if (!z) {
-                z2 = this.a.f34430k;
+                z2 = this.a.k;
                 if (!z2) {
                     aVar4 = this.a.n;
                     aVar4.b(false);
-                    this.a.f34430k = false;
+                    this.a.k = false;
                     ClientUpdater clientUpdater = this.a;
                     aVar3 = clientUpdater.n;
-                    clientUpdater.f34423c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
+                    clientUpdater.f33318c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
                     StringBuilder sb = new StringBuilder();
                     sb.append("更新检查请求的完整参数： ");
-                    str = this.a.f34423c;
+                    str = this.a.f33318c;
                     sb.append(str);
                     LogUtil.logE("ClientUpdater", sb.toString());
                     StringBuilder sb2 = new StringBuilder();
                     httpURLConnection = null;
-                    str2 = this.a.f34423c;
+                    str2 = this.a.f33318c;
                     httpURLConnection2 = (HttpURLConnection) new URL(str2).openConnection();
                     httpURLConnection2.setConnectTimeout(5000);
                     httpURLConnection2.setReadTimeout(5000);
@@ -134,18 +134,18 @@ public class c extends Thread {
         }
         aVar2 = this.a.n;
         aVar2.b(true);
-        this.a.f34430k = false;
+        this.a.k = false;
         ClientUpdater clientUpdater2 = this.a;
         aVar3 = clientUpdater2.n;
-        clientUpdater2.f34423c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
+        clientUpdater2.f33318c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
         StringBuilder sb3 = new StringBuilder();
         sb3.append("更新检查请求的完整参数： ");
-        str = this.a.f34423c;
+        str = this.a.f33318c;
         sb3.append(str);
         LogUtil.logE("ClientUpdater", sb3.toString());
         StringBuilder sb22 = new StringBuilder();
         httpURLConnection = null;
-        str2 = this.a.f34423c;
+        str2 = this.a.f33318c;
         httpURLConnection2 = (HttpURLConnection) new URL(str2).openConnection();
     }
 }

@@ -15,10 +15,10 @@ public class c implements h {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f1194b;
+    public byte[] f1190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f1195c;
+    public boolean f1191c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -42,12 +42,12 @@ public class c implements h {
             float f2 = this.a;
             if (f2 != 1.0d) {
                 if (bArr != null) {
-                    this.f1194b = c(bArr, f2);
+                    this.f1190b = c(bArr, f2);
                 }
                 return i2;
             }
-            this.f1194b = bArr;
-            this.f1195c = true;
+            this.f1190b = bArr;
+            this.f1191c = true;
             return i2;
         }
         return invokeLI.intValue;
@@ -79,9 +79,9 @@ public class c implements h {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (this.f1195c) {
-                this.f1195c = false;
-                return this.f1194b;
+            if (this.f1191c) {
+                this.f1191c = false;
+                return this.f1190b;
             }
             return null;
         }
@@ -109,8 +109,8 @@ public class c implements h {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f1195c = false;
-            this.f1194b = null;
+            this.f1191c = false;
+            this.f1190b = null;
         }
     }
 
@@ -141,8 +141,8 @@ public class c implements h {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f1195c = false;
-            this.f1194b = null;
+            this.f1191c = false;
+            this.f1190b = null;
         }
     }
 

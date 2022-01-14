@@ -55,7 +55,7 @@ public class d extends z {
                     return false;
                 }
                 String M = c.a.r0.a.o2.b.M(optParamsAsJo.optString("filePath"), c.a.r0.a.d2.e.f0());
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str2 = "——> handle: fileUrl " + optParamsAsJo.optString("filePath");
                     r0 = "——> handle: filePath " + M;
                 }
@@ -68,14 +68,14 @@ public class d extends z {
                 if (h2 == null) {
                     c.a.r0.a.e0.d.c("getSavedFile", "file info is null");
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, c.a.r0.a.f2.b.a(2001)));
-                    boolean z = z.f6340b;
+                    boolean z = z.f6201b;
                     return false;
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("createTime", Math.round((float) (h2.a() / 1000)));
                     jSONObject.put("size", h2.c());
-                    if (z.f6340b) {
+                    if (z.f6201b) {
                         str = "——> handle: fileInfo (" + jSONObject.get("createTime") + " , " + jSONObject.get("size") + SmallTailInfo.EMOTION_SUFFIX;
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
@@ -84,7 +84,7 @@ public class d extends z {
                     c.a.r0.a.e0.d.o("getSavedFile", "file info to json fail");
                     e2.printStackTrace();
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, c.a.r0.a.f2.b.a(2003)));
-                    boolean z2 = z.f6340b;
+                    boolean z2 = z.f6201b;
                     return false;
                 }
             }

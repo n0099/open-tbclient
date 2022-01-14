@@ -41,12 +41,13 @@ public class d {
         return (d) invokeL.objValue;
     }
 
-    public void a() {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
             SplashAdFragment splashAdFragment = new SplashAdFragment();
             Bundle bundle = new Bundle();
             bundle.putInt(SplashAdFragment.AT_ACTIVITY_FLAG, 1);
+            bundle.putLong("splash_unique_id", j2);
             splashAdFragment.setArguments(bundle);
             this.a.getSupportFragmentManager().beginTransaction().add(R.id.layout_root, splashAdFragment).commitAllowingStateLoss();
         }

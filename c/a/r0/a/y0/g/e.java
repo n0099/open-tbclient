@@ -16,7 +16,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile e f9837b;
+    public static volatile e f9623b;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, c.a.r0.a.y0.g.h.b> a;
 
@@ -40,14 +40,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f9837b == null) {
+            if (f9623b == null) {
                 synchronized (e.class) {
-                    if (f9837b == null) {
-                        f9837b = new e();
+                    if (f9623b == null) {
+                        f9623b = new e();
                     }
                 }
             }
-            return f9837b;
+            return f9623b;
         }
         return (e) invokeV.objValue;
     }
@@ -55,10 +55,10 @@ public class e {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            if (f9837b != null) {
-                f9837b.b();
+            if (f9623b != null) {
+                f9623b.b();
             }
-            f9837b = null;
+            f9623b = null;
         }
     }
 

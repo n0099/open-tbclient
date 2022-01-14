@@ -10,33 +10,33 @@ public class l implements e {
     public final i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.model.e f62393b;
+    public final com.ss.android.socialbase.downloader.model.e f60040b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f62394c;
+    public final e f60041c;
 
     public l(DownloadInfo downloadInfo, b bVar, i iVar) throws BaseException {
         this.a = iVar;
-        this.f62393b = a(downloadInfo, iVar);
-        this.f62394c = new h(bVar, this);
+        this.f60040b = a(downloadInfo, iVar);
+        this.f60041c = new h(bVar, this);
     }
 
     public e a() {
-        return this.f62394c;
+        return this.f60041c;
     }
 
     @Override // com.ss.android.socialbase.downloader.f.e
     public void b(@NonNull a aVar) throws IOException {
-        this.f62393b.a(aVar.a, 0, aVar.f62352c);
-        this.a.b(aVar.f62352c);
+        this.f60040b.a(aVar.a, 0, aVar.f60002c);
+        this.a.b(aVar.f60002c);
     }
 
     public void c() throws IOException {
-        this.f62393b.c();
+        this.f60040b.c();
     }
 
     public void d() {
-        com.ss.android.socialbase.downloader.i.f.a(this.f62393b);
+        com.ss.android.socialbase.downloader.i.f.a(this.f60040b);
     }
 
     public i e() {
@@ -54,6 +54,6 @@ public class l implements e {
     }
 
     public void b() throws IOException {
-        this.f62393b.b();
+        this.f60040b.b();
     }
 }

@@ -17,19 +17,19 @@ public class b implements c.a.t0.e0.a.a {
     public c.a.t0.n4.m.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f17537b;
+    public TextView f17111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.c f17538c;
+    public a.c f17112c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.b f17539d;
+    public a.b f17113d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a.InterfaceC1068a f17540e;
+    public a.InterfaceC1082a f17114e;
 
     /* loaded from: classes7.dex */
-    public class a implements a.InterfaceC1240a {
+    public class a implements a.InterfaceC1254a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -52,56 +52,56 @@ public class b implements c.a.t0.e0.a.a {
             this.a = bVar;
         }
 
-        @Override // c.a.t0.n4.m.a.InterfaceC1240a
+        @Override // c.a.t0.n4.m.a.InterfaceC1254a
         public float a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.f17539d != null) {
-                    return this.a.f17539d.a();
+                if (this.a.f17113d != null) {
+                    return this.a.f17113d.a();
                 }
                 return 1.0f;
             }
             return invokeV.floatValue;
         }
 
-        @Override // c.a.t0.n4.m.a.InterfaceC1240a
+        @Override // c.a.t0.n4.m.a.InterfaceC1254a
         public void b(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-                if (this.a.f17540e != null) {
-                    this.a.f17540e.a(f2);
+                if (this.a.f17114e != null) {
+                    this.a.f17114e.a(f2);
                 }
-                TextView textView = this.a.f17537b;
+                TextView textView = this.a.f17111b;
                 b bVar = this.a;
                 textView.setText(bVar.f(bVar.getProgress()));
             }
         }
 
-        @Override // c.a.t0.n4.m.a.InterfaceC1240a
+        @Override // c.a.t0.n4.m.a.InterfaceC1254a
         public void onFinish() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.f17538c == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.f17112c == null) {
                 return;
             }
-            this.a.f17538c.a();
+            this.a.f17112c.a();
         }
 
-        @Override // c.a.t0.n4.m.a.InterfaceC1240a
+        @Override // c.a.t0.n4.m.a.InterfaceC1254a
         public void onProgress(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-                this.a.f17537b.setText(this.a.f(f2));
+                this.a.f17111b.setText(this.a.f(f2));
             }
         }
     }
 
-    public b(c.a.t0.n4.m.a aVar, TextView textView, a.c cVar, a.b bVar, a.InterfaceC1068a interfaceC1068a) {
+    public b(c.a.t0.n4.m.a aVar, TextView textView, a.c cVar, a.b bVar, a.InterfaceC1082a interfaceC1082a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, textView, cVar, bVar, interfaceC1068a};
+            Object[] objArr = {aVar, textView, cVar, bVar, interfaceC1082a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -112,10 +112,10 @@ public class b implements c.a.t0.e0.a.a {
             }
         }
         this.a = aVar;
-        this.f17537b = textView;
-        this.f17538c = cVar;
-        this.f17539d = bVar;
-        this.f17540e = interfaceC1068a;
+        this.f17111b = textView;
+        this.f17112c = cVar;
+        this.f17113d = bVar;
+        this.f17114e = interfaceC1082a;
         g();
     }
 

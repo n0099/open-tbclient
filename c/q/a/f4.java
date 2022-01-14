@@ -14,7 +14,7 @@ public class f4 {
     public b4 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set f31300b;
+    public Set f30322b;
 
     public f4(b4 b4Var) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class f4 {
                 return;
             }
         }
-        this.f31300b = new HashSet();
+        this.f30322b = new HashSet();
         this.a = b4Var;
     }
 
     public void a(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || this.f31300b.contains(str)) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || this.f30322b.contains(str)) {
             return;
         }
         new q3(this, str, z).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);

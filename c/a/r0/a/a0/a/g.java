@@ -39,13 +39,13 @@ public class g extends a {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            c.a.r0.a.a0.b.a k2 = k(unitedSchemeEntity);
-            if (k2 == null) {
+            c.a.r0.a.a0.b.a k = k(unitedSchemeEntity);
+            if (k == null) {
                 unitedSchemeEntity.result = l(201);
                 c.a.r0.a.e0.d.c("SwanAppCanvas", "remove action parse model is null");
                 return false;
             }
-            c.a.r0.a.c0.c.d.a aVar = (c.a.r0.a.c0.c.d.a) c.a.r0.a.c0.d.a.a(k2);
+            c.a.r0.a.c0.c.d.a aVar = (c.a.r0.a.c0.c.d.a) c.a.r0.a.c0.d.a.a(k);
             if (aVar == null) {
                 c.a.r0.a.e0.d.c("SwanAppCanvas", "remove canvas fail: fina a null component");
                 unitedSchemeEntity.result = l(1001);
@@ -54,7 +54,7 @@ public class g extends a {
             c.a.r0.a.c0.b.c B = aVar.B();
             boolean a = B.a();
             if (!a) {
-                c.a.r0.a.e0.d.c("SwanAppCanvas", "remove canvas fail: " + B.f5427b);
+                c.a.r0.a.e0.d.c("SwanAppCanvas", "remove canvas fail: " + B.f5313b);
             }
             j(unitedSchemeEntity, callbackHandler, a);
             return a;

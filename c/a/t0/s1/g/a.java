@@ -14,19 +14,19 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22653b;
+    public String f22032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22654c;
+    public String f22033c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f22655d;
+    public String f22034d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22656e;
+    public int f22035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22657f;
+    public int f22036f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22655d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22034d : (String) invokeV.objValue;
     }
 
     public long b() {
@@ -57,31 +57,31 @@ public class a {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22657f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22036f : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22653b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22032b : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22654c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22033c : (String) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22656e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22035e : invokeV.intValue;
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f22655d = str;
+            this.f22034d = str;
         }
     }
 
@@ -95,28 +95,28 @@ public class a {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f22657f = i2;
+            this.f22036f = i2;
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f22653b = str;
+            this.f22032b = str;
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f22654c = str;
+            this.f22033c = str;
         }
     }
 
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f22656e = i2;
+            this.f22035e = i2;
         }
     }
 }

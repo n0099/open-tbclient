@@ -20,10 +20,10 @@ public class AsyncHttpClient {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36383b;
+    public int f35189b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f36384c;
+    public ExecutorService f35190c;
 
     /* loaded from: classes10.dex */
     public static abstract class a implements Runnable {
@@ -91,8 +91,8 @@ public class AsyncHttpClient {
             }
         }
         this.a = 10000;
-        this.f36383b = 10000;
-        this.f36384c = Executors.newCachedThreadPool();
+        this.f35189b = 10000;
+        this.f35190c = Executors.newCachedThreadPool();
     }
 
     public void get(String str, HttpClient.ProtoResultCallback protoResultCallback) {
@@ -101,7 +101,7 @@ public class AsyncHttpClient {
             if (str == null) {
                 throw new IllegalArgumentException("URI cannot be null");
             }
-            this.f36384c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
+            this.f35190c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
         }
     }
 

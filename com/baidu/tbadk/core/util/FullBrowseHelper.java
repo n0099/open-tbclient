@@ -159,7 +159,7 @@ public class FullBrowseHelper {
                             if ((data instanceof IntentConfig) && ((IntentConfig) data).getContext() != null) {
                                 Class<?> cls = data.getClass();
                                 if (LoginActivityConfig.class == cls) {
-                                    FullBrowseHelper.showDialog(j.a(c.a.d.a.b.g().b()), new IAcceptPrivacyConfirm(this, customMessage) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.5.1
+                                    FullBrowseHelper.showDialog(j.a(c.a.d.a.b.f().b()), new IAcceptPrivacyConfirm(this, customMessage) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.5.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ AnonymousClass5 this$0;
@@ -199,12 +199,12 @@ public class FullBrowseHelper {
                                     return null;
                                 } else if (MainTabActivityConfig.class != cls && PbActivityConfig.class != cls && FrsActivityConfig.class != cls && ImageViewerConfig.class != cls && LogoActivityConfig.class != cls) {
                                     if (InterestGuideActivityConfig.class != cls && NewUserRedPackageActivityConfig.class != cls) {
-                                        FullBrowseHelper.showDialog(j.a(c.a.d.a.b.g().b()), null);
+                                        FullBrowseHelper.showDialog(j.a(c.a.d.a.b.f().b()), null);
                                     }
                                     return null;
                                 }
                             } else if (customMessage.getCmd() == 2002015 || customMessage.getCmd() == 2921361) {
-                                FullBrowseHelper.showDialog(j.a(c.a.d.a.b.g().b()), null);
+                                FullBrowseHelper.showDialog(j.a(c.a.d.a.b.f().b()), null);
                                 return null;
                             }
                         }
@@ -356,7 +356,7 @@ public class FullBrowseHelper {
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921562, Boolean.FALSE));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921563));
-                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 2).param("obj_locate", c.a.s0.s.g0.b.j().k("app_restart_times", 0) >= 2 ? 2 : 1));
+                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 2).param("obj_locate", c.a.s0.s.h0.b.k().l("app_restart_times", 0) >= 2 ? 2 : 1));
                         this.val$mPrivateDialog.dismiss();
                     }
                 }
@@ -388,14 +388,14 @@ public class FullBrowseHelper {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 1).param("obj_locate", c.a.s0.s.g0.b.j().k("app_restart_times", 0) >= 2 ? 2 : 1));
+                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 1).param("obj_locate", c.a.s0.s.h0.b.k().l("app_restart_times", 0) >= 2 ? 2 : 1));
                         this.val$mPrivateDialog.dismiss();
                     }
                 }
             });
             aVar.create(fVar);
             aVar.show();
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE).addParam("obj_type", 4).addParam("obj_locate", c.a.s0.s.g0.b.j().k("app_restart_times", 0) < 2 ? 1 : 2));
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE).addParam("obj_type", 4).addParam("obj_locate", c.a.s0.s.h0.b.k().l("app_restart_times", 0) < 2 ? 1 : 2));
             c.d(textView).v(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image1), R.drawable.full_mode_icon_mask_recommend1, null);
             c.d((TextView) inflate.findViewById(R.id.full_browse_image_text1)).v(R.color.CAM_X0105);

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ViNotifyActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,16 +58,16 @@ public class ViNotifyActivity extends Activity {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f33391b;
+                    public final /* synthetic */ String f32330b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f33392c;
+                    public final /* synthetic */ String f32331c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f33393d;
+                    public final /* synthetic */ String f32332d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ ViNotifyActivity f33394e;
+                    public final /* synthetic */ ViNotifyActivity f32333e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -84,11 +84,11 @@ public class ViNotifyActivity extends Activity {
                                 return;
                             }
                         }
-                        this.f33394e = this;
+                        this.f32333e = this;
                         this.a = str5;
-                        this.f33391b = str3;
-                        this.f33392c = str2;
-                        this.f33393d = str4;
+                        this.f32330b = str3;
+                        this.f32331c = str2;
+                        this.f32332d = str4;
                     }
 
                     @Override // com.baidu.android.pushservice.g.c
@@ -99,11 +99,11 @@ public class ViNotifyActivity extends Activity {
                             if (!TextUtils.isEmpty(str6)) {
                                 str6 = m.a(Base64.decode(this.a.getBytes(), 2), "UTF-8");
                             }
-                            String str7 = this.f33391b;
+                            String str7 = this.f32330b;
                             if (!TextUtils.isEmpty(str7)) {
-                                str7 = m.a(Base64.decode(this.f33391b.getBytes(), 2), "UTF-8");
+                                str7 = m.a(Base64.decode(this.f32330b.getBytes(), 2), "UTF-8");
                             }
-                            this.f33394e.a(this.f33392c, str7, this.f33393d, str6);
+                            this.f32333e.a(this.f32331c, str7, this.f32332d, str6);
                         }
                     }
                 });

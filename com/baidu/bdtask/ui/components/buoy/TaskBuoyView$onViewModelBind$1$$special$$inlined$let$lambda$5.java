@@ -68,7 +68,7 @@ public final class TaskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$5
                 } else {
                     this.this$0.a.getContentView().setVisibility(0);
                 }
-                ProgressBar progressBar = this.this$0.a.f34082h;
+                ProgressBar progressBar = this.this$0.a.f32996h;
                 if (progressBar != null) {
                     progressBar.setVisibility(0);
                 }

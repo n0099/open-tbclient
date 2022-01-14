@@ -10,31 +10,29 @@ public class w {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f57461c = "plc001_c_h_c";
+    public static final String f55282c = "plc001_c_h_c";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f57462d = 1;
+    public static final int f55283d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f57463e = 2;
+    public static final int f55284e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f57464f = 4;
+    public static final int f55285f = 4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f57465g = 8;
+    public static final int f55286g = 8;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f57466h = 16;
+    public static final int f55287h = 16;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f57467i = 32;
+    public static final int f55288i = 32;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f57468j = 64;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final int f57469k = 128;
+    public static final int f55289j = 64;
+    public static final int k = 128;
     public static final int l = 256;
     public static final int m = 512;
     public static final int n = 1024;
@@ -45,7 +43,7 @@ public class w {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f57470b;
+    public d f55290b;
 
     public w(d dVar) {
         Interceptable interceptable = $ic;
@@ -64,8 +62,8 @@ public class w {
         }
         this.a = 0;
         try {
-            this.f57470b = dVar;
-            this.a = dVar.b(f57461c, 0);
+            this.f55290b = dVar;
+            this.a = dVar.b(f55282c, 0);
             a();
         } catch (Throwable th) {
             x0.a(th);
@@ -79,7 +77,7 @@ public class w {
                 int i2 = l1.i();
                 if (this.a != i2) {
                     this.a = i2;
-                    this.f57470b.c(f57461c, i2);
+                    this.f55290b.c(f55282c, i2);
                 }
             } catch (Throwable th) {
                 x0.a(th);

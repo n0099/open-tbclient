@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f21208b;
+    public c f20648b;
 
     public a(f fVar) {
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class a extends WebChromeClient {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f21208b = cVar;
+            this.f20648b = cVar;
         }
     }
 
@@ -120,7 +120,7 @@ public class a extends WebChromeClient {
         f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            c cVar = this.f21208b;
+            c cVar = this.f20648b;
             if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (fVar = this.a) != null && g.f(fVar)) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }

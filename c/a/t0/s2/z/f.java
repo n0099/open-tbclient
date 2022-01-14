@@ -20,16 +20,16 @@ public class f extends c.a.d.n.e.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseFragment f24084f;
+    public BaseFragment f23411f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f24085g;
+    public b f23412g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f24086h;
+    public TBSpecificationBtn f23413h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f24087i;
+    public View.OnClickListener f23414i;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -37,7 +37,7 @@ public class f extends c.a.d.n.e.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f24088e;
+        public final /* synthetic */ f f23415e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -54,16 +54,16 @@ public class f extends c.a.d.n.e.b {
                     return;
                 }
             }
-            this.f24088e = fVar;
+            this.f23415e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ViewHelper.skipToLoginActivity(this.f24088e.f24084f.getContext());
-                if (this.f24088e.f24085g != null) {
-                    this.f24088e.f24085g.resetLoadMoreFlag(true);
+                ViewHelper.skipToLoginActivity(this.f23415e.f23411f.getContext());
+                if (this.f23415e.f23412g != null) {
+                    this.f23415e.f23412g.resetLoadMoreFlag(true);
                 }
             }
         }
@@ -89,9 +89,9 @@ public class f extends c.a.d.n.e.b {
                 return;
             }
         }
-        this.f24087i = new a(this);
-        this.f24084f = baseFragment;
-        this.f24085g = bVar;
+        this.f23414i = new a(this);
+        this.f23411f = baseFragment;
+        this.f23412g = bVar;
     }
 
     @Override // c.a.d.n.e.b
@@ -99,19 +99,19 @@ public class f extends c.a.d.n.e.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.f24084f.getContext()).inflate(c.a.t0.s2.j.login_see_more_layout, (ViewGroup) null);
-            this.f3306e = inflate;
-            this.f24086h = (TBSpecificationBtn) inflate.findViewById(c.a.t0.s2.i.login_button);
-            c.a.s0.s.i0.n.a aVar = new c.a.s0.s.i0.n.a();
-            BaseFragment baseFragment = this.f24084f;
+            View inflate = LayoutInflater.from(this.f23411f.getContext()).inflate(c.a.t0.s2.j.login_see_more_layout, (ViewGroup) null);
+            this.f3264e = inflate;
+            this.f23413h = (TBSpecificationBtn) inflate.findViewById(c.a.t0.s2.i.login_button);
+            c.a.s0.s.j0.n.a aVar = new c.a.s0.s.j0.n.a();
+            BaseFragment baseFragment = this.f23411f;
             if (baseFragment != null && baseFragment.getContext() != null) {
-                this.f24086h.setText(this.f24084f.getContext().getResources().getString(l.login_see_more));
+                this.f23413h.setText(this.f23411f.getContext().getResources().getString(l.login_see_more));
             }
-            this.f24086h.setTextSize(c.a.t0.s2.g.tbds42);
-            this.f24086h.setConfig(aVar);
-            this.f24086h.setOnClickListener(this.f24087i);
+            this.f23413h.setTextSize(c.a.t0.s2.g.tbds42);
+            this.f23413h.setConfig(aVar);
+            this.f23413h.setOnClickListener(this.f23414i);
             f(TbadkCoreApplication.getInst().getSkinType());
-            return this.f3306e;
+            return this.f3264e;
         }
         return (View) invokeV.objValue;
     }
@@ -126,8 +126,8 @@ public class f extends c.a.d.n.e.b {
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            c.a.s0.x0.a.a(this.f24084f.getPageContext(), this.f3306e);
-            TBSpecificationBtn tBSpecificationBtn = this.f24086h;
+            c.a.s0.x0.a.a(this.f23411f.getPageContext(), this.f3264e);
+            TBSpecificationBtn tBSpecificationBtn = this.f23413h;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.changeSkinType();
             }
@@ -137,14 +137,14 @@ public class f extends c.a.d.n.e.b {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f3306e.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.f3264e.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         }
     }
 
     public void h(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f24086h.setOnClickListener(onClickListener);
+            this.f23413h.setOnClickListener(onClickListener);
         }
     }
 }

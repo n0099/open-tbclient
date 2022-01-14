@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.videoPreload;
 
 import android.text.TextUtils;
 import c.a.d.f.p.l;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class PreLoadVideoSwitchManager {
         this.mSize = 0;
         VideoPreLoadLog.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(b.j().p("video_sync_switch_json", ""));
+            parseJson(b.k().q("video_sync_switch_json", ""));
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -117,7 +117,7 @@ public class PreLoadVideoSwitchManager {
             }
             try {
                 parseJson(str);
-                b.j().x("video_sync_switch_json", str);
+                b.k().y("video_sync_switch_json", str);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

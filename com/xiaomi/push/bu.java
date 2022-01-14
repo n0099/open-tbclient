@@ -34,25 +34,25 @@ public class bu {
     public final String f169a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ai.a f63323b;
+    public ai.a f60942b;
 
     /* renamed from: b  reason: collision with other field name */
     public final String f170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ai.a f63324c;
+    public ai.a f60943c;
 
     /* renamed from: c  reason: collision with other field name */
     public final String f171c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f63325d;
+    public final String f60944d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f63326e;
+    public String f60945e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63327f;
+    public String f60946f;
 
     public bu(Context context) {
         Interceptable interceptable = $ic;
@@ -72,10 +72,10 @@ public class bu {
         this.f169a = "push_stat_sp";
         this.f170b = "upload_time";
         this.f171c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
-        this.f63325d = "check_time";
+        this.f60944d = "check_time";
         this.f166a = new bv(this);
-        this.f63323b = new bw(this);
-        this.f63324c = new bx(this);
+        this.f60942b = new bw(this);
+        this.f60943c = new bx(this);
         this.f165a = context;
     }
 
@@ -119,10 +119,10 @@ public class bu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m244a() {
+    public String m256a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63326e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60945e : (String) invokeV.objValue;
     }
 
     public void a(cg.a aVar) {
@@ -161,6 +161,6 @@ public class bu {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f63327f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f60946f : (String) invokeV.objValue;
     }
 }

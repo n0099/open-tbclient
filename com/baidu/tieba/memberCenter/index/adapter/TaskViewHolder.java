@@ -17,7 +17,7 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
     public i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f47681b;
+    public View.OnClickListener f45907b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TaskViewHolder(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -37,7 +37,7 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f47681b = onClickListener;
+        this.f45907b = onClickListener;
         this.a = new i(view, baseFragmentActivity, onClickListener);
     }
 
@@ -54,7 +54,7 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
     public void setCommenClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f47681b = onClickListener;
+            this.f45907b = onClickListener;
         }
     }
 }

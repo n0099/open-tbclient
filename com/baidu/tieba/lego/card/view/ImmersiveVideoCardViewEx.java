@@ -23,13 +23,13 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f47314f;
+    public ViewGroup f45561f;
 
     /* renamed from: g  reason: collision with root package name */
-    public n f47315g;
+    public n f45562g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f47316h;
+    public a f45563h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImmersiveVideoCardViewEx(TbPageContext tbPageContext) {
@@ -55,7 +55,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     public void displayAll() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f47316h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f45563h) == null) {
             return;
         }
         aVar.j();
@@ -65,7 +65,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     public void displayAllWithoutAnim() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f47316h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f45563h) == null) {
             return;
         }
         aVar.k();
@@ -76,7 +76,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            n nVar = this.f47315g;
+            n nVar = this.f45562g;
             if (nVar != null) {
                 return nVar.k();
             }
@@ -90,7 +90,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n nVar = this.f47315g;
+            n nVar = this.f45562g;
             if (nVar != null) {
                 return nVar.m();
             }
@@ -104,7 +104,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            n nVar = this.f47315g;
+            n nVar = this.f45562g;
             if (nVar != null) {
                 return nVar.n();
             }
@@ -117,7 +117,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     public void hideAll() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f47316h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f45563h) == null) {
             return;
         }
         aVar.m();
@@ -126,7 +126,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     public void hideAllWithoutAnim() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f47316h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f45563h) == null) {
             return;
         }
         aVar.n();
@@ -138,12 +138,12 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.card_item_video_thread, (ViewGroup) null);
-            this.f47314f = viewGroup;
-            this.f47315g = new n(this.mContext, viewGroup.findViewById(R.id.layout_video_container));
-            a aVar = new a(this.mContext, this.f47314f);
-            this.f47316h = aVar;
-            this.f47315g.s(aVar);
-            return this.f47314f;
+            this.f45561f = viewGroup;
+            this.f45562g = new n(this.mContext, viewGroup.findViewById(R.id.layout_video_container));
+            a aVar = new a(this.mContext, this.f45561f);
+            this.f45563h = aVar;
+            this.f45562g.s(aVar);
+            return this.f45561f;
         }
         return (View) invokeV.objValue;
     }
@@ -163,7 +163,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            n nVar = this.f47315g;
+            n nVar = this.f45562g;
             return nVar != null && nVar.p();
         }
         return invokeV.booleanValue;
@@ -174,7 +174,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            n nVar = this.f47315g;
+            n nVar = this.f45562g;
             return nVar != null && nVar.q();
         }
         return invokeV.booleanValue;
@@ -191,7 +191,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     public void postHideExceptVideo() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (aVar = this.f47316h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (aVar = this.f45563h) == null) {
             return;
         }
         aVar.r();
@@ -201,7 +201,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     public void startPlay() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (nVar = this.f47315g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (nVar = this.f45562g) == null) {
             return;
         }
         nVar.v();
@@ -211,7 +211,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     public void stopPlay() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (nVar = this.f47315g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (nVar = this.f45562g) == null) {
             return;
         }
         nVar.w();
@@ -224,12 +224,12 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         if (!(interceptable == null || interceptable.invokeL(1048591, this, immersiveVideoCardEx) == null) || immersiveVideoCardEx.getVideoInfo() == null) {
             return;
         }
-        this.f47315g.y(immersiveVideoCardEx.getShowExtra(), "feed");
-        this.f47315g.x(immersiveVideoCardEx.getVideoInfo(), immersiveVideoCardEx.getPage());
-        boolean z = immersiveVideoCardEx.getVideoInfo().f47269i;
-        this.f47315g.u(z);
-        this.f47315g.t(z);
-        this.f47316h.u(z);
+        this.f45562g.y(immersiveVideoCardEx.getShowExtra(), "feed");
+        this.f45562g.x(immersiveVideoCardEx.getVideoInfo(), immersiveVideoCardEx.getPage());
+        boolean z = immersiveVideoCardEx.getVideoInfo().f45518i;
+        this.f45562g.u(z);
+        this.f45562g.t(z);
+        this.f45563h.u(z);
         setTag(this);
         hideAllWithoutAnim();
     }

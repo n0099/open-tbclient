@@ -33,34 +33,32 @@ public class z {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f17307b;
+    public TextView f16885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f17308c;
+    public TextView f16886c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f17309d;
+    public TextView f16887d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17310e;
+    public TextView f16888e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f17311f;
+    public TextView f16889f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17312g;
+    public TextView f16890g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PermissionJudgePolicy f17313h;
+    public PermissionJudgePolicy f16891h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.s2.u.f.x0 f17314i;
+    public c.a.t0.s2.u.f.x0 f16892i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Bitmap f17315j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public e f17316k;
+    public Bitmap f16893j;
+    public e k;
     public View l;
     public String m;
     public String n;
@@ -74,7 +72,7 @@ public class z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ z f17317e;
+        public final /* synthetic */ z f16894e;
 
         public a(z zVar) {
             Interceptable interceptable = $ic;
@@ -91,26 +89,26 @@ public class z {
                     return;
                 }
             }
-            this.f17317e = zVar;
+            this.f16894e = zVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                Bitmap m = this.f17317e.m();
-                if (view.getId() == this.f17317e.f17307b.getId()) {
-                    this.f17317e.p(m);
-                } else if (view.getId() == this.f17317e.f17308c.getId()) {
-                    this.f17317e.u(m, 3);
-                } else if (view.getId() == this.f17317e.f17309d.getId()) {
-                    this.f17317e.u(m, 2);
-                } else if (view.getId() == this.f17317e.f17310e.getId()) {
-                    this.f17317e.u(m, 4);
-                } else if (view.getId() == this.f17317e.f17311f.getId()) {
-                    this.f17317e.u(m, 8);
-                } else if (view.getId() == this.f17317e.f17312g.getId()) {
-                    this.f17317e.u(m, 6);
+                Bitmap m = this.f16894e.m();
+                if (view.getId() == this.f16894e.f16885b.getId()) {
+                    this.f16894e.p(m);
+                } else if (view.getId() == this.f16894e.f16886c.getId()) {
+                    this.f16894e.u(m, 3);
+                } else if (view.getId() == this.f16894e.f16887d.getId()) {
+                    this.f16894e.u(m, 2);
+                } else if (view.getId() == this.f16894e.f16888e.getId()) {
+                    this.f16894e.u(m, 4);
+                } else if (view.getId() == this.f16894e.f16889f.getId()) {
+                    this.f16894e.u(m, 8);
+                } else if (view.getId() == this.f16894e.f16890g.getId()) {
+                    this.f16894e.u(m, 6);
                 }
             }
         }
@@ -123,10 +121,10 @@ public class z {
         public final /* synthetic */ Bitmap a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f17318b;
+        public final /* synthetic */ int f16895b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ z f17319c;
+        public final /* synthetic */ z f16896c;
 
         public b(z zVar, Bitmap bitmap, int i2) {
             Interceptable interceptable = $ic;
@@ -143,9 +141,9 @@ public class z {
                     return;
                 }
             }
-            this.f17319c = zVar;
+            this.f16896c = zVar;
             this.a = bitmap;
-            this.f17318b = i2;
+            this.f16895b = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -154,7 +152,7 @@ public class z {
         public ShareItem doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17319c.l(this.a, this.f17318b) : (ShareItem) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16896c.l(this.a, this.f16895b) : (ShareItem) invokeV.objValue;
         }
     }
 
@@ -165,7 +163,7 @@ public class z {
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ z f17320b;
+        public final /* synthetic */ z f16897b;
 
         public c(z zVar, int i2) {
             Interceptable interceptable = $ic;
@@ -182,7 +180,7 @@ public class z {
                     return;
                 }
             }
-            this.f17320b = zVar;
+            this.f16897b = zVar;
             this.a = i2;
         }
 
@@ -192,7 +190,7 @@ public class z {
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.f17320b.a.getPageActivity(), this.a, shareItem, false));
+                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.f16897b.a.getPageActivity(), this.a, shareItem, false));
             }
         }
     }
@@ -232,12 +230,12 @@ public class z {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f17313h == null) {
-                this.f17313h = new PermissionJudgePolicy();
+            if (this.f16891h == null) {
+                this.f16891h = new PermissionJudgePolicy();
             }
-            this.f17313h.clearRequestPermissionList();
-            this.f17313h.appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            return this.f17313h.startRequestPermission(this.a.getPageActivity());
+            this.f16891h.clearRequestPermissionList();
+            this.f16891h.appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            return this.f16891h.startRequestPermission(this.a.getPageActivity());
         }
         return invokeV.booleanValue;
     }
@@ -267,36 +265,36 @@ public class z {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f17315j == null) {
+            if (this.f16893j == null) {
                 d dVar = this.o;
                 if (dVar != null) {
                     dVar.a();
                 }
                 this.l.buildDrawingCache();
-                this.f17315j = this.l.getDrawingCache();
+                this.f16893j = this.l.getDrawingCache();
                 d dVar2 = this.o;
                 if (dVar2 != null) {
                     dVar2.b();
                 }
             }
-            return this.f17315j;
+            return this.f16893j;
         }
         return (Bitmap) invokeV.objValue;
     }
 
     public final int n() {
         InterceptResult invokeV;
-        int k2;
+        int k;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int f2 = c.a.d.f.p.n.f(this.a.getPageActivity(), d1.tbds44);
             int f3 = c.a.d.f.p.n.f(this.a.getPageActivity(), d1.tbds54);
             if (UtilHelper.getRealScreenOrientation(this.a.getPageActivity()) == 2) {
-                k2 = c.a.d.f.p.n.i(this.a.getPageActivity());
+                k = c.a.d.f.p.n.i(this.a.getPageActivity());
             } else {
-                k2 = c.a.d.f.p.n.k(this.a.getPageActivity());
+                k = c.a.d.f.p.n.k(this.a.getPageActivity());
             }
-            return ((k2 - (f2 * 2)) - f3) / 6;
+            return ((k - (f2 * 2)) - f3) / 6;
         }
         return invokeV.intValue;
     }
@@ -307,29 +305,29 @@ public class z {
             return;
         }
         TextView textView = (TextView) view.findViewById(f1.frs_private_share_download);
-        this.f17307b = textView;
+        this.f16885b = textView;
         t(textView, new SvgMaskType(e1.icon_mask_frs_private_share_download40_svg));
-        this.f17307b.setOnClickListener(this.q);
+        this.f16885b.setOnClickListener(this.q);
         TextView textView2 = (TextView) view.findViewById(f1.frs_private_share_wechat);
-        this.f17308c = textView2;
+        this.f16886c = textView2;
         t(textView2, new SvgMaskType(e1.icon_mask_share_wechat40_svg));
-        this.f17308c.setOnClickListener(this.q);
+        this.f16886c.setOnClickListener(this.q);
         TextView textView3 = (TextView) view.findViewById(f1.frs_private_share_moment);
-        this.f17309d = textView3;
+        this.f16887d = textView3;
         t(textView3, new SvgMaskType(e1.icon_mask_share_circle40_svg));
-        this.f17309d.setOnClickListener(this.q);
+        this.f16887d.setOnClickListener(this.q);
         TextView textView4 = (TextView) view.findViewById(f1.frs_private_share_qzone);
-        this.f17310e = textView4;
+        this.f16888e = textView4;
         t(textView4, new SvgMaskType(e1.icon_mask_share_qqzone40_svg));
-        this.f17310e.setOnClickListener(this.q);
+        this.f16888e.setOnClickListener(this.q);
         TextView textView5 = (TextView) view.findViewById(f1.frs_private_share_qq);
-        this.f17311f = textView5;
+        this.f16889f = textView5;
         t(textView5, new SvgMaskType(e1.icon_mask_share_qq40_svg));
-        this.f17311f.setOnClickListener(this.q);
+        this.f16889f.setOnClickListener(this.q);
         TextView textView6 = (TextView) view.findViewById(f1.frs_private_share_weibo);
-        this.f17312g = textView6;
+        this.f16890g = textView6;
         t(textView6, new SvgMaskType(e1.icon_mask_share_weibo40_svg));
-        this.f17312g.setOnClickListener(this.q);
+        this.f16890g.setOnClickListener(this.q);
         this.l = view2;
         this.o = dVar;
     }
@@ -339,7 +337,7 @@ public class z {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) || k()) {
             return;
         }
-        e eVar = this.f17316k;
+        e eVar = this.k;
         if (eVar != null) {
             eVar.a(1);
         }
@@ -347,10 +345,10 @@ public class z {
         statisticItem.param("obj_type", 1);
         statisticItem.param("obj_source", this.p);
         TiebaStatic.log(statisticItem);
-        if (this.f17314i == null) {
-            this.f17314i = new c.a.t0.s2.u.f.x0(this.a);
+        if (this.f16892i == null) {
+            this.f16892i = new c.a.t0.s2.u.f.x0(this.a);
         }
-        this.f17314i.b(this.m, BitmapHelper.Bitmap2Bytes(bitmap, 100));
+        this.f16892i.b(this.m, BitmapHelper.Bitmap2Bytes(bitmap, 100));
     }
 
     public void q(String str, String str2) {
@@ -371,7 +369,7 @@ public class z {
     public void s(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar) == null) {
-            this.f17316k = eVar;
+            this.k = eVar;
         }
     }
 
@@ -407,7 +405,7 @@ public class z {
         } else if (i2 == 6) {
             i3 = 6;
         }
-        e eVar = this.f17316k;
+        e eVar = this.k;
         if (eVar != null) {
             eVar.a(i3);
         }

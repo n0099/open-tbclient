@@ -22,16 +22,16 @@ public class e {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f12309b;
+    public LinearLayout f12022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f12310c;
+    public TextView f12023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DecimalFormat f12311d;
+    public DecimalFormat f12024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12312e;
+    public String f12025e;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -39,7 +39,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f12313e;
+        public final /* synthetic */ e f12026e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -56,14 +56,14 @@ public class e {
                     return;
                 }
             }
-            this.f12313e = eVar;
+            this.f12026e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f12313e.c();
+                this.f12026e.c();
             }
         }
     }
@@ -90,7 +90,7 @@ public class e {
     public LinearLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12309b : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12022b : (LinearLayout) invokeV.objValue;
     }
 
     public void b() {
@@ -104,7 +104,7 @@ public class e {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f12309b.setVisibility(8);
+            this.f12022b.setVisibility(8);
         }
     }
 
@@ -112,11 +112,11 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(g.swanapp_video_show_rate_layer, (ViewGroup) null);
-            this.f12309b = linearLayout;
+            this.f12022b = linearLayout;
             linearLayout.setVisibility(8);
-            this.f12310c = (TextView) this.f12309b.findViewById(f.swanapp_video_tv_rate_show);
-            this.f12311d = new DecimalFormat("0.0#");
-            this.f12312e = this.a.getString(h.swanapp_video_rate);
+            this.f12023c = (TextView) this.f12022b.findViewById(f.swanapp_video_tv_rate_show);
+            this.f12024d = new DecimalFormat("0.0#");
+            this.f12025e = this.a.getString(h.swanapp_video_rate);
         }
     }
 
@@ -124,7 +124,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             try {
-                this.f12310c.setText(this.f12311d.format(Float.parseFloat(str)) + this.f12312e);
+                this.f12023c.setText(this.f12024d.format(Float.parseFloat(str)) + this.f12025e);
                 b();
             } catch (Exception unused) {
             }
@@ -134,7 +134,7 @@ public class e {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f12309b.setVisibility(0);
+            this.f12022b.setVisibility(0);
         }
     }
 }

@@ -113,7 +113,7 @@ public class LivenessBaseActivity extends BeanActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessBaseActivity f35229b;
+                public final /* synthetic */ LivenessBaseActivity f34090b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -130,7 +130,7 @@ public class LivenessBaseActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f35229b = this;
+                    this.f34090b = this;
                     this.a = bioAlertDialog;
                 }
 
@@ -140,7 +140,7 @@ public class LivenessBaseActivity extends BeanActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
                         try {
-                            this.f35229b.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                            this.f34090b.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -153,7 +153,7 @@ public class LivenessBaseActivity extends BeanActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessBaseActivity f35230b;
+                public final /* synthetic */ LivenessBaseActivity f34091b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -170,7 +170,7 @@ public class LivenessBaseActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f35230b = this;
+                    this.f34091b = this;
                     this.a = bioAlertDialog;
                 }
 

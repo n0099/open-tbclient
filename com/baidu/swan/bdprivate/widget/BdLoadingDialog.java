@@ -20,10 +20,10 @@ public class BdLoadingDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40914e;
+    public String f39540e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f40915f;
+    public Context f39541f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdLoadingDialog(Context context) {
@@ -44,7 +44,7 @@ public class BdLoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f40915f = context;
+        this.f39541f = context;
     }
 
     public static BdLoadingDialog show(Context context, CharSequence charSequence) {
@@ -59,14 +59,14 @@ public class BdLoadingDialog extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(g.loading_layout);
-            ((TextView) findViewById(f.message)).setText(this.f40914e);
+            ((TextView) findViewById(f.message)).setText(this.f39540e);
         }
     }
 
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f40914e = str;
+            this.f39540e = str;
         }
     }
 
@@ -79,7 +79,7 @@ public class BdLoadingDialog extends Dialog {
     public void setMessage(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
-            this.f40914e = charSequence.toString();
+            this.f39540e = charSequence.toString();
         }
     }
 
@@ -100,7 +100,7 @@ public class BdLoadingDialog extends Dialog {
     public void setMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f40914e = this.f40915f.getResources().getString(i2);
+            this.f39540e = this.f39541f.getResources().getString(i2);
         }
     }
 }

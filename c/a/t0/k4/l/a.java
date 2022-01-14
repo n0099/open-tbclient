@@ -22,7 +22,7 @@ public class a {
 
     /* renamed from: c.a.t0.k4.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1166a {
+    public static /* synthetic */ class C1180a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -60,7 +60,7 @@ public class a {
             return invokeLL.intValue;
         }
 
-        public /* synthetic */ b(C1166a c1166a) {
+        public /* synthetic */ b(C1180a c1180a) {
             this();
         }
     }

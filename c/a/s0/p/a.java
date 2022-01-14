@@ -1,7 +1,7 @@
 package c.a.s0.p;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -24,22 +24,22 @@ public class a {
 
     /* renamed from: c.a.s0.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0851a extends CustomMessageListener {
+    public static class C0861a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c.a.s0.p.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0852a extends Thread {
+        public class C0862a extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0852a(C0851a c0851a) {
+            public C0862a(C0861a c0861a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0851a};
+                    Object[] objArr = {c0861a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -65,7 +65,7 @@ public class a {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0851a(int i2) {
+        public C0861a(int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -89,15 +89,15 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                long l = b.j().l("key_clear_resource", 0L);
+                long m = b.k().m("key_clear_resource", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
-                if (l == 0) {
-                    b.j().w("key_clear_resource", currentTimeMillis);
-                    l = currentTimeMillis;
+                if (m == 0) {
+                    b.k().x("key_clear_resource", currentTimeMillis);
+                    m = currentTimeMillis;
                 }
-                if (currentTimeMillis - l > a.a) {
-                    new C0852a(this).start();
-                    b.j().w("key_clear_resource", currentTimeMillis);
+                if (currentTimeMillis - m > a.a) {
+                    new C0862a(this).start();
+                    b.k().x("key_clear_resource", currentTimeMillis);
                 }
             }
         }
@@ -147,7 +147,7 @@ public class a {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            MessageManager.getInstance().registerListener(new C0851a(2005016));
+            MessageManager.getInstance().registerListener(new C0861a(2005016));
         }
     }
 }

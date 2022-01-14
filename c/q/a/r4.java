@@ -13,34 +13,32 @@ public class r4 {
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31411b;
+    public int f30425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31412c;
+    public int f30426c;
 
     /* renamed from: d  reason: collision with root package name */
-    public n4 f31413d;
+    public n4 f30427d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f31414e;
+    public List f30428e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f31415f;
+    public int f30429f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31416g;
+    public int f30430g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f31417h;
+    public boolean f30431h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f31418i;
+    public int f30432i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f31419j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f31420k;
+    public int f30433j;
+    public int k;
     public int l;
     public int m;
 
@@ -58,9 +56,9 @@ public class r4 {
             }
         }
         this.a = null;
-        this.f31411b = 0;
-        this.f31412c = 0;
-        this.f31414e = new ArrayList();
+        this.f30425b = 0;
+        this.f30426c = 0;
+        this.f30428e = new ArrayList();
         this.m = 0;
     }
 }

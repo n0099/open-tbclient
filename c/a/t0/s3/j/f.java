@@ -2,7 +2,7 @@ package c.a.t0.s3.j;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.a2;
+import c.a.s0.s.q.b2;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
@@ -19,22 +19,22 @@ import org.json.JSONObject;
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a2> a;
+    public ArrayList<b2> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f24239b;
+    public ArrayList<a> f23560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<b> f24240c;
+    public ArrayList<b> f23561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24241d;
+    public boolean f23562d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f24242e;
+    public long f23563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<d> f24243f;
+    public ArrayList<d> f23564f;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -43,13 +43,13 @@ public class f {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24244b;
+        public String f23565b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f24245c;
+        public String f23566c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f24246d;
+        public boolean f23567d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -73,34 +73,32 @@ public class f {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24247b;
+        public String f23568b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f24248c;
+        public boolean f23569c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f24249d;
+        public int f23570d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f24250e;
+        public String f23571e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f24251f;
+        public String f23572f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f24252g;
+        public String f23573g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f24253h;
+        public String f23574h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f24254i;
+        public String f23575i;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f24255j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public long f24256k;
+        public long f23576j;
+        public long k;
         public String l;
         public int m;
         public int n;
@@ -127,28 +125,28 @@ public class f {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24257b;
+        public String f23577b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f24258c;
+        public String f23578c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f24259d;
+        public long f23579d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f24260e;
+        public long f23580e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f24261f;
+        public String f23581f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f24262g;
+        public String f23582g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f24263h;
+        public String f23583h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f24264i;
+        public String f23584i;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -172,16 +170,16 @@ public class f {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f24265b;
+        public int f23585b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f24266c;
+        public String f23586c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f24267d;
+        public String f23587d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<c> f24268e;
+        public ArrayList<c> f23588e;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -212,22 +210,22 @@ public class f {
             }
         }
         this.a = new ArrayList<>();
-        this.f24239b = new ArrayList<>();
-        this.f24240c = new ArrayList<>();
-        this.f24243f = new ArrayList<>();
-        this.f24241d = true;
+        this.f23560b = new ArrayList<>();
+        this.f23561c = new ArrayList<>();
+        this.f23564f = new ArrayList<>();
+        this.f23562d = true;
     }
 
     public ArrayList<a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24239b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23560b : (ArrayList) invokeV.objValue;
     }
 
     public ArrayList<b> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24240c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23561c : (ArrayList) invokeV.objValue;
     }
 
     public boolean c() {
@@ -248,9 +246,9 @@ public class f {
             JSONArray jSONArray2 = new JSONArray();
             try {
                 if (this.a != null && this.a.size() != 0) {
-                    Iterator<a2> it = this.a.iterator();
+                    Iterator<b2> it = this.a.iterator();
                     while (it.hasNext()) {
-                        a2 next = it.next();
+                        b2 next = it.next();
                         if (next != null) {
                             JSONObject jSONObject2 = new JSONObject();
                             jSONObject2.put("pic_url_bigger", next.a());
@@ -260,21 +258,21 @@ public class f {
                     }
                     jSONObject.put(SpeedStatsUtils.UBC_VALUE_BANNER, jSONArray2);
                 }
-                jSONObject.put("prevtime", this.f24242e);
+                jSONObject.put("prevtime", this.f23563e);
             } catch (Exception e2) {
                 BdLog.e(e2.toString());
             }
-            if (this.f24243f != null && this.f24243f.size() != 0) {
-                Iterator<d> it2 = this.f24243f.iterator();
+            if (this.f23564f != null && this.f23564f.size() != 0) {
+                Iterator<d> it2 = this.f23564f.iterator();
                 while (it2.hasNext()) {
                     d next2 = it2.next();
                     if (next2 != null) {
                         JSONObject jSONObject3 = new JSONObject();
                         jSONObject3.put("title", next2.a);
-                        jSONObject3.put("type", next2.f24265b);
-                        jSONObject3.put("pic", next2.f24266c);
-                        jSONObject3.put("link", next2.f24267d);
-                        ArrayList<c> arrayList = next2.f24268e;
+                        jSONObject3.put("type", next2.f23585b);
+                        jSONObject3.put("pic", next2.f23586c);
+                        jSONObject3.put("link", next2.f23587d);
+                        ArrayList<c> arrayList = next2.f23588e;
                         if (arrayList != null && arrayList.size() != 0) {
                             JSONArray jSONArray3 = new JSONArray();
                             Iterator<c> it3 = arrayList.iterator();
@@ -283,14 +281,14 @@ public class f {
                                 if (next3 != null) {
                                     JSONObject jSONObject4 = new JSONObject();
                                     jSONObject4.put("forum_id", next3.a);
-                                    jSONObject4.put("forum_name", next3.f24257b);
-                                    jSONObject4.put("avatar", next3.f24258c);
-                                    jSONObject4.put("explain", next3.f24261f);
-                                    jSONObject4.put("desc", next3.f24262g);
-                                    jSONObject4.put("tag", next3.f24263h);
-                                    jSONObject4.put("thread_num", next3.f24260e);
-                                    jSONObject4.put("member_count", next3.f24259d);
-                                    jSONObject4.put("link", next3.f24264i);
+                                    jSONObject4.put("forum_name", next3.f23577b);
+                                    jSONObject4.put("avatar", next3.f23578c);
+                                    jSONObject4.put("explain", next3.f23581f);
+                                    jSONObject4.put("desc", next3.f23582g);
+                                    jSONObject4.put("tag", next3.f23583h);
+                                    jSONObject4.put("thread_num", next3.f23580e);
+                                    jSONObject4.put("member_count", next3.f23579d);
+                                    jSONObject4.put("link", next3.f23584i);
                                     jSONArray3.put(jSONObject4);
                                 }
                             }
@@ -310,7 +308,7 @@ public class f {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<a2> e() {
+    public ArrayList<b2> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
@@ -319,7 +317,7 @@ public class f {
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24242e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23563e : invokeV.longValue;
     }
 
     public boolean g() {
@@ -328,9 +326,9 @@ public class f {
         ArrayList<b> arrayList2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f24241d) {
-                ArrayList<a2> arrayList3 = this.a;
-                return (arrayList3 == null || arrayList3.size() == 0) && ((arrayList = this.f24239b) == null || arrayList.size() == 0) && ((arrayList2 = this.f24240c) == null || arrayList2.size() == 0);
+            if (this.f23562d) {
+                ArrayList<b2> arrayList3 = this.a;
+                return (arrayList3 == null || arrayList3.size() == 0) && ((arrayList = this.f23560b) == null || arrayList.size() == 0) && ((arrayList2 = this.f23561c) == null || arrayList2.size() == 0);
             }
             return true;
         }
@@ -353,11 +351,11 @@ public class f {
                     String optString2 = jSONObject.optString("link", "");
                     String optString3 = jSONObject.optString("template_id", "");
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                        a2 a2Var = new a2();
-                        a2Var.d(optString);
-                        a2Var.e(optString2);
-                        a2Var.f(optString3);
-                        this.a.add(a2Var);
+                        b2 b2Var = new b2();
+                        b2Var.d(optString);
+                        b2Var.e(optString2);
+                        b2Var.f(optString3);
+                        this.a.add(b2Var);
                     }
                 }
             }
@@ -367,7 +365,7 @@ public class f {
     }
 
     /* JADX WARN: Type inference failed for: r2v11 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r2v3, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r2v8 */
     public final void i(JSONArray jSONArray) {
         int optInt;
@@ -394,31 +392,31 @@ public class f {
                         i4++;
                         a aVar = new a();
                         aVar.a = jSONObject.optString("title", "");
-                        aVar.f24244b = jSONObject.optString("link", "");
-                        aVar.f24245c = jSONObject.optString("pic", "");
-                        aVar.f24246d = z;
-                        this.f24239b.add(aVar);
+                        aVar.f23565b = jSONObject.optString("link", "");
+                        aVar.f23566c = jSONObject.optString("pic", "");
+                        aVar.f23567d = z;
+                        this.f23560b.add(aVar);
                     } else if (optInt == 3) {
                         i4++;
                         a aVar2 = new a();
                         aVar2.a = jSONObject.optString("title", "");
-                        aVar2.f24244b = jSONObject.optString("link", "");
-                        aVar2.f24245c = jSONObject.optString("pic", "");
-                        aVar2.f24246d = true;
-                        this.f24239b.add(aVar2);
+                        aVar2.f23565b = jSONObject.optString("link", "");
+                        aVar2.f23566c = jSONObject.optString("pic", "");
+                        aVar2.f23567d = true;
+                        this.f23560b.add(aVar2);
                     } else if ((optInt == 2 || optInt == 0) && (optJSONArray = jSONObject.optJSONArray("forum_list")) != null && optJSONArray.length() != 0) {
                         b bVar = new b();
                         bVar.a = true;
                         int i5 = i3 - i4;
                         bVar.m = i5;
                         if (optInt == 2) {
-                            bVar.f24248c = true;
+                            bVar.f23569c = true;
                         } else {
-                            bVar.f24248c = z;
+                            bVar.f23569c = z;
                         }
                         bVar.l = jSONObject.optString("link", "");
-                        bVar.f24247b = jSONObject.optString("title", "");
-                        this.f24240c.add(bVar);
+                        bVar.f23568b = jSONObject.optString("title", "");
+                        this.f23561c.add(bVar);
                         int i6 = 0;
                         ?? r2 = z;
                         while (i6 < optJSONArray.length()) {
@@ -429,25 +427,25 @@ public class f {
                             } else {
                                 b bVar2 = new b();
                                 if (optInt == 2) {
-                                    bVar2.f24248c = z2;
+                                    bVar2.f23569c = z2;
                                 } else {
-                                    bVar2.f24248c = r2;
+                                    bVar2.f23569c = r2;
                                 }
                                 bVar2.a = r2;
                                 bVar2.m = i5;
                                 bVar2.n = i6;
-                                bVar2.f24249d = jSONObject2.optInt("forum_id", r2);
-                                bVar2.f24250e = jSONObject2.optString("forum_name", str2);
-                                bVar2.f24251f = jSONObject2.optString("avatar", str2);
-                                bVar2.f24253h = jSONObject2.optString("explain", str2);
-                                bVar2.f24254i = jSONObject2.optString("desc", str2);
-                                bVar2.f24252g = jSONObject2.optString("tag", str2);
+                                bVar2.f23570d = jSONObject2.optInt("forum_id", r2);
+                                bVar2.f23571e = jSONObject2.optString("forum_name", str2);
+                                bVar2.f23572f = jSONObject2.optString("avatar", str2);
+                                bVar2.f23574h = jSONObject2.optString("explain", str2);
+                                bVar2.f23575i = jSONObject2.optString("desc", str2);
+                                bVar2.f23573g = jSONObject2.optString("tag", str2);
                                 i2 = i3;
-                                bVar2.f24255j = jSONObject2.optLong("member_count", 0L);
-                                bVar2.f24256k = jSONObject2.optLong("thread_num", 0L);
+                                bVar2.f23576j = jSONObject2.optLong("member_count", 0L);
+                                bVar2.k = jSONObject2.optLong("thread_num", 0L);
                                 str = str2;
                                 bVar2.l = jSONObject2.optString("link", str);
-                                this.f24240c.add(bVar2);
+                                this.f23561c.add(bVar2);
                             }
                             i6++;
                             str2 = str;
@@ -474,12 +472,12 @@ public class f {
                     l(str);
                     return;
                 } catch (Exception e2) {
-                    this.f24241d = false;
+                    this.f23562d = false;
                     BdLog.e(e2.toString());
                     return;
                 }
             }
-            this.f24241d = false;
+            this.f23562d = false;
         }
     }
 
@@ -490,14 +488,14 @@ public class f {
         }
         try {
             h(jSONObject.optJSONArray(SpeedStatsUtils.UBC_VALUE_BANNER));
-            this.f24242e = jSONObject.optLong("prevtime");
+            this.f23563e = jSONObject.optLong("prevtime");
             JSONObject optJSONObject = jSONObject.optJSONObject("new_recommend_topic");
             if (optJSONObject == null) {
                 return;
             }
             i(optJSONObject.optJSONArray("new_list"));
         } catch (Exception e2) {
-            this.f24241d = false;
+            this.f23562d = false;
             BdLog.e(e2.toString());
         }
     }
@@ -515,12 +513,12 @@ public class f {
                     JSONObject jSONObject = optJSONArray.getJSONObject(i2);
                     if (jSONObject != null) {
                         d dVar = new d();
-                        this.f24243f.add(dVar);
-                        dVar.f24268e = new ArrayList<>();
+                        this.f23564f.add(dVar);
+                        dVar.f23588e = new ArrayList<>();
                         dVar.a = jSONObject.optString("title", "");
-                        dVar.f24265b = jSONObject.optInt("type", -1);
-                        dVar.f24266c = jSONObject.optString("pic", "");
-                        dVar.f24267d = jSONObject.optString("link", "");
+                        dVar.f23585b = jSONObject.optInt("type", -1);
+                        dVar.f23586c = jSONObject.optString("pic", "");
+                        dVar.f23587d = jSONObject.optString("link", "");
                         JSONArray optJSONArray2 = jSONObject.optJSONArray("forum_list");
                         if (optJSONArray2 != null && optJSONArray2.length() != 0) {
                             for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
@@ -528,15 +526,15 @@ public class f {
                                 if (jSONObject2 != null) {
                                     c cVar = new c();
                                     cVar.a = jSONObject2.optInt("forum_id", 0);
-                                    cVar.f24257b = jSONObject2.optString("forum_name", "");
-                                    cVar.f24258c = jSONObject2.optString("avatar", "");
-                                    cVar.f24261f = jSONObject2.optString("explain", "");
-                                    cVar.f24262g = jSONObject2.optString("desc", "");
-                                    cVar.f24263h = jSONObject2.optString("tag", "");
-                                    cVar.f24259d = jSONObject2.optLong("member_count", 0L);
-                                    cVar.f24260e = jSONObject2.optLong("thread_num", 0L);
-                                    cVar.f24264i = jSONObject2.optString("link", "");
-                                    dVar.f24268e.add(cVar);
+                                    cVar.f23577b = jSONObject2.optString("forum_name", "");
+                                    cVar.f23578c = jSONObject2.optString("avatar", "");
+                                    cVar.f23581f = jSONObject2.optString("explain", "");
+                                    cVar.f23582g = jSONObject2.optString("desc", "");
+                                    cVar.f23583h = jSONObject2.optString("tag", "");
+                                    cVar.f23579d = jSONObject2.optLong("member_count", 0L);
+                                    cVar.f23580e = jSONObject2.optLong("thread_num", 0L);
+                                    cVar.f23584i = jSONObject2.optString("link", "");
+                                    dVar.f23588e.add(cVar);
                                 }
                             }
                         }
@@ -548,7 +546,7 @@ public class f {
         }
     }
 
-    public void m(ArrayList<a2> arrayList) {
+    public void m(ArrayList<b2> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
             this.a = arrayList;
@@ -558,7 +556,7 @@ public class f {
     public void n(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.f24242e = j2;
+            this.f23563e = j2;
         }
     }
 }

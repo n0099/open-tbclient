@@ -22,19 +22,19 @@ public class e extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Method f28804c;
+    public final Method f27921c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Method f28805d;
+    public final Method f27922d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Method f28806e;
+    public final Method f27923e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Class<?> f28807f;
+    public final Class<?> f27924f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Class<?> f28808g;
+    public final Class<?> f27925g;
 
     /* loaded from: classes9.dex */
     public static class a implements InvocationHandler {
@@ -42,13 +42,13 @@ public class e extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final List<String> f28809e;
+        public final List<String> f27926e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f28810f;
+        public boolean f27927f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f28811g;
+        public String f27928g;
 
         public a(List<String> list) {
             Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class e extends g {
                     return;
                 }
             }
-            this.f28809e = list;
+            this.f27926e = list;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -76,32 +76,32 @@ public class e extends g {
                 String name = method.getName();
                 Class<?> returnType = method.getReturnType();
                 if (objArr == null) {
-                    objArr = c.d.b.e0.e.f28538b;
+                    objArr = c.d.b.e0.e.f27665b;
                 }
                 if (name.equals("supports") && Boolean.TYPE == returnType) {
                     return Boolean.TRUE;
                 }
                 if (name.equals("unsupported") && Void.TYPE == returnType) {
-                    this.f28810f = true;
+                    this.f27927f = true;
                     return null;
                 } else if (name.equals(WebSocketRequest.PARAM_KEY_PROTOCOLS) && objArr.length == 0) {
-                    return this.f28809e;
+                    return this.f27926e;
                 } else {
                     if ((name.equals("selectProtocol") || name.equals(InvoiceBuildActivity.EXTRA_PARAMS_TYPE)) && String.class == returnType && objArr.length == 1 && (objArr[0] instanceof List)) {
                         List list = (List) objArr[0];
                         int size = list.size();
                         for (int i2 = 0; i2 < size; i2++) {
-                            if (this.f28809e.contains(list.get(i2))) {
+                            if (this.f27926e.contains(list.get(i2))) {
                                 String str = (String) list.get(i2);
-                                this.f28811g = str;
+                                this.f27928g = str;
                                 return str;
                             }
                         }
-                        String str2 = this.f28809e.get(0);
-                        this.f28811g = str2;
+                        String str2 = this.f27926e.get(0);
+                        this.f27928g = str2;
                         return str2;
                     } else if ((name.equals("protocolSelected") || name.equals("selected")) && objArr.length == 1) {
-                        this.f28811g = (String) objArr[0];
+                        this.f27928g = (String) objArr[0];
                         return null;
                     } else {
                         return method.invoke(this, objArr);
@@ -127,11 +127,11 @@ public class e extends g {
                 return;
             }
         }
-        this.f28804c = method;
-        this.f28805d = method2;
-        this.f28806e = method3;
-        this.f28807f = cls;
-        this.f28808g = cls2;
+        this.f27921c = method;
+        this.f27922d = method2;
+        this.f27923e = method3;
+        this.f27924f = cls;
+        this.f27925g = cls2;
     }
 
     public static g y() {
@@ -155,7 +155,7 @@ public class e extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sSLSocket) == null) {
             try {
-                this.f28806e.invoke(null, sSLSocket);
+                this.f27923e.invoke(null, sSLSocket);
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw c.d.b.e0.e.b("unable to remove alpn", e2);
             }
@@ -167,7 +167,7 @@ public class e extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sSLSocket, str, list) == null) {
             try {
-                this.f28804c.invoke(null, sSLSocket, Proxy.newProxyInstance(g.class.getClassLoader(), new Class[]{this.f28807f, this.f28808g}, new a(g.b(list))));
+                this.f27921c.invoke(null, sSLSocket, Proxy.newProxyInstance(g.class.getClassLoader(), new Class[]{this.f27924f, this.f27925g}, new a(g.b(list))));
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw c.d.b.e0.e.b("unable to set alpn", e2);
             }
@@ -181,14 +181,14 @@ public class e extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sSLSocket)) == null) {
             try {
-                a aVar = (a) Proxy.getInvocationHandler(this.f28805d.invoke(null, sSLSocket));
-                if (!aVar.f28810f && aVar.f28811g == null) {
+                a aVar = (a) Proxy.getInvocationHandler(this.f27922d.invoke(null, sSLSocket));
+                if (!aVar.f27927f && aVar.f27928g == null) {
                     g.m().u(4, "ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?", null);
                     return null;
-                } else if (aVar.f28810f) {
+                } else if (aVar.f27927f) {
                     return null;
                 } else {
-                    return aVar.f28811g;
+                    return aVar.f27928g;
                 }
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw c.d.b.e0.e.b("unable to get selected protocol", e2);

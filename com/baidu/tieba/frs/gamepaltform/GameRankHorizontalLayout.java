@@ -26,10 +26,10 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f45026e;
+    public LinearLayout f43392e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f45027f;
+    public b f43393f;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -37,13 +37,13 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.g1.a f45028e;
+        public final /* synthetic */ c.a.t0.g1.a f43394e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f45029f;
+        public final /* synthetic */ int f43395f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ GameRankHorizontalLayout f45030g;
+        public final /* synthetic */ GameRankHorizontalLayout f43396g;
 
         public a(GameRankHorizontalLayout gameRankHorizontalLayout, c.a.t0.g1.a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -60,20 +60,20 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f45030g = gameRankHorizontalLayout;
-            this.f45028e = aVar;
-            this.f45029f = i2;
+            this.f43396g = gameRankHorizontalLayout;
+            this.f43394e = aVar;
+            this.f43395f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45030g.f45027f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f43396g.f43393f == null) {
                 return;
             }
-            this.f45030g.f45027f.a(this.f45028e, this.f45029f);
-            if (c.a.s0.s.g0.b.j().k("game_rank_list_show_times", 0) != 0) {
-                c.a.s0.s.g0.b.j().v("game_rank_list_show_times", 0);
+            this.f43396g.f43393f.a(this.f43394e, this.f43395f);
+            if (c.a.s0.s.h0.b.k().l("game_rank_list_show_times", 0) != 0) {
+                c.a.s0.s.h0.b.k().w("game_rank_list_show_times", 0);
             }
         }
     }
@@ -110,7 +110,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
             setFillViewport(true);
             setHorizontalScrollBarEnabled(false);
             LinearLayout linearLayout = new LinearLayout(context);
-            this.f45026e = linearLayout;
+            this.f43392e = linearLayout;
             addView(linearLayout, -1, -1);
         }
     }
@@ -153,7 +153,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     public void setData(c.a.t0.g1.b bVar) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linearLayout = this.f45026e) == null || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linearLayout = this.f43392e) == null || bVar == null) {
             return;
         }
         linearLayout.removeAllViews();
@@ -174,14 +174,14 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 layoutParams.rightMargin = 0;
             }
             c2.setLayoutParams(layoutParams);
-            this.f45026e.addView(c2);
+            this.f43392e.addView(c2);
         }
     }
 
     public void setOnCardClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f45027f = bVar;
+            this.f43393f = bVar;
         }
     }
 

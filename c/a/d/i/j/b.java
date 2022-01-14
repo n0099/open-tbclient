@@ -20,12 +20,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f3217c;
+    public static volatile b f3179c;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f3218b;
+    public a f3180b;
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
@@ -34,7 +34,7 @@ public class b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f3219b;
+        public final /* synthetic */ b f3181b;
 
         public a(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class b {
                     return;
                 }
             }
-            this.f3219b = bVar;
+            this.f3181b = bVar;
             this.a = str;
         }
 
@@ -100,21 +100,21 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 super.onPostExecute((a) bool);
-                this.f3219b.f3218b = null;
-                if (this.f3219b.a.size() > 0) {
-                    Iterator it = this.f3219b.a.iterator();
+                this.f3181b.f3180b = null;
+                if (this.f3181b.a.size() > 0) {
+                    Iterator it = this.f3181b.a.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         String str = (String) it.next();
                         if (str != null && str.equals(this.a)) {
-                            this.f3219b.a.remove(str);
+                            this.f3181b.a.remove(str);
                             break;
                         }
                     }
                 }
-                this.f3219b.f();
+                this.f3181b.f();
             }
         }
     }
@@ -139,14 +139,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f3217c == null) {
+            if (f3179c == null) {
                 synchronized (b.class) {
-                    if (f3217c == null) {
-                        f3217c = new b();
+                    if (f3179c == null) {
+                        f3179c = new b();
                     }
                 }
             }
-            return f3217c;
+            return f3179c;
         }
         return (b) invokeV.objValue;
     }
@@ -176,9 +176,9 @@ public class b {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.size() > 0 && this.f3218b == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.size() > 0 && this.f3180b == null) {
             a aVar = new a(this, this.a.get(0));
-            this.f3218b = aVar;
+            this.f3180b = aVar;
             aVar.execute(new String[0]);
         }
     }

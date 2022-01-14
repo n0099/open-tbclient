@@ -1,8 +1,8 @@
 package com.baidu.nadcore.thread.executor;
 
-import c.a.c0.a0.c.c;
-import c.a.c0.a0.c.d;
-import c.a.c0.a0.c.e;
+import c.a.c0.d0.c.c;
+import c.a.c0.d0.c.d;
+import c.a.c0.d0.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,10 +21,10 @@ public abstract class BaseExecutorCell {
     public LinkedList<ElasticTask> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38323b;
+    public int f37111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f38324c;
+    public ThreadPoolExecutor f37112c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -97,7 +97,7 @@ public abstract class BaseExecutorCell {
         public final /* synthetic */ ElasticTask a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BaseExecutorCell f38325b;
+        public final /* synthetic */ BaseExecutorCell f37113b;
 
         public a(BaseExecutorCell baseExecutorCell, ElasticTask elasticTask) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public abstract class BaseExecutorCell {
                     return;
                 }
             }
-            this.f38325b = baseExecutorCell;
+            this.f37113b = baseExecutorCell;
             this.a = elasticTask;
         }
 
@@ -122,7 +122,7 @@ public abstract class BaseExecutorCell {
         public void afterExecuteTask() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38325b.g(this.a);
+                this.f37113b.g(this.a);
             }
         }
 
@@ -130,7 +130,7 @@ public abstract class BaseExecutorCell {
         public void beforeExecuteTask() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f38325b.f(this.a);
+                this.f37113b.f(this.a);
             }
         }
     }
@@ -191,7 +191,7 @@ public abstract class BaseExecutorCell {
             }
         }
         this.a = new LinkedList<>();
-        this.f38323b = i2;
+        this.f37111b = i2;
     }
 
     public static BaseExecutorCell b(int i2, ExecutorType executorType) {
@@ -211,7 +211,7 @@ public abstract class BaseExecutorCell {
                 }
                 return new d(i2);
             }
-            return new c.a.c0.a0.c.a(i2);
+            return new c.a.c0.d0.c.a(i2);
         }
         return (BaseExecutorCell) invokeIL.objValue;
     }
@@ -226,7 +226,7 @@ public abstract class BaseExecutorCell {
                 if (a()) {
                     elasticTask.h(new a(this, elasticTask));
                     this.a.add(elasticTask);
-                    this.f38324c.execute(elasticTask);
+                    this.f37112c.execute(elasticTask);
                     return true;
                 }
                 return false;

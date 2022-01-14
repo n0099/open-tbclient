@@ -21,22 +21,22 @@ public class b {
     public BdTypeRecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<c.a.d.n.e.a> f15777b;
+    public final List<c.a.d.n.e.a> f15379b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.c2.h.d.a f15778c;
+    public c.a.t0.c2.h.d.a f15380c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f15779d;
+    public d f15381d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.c2.h.d.b f15780e;
+    public c.a.t0.c2.h.d.b f15382e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.c2.h.d.c f15781f;
+    public c.a.t0.c2.h.d.c f15383f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f15782g;
+    public e f15384g;
 
     public b(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
@@ -53,53 +53,53 @@ public class b {
                 return;
             }
         }
-        this.f15777b = new ArrayList();
-        this.f15778c = null;
-        this.f15779d = null;
-        this.f15780e = null;
-        this.f15781f = null;
-        this.f15782g = null;
+        this.f15379b = new ArrayList();
+        this.f15380c = null;
+        this.f15381d = null;
+        this.f15382e = null;
+        this.f15383f = null;
+        this.f15384g = null;
         a(context, bdTypeRecyclerView);
     }
 
     public final void a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, bdTypeRecyclerView) == null) {
-            this.f15778c = new c.a.t0.c2.h.d.a(context, c.a.t0.c2.h.e.a.f15793g);
-            this.f15779d = new d(context, c.a.t0.c2.h.e.d.p);
-            this.f15780e = new c.a.t0.c2.h.d.b(context, c.a.t0.c2.h.e.b.f15796k);
-            this.f15781f = new c.a.t0.c2.h.d.c(context, c.a.t0.c2.h.e.c.f15803k);
-            this.f15782g = new e(context, c.a.t0.c2.h.e.e.f15817i);
-            this.f15777b.add(this.f15778c);
-            this.f15777b.add(this.f15779d);
-            this.f15777b.add(this.f15780e);
-            this.f15777b.add(this.f15781f);
-            this.f15777b.add(this.f15782g);
+            this.f15380c = new c.a.t0.c2.h.d.a(context, c.a.t0.c2.h.e.a.f15395g);
+            this.f15381d = new d(context, c.a.t0.c2.h.e.d.p);
+            this.f15382e = new c.a.t0.c2.h.d.b(context, c.a.t0.c2.h.e.b.k);
+            this.f15383f = new c.a.t0.c2.h.d.c(context, c.a.t0.c2.h.e.c.k);
+            this.f15384g = new e(context, c.a.t0.c2.h.e.e.f15416i);
+            this.f15379b.add(this.f15380c);
+            this.f15379b.add(this.f15381d);
+            this.f15379b.add(this.f15382e);
+            this.f15379b.add(this.f15383f);
+            this.f15379b.add(this.f15384g);
             this.a = bdTypeRecyclerView;
-            bdTypeRecyclerView.addAdapters(this.f15777b);
+            bdTypeRecyclerView.addAdapters(this.f15379b);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.t0.c2.h.d.a aVar = this.f15778c;
+            c.a.t0.c2.h.d.a aVar = this.f15380c;
             if (aVar != null) {
                 aVar.H();
             }
-            d dVar = this.f15779d;
+            d dVar = this.f15381d;
             if (dVar != null) {
                 dVar.H();
             }
-            c.a.t0.c2.h.d.b bVar = this.f15780e;
+            c.a.t0.c2.h.d.b bVar = this.f15382e;
             if (bVar != null) {
                 bVar.H();
             }
-            c.a.t0.c2.h.d.c cVar = this.f15781f;
+            c.a.t0.c2.h.d.c cVar = this.f15383f;
             if (cVar != null) {
                 cVar.H();
             }
-            e eVar = this.f15782g;
+            e eVar = this.f15384g;
             if (eVar != null) {
                 eVar.H();
             }

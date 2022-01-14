@@ -378,7 +378,7 @@ public class a {
     public static com.kwad.sdk.core.response.model.c aa(@NonNull AdInfo adInfo) {
         String str;
         int j2;
-        int k2;
+        int k;
         boolean z;
         String c2 = c(adInfo);
         int e2 = e(adInfo);
@@ -387,16 +387,16 @@ public class a {
             String h2 = h(adInfo);
             str = h2;
             j2 = j(adInfo);
-            k2 = k(adInfo);
+            k = k(adInfo);
             z = true;
         } else {
             str = c2;
             j2 = e2;
-            k2 = f2;
+            k = f2;
             z = false;
         }
         com.kwad.sdk.core.d.a.a("AdInfoHelper", "frameUrl=" + str + " useCover=" + z + " isAd=true");
-        return new com.kwad.sdk.core.response.model.c(str, j2, k2, true, z);
+        return new com.kwad.sdk.core.response.model.c(str, j2, k, true, z);
     }
 
     public static String ab(AdInfo adInfo) {

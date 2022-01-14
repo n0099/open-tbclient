@@ -10,11 +10,11 @@ import org.json.JSONObject;
 public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.kwai.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public a f58550b;
+    public a f56341b;
     public VideoPosition a = new VideoPosition();
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f58551c = new Handler(Looper.getMainLooper());
+    public Handler f56342c = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes3.dex */
     public static final class VideoPosition extends com.kwad.sdk.core.response.kwai.a implements Serializable {
@@ -36,7 +36,7 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.kw
     }
 
     public WebCardVideoPositionHandler(a aVar) {
-        this.f58550b = aVar;
+        this.f56341b = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
@@ -49,11 +49,11 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.kw
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         try {
             this.a.parseJson(new JSONObject(str));
-            if (this.f58550b != null) {
-                this.f58551c.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.WebCardVideoPositionHandler.1
+            if (this.f56341b != null) {
+                this.f56342c.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.WebCardVideoPositionHandler.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        WebCardVideoPositionHandler.this.f58550b.a(WebCardVideoPositionHandler.this.a);
+                        WebCardVideoPositionHandler.this.f56341b.a(WebCardVideoPositionHandler.this.a);
                     }
                 });
             }
@@ -65,6 +65,6 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.kw
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        this.f58551c.removeCallbacksAndMessages(null);
+        this.f56342c.removeCallbacksAndMessages(null);
     }
 }

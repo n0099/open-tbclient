@@ -24,19 +24,19 @@ public class c {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TailData f18138b;
+    public TailData f17697b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f18139c;
+    public TextView f17698c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f18140d;
+    public TextView f17699d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18141e;
+    public Context f17700e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18142f;
+    public String f17701f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class c {
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             tbPageContext.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
             tbPageContext.getLayoutMode().j(this.a);
-            d(this.f18142f);
+            d(this.f17701f);
         }
     }
 
@@ -65,13 +65,13 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.f18141e = context;
+            this.f17700e = context;
             View inflate = LayoutInflater.from(context).inflate(R.layout.tail_management_item, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.f18139c = (TextView) this.a.findViewById(R.id.tail_management_item_text);
+            this.f17698c = (TextView) this.a.findViewById(R.id.tail_management_item_text);
             TextView textView = (TextView) this.a.findViewById(R.id.tail_management_item_delete);
-            this.f18140d = textView;
+            this.f17699d = textView;
             textView.setTag(this);
             return this.a;
         }
@@ -81,35 +81,35 @@ public class c {
     public TailData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18138b : (TailData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17697b : (TailData) invokeV.objValue;
     }
 
     public final void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f18142f = str;
-            this.f18139c.setTextColor(c.a.t0.f2.h.f.c.a(str));
+            this.f17701f = str;
+            this.f17698c.setTextColor(c.a.t0.f2.h.f.c.a(str));
         }
     }
 
     public final void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f18139c.setText(TbFaceManager.e().l(this.f18141e, c.a.t0.f2.h.f.d.a(str), null));
+            this.f17698c.setText(TbFaceManager.e().l(this.f17700e, c.a.t0.f2.h.f.d.a(str), null));
         }
     }
 
     public void f(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f18140d.setOnClickListener(onClickListener);
+            this.f17699d.setOnClickListener(onClickListener);
         }
     }
 
     public void g(Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bool) == null) {
-            this.f18140d.setVisibility(bool.booleanValue() ? 0 : 8);
+            this.f17699d.setVisibility(bool.booleanValue() ? 0 : 8);
         }
     }
 
@@ -123,7 +123,7 @@ public class c {
     public void i(TailData tailData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tailData) == null) {
-            this.f18138b = tailData;
+            this.f17697b = tailData;
             e(tailData.getContent());
             d(tailData.getFontColor());
         }

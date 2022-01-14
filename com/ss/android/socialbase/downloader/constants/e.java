@@ -7,28 +7,28 @@ public class e {
     public static volatile String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f62249b = "";
+    public static volatile String f59903b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile String f62250c = "";
+    public static volatile String f59904c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f62251d = 512000;
+    public static long f59905d = 512000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f62252e = 50;
+    public static long f59906e = 50;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f62253f = 5242880;
+    public static long f59907f = 5242880;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f62254g = 31457280;
+    public static long f59908g = 31457280;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f62255h = 10485760;
+    public static long f59909h = 10485760;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final JSONObject f62256i = new JSONObject();
+    public static final JSONObject f59910i = new JSONObject();
 
     public static void a(String str) {
         if (TextUtils.isEmpty(str)) {

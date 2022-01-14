@@ -14,7 +14,7 @@ public final class c extends c.a.t0.m0.f.c.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.m0.a f19771i;
+    public c.a.t0.m0.a f19258i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(c.a.t0.m0.f.a context) {
@@ -55,13 +55,13 @@ public final class c extends c.a.t0.m0.f.c.b {
     public final c.a.t0.m0.a k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19771i : (c.a.t0.m0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19258i : (c.a.t0.m0.a) invokeV.objValue;
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.t0.m0.a aVar = this.f19771i;
+            c.a.t0.m0.a aVar = this.f19258i;
             if (aVar != null) {
                 c.a.t0.m0.a c2 = i().c();
                 if (c2.j() != aVar.j() || c2.g() != aVar.g()) {
@@ -91,7 +91,7 @@ public final class c extends c.a.t0.m0.f.c.b {
                 }
                 i().h(aVar);
             }
-            this.f19771i = null;
+            this.f19258i = null;
         }
     }
 
@@ -99,7 +99,7 @@ public final class c extends c.a.t0.m0.f.c.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, danmakuConfig) == null) {
             Intrinsics.checkNotNullParameter(danmakuConfig, "danmakuConfig");
-            this.f19771i = danmakuConfig;
+            this.f19258i = danmakuConfig;
         }
     }
 

@@ -26,6 +26,8 @@ import android.view.Display;
 import android.view.WindowManager;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -148,7 +150,7 @@ public class ArdUtil {
             if (mAndroidId != null) {
                 return mAndroidId;
             }
-            mAndroidId = Settings.Secure.getString(context.getContentResolver(), "android_id");
+            mAndroidId = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             return mAndroidId;
         }
         return (String) invokeL.objValue;
@@ -493,7 +495,7 @@ public class ArdUtil {
                 return str;
             }
             try {
-                if (checkPermissions(context, s.f57420d) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
+                if (checkPermissions(context, s.f55243d) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
                     WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                     mMacAddress = connectionInfo == null ? null : connectionInfo.getMacAddress();
                 }
@@ -570,7 +572,7 @@ public class ArdUtil {
             StringBuilder sb = new StringBuilder();
             try {
                 try {
-                    fileInputStream = new FileInputStream(z.f57501b);
+                    fileInputStream = new FileInputStream(z.f55318b);
                     try {
                         byte[] bArr = new byte[24];
                         while (fileInputStream.read(bArr) != -1) {
@@ -929,7 +931,7 @@ public class ArdUtil {
         BufferedReader bufferedReader2 = null;
         try {
             try {
-                bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8);
+                bufferedReader = new BufferedReader(new FileReader(HardwareInfoUtils.MEM_INFO_FILE), 8);
             } catch (Throwable th) {
                 th = th;
             }
@@ -972,7 +974,7 @@ public class ArdUtil {
             return invokeV.longValue;
         }
         try {
-            randomAccessFile = new RandomAccessFile("/proc/meminfo", "r");
+            randomAccessFile = new RandomAccessFile(HardwareInfoUtils.MEM_INFO_FILE, "r");
             try {
                 Matcher matcher = Pattern.compile("(\\d+)").matcher(randomAccessFile.readLine());
                 String str = "";
@@ -1128,7 +1130,7 @@ public class ArdUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, context)) == null) {
             try {
-                if (!checkPermissions(context, s.f57420d) || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
+                if (!checkPermissions(context, s.f55243d) || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
                     return null;
                 }
                 return wifiManager.getConnectionInfo();
@@ -1148,7 +1150,7 @@ public class ArdUtil {
             return (String) invokeL.objValue;
         }
         try {
-            if (!checkPermissions(context, s.f57420d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (!checkPermissions(context, s.f55243d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return null;
             }
             return connectionInfo.getSSID();

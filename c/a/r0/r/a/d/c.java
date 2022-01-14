@@ -17,7 +17,7 @@ public class c {
     public static Field a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f12040b;
+    public static boolean f11762b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -49,14 +49,14 @@ public class c {
         public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view, str, context, attributeSet)) == null) ? this.f12039e.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
+            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view, str, context, attributeSet)) == null) ? this.f11761e.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
         }
     }
 
     public static void a(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, factory2) == null) {
-            if (!f12040b) {
+            if (!f11762b) {
                 try {
                     Field declaredField = LayoutInflater.class.getDeclaredField("mFactory2");
                     a = declaredField;
@@ -64,7 +64,7 @@ public class c {
                 } catch (NoSuchFieldException unused) {
                     String str = "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.";
                 }
-                f12040b = true;
+                f11762b = true;
             }
             Field field = a;
             if (field != null) {

@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -200,14 +201,14 @@ public class a {
         if (aVar != null) {
             try {
                 if (!TextUtils.isEmpty(aVar.a)) {
-                    jSONObject.put("callback", aVar.a);
+                    jSONObject.put(WebChromeClient.KEY_ARG_CALLBACK, aVar.a);
                     if (aVar2 != null) {
                         a.add(aVar2);
                     }
                 }
-                jSONObject.put("isTranslucent", aVar.f15432b);
-                if (!TextUtils.isEmpty(aVar.f15433c)) {
-                    jSONObject.put("from", aVar.f15433c);
+                jSONObject.put("isTranslucent", aVar.f15049b);
+                if (!TextUtils.isEmpty(aVar.f15050c)) {
+                    jSONObject.put("from", aVar.f15050c);
                 }
             } catch (JSONException unused) {
             }

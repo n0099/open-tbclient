@@ -25,13 +25,13 @@ public class TipView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f39117e;
+    public ImageView f37825e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f39118f;
+    public TextView f37826f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f39119g;
+    public Animation f37827g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TipView(Context context) {
@@ -60,8 +60,8 @@ public class TipView extends LinearLayout {
             setOrientation(1);
             setGravity(17);
             LayoutInflater.from(context).inflate(h.view_tip, (ViewGroup) this, true);
-            this.f39117e = (ImageView) findViewById(g.tip_loading_view);
-            this.f39118f = (TextView) findViewById(g.tip_text_view);
+            this.f37825e = (ImageView) findViewById(g.tip_loading_view);
+            this.f37826f = (TextView) findViewById(g.tip_text_view);
         }
     }
 
@@ -69,7 +69,7 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setVisibility(8);
-            this.f39117e.clearAnimation();
+            this.f37825e.clearAnimation();
         }
     }
 
@@ -77,17 +77,17 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             setVisibility(0);
-            if (this.f39119g == null) {
-                this.f39119g = AnimationUtils.loadAnimation(getContext(), c.loading_rotate);
+            if (this.f37827g == null) {
+                this.f37827g = AnimationUtils.loadAnimation(getContext(), c.loading_rotate);
             }
-            this.f39118f.setText(str);
-            ViewGroup.LayoutParams layoutParams = this.f39117e.getLayoutParams();
+            this.f37826f.setText(str);
+            ViewGroup.LayoutParams layoutParams = this.f37825e.getLayoutParams();
             if (layoutParams != null) {
                 int dimensionPixelOffset = getResources().getDimensionPixelOffset(e.channel_loading_icon_size);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            this.f39117e.startAnimation(this.f39119g);
+            this.f37825e.startAnimation(this.f37827g);
         }
     }
 
@@ -95,15 +95,15 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             setVisibility(0);
-            this.f39117e.clearAnimation();
-            ViewGroup.LayoutParams layoutParams = this.f39117e.getLayoutParams();
+            this.f37825e.clearAnimation();
+            ViewGroup.LayoutParams layoutParams = this.f37825e.getLayoutParams();
             if (layoutParams != null) {
                 int dimensionPixelOffset = getResources().getDimensionPixelOffset(e.pay_loading_icon_size);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            b.b().a(this.f39117e, str);
-            this.f39118f.setText(str2);
+            b.b().a(this.f37825e, str);
+            this.f37826f.setText(str2);
         }
     }
 

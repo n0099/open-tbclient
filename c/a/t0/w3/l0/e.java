@@ -11,19 +11,19 @@ public class e {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25623b;
+    public String f24906b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25624c;
+    public String f24907c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f25625d;
+    public d f24908d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f25626e;
+    public d f24909e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f25627f;
+    public d f24910f;
 
     public e(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
@@ -41,13 +41,13 @@ public class e {
             }
         }
         this.a = false;
-        this.f25623b = null;
-        this.f25624c = null;
-        this.f25625d = new d();
-        this.f25626e = new d();
-        this.f25627f = new d();
-        this.f25624c = str;
-        this.f25623b = str2;
+        this.f24906b = null;
+        this.f24907c = null;
+        this.f24908d = new d();
+        this.f24909e = new d();
+        this.f24910f = new d();
+        this.f24907c = str;
+        this.f24906b = str2;
         this.a = z;
     }
 }

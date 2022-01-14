@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends c.a.t0.g0.b<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,9 +71,9 @@ public class b extends c.a.t0.g0.b<c> {
             return;
         }
         this.n = cVar;
-        SkinManager.setBackgroundColor(this.m, cVar.f21296f);
+        SkinManager.setBackgroundColor(this.m, cVar.f20733f);
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
-        layoutParams.height = n.f(this.f18211g, cVar.f21295e);
+        layoutParams.height = n.f(this.f17768g, cVar.f20732e);
         this.m.setLayoutParams(layoutParams);
     }
 }

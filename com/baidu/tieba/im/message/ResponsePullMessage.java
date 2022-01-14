@@ -583,12 +583,12 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                 if (next2.getListMessage() != null && next2.getListMessage().size() != 0) {
                                     ChatMessage chatMessage2 = next2.getListMessage().get(i4);
                                     ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
-                                    imMessageCenterPojo3.setGid(String.valueOf(c.a.t0.s1.s.a.f22857i));
+                                    imMessageCenterPojo3.setGid(String.valueOf(c.a.t0.s1.s.a.f22227i));
                                     imMessageCenterPojo3.setCustomGroupType(-1);
                                     imMessageCenterPojo3.setIs_hidden(1);
                                     imMessageCenterPojo3.setPulled_msgId(chatMessage2.getMsgId());
                                     j.f().j(imMessageCenterPojo3);
-                                    BdLog.i("pullMessage insertMessagecent personal_Group gid = " + c.a.t0.s1.s.a.f22857i + " msgid = " + chatMessage2.getMsgId());
+                                    BdLog.i("pullMessage insertMessagecent personal_Group gid = " + c.a.t0.s1.s.a.f22227i + " msgid = " + chatMessage2.getMsgId());
                                 }
                             } else {
                                 if (next2.getCmd() == 2012129) {
@@ -676,11 +676,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                             getCmd();
                             c.a.d.c.i.a aVar3 = this.performanceData;
                             if (aVar3 != null) {
-                                fVar.f14062b = aVar3.f2668f;
-                                fVar.f14063c = getDownSize();
-                                fVar.f14064d = currentTimeMillis3;
-                                fVar.f14065e = i5;
-                                fVar.f14066f = this.performanceData.f2665c;
+                                fVar.f13734b = aVar3.f2650f;
+                                fVar.f13735c = getDownSize();
+                                fVar.f13736d = currentTimeMillis3;
+                                fVar.f13737e = i5;
+                                fVar.f13738f = this.performanceData.f2647c;
                                 fVar.a(1002);
                                 fVar.f();
                             }
@@ -693,11 +693,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                             getCmd();
                             aVar = this.performanceData;
                             if (aVar != null) {
-                                fVar2.f14062b = aVar.f2668f;
-                                fVar2.f14063c = getDownSize();
-                                fVar2.f14064d = currentTimeMillis4;
-                                fVar2.f14065e = i5;
-                                fVar2.f14066f = this.performanceData.f2665c;
+                                fVar2.f13734b = aVar.f2650f;
+                                fVar2.f13735c = getDownSize();
+                                fVar2.f13736d = currentTimeMillis4;
+                                fVar2.f13737e = i5;
+                                fVar2.f13738f = this.performanceData.f2647c;
                                 fVar2.a(1002);
                                 fVar2.f();
                             }
@@ -729,11 +729,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                 i5 = 0;
             }
             if (aVar2 != null) {
-                fVar.f14062b = aVar2.f2668f;
-                fVar.f14063c = getDownSize();
-                fVar.f14064d = currentTimeMillis;
-                fVar.f14065e = i6;
-                fVar.f14066f = this.performanceData.f2665c;
+                fVar.f13734b = aVar2.f2650f;
+                fVar.f13735c = getDownSize();
+                fVar.f13736d = currentTimeMillis;
+                fVar.f13737e = i6;
+                fVar.f13738f = this.performanceData.f2647c;
                 fVar.a(1002);
                 fVar.f();
             }

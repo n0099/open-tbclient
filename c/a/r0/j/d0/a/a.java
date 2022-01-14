@@ -26,44 +26,44 @@ public final class a extends c.a.r0.a.d2.n.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f11184h;
+    public static final boolean f10936h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11185b;
+    public int f10937b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f11186c;
+    public b f10938c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f11187d;
+    public c f10939d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11188e;
+    public String f10940e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.j.s.a f11189f;
+    public c.a.r0.j.s.a f10941f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.j.z.e.a f11190g;
+    public c.a.r0.j.z.e.a f10942g;
 
     /* renamed from: c.a.r0.j.d0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0732a {
+    public static class C0741a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11191b;
+        public String f10943b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f11192c;
+        public String f10944c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f11193d;
+        public String f10945d;
 
-        public C0732a() {
+        public C0741a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,46 +77,46 @@ public final class a extends c.a.r0.a.d2.n.a {
             }
         }
 
-        public static C0732a b(JSONObject jSONObject) {
+        public static C0741a b(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
                 if (jSONObject == null) {
                     return c();
                 }
-                C0732a c0732a = new C0732a();
-                c0732a.f11191b = jSONObject.optString("root");
-                c0732a.a = jSONObject.optString("name");
-                if (!TextUtils.isEmpty(c0732a.f11191b) && !TextUtils.isEmpty(c0732a.a)) {
-                    if (c0732a.f11191b.endsWith(".js")) {
-                        String[] split = c0732a.f11191b.split(File.separator);
+                C0741a c0741a = new C0741a();
+                c0741a.f10943b = jSONObject.optString("root");
+                c0741a.a = jSONObject.optString("name");
+                if (!TextUtils.isEmpty(c0741a.f10943b) && !TextUtils.isEmpty(c0741a.a)) {
+                    if (c0741a.f10943b.endsWith(".js")) {
+                        String[] split = c0741a.f10943b.split(File.separator);
                         if (split.length < 1) {
                             return c();
                         }
-                        c0732a.f11193d = split[split.length - 1];
-                        c0732a.f11192c = "";
+                        c0741a.f10945d = split[split.length - 1];
+                        c0741a.f10944c = "";
                         for (int i2 = 0; i2 < split.length - 1; i2++) {
-                            c0732a.f11192c += split[i2] + File.separator;
+                            c0741a.f10944c += split[i2] + File.separator;
                         }
                     } else {
-                        String str = c0732a.f11191b;
-                        c0732a.f11192c = str;
+                        String str = c0741a.f10943b;
+                        c0741a.f10944c = str;
                         if (!str.endsWith(File.separator)) {
-                            c0732a.f11192c += File.separator;
+                            c0741a.f10944c += File.separator;
                         }
-                        c0732a.f11193d = "index.js";
+                        c0741a.f10945d = "index.js";
                     }
-                    return c0732a;
+                    return c0741a;
                 }
                 return c();
             }
-            return (C0732a) invokeL.objValue;
+            return (C0741a) invokeL.objValue;
         }
 
-        public static C0732a c() {
+        public static C0741a c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0732a() : (C0732a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0741a() : (C0741a) invokeV.objValue;
         }
     }
 
@@ -124,10 +124,10 @@ public final class a extends c.a.r0.a.d2.n.a {
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<C0732a> a;
+        public List<C0741a> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, Boolean> f11194b;
+        public HashMap<String, Boolean> f10946b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -154,11 +154,11 @@ public final class a extends c.a.r0.a.d2.n.a {
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     b bVar = new b();
                     bVar.a = new ArrayList();
-                    bVar.f11194b = new HashMap<>();
+                    bVar.f10946b = new HashMap<>();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                         if (optJSONObject != null) {
-                            bVar.a.add(C0732a.b(optJSONObject));
+                            bVar.a.add(C0741a.b(optJSONObject));
                         }
                     }
                     return bVar;
@@ -174,7 +174,7 @@ public final class a extends c.a.r0.a.d2.n.a {
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
                 b bVar = new b();
                 bVar.a = new ArrayList();
-                bVar.f11194b = new HashMap<>();
+                bVar.f10946b = new HashMap<>();
                 return bVar;
             }
             return (b) invokeV.objValue;
@@ -203,7 +203,7 @@ public final class a extends c.a.r0.a.d2.n.a {
 
         public static c b(JSONObject jSONObject, b bVar) {
             InterceptResult invokeLL;
-            List<C0732a> list;
+            List<C0741a> list;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, bVar)) == null) {
                 if (jSONObject != null && bVar != null && (list = bVar.a) != null && list.size() > 0) {
@@ -213,10 +213,10 @@ public final class a extends c.a.r0.a.d2.n.a {
                     }
                     c cVar = new c();
                     cVar.a = new HashMap<>();
-                    for (C0732a c0732a : bVar.a) {
-                        if (c0732a != null && !TextUtils.isEmpty(c0732a.f11191b)) {
+                    for (C0741a c0741a : bVar.a) {
+                        if (c0741a != null && !TextUtils.isEmpty(c0741a.f10943b)) {
                             HashMap<String, String> hashMap = cVar.a;
-                            String str = c0732a.f11191b;
+                            String str = c0741a.f10943b;
                             hashMap.put(str, optJSONObject.optString(str));
                         }
                     }
@@ -252,7 +252,7 @@ public final class a extends c.a.r0.a.d2.n.a {
                 return;
             }
         }
-        f11184h = k.a;
+        f10936h = k.a;
     }
 
     public a() {
@@ -282,30 +282,30 @@ public final class a extends c.a.r0.a.d2.n.a {
                 aVar.a = c.a.a(jSONObject);
                 String optString = jSONObject.optString("deviceOrientation", "portrait");
                 boolean z = false;
-                aVar.f11185b = 0;
+                aVar.f10937b = 0;
                 if (TextUtils.equals(optString, "landscape")) {
-                    aVar.f11185b = 1;
+                    aVar.f10937b = 1;
                 }
                 jSONObject.optBoolean("showStatusBar", false);
                 jSONObject.optString("workers");
                 b b2 = b.b(jSONObject);
-                aVar.f11186c = b2;
-                aVar.f11187d = c.b(jSONObject, b2);
-                aVar.f11188e = jSONObject.optString("openDataContext");
-                aVar.f11189f = new c.a.r0.j.s.a(jSONObject);
+                aVar.f10938c = b2;
+                aVar.f10939d = c.b(jSONObject, b2);
+                aVar.f10940e = jSONObject.optString("openDataContext");
+                aVar.f10941f = new c.a.r0.j.s.a(jSONObject);
                 JSONArray optJSONArray = jSONObject.optJSONArray("preloadResources");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     z = true;
                 }
                 h.p(NodeJS.STARTUP_SCRIPT_NAME).D("preload_resources", z ? "1" : "0");
-                aVar.f11190g = new c.a.r0.j.z.e.a(optJSONArray);
+                aVar.f10942g = new c.a.r0.j.z.e.a(optJSONArray);
                 JSONObject optJSONObject = jSONObject.optJSONObject(com.alipay.sdk.sys.a.s);
                 if (optJSONObject != null) {
                     optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
                 }
                 return aVar;
             } catch (JSONException e2) {
-                if (f11184h) {
+                if (f10936h) {
                     String str2 = "buildConfigData json error: " + Log.getStackTraceString(e2);
                 }
                 return null;

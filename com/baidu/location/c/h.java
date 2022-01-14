@@ -26,16 +26,16 @@ public class h {
     public List<ScanResult> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36287b;
+    public long f35098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f36288c;
+    public long f35099c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36289d;
+    public boolean f35100d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36290e;
+    public boolean f35101e;
 
     public h(List<ScanResult> list, long j2) {
         Interceptable interceptable = $ic;
@@ -53,12 +53,12 @@ public class h {
             }
         }
         this.a = null;
-        this.f36287b = 0L;
-        this.f36288c = 0L;
-        this.f36289d = false;
-        this.f36287b = j2;
+        this.f35098b = 0L;
+        this.f35099c = 0L;
+        this.f35100d = false;
+        this.f35098b = j2;
         this.a = list;
-        this.f36288c = System.currentTimeMillis();
+        this.f35099c = System.currentTimeMillis();
         try {
             n();
         } catch (Exception e2) {
@@ -234,15 +234,15 @@ public class h {
             Random random = new Random();
             StringBuffer stringBuffer = new StringBuffer(512);
             ArrayList<Long> arrayList = new ArrayList();
-            WifiInfo k2 = i.a().k();
+            WifiInfo k = i.a().k();
             String str7 = ":";
-            if (k2 == null || k2.getBSSID() == null) {
+            if (k == null || k.getBSSID() == null) {
                 str = null;
                 str2 = null;
                 i3 = -1;
             } else {
-                str = k2.getBSSID().replace(":", "");
-                i3 = k2.getRssi();
+                str = k.getBSSID().replace(":", "");
+                i3 = k.getRssi();
                 str2 = i.a().m();
                 if (i3 < 0) {
                     i3 = -i3;
@@ -349,7 +349,7 @@ public class h {
                                     if (str5 != null) {
                                         str = str5;
                                         if (str.equals(replace)) {
-                                            this.f36290e = a(this.a.get(i4).capabilities);
+                                            this.f35101e = a(this.a.get(i4).capabilities);
                                             i5 = i6;
                                             z5 = true;
                                             if (z5) {
@@ -427,15 +427,15 @@ public class h {
                                 stringBuffer.append(stringBuffer3.toString());
                             }
                             stringBuffer.append("&wf_st=");
-                            stringBuffer.append(this.f36287b);
+                            stringBuffer.append(this.f35098b);
                             stringBuffer.append("&wf_et=");
-                            stringBuffer.append(this.f36288c);
+                            stringBuffer.append(this.f35099c);
                             stringBuffer.append("&wf_vt=");
                             stringBuffer.append(i.a);
                             if (i8 > 0) {
-                                this.f36289d = true;
+                                this.f35100d = true;
                                 stringBuffer.append("&wf_en=");
-                                stringBuffer.append(this.f36290e ? 1 : 0);
+                                stringBuffer.append(this.f35101e ? 1 : 0);
                             }
                             if (str8 != null) {
                                 stringBuffer.append("&wf_gw=");
@@ -815,24 +815,24 @@ public class h {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f36289d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f35100d : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? System.currentTimeMillis() - this.f36288c > 0 && System.currentTimeMillis() - this.f36288c < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? System.currentTimeMillis() - this.f35099c > 0 && System.currentTimeMillis() - this.f35099c < 5000 : invokeV.booleanValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? System.currentTimeMillis() - this.f36288c > 0 && System.currentTimeMillis() - this.f36288c < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? System.currentTimeMillis() - this.f35099c > 0 && System.currentTimeMillis() - this.f35099c < 5000 : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? System.currentTimeMillis() - this.f36288c > 0 && System.currentTimeMillis() - this.f36287b < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? System.currentTimeMillis() - this.f35099c > 0 && System.currentTimeMillis() - this.f35098b < 5000 : invokeV.booleanValue;
     }
 }

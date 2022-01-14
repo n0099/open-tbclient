@@ -23,46 +23,44 @@ public class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SensorManager f8815b;
+    public SensorManager f8621b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SensorEventListener f8816c;
+    public SensorEventListener f8622c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SensorEventListener f8817d;
+    public SensorEventListener f8623d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Sensor f8818e;
+    public Sensor f8624e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Sensor f8819f;
+    public Sensor f8625f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f8820g;
+    public float[] f8626g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f8821h;
+    public float[] f8627h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f8822i;
+    public int f8628i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c f8823j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f8824k;
+    public c f8629j;
+    public boolean k;
     public long l;
 
     /* renamed from: c.a.r0.a.r2.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0524a implements SensorEventListener {
+    public class C0533a implements SensorEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f8825e;
+        public final /* synthetic */ a f8630e;
 
-        public C0524a(a aVar) {
+        public C0533a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,7 +75,7 @@ public class a {
                     return;
                 }
             }
-            this.f8825e = aVar;
+            this.f8630e = aVar;
         }
 
         @Override // android.hardware.SensorEventListener
@@ -93,10 +91,10 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
                 if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
-                    this.f8825e.f8820g = sensorEvent.values;
-                    this.f8825e.f8822i = sensorEvent.accuracy;
-                    d.b("SwanAppCompassManager", "accelerometer changed accuracy: " + this.f8825e.f8822i);
-                    this.f8825e.k();
+                    this.f8630e.f8626g = sensorEvent.values;
+                    this.f8630e.f8628i = sensorEvent.accuracy;
+                    d.b("SwanAppCompassManager", "accelerometer changed accuracy: " + this.f8630e.f8628i);
+                    this.f8630e.k();
                     return;
                 }
                 d.o("compass", "illegal accelerometer event");
@@ -110,7 +108,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f8826e;
+        public final /* synthetic */ a f8631e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -127,7 +125,7 @@ public class a {
                     return;
                 }
             }
-            this.f8826e = aVar;
+            this.f8631e = aVar;
         }
 
         @Override // android.hardware.SensorEventListener
@@ -143,10 +141,10 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
                 if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 2) {
-                    this.f8826e.f8821h = sensorEvent.values;
-                    this.f8826e.f8822i = sensorEvent.accuracy;
-                    d.b("SwanAppCompassManager", "magneticFiled changed accuracy: " + this.f8826e.f8822i);
-                    this.f8826e.k();
+                    this.f8631e.f8627h = sensorEvent.values;
+                    this.f8631e.f8628i = sensorEvent.accuracy;
+                    d.b("SwanAppCompassManager", "magneticFiled changed accuracy: " + this.f8631e.f8628i);
+                    this.f8631e.k();
                     return;
                 }
                 d.o("compass", "illegal magnetic filed event");
@@ -172,10 +170,10 @@ public class a {
                 return;
             }
         }
-        this.f8820g = new float[3];
-        this.f8821h = new float[3];
-        this.f8822i = -100;
-        this.f8824k = false;
+        this.f8626g = new float[3];
+        this.f8627h = new float[3];
+        this.f8628i = -100;
+        this.k = false;
         this.l = 0L;
     }
 
@@ -215,7 +213,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             float[] fArr = new float[3];
             float[] fArr2 = new float[9];
-            SensorManager.getRotationMatrix(fArr2, null, this.f8820g, this.f8821h);
+            SensorManager.getRotationMatrix(fArr2, null, this.f8626g, this.f8627h);
             SensorManager.getOrientation(fArr2, fArr);
             return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
         }
@@ -227,13 +225,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d.i("compass", "get Accelerometer listener");
-            SensorEventListener sensorEventListener = this.f8816c;
+            SensorEventListener sensorEventListener = this.f8622c;
             if (sensorEventListener != null) {
                 return sensorEventListener;
             }
-            C0524a c0524a = new C0524a(this);
-            this.f8816c = c0524a;
-            return c0524a;
+            C0533a c0533a = new C0533a(this);
+            this.f8622c = c0533a;
+            return c0533a;
         }
         return (SensorEventListener) invokeV.objValue;
     }
@@ -243,12 +241,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             d.i("compass", "get MagneticFiled listener");
-            SensorEventListener sensorEventListener = this.f8817d;
+            SensorEventListener sensorEventListener = this.f8623d;
             if (sensorEventListener != null) {
                 return sensorEventListener;
             }
             b bVar = new b(this);
-            this.f8817d = bVar;
+            this.f8623d = bVar;
             return bVar;
         }
         return (SensorEventListener) invokeV.objValue;
@@ -256,12 +254,12 @@ public class a {
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f8823j == null || System.currentTimeMillis() - this.l <= 200) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f8629j == null || System.currentTimeMillis() - this.l <= 200) {
             return;
         }
         float f2 = f();
         d.b("SwanAppCompassManager", "orientation changed, orientation : " + f2);
-        this.f8823j.a(f2, this.f8822i);
+        this.f8629j.a(f2, this.f8628i);
         this.l = System.currentTimeMillis();
     }
 
@@ -276,15 +274,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             d.i("compass", "release");
-            if (this.f8824k) {
+            if (this.k) {
                 q();
             }
-            this.f8815b = null;
-            this.f8819f = null;
-            this.f8818e = null;
-            this.f8816c = null;
-            this.f8817d = null;
-            this.f8823j = null;
+            this.f8621b = null;
+            this.f8625f = null;
+            this.f8624e = null;
+            this.f8622c = null;
+            this.f8623d = null;
+            this.f8629j = null;
             this.a = null;
             m = null;
         }
@@ -293,7 +291,7 @@ public class a {
     public void o(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.f8823j = cVar;
+            this.f8629j = cVar;
         }
     }
 
@@ -303,17 +301,17 @@ public class a {
             Context context = this.a;
             if (context == null) {
                 d.c("compass", "start error, none context");
-            } else if (this.f8824k) {
+            } else if (this.k) {
                 d.o("compass", "has already start");
             } else {
                 SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-                this.f8815b = sensorManager;
+                this.f8621b = sensorManager;
                 if (sensorManager != null) {
-                    this.f8818e = sensorManager.getDefaultSensor(1);
-                    this.f8819f = this.f8815b.getDefaultSensor(2);
-                    this.f8815b.registerListener(g(), this.f8818e, 1);
-                    this.f8815b.registerListener(j(), this.f8819f, 1);
-                    this.f8824k = true;
+                    this.f8624e = sensorManager.getDefaultSensor(1);
+                    this.f8625f = this.f8621b.getDefaultSensor(2);
+                    this.f8621b.registerListener(g(), this.f8624e, 1);
+                    this.f8621b.registerListener(j(), this.f8625f, 1);
+                    this.k = true;
                     d.i("compass", "start listen");
                     return;
                 }
@@ -327,25 +325,25 @@ public class a {
         SensorManager sensorManager2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (!this.f8824k) {
+            if (!this.k) {
                 d.o("compass", "has already stop");
                 return;
             }
             d.i("compass", "stop listen");
-            SensorEventListener sensorEventListener = this.f8816c;
-            if (sensorEventListener != null && (sensorManager2 = this.f8815b) != null) {
+            SensorEventListener sensorEventListener = this.f8622c;
+            if (sensorEventListener != null && (sensorManager2 = this.f8621b) != null) {
                 sensorManager2.unregisterListener(sensorEventListener);
-                this.f8816c = null;
+                this.f8622c = null;
             }
-            SensorEventListener sensorEventListener2 = this.f8817d;
-            if (sensorEventListener2 != null && (sensorManager = this.f8815b) != null) {
+            SensorEventListener sensorEventListener2 = this.f8623d;
+            if (sensorEventListener2 != null && (sensorManager = this.f8621b) != null) {
                 sensorManager.unregisterListener(sensorEventListener2);
-                this.f8817d = null;
+                this.f8623d = null;
             }
-            this.f8815b = null;
-            this.f8819f = null;
-            this.f8818e = null;
-            this.f8824k = false;
+            this.f8621b = null;
+            this.f8625f = null;
+            this.f8624e = null;
+            this.k = false;
         }
     }
 }

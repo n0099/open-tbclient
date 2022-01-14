@@ -30,24 +30,24 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f25094f;
+    public static final int f24392f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f25095g;
+    public static final int f24393g;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25096b;
+    public int f24394b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o f25097c;
+    public o f24395c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.j3.e0.a f25098d;
+    public c.a.t0.j3.e0.a f24396d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MultiImageView f25099e;
+    public MultiImageView f24397e;
 
     static {
         InterceptResult invokeClinit;
@@ -62,8 +62,8 @@ public class a {
                 return;
             }
         }
-        f25094f = n.f(TbadkApplication.getInst(), R.dimen.tbds44);
-        f25095g = n.k(TbadkApplication.getInst()) - (f25094f * 2);
+        f24392f = n.f(TbadkApplication.getInst(), R.dimen.tbds44);
+        f24393g = n.k(TbadkApplication.getInst()) - (f24392f * 2);
     }
 
     public a(ViewStub viewStub, TbPageContext tbPageContext) {
@@ -82,10 +82,10 @@ public class a {
             }
         }
         try {
-            this.f25098d = (c.a.t0.j3.e0.a) y.q().k(IAdBaseAsyncController.Type.PIC_BANNER, null);
+            this.f24396d = (c.a.t0.j3.e0.a) y.q().k(IAdBaseAsyncController.Type.PIC_BANNER, null);
         } catch (ClassCastException unused) {
         }
-        this.f25097c = this.f25098d.h(viewStub, tbPageContext);
+        this.f24395c = this.f24396d.h(viewStub, tbPageContext);
     }
 
     public final g a(int i2, boolean z, boolean z2, String str, int i3, String str2, String str3, String str4) {
@@ -93,25 +93,25 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), str, Integer.valueOf(i3), str2, str3, str4})) == null) {
             g gVar = new g();
-            gVar.f12671j = z;
+            gVar.f12374j = z;
             if (z) {
                 return gVar;
             }
-            gVar.f12664c = i2;
-            gVar.f12665d = z2 ? this.f25096b : this.a;
-            MultiImageView multiImageView = this.f25099e;
-            if (multiImageView != null && multiImageView.getCurrentUrlDragImageView() != null && this.f25099e.getCurrentUrlDragImageView().getImageView() != null) {
-                float[] resizedSize = this.f25099e.getCurrentUrlDragImageView().getImageView().getResizedSize();
+            gVar.f12367c = i2;
+            gVar.f12368d = z2 ? this.f24394b : this.a;
+            MultiImageView multiImageView = this.f24397e;
+            if (multiImageView != null && multiImageView.getCurrentUrlDragImageView() != null && this.f24397e.getCurrentUrlDragImageView().getImageView() != null) {
+                float[] resizedSize = this.f24397e.getCurrentUrlDragImageView().getImageView().getResizedSize();
                 if (resizedSize.length == 2) {
                     float f2 = resizedSize[0];
                     float f3 = resizedSize[1];
-                    gVar.f12666e = f3;
+                    gVar.f12369e = f3;
                     if (f3 != 0.0f) {
-                        gVar.f12667f = f2 / f3;
+                        gVar.f12370f = f2 / f3;
                     }
                 }
-                gVar.f12669h = n.f(TbadkApplication.getInst(), R.dimen.tbds130);
-                ImageUrlData imageUrlData = this.f25099e.getCurrentUrlDragImageView().getImageView().getImageUrlData();
+                gVar.f12372h = n.f(TbadkApplication.getInst(), R.dimen.tbds130);
+                ImageUrlData imageUrlData = this.f24397e.getCurrentUrlDragImageView().getImageView().getImageUrlData();
                 JSONArray jSONArray = null;
                 if (imageUrlData != null) {
                     try {
@@ -122,14 +122,14 @@ public class a {
                     }
                 }
                 if (jSONArray != null) {
-                    gVar.f12669h += f25094f * Math.min(((Integer) o0.i(TbRichTextView.parse(jSONArray, false).toString(), n.f(TbadkApplication.getInst(), R.dimen.tbds42), f25095g).second).intValue(), 3);
+                    gVar.f12372h += f24392f * Math.min(((Integer) o0.i(TbRichTextView.parse(jSONArray, false).toString(), n.f(TbadkApplication.getInst(), R.dimen.tbds42), f24393g).second).intValue(), 3);
                 }
                 if (imageUrlData != null) {
-                    gVar.f12672k = imageUrlData.isBlockedPic;
+                    gVar.k = imageUrlData.isBlockedPic;
                 }
             }
-            gVar.f12668g = str;
-            gVar.f12670i = i3;
+            gVar.f12371g = str;
+            gVar.f12373i = i3;
             gVar.l = str2;
             gVar.m = str3;
             return gVar;
@@ -140,29 +140,29 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f25098d.onDestroy();
-            this.f25097c.onDestroy();
+            this.f24396d.onDestroy();
+            this.f24395c.onDestroy();
         }
     }
 
     public void c(MultiImageView multiImageView, boolean z, int i2, boolean z2, String str, int i3, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{multiImageView, Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2), str, Integer.valueOf(i3), str2, str3, str4}) == null) {
-            this.f25099e = multiImageView;
+            this.f24397e = multiImageView;
             g a = a(i2, z2, z, str, i3, str2, str3, str4);
-            d(this.f25098d.c(a), a, z);
+            d(this.f24396d.c(a), a, z);
         }
     }
 
     public final void d(AdvertAppInfo advertAppInfo, g gVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048579, this, advertAppInfo, gVar, z) == null) {
-            this.f25097c.a(advertAppInfo, gVar);
+            this.f24395c.a(advertAppInfo, gVar);
             if (advertAppInfo != null) {
                 if (z) {
-                    this.f25096b = Math.max(this.f25096b, gVar.f12664c);
+                    this.f24394b = Math.max(this.f24394b, gVar.f12367c);
                 } else {
-                    this.a = Math.max(this.a, gVar.f12664c);
+                    this.a = Math.max(this.a, gVar.f12367c);
                 }
             }
         }

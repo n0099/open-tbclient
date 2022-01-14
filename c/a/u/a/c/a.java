@@ -25,55 +25,55 @@ public class a {
     public static int a = 3;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f27012b;
+    public static Context f26211b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<String> f27013c;
+    public static List<String> f26212c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f27014d;
+    public static int f26213d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.u.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1564a implements b {
+    public static class C1580a implements b {
         public static /* synthetic */ Interceptable $ic;
-        public static C1564a a;
+        public static C1580a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c.a.u.a.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC1565a implements Runnable {
+        public class RunnableC1581a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f27015e;
+            public final /* synthetic */ String f26214e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Timer f27016f;
+            public final /* synthetic */ Timer f26215f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ d f27017g;
+            public final /* synthetic */ d f26216g;
 
             /* renamed from: c.a.u.a.c.a$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
-            public class C1566a extends TimerTask {
+            public class C1582a extends TimerTask {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ AtomicBoolean f27018e;
+                public final /* synthetic */ AtomicBoolean f26217e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ RunnableC1565a f27019f;
+                public final /* synthetic */ RunnableC1581a f26218f;
 
-                public C1566a(RunnableC1565a runnableC1565a, AtomicBoolean atomicBoolean) {
+                public C1582a(RunnableC1581a runnableC1581a, AtomicBoolean atomicBoolean) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC1565a, atomicBoolean};
+                        Object[] objArr = {runnableC1581a, atomicBoolean};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -83,8 +83,8 @@ public class a {
                             return;
                         }
                     }
-                    this.f27019f = runnableC1565a;
-                    this.f27018e = atomicBoolean;
+                    this.f26218f = runnableC1581a;
+                    this.f26217e = atomicBoolean;
                 }
 
                 @Override // java.util.TimerTask, java.lang.Runnable
@@ -92,25 +92,25 @@ public class a {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                         c.a.u.a.h.e.a("DNSUrlProvider", "bddns > bdDnsIps is null");
-                        d dVar = this.f27019f.f27017g;
+                        d dVar = this.f26218f.f26216g;
                         if (dVar != null) {
                             dVar.a(w0.i4, "bddns timeout :", "bddns timeout, bdDnsIps is null");
                             a.f(true);
-                            b c2 = a.c(a.f27012b);
-                            RunnableC1565a runnableC1565a = this.f27019f;
-                            c2.b(runnableC1565a.f27015e, runnableC1565a.f27017g);
+                            b c2 = a.c(a.f26211b);
+                            RunnableC1581a runnableC1581a = this.f26218f;
+                            c2.b(runnableC1581a.f26214e, runnableC1581a.f26216g);
                         }
-                        this.f27018e.set(true);
+                        this.f26217e.set(true);
                     }
                 }
             }
 
-            public RunnableC1565a(C1564a c1564a, String str, Timer timer, d dVar) {
+            public RunnableC1581a(C1580a c1580a, String str, Timer timer, d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1564a, str, timer, dVar};
+                    Object[] objArr = {c1580a, str, timer, dVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -120,41 +120,41 @@ public class a {
                         return;
                     }
                 }
-                this.f27015e = str;
-                this.f27016f = timer;
-                this.f27017g = dVar;
+                this.f26214e = str;
+                this.f26215f = timer;
+                this.f26216g = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.u.a.h.e.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + this.f27015e);
+                    c.a.u.a.h.e.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + this.f26214e);
                     AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                    this.f27016f.schedule(new C1566a(this, atomicBoolean), 10000L);
-                    DnsHelper dnsHelper = new DnsHelper(a.f27012b);
+                    this.f26215f.schedule(new C1582a(this, atomicBoolean), 10000L);
+                    DnsHelper dnsHelper = new DnsHelper(a.f26211b);
                     dnsHelper.setHttpDnsState(false, null, false, true);
-                    a.j(dnsHelper.getIpList(this.f27015e));
-                    List<String> list = a.f27013c;
+                    a.j(dnsHelper.getIpList(this.f26214e));
+                    List<String> list = a.f26212c;
                     if (list == null || list.size() <= 0) {
                         return;
                     }
-                    c.a.u.a.h.e.a("DNSUrlProvider", "bddns > bdDnsIps = " + a.f27013c);
-                    String str = a.f27013c.get(0);
-                    if (this.f27017g != null && !atomicBoolean.get()) {
-                        this.f27017g.a(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, str);
-                        if (a.f27013c.size() > 1) {
-                            a.f27014d++;
+                    c.a.u.a.h.e.a("DNSUrlProvider", "bddns > bdDnsIps = " + a.f26212c);
+                    String str = a.f26212c.get(0);
+                    if (this.f26216g != null && !atomicBoolean.get()) {
+                        this.f26216g.a(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, str);
+                        if (a.f26212c.size() > 1) {
+                            a.f26213d++;
                             a.f(false);
                         }
                     }
                     c.a.u.a.h.e.a("DNSUrlProvider", "bddns > return ip = " + str);
-                    this.f27016f.cancel();
+                    this.f26215f.cancel();
                 }
             }
         }
 
-        public C1564a(Context context) {
+        public C1580a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,24 +169,24 @@ public class a {
                     return;
                 }
             }
-            Context unused = a.f27012b = context.getApplicationContext();
+            Context unused = a.f26211b = context.getApplicationContext();
             a.i();
         }
 
-        public static synchronized C1564a c(Context context) {
+        public static synchronized C1580a c(Context context) {
             InterceptResult invokeL;
-            C1564a c1564a;
+            C1580a c1580a;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-                synchronized (C1564a.class) {
+                synchronized (C1580a.class) {
                     if (a == null) {
-                        a = new C1564a(context);
+                        a = new C1580a(context);
                     }
-                    c1564a = a;
+                    c1580a = a;
                 }
-                return c1564a;
+                return c1580a;
             }
-            return (C1564a) invokeL.objValue;
+            return (C1580a) invokeL.objValue;
         }
 
         @Override // c.a.u.a.c.a.b
@@ -202,24 +202,24 @@ public class a {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
                 try {
                     c.a.u.a.h.e.d("DNSUrlProvider", "BDHttpDNSUrlProvider try to getUrlAsync");
-                    if (a.f27013c != null && a.f27013c.size() > 0) {
-                        if (a.f27014d < a.f27013c.size()) {
+                    if (a.f26212c != null && a.f26212c.size() > 0) {
+                        if (a.f26213d < a.f26212c.size()) {
                             if (dVar != null) {
-                                dVar.a(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, a.f27013c.get(a.f27014d));
-                                c.a.u.a.h.e.a("DNSUrlProvider", "retry bddns > return ip = " + a.f27013c.get(a.f27014d));
+                                dVar.a(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, a.f26212c.get(a.f26213d));
+                                c.a.u.a.h.e.a("DNSUrlProvider", "retry bddns > return ip = " + a.f26212c.get(a.f26213d));
                             }
-                            a.f27014d++;
+                            a.f26213d++;
                             return;
                         }
                         a.f(true);
-                        a.c(a.f27012b).b(str, dVar);
+                        a.c(a.f26211b).b(str, dVar);
                         return;
                     }
-                    c.a.u.a.g.a.a(a.f27012b).b(new RunnableC1565a(this, str, new Timer(), dVar));
+                    c.a.u.a.g.a.a(a.f26211b).b(new RunnableC1581a(this, str, new Timer(), dVar));
                 } catch (Throwable unused) {
                     c.a.u.a.h.e.a("DNSUrlProvider", "bddns > bdDnsIps get exception ");
                     a.f(true);
-                    a.c(a.f27012b).b(str, dVar);
+                    a.c(a.f26211b).b(str, dVar);
                 }
             }
         }
@@ -314,7 +314,7 @@ public class a {
                     return;
                 }
             }
-            Context unused = a.f27012b = context.getApplicationContext();
+            Context unused = a.f26211b = context.getApplicationContext();
         }
 
         public static synchronized e c(Context context) {
@@ -346,12 +346,12 @@ public class a {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
                 c.a.u.a.h.e.a("DNSUrlProvider", "will getLCPHttpDnsAddress......");
                 try {
-                    c.a.u.a.f.d dVar2 = new c.a.u.a.f.d(a.f27012b);
+                    c.a.u.a.f.d dVar2 = new c.a.u.a.f.d(a.f26211b);
                     dVar2.a(dVar);
                     c.a.u.a.f.c.e(dVar2, dVar2);
                 } catch (Exception unused) {
                     a.f(true);
-                    a.c(a.f27012b).b(str, dVar);
+                    a.c(a.f26211b).b(str, dVar);
                 }
             }
         }
@@ -370,19 +370,19 @@ public class a {
                 return;
             }
         }
-        f27013c = Collections.synchronizedList(new ArrayList());
-        f27014d = 0;
+        f26212c = Collections.synchronizedList(new ArrayList());
+        f26213d = 0;
     }
 
     public static b c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            f27012b = context.getApplicationContext();
+            f26211b = context.getApplicationContext();
             int a2 = c.a.u.a.h.c.a(context);
             if (a2 != 1 && a2 != 2) {
                 if (c.a.u.a.h.f.c(context) && a == 2) {
-                    return C1564a.c(context);
+                    return C1580a.c(context);
                 }
                 if (a == 3) {
                     return e.c(context);
@@ -399,8 +399,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            List<String> list = f27013c;
-            return list != null && f27014d <= list.size();
+            List<String> list = f26212c;
+            return list != null && f26213d <= list.size();
         }
         return invokeV.booleanValue;
     }
@@ -422,7 +422,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65542, null, z)) == null) {
             if (z) {
-                int a2 = c.a.u.a.h.c.a(f27012b);
+                int a2 = c.a.u.a.h.c.a(f26211b);
                 if (a2 != 1 && a2 != 2) {
                     int i2 = a;
                     if (i2 == 0) {
@@ -461,8 +461,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
             try {
-                f27014d = 0;
-                f27013c.clear();
+                f26213d = 0;
+                f26212c.clear();
                 a = 3;
             } catch (Exception e2) {
                 c.a.u.a.h.e.c("DNSUrlProvider", "resetBdDns exception", e2);
@@ -473,7 +473,7 @@ public class a {
     public static void j(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, list) == null) {
-            f27013c.clear();
+            f26212c.clear();
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             if (list != null && !list.isEmpty()) {
@@ -486,18 +486,18 @@ public class a {
                 }
             }
             if (arrayList.size() + arrayList2.size() > 0) {
-                int f2 = c.a.u.a.h.f.f(f27012b);
+                int f2 = c.a.u.a.h.f.f(f26211b);
                 c.a.u.a.h.e.b("DNSUrlProvider", "getIpPriority :" + f2 + ", ipv4 :" + arrayList.toString() + ", ipv6 :" + arrayList2.toString());
                 if (f2 == 1) {
-                    f27013c.addAll(arrayList2);
+                    f26212c.addAll(arrayList2);
                 } else if (f2 == 2) {
-                    f27013c.addAll(arrayList2);
-                    f27013c.addAll(arrayList);
+                    f26212c.addAll(arrayList2);
+                    f26212c.addAll(arrayList);
                 } else if (f2 != 4) {
-                    f27013c.addAll(arrayList);
-                    f27013c.addAll(arrayList2);
+                    f26212c.addAll(arrayList);
+                    f26212c.addAll(arrayList2);
                 } else {
-                    f27013c.addAll(arrayList);
+                    f26212c.addAll(arrayList);
                 }
             }
         }

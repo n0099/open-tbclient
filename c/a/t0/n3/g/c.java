@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,30 +78,30 @@ public class c extends d {
             }
         }
         this.C = oVar;
-        this.D = this.f20321f.findViewById(R.id.pb_post_share_root_view);
-        this.E = this.f20321f.findViewById(R.id.pb_post_share_card_container);
-        this.F = this.f20321f.findViewById(R.id.pb_post_share_card);
-        this.G = this.f20321f.findViewById(R.id.pb_post_share_card_content);
-        this.H = (TbImageView) this.f20321f.findViewById(R.id.pb_post_share_title);
-        this.I = (LinearLayout) this.f20321f.findViewById(R.id.pb_share_thread_container);
-        TbImageView tbImageView = (TbImageView) this.f20321f.findViewById(R.id.pb_share_origin_thread_img);
+        this.D = this.f19780f.findViewById(R.id.pb_post_share_root_view);
+        this.E = this.f19780f.findViewById(R.id.pb_post_share_card_container);
+        this.F = this.f19780f.findViewById(R.id.pb_post_share_card);
+        this.G = this.f19780f.findViewById(R.id.pb_post_share_card_content);
+        this.H = (TbImageView) this.f19780f.findViewById(R.id.pb_post_share_title);
+        this.I = (LinearLayout) this.f19780f.findViewById(R.id.pb_share_thread_container);
+        TbImageView tbImageView = (TbImageView) this.f19780f.findViewById(R.id.pb_share_origin_thread_img);
         this.J = tbImageView;
         tbImageView.setPlaceHolder(2);
         this.J.setConrers(15);
         this.J.setRadius(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
         this.J.setGifIconSupport(false);
         this.J.setLongIconSupport(false);
-        this.K = (TextView) this.f20321f.findViewById(R.id.origin_thread_abstract);
-        this.L = this.f20321f.findViewById(R.id.pb_share_origin_thread_gradient_mask);
-        this.M = (ImageView) this.f20321f.findViewById(R.id.pb_post_share_video_play_iv);
-        this.N = (TextView) this.f20321f.findViewById(R.id.post_share_screen_shot_title);
-        this.O = (TextView) this.f20321f.findViewById(R.id.post_share_qcode_comment);
-        this.P = (TbImageView) this.f20321f.findViewById(R.id.post_share_qcode);
-        this.Q = this.f20321f.findViewById(R.id.post_share_reply_user_id_guide_line);
-        this.R = (TextView) this.f20321f.findViewById(R.id.post_share_reply_user_id);
-        this.S = (TextView) this.f20321f.findViewById(R.id.post_share_comment_text);
-        this.T = (LinearLayout) this.f20321f.findViewById(R.id.post_share_comment_image_container);
-        this.U = (PlayVoiceBntNew) this.f20321f.findViewById(R.id.post_share_comment_voice);
+        this.K = (TextView) this.f19780f.findViewById(R.id.origin_thread_abstract);
+        this.L = this.f19780f.findViewById(R.id.pb_share_origin_thread_gradient_mask);
+        this.M = (ImageView) this.f19780f.findViewById(R.id.pb_post_share_video_play_iv);
+        this.N = (TextView) this.f19780f.findViewById(R.id.post_share_screen_shot_title);
+        this.O = (TextView) this.f19780f.findViewById(R.id.post_share_qcode_comment);
+        this.P = (TbImageView) this.f19780f.findViewById(R.id.post_share_qcode);
+        this.Q = this.f19780f.findViewById(R.id.post_share_reply_user_id_guide_line);
+        this.R = (TextView) this.f19780f.findViewById(R.id.post_share_reply_user_id);
+        this.S = (TextView) this.f19780f.findViewById(R.id.post_share_comment_text);
+        this.T = (LinearLayout) this.f19780f.findViewById(R.id.post_share_comment_image_container);
+        this.U = (PlayVoiceBntNew) this.f19780f.findViewById(R.id.post_share_comment_voice);
         Y(context, oVar.c().N());
         d0();
         K(2);

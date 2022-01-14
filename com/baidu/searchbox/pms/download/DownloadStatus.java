@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DownloadStatus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCEL = 5;
@@ -20,7 +20,7 @@ public class DownloadStatus {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public @interface Status {
     }
 

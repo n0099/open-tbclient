@@ -59,9 +59,9 @@ public class k implements CustomMessageTask.CustomRunnable<String> {
                                 Date date = new Date();
                                 date.setTime(msgInfo.sendTime.longValue() * 1000);
                                 aVar.a = c.a.d.f.p.m.getDateStringMouth(date);
-                                aVar.f46640b = msgInfo.type.intValue();
-                                aVar.f46641c = msgInfo.content;
-                                aVar.f46642d = msgInfo.id.intValue();
+                                aVar.f44916b = msgInfo.type.intValue();
+                                aVar.f44917c = msgInfo.content;
+                                aVar.f44918d = msgInfo.id.intValue();
                                 linkedList.add(aVar);
                             }
                         }

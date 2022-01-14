@@ -46,25 +46,23 @@ public class c implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final PushDialogActivity f18191e;
+    public final PushDialogActivity f17749e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f18192f;
+    public Drawable f17750f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18193g;
+    public View f17751g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f18194h;
+    public View f17752h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EditorScrollView f18195i;
+    public EditorScrollView f17753i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f18196j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f18197k;
+    public TbImageView f17754j;
+    public TextView k;
     public ImageView l;
     public TextView m;
     public TbRichTextView n;
@@ -110,7 +108,7 @@ public class c implements View.OnClickListener {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.y) {
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 1).param("tid", this.a.f18191e.getTid()));
+            TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 1).param("tid", this.a.f17749e.getTid()));
             this.a.y = true;
         }
     }
@@ -121,7 +119,7 @@ public class c implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18198e;
+        public final /* synthetic */ c f17755e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -138,16 +136,16 @@ public class c implements View.OnClickListener {
                     return;
                 }
             }
-            this.f18198e = cVar;
+            this.f17755e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18198e.f18191e == null || this.f18198e.f18191e.getScreenLockUtils() == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f17755e.f17749e == null || this.f17755e.f17749e.getScreenLockUtils() == null) {
                 return;
             }
-            this.f18198e.f18191e.getScreenLockUtils().d();
+            this.f17755e.f17749e.getScreenLockUtils().d();
         }
     }
 
@@ -167,26 +165,26 @@ public class c implements View.OnClickListener {
             }
         }
         this.y = false;
-        this.f18191e = pushDialogActivity;
+        this.f17749e = pushDialogActivity;
         pushDialogActivity.setContentView(i2);
-        this.f18194h = d(R.id.root_view);
-        this.f18193g = d(R.id.dialog_wrapper_view);
+        this.f17752h = d(R.id.root_view);
+        this.f17751g = d(R.id.dialog_wrapper_view);
         EditorScrollView editorScrollView = (EditorScrollView) d(R.id.push_dialog_content_layout);
-        this.f18195i = editorScrollView;
+        this.f17753i = editorScrollView;
         editorScrollView.setOverScrollMode(2);
-        this.f18195i.setListener(new a(this));
-        if (this.f18193g.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f18193g.getLayoutParams();
-            int i5 = n.i(this.f18191e);
+        this.f17753i.setListener(new a(this));
+        if (this.f17751g.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f17751g.getLayoutParams();
+            int i5 = n.i(this.f17749e);
             layoutParams.height = i5 / 2;
             layoutParams.topMargin = (int) (i5 * 0.22f);
-            this.f18193g.postInvalidate();
+            this.f17751g.postInvalidate();
         }
         if (n.z()) {
             Drawable a2 = c.a.t0.i4.c.a();
-            this.f18192f = a2;
-            if (a2 != null && this.f18191e.getWindow() != null) {
-                this.f18191e.getWindow().setBackgroundDrawable(this.f18192f);
+            this.f17750f = a2;
+            if (a2 != null && this.f17749e.getWindow() != null) {
+                this.f17749e.getWindow().setBackgroundDrawable(this.f17750f);
             }
         }
         View d2 = d(R.id.push_dialog_bottom_layout);
@@ -194,10 +192,10 @@ public class c implements View.OnClickListener {
         d2.setOnClickListener(this);
         this.u = (TextView) d(R.id.comment_num);
         TbImageView tbImageView = (TbImageView) d(R.id.push_dialog_title_img);
-        this.f18196j = tbImageView;
+        this.f17754j = tbImageView;
         tbImageView.setDefaultBgResource(R.drawable.tb_launcher_icon);
-        this.f18196j.setAutoChangeStyle(false);
-        this.f18197k = (TextView) d(R.id.push_dialog_title_text);
+        this.f17754j.setAutoChangeStyle(false);
+        this.k = (TextView) d(R.id.push_dialog_title_text);
         this.m = (TextView) d(R.id.push_dialog_content_title);
         ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) d(R.id.push_dialog_user_head);
         this.p = clickableHeaderImageView;
@@ -205,21 +203,21 @@ public class c implements View.OnClickListener {
         this.p.setIsRound(true);
         this.p.setEnabled(false);
         this.p.setAutoChangeStyle(false);
-        this.p.setBorderWidth(n.f(this.f18191e, R.dimen.tbds1));
-        this.p.setBorderColor(ContextCompat.getColor(this.f18191e, R.color.black_alpha15));
+        this.p.setBorderWidth(n.f(this.f17749e, R.dimen.tbds1));
+        this.p.setBorderColor(ContextCompat.getColor(this.f17749e, R.color.black_alpha15));
         this.v = new c.a.s0.g1.n.a();
         TbRichTextView tbRichTextView = (TbRichTextView) d(R.id.push_dialog_content);
         this.n = tbRichTextView;
-        tbRichTextView.setTextColor(ContextCompat.getColor(this.f18191e, R.color.CAM_X0107));
-        this.v.s(n.f(this.f18191e, R.dimen.tbds38));
-        this.v.v(n.f(this.f18191e, R.dimen.tbds42));
-        this.v.j(n.f(this.f18191e, R.dimen.tbds23));
+        tbRichTextView.setTextColor(ContextCompat.getColor(this.f17749e, R.color.CAM_X0107));
+        this.v.s(n.f(this.f17749e, R.dimen.tbds38));
+        this.v.v(n.f(this.f17749e, R.dimen.tbds42));
+        this.v.j(n.f(this.f17749e, R.dimen.tbds23));
         this.v.o(n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7), 1.0f);
         this.v.i(n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
         this.n.setLayoutStrategy(this.v);
         PushDialogVideoView pushDialogVideoView = (PushDialogVideoView) d(R.id.push_dialog_video);
         this.o = pushDialogVideoView;
-        pushDialogVideoView.setPageContext(this.f18191e.getPageContext());
+        pushDialogVideoView.setPageContext(this.f17749e.getPageContext());
         this.q = (TextView) d(R.id.push_dialog_user_name);
         this.r = (TextView) d(R.id.push_dialog_user_god_info);
         CommonUserLikeButton commonUserLikeButton = (CommonUserLikeButton) d(R.id.push_dialog_user_like_btn);
@@ -233,7 +231,7 @@ public class c implements View.OnClickListener {
     public final View d(@IdRes int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f18191e.findViewById(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f17749e.findViewById(i2) : (View) invokeI.objValue;
     }
 
     public void e() {
@@ -250,7 +248,7 @@ public class c implements View.OnClickListener {
         DecimalFormat decimalFormat = new DecimalFormat("0.0");
         double c2 = ((this.x.c() * (1.0f - ((this.o.getCurrentPosition() * 1.0f) / (this.x.b() * 1000)))) * 1.0f) / 1048576.0f;
         if (c2 >= 0.1d) {
-            n.M(this.f18191e.getPageContext().getPageActivity(), String.format(this.f18191e.getPageContext().getString(R.string.push_dialog_video_net_change_tip), decimalFormat.format(c2)));
+            n.N(this.f17749e.getPageContext().getPageActivity(), String.format(this.f17749e.getPageContext().getString(R.string.push_dialog_video_net_change_tip), decimalFormat.format(c2)));
         }
     }
 
@@ -288,8 +286,8 @@ public class c implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.f18196j.startLoad(aVar.a(), 17, false);
-        this.f18197k.setText(aVar.b());
+        this.f17754j.startLoad(aVar.a(), 17, false);
+        this.k.setText(aVar.b());
         if (aVar.d() != null) {
             this.p.setData(aVar.d());
             this.q.setText(aVar.d().getName_show());
@@ -302,20 +300,20 @@ public class c implements View.OnClickListener {
             if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(aVar.d().getUserId())) {
                 this.s.setVisibility(8);
             } else {
-                new c.a.s0.s.i0.t.c(this.f18191e.getPageContext(), this.s).n(aVar.d());
+                new c.a.s0.s.j0.t.c(this.f17749e.getPageContext(), this.s).n(aVar.d());
                 this.s.onChangeSkinType(0);
                 this.s.setVisibility(0);
             }
             c.a.t0.f3.d.b c2 = aVar.c();
             if (c2 == null) {
-                this.f18191e.getScreenLockUtils().d();
-                this.f18191e.finish();
+                this.f17749e.getScreenLockUtils().d();
+                this.f17749e.finish();
                 return;
             }
             boolean z = c2.a() == null || ListUtils.isEmpty(c2.a().y());
             if (StringUtils.isNull(c2.d()) && z) {
-                this.f18191e.getScreenLockUtils().d();
-                this.f18191e.finish();
+                this.f17749e.getScreenLockUtils().d();
+                this.f17749e.finish();
                 return;
             }
             if (c2.a() != null) {
@@ -337,11 +335,11 @@ public class c implements View.OnClickListener {
                 boolean z2 = l.v() || l.H();
                 this.v.w(z2);
                 if (z2) {
-                    f2 = (n.k(TbadkCoreApplication.getInst()) - (n.f(this.f18191e, R.dimen.tbds22) * 2)) - (n.f(this.f18191e, R.dimen.tbds44) * 2);
+                    f2 = (n.k(TbadkCoreApplication.getInst()) - (n.f(this.f17749e, R.dimen.tbds22) * 2)) - (n.f(this.f17749e, R.dimen.tbds44) * 2);
                     f3 = (int) (f2 * 1.618f);
                 } else {
-                    f2 = n.f(this.f18191e, R.dimen.tbds360);
-                    f3 = n.f(this.f18191e, R.dimen.tbds202);
+                    f2 = n.f(this.f17749e, R.dimen.tbds360);
+                    f3 = n.f(this.f17749e, R.dimen.tbds202);
                 }
                 this.v.k(z2);
                 this.v.q(f2);
@@ -351,9 +349,9 @@ public class c implements View.OnClickListener {
                 this.n.setVisibility(8);
                 this.o.setVisibility(0);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
-                int k2 = n.k(this.f18191e) - n.f(this.f18191e, R.dimen.tbds132);
-                layoutParams.width = k2;
-                layoutParams.height = (int) (k2 * 0.5625f);
+                int k = n.k(this.f17749e) - n.f(this.f17749e, R.dimen.tbds132);
+                layoutParams.width = k;
+                layoutParams.height = (int) (k * 0.5625f);
                 this.o.setLayoutParams(layoutParams);
                 this.o.setTbRichTextVideoInfo(this.x);
                 this.o.stopPlay();
@@ -362,8 +360,8 @@ public class c implements View.OnClickListener {
                 this.o.resetPlayerUI();
                 t tVar = new t();
                 tVar.a = "15";
-                tVar.f26871c = String.valueOf(this.w);
-                tVar.f26873e = TbadkCoreApplication.getCurrentAccount();
+                tVar.f26074c = String.valueOf(this.w);
+                tVar.f26076e = TbadkCoreApplication.getCurrentAccount();
                 this.o.setVideoViewBusiness(tVar);
             }
             if (StringUtils.isNull(c2.d())) {
@@ -372,15 +370,15 @@ public class c implements View.OnClickListener {
                 this.m.setText(c2.d());
                 this.m.setVisibility(0);
             }
-            this.u.setText(String.format(Locale.CHINA, this.f18191e.getString(R.string.bottom_comment), Integer.valueOf(c2.b())));
-            if (this.f18191e.getScreenLockUtils().c()) {
+            this.u.setText(String.format(Locale.CHINA, this.f17749e.getString(R.string.bottom_comment), Integer.valueOf(c2.b())));
+            if (this.f17749e.getScreenLockUtils().c()) {
                 return;
             }
-            this.f18191e.getScreenLockUtils().e();
+            this.f17749e.getScreenLockUtils().e();
             return;
         }
-        this.f18191e.getScreenLockUtils().d();
-        this.f18191e.finish();
+        this.f17749e.getScreenLockUtils().d();
+        this.f17749e.finish();
     }
 
     @Override // android.view.View.OnClickListener
@@ -388,21 +386,21 @@ public class c implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
             if (view == this.l) {
-                TiebaStatic.log(new StatisticItem("c13198").param("tid", this.f18191e.getTid()));
+                TiebaStatic.log(new StatisticItem("c13198").param("tid", this.f17749e.getTid()));
                 e.a().postDelayed(new b(this), 100L);
-                this.f18191e.finish();
+                this.f17749e.finish();
             } else if (view == this.t) {
-                TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 4).param("tid", this.f18191e.getTid()));
+                TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 4).param("tid", this.f17749e.getTid()));
                 if (this.w == 0) {
-                    this.f18191e.finish();
+                    this.f17749e.finish();
                     return;
                 }
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f18191e);
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f17749e);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(this.w + "", null, null)));
-                this.f18191e.getScreenLockUtils().e();
-                this.f18191e.finish();
+                this.f17749e.getScreenLockUtils().e();
+                this.f17749e.finish();
             } else if (view == this.s) {
-                TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 3).param("tid", this.f18191e.getTid()));
+                TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 3).param("tid", this.f17749e.getTid()));
             }
         }
     }

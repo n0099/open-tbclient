@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class GlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static LayoutInflater a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f33774b = null;
+    public static WeakReference<Toast> f32702b = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,7 +110,7 @@ public final class GlobalUtils {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f33775b;
+                public final /* synthetic */ View f32703b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -128,14 +128,14 @@ public final class GlobalUtils {
                         }
                     }
                     this.a = context;
-                    this.f33775b = view;
+                    this.f32703b = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ((InputMethodManager) this.a.getSystemService("input_method")).showSoftInput(this.f33775b, 0);
+                        ((InputMethodManager) this.a.getSystemService("input_method")).showSoftInput(this.f32703b, 0);
                     }
                 }
             }, 100L);
@@ -170,9 +170,9 @@ public final class GlobalUtils {
             if (TextUtils.isEmpty(charSequence)) {
                 return;
             }
-            WeakReference<Toast> weakReference = f33774b;
+            WeakReference<Toast> weakReference = f32702b;
             if (weakReference != null && weakReference.get() != null) {
-                f33774b.get().cancel();
+                f32702b.get().cancel();
             }
             if (a == null) {
                 a = LayoutInflater.from(applicationContext);
@@ -191,7 +191,7 @@ public final class GlobalUtils {
             toast.setDuration(i3);
             toast.setGravity(17, 0, 0);
             toast.setView(inflate);
-            f33774b = new WeakReference<>(toast);
+            f32702b = new WeakReference<>(toast);
             toast.show();
         }
     }

@@ -18,13 +18,13 @@ public class a implements j.a.a.e.q.g.c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64730b;
+    public int f62300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j.a.a.e.m.f f64731c;
+    public j.a.a.e.m.f f62301c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AbsViewEventHandler f64732d;
+    public AbsViewEventHandler f62302d;
 
     public a(int i2, int i3, j.a.a.e.m.f fVar, AbsViewEventHandler absViewEventHandler) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class a implements j.a.a.e.q.g.c {
         }
         RLog.info("AmountDialogListener", "create AmountDialogListener appId:" + i2 + " userChannel:" + i3);
         this.a = i2;
-        this.f64730b = i3;
-        this.f64731c = fVar;
-        this.f64732d = absViewEventHandler;
+        this.f62300b = i3;
+        this.f62301c = fVar;
+        this.f62302d = absViewEventHandler;
     }
 
     @Override // j.a.a.e.q.g.c
@@ -53,8 +53,8 @@ public class a implements j.a.a.e.q.g.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
             RLog.info("AmountDialogListener", "PayAmountDialog notifyCancelType clickArea:" + cancelType);
-            this.f64731c.c(cancelType, this.f64732d);
-            n.a(this.a, this.f64730b, cancelType);
+            this.f62301c.c(cancelType, this.f62302d);
+            n.a(this.a, this.f62300b, cancelType);
         }
     }
 

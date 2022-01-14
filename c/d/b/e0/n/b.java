@@ -33,22 +33,22 @@ public class b extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class<?> f28792c;
+    public final Class<?> f27909c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final f<Socket> f28793d;
+    public final f<Socket> f27910d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f<Socket> f28794e;
+    public final f<Socket> f27911e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final f<Socket> f28795f;
+    public final f<Socket> f27912f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final f<Socket> f28796g;
+    public final f<Socket> f27913g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c f28797h;
+    public final c f27914h;
 
     /* loaded from: classes9.dex */
     public static final class a extends c.d.b.e0.p.c {
@@ -57,7 +57,7 @@ public class b extends g {
         public final Object a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Method f28798b;
+        public final Method f27915b;
 
         public a(Object obj, Method method) {
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class b extends g {
                 }
             }
             this.a = obj;
-            this.f28798b = method;
+            this.f27915b = method;
         }
 
         @Override // c.d.b.e0.p.c
@@ -84,7 +84,7 @@ public class b extends g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, str)) == null) {
                 try {
-                    return (List) this.f28798b.invoke(this.a, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), "RSA", str);
+                    return (List) this.f27915b.invoke(this.a, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), "RSA", str);
                 } catch (IllegalAccessException e2) {
                     throw new AssertionError(e2);
                 } catch (InvocationTargetException e3) {
@@ -114,15 +114,15 @@ public class b extends g {
 
     /* renamed from: c.d.b.e0.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class C1612b implements c.d.b.e0.p.e {
+    public static final class C1628b implements c.d.b.e0.p.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509TrustManager a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Method f28799b;
+        public final Method f27916b;
 
-        public C1612b(X509TrustManager x509TrustManager, Method method) {
+        public C1628b(X509TrustManager x509TrustManager, Method method) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class b extends g {
                     return;
                 }
             }
-            this.f28799b = method;
+            this.f27916b = method;
             this.a = x509TrustManager;
         }
 
@@ -148,9 +148,9 @@ public class b extends g {
                 if (obj == this) {
                     return true;
                 }
-                if (obj instanceof C1612b) {
-                    C1612b c1612b = (C1612b) obj;
-                    return this.a.equals(c1612b.a) && this.f28799b.equals(c1612b.f28799b);
+                if (obj instanceof C1628b) {
+                    C1628b c1628b = (C1628b) obj;
+                    return this.a.equals(c1628b.a) && this.f27916b.equals(c1628b.f27916b);
                 }
                 return false;
             }
@@ -163,7 +163,7 @@ public class b extends g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509Certificate)) == null) {
                 try {
-                    TrustAnchor trustAnchor = (TrustAnchor) this.f28799b.invoke(this.a, x509Certificate);
+                    TrustAnchor trustAnchor = (TrustAnchor) this.f27916b.invoke(this.a, x509Certificate);
                     if (trustAnchor != null) {
                         return trustAnchor.getTrustedCert();
                     }
@@ -180,7 +180,7 @@ public class b extends g {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.hashCode() + (this.f28799b.hashCode() * 31) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.hashCode() + (this.f27916b.hashCode() * 31) : invokeV.intValue;
         }
     }
 
@@ -191,10 +191,10 @@ public class b extends g {
         public final Method a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Method f28800b;
+        public final Method f27917b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Method f28801c;
+        public final Method f27918c;
 
         public c(Method method, Method method2, Method method3) {
             Interceptable interceptable = $ic;
@@ -212,8 +212,8 @@ public class b extends g {
                 }
             }
             this.a = method;
-            this.f28800b = method2;
-            this.f28801c = method3;
+            this.f27917b = method2;
+            this.f27918c = method3;
         }
 
         public static c b() {
@@ -246,7 +246,7 @@ public class b extends g {
                 if (method != null) {
                     try {
                         Object invoke = method.invoke(null, new Object[0]);
-                        this.f28800b.invoke(invoke, str);
+                        this.f27917b.invoke(invoke, str);
                         return invoke;
                     } catch (Exception unused) {
                     }
@@ -262,7 +262,7 @@ public class b extends g {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj != null) {
                     try {
-                        this.f28801c.invoke(obj, new Object[0]);
+                        this.f27918c.invoke(obj, new Object[0]);
                         return true;
                     } catch (Exception unused) {
                         return false;
@@ -289,12 +289,12 @@ public class b extends g {
                 return;
             }
         }
-        this.f28797h = c.b();
-        this.f28792c = cls;
-        this.f28793d = fVar;
-        this.f28794e = fVar2;
-        this.f28795f = fVar3;
-        this.f28796g = fVar4;
+        this.f27914h = c.b();
+        this.f27909c = cls;
+        this.f27910d = fVar;
+        this.f27911e = fVar2;
+        this.f27912f = fVar3;
+        this.f27913g = fVar4;
     }
 
     public static g A() {
@@ -385,7 +385,7 @@ public class b extends g {
             try {
                 Method declaredMethod = x509TrustManager.getClass().getDeclaredMethod("findTrustAnchorByIssuerAndSignature", X509Certificate.class);
                 declaredMethod.setAccessible(true);
-                return new C1612b(x509TrustManager, declaredMethod);
+                return new C1628b(x509TrustManager, declaredMethod);
             } catch (NoSuchMethodException unused) {
                 return super.e(x509TrustManager);
             }
@@ -398,14 +398,14 @@ public class b extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, sSLSocket, str, list) == null) {
             if (str != null) {
-                this.f28793d.e(sSLSocket, Boolean.TRUE);
-                this.f28794e.e(sSLSocket, str);
+                this.f27910d.e(sSLSocket, Boolean.TRUE);
+                this.f27911e.e(sSLSocket, str);
             }
-            f<Socket> fVar = this.f28796g;
+            f<Socket> fVar = this.f27913g;
             if (fVar == null || !fVar.g(sSLSocket)) {
                 return;
             }
-            this.f28796g.f(sSLSocket, g.f(list));
+            this.f27913g.f(sSLSocket, g.f(list));
         }
     }
 
@@ -475,11 +475,11 @@ public class b extends g {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sSLSocket)) == null) {
-            f<Socket> fVar = this.f28795f;
-            if (fVar == null || !fVar.g(sSLSocket) || (bArr = (byte[]) this.f28795f.f(sSLSocket, new Object[0])) == null) {
+            f<Socket> fVar = this.f27912f;
+            if (fVar == null || !fVar.g(sSLSocket) || (bArr = (byte[]) this.f27912f.f(sSLSocket, new Object[0])) == null) {
                 return null;
             }
-            return new String(bArr, c.d.b.e0.e.f28541e);
+            return new String(bArr, c.d.b.e0.e.f27668e);
         }
         return (String) invokeL.objValue;
     }
@@ -488,7 +488,7 @@ public class b extends g {
     public Object q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f28797h.a(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f27914h.a(str) : invokeL.objValue;
     }
 
     @Override // c.d.b.e0.n.g
@@ -550,7 +550,7 @@ public class b extends g {
     @Override // c.d.b.e0.n.g
     public void v(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, obj) == null) || this.f28797h.c(obj)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, obj) == null) || this.f27914h.c(obj)) {
             return;
         }
         u(5, str, null);
@@ -562,7 +562,7 @@ public class b extends g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, sSLSocketFactory)) == null) {
-            Object w = g.w(sSLSocketFactory, this.f28792c, "sslParameters");
+            Object w = g.w(sSLSocketFactory, this.f27909c, "sslParameters");
             if (w == null) {
                 try {
                     w = g.w(sSLSocketFactory, Class.forName("com.google.android.gms.org.conscrypt.SSLParametersImpl", false, sSLSocketFactory.getClass().getClassLoader()), "sslParameters");

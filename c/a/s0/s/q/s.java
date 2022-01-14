@@ -20,22 +20,22 @@ public class s {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13803b;
+    public int f13490b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13804c;
+    public int f13491c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13805d;
+    public int f13492d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13806e;
+    public int f13493e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13807f;
+    public int f13494f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13808g;
+    public int f13495g;
 
     public s() {
         Interceptable interceptable = $ic;
@@ -50,45 +50,45 @@ public class s {
                 return;
             }
         }
-        this.f13806e = 25;
-        this.f13807f = 25;
-        this.f13808g = 10;
+        this.f13493e = 25;
+        this.f13494f = 25;
+        this.f13495g = 10;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13805d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13492d : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13807f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13494f : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13803b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13490b : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13808g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13495g : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13806e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13493e : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13804c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13491c : invokeV.intValue;
     }
 
     public boolean g() {
@@ -125,20 +125,20 @@ public class s {
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
             if (optJSONObject != null) {
-                this.f13805d = optJSONObject.optInt("num");
+                this.f13492d = optJSONObject.optInt("num");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
             if (optJSONObject2 != null) {
-                this.f13804c = optJSONObject2.optInt("time");
-                this.f13803b = optJSONObject2.optInt("num");
+                this.f13491c = optJSONObject2.optInt("time");
+                this.f13490b = optJSONObject2.optInt("num");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
             if (optJSONObject3 != null) {
-                this.f13806e = optJSONObject3.optInt("succ");
-                this.f13807f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                this.f13808g = optJSONObject3.optInt("slow");
+                this.f13493e = optJSONObject3.optInt("succ");
+                this.f13494f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                this.f13495g = optJSONObject3.optInt("slow");
             }
-            if (this.f13804c <= 0 || this.f13803b <= 0 || this.f13805d <= 0) {
+            if (this.f13491c <= 0 || this.f13490b <= 0 || this.f13492d <= 0) {
                 this.a = false;
             }
         } catch (Exception e2) {

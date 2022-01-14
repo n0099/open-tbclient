@@ -26,25 +26,23 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SurfaceTexture f19372e;
+    public SurfaceTexture f18875e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Surface f19373f;
+    public Surface f18876f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Object f19374g;
+    public Object f18877g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f19375h;
+    public boolean f18878h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f19376i;
+    public Context f18879i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f19377j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f19378k;
+    public String f18880j;
+    public int k;
     public int l;
     public FullFrameRect m;
     public FullFrameRect n;
@@ -82,12 +80,12 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
                 return;
             }
         }
-        this.f19374g = new Object();
-        this.f19377j = "normal";
+        this.f18877g = new Object();
+        this.f18880j = "normal";
         this.p = new float[16];
-        this.f19376i = context;
-        this.f19377j = str;
-        this.f19378k = i2;
+        this.f18879i = context;
+        this.f18880j = str;
+        this.k = i2;
         this.l = i3;
         f();
     }
@@ -95,21 +93,21 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.f19374g) {
-                while (!this.f19375h) {
+            synchronized (this.f18877g) {
+                while (!this.f18878h) {
                     try {
-                        this.f19374g.wait(500L);
-                        if (!this.f19375h) {
+                        this.f18877g.wait(500L);
+                        if (!this.f18878h) {
                             throw new RuntimeException("Surface frame wait timed out");
                         }
                     } catch (InterruptedException e2) {
                         throw new RuntimeException(e2);
                     }
                 }
-                this.f19375h = false;
+                this.f18878h = false;
             }
             b("before updateTexImage");
-            this.f19372e.updateTexImage();
+            this.f18875e.updateTexImage();
         }
     }
 
@@ -126,27 +124,27 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f19372e.updateTexImage();
-            this.f19372e.getTransformMatrix(this.p);
-            faceunity.fuItemSetParam(q, TbFileVideoActivityConfig.FILTER_NAME, this.f19377j);
+            this.f18875e.updateTexImage();
+            this.f18875e.getTransformMatrix(this.p);
+            faceunity.fuItemSetParam(q, TbFileVideoActivityConfig.FILTER_NAME, this.f18880j);
             faceunity.fuItemSetParam(q, "eye_bright", 0.0d);
             faceunity.fuItemSetParam(q, "tooth_whiten", 0.0d);
-            this.m.drawFrame(faceunity.fuBeautifyImage(this.o, 1, this.f19378k, this.l, 0, s), this.p);
+            this.m.drawFrame(faceunity.fuBeautifyImage(this.o, 1, this.k, this.l, 0, s), this.p);
         }
     }
 
     public Surface d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19373f : (Surface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18876f : (Surface) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f19373f.release();
-            this.f19373f = null;
-            this.f19372e = null;
+            this.f18876f.release();
+            this.f18876f = null;
+            this.f18875e = null;
             FullFrameRect fullFrameRect = this.m;
             if (fullFrameRect != null) {
                 fullFrameRect.release(false);
@@ -171,12 +169,12 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
             FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
             this.n = fullFrameRect;
             this.o = fullFrameRect.createTextureObject();
-            this.f19372e = new SurfaceTexture(this.o);
-            this.f19373f = new Surface(this.f19372e);
-            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.f19376i);
+            this.f18875e = new SurfaceTexture(this.o);
+            this.f18876f = new Surface(this.f18875e);
+            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.f18879i);
             q = upFaceUnity;
             s[0] = upFaceUnity;
-            this.f19372e.setOnFrameAvailableListener(this);
+            this.f18875e.setOnFrameAvailableListener(this);
         }
     }
 
@@ -184,10 +182,10 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
-            synchronized (this.f19374g) {
-                if (!this.f19375h) {
-                    this.f19375h = true;
-                    this.f19374g.notifyAll();
+            synchronized (this.f18877g) {
+                if (!this.f18878h) {
+                    this.f18878h = true;
+                    this.f18877g.notifyAll();
                 } else {
                     throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
                 }

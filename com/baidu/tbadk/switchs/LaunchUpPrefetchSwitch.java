@@ -1,7 +1,8 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.s0.b.d;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,10 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@ModifyClass
 /* loaded from: classes11.dex */
 public class LaunchUpPrefetchSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String LAUNCH_UP_PREFETCH_ENABLE = "launch_up_prefetch";
+    public static final String LAUNCH_UP_PREFETCH_ENABLE = "launch_up_prefetch_v2";
     public static final int TYPE_OFF = 0;
     public static final int TYPE_ON = 1;
     public static final LaunchUpPrefetchSwitch mInstance;
@@ -50,16 +52,13 @@ public class LaunchUpPrefetchSwitch extends BaseNormalSwitch {
         }
     }
 
+    @Modify(description = "首页预请求的开关")
     public static boolean getIsOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                if (d.G()) {
-                    type = 0;
-                } else {
-                    type = b.j().k("key_launch_up_prefetch", 1);
-                }
+                type = b.k().l("key_launch_up_prefetch_v2", 1);
             }
             return type == 1;
         }

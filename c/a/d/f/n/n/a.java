@@ -45,9 +45,9 @@ public class a {
                 while (it.hasNext()) {
                     c.a.d.f.n.j.d next = it.next();
                     if (next != null) {
-                        long j2 = next.f2958c;
+                        long j2 = next.f2929c;
                         if (j2 != 0 && j2 + 604800000 < currentTimeMillis) {
-                            arrayList3.add(next.f2957b);
+                            arrayList3.add(next.f2928b);
                         } else {
                             arrayList2.add(next);
                         }

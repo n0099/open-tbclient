@@ -13,34 +13,32 @@ public class f {
     public m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashSet<String> f27223b;
+    public HashSet<String> f26414b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f27224c;
+    public HashSet<String> f26415c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashSet<String> f27225d;
+    public HashSet<String> f26416d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashSet<String> f27226e;
+    public HashSet<String> f26417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashSet<String> f27227f;
+    public HashSet<String> f26418f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashSet<String> f27228g;
+    public HashSet<String> f26419g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<String, Integer> f27229h;
+    public HashMap<String, Integer> f26420h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HashMap<String, String> f27230i;
+    public HashMap<String, String> f26421i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HashMap<String, l> f27231j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public HashSet<String> f27232k;
+    public HashMap<String, l> f26422j;
+    public HashSet<String> k;
     public HashSet<String> l;
     public HashMap<String, Integer> m;
     public HashMap<String, Integer> n;
@@ -60,16 +58,16 @@ public class f {
             }
         }
         this.a = new m();
-        this.f27223b = new HashSet<>();
-        this.f27224c = new HashSet<>();
-        this.f27225d = new HashSet<>();
-        this.f27226e = new HashSet<>();
-        this.f27227f = new HashSet<>();
-        this.f27228g = new HashSet<>();
-        this.f27229h = new HashMap<>();
-        this.f27230i = new HashMap<>();
-        this.f27231j = new HashMap<>();
-        this.f27232k = new HashSet<>();
+        this.f26414b = new HashSet<>();
+        this.f26415c = new HashSet<>();
+        this.f26416d = new HashSet<>();
+        this.f26417e = new HashSet<>();
+        this.f26418f = new HashSet<>();
+        this.f26419g = new HashSet<>();
+        this.f26420h = new HashMap<>();
+        this.f26421i = new HashMap<>();
+        this.f26422j = new HashMap<>();
+        this.k = new HashSet<>();
         this.l = new HashSet<>();
         this.m = new HashMap<>();
         this.n = new HashMap<>();

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.g.f.i;
+import c.a.c0.j.f.i;
 import c.a.t0.j3.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -254,8 +254,8 @@ public class e {
                     downloadCacheKey.mPackageName = a2.pkgName();
                 }
                 c.a.t0.v.g.h.a aVar = this.a.get(downloadCacheKey);
-                if (aVar != null && (downloadCacheKey2 = aVar.f25203c) != null && TextUtils.isEmpty(downloadCacheKey2.mPackageName)) {
-                    aVar.f25203c.mPackageName = a2.pkgName();
+                if (aVar != null && (downloadCacheKey2 = aVar.f24499c) != null && TextUtils.isEmpty(downloadCacheKey2.mPackageName)) {
+                    aVar.f24499c.mPackageName = a2.pkgName();
                 }
                 a2.extra().setPercentAndStatus(100, DownloadStatus.STATUS_SUCCESS);
                 a2.extra().setDownloadPath(str);

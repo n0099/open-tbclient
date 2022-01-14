@@ -256,8 +256,8 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || i2 == 0 || 1 == this.mMemberPrivilegeView.d().getItemViewType(i2)) {
             return;
         }
-        String str = ((a.C1092a) this.mMemberPrivilegeView.d().getItem(i2)).f18066d;
-        String str2 = ((a.C1092a) this.mMemberPrivilegeView.d().getItem(i2)).f18064b;
+        String str = ((a.C1106a) this.mMemberPrivilegeView.d().getItem(i2)).f17627d;
+        String str2 = ((a.C1106a) this.mMemberPrivilegeView.d().getItem(i2)).f17625b;
         if (m.isEmpty(str)) {
             return;
         }

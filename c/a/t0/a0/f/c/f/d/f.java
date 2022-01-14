@@ -102,13 +102,13 @@ public class f extends c.a.t0.g0.b<c.a.t0.a0.f.c.f.b.b> {
             return;
         }
         this.r = bVar;
-        String str = bVar.f14807g;
+        String str = bVar.f14454g;
         if (StringUtils.isNull(str)) {
-            str = StringUtils.isNull(bVar.f14806f) ? "" : bVar.f14806f;
+            str = StringUtils.isNull(bVar.f14453f) ? "" : bVar.f14453f;
         }
         this.m.setText(str);
-        this.n.setText(StringUtils.isNull(bVar.f14809i) ? "" : bVar.f14809i);
-        this.o.startLoad(bVar.f14808h, 10, false);
-        this.p.setText(StringUtils.isNull(bVar.f14810j) ? "" : bVar.f14810j);
+        this.n.setText(StringUtils.isNull(bVar.f14456i) ? "" : bVar.f14456i);
+        this.o.startLoad(bVar.f14455h, 10, false);
+        this.p.setText(StringUtils.isNull(bVar.f14457j) ? "" : bVar.f14457j);
     }
 }

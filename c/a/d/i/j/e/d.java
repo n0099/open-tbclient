@@ -17,12 +17,12 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d f3221c;
+    public static volatile d f3183c;
     public transient /* synthetic */ FieldHolder $fh;
     public PluginNetConfigInfos a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f3222b;
+    public b f3184b;
 
     /* loaded from: classes.dex */
     public class a implements c.a.d.i.j.e.a {
@@ -66,14 +66,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f3221c == null) {
+            if (f3183c == null) {
                 synchronized (d.class) {
-                    if (f3221c == null) {
-                        f3221c = new d();
+                    if (f3183c == null) {
+                        f3183c = new d();
                     }
                 }
             }
-            return f3221c;
+            return f3183c;
         }
         return (d) invokeV.objValue;
     }
@@ -88,7 +88,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{pluginSettings, Boolean.valueOf(z), aVar}) == null) {
             c d2 = d(pluginSettings);
-            b bVar = this.f3222b;
+            b bVar = this.f3184b;
             if (bVar != null) {
                 bVar.a(z, d2, new a(this, aVar));
             }

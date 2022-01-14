@@ -22,7 +22,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f28463b;
+    public static Handler f27595b;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
@@ -58,7 +58,7 @@ public class e {
                 int i2 = message.what;
                 if (10001 == i2) {
                     f fVar = (f) message.obj;
-                    c.d.a.a.a.b.a().c(StatApi.getAppContext(), fVar.f28468f);
+                    c.d.a.a.a.b.a().c(StatApi.getAppContext(), fVar.f27600f);
                     d.a().c(fVar);
                 } else if (10002 != i2) {
                     if (10003 == i2) {
@@ -109,7 +109,7 @@ public class e {
     public void b(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-            f28463b.obtainMessage(10002, i2, -1, str).sendToTarget();
+            f27595b.obtainMessage(10002, i2, -1, str).sendToTarget();
         }
     }
 
@@ -135,7 +135,7 @@ public class e {
         if (!e() && StrategyProcess.getInstance().needDownloadStrategy()) {
             LogSender.getInstance().a();
         }
-        f28463b.obtainMessage(10001, f.a(str, j2, str2, g.a(), c.d.a.a.a.a.a(), collection, map, str3)).sendToTarget();
+        f27595b.obtainMessage(10001, f.a(str, j2, str2, g.a(), c.d.a.a.a.a.a(), collection, map, str3)).sendToTarget();
     }
 
     public boolean e() {
@@ -146,7 +146,7 @@ public class e {
                 return false;
             }
             this.a = true;
-            f28463b.sendEmptyMessage(10003);
+            f27595b.sendEmptyMessage(10003);
             LogSender.getInstance().a();
             return true;
         }
@@ -167,6 +167,6 @@ public class e {
             }
         }
         this.a = false;
-        f28463b = new a(this, c.a().b().getLooper());
+        f27595b = new a(this, c.a().b().getLooper());
     }
 }

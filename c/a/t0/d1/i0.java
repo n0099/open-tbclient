@@ -23,7 +23,7 @@ public class i0 {
     public BaseFragment a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrsTopItemInfoView f16488b;
+    public FrsTopItemInfoView f16140b;
 
     public i0(BaseFragment baseFragment) {
         FrsViewData frsViewData;
@@ -45,29 +45,29 @@ public class i0 {
             return;
         }
         this.a = baseFragment;
-        this.f16488b = new FrsTopItemInfoView(baseFragment.getContext());
+        this.f16140b = new FrsTopItemInfoView(baseFragment.getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.topMargin = UtilHelper.getDimenPixelSize(d1.M_H_X003);
-        this.f16488b.setLayoutParams(layoutParams);
+        this.f16140b.setLayoutParams(layoutParams);
         b();
         BaseFragment baseFragment2 = this.a;
         if (!(baseFragment2 instanceof FrsCommonTabFragment) || (frsViewData = ((FrsCommonTabFragment) baseFragment2).viewData) == null || frsViewData.getForum() == null) {
             return;
         }
         ForumData forum = frsViewData.getForum();
-        this.f16488b.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
+        this.f16140b.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
     }
 
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16488b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16140b : (View) invokeV.objValue;
     }
 
     public void b() {
         FrsTopItemInfoView frsTopItemInfoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsTopItemInfoView = this.f16488b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsTopItemInfoView = this.f16140b) == null) {
             return;
         }
         frsTopItemInfoView.onChangeSkinType();
@@ -76,7 +76,7 @@ public class i0 {
     public void c(ItemInfo itemInfo) {
         FrsTopItemInfoView frsTopItemInfoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) || (frsTopItemInfoView = this.f16488b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) || (frsTopItemInfoView = this.f16140b) == null) {
             return;
         }
         frsTopItemInfoView.setData(itemInfo);

@@ -15,7 +15,7 @@ public class r implements o.e {
     public final /* synthetic */ FunNativeAd a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ NativeUnifiedADData f29163b;
+    public final /* synthetic */ NativeUnifiedADData f28272b;
 
     public r(o oVar, FunNativeAd funNativeAd, NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class r implements o.e {
             }
         }
         this.a = funNativeAd;
-        this.f29163b = nativeUnifiedADData;
+        this.f28272b = nativeUnifiedADData;
     }
 
     @Override // c.g.b0.b.o.e
@@ -43,6 +43,6 @@ public class r implements o.e {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gdtADStatusChangeListener = this.a.getChannelNativeAds().getGdtADStatusChangeListener()) == null) {
             return;
         }
-        gdtADStatusChangeListener.onADStatusChanged(this.f29163b);
+        gdtADStatusChangeListener.onADStatusChanged(this.f28272b);
     }
 }

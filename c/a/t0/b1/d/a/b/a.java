@@ -38,7 +38,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             l<byte[]> lVar = this.a;
             l.b<byte[]> h2 = (lVar == null || str == null) ? null : lVar.h(str);
-            if (h2 == null || (bArr = h2.f2749b) == null) {
+            if (h2 == null || (bArr = h2.f2728b) == null) {
                 return null;
             }
             return bArr;

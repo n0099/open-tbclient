@@ -66,7 +66,7 @@ public class e extends c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{aVar, cVar, context, unitedSchemeEntity, callbackHandler, eVar})) == null) {
-            c.a.r0.a.e0.d.b("vrvideo", "update, video id:" + cVar.n + " slave id: " + cVar.f5422g);
+            c.a.r0.a.e0.d.b("vrvideo", "update, video id:" + cVar.n + " slave id: " + cVar.f5309g);
             update(aVar, cVar, unitedSchemeEntity, callbackHandler);
             return true;
         }

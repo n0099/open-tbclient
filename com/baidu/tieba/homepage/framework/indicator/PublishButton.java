@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.s0.s.i0.n.b;
+import c.a.s0.s.j0.n.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;

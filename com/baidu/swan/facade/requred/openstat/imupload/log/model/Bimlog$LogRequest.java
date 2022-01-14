@@ -94,10 +94,10 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f40992e;
+            public int f39613e;
 
             /* renamed from: f  reason: collision with root package name */
-            public Object f40993f;
+            public Object f39614f;
 
             public b() {
                 Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                         return;
                     }
                 }
-                this.f40993f = "";
+                this.f39614f = "";
                 maybeForceBuilderInitialization();
             }
 
@@ -174,8 +174,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                     AuthInfo authInfo = new AuthInfo(this, (c.a.r0.g.p.a.d.d.a.a) null);
-                    int i2 = (this.f40992e & 1) != 1 ? 0 : 1;
-                    authInfo.token_ = this.f40993f;
+                    int i2 = (this.f39613e & 1) != 1 ? 0 : 1;
+                    authInfo.token_ = this.f39614f;
                     authInfo.bitField0_ = i2;
                     return authInfo;
                 }
@@ -187,8 +187,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                     super.clear();
-                    this.f40993f = "";
-                    this.f40992e &= -2;
+                    this.f39614f = "";
+                    this.f39613e &= -2;
                     return this;
                 }
                 return (b) invokeV.objValue;
@@ -222,8 +222,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, authInfo)) == null) {
                     if (authInfo != AuthInfo.getDefaultInstance() && authInfo.hasToken()) {
-                        this.f40992e |= 1;
-                        this.f40993f = authInfo.token_;
+                        this.f39613e |= 1;
+                        this.f39614f = authInfo.token_;
                     }
                     return this;
                 }
@@ -274,8 +274,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
                     if (str != null) {
-                        this.f40992e |= 1;
-                        this.f40993f = str;
+                        this.f39613e |= 1;
+                        this.f39614f = str;
                         return this;
                     }
                     throw null;
@@ -663,25 +663,23 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f40994e;
+        public int f39615e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f40995f;
+        public long f39616f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f40996g;
+        public Object f39617g;
 
         /* renamed from: h  reason: collision with root package name */
-        public AuthInfo f40997h;
+        public AuthInfo f39618h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f40998i;
+        public long f39619i;
 
         /* renamed from: j  reason: collision with root package name */
-        public Object f40999j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public ByteString f41000k;
+        public Object f39620j;
+        public ByteString k;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -696,10 +694,10 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                     return;
                 }
             }
-            this.f40996g = "";
-            this.f40997h = AuthInfo.getDefaultInstance();
-            this.f40999j = "";
-            this.f41000k = ByteString.EMPTY;
+            this.f39617g = "";
+            this.f39618h = AuthInfo.getDefaultInstance();
+            this.f39620j = "";
+            this.k = ByteString.EMPTY;
             maybeForceBuilderInitialization();
         }
 
@@ -713,8 +711,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                this.f40994e |= 1;
-                this.f40995f = j2;
+                this.f39615e |= 1;
+                this.f39616f = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -772,29 +770,29 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 Bimlog$LogRequest bimlog$LogRequest = new Bimlog$LogRequest(this, (c.a.r0.g.p.a.d.d.a.a) null);
-                int i2 = this.f40994e;
+                int i2 = this.f39615e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                bimlog$LogRequest.version_ = this.f40995f;
+                bimlog$LogRequest.version_ = this.f39616f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                bimlog$LogRequest.serviceName_ = this.f40996g;
+                bimlog$LogRequest.serviceName_ = this.f39617g;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                bimlog$LogRequest.authInfo_ = this.f40997h;
+                bimlog$LogRequest.authInfo_ = this.f39618h;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                bimlog$LogRequest.requestTimestampMs_ = this.f40998i;
+                bimlog$LogRequest.requestTimestampMs_ = this.f39619i;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                bimlog$LogRequest.sign_ = this.f40999j;
+                bimlog$LogRequest.sign_ = this.f39620j;
                 if ((i2 & 32) == 32) {
                     i3 |= 32;
                 }
-                bimlog$LogRequest.payload_ = this.f41000k;
+                bimlog$LogRequest.payload_ = this.k;
                 bimlog$LogRequest.bitField0_ = i3;
                 return bimlog$LogRequest;
             }
@@ -806,22 +804,22 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 super.clear();
-                this.f40995f = 0L;
-                int i2 = this.f40994e & (-2);
-                this.f40994e = i2;
-                this.f40996g = "";
-                this.f40994e = i2 & (-3);
-                this.f40997h = AuthInfo.getDefaultInstance();
-                int i3 = this.f40994e & (-5);
-                this.f40994e = i3;
-                this.f40998i = 0L;
+                this.f39616f = 0L;
+                int i2 = this.f39615e & (-2);
+                this.f39615e = i2;
+                this.f39617g = "";
+                this.f39615e = i2 & (-3);
+                this.f39618h = AuthInfo.getDefaultInstance();
+                int i3 = this.f39615e & (-5);
+                this.f39615e = i3;
+                this.f39619i = 0L;
                 int i4 = i3 & (-9);
-                this.f40994e = i4;
-                this.f40999j = "";
+                this.f39615e = i4;
+                this.f39620j = "";
                 int i5 = i4 & (-17);
-                this.f40994e = i5;
-                this.f41000k = ByteString.EMPTY;
-                this.f40994e = i5 & (-33);
+                this.f39615e = i5;
+                this.k = ByteString.EMPTY;
+                this.f39615e = i5 & (-33);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -854,14 +852,14 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, authInfo)) == null) {
-                if ((this.f40994e & 4) == 4 && this.f40997h != AuthInfo.getDefaultInstance()) {
-                    AuthInfo.b newBuilder = AuthInfo.newBuilder(this.f40997h);
+                if ((this.f39615e & 4) == 4 && this.f39618h != AuthInfo.getDefaultInstance()) {
+                    AuthInfo.b newBuilder = AuthInfo.newBuilder(this.f39618h);
                     newBuilder.s(authInfo);
-                    this.f40997h = newBuilder.buildPartial();
+                    this.f39618h = newBuilder.buildPartial();
                 } else {
-                    this.f40997h = authInfo;
+                    this.f39618h = authInfo;
                 }
-                this.f40994e |= 4;
+                this.f39615e |= 4;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -878,8 +876,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                     A(bimlog$LogRequest.getVersion());
                 }
                 if (bimlog$LogRequest.hasServiceName()) {
-                    this.f40994e |= 2;
-                    this.f40996g = bimlog$LogRequest.serviceName_;
+                    this.f39615e |= 2;
+                    this.f39617g = bimlog$LogRequest.serviceName_;
                 }
                 if (bimlog$LogRequest.hasAuthInfo()) {
                     s(bimlog$LogRequest.getAuthInfo());
@@ -888,8 +886,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                     x(bimlog$LogRequest.getRequestTimestampMs());
                 }
                 if (bimlog$LogRequest.hasSign()) {
-                    this.f40994e |= 16;
-                    this.f40999j = bimlog$LogRequest.sign_;
+                    this.f39615e |= 16;
+                    this.f39620j = bimlog$LogRequest.sign_;
                 }
                 if (bimlog$LogRequest.hasPayload()) {
                     w(bimlog$LogRequest.getPayload());
@@ -943,8 +941,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, authInfo)) == null) {
                 if (authInfo != null) {
-                    this.f40997h = authInfo;
-                    this.f40994e |= 4;
+                    this.f39618h = authInfo;
+                    this.f39615e |= 4;
                     return this;
                 }
                 throw null;
@@ -957,8 +955,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, byteString)) == null) {
                 if (byteString != null) {
-                    this.f40994e |= 32;
-                    this.f41000k = byteString;
+                    this.f39615e |= 32;
+                    this.k = byteString;
                     return this;
                 }
                 throw null;
@@ -970,8 +968,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048602, this, j2)) == null) {
-                this.f40994e |= 8;
-                this.f40998i = j2;
+                this.f39615e |= 8;
+                this.f39619i = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -982,8 +980,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
                 if (str != null) {
-                    this.f40994e |= 2;
-                    this.f40996g = str;
+                    this.f39615e |= 2;
+                    this.f39617g = str;
                     return this;
                 }
                 throw null;
@@ -996,8 +994,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
                 if (str != null) {
-                    this.f40994e |= 16;
-                    this.f40999j = str;
+                    this.f39615e |= 16;
+                    this.f39620j = str;
                     return this;
                 }
                 throw null;

@@ -13,10 +13,10 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46687e;
+    public int f44961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46688f;
+    public int f44962f;
 
     public ForumBroadcastMajorResidueData() {
         Interceptable interceptable = $ic;
@@ -35,26 +35,26 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
     public void A(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f46687e = i2;
+            this.f44961e = i2;
         }
     }
 
     public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46688f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44962f : invokeV.intValue;
     }
 
     public int x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46687e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44961e : invokeV.intValue;
     }
 
     public void y(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f46688f = i2;
+            this.f44962f = i2;
         }
     }
 

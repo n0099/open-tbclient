@@ -16,34 +16,32 @@ public class b {
     public CharSequence a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4075b;
+    public int f4012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CharSequence f4076c;
+    public CharSequence f4013c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4077d;
+    public int f4014d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4078e;
+    public int f4015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f4079f;
+    public a f4016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f4080g;
+    public String f4017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f4081h;
+    public String f4018h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f4082i;
+    public String f4019i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f4083j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f4084k;
+    public String f4020j;
+    public String k;
     public String l;
     public c.a.j.h.c.d.c m;
 
@@ -65,9 +63,9 @@ public class b {
                 return;
             }
         }
-        this.f4078e = 2;
-        this.f4075b = 14;
-        this.f4077d = 14;
+        this.f4015e = 2;
+        this.f4012b = 14;
+        this.f4014d = 14;
     }
 
     public static void f() {
@@ -104,7 +102,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            this.f4079f = aVar;
+            this.f4016f = aVar;
             return this;
         }
         return (b) invokeL.objValue;
@@ -124,7 +122,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f4080g = str;
+            this.f4017g = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -134,7 +132,7 @@ public class b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && l()) {
             f();
-            d.g(context, this.a, this.f4078e, this.f4080g, this.l, this.f4081h, this.m);
+            d.g(context, this.a, this.f4015e, this.f4017g, this.l, this.f4018h, this.m);
         }
     }
 
@@ -143,9 +141,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
             if (i2 >= 1 && i2 <= 10) {
-                this.f4078e = i2;
+                this.f4015e = i2;
             } else {
-                this.f4078e = 2;
+                this.f4015e = 2;
             }
             return this;
         }
@@ -156,7 +154,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
-            this.f4076c = charSequence;
+            this.f4013c = charSequence;
             return this;
         }
         return (b) invokeL.objValue;
@@ -166,7 +164,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.f4081h = str;
+            this.f4018h = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -177,9 +175,9 @@ public class b {
         if ((interceptable == null || interceptable.invokeL(1048585, this, context) == null) && l() && context != null) {
             f();
             if (context instanceof Activity) {
-                f.g((Activity) context, this.a, this.f4075b, this.f4076c, this.f4077d, this.f4078e, this.f4080g, this.l, this.f4081h, this.f4082i, this.f4083j, this.f4084k, this.f4079f, this.m);
+                f.g((Activity) context, this.a, this.f4012b, this.f4013c, this.f4014d, this.f4015e, this.f4017g, this.l, this.f4018h, this.f4019i, this.f4020j, this.k, this.f4016f, this.m);
             } else {
-                d.f(context, this.a, this.f4075b, this.l, this.f4076c, this.f4077d, this.f4078e, this.f4080g, this.f4081h, this.f4082i, this.f4083j, this.f4084k, this.f4079f, this.m);
+                d.f(context, this.a, this.f4012b, this.l, this.f4013c, this.f4014d, this.f4015e, this.f4017g, this.f4018h, this.f4019i, this.f4020j, this.k, this.f4016f, this.m);
             }
         }
     }
@@ -194,7 +192,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.f4082i = str;
+            this.f4019i = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -204,7 +202,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.f4083j = str;
+            this.f4020j = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -214,7 +212,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.f4084k = str;
+            this.k = str;
             return this;
         }
         return (b) invokeL.objValue;

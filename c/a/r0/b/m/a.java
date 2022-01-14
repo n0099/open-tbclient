@@ -21,14 +21,14 @@ public class a extends ActivityDelegation {
 
     /* renamed from: c.a.r0.b.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0650a implements c.a.r0.a.m.a {
+    public class C0659a implements c.a.r0.a.m.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f10313e;
+        public final /* synthetic */ a f10089e;
 
-        public C0650a(a aVar) {
+        public C0659a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10313e = aVar;
+            this.f10089e = aVar;
         }
 
         @Override // c.a.r0.a.m.a
@@ -51,11 +51,11 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f10313e.j();
+                    this.f10089e.j();
                     return;
                 }
-                this.f10313e.mResult.putString("errorMsg", "login failed");
-                this.f10313e.finish();
+                this.f10089e.mResult.putString("errorMsg", "login failed");
+                this.f10089e.finish();
             }
         }
     }
@@ -219,7 +219,7 @@ public class a extends ActivityDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (!c.a.r0.b.l.a.E(getAgent())) {
-                c.a.r0.b.l.a.L(getAgent(), null, new C0650a(this));
+                c.a.r0.b.l.a.L(getAgent(), null, new C0659a(this));
                 return false;
             }
             j();

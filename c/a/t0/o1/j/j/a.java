@@ -1,6 +1,6 @@
 package c.a.t0.o1.j.j;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.o1.j.h.b;
 import c.a.t0.o1.j.h.d;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<d2> a;
+    public final List<e2> a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, bVar)) == null) {
             d dVar = new d();
-            dVar.f21204c = bVar.i();
-            dVar.f21206e = bVar.a();
-            dVar.f21207f = bVar.c();
-            ArrayList<d2> h2 = bVar.h();
+            dVar.f20644c = bVar.i();
+            dVar.f20646e = bVar.a();
+            dVar.f20647f = bVar.c();
+            ArrayList<e2> h2 = bVar.h();
             if (z) {
                 if (!ListUtils.isEmpty(h2)) {
                     this.a.clear();
@@ -63,7 +63,7 @@ public class a {
         return (d) invokeZL.objValue;
     }
 
-    public List<d2> b() {
+    public List<e2> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
@@ -73,7 +73,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<d2> list = this.a;
+            List<e2> list = this.a;
             if (list == null) {
                 return false;
             }

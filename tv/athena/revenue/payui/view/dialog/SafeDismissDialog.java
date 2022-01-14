@@ -20,16 +20,16 @@ public class SafeDismissDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f65491e;
+    public String f63043e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AbsPayMessageReceiver f65492f;
+    public AbsPayMessageReceiver f63044f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PayFlowType f65493g;
+    public PayFlowType f63045g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f65494h;
+    public Context f63046h;
 
     /* loaded from: classes5.dex */
     public class a extends AbsPayMessageReceiver {
@@ -62,7 +62,7 @@ public class SafeDismissDialog extends Dialog {
         public void onAllPayFlowViewRelease() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RLog.info(this.this$0.f65491e, "onAllPayFlowViewRelease");
+                RLog.info(this.this$0.f63043e, "onAllPayFlowViewRelease");
                 this.this$0.dismiss();
             }
         }
@@ -71,7 +71,7 @@ public class SafeDismissDialog extends Dialog {
         public void onDialogPayFlowViewRelease() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                RLog.info(this.this$0.f65491e, "onDialogPayFlowViewRelease");
+                RLog.info(this.this$0.f63043e, "onDialogPayFlowViewRelease");
                 this.this$0.dismiss();
             }
         }
@@ -80,7 +80,7 @@ public class SafeDismissDialog extends Dialog {
         public void onWalletPayFlowViewRelease() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                RLog.info(this.this$0.f65491e, "onWalletPayFlowViewRelease");
+                RLog.info(this.this$0.f63043e, "onWalletPayFlowViewRelease");
                 this.this$0.dismiss();
             }
         }
@@ -105,16 +105,16 @@ public class SafeDismissDialog extends Dialog {
                 return;
             }
         }
-        this.f65491e = "SafeDismissDialog";
-        this.f65491e += "@" + hashCode();
-        this.f65494h = context;
-        this.f65493g = payFlowType;
+        this.f63043e = "SafeDismissDialog";
+        this.f63043e += "@" + hashCode();
+        this.f63046h = context;
+        this.f63045g = payFlowType;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && q.a.a(this.f65494h)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && q.a.a(this.f63046h)) {
             super.dismiss();
         }
     }
@@ -124,9 +124,9 @@ public class SafeDismissDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            RLog.info(this.f65491e, "onCreate");
-            this.f65492f = new a(this, this.f65493g);
-            k.d(getContext(), this.f65492f);
+            RLog.info(this.f63043e, "onCreate");
+            this.f63044f = new a(this, this.f63045g);
+            k.d(getContext(), this.f63044f);
         }
     }
 
@@ -135,10 +135,10 @@ public class SafeDismissDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onStop();
-            RLog.info(this.f65491e, MissionEvent.MESSAGE_STOP);
-            if (this.f65492f != null) {
-                k.e(getContext(), this.f65492f);
-                this.f65492f = null;
+            RLog.info(this.f63043e, MissionEvent.MESSAGE_STOP);
+            if (this.f63044f != null) {
+                k.e(getContext(), this.f63044f);
+                this.f63044f = null;
             }
         }
     }

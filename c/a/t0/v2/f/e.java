@@ -138,11 +138,11 @@ public class e extends c.a.t0.g0.b<n> {
         List<c.a.t0.v2.d.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
-            l(this.f18210f, TbadkCoreApplication.getInst().getSkinType());
-            if (this.n == null || nVar == null || (list = nVar.f25326e) == null || this.o == null || list.size() == 0) {
+            l(this.f17767f, TbadkCoreApplication.getInst().getSkinType());
+            if (this.n == null || nVar == null || (list = nVar.f24617e) == null || this.o == null || list.size() == 0) {
                 return;
             }
-            this.o.onBindDataToView(nVar.f25326e);
+            this.o.onBindDataToView(nVar.f24617e);
         }
     }
 }

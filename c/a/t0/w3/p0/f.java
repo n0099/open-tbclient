@@ -27,7 +27,7 @@ public class f {
     public static AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<Integer> f25671b;
+    public static List<Integer> f24953b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -36,10 +36,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f25672e;
+        public final /* synthetic */ c.a.s0.s.s.a f24954e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f25673f;
+        public final /* synthetic */ m f24955f;
 
         public a(c.a.s0.s.s.a aVar, m mVar) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class f {
                     return;
                 }
             }
-            this.f25672e = aVar;
-            this.f25673f = mVar;
+            this.f24954e = aVar;
+            this.f24955f = mVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f25672e.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, this.f25673f));
+                this.f24954e.dismiss();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, this.f24955f));
             }
         }
     }
@@ -76,7 +76,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f25674e;
+        public final /* synthetic */ c.a.s0.s.s.a f24956e;
 
         public b(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -93,14 +93,14 @@ public class f {
                     return;
                 }
             }
-            this.f25674e = aVar;
+            this.f24956e = aVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f25674e.dismiss();
+                this.f24956e.dismiss();
             }
         }
     }
@@ -131,10 +131,10 @@ public class f {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
                 if (cVar != null && cVar.a) {
                     if (cVar instanceof m.a) {
-                        a(((m.a) cVar).f14182b);
+                        a(((m.a) cVar).f13858b);
                         return;
                     } else if (cVar instanceof m.b) {
-                        c(((m.b) cVar).f14183b);
+                        c(((m.b) cVar).f13859b);
                         return;
                     } else {
                         e();
@@ -166,14 +166,14 @@ public class f {
             }
         }
         a = new AtomicBoolean(false);
-        f25671b = Arrays.asList(Integer.valueOf((int) NetWorkErr.ERROR_UEG_IDENTITY_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_PHONE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_MODIFY_PWD), Integer.valueOf((int) NetWorkErr.ERROR_UEG_FACE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_DOUBLE_CHECK), Integer.valueOf((int) NetWorkErr.ERROR_UEG_BIND_MOBILE));
+        f24953b = Arrays.asList(Integer.valueOf((int) NetWorkErr.ERROR_UEG_IDENTITY_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_PHONE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_MODIFY_PWD), Integer.valueOf((int) NetWorkErr.ERROR_UEG_FACE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_DOUBLE_CHECK), Integer.valueOf((int) NetWorkErr.ERROR_UEG_BIND_MOBILE));
     }
 
     public static boolean a(int i2, AuthTokenData authTokenData, c cVar) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i2, authTokenData, cVar)) == null) {
-            if (f25671b.contains(Integer.valueOf(i2))) {
+            if (f24953b.contains(Integer.valueOf(i2))) {
                 if ((i2 == 3250020 || i2 == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken()))) {
                     return false;
                 }
@@ -188,7 +188,7 @@ public class f {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i2, str, cVar)) == null) {
-            if (f25671b.contains(Integer.valueOf(i2))) {
+            if (f24953b.contains(Integer.valueOf(i2))) {
                 if ((i2 == 3250020 || i2 == 3250021) && TextUtils.isEmpty(str)) {
                     return false;
                 }

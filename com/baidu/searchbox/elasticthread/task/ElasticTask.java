@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 /* loaded from: classes10.dex */
 public class ElasticTask implements Runnable {
     public static /* synthetic */ Interceptable $ic;
@@ -56,7 +57,7 @@ public class ElasticTask implements Runnable {
                 }
             }
             WAITING = new Status("WAITING", 0);
-            RUNNING = new Status("RUNNING", 1);
+            RUNNING = new Status(TornadoLiteRuntime.STATE_RUNNING, 1);
             Status status = new Status("COMPLETE", 2);
             COMPLETE = status;
             $VALUES = new Status[]{WAITING, RUNNING, status};

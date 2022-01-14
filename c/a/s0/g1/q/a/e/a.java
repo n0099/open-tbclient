@@ -14,13 +14,13 @@ public class a {
     public static final long[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f13019b;
+    public static final String[] f12702b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f13020c;
+    public static final String[] f12703c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f13021d;
+    public static final String[] f12704d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,9 +37,9 @@ public class a {
             }
         }
         a = new long[]{19416, 19168, 42352, 21717, 53856, 55632, 91476, 22176, 39632, 21970, 19168, 42422, 42192, 53840, 119381, 46400, 54944, 44450, 38320, 84343, 18800, 42160, 46261, 27216, 27968, 109396, 11104, 38256, 21234, 18800, 25958, 54432, 59984, 28309, 23248, 11104, 100067, 37600, 116951, 51536, 54432, 120998, 46416, 22176, 107956, 9680, 37584, 53938, 43344, 46423, 27808, 46416, 86869, 19872, 42416, 83315, 21168, 43432, 59728, 27296, 44710, 43856, 19296, 43748, 42352, 21088, 62051, 55632, 23383, 22176, 38608, 19925, 19152, 42192, 54484, 53840, 54616, 46400, 46752, 103846, 38320, 18864, 43380, 42160, 45690, 27216, 27968, 44870, 43872, 38256, 19189, 18800, 25776, 29859, 59984, 27480, 21952, 43872, 38613, 37600, 51552, 55636, 54432, 55888, 30034, 22176, 43959, 9680, 37584, 51893, 43344, 46240, 47780, 44368, 21977, 19360, 42416, 86390, 21168, 43312, 31060, 27296, 44368, 23378, 19296, 42726, 42208, 53856, 60005, 54576, 23200, 30371, 38608, 19195, 19152, 42192, 118966, 53840, 54560, 56645, 46496, 22224, 21938, 18864, 42359, 42160, 43600, 111189, 27936, 44448, 84835, 37744, 18936, 18800, 25776, 92326, 59984, 27424, 108228, 43744, 41696, 53987, 51552, 54615, 54432, 55888, 23893, 22176, 42704, 21972, 21200, 43448, 43344, 46240, 46758, 44368, 21920, 43940, 42416, 21168, 45683, 26928, 29495, 27296, 44368, 84821, 19296, 42352, 21732, 53600, 59752, 54560, 55968, 92838, 22224, 19168, 43476, 41680, 53584, 62034, 54560};
-        f13019b = new String[]{"", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "冬", "腊"};
-        f13020c = new String[]{"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
-        f13021d = new String[]{"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"};
+        f12702b = new String[]{"", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "冬", "腊"};
+        f12703c = new String[]{"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
+        f12704d = new String[]{"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"};
         new SimpleDateFormat("yyyy年M月d日 EEEEE");
     }
 
@@ -112,8 +112,8 @@ public class a {
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
             StringBuilder sb = new StringBuilder();
             int i3 = i2 - 4;
-            sb.append(f13020c[i3 % 10]);
-            sb.append(f13021d[i3 % 12]);
+            sb.append(f12703c[i3 % 10]);
+            sb.append(f12704d[i3 % 12]);
             sb.append("年");
             return sb.toString();
         }
@@ -125,12 +125,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            for (int i3 = 1; i3 < f13019b.length; i3++) {
-                arrayList.add(f13019b[i3] + "月");
+            for (int i3 = 1; i3 < f12702b.length; i3++) {
+                arrayList.add(f12702b[i3] + "月");
             }
             if (g(i2) != 0) {
                 int g2 = g(i2);
-                arrayList.add(g2, "闰" + f13019b[g(i2)] + "月");
+                arrayList.add(g2, "闰" + f12702b[g(i2)] + "月");
             }
             return arrayList;
         }

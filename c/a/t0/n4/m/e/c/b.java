@@ -6,20 +6,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20595b;
+    public String f20046b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f20596c;
+    public T f20047c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20597d;
+    public int f20048d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,32 +38,32 @@ public class b<T> {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20597d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20048d : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20595b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20046b : (String) invokeV.objValue;
     }
 
     public T c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20596c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20047c : (T) invokeV.objValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f20597d = i2;
+            this.f20048d = i2;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f20595b = str;
+            this.f20046b = str;
         }
     }
 
@@ -77,7 +77,7 @@ public class b<T> {
     public void g(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-            this.f20596c = t;
+            this.f20047c = t;
         }
     }
 
@@ -103,8 +103,8 @@ public class b<T> {
             }
         }
         this.a = i2;
-        this.f20595b = str;
-        this.f20596c = t;
-        this.f20597d = i3;
+        this.f20046b = str;
+        this.f20047c = t;
+        this.f20048d = i3;
     }
 }

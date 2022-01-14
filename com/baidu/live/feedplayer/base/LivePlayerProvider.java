@@ -23,7 +23,7 @@ public final class LivePlayerProvider {
     public static final Lazy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final LivePlayerProvider f36016b;
+    public static final LivePlayerProvider f34843b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public final class LivePlayerProvider {
                 return;
             }
         }
-        f36016b = new LivePlayerProvider();
+        f34843b = new LivePlayerProvider();
         a = LazyKt__LazyJVMKt.lazy(LivePlayerProvider$playerService$2.INSTANCE);
     }
 

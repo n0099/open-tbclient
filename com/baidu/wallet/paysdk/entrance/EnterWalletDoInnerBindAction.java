@@ -45,10 +45,10 @@ public class EnterWalletDoInnerBindAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f54037b;
+                public final /* synthetic */ boolean f51974b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoInnerBindAction f54038c;
+                public final /* synthetic */ EnterWalletDoInnerBindAction f51975c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -65,16 +65,16 @@ public class EnterWalletDoInnerBindAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f54038c = this;
+                    this.f51975c = this;
                     this.a = routerCallback;
-                    this.f54037b = z;
+                    this.f51974b = z;
                 }
 
                 @Override // com.baidu.android.pay.BindBack
                 public boolean isHideLoadingDialog() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f54037b : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f51974b : invokeV.booleanValue;
                 }
 
                 @Override // com.baidu.android.pay.BindBack

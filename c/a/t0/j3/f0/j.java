@@ -73,7 +73,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                n.L(context, R.string.download_error);
+                n.M(context, R.string.download_error);
                 return;
             }
             File GetFile = FileHelper.GetFile(str.replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);

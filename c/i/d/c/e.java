@@ -33,7 +33,7 @@ public abstract class e<K, V> extends Maps.p<K, V> implements NavigableMap<K, V>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f31013h;
+        public final /* synthetic */ e f30042h;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -50,21 +50,21 @@ public abstract class e<K, V> extends Maps.p<K, V> implements NavigableMap<K, V>
                     return;
                 }
             }
-            this.f31013h = eVar;
+            this.f30042h = eVar;
         }
 
         @Override // com.google.common.collect.Maps.j
         public Iterator<Map.Entry<K, V>> e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31013h.b() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30042h.b() : (Iterator) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.Maps.j
         public NavigableMap<K, V> f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31013h : (NavigableMap) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30042h : (NavigableMap) invokeV.objValue;
         }
 
         public /* synthetic */ b(e eVar, a aVar) {
@@ -89,17 +89,17 @@ public abstract class e<K, V> extends Maps.p<K, V> implements NavigableMap<K, V>
     public abstract Iterator<Map.Entry<K, V>> b();
 
     @Override // java.util.NavigableMap
-    public Map.Entry<K, V> ceilingEntry(K k2) {
+    public Map.Entry<K, V> ceilingEntry(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2)) == null) ? tailMap(k2, true).firstEntry() : (Map.Entry) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? tailMap(k, true).firstEntry() : (Map.Entry) invokeL.objValue;
     }
 
     @Override // java.util.NavigableMap
-    public K ceilingKey(K k2) {
+    public K ceilingKey(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k2)) == null) ? (K) Maps.p(ceilingEntry(k2)) : (K) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) ? (K) Maps.p(ceilingEntry(k)) : (K) invokeL.objValue;
     }
 
     @Override // java.util.NavigableMap
@@ -138,38 +138,38 @@ public abstract class e<K, V> extends Maps.p<K, V> implements NavigableMap<K, V>
     }
 
     @Override // java.util.NavigableMap
-    public Map.Entry<K, V> floorEntry(K k2) {
+    public Map.Entry<K, V> floorEntry(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, k2)) == null) ? headMap(k2, true).lastEntry() : (Map.Entry) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, k)) == null) ? headMap(k, true).lastEntry() : (Map.Entry) invokeL.objValue;
     }
 
     @Override // java.util.NavigableMap
-    public K floorKey(K k2) {
+    public K floorKey(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2)) == null) ? (K) Maps.p(floorEntry(k2)) : (K) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k)) == null) ? (K) Maps.p(floorEntry(k)) : (K) invokeL.objValue;
     }
 
     @Override // java.util.NavigableMap, java.util.SortedMap
-    public SortedMap<K, V> headMap(K k2) {
+    public SortedMap<K, V> headMap(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k2)) == null) ? headMap(k2, false) : (SortedMap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k)) == null) ? headMap(k, false) : (SortedMap) invokeL.objValue;
     }
 
     @Override // java.util.NavigableMap
-    public Map.Entry<K, V> higherEntry(K k2) {
+    public Map.Entry<K, V> higherEntry(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k2)) == null) ? tailMap(k2, false).firstEntry() : (Map.Entry) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k)) == null) ? tailMap(k, false).firstEntry() : (Map.Entry) invokeL.objValue;
     }
 
     @Override // java.util.NavigableMap
-    public K higherKey(K k2) {
+    public K higherKey(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, k2)) == null) ? (K) Maps.p(higherEntry(k2)) : (K) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, k)) == null) ? (K) Maps.p(higherEntry(k)) : (K) invokeL.objValue;
     }
 
     @Override // java.util.AbstractMap, java.util.Map, java.util.SortedMap
@@ -201,17 +201,17 @@ public abstract class e<K, V> extends Maps.p<K, V> implements NavigableMap<K, V>
     }
 
     @Override // java.util.NavigableMap
-    public Map.Entry<K, V> lowerEntry(K k2) {
+    public Map.Entry<K, V> lowerEntry(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, k2)) == null) ? headMap(k2, false).lastEntry() : (Map.Entry) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, k)) == null) ? headMap(k, false).lastEntry() : (Map.Entry) invokeL.objValue;
     }
 
     @Override // java.util.NavigableMap
-    public K lowerKey(K k2) {
+    public K lowerKey(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, k2)) == null) ? (K) Maps.p(lowerEntry(k2)) : (K) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, k)) == null) ? (K) Maps.p(lowerEntry(k)) : (K) invokeL.objValue;
     }
 
     @Override // java.util.NavigableMap
@@ -236,16 +236,16 @@ public abstract class e<K, V> extends Maps.p<K, V> implements NavigableMap<K, V>
     }
 
     @Override // java.util.NavigableMap, java.util.SortedMap
-    public SortedMap<K, V> subMap(K k2, K k3) {
+    public SortedMap<K, V> subMap(K k, K k2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, k2, k3)) == null) ? subMap(k2, true, k3, false) : (SortedMap) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, k, k2)) == null) ? subMap(k, true, k2, false) : (SortedMap) invokeLL.objValue;
     }
 
     @Override // java.util.NavigableMap, java.util.SortedMap
-    public SortedMap<K, V> tailMap(K k2) {
+    public SortedMap<K, V> tailMap(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, k2)) == null) ? tailMap(k2, true) : (SortedMap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, k)) == null) ? tailMap(k, true) : (SortedMap) invokeL.objValue;
     }
 }

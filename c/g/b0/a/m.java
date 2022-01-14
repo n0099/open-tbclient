@@ -26,10 +26,10 @@ public class m extends BaseFunNativeAd {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final TTNativeAd f29083b;
+    public final TTNativeAd f28194b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k f29084c;
+    public final k f28195c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(TTNativeAd tTNativeAd, String str, Ssp.Pid pid, k kVar) {
@@ -50,22 +50,22 @@ public class m extends BaseFunNativeAd {
                 return;
             }
         }
-        this.f29083b = tTNativeAd;
-        this.f29084c = kVar;
+        this.f28194b = tTNativeAd;
+        this.f28195c = kVar;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
     public ChannelNativeAds getChannelNativeAds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createCsj(this.f29083b) : (ChannelNativeAds) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createCsj(this.f28194b) : (ChannelNativeAds) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
     public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29083b.getDescription() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28194b.getDescription() : (String) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
@@ -73,7 +73,7 @@ public class m extends BaseFunNativeAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            TTImage icon = this.f29083b.getIcon();
+            TTImage icon = this.f28194b.getIcon();
             if (icon == null) {
                 return null;
             }
@@ -87,7 +87,7 @@ public class m extends BaseFunNativeAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<TTImage> imageList = this.f29083b.getImageList();
+            List<TTImage> imageList = this.f28194b.getImageList();
             if (imageList == null || imageList.isEmpty()) {
                 return null;
             }
@@ -105,7 +105,7 @@ public class m extends BaseFunNativeAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int interactionType = this.f29083b.getInteractionType();
+            int interactionType = this.f28194b.getInteractionType();
             return (interactionType == 2 || interactionType == 3) ? FunNativeAd.InteractionType.TYPE_BROWSE : interactionType != 4 ? interactionType != 5 ? FunNativeAd.InteractionType.TYPE_UNKNOW : FunNativeAd.InteractionType.TYPE_DIAL : FunNativeAd.InteractionType.TYPE_DOWNLOAD;
         }
         return (FunNativeAd.InteractionType) invokeV.objValue;
@@ -116,8 +116,8 @@ public class m extends BaseFunNativeAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String source = this.f29083b.getSource();
-            return TextUtils.isEmpty(source) ? this.f29083b.getTitle() : source;
+            String source = this.f28194b.getSource();
+            return TextUtils.isEmpty(source) ? this.f28194b.getTitle() : source;
         }
         return (String) invokeV.objValue;
     }
@@ -126,15 +126,15 @@ public class m extends BaseFunNativeAd {
     public View getVideoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29083b.getAdView() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28194b.getAdView() : (View) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
     public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
-            k kVar = this.f29084c;
-            TTNativeAd tTNativeAd = this.f29083b;
+            k kVar = this.f28195c;
+            TTNativeAd tTNativeAd = this.f28194b;
             kVar.c(context, tTNativeAd, this.mSid, viewGroup, list, list2, new k.b(kVar, tTNativeAd), funAdInteractionListener);
         }
     }

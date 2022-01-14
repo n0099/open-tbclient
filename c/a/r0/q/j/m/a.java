@@ -16,22 +16,22 @@ public class a extends h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<C0787a> f11833d;
+    public final Set<C0796a> f11564d;
 
     /* renamed from: c.a.r0.q.j.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0787a {
+    public static class C0796a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f11834b;
+        public long f11565b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f11835c;
+        public long f11566c;
 
-        public C0787a(@NonNull String str) {
+        public C0796a(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,13 +67,13 @@ public class a extends h {
         public long c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11835c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11566c : invokeV.longValue;
         }
 
         public long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11834b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11565b : invokeV.longValue;
         }
 
         public int e() {
@@ -92,9 +92,9 @@ public class a extends h {
                 if (super.equals(obj)) {
                     return true;
                 }
-                if (obj instanceof C0787a) {
-                    C0787a c0787a = (C0787a) obj;
-                    return TextUtils.equals(this.a, c0787a.a) && this.f11834b == c0787a.f11834b && this.f11835c == c0787a.f11835c;
+                if (obj instanceof C0796a) {
+                    C0796a c0796a = (C0796a) obj;
+                    return TextUtils.equals(this.a, c0796a.a) && this.f11565b == c0796a.f11565b && this.f11566c == c0796a.f11566c;
                 }
                 return false;
             }
@@ -104,20 +104,20 @@ public class a extends h {
         public void f(long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                this.f11834b = j2;
-                this.f11835c = j3;
+                this.f11565b = j2;
+                this.f11566c = j3;
             }
         }
 
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.f11834b), Long.valueOf(this.f11835c)) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.f11565b), Long.valueOf(this.f11566c)) : invokeV.intValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(Set<C0787a> set) {
+    public a(Set<C0796a> set) {
         super(-1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,12 +134,12 @@ public class a extends h {
                 return;
             }
         }
-        this.f11833d = set;
+        this.f11564d = set;
     }
 
-    public Set<C0787a> f() {
+    public Set<C0796a> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11833d : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11564d : (Set) invokeV.objValue;
     }
 }

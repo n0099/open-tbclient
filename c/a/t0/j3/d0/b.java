@@ -47,10 +47,10 @@ public class b {
                         return false;
                     }
                     int i5 = i2 > a ? i4 : a;
-                    int k2 = c.a.t0.x1.o.k.a.k(list);
-                    if (i5 >= k2 && (cVar.d() || i5 > k2)) {
+                    int k = c.a.t0.x1.o.k.a.k(list);
+                    if (i5 >= k && (cVar.d() || i5 > k)) {
                         if (dVar != 0) {
-                            dVar.d(i2, i5, k2, cVar, t);
+                            dVar.d(i2, i5, k, cVar, t);
                         }
                         return false;
                     }

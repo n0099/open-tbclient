@@ -13,28 +13,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f20278b;
+    public View f19743b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f20279c;
+    public TextView f19744c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Integer f20280e;
+        public final /* synthetic */ Integer f19745e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f20281f;
+        public final /* synthetic */ e f19746f;
 
         public a(e eVar, Integer num) {
             Interceptable interceptable = $ic;
@@ -51,18 +51,18 @@ public class e {
                     return;
                 }
             }
-            this.f20281f = eVar;
-            this.f20280e = num;
+            this.f19746f = eVar;
+            this.f19745e = num;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Integer num;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (num = this.f20280e) == null || num.intValue() == 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (num = this.f19745e) == null || num.intValue() == 0) {
                 return;
             }
-            this.f20281f.a.setVisibility(0);
+            this.f19746f.a.setVisibility(0);
         }
     }
 
@@ -82,23 +82,23 @@ public class e {
             }
         }
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.emotion_simple_header, (ViewGroup) null);
-        this.f20278b = inflate;
+        this.f19743b = inflate;
         View findViewById = inflate.findViewById(R.id.emotion_manage_item_header);
         this.a = findViewById;
         findViewById.setVisibility(8);
-        this.f20279c = (TextView) this.f20278b.findViewById(R.id.emotion_manage_total_title);
+        this.f19744c = (TextView) this.f19743b.findViewById(R.id.emotion_manage_total_title);
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20278b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19743b : (View) invokeV.objValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            View view = this.f20278b;
+            View view = this.f19743b;
             if (view != null) {
                 SkinManager.setBackgroundColor(view, R.color.cp_bg_line_d_alpha90, i2);
             }
@@ -106,7 +106,7 @@ public class e {
             if (view2 != null) {
                 SkinManager.setBackgroundColor(view2, R.color.CAM_X0204, i2);
             }
-            TextView textView = this.f20279c;
+            TextView textView = this.f19744c;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i2);
             }

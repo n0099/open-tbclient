@@ -17,26 +17,26 @@ public class f extends d implements View.OnClickListener {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f59512b;
+    public ViewGroup f57261b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSCornerImageView f59513c;
+    public KSCornerImageView f57262c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f59514d;
+    public TextView f57263d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KSCornerImageView f59515e;
+    public KSCornerImageView f57264e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f59516f;
+    public b f57265f;
 
     /* loaded from: classes3.dex */
     public static class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59517b;
+        public String f57266b;
 
         @Nullable
         public static a a(AdTemplate adTemplate) {
@@ -45,7 +45,7 @@ public class f extends d implements View.OnClickListener {
             }
             AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
             a aVar = new a();
-            aVar.f59517b = com.kwad.sdk.core.config.b.aD();
+            aVar.f57266b = com.kwad.sdk.core.config.b.aD();
             aVar.a = com.kwad.sdk.core.response.a.a.aE(j2);
             return aVar;
         }
@@ -53,18 +53,18 @@ public class f extends d implements View.OnClickListener {
 
     public f(ViewGroup viewGroup, b bVar) {
         this.a = viewGroup;
-        this.f59516f = bVar;
+        this.f57265f = bVar;
         b();
     }
 
     private void b() {
-        this.f59513c = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_followed_icon);
-        this.f59514d = (TextView) this.a.findViewById(R.id.ksad_reward_followed_btn_follow);
-        this.f59515e = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_followed_kwai_logo);
-        this.f59512b = (ViewGroup) this.a.findViewById(R.id.ksad_reward_followed_root);
-        this.f59514d.setOnClickListener(this);
-        this.f59513c.setOnClickListener(this);
-        this.f59512b.setOnClickListener(this);
+        this.f57262c = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_followed_icon);
+        this.f57263d = (TextView) this.a.findViewById(R.id.ksad_reward_followed_btn_follow);
+        this.f57264e = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_followed_kwai_logo);
+        this.f57261b = (ViewGroup) this.a.findViewById(R.id.ksad_reward_followed_root);
+        this.f57263d.setOnClickListener(this);
+        this.f57262c.setOnClickListener(this);
+        this.f57261b.setOnClickListener(this);
         if (af.e(this.a.getContext())) {
             return;
         }
@@ -76,7 +76,7 @@ public class f extends d implements View.OnClickListener {
 
     @Override // com.kwad.sdk.reward.d.d
     public ViewGroup a() {
-        return this.f59512b;
+        return this.f57261b;
     }
 
     @Override // com.kwad.sdk.reward.d.d
@@ -86,26 +86,26 @@ public class f extends d implements View.OnClickListener {
         if (a2 == null) {
             return;
         }
-        this.f59514d.setText(a2.f59517b);
-        KSImageLoader.loadImage(this.f59513c, a2.a, adTemplate);
+        this.f57263d.setText(a2.f57266b);
+        KSImageLoader.loadImage(this.f57262c, a2.a, adTemplate);
         String aF = com.kwad.sdk.core.config.b.aF();
         if (at.a(aF)) {
             return;
         }
-        KSImageLoader.loadImage(this.f59515e, aF, adTemplate);
+        KSImageLoader.loadImage(this.f57264e, aF, adTemplate);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f59516f == null) {
+        if (this.f57265f == null) {
             return;
         }
-        if (view.equals(this.f59514d)) {
-            this.f59516f.c();
-        } else if (view.equals(this.f59513c)) {
-            this.f59516f.a();
-        } else if (view.equals(this.f59512b)) {
-            this.f59516f.b();
+        if (view.equals(this.f57263d)) {
+            this.f57265f.c();
+        } else if (view.equals(this.f57262c)) {
+            this.f57265f.a();
+        } else if (view.equals(this.f57261b)) {
+            this.f57265f.b();
         }
     }
 }

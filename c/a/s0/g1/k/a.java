@@ -22,15 +22,15 @@ public class a implements ImageAssetDelegate {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f12941d;
+    public static final String f12629d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LocalFileImageLoaderProc f12942b;
+    public LocalFileImageLoaderProc f12630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12943c;
+    public boolean f12631c;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class a implements ImageAssetDelegate {
                 return;
             }
         }
-        f12941d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+        f12629d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
     }
 
     public a() {
@@ -61,14 +61,14 @@ public class a implements ImageAssetDelegate {
                 return;
             }
         }
-        this.f12943c = false;
+        this.f12631c = false;
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f12941d + "/" + TbConfig.getTempDirName() + "/animation/";
+            return f12629d + "/" + TbConfig.getTempDirName() + "/animation/";
         }
         return (String) invokeV.objValue;
     }
@@ -76,13 +76,13 @@ public class a implements ImageAssetDelegate {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12943c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12631c : invokeV.booleanValue;
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f12943c = z;
+            this.f12631c = z;
         }
     }
 
@@ -104,10 +104,10 @@ public class a implements ImageAssetDelegate {
             String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
             c.a.d.n.d.a aVar = (c.a.d.n.d.a) d.h().n(str, 36, new Object[0]);
             if (aVar == null && b()) {
-                if (this.f12942b == null) {
-                    this.f12942b = new LocalFileImageLoaderProc();
+                if (this.f12630b == null) {
+                    this.f12630b = new LocalFileImageLoaderProc();
                 }
-                aVar = this.f12942b.getBitmapFromFile(str, 0, 0);
+                aVar = this.f12630b.getBitmapFromFile(str, 0, 0);
             }
             if (aVar != null && aVar.p() != null) {
                 Bitmap p = aVar.p();

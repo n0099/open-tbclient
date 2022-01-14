@@ -14,7 +14,7 @@ public class e extends BaseCardInfo implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdUniqueId f25284e;
+    public static BdUniqueId f24577e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class e extends BaseCardInfo implements c.a.d.n.e.n {
                 return;
             }
         }
-        f25284e = BdUniqueId.gen();
+        f24577e = BdUniqueId.gen();
     }
 
     public e() {
@@ -51,6 +51,6 @@ public class e extends BaseCardInfo implements c.a.d.n.e.n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f25284e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f24577e : (BdUniqueId) invokeV.objValue;
     }
 }

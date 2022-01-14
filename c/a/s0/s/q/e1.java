@@ -12,19 +12,19 @@ public class e1 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13675b;
+    public String f13360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13676c;
+    public int f13361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13677d;
+    public String f13362d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13678e;
+    public String f13363e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13679f;
+    public String f13364f;
 
     public e1() {
         Interceptable interceptable = $ic;
@@ -46,11 +46,11 @@ public class e1 {
             return;
         }
         this.a = newsInfo.news_link;
-        this.f13675b = newsInfo.summary;
+        this.f13360b = newsInfo.summary;
         newsInfo.position.intValue();
-        this.f13676c = newsInfo.news_type.intValue();
-        this.f13677d = newsInfo.news_icon;
-        this.f13678e = newsInfo.subtitle;
-        this.f13679f = newsInfo.button_text;
+        this.f13361c = newsInfo.news_type.intValue();
+        this.f13362d = newsInfo.news_icon;
+        this.f13363e = newsInfo.subtitle;
+        this.f13364f = newsInfo.button_text;
     }
 }

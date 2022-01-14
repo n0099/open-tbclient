@@ -52,7 +52,7 @@ public class i0 extends n<c.a.t0.s2.r.n, PbNoDataItemViewHolder> {
     public PbNoDataItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbNoDataItemViewHolder(LayoutInflater.from(this.f3299e).inflate(c.a.t0.s2.j.pb_no_data_item_layout, viewGroup, false), this.f3299e) : (PbNoDataItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbNoDataItemViewHolder(LayoutInflater.from(this.f3258e).inflate(c.a.t0.s2.j.pb_no_data_item_layout, viewGroup, false), this.f3258e) : (PbNoDataItemViewHolder) invokeL.objValue;
     }
 
     public View c0(int i2, View view, ViewGroup viewGroup, c.a.t0.s2.r.n nVar, PbNoDataItemViewHolder pbNoDataItemViewHolder) {

@@ -23,15 +23,15 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f13282d;
+    public static e f12962d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13283b;
+    public int f12963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13284c;
+    public boolean f12964c;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.s0.q0.b {
@@ -103,7 +103,7 @@ public class e {
         public int getMaxCost() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.f13283b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.f12963b : invokeV.intValue;
         }
 
         @Override // c.a.s0.q0.b
@@ -146,21 +146,21 @@ public class e {
             }
         }
         this.a = false;
-        this.f13284c = false;
+        this.f12964c = false;
     }
 
     public static e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f13282d == null) {
+            if (f12962d == null) {
                 synchronized (e.class) {
-                    if (f13282d == null) {
-                        f13282d = new e();
+                    if (f12962d == null) {
+                        f12962d = new e();
                     }
                 }
             }
-            return f13282d;
+            return f12962d;
         }
         return (e) invokeV.objValue;
     }
@@ -170,9 +170,9 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return c.a.s0.s.g0.b.j().k("page_stay_max_cost", 0);
+                return c.a.s0.s.h0.b.k().l("page_stay_max_cost", 0);
             }
-            return this.f13283b;
+            return this.f12963b;
         }
         return invokeV.intValue;
     }
@@ -205,14 +205,14 @@ public class e {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13284c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12964c : invokeV.booleanValue;
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f13283b = i2;
-            c.a.s0.s.g0.b.j().v("page_stay_max_cost", this.f13283b);
+            this.f12963b = i2;
+            c.a.s0.s.h0.b.k().w("page_stay_max_cost", this.f12963b);
         }
     }
 
@@ -226,7 +226,7 @@ public class e {
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f13284c = z;
+            this.f12964c = z;
         }
     }
 
@@ -244,8 +244,8 @@ public class e {
                 statisticItem.param("obj_source", c.a(dVar.h()));
                 statisticItem.param("obj_locate", dVar.c());
                 statisticItem.param("obj_type", "0");
-                if (!StringUtils.isNull(dVar.f13279i)) {
-                    statisticItem.param("obj_id", dVar.f13279i);
+                if (!StringUtils.isNull(dVar.f12960i)) {
+                    statisticItem.param("obj_id", dVar.f12960i);
                 }
                 if (dVar.b() != 0) {
                     statisticItem.param(TiebaStatic.Params.T_PLUS_AD_SOURCE, dVar.b());
@@ -285,8 +285,8 @@ public class e {
             if (dVar.g() > 0) {
                 statisticItem2.param("pid", String.valueOf(dVar.g()));
             }
-            if (!StringUtils.isNull(dVar.f13281k)) {
-                statisticItem2.param("obj_param1", dVar.f13281k);
+            if (!StringUtils.isNull(dVar.k)) {
+                statisticItem2.param("obj_param1", dVar.k);
             }
             if (!StringUtils.isNull(dVar.l)) {
                 statisticItem2.param(TiebaStatic.Params.IS_VERTICAL, dVar.l);
@@ -307,11 +307,11 @@ public class e {
                 statisticItem2.param("ab_tag", dVar.a());
             }
             if (g()) {
-                if (!StringUtils.isNull(dVar.f13279i)) {
-                    statisticItem2.param("obj_id", dVar.f13279i);
+                if (!StringUtils.isNull(dVar.f12960i)) {
+                    statisticItem2.param("obj_id", dVar.f12960i);
                 }
-                if (!StringUtils.isNull(dVar.f13280j)) {
-                    statisticItem2.param("obj_name", dVar.f13280j);
+                if (!StringUtils.isNull(dVar.f12961j)) {
+                    statisticItem2.param("obj_name", dVar.f12961j);
                 }
                 statisticItem2.param("obj_source", "a002");
             }

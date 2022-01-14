@@ -52,25 +52,25 @@ public class h {
         a2.h(System.currentTimeMillis());
         a2.i(0L);
         com.ss.android.socialbase.downloader.g.a a3 = com.ss.android.socialbase.downloader.g.a.a(fVar.ad());
-        if (!a(fVar, a3, a) && eVar.f61804b.isShowToast()) {
-            String startToast = eVar.f61804b.getStartToast();
+        if (!a(fVar, a3, a) && eVar.f59464b.isShowToast()) {
+            String startToast = eVar.f59464b.getStartToast();
             if (TextUtils.isEmpty(startToast)) {
                 startToast = a3.c("download_start_toast_text");
             }
             if (TextUtils.isEmpty(startToast)) {
                 startToast = z ? "已开始下载，可在\"我的\"里查看管理" : "已开始下载";
             }
-            j.c().a(2, fVar.getContext(), eVar.f61804b, startToast, null, 0);
+            j.c().a(2, fVar.getContext(), eVar.f59464b, startToast, null, 0);
         }
         return a;
     }
 
     public static com.ss.android.downloadad.api.a.b a(com.ss.android.downloadlib.addownload.b.e eVar, int i2) {
-        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f61804b, eVar.f61805c, eVar.f61806d, i2);
+        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f59464b, eVar.f59465c, eVar.f59466d, i2);
         boolean z = true;
         if (com.ss.android.socialbase.downloader.g.a.a(i2).a("download_event_opt", 1) > 1) {
             try {
-                String packageName = eVar.f61804b.getPackageName();
+                String packageName = eVar.f59464b.getPackageName();
                 if (!TextUtils.isEmpty(packageName)) {
                     if (j.getContext().getPackageManager().getPackageInfo(packageName, 0) == null) {
                         z = false;
@@ -150,13 +150,13 @@ public class h {
                             case 1:
                             case 2:
                             case 3:
-                                if (com.ss.android.socialbase.appdownloader.b.a(optJSONObject, aVar).f62043b == 0) {
+                                if (com.ss.android.socialbase.appdownloader.b.a(optJSONObject, aVar).f59700b == 0) {
                                     break;
                                 } else {
                                     continue;
                                 }
                             case 6:
-                                if (com.ss.android.socialbase.appdownloader.b.b(optJSONObject, aVar).f62043b == 0) {
+                                if (com.ss.android.socialbase.appdownloader.b.b(optJSONObject, aVar).f59700b == 0) {
                                     break;
                                 } else {
                                     continue;

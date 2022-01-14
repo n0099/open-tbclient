@@ -3,7 +3,7 @@ package c.a.t0.o1.l.d;
 import android.content.Context;
 import android.graphics.Rect;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.d1.l;
 import c.a.t0.g0.f0.b;
 import c.a.t0.g0.m;
@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,15 +37,15 @@ public class a {
         statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
     }
 
-    public static boolean b(d2 d2Var) {
+    public static boolean b(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, d2Var)) == null) {
-            if (d2Var == null || d2Var.B1) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, e2Var)) == null) {
+            if (e2Var == null || e2Var.A1) {
                 return false;
             }
-            int i2 = d2Var.d0;
-            return i2 == 0 || i2 == 11 || i2 == 40 || d2Var.G2();
+            int i2 = e2Var.d0;
+            return i2 == 0 || i2 == 11 || i2 == 40 || e2Var.G2();
         }
         return invokeL.booleanValue;
     }
@@ -55,7 +55,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{aVar, context, Integer.valueOf(i2), Boolean.valueOf(z), rect}) == null) || aVar == null || aVar.getThreadData() == null || context == null) {
             return;
         }
-        d2 threadData = aVar.getThreadData();
+        e2 threadData = aVar.getThreadData();
         PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, "video_tab", 18003, true, false, false);
         createFromThreadCfg.setForumId(String.valueOf(threadData.U()));
         createFromThreadCfg.setFrom("from_video_tab");

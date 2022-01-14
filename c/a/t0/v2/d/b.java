@@ -17,7 +17,7 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25276b;
+    public int f24570b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -33,13 +33,13 @@ public class b {
             }
         }
         this.a = -1;
-        this.f25276b = 0;
+        this.f24570b = 0;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25276b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24570b : invokeV.intValue;
     }
 
     public int b() {
@@ -59,7 +59,7 @@ public class b {
             jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.f25276b = optJSONObject.optInt("msg_count");
+                this.f24570b = optJSONObject.optInt("msg_count");
             }
         } catch (JSONException e2) {
             e2.printStackTrace();

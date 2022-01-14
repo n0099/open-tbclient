@@ -14,31 +14,31 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final WebView f58607b;
+    public final WebView f56396b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.c f58608c;
+    public com.kwad.sdk.core.webview.kwai.c f56397c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public b f58609d;
+    public b f56398d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58610e;
+    public boolean f56399e;
 
     /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58612b;
+        public int f56401b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f58613c;
+        public int f56402c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f58614d;
+        public int f56403d;
 
         @Override // com.kwad.sdk.core.b
         public void parseJson(@Nullable JSONObject jSONObject) {
@@ -46,18 +46,18 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
                 return;
             }
             this.a = jSONObject.optInt("height");
-            this.f58612b = jSONObject.optInt("leftMargin");
-            this.f58613c = jSONObject.optInt("rightMargin");
-            this.f58614d = jSONObject.optInt("bottomMargin");
+            this.f56401b = jSONObject.optInt("leftMargin");
+            this.f56402c = jSONObject.optInt("rightMargin");
+            this.f56403d = jSONObject.optInt("bottomMargin");
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             com.kwad.sdk.utils.t.a(jSONObject, "height", this.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "leftMargin", this.f58612b);
-            com.kwad.sdk.utils.t.a(jSONObject, "rightMargin", this.f58613c);
-            com.kwad.sdk.utils.t.a(jSONObject, "bottomMargin", this.f58614d);
+            com.kwad.sdk.utils.t.a(jSONObject, "leftMargin", this.f56401b);
+            com.kwad.sdk.utils.t.a(jSONObject, "rightMargin", this.f56402c);
+            com.kwad.sdk.utils.t.a(jSONObject, "bottomMargin", this.f56403d);
             return jSONObject;
         }
     }
@@ -73,11 +73,11 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     public j(com.kwad.sdk.core.webview.a aVar, @Nullable b bVar, boolean z) {
-        this.f58610e = true;
+        this.f56399e = true;
         this.a = new Handler(Looper.getMainLooper());
-        this.f58607b = aVar.f58539e;
-        this.f58609d = bVar;
-        this.f58610e = z;
+        this.f56396b = aVar.f56330e;
+        this.f56398d = bVar;
+        this.f56399e = z;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
@@ -88,7 +88,7 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        this.f58608c = cVar;
+        this.f56397c = cVar;
         try {
             JSONObject jSONObject = new JSONObject(str);
             final a aVar = new a();
@@ -96,26 +96,26 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
             this.a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.j.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (j.this.f58607b != null && j.this.f58610e) {
-                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) j.this.f58607b.getLayoutParams();
+                    if (j.this.f56396b != null && j.this.f56399e) {
+                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) j.this.f56396b.getLayoutParams();
                         marginLayoutParams.width = -1;
                         a aVar2 = aVar;
                         marginLayoutParams.height = aVar2.a;
-                        marginLayoutParams.leftMargin = aVar2.f58612b;
-                        marginLayoutParams.rightMargin = aVar2.f58613c;
-                        marginLayoutParams.bottomMargin = aVar2.f58614d;
-                        j.this.f58607b.setLayoutParams(marginLayoutParams);
+                        marginLayoutParams.leftMargin = aVar2.f56401b;
+                        marginLayoutParams.rightMargin = aVar2.f56402c;
+                        marginLayoutParams.bottomMargin = aVar2.f56403d;
+                        j.this.f56396b.setLayoutParams(marginLayoutParams);
                     }
-                    if (j.this.f58609d != null) {
-                        j.this.f58609d.a(aVar);
+                    if (j.this.f56398d != null) {
+                        j.this.f56398d.a(aVar);
                     }
                 }
             });
             this.a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.j.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (j.this.f58608c != null) {
-                        j.this.f58608c.a(null);
+                    if (j.this.f56397c != null) {
+                        j.this.f56397c.a(null);
                     }
                 }
             });
@@ -127,8 +127,8 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        this.f58608c = null;
-        this.f58609d = null;
+        this.f56397c = null;
+        this.f56398d = null;
         this.a.removeCallbacksAndMessages(null);
     }
 }

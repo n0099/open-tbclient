@@ -133,7 +133,7 @@ public class cx implements Comparable<cx> {
                 JSONArray jSONArray = new JSONArray();
                 Iterator<cn> it = this.f216a.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next().m270a());
+                    jSONArray.put(it.next().m282a());
                 }
                 jSONObject.put("ah", jSONArray);
             }

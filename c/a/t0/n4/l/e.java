@@ -1,7 +1,7 @@
 package c.a.t0.n4.l;
 
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface e {
     void a(CloudMusicData.MusicTagList.MusicList musicList, int i2);
 

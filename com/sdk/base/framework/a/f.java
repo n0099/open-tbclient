@@ -21,35 +21,33 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f61515b;
+    public static d f59184b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f61516c;
+    public long f59185c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.sdk.base.framework.b.b<T> f61517d;
+    public com.sdk.base.framework.b.b<T> f59186d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61518e;
+    public String f59187e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61519f;
+    public String f59188f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f61520g;
+    public g f59189g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61521h;
+    public int f59190h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f61522i;
+    public boolean f59191i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f61523j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f61524k;
+    public long f59192j;
+    public String k;
     public boolean l;
     public Boolean m;
     public Boolean n;
@@ -70,7 +68,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                 return;
             }
         }
-        f61515b = new d();
+        f59184b = new d();
     }
 
     public f(h<T> hVar) {
@@ -88,10 +86,10 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                 return;
             }
         }
-        this.f61516c = d.a();
-        this.f61520g = g.a;
-        this.f61522i = true;
-        this.f61524k = null;
+        this.f59185c = d.a();
+        this.f59189g = g.a;
+        this.f59191i = true;
+        this.k = null;
         this.l = false;
         Boolean bool = Boolean.FALSE;
         this.m = bool;
@@ -100,10 +98,10 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         k<T> b2 = hVar.b();
         this.p = b2;
         if (b2 != null) {
-            this.f61518e = b2.a();
-            this.f61519f = this.p.d();
-            this.f61521h = this.p.f();
-            this.f61517d = this.p.g();
+            this.f59187e = b2.a();
+            this.f59188f = this.p.d();
+            this.f59190h = this.p.f();
+            this.f59186d = this.p.g();
         }
     }
 
@@ -117,15 +115,15 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
             } catch (Throwable th) {
                 com.sdk.base.framework.f.f.a.b(th.toString());
                 com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.a);
-                int i2 = this.f61521h;
+                int i2 = this.f59190h;
                 if (i2 > 0) {
-                    this.f61521h = i2 - 1;
+                    this.f59190h = i2 - 1;
                     lVar = a(hVar, httpURLConnection);
                 }
             }
-            if (!d.b(this.f61518e) || (a = f61515b.a(this.f61519f)) == null) {
+            if (!d.b(this.f59187e) || (a = f59184b.a(this.f59188f)) == null) {
                 if (this.m.booleanValue() && this.l) {
-                    File file = new File(this.f61524k);
+                    File file = new File(this.k);
                     long length = (file.isFile() && file.exists()) ? file.length() : 0L;
                     if (length > 0) {
                         StringBuilder sb = new StringBuilder("bytes=");
@@ -176,12 +174,12 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                 if (i2 < 300) {
                     byte[] bArr = null;
                     if (httpURLConnection != null) {
-                        this.f61522i = false;
+                        this.f59191i = false;
                         if (this.l) {
                             this.m = Boolean.valueOf(this.m.booleanValue() && com.sdk.base.framework.f.d.a.a(httpURLConnection));
                             String b2 = this.n.booleanValue() ? com.sdk.base.framework.f.d.a.b(httpURLConnection) : null;
                             new com.sdk.base.framework.a.b.b();
-                            com.sdk.base.framework.a.b.b.a(httpURLConnection, this, this.f61524k, this.m.booleanValue(), b2);
+                            com.sdk.base.framework.a.b.b.a(httpURLConnection, this, this.k, this.m.booleanValue(), b2);
                         }
                         if (this.o.booleanValue()) {
                             new com.sdk.base.framework.a.b.a();
@@ -190,8 +188,8 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                             new com.sdk.base.framework.a.b.d();
                             String a = com.sdk.base.framework.a.b.d.a(httpURLConnection, this, "UTF-8");
                             bArr = a;
-                            if (d.b(this.f61518e)) {
-                                f61515b.a(this.f61519f, a, this.f61516c);
+                            if (d.b(this.f59187e)) {
+                                f59184b.a(this.f59188f, a, this.f59185c);
                                 bArr = a;
                             }
                         }
@@ -260,10 +258,10 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, objArr)) == null) {
-            if (this.f61520g != g.f61528e && objArr != null && objArr.length != 0) {
+            if (this.f59189g != g.f59196e && objArr != null && objArr.length != 0) {
                 if (objArr.length == 4) {
                     String valueOf = String.valueOf(objArr[1]);
-                    this.f61524k = valueOf;
+                    this.k = valueOf;
                     this.l = valueOf != null;
                     this.m = (Boolean) objArr[2];
                     this.n = (Boolean) objArr[3];
@@ -272,11 +270,11 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     this.o = (Boolean) objArr[1];
                 }
                 try {
-                    this.f61523j = SystemClock.uptimeMillis();
+                    this.f59192j = SystemClock.uptimeMillis();
                     d(1);
                     h<T> hVar = (h) objArr[0];
                     String a = hVar.a();
-                    this.f61519f = a;
+                    this.f59188f = a;
                     HttpURLConnection a2 = hVar.a(a, false);
                     if (a2 == null) {
                         d(4, new l(0, c(), false));
@@ -306,7 +304,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f61520g = g.f61528e;
+            this.f59189g = g.f59196e;
             if (b()) {
                 return;
             }
@@ -321,29 +319,29 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
     @Override // com.sdk.base.framework.a.c.c
     public final void a(Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) || this.f61520g == g.f61528e || objArr == null || objArr.length == 0 || this.f61517d == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) || this.f59189g == g.f59196e || objArr == null || objArr.length == 0 || this.f59186d == null) {
             return;
         }
         int intValue = ((Integer) objArr[0]).intValue();
         if (intValue == 1) {
-            this.f61520g = g.f61525b;
+            this.f59189g = g.f59193b;
         } else if (intValue == 2) {
             if (objArr.length != 3) {
                 return;
             }
-            this.f61520g = g.f61526c;
+            this.f59189g = g.f59194c;
             Long.parseLong(String.valueOf(objArr[1]));
             Long.parseLong(String.valueOf(objArr[2]));
         } else if (intValue == 3) {
             if (objArr.length != 3) {
                 return;
             }
-            this.f61520g = g.f61527d;
-            this.f61517d.a(((Integer) objArr[1]).intValue(), (String) objArr[2]);
+            this.f59189g = g.f59195d;
+            this.f59186d.a(((Integer) objArr[1]).intValue(), (String) objArr[2]);
         } else if (intValue == 4 && objArr.length == 2) {
-            this.f61520g = g.f61529f;
+            this.f59189g = g.f59197f;
             this.p.d();
-            this.f61517d.a((l) objArr[1]);
+            this.f59186d.a((l) objArr[1]);
         }
     }
 
@@ -352,18 +350,18 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
-            if (this.f61517d != null && this.f61520g != g.f61528e) {
+            if (this.f59186d != null && this.f59189g != g.f59196e) {
                 if (z) {
                     d(2, Long.valueOf(j2), Long.valueOf(j3));
                 } else {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    if (uptimeMillis - this.f61523j >= this.f61517d.a()) {
-                        this.f61523j = uptimeMillis;
+                    if (uptimeMillis - this.f59192j >= this.f59186d.a()) {
+                        this.f59192j = uptimeMillis;
                         d(2, Long.valueOf(j2), Long.valueOf(j3));
                     }
                 }
             }
-            return this.f61520g != g.f61528e;
+            return this.f59189g != g.f59196e;
         }
         return invokeCommon.booleanValue;
     }

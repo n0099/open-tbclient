@@ -21,13 +21,13 @@ public final class i1 {
     public static final String a = "AES/CBC/PKCS5Padding";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f57241b = "AES";
+    public static final String f55075b = "AES";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f57242c = "AES/CBC/PKCS7Padding";
+    public static final String f55076c = "AES/CBC/PKCS7Padding";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f57243d = "AES/CBC/NoPadding";
+    public static final String f55077d = "AES/CBC/NoPadding";
     public transient /* synthetic */ FieldHolder $fh;
 
     public i1() {

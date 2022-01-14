@@ -32,12 +32,12 @@ public class b extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             String action = intent.getAction();
             if (action.equals("android.intent.action.SCREEN_ON")) {
-                a.j().f19641e = 1;
+                a.j().f19135e = 1;
             } else if (action.equals("android.intent.action.SCREEN_OFF")) {
-                a.j().f19641e = 1;
-                a.j().f19640d.d();
+                a.j().f19135e = 1;
+                a.j().f19134d.d();
             } else if (action.equals("android.intent.action.USER_PRESENT")) {
-                a.j().f19641e = 0;
+                a.j().f19135e = 0;
             }
         }
     }

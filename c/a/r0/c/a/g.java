@@ -19,18 +19,18 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile g f10456e;
+    public static volatile g f10230e;
     public transient /* synthetic */ FieldHolder $fh;
     public h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentLinkedQueue<c.a.r0.c.a.i.c> f10457b;
+    public ConcurrentLinkedQueue<c.a.r0.c.a.i.c> f10231b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f10458c;
+    public volatile boolean f10232c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.c.a.k.c f10459d;
+    public c.a.r0.c.a.k.c f10233d;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -38,13 +38,13 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10460e;
+        public final /* synthetic */ String f10234e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.c.a.k.c f10461f;
+        public final /* synthetic */ c.a.r0.c.a.k.c f10235f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f10462g;
+        public final /* synthetic */ g f10236g;
 
         public a(g gVar, String str, c.a.r0.c.a.k.c cVar) {
             Interceptable interceptable = $ic;
@@ -61,9 +61,9 @@ public class g {
                     return;
                 }
             }
-            this.f10462g = gVar;
-            this.f10460e = str;
-            this.f10461f = cVar;
+            this.f10236g = gVar;
+            this.f10234e = str;
+            this.f10235f = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -71,7 +71,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.q.k.j.b.e().f();
-                this.f10462g.j(this.f10460e, this.f10461f);
+                this.f10236g.j(this.f10234e, this.f10235f);
             }
         }
     }
@@ -131,7 +131,7 @@ public class g {
                                         this.a.a.s(1);
                                         f.a("serverHello");
                                         while (true) {
-                                            c.a.r0.c.a.i.c cVar = (c.a.r0.c.a.i.c) this.a.f10457b.poll();
+                                            c.a.r0.c.a.i.c cVar = (c.a.r0.c.a.i.c) this.a.f10231b.poll();
                                             if (cVar == null) {
                                                 return;
                                             }
@@ -151,7 +151,7 @@ public class g {
                     }
                     this.a.n(str);
                 } finally {
-                    this.a.f10458c = false;
+                    this.a.f10232c = false;
                 }
             }
         }
@@ -171,22 +171,22 @@ public class g {
             }
         }
         this.a = new h();
-        this.f10458c = false;
-        this.f10457b = new ConcurrentLinkedQueue<>();
+        this.f10232c = false;
+        this.f10231b = new ConcurrentLinkedQueue<>();
     }
 
     public static g l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f10456e == null) {
+            if (f10230e == null) {
                 synchronized (g.class) {
-                    if (f10456e == null) {
-                        f10456e = new g();
+                    if (f10230e == null) {
+                        f10230e = new g();
                     }
                 }
             }
-            return f10456e;
+            return f10230e;
         }
         return (g) invokeV.objValue;
     }
@@ -211,7 +211,7 @@ public class g {
                 if (b2 != null) {
                     boolean z = c.a.r0.c.a.a.a;
                     cVar.i(true);
-                    this.f10459d = cVar;
+                    this.f10233d = cVar;
                     cVar.h(b2);
                     return;
                 }
@@ -224,17 +224,17 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             boolean z = c.a.r0.c.a.a.a;
-            if (this.f10458c) {
+            if (this.f10232c) {
                 boolean z2 = c.a.r0.c.a.a.a;
                 return;
             }
-            this.f10458c = true;
+            this.f10232c = true;
             byte[] e2 = e.f().e(this.a);
             if (e2 != null && e2.length > 0) {
                 new c.a.r0.c.a.k.e().a(e2, new b(this));
                 return;
             }
-            this.f10458c = false;
+            this.f10232c = false;
             n("record data error");
         }
     }
@@ -245,12 +245,12 @@ public class g {
             if (cVar != null && TextUtils.equals(cVar.b(), "GET")) {
                 boolean z = c.a.r0.c.a.a.a;
                 cVar.i(false);
-                this.f10459d = cVar;
+                this.f10233d = cVar;
                 cVar.h(null);
             } else if (cVar != null && str != null) {
                 boolean z2 = c.a.r0.c.a.a.a;
                 cVar.i(false);
-                this.f10459d = cVar;
+                this.f10233d = cVar;
                 cVar.h(str.getBytes());
             } else {
                 o(-1, cVar);
@@ -263,10 +263,10 @@ public class g {
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, cVar) == null) {
             if (this.a.h() != 2) {
                 if (!this.a.j()) {
-                    if (this.f10457b == null) {
-                        this.f10457b = new ConcurrentLinkedQueue<>();
+                    if (this.f10231b == null) {
+                        this.f10231b = new ConcurrentLinkedQueue<>();
                     }
-                    this.f10457b.offer(new c.a.r0.c.a.i.c(str, cVar));
+                    this.f10231b.offer(new c.a.r0.c.a.i.c(str, cVar));
                     if (c.a.r0.a.u1.l.b.c()) {
                         c.a.r0.c.a.i.d dVar = new c.a.r0.c.a.i.d();
                         long j2 = dVar.getLong("expireTime", 0L);
@@ -292,7 +292,7 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.r0.c.a.k.c cVar = this.f10459d;
+            c.a.r0.c.a.k.c cVar = this.f10233d;
             if (cVar == null) {
                 return false;
             }
@@ -322,7 +322,7 @@ public class g {
         int i2 = TextUtils.equals(str, "down grade") ? 2 : -1;
         this.a.s(i2);
         while (true) {
-            c.a.r0.c.a.i.c poll = this.f10457b.poll();
+            c.a.r0.c.a.i.c poll = this.f10231b.poll();
             if (poll == null) {
                 return;
             }

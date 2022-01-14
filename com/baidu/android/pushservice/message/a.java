@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: com.baidu.android.pushservice.message.a$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -37,27 +37,27 @@ public class a {
             int[] iArr = new int[h.a().length];
             a = iArr;
             try {
-                iArr[h.f33358b.ordinal()] = 1;
+                iArr[h.f32299b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[h.f33359c.ordinal()] = 2;
+                a[h.f32300c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[h.f33363g.ordinal()] = 3;
+                a[h.f32304g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[h.f33360d.ordinal()] = 4;
+                a[h.f32301d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[h.f33362f.ordinal()] = 5;
+                a[h.f32303f.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                a[h.f33361e.ordinal()] = 6;
+                a[h.f32302e.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }

@@ -13,7 +13,7 @@ import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.memory.PooledByteStreams;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PoolFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

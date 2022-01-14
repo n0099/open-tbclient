@@ -32,10 +32,10 @@ public class i extends c.a.s0.x.c {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14606b;
+    public String f14262b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f14607c;
+    public boolean f14263c;
 
     /* loaded from: classes6.dex */
     public class a implements c.a.s0.x.b {
@@ -43,13 +43,13 @@ public class i extends c.a.s0.x.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f14608e;
+        public final /* synthetic */ h f14264e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f14609f;
+        public final /* synthetic */ EditorTools f14265f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f14610g;
+        public final /* synthetic */ i f14266g;
 
         public a(i iVar, h hVar, EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -66,9 +66,9 @@ public class i extends c.a.s0.x.c {
                     return;
                 }
             }
-            this.f14610g = iVar;
-            this.f14608e = hVar;
-            this.f14609f = editorTools;
+            this.f14266g = iVar;
+            this.f14264e = hVar;
+            this.f14265f = editorTools;
         }
 
         @Override // c.a.s0.x.b
@@ -81,60 +81,60 @@ public class i extends c.a.s0.x.c {
             }
             int i2 = aVar.a;
             if (i2 == 4) {
-                Object obj = aVar.f14519c;
+                Object obj = aVar.f14180c;
                 if (obj instanceof j) {
-                    this.f14608e.Z((j) obj);
-                    this.f14608e.Y(((j) aVar.f14519c).f14612c);
+                    this.f14264e.Z((j) obj);
+                    this.f14264e.Y(((j) aVar.f14180c).f14268c);
                 } else if (obj instanceof String) {
-                    this.f14608e.S((String) obj);
+                    this.f14264e.S((String) obj);
                 } else if (obj instanceof SpanGroupManager) {
-                    this.f14608e.S(obj.toString());
-                    this.f14608e.Y((SpanGroupManager) aVar.f14519c);
+                    this.f14264e.S(obj.toString());
+                    this.f14264e.Y((SpanGroupManager) aVar.f14180c);
                 }
-                this.f14610g.a = false;
+                this.f14266g.a = false;
             } else if (i2 == 16) {
-                if (this.f14610g.a) {
-                    this.f14608e.getContext().showToast(R.string.over_limit_tip);
+                if (this.f14266g.a) {
+                    this.f14264e.getContext().showToast(R.string.over_limit_tip);
                 }
-                if (this.f14610g.h(this.f14608e.getContext(), 11025)) {
-                    AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.f14608e.getContext().getPageActivity(), 12005, true);
-                    if (this.f14608e.u() != null) {
-                        atListActivityConfig.setSelectedAtList(this.f14608e.u().u());
+                if (this.f14266g.h(this.f14264e.getContext(), 11025)) {
+                    AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.f14264e.getContext().getPageActivity(), 12005, true);
+                    if (this.f14264e.u() != null) {
+                        atListActivityConfig.setSelectedAtList(this.f14264e.u().u());
                     }
-                    EditorTools editorTools = this.f14609f;
+                    EditorTools editorTools = this.f14265f;
                     if (editorTools != null) {
                         atListActivityConfig.setFromTid(editorTools.getTid());
-                        atListActivityConfig.setFromFid(String.valueOf(this.f14609f.getFid()));
+                        atListActivityConfig.setFromFid(String.valueOf(this.f14265f.getFid()));
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
                     statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-                    EditorTools editorTools2 = this.f14609f;
+                    EditorTools editorTools2 = this.f14265f;
                     if (editorTools2 != null) {
                         statisticItem.addParam("tid", editorTools2.getTid());
-                        statisticItem.addParam("fid", this.f14609f.getFid());
+                        statisticItem.addParam("fid", this.f14265f.getFid());
                     }
                     TiebaStatic.log(statisticItem);
                 }
             } else if (i2 == 7) {
-                this.f14608e.getContext().showToast(R.string.over_limit_tip);
-                this.f14610g.a = true;
+                this.f14264e.getContext().showToast(R.string.over_limit_tip);
+                this.f14266g.a = true;
             } else if (i2 == 8) {
-                if (this.f14610g.h(this.f14608e.getContext(), 11001)) {
-                    this.f14608e.F();
+                if (this.f14266g.h(this.f14264e.getContext(), 11001)) {
+                    this.f14264e.F();
                     TiebaStatic.log(TbadkCoreStatisticKey.SUBPB_CLICK_SEND);
                 }
             } else if (i2 == 10) {
-                Object obj2 = aVar.f14519c;
+                Object obj2 = aVar.f14180c;
                 if (obj2 instanceof VoiceData$VoiceModel) {
-                    this.f14608e.c0((VoiceData$VoiceModel) obj2);
-                    this.f14608e.v(null);
+                    this.f14264e.c0((VoiceData$VoiceModel) obj2);
+                    this.f14264e.v(null);
                 }
             } else if (i2 != 11) {
             } else {
-                this.f14608e.c0(null);
-                EditorTools editorTools3 = this.f14609f;
-                if (editorTools3 == null || (findToolById = editorTools3.findToolById(6)) == null || (nVar = findToolById.f14538k) == null) {
+                this.f14264e.c0(null);
+                EditorTools editorTools3 = this.f14265f;
+                if (editorTools3 == null || (findToolById = editorTools3.findToolById(6)) == null || (nVar = findToolById.k) == null) {
                     return;
                 }
                 nVar.onAction(new c.a.s0.x.a(52, 0, null));
@@ -158,8 +158,8 @@ public class i extends c.a.s0.x.c {
             }
         }
         this.a = false;
-        this.f14607c = false;
-        this.f14607c = z;
+        this.f14263c = false;
+        this.f14263c = z;
     }
 
     @Override // c.a.s0.x.c
@@ -171,11 +171,11 @@ public class i extends c.a.s0.x.c {
             editorTools.setIsFromPb(true);
             editorTools.setBarMaxLauCount(5);
             editorTools.setBackgroundColorId(0);
-            editorTools.setBarLauncherType(this.f14607c ? 5 : 2);
+            editorTools.setBarLauncherType(this.f14263c ? 5 : 2);
             editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
             editorTools.showLinePositionTop(false);
             h hVar = new h(editorTools);
-            hVar.v = this.f14607c;
+            hVar.v = this.f14263c;
             return hVar;
         }
         return (c.a.s0.x.e) invokeL.objValue;
@@ -210,18 +210,18 @@ public class i extends c.a.s0.x.c {
             m findToolById = a2.findToolById(5);
             if (findToolById != null) {
                 findToolById.e(false);
-                findToolById.f14537j = 1;
+                findToolById.f14197j = 1;
             }
-            if (!this.f14607c) {
+            if (!this.f14263c) {
                 if (c.a.t0.w3.r0.c.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
-                    mVar.f14537j = 2;
+                    mVar.f14197j = 2;
                     a2.addTool(mVar);
                 }
                 a2.addTool(new c.a.s0.x.o.a(a2.getContext(), 4));
             }
-            f fVar = new f(a2.getContext(), this.f14607c, false, 12005);
-            if (!c.a.d.f.p.m.isEmpty(this.f14606b)) {
-                fVar.k(this.f14606b);
+            f fVar = new f(a2.getContext(), this.f14263c, false, 12005);
+            if (!c.a.d.f.p.m.isEmpty(this.f14262b)) {
+                fVar.k(this.f14262b);
             }
             a2.addTool(fVar);
             a2.build();
@@ -247,7 +247,7 @@ public class i extends c.a.s0.x.c {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f14606b = str;
+            this.f14262b = str;
         }
     }
 }

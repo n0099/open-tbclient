@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Matrix a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RectF f20476b;
+    public RectF f19927b;
 
     public f(CameraCharacteristics cameraCharacteristics, RectF rectF) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class f {
             Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
             Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
             int intValue = num == null ? 90 : num.intValue();
-            this.f20476b = new RectF(rect);
+            this.f19927b = new RectF(rect);
             Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
             this.a = b(num2 != null && num2.intValue() == 0, intValue, rectF);
             return;
@@ -61,7 +61,7 @@ public class f {
             matrix.postRotate(-i2);
             matrix.mapRect(rectF);
             Matrix matrix2 = new Matrix();
-            matrix2.setRectToRect(rectF, this.f20476b, Matrix.ScaleToFit.FILL);
+            matrix2.setRectToRect(rectF, this.f19927b, Matrix.ScaleToFit.FILL);
             matrix.setConcat(matrix2, matrix);
             return matrix;
         }

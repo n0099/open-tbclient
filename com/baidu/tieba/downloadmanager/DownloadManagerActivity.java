@@ -83,10 +83,10 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.t0.p0.b.a)) {
-                c.a.t0.p0.b.a aVar = (c.a.t0.p0.b.a) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.t0.p0.a.a)) {
+                c.a.t0.p0.a.a aVar = (c.a.t0.p0.a.a) customResponsedMessage.getData();
                 View a = aVar.a();
-                if (!ItemCardHelper.f42095d.equals(((TBSpecificationBtn) aVar.a()).getText())) {
+                if (!ItemCardHelper.f40630d.equals(((TBSpecificationBtn) aVar.a()).getText())) {
                     ItemCardHelper.f(aVar.e(), aVar.d(), ItemCardHelper.e(((TBSpecificationBtn) aVar.a()).getText()), aVar.c(), aVar.b(), true);
                 }
                 DownloadManagerActivity downloadManagerActivity = this.a;
@@ -144,7 +144,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadManagerActivity f44066e;
+        public final /* synthetic */ DownloadManagerActivity f42456e;
 
         public c(DownloadManagerActivity downloadManagerActivity) {
             Interceptable interceptable = $ic;
@@ -161,7 +161,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f44066e = downloadManagerActivity;
+            this.f42456e = downloadManagerActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -192,7 +192,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadManagerActivity f44067e;
+        public final /* synthetic */ DownloadManagerActivity f42457e;
 
         public d(DownloadManagerActivity downloadManagerActivity) {
             Interceptable interceptable = $ic;
@@ -209,7 +209,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f44067e = downloadManagerActivity;
+            this.f42457e = downloadManagerActivity;
         }
 
         @Override // com.baidu.adp.widget.design.TbTabLayout.c
@@ -223,7 +223,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         public void c(TbTabLayout.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                this.f44067e.lastSource = 4;
+                this.f42457e.lastSource = 4;
             }
         }
 
@@ -233,14 +233,14 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_DOWNLOAD_MANAGER_SHOW);
                 statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-                if (this.f44067e.getResources().getString(R.string.item_order_complete).contentEquals(fVar.g())) {
+                if (this.f42457e.getResources().getString(R.string.item_order_complete).contentEquals(fVar.g())) {
                     statisticItem.addParam("obj_locate", 1);
-                } else if (this.f44067e.getResources().getString(R.string.downloading_task).contentEquals(fVar.g())) {
+                } else if (this.f42457e.getResources().getString(R.string.downloading_task).contentEquals(fVar.g())) {
                     statisticItem.addParam("obj_locate", 3);
-                } else if (this.f44067e.getResources().getString(R.string.installed).contentEquals(fVar.g())) {
+                } else if (this.f42457e.getResources().getString(R.string.installed).contentEquals(fVar.g())) {
                     statisticItem.addParam("obj_locate", 2);
                 }
-                statisticItem.addParam("obj_source", this.f44067e.lastSource);
+                statisticItem.addParam("obj_source", this.f42457e.lastSource);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -253,10 +253,10 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<c.a.s0.i0.c> f44068b;
+        public List<c.a.s0.i0.c> f42458b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ DownloadManagerActivity f44069c;
+        public final /* synthetic */ DownloadManagerActivity f42459c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(DownloadManagerActivity downloadManagerActivity, FragmentManager fragmentManager, List<c.a.s0.i0.c> list) {
@@ -276,9 +276,9 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f44069c = downloadManagerActivity;
+            this.f42459c = downloadManagerActivity;
             this.a = -1;
-            this.f44068b = list;
+            this.f42458b = list;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -286,7 +286,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<c.a.s0.i0.c> list = this.f44068b;
+                List<c.a.s0.i0.c> list = this.f42458b;
                 if (list == null) {
                     return 0;
                 }
@@ -300,7 +300,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         public Fragment getItem(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f44068b.get(i2).a : (Fragment) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f42458b.get(i2).a : (Fragment) invokeI.objValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -308,7 +308,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         public CharSequence getPageTitle(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f44068b.get(i2).f13109c : (CharSequence) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f42458b.get(i2).f12787c : (CharSequence) invokeI.objValue;
         }
 
         @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
@@ -397,7 +397,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             DownloadManagerFragment newInstance = DownloadManagerFragment.newInstance();
             cVar.a = newInstance;
             newInstance.setArguments(bundle);
-            cVar.f13109c = getResources().getString(R.string.item_order_complete);
+            cVar.f12787c = getResources().getString(R.string.item_order_complete);
             this.fragments.add(cVar);
             Bundle bundle2 = new Bundle();
             bundle2.putInt("tab_id", 2);
@@ -406,7 +406,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             DownloadManagerFragment newInstance2 = DownloadManagerFragment.newInstance();
             cVar2.a = newInstance2;
             newInstance2.setArguments(bundle2);
-            cVar2.f13109c = getResources().getString(R.string.installed);
+            cVar2.f12787c = getResources().getString(R.string.installed);
             this.fragments.add(cVar2);
             Bundle bundle3 = new Bundle();
             bundle3.putInt("tab_id", 3);
@@ -415,7 +415,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             DownloadManagerFragment newInstance3 = DownloadManagerFragment.newInstance();
             cVar3.a = newInstance3;
             newInstance3.setArguments(bundle3);
-            cVar3.f13109c = getResources().getString(R.string.downloading_task);
+            cVar3.f12787c = getResources().getString(R.string.downloading_task);
             this.fragments.add(cVar3);
             this.viewPager.setOffscreenPageLimit(this.fragments.size());
             this.viewPager.setAdapter(new e(this, getSupportFragmentManager(), this.fragments));

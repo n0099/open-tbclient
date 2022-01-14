@@ -21,13 +21,13 @@ public class q3 extends AsyncTask {
     public com.win.opensdk.k0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f31400b;
+    public final /* synthetic */ String f30415b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ boolean f31401c;
+    public final /* synthetic */ boolean f30416c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ f4 f31402d;
+    public final /* synthetic */ f4 f30417d;
 
     public q3(f4 f4Var, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class q3 extends AsyncTask {
                 return;
             }
         }
-        this.f31402d = f4Var;
-        this.f31400b = str;
-        this.f31401c = z;
+        this.f30417d = f4Var;
+        this.f30415b = str;
+        this.f30416c = z;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IF] complete} */
@@ -70,14 +70,14 @@ public class q3 extends AsyncTask {
             Void[] voidArr = (Void[]) objArr;
             int i2 = 1;
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.f31400b).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.f30415b).openConnection();
             } catch (Throwable th) {
                 th = th;
                 httpURLConnection = null;
             }
             try {
                 try {
-                    if (this.f31401c) {
+                    if (this.f30416c) {
                         httpURLConnection.connect();
                         int contentLength = httpURLConnection.getContentLength();
                         if (contentLength <= 0) {
@@ -200,8 +200,8 @@ public class q3 extends AsyncTask {
     public void onCancelled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f31402d.f31300b.remove(this.f31400b);
-            this.f31402d.a.a(this.a);
+            this.f30417d.f30322b.remove(this.f30415b);
+            this.f30417d.a.a(this.a);
         }
     }
 
@@ -211,11 +211,11 @@ public class q3 extends AsyncTask {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             Bitmap bitmap = (Bitmap) obj;
             if (bitmap == null) {
-                this.f31402d.a.a(new com.win.opensdk.k0("downloaded file could not be decoded as bitmap"));
+                this.f30417d.a.a(new com.win.opensdk.k0("downloaded file could not be decoded as bitmap"));
             } else {
-                this.f31402d.a.a(bitmap);
+                this.f30417d.a.a(bitmap);
             }
-            this.f31402d.f31300b.remove(this.f31400b);
+            this.f30417d.f30322b.remove(this.f30415b);
             System.gc();
         }
     }
@@ -224,7 +224,7 @@ public class q3 extends AsyncTask {
     public void onPreExecute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f31402d.f31300b.add(this.f31400b);
+            this.f30417d.f30322b.add(this.f30415b);
         }
     }
 
@@ -232,7 +232,7 @@ public class q3 extends AsyncTask {
     public void onProgressUpdate(Object[] objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, objArr) == null) {
-            this.f31402d.a.a(((Integer[]) objArr)[0].intValue());
+            this.f30417d.a.a(((Integer[]) objArr)[0].intValue());
         }
     }
 }

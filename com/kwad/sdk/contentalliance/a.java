@@ -14,17 +14,17 @@ public abstract class a<T extends com.kwad.sdk.core.e.b> extends d {
     public Presenter a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f57736b;
+    public T f55550b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f57737c;
+    public ViewGroup f55551c;
 
     public void a() {
         Presenter presenter = this.a;
         if (presenter != null) {
             presenter.k();
         }
-        this.f57737c = null;
+        this.f55551c = null;
     }
 
     public abstract int b();
@@ -37,28 +37,28 @@ public abstract class a<T extends com.kwad.sdk.core.e.b> extends d {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f57736b = c();
+        this.f55550b = c();
         if (this.a == null) {
             Presenter d2 = d();
             this.a = d2;
-            d2.c(this.f57737c);
+            d2.c(this.f55551c);
         }
-        this.a.a(this.f57736b);
+        this.a.a(this.f55550b);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.f57737c == null) {
-            this.f57737c = (ViewGroup) layoutInflater.inflate(b(), viewGroup, false);
+        if (this.f55551c == null) {
+            this.f55551c = (ViewGroup) layoutInflater.inflate(b(), viewGroup, false);
         }
-        return this.f57737c;
+        return this.f55551c;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
         super.onDestroyView();
-        T t = this.f57736b;
+        T t = this.f55550b;
         if (t != null) {
             t.a();
         }

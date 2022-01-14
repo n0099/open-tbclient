@@ -2,22 +2,21 @@ package c.a.s0.s.q;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.YulePostActivity;
+import tbclient.FrsPage.Yule;
 /* loaded from: classes6.dex */
 public class q2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13791b;
+    public p2 f13478b;
 
     public q2() {
         Interceptable interceptable = $ic;
@@ -29,20 +28,23 @@ public class q2 {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.f13478b = new p2();
     }
 
-    public String a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a != 0 : invokeV.booleanValue;
     }
 
-    public String b() {
+    public p2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13791b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13478b : (p2) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -51,33 +53,19 @@ public class q2 {
             return;
         }
         try {
-            jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
-            jSONObject.optLong("end_time");
-            this.a = jSONObject.optString("activity_banner");
-            jSONObject.optString("activity_url");
-            jSONObject.optString("activity_desc");
-            this.f13791b = jSONObject.optString("activity_button");
+            this.a = jSONObject.optInt("activity_show");
+            this.f13478b.d(jSONObject.optJSONObject("yule_activity"));
         } catch (Exception e2) {
-            BdLog.e(e2.toString());
+            BdLog.e(e2.getMessage());
         }
     }
 
-    public void d(YulePostActivity yulePostActivity) {
+    public void d(Yule yule) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, yulePostActivity) == null) || yulePostActivity == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, yule) == null) || yule == null) {
             return;
         }
-        Long l = yulePostActivity.start_time;
-        if (l != null) {
-            l.longValue();
-        }
-        Long l2 = yulePostActivity.end_time;
-        if (l2 != null) {
-            l2.longValue();
-        }
-        this.a = yulePostActivity.activity_banner;
-        String str = yulePostActivity.activity_url;
-        String str2 = yulePostActivity.activity_desc;
-        this.f13791b = yulePostActivity.activity_button;
+        this.a = yule.activity_show.intValue();
+        this.f13478b.e(yule.yule_activity);
     }
 }

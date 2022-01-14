@@ -52,11 +52,11 @@ public class h extends z {
                     return false;
                 }
                 String M = c.a.r0.a.o2.b.M(optParamsAsJo.optString("filePath"), c.a.r0.a.d2.e.f0());
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str = "——> handle: fileUrl " + optParamsAsJo.optString("filePath");
                     String str2 = "——> handle: filePath " + M;
                 }
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str3 = "——> handle: filePath " + M;
                 }
                 if (TextUtils.isEmpty(M)) {
@@ -65,7 +65,7 @@ public class h extends z {
                     return false;
                 }
                 int a = eVar.e0().a(M);
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str4 = "——> handle: statusCode " + a;
                 }
                 if (a > 2000) {
@@ -75,12 +75,12 @@ public class h extends z {
                 } else if (c.a.r0.w.d.k(M)) {
                     c.a.r0.a.e0.d.i("removeSavedFile", "file delete success");
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    boolean z = z.f6340b;
+                    boolean z = z.f6201b;
                     return true;
                 } else {
                     c.a.r0.a.e0.d.c("removeSavedFile", "file delete fail");
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2004, c.a.r0.a.f2.b.a(2004)));
-                    boolean z2 = z.f6340b;
+                    boolean z2 = z.f6201b;
                     return false;
                 }
             }

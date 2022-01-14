@@ -58,7 +58,7 @@ public class HWPushHelper {
     public static boolean hasNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m184a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m196a(context) : invokeL.booleanValue;
     }
 
     public static boolean isHmsTokenSynced(Context context) {
@@ -70,7 +70,7 @@ public class HWPushHelper {
                 return false;
             }
             String a3 = i.a(context, a2);
-            String a4 = ae.a(context).a(at.f63268c);
+            String a4 = ae.a(context).a(at.f60887c);
             return (TextUtils.isEmpty(a3) || TextUtils.isEmpty(a4) || !"synced".equals(a4)) ? false : true;
         }
         return invokeL.booleanValue;

@@ -1,5 +1,6 @@
 package com.vivo.push.b;
 
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ public final class h extends com.vivo.push.o {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h() {
-        super(2013);
+        super(IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

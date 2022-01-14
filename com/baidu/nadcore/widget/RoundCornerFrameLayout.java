@@ -7,7 +7,7 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import c.a.c0.h0.v;
+import c.a.c0.k0.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,22 +20,22 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Path f38454e;
+    public Path f37238e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38455f;
+    public int f37239f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38456g;
+    public int f37240g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38457h;
+    public int f37241h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38458i;
+    public int f37242i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f38459j;
+    public boolean f37243j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundCornerFrameLayout(Context context) {
@@ -62,20 +62,20 @@ public class RoundCornerFrameLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (getWidth() == this.f38457h && getHeight() == this.f38458i && this.f38456g == this.f38455f) {
+            if (getWidth() == this.f37241h && getHeight() == this.f37242i && this.f37240g == this.f37239f) {
                 return false;
             }
-            this.f38457h = getWidth();
-            this.f38458i = getHeight();
-            this.f38456g = this.f38455f;
-            if (this.f38454e == null) {
+            this.f37241h = getWidth();
+            this.f37242i = getHeight();
+            this.f37240g = this.f37239f;
+            if (this.f37238e == null) {
                 Path path = new Path();
-                this.f38454e = path;
+                this.f37238e = path;
                 path.setFillType(Path.FillType.EVEN_ODD);
             }
-            Path path2 = this.f38454e;
-            RectF rectF = new RectF(0.0f, 0.0f, this.f38457h, this.f38458i);
-            int i2 = this.f38455f;
+            Path path2 = this.f37238e;
+            RectF rectF = new RectF(0.0f, 0.0f, this.f37241h, this.f37242i);
+            int i2 = this.f37239f;
             path2.addRoundRect(rectF, i2, i2, Path.Direction.CW);
             return true;
         }
@@ -85,8 +85,8 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public final void b(Context context, AttributeSet attributeSet, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet, i2) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v.RoundCornerRelativeLayout);
-            int dimension = (int) obtainStyledAttributes.getDimension(v.RoundCornerRelativeLayout_round_edge_radius, 0.0f);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q.RoundCornerRelativeLayout);
+            int dimension = (int) obtainStyledAttributes.getDimension(q.RoundCornerRelativeLayout_round_edge_radius, 0.0f);
             if (dimension > 0) {
                 setCornerRadius(dimension);
             }
@@ -98,7 +98,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Path path = new Path();
-            this.f38454e = path;
+            this.f37238e = path;
             path.setFillType(Path.FillType.EVEN_ODD);
         }
     }
@@ -117,9 +117,9 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            if (this.f38459j) {
+            if (this.f37243j) {
                 a();
-                canvas.clipPath(this.f38454e);
+                canvas.clipPath(this.f37238e);
             }
             super.onDraw(canvas);
         }
@@ -128,10 +128,10 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public void setCornerRadius(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            if (this.f38455f != i2) {
-                this.f38455f = i2;
+            if (this.f37239f != i2) {
+                this.f37239f = i2;
             }
-            this.f38459j = this.f38455f > 0;
+            this.f37243j = this.f37239f > 0;
         }
     }
 
@@ -175,7 +175,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f38459j = false;
+        this.f37243j = false;
         b(context, attributeSet, i2);
         c();
     }

@@ -26,27 +26,27 @@ public final class a extends z implements b.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public CallbackHandler f6168c;
+    public CallbackHandler f6031c;
 
     /* renamed from: c.a.r0.a.f2.f.j0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0320a implements c<i<b.e>> {
+    public class C0329a implements c<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6169e;
+        public final /* synthetic */ CallbackHandler f6032e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a.c f6170f;
+        public final /* synthetic */ a.c f6033f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f6171g;
+        public final /* synthetic */ e f6034g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f6172h;
+        public final /* synthetic */ a f6035h;
 
-        public C0320a(a aVar, CallbackHandler callbackHandler, a.c cVar, e eVar) {
+        public C0329a(a aVar, CallbackHandler callbackHandler, a.c cVar, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,10 +61,10 @@ public final class a extends z implements b.c {
                     return;
                 }
             }
-            this.f6172h = aVar;
-            this.f6169e = callbackHandler;
-            this.f6170f = cVar;
-            this.f6171g = eVar;
+            this.f6035h = aVar;
+            this.f6032e = callbackHandler;
+            this.f6033f = cVar;
+            this.f6034g = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +73,7 @@ public final class a extends z implements b.c {
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f6172h.k(iVar, this.f6169e, this.f6170f, this.f6171g.m0());
+                this.f6035h.k(iVar, this.f6032e, this.f6033f, this.f6034g.m0());
             }
         }
     }
@@ -102,11 +102,11 @@ public final class a extends z implements b.c {
     @Override // c.a.r0.a.u.e.h.b.c
     public void b(a.c cVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, cVar, i2) == null) || this.f6168c == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, cVar, i2) == null) || this.f6031c == null) {
             return;
         }
         d.c("GetLocationAction", "request location error code : " + i2);
-        this.f6168c.handleSchemeDispatchCallback(cVar.f9287c, UnitedSchemeUtility.wrapCallbackParams(i2).toString());
+        this.f6031c.handleSchemeDispatchCallback(cVar.f9085c, UnitedSchemeUtility.wrapCallbackParams(i2).toString());
     }
 
     @Override // c.a.r0.a.f2.f.z
@@ -114,10 +114,10 @@ public final class a extends z implements b.c {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
-            this.f6168c = callbackHandler;
+            this.f6031c = callbackHandler;
             if (eVar == null) {
                 d.c("location", "swan app is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -125,12 +125,12 @@ public final class a extends z implements b.c {
             }
             a.c b2 = a.c.b(unitedSchemeEntity.getParam("params"));
             if (b2 != null && b2.a()) {
-                if (TextUtils.isEmpty(b2.f9287c)) {
+                if (TextUtils.isEmpty(b2.f9085c)) {
                     d.c("location", "empty cb");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                     return false;
                 }
-                eVar.d0().g(context, "mapp_location", new C0320a(this, callbackHandler, b2, eVar));
+                eVar.d0().g(context, "mapp_location", new C0329a(this, callbackHandler, b2, eVar));
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
@@ -145,24 +145,24 @@ public final class a extends z implements b.c {
     public void f(a.c cVar, String str) {
         CallbackHandler callbackHandler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, str) == null) || (callbackHandler = this.f6168c) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, str) == null) || (callbackHandler = this.f6031c) == null) {
             return;
         }
-        callbackHandler.handleSchemeDispatchCallback(cVar.f9287c, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
+        callbackHandler.handleSchemeDispatchCallback(cVar.f9085c, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
     }
 
     @Override // c.a.r0.a.u.e.h.b.c
     public void g(a.c cVar, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, bVar) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "convert info : " + bVar.a();
             }
-            CallbackHandler callbackHandler = this.f6168c;
+            CallbackHandler callbackHandler = this.f6031c;
             if (callbackHandler == null) {
                 return;
             }
-            callbackHandler.handleSchemeDispatchCallback(cVar.f9287c, UnitedSchemeUtility.wrapCallbackParams(bVar.a(), 0).toString());
+            callbackHandler.handleSchemeDispatchCallback(cVar.f9085c, UnitedSchemeUtility.wrapCallbackParams(bVar.a(), 0).toString());
         }
     }
 
@@ -175,7 +175,7 @@ public final class a extends z implements b.c {
                 return;
             }
             int b2 = iVar.b();
-            callbackHandler.handleSchemeDispatchCallback(cVar.f9287c, UnitedSchemeUtility.wrapCallbackParams(b2, c.a.r0.a.h2.c.d.f(b2)).toString());
+            callbackHandler.handleSchemeDispatchCallback(cVar.f9085c, UnitedSchemeUtility.wrapCallbackParams(b2, c.a.r0.a.h2.c.d.f(b2)).toString());
         }
     }
 }

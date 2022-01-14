@@ -22,13 +22,13 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<EmotionImageData> f23358e;
+    public List<EmotionImageData> f22713e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterfaceC1385b f23359f;
+    public InterfaceC1400b f22714f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EmotionView.c f23360g;
+    public EmotionView.c f22715g;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -36,7 +36,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f23361e;
+        public final /* synthetic */ b f22716e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -53,21 +53,21 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f23361e = bVar;
+            this.f22716e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f23361e.f23359f != null && (view instanceof EmotionView)) {
-                this.f23361e.f23359f.b(((EmotionView) view).getData());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f22716e.f22714f != null && (view instanceof EmotionView)) {
+                this.f22716e.f22714f.b(((EmotionView) view).getData());
             }
         }
     }
 
     /* renamed from: c.a.t0.s2.u.f.c1.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC1385b {
+    public interface InterfaceC1400b {
         void b(EmotionImageData emotionImageData);
     }
 
@@ -109,21 +109,21 @@ public class b extends BaseAdapter {
     public void b(List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f23358e = list;
+            this.f22713e = list;
         }
     }
 
     public void c(EmotionView.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f23360g = cVar;
+            this.f22715g = cVar;
         }
     }
 
-    public void d(InterfaceC1385b interfaceC1385b) {
+    public void d(InterfaceC1400b interfaceC1400b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1385b) == null) {
-            this.f23359f = interfaceC1385b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1400b) == null) {
+            this.f22714f = interfaceC1400b;
         }
     }
 
@@ -132,10 +132,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.isEmpty(this.f23358e)) {
+            if (ListUtils.isEmpty(this.f22713e)) {
                 return 0;
             }
-            return this.f23358e.size();
+            return this.f22713e.size();
         }
         return invokeV.intValue;
     }
@@ -173,16 +173,16 @@ public class b extends BaseAdapter {
                 EmotionView emotionView = (EmotionView) view2.findViewById(i.emotion_view);
                 cVar.a = emotionView;
                 emotionView.enablePreview();
-                cVar.a.setController(this.f23360g);
+                cVar.a.setController(this.f22715g);
                 cVar.a.setOnClickListener(new a(this));
                 view2.setTag(cVar);
             } else {
                 view2 = view;
                 cVar = (c) view.getTag();
             }
-            List<EmotionImageData> list = this.f23358e;
+            List<EmotionImageData> list = this.f22713e;
             if (list != null && i2 >= 0 && i2 < list.size()) {
-                cVar.a.loadData(this.f23358e.get(i2));
+                cVar.a.loadData(this.f22713e.get(i2));
             }
             return view2;
         }

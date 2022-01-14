@@ -70,7 +70,7 @@ public class IdentityReviewActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IdentityReviewActivity f43810e;
+        public final /* synthetic */ IdentityReviewActivity f42220e;
 
         public a(IdentityReviewActivity identityReviewActivity) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class IdentityReviewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f43810e = identityReviewActivity;
+            this.f42220e = identityReviewActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -95,20 +95,20 @@ public class IdentityReviewActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.identity_card_positive) {
-                    IdentityReviewActivity identityReviewActivity = this.f43810e;
+                    IdentityReviewActivity identityReviewActivity = this.f42220e;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity, identityReviewActivity.positiveImgePath, "IDCardFront", 101)));
                 } else if (view.getId() == R.id.identity_card_negative) {
-                    IdentityReviewActivity identityReviewActivity2 = this.f43810e;
+                    IdentityReviewActivity identityReviewActivity2 = this.f42220e;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity2, identityReviewActivity2.negativeImagePath, "IDCardBack", 102)));
                 } else if (view.getId() == R.id.bottom_next_button) {
-                    IdentityReviewActivity identityReviewActivity3 = this.f43810e;
+                    IdentityReviewActivity identityReviewActivity3 = this.f42220e;
                     new c.a.t0.c0.c.a(identityReviewActivity3.positiveImgePath, 1, identityReviewActivity3.mModel).execute(new Void[0]);
-                    this.f43810e.needRetry = true;
-                    this.f43810e.mToastDialog = new ToastDialog(this.f43810e);
-                    this.f43810e.mToastDialog.setCancelable(true);
-                    this.f43810e.mToastDialog.setCanceledOnTouchOutside(false);
-                    this.f43810e.mToastDialog.setMessage(TbadkCoreApplication.getInst().getString(R.string.check_id_card));
-                    g.i(this.f43810e.mToastDialog, this.f43810e);
+                    this.f42220e.needRetry = true;
+                    this.f42220e.mToastDialog = new ToastDialog(this.f42220e);
+                    this.f42220e.mToastDialog.setCancelable(true);
+                    this.f42220e.mToastDialog.setCanceledOnTouchOutside(false);
+                    this.f42220e.mToastDialog.setMessage(TbadkCoreApplication.getInst().getString(R.string.check_id_card));
+                    g.i(this.f42220e.mToastDialog, this.f42220e);
                 }
             }
         }
@@ -154,8 +154,8 @@ public class IdentityReviewActivity extends BaseActivity {
                     }
                 }
                 if (str != null) {
-                    c.a.s0.c0.c k2 = c.a.s0.c0.c.k();
-                    k2.h(str + 32);
+                    c.a.s0.c0.c k = c.a.s0.c0.c.k();
+                    k.h(str + 32);
                 }
             }
         }
@@ -203,7 +203,7 @@ public class IdentityReviewActivity extends BaseActivity {
                         if (this.a.mToastDialog != null && this.a.mToastDialog.isShowing()) {
                             g.a(this.a.mToastDialog, this.a);
                         }
-                        n.J(TbadkCoreApplication.getInst(), responsedMessage.getErrorString());
+                        n.K(TbadkCoreApplication.getInst(), responsedMessage.getErrorString());
                         this.a.positiveStatus = 1;
                         this.a.negativeStatus = 1;
                         return;
@@ -290,7 +290,7 @@ public class IdentityReviewActivity extends BaseActivity {
                 this.a.finish();
                 return;
             }
-            n.J(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
+            n.K(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
             this.a.positiveStatus = 1;
             this.a.negativeStatus = 1;
         }

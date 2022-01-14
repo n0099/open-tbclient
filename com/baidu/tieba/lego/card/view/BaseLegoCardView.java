@@ -49,7 +49,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public c downloadAppCallback;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47284e;
+    public boolean f45533e;
     public int mBusinessType;
     public TbPageContext mContext;
     public String mFrom;
@@ -81,7 +81,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             }
         }
         this.mSkinType = 3;
-        this.f47284e = true;
+        this.f45533e = true;
         this.mContext = tbPageContext;
         setOrientation(1);
     }
@@ -133,7 +133,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             initCardView();
             postInit();
-            this.f47284e = false;
+            this.f45533e = false;
         }
     }
 
@@ -531,7 +531,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
         BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) updateCard;
         logShowStatistics(baseLegoCardInfo);
-        if (this.f47284e) {
+        if (this.f45533e) {
             b();
         }
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {

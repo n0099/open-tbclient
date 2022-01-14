@@ -234,7 +234,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, aVar) == null) {
             this.mTopicDetailView.hideLoadingView();
-            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f21235f)) {
+            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f20674f)) {
                 this.mTopicDetailView.hideNetRefreshView();
                 this.mTopicDetailView.setData(aVar);
                 return;
@@ -286,7 +286,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             adjustResizeForSoftInput();
             this.mTopicDetailModel.D(this);
             loadData();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.g().i("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {

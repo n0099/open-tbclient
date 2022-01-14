@@ -145,7 +145,7 @@ public class AlaSquareDelegateStatic {
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911006, c.a.s0.s.g0.b.j().p("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播")) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911006, c.a.s0.s.h0.b.k().q("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播")) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -172,7 +172,7 @@ public class AlaSquareDelegateStatic {
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911008, c.a.s0.s.g0.b.j().p("show_live_forum_name", "百度直播")) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911008, c.a.s0.s.h0.b.k().q("show_live_forum_name", "百度直播")) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -366,8 +366,8 @@ public class AlaSquareDelegateStatic {
                 newInstance.setForumInfo(this.a.b(), this.a.c());
                 c.a.s0.i0.c cVar = new c.a.s0.i0.c();
                 cVar.a = newInstance;
-                cVar.f13111e = 1120;
-                cVar.f13115i = c.a.s0.i0.c.f13107k;
+                cVar.f12789e = 1120;
+                cVar.f12793i = c.a.s0.i0.c.k;
                 return cVar;
             }
             return (c.a.s0.i0.c) invokeV.objValue;
@@ -427,10 +427,10 @@ public class AlaSquareDelegateStatic {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     c.a.s0.i0.c cVar = new c.a.s0.i0.c();
                     cVar.a = new MainBottomLiveTabFragment();
-                    cVar.f13111e = 20;
-                    cVar.f13108b = R.string.ala_live;
-                    cVar.f13112f = R.raw.lottie_tab_live;
-                    cVar.f13115i = c.a.s0.i0.c.l;
+                    cVar.f12789e = 20;
+                    cVar.f12786b = R.string.ala_live;
+                    cVar.f12790f = R.raw.lottie_tab_live;
+                    cVar.f12793i = c.a.s0.i0.c.l;
                     return cVar;
                 }
                 return (c.a.s0.i0.c) invokeV.objValue;

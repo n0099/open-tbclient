@@ -26,7 +26,7 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.f.h.b.b, SpecialLiveDoubleViewHolde
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.h.b.b.f15028g);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.h.b.b.f14665g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

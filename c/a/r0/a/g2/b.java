@@ -20,13 +20,13 @@ public class b extends c.a.r0.a.u.e.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f6404e;
+        public final /* synthetic */ boolean f6264e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6405f;
+        public final /* synthetic */ String f6265f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f6406g;
+        public final /* synthetic */ b f6266g;
 
         public a(b bVar, boolean z, String str) {
             Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class b extends c.a.r0.a.u.e.p.a {
                     return;
                 }
             }
-            this.f6406g = bVar;
-            this.f6404e = z;
-            this.f6405f = str;
+            this.f6266g = bVar;
+            this.f6264e = z;
+            this.f6265f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,11 +55,11 @@ public class b extends c.a.r0.a.u.e.p.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                 if (bool.booleanValue()) {
-                    c.a.r0.a.g2.a.e(this.f6404e);
-                    this.f6406g.d(this.f6405f, new c.a.r0.a.u.h.b(0));
+                    c.a.r0.a.g2.a.e(this.f6264e);
+                    this.f6266g.d(this.f6265f, new c.a.r0.a.u.h.b(0));
                     return;
                 }
-                this.f6406g.d(this.f6405f, new c.a.r0.a.u.h.b(10005, "system deny"));
+                this.f6266g.d(this.f6265f, new c.a.r0.a.u.h.b(10005, "system deny"));
             }
         }
     }

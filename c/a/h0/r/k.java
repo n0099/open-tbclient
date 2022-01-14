@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -30,7 +29,7 @@ public class k {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("c", bundle.getString("cuid"));
             jSONObject.put("z", string);
-            jSONObject.put(BaseStatisContent.MAC, a.c());
+            jSONObject.put("mac", a.c());
             jSONObject.put("app", "android");
             jSONObject.put("ver", b.a(context));
             bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
@@ -47,11 +46,11 @@ public class k {
                 return new Bundle();
             }
             c.a.h0.p.f.a = bundle.getString("bduss");
-            c.a.h0.p.f.f3663b = bundle.getString("tpOrderId");
-            c.a.h0.p.f.f3668g = bundle.getString("nativeAppId");
-            c.a.h0.p.f.f3669h = bundle.getString("sceneSource");
-            c.a.h0.p.f.f3664c = bundle.getString("appKey");
-            c.a.h0.p.f.f3665d = bundle.getString("dealId");
+            c.a.h0.p.f.f3609b = bundle.getString("tpOrderId");
+            c.a.h0.p.f.f3614g = bundle.getString("nativeAppId");
+            c.a.h0.p.f.f3615h = bundle.getString("sceneSource");
+            c.a.h0.p.f.f3610c = bundle.getString("appKey");
+            c.a.h0.p.f.f3611d = bundle.getString("dealId");
             bundle.putString("deviceType", "ANDROID");
             bundle.putString("channel", "cashiersdk");
             bundle.putString(CommandMessage.SDK_VERSION, "2.8.7.9");

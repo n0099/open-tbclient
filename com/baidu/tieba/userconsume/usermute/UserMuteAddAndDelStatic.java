@@ -40,13 +40,13 @@ public class UserMuteAddAndDelStatic {
 
         /* renamed from: com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class C1940a extends HttpMessageListener {
+        public class C1957a extends HttpMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UserMuteAddAndDelCustomMessage a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C1940a(a aVar, int i2, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
+            public C1957a(a aVar, int i2, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
                 super(i2);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -154,13 +154,13 @@ public class UserMuteAddAndDelStatic {
                     return null;
                 }
                 UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = (UserMuteAddAndDelCustomMessage) customMessage;
-                C1940a c1940a = new C1940a(this, CmdConfigHttp.CMD_USER_MUTE_ADD, userMuteAddAndDelCustomMessage);
+                C1957a c1957a = new C1957a(this, CmdConfigHttp.CMD_USER_MUTE_ADD, userMuteAddAndDelCustomMessage);
                 b bVar = new b(this, CmdConfigHttp.CMD_USER_MUTE_DEL, userMuteAddAndDelCustomMessage);
-                c1940a.setSelfListener(true);
-                c1940a.setTag(userMuteAddAndDelCustomMessage.mId);
+                c1957a.setSelfListener(true);
+                c1957a.setTag(userMuteAddAndDelCustomMessage.mId);
                 bVar.setSelfListener(true);
                 bVar.setTag(userMuteAddAndDelCustomMessage.mId);
-                MessageManager.getInstance().registerListener(c1940a);
+                MessageManager.getInstance().registerListener(c1957a);
                 MessageManager.getInstance().registerListener(bVar);
                 return null;
             }
@@ -301,8 +301,8 @@ public class UserMuteAddAndDelStatic {
                     if (responsedMessage instanceof UserMuteCheckSocketResponsedMessage) {
                         UserMuteCheckSocketResponsedMessage userMuteCheckSocketResponsedMessage = (UserMuteCheckSocketResponsedMessage) responsedMessage;
                         aVar.a = userMuteCheckSocketResponsedMessage.getResult();
-                        aVar.f18609c = userMuteCheckSocketResponsedMessage.getError();
-                        aVar.f18608b = userMuteCheckSocketResponsedMessage.getErrorString();
+                        aVar.f18145c = userMuteCheckSocketResponsedMessage.getError();
+                        aVar.f18144b = userMuteCheckSocketResponsedMessage.getErrorString();
                         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001426, aVar);
                         customResponsedMessage.setOrginalMessage(this.a);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -310,8 +310,8 @@ public class UserMuteAddAndDelStatic {
                     if (responsedMessage instanceof UserMuteCheckHttpResponsedMessage) {
                         UserMuteCheckHttpResponsedMessage userMuteCheckHttpResponsedMessage = (UserMuteCheckHttpResponsedMessage) responsedMessage;
                         aVar.a = userMuteCheckHttpResponsedMessage.getResult();
-                        aVar.f18609c = userMuteCheckHttpResponsedMessage.getError();
-                        aVar.f18608b = userMuteCheckHttpResponsedMessage.getErrorString();
+                        aVar.f18145c = userMuteCheckHttpResponsedMessage.getError();
+                        aVar.f18144b = userMuteCheckHttpResponsedMessage.getErrorString();
                         CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001426, aVar);
                         customResponsedMessage2.setOrginalMessage(this.a);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);

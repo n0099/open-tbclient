@@ -13,7 +13,7 @@ public class d0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d0 f16305b;
+    public static d0 f15932b;
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<e0> a;
 
@@ -30,7 +30,7 @@ public class d0 {
                 return;
             }
         }
-        f16305b = new d0();
+        f15932b = new d0();
     }
 
     public d0() {
@@ -52,7 +52,7 @@ public class d0 {
     public static d0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f16305b : (d0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f15932b : (d0) invokeV.objValue;
     }
 
     public e0 b(int i2) {

@@ -17,13 +17,13 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static ConnectivityManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f33318b;
+    public static TelephonyManager f32260b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -218,15 +218,15 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission(s.f57419c) == 0) {
+            if (context.checkCallingOrSelfPermission(s.f55242c) == 0) {
                 if (context == null) {
-                    return f33318b;
+                    return f32260b;
                 }
-                if (f33318b == null) {
-                    f33318b = (TelephonyManager) context.getSystemService("phone");
+                if (f32260b == null) {
+                    f32260b = (TelephonyManager) context.getSystemService("phone");
                 }
             }
-            return f33318b;
+            return f32260b;
         }
         return (TelephonyManager) invokeL.objValue;
     }

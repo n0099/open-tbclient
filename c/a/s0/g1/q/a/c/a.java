@@ -41,34 +41,32 @@ public class a {
     public f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f13009b;
+    public e f12693b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.s0.g1.q.a.d.a f13010c;
+    public c.a.s0.g1.q.a.d.a f12694c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean[] f13011d;
+    public boolean[] f12695d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Calendar f13012e;
+    public Calendar f12696e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Calendar f13013f;
+    public Calendar f12697f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Calendar f13014g;
+    public Calendar f12698g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13015h;
+    public int f12699h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13016i;
+    public int f12700i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f13017j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f13018k;
+    public boolean f12701j;
+    public boolean k;
     public String l;
     public String m;
     public String n;
@@ -100,9 +98,9 @@ public class a {
                 return;
             }
         }
-        this.f13011d = new boolean[]{true, true, true, false, false, false};
-        this.f13017j = false;
-        this.f13018k = false;
+        this.f12695d = new boolean[]{true, true, true, false, false, false};
+        this.f12701j = false;
+        this.k = false;
         this.z = 17;
         this.E = -16417281;
         this.F = -16417281;

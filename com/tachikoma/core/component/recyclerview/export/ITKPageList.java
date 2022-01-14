@@ -1,5 +1,5 @@
 package com.tachikoma.core.component.recyclerview.export;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ITKPageList {
     boolean hasMore();
 

@@ -37,7 +37,7 @@ public class c1 {
                     builder.big_src = jSONObject.optString("big_src");
                     builder.bsize = jSONObject.optString("bsize");
                     builder.btn_type = Integer.valueOf(jSONObject.optInt("btn_type"));
-                    builder.f65265c = jSONObject.optString("c");
+                    builder.f62825c = jSONObject.optString("c");
                     builder.cdn_src = jSONObject.optString("cdn_src");
                     builder.cdn_src_active = jSONObject.optString("cdn_src_active");
                     builder.count = Integer.valueOf(jSONObject.optInt("count"));

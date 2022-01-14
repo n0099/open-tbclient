@@ -21,34 +21,32 @@ public class g {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18878b;
+    public String f18408b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18879c;
+    public String f18409c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18880d;
+    public String f18410d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18881e;
+    public String f18411e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18882f;
+    public String f18412f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18883g;
+    public String f18413g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18884h;
+    public int f18414h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f18885i;
+    public String f18415i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f18886j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f18887k;
+    public String f18416j;
+    public boolean k;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -63,7 +61,7 @@ public class g {
                 return;
             }
         }
-        this.f18887k = false;
+        this.k = false;
     }
 
     public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
@@ -74,16 +72,16 @@ public class g {
         int i2 = advertAppInfo.u4;
         if (i2 == 3) {
             this.a = "apk_download";
-            this.f18882f = advertAppInfo.x4;
-            this.f18883g = advertAppInfo.w4;
+            this.f18412f = advertAppInfo.x4;
+            this.f18413g = advertAppInfo.w4;
         } else if (i2 == 1) {
             this.a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
         }
-        this.f18881e = adCard.getButtonText();
-        this.f18878b = adCard.userName;
-        this.f18879c = adCard.userImage;
-        this.f18880d = adCard.scheme;
-        this.f18885i = adCard.threadTitle;
+        this.f18411e = adCard.getButtonText();
+        this.f18408b = adCard.userName;
+        this.f18409c = adCard.userImage;
+        this.f18410d = adCard.scheme;
+        this.f18415i = adCard.threadTitle;
     }
 
     public void b(JSONObject jSONObject) {
@@ -92,19 +90,19 @@ public class g {
             return;
         }
         this.a = jSONObject.optString("style");
-        this.f18878b = jSONObject.optString("user_name");
-        this.f18879c = jSONObject.optString("user_portrait");
-        this.f18880d = jSONObject.optString("scheme");
-        this.f18881e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        this.f18884h = jSONObject.optInt("close_time");
+        this.f18408b = jSONObject.optString("user_name");
+        this.f18409c = jSONObject.optString("user_portrait");
+        this.f18410d = jSONObject.optString("scheme");
+        this.f18411e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+        this.f18414h = jSONObject.optInt("close_time");
         JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
         if (optJSONObject != null) {
-            this.f18882f = optJSONObject.optString("pkgname");
-            this.f18883g = optJSONObject.optString("download_url");
+            this.f18412f = optJSONObject.optString("pkgname");
+            this.f18413g = optJSONObject.optString("download_url");
         }
         jSONObject.optString("content");
-        this.f18887k = true;
-        this.f18886j = jSONObject.optString("cmd_scheme");
+        this.k = true;
+        this.f18416j = jSONObject.optString("cmd_scheme");
     }
 
     public void c(String str) {
@@ -126,16 +124,16 @@ public class g {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("style", this.a);
-                jSONObject.put("user_name", this.f18878b);
-                jSONObject.put("user_portrait", this.f18879c);
-                jSONObject.put("scheme", this.f18880d);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f18881e);
+                jSONObject.put("user_name", this.f18408b);
+                jSONObject.put("user_portrait", this.f18409c);
+                jSONObject.put("scheme", this.f18410d);
+                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f18411e);
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.f18882f);
-                jSONObject2.put("download_url", this.f18883g);
+                jSONObject2.put("pkgname", this.f18412f);
+                jSONObject2.put("download_url", this.f18413g);
                 jSONObject.put("ext_data", jSONObject2);
-                jSONObject.put("content", this.f18884h);
-                jSONObject.put("cmd_scheme", this.f18886j);
+                jSONObject.put("content", this.f18414h);
+                jSONObject.put("cmd_scheme", this.f18416j);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -151,16 +149,16 @@ public class g {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("style", this.a);
-                jSONObject.put("user_name", this.f18878b);
-                jSONObject.put("user_portrait", this.f18879c);
-                jSONObject.put("scheme", this.f18880d);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f18881e);
+                jSONObject.put("user_name", this.f18408b);
+                jSONObject.put("user_portrait", this.f18409c);
+                jSONObject.put("scheme", this.f18410d);
+                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f18411e);
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.f18882f);
-                jSONObject2.put("download_url", this.f18883g);
+                jSONObject2.put("pkgname", this.f18412f);
+                jSONObject2.put("download_url", this.f18413g);
                 jSONObject.put("ext_data", jSONObject2);
-                jSONObject.put("content", this.f18884h);
-                jSONObject.put("cmd_scheme", this.f18886j);
+                jSONObject.put("content", this.f18414h);
+                jSONObject.put("cmd_scheme", this.f18416j);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

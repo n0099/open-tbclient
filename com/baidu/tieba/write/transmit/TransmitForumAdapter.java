@@ -8,10 +8,10 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import c.a.d.n.e.n;
 import c.a.d.n.e.w;
-import c.a.t0.o4.d;
-import c.a.t0.o4.f;
-import c.a.t0.o4.g;
-import c.a.t0.o4.h;
+import c.a.t0.p4.d;
+import c.a.t0.p4.f;
+import c.a.t0.p4.g;
+import c.a.t0.p4.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TransmitForumAdapter extends c.a.d.n.e.a<TransmitForumData, TransmitForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.o4.a0.a m;
+    public c.a.t0.p4.a0.a m;
     public w n;
 
     /* loaded from: classes13.dex */
@@ -67,7 +67,7 @@ public class TransmitForumAdapter extends c.a.d.n.e.a<TransmitForumData, Transmi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitForumAdapter f51648e;
+        public final /* synthetic */ TransmitForumAdapter f49654e;
 
         public a(TransmitForumAdapter transmitForumAdapter) {
             Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class TransmitForumAdapter extends c.a.d.n.e.a<TransmitForumData, Transmi
                     return;
                 }
             }
-            this.f51648e = transmitForumAdapter;
+            this.f49654e = transmitForumAdapter;
         }
 
         @Override // c.a.d.n.e.w
@@ -93,15 +93,15 @@ public class TransmitForumAdapter extends c.a.d.n.e.a<TransmitForumData, Transmi
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof TransmitForumData)) {
                 CheckBox checkBox = (CheckBox) view.findViewById(g.transmit_check_box);
                 boolean isChecked = checkBox.isChecked();
-                boolean c2 = this.f51648e.m != null ? this.f51648e.m.c() : false;
+                boolean c2 = this.f49654e.m != null ? this.f49654e.m.c() : false;
                 if (!isChecked && c2) {
-                    this.f51648e.m.b();
+                    this.f49654e.m.b();
                 }
                 if (isChecked || !c2) {
                     checkBox.setChecked(!checkBox.isChecked());
                     ((TransmitForumData) nVar).checked = checkBox.isChecked();
-                    if (this.f51648e.m != null) {
-                        this.f51648e.m.a();
+                    if (this.f49654e.m != null) {
+                        this.f49654e.m.a();
                     }
                 }
             }
@@ -145,7 +145,7 @@ public class TransmitForumAdapter extends c.a.d.n.e.a<TransmitForumData, Transmi
     public TransmitForumViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new TransmitForumViewHolder(LayoutInflater.from(this.f3299e).inflate(h.transmit_forum_layout, (ViewGroup) null)) : (TransmitForumViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new TransmitForumViewHolder(LayoutInflater.from(this.f3258e).inflate(h.transmit_forum_layout, (ViewGroup) null)) : (TransmitForumViewHolder) invokeL.objValue;
     }
 
     public View b0(int i2, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, TransmitForumViewHolder transmitForumViewHolder) {
@@ -160,7 +160,7 @@ public class TransmitForumAdapter extends c.a.d.n.e.a<TransmitForumData, Transmi
         return (View) invokeCommon.objValue;
     }
 
-    public void c0(c.a.t0.o4.a0.a aVar) {
+    public void c0(c.a.t0.p4.a0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.m = aVar;

@@ -45,7 +45,7 @@ public final class d implements com.sdk.base.framework.b.a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
             if (i2 == 0) {
-                context = this.a.f61608d;
+                context = this.a.f59274d;
                 String a = com.sdk.base.framework.f.k.a.a(context, String.valueOf(t));
                 if (a == null) {
                     this.a.a(1, "SDK解密异常", 302001, a, str2);

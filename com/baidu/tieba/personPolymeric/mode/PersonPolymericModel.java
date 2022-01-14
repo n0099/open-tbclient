@@ -34,25 +34,23 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.x2.e.a f49071e;
+    public c.a.t0.x2.e.a f47232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49072f;
+    public int f47233f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f49073g;
+    public String f47234g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.x2.h.b f49074h;
+    public c.a.t0.x2.h.b f47235h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.x2.h.a f49075i;
+    public c.a.t0.x2.h.a f47236i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f49076j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.d.c.g.a f49077k;
+    public boolean f47237j;
+    public c.a.d.c.g.a k;
     public CustomMessageListener l;
     public CustomMessageListener m;
     public CustomMessageListener n;
@@ -98,13 +96,13 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
                     cVar = (ProfileHttpResponseMessage) responsedMessage;
                 }
                 if (cVar.getErrorCode() == 0) {
-                    this.a.f49071e.v(cVar);
+                    this.a.f47232e.v(cVar);
                 }
                 c.a.t0.x2.b.d().n(System.currentTimeMillis() - c.a.t0.x2.b.d().e());
                 if (responsedMessage.getError() == 0) {
-                    this.a.f49074h.c(this.a.f49071e);
+                    this.a.f47235h.c(this.a.f47232e);
                 } else {
-                    this.a.f49074h.c(null);
+                    this.a.f47235h.c(null);
                 }
             }
         }
@@ -144,19 +142,19 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.t0.h4.a) && customResponsedMessage.getOrginalMessage().getTag() == this.a.unique_id) {
                 c.a.t0.h4.a aVar = (c.a.t0.h4.a) customResponsedMessage.getData();
                 DataRes dataRes = aVar.a;
-                if (aVar.f18609c != 0 || StringUtils.isNULL(dataRes.is_mute)) {
+                if (aVar.f18145c != 0 || StringUtils.isNULL(dataRes.is_mute)) {
                     return;
                 }
                 if (dataRes.is_mute.equals("0")) {
-                    this.a.f49072f = 0;
-                    this.a.f49073g = dataRes.mute_confirm;
-                    if (m.isEmpty(this.a.f49073g)) {
-                        this.a.f49073g = "确定禁言？";
+                    this.a.f47233f = 0;
+                    this.a.f47234g = dataRes.mute_confirm;
+                    if (m.isEmpty(this.a.f47234g)) {
+                        this.a.f47234g = "确定禁言？";
                     }
                 } else if (dataRes.is_mute.equals("1")) {
-                    this.a.f49072f = 1;
+                    this.a.f47233f = 1;
                 }
-                this.a.f49075i.a(0, this.a.f49072f, this.a.f49073g, aVar.f18609c, aVar.f18608b);
+                this.a.f47236i.a(0, this.a.f47233f, this.a.f47234g, aVar.f18145c, aVar.f18144b);
             }
         }
     }
@@ -197,9 +195,9 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             }
             UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
             if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                this.a.f49072f = 1;
+                this.a.f47233f = 1;
             }
-            this.a.f49075i.a(1, this.a.f49072f, this.a.f49073g, userMuteAddResponseMessage.getMuteErrorCode(), userMuteAddResponseMessage.getErrorString());
+            this.a.f47236i.a(1, this.a.f47233f, this.a.f47234g, userMuteAddResponseMessage.getMuteErrorCode(), userMuteAddResponseMessage.getErrorString());
         }
     }
 
@@ -237,9 +235,9 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() != this.a.unique_id) {
                 return;
             }
-            this.a.f49072f = 0;
+            this.a.f47233f = 0;
             UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
-            this.a.f49075i.a(2, this.a.f49072f, this.a.f49073g, userMuteDelResponseMessage.getMuteErrorCode(), userMuteDelResponseMessage.getMuteMessage());
+            this.a.f47236i.a(2, this.a.f47233f, this.a.f47234g, userMuteDelResponseMessage.getMuteErrorCode(), userMuteDelResponseMessage.getMuteMessage());
         }
     }
 
@@ -261,9 +259,9 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f49072f = -1;
-        this.f49073g = "";
-        this.f49077k = new a(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        this.f47233f = -1;
+        this.f47234g = "";
+        this.k = new a(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
         this.l = new b(this, 2001426);
         this.m = new c(this, 2001427);
         this.n = new d(this, 2001428);
@@ -273,14 +271,14 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             registerListener(this.m);
             registerListener(this.n);
         }
-        this.f49076j = z;
-        registerListener(this.f49077k);
+        this.f47237j = z;
+        registerListener(this.k);
     }
 
     public c.a.t0.x2.e.a H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49071e : (c.a.t0.x2.e.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47232e : (c.a.t0.x2.e.a) invokeV.objValue;
     }
 
     public void I(long j2, String str) {
@@ -290,7 +288,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 profileRequestMessage.set_uid(Long.valueOf(c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
             }
-            if (!this.f49076j) {
+            if (!this.f47237j) {
                 profileRequestMessage.set_friend_uid(Long.valueOf(j2));
                 profileRequestMessage.set_is_guest(1);
             }
@@ -329,28 +327,28 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f49071e.w();
+            this.f47232e.w();
         }
     }
 
     public void L(c.a.t0.x2.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f49074h = bVar;
+            this.f47235h = bVar;
         }
     }
 
     public void M(c.a.t0.x2.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f49075i = aVar;
+            this.f47236i = aVar;
         }
     }
 
     public void N(c.a.t0.x2.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f49071e = aVar;
+            this.f47232e = aVar;
         }
     }
 

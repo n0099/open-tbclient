@@ -27,17 +27,17 @@ public class a {
 
     /* renamed from: c.a.r0.j.o0.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0752a implements c<f> {
+    public static class C0761a implements c<f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.y.b.a f11397e;
+        public final /* synthetic */ c.a.r0.a.y.b.a f11142e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f11398f;
+        public final /* synthetic */ String f11143f;
 
-        public C0752a(c.a.r0.a.y.b.a aVar, String str) {
+        public C0761a(c.a.r0.a.y.b.a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,8 +52,8 @@ public class a {
                     return;
                 }
             }
-            this.f11397e = aVar;
-            this.f11398f = str;
+            this.f11142e = aVar;
+            this.f11143f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,10 +62,10 @@ public class a {
         public void onCallback(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                if (fVar == null || fVar.f7281d || fVar.f7287j != 1) {
-                    a.c(this.f11397e, "system deny");
+                if (fVar == null || fVar.f7125d || fVar.f7131j != 1) {
+                    a.c(this.f11142e, "system deny");
                 } else {
-                    a.e(this.f11397e, this.f11398f);
+                    a.e(this.f11142e, this.f11143f);
                 }
             }
         }
@@ -111,7 +111,7 @@ public class a {
         if (a) {
             String str = "getUUAPInfo-domain: " + C;
         }
-        a0.d0().e("mapp_uuap_info", new C0752a(F, C));
+        a0.d0().e("mapp_uuap_info", new C0761a(F, C));
     }
 
     public static void e(c.a.r0.a.y.b.a aVar, String str) {

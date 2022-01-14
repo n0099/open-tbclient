@@ -27,34 +27,32 @@ public class o {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28312b;
+    public boolean f27454b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28313c;
+    public boolean f27455c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28314d;
+    public boolean f27456d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28315e;
+    public boolean f27457e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28316f;
+    public boolean f27458f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f28317g;
+    public d f27459g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final w<Class, y<String, a>> f28318h;
+    public final w<Class, y<String, a>> f27460h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final w<String, Class> f28319i;
+    public final w<String, Class> f27461i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final w<Class, String> f28320j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final w<Class, d> f28321k;
+    public final w<Class, String> f27462j;
+    public final w<Class, d> k;
     public final Object[] l;
     public final Object[] m;
 
@@ -65,10 +63,10 @@ public class o {
         public final c.b.b.q.p0.d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Class f28322b;
+        public Class f27463b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f28323c;
+        public boolean f27464c;
 
         public a(c.b.b.q.p0.d dVar) {
             Interceptable interceptable = $ic;
@@ -86,8 +84,8 @@ public class o {
                 }
             }
             this.a = dVar;
-            this.f28322b = dVar.c((c.b.b.q.p0.b.f(w.class, dVar.getType()) || c.b.b.q.p0.b.f(Map.class, dVar.getType())) ? 1 : 0);
-            this.f28323c = dVar.f(Deprecated.class);
+            this.f27463b = dVar.c((c.b.b.q.p0.b.f(w.class, dVar.getType()) || c.b.b.q.p0.b.f(Map.class, dVar.getType())) ? 1 : 0);
+            this.f27464c = dVar.f(Deprecated.class);
         }
     }
 
@@ -135,11 +133,11 @@ public class o {
             }
         }
         this.a = DealIntentService.KEY_CLASS;
-        this.f28315e = true;
-        this.f28318h = new w<>();
-        this.f28319i = new w<>();
-        this.f28320j = new w<>();
-        this.f28321k = new w<>();
+        this.f27457e = true;
+        this.f27460h = new w<>();
+        this.f27461i = new w<>();
+        this.f27462j = new w<>();
+        this.k = new w<>();
         new w();
         this.l = new Object[]{null};
         this.m = new Object[]{null};
@@ -149,15 +147,15 @@ public class o {
     public void a(String str, Class cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cls) == null) {
-            this.f28319i.i(str, cls);
-            this.f28320j.i(cls, str);
+            this.f27461i.i(str, cls);
+            this.f27462j.i(cls, str);
         }
     }
 
     public final String b(Enum r5) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5)) == null) ? this.f28315e ? r5.name() : r5.toString() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5)) == null) ? this.f27457e ? r5.name() : r5.toString() : (String) invokeL.objValue;
     }
 
     public void c(Object obj, Object obj2) {
@@ -168,7 +166,7 @@ public class o {
             while (it.hasNext()) {
                 w.b next = it.next();
                 a c2 = f2.c(next.a);
-                c.b.b.q.p0.d dVar = ((a) next.f28388b).a;
+                c.b.b.q.p0.d dVar = ((a) next.f27524b).a;
                 if (c2 != null) {
                     try {
                         c2.a.j(obj2, dVar.a(obj));
@@ -198,14 +196,14 @@ public class o {
     public Class e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f28319i.c(str) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f27461i.c(str) : (Class) invokeL.objValue;
     }
 
     public final y<String, a> f(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
-            y<String, a> c2 = this.f28318h.c(cls);
+            y<String, a> c2 = this.f27460h.c(cls);
             if (c2 != null) {
                 return c2;
             }
@@ -214,7 +212,7 @@ public class o {
                 aVar.a(cls2);
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = aVar.f28217f - 1; i2 >= 0; i2--) {
+            for (int i2 = aVar.f27361f - 1; i2 >= 0; i2--) {
                 Collections.addAll(arrayList, c.b.b.q.p0.b.d((Class) aVar.get(i2)));
             }
             y<String, a> yVar = new y<>(arrayList.size());
@@ -231,10 +229,10 @@ public class o {
                     yVar.i(dVar.d(), new a(dVar));
                 }
             }
-            if (this.f28316f) {
+            if (this.f27458f) {
                 yVar.s.l();
             }
-            this.f28318h.i(cls, yVar);
+            this.f27460h.i(cls, yVar);
             return yVar;
         }
         return (y) invokeL.objValue;
@@ -291,18 +289,18 @@ public class o {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, jsonValue) == null) {
             Class<?> cls = obj.getClass();
             y<String, a> f2 = f(cls);
-            for (JsonValue jsonValue2 = jsonValue.f32147j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
+            for (JsonValue jsonValue2 = jsonValue.f31137j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
                 a c2 = f2.c(jsonValue2.H().replace(" ", "_"));
                 if (c2 == null) {
-                    if (!jsonValue2.f32146i.equals(this.a) && !this.f28312b && !g(cls, jsonValue2.f32146i)) {
-                        SerializationException serializationException = new SerializationException("Field not found: " + jsonValue2.f32146i + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                    if (!jsonValue2.f31136i.equals(this.a) && !this.f27454b && !g(cls, jsonValue2.f31136i)) {
+                        SerializationException serializationException = new SerializationException("Field not found: " + jsonValue2.f31136i + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
                         serializationException.addTrace(jsonValue2.R());
                         throw serializationException;
                     }
-                } else if (!this.f28313c || this.f28314d || !c2.f28323c) {
+                } else if (!this.f27455c || this.f27456d || !c2.f27464c) {
                     c.b.b.q.p0.d dVar = c2.a;
                     try {
-                        dVar.j(obj, k(dVar.getType(), c2.f28322b, jsonValue2));
+                        dVar.j(obj, k(dVar.getType(), c2.f27463b, jsonValue2));
                     } catch (SerializationException e2) {
                         e2.addTrace(dVar.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
                         throw e2;
@@ -326,15 +324,15 @@ public class o {
     }
 
     /* JADX DEBUG: Type inference failed for r13v3. Raw type applied. Possible types: java.lang.Class<c.b.b.q.a> */
-    /* JADX WARN: Code restructure failed: missing block: B:134:0x0208, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:134:0x020a, code lost:
         if (r13 == java.lang.Object.class) goto L89;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:225:0x0354, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:225:0x0356, code lost:
         if (r13 == r0) goto L138;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:235:0x0378  */
-    /* JADX WARN: Removed duplicated region for block: B:302:0x0431 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:235:0x037a  */
+    /* JADX WARN: Removed duplicated region for block: B:302:0x0433 A[RETURN] */
     /* JADX WARN: Type inference failed for: r0v68, types: [c.b.b.q.o$c] */
     /* JADX WARN: Type inference failed for: r0v71, types: [c.b.b.q.o$d] */
     /* JADX WARN: Type inference failed for: r12v14, types: [c.b.b.q.o$d] */
@@ -390,7 +388,7 @@ public class o {
                     cls5 = cls;
                 }
                 if (cls5 == null) {
-                    ?? r0 = this.f28317g;
+                    ?? r0 = this.f27459g;
                     return r0 != 0 ? (T) r0.a(this, r2, cls5) : r2;
                 } else if (this.a != null && c.b.b.q.p0.b.f(Collection.class, cls5)) {
                     ?? r22 = (T) r2.m("items");
@@ -400,7 +398,7 @@ public class o {
                         throw new SerializationException("Unable to convert object to collection: " + r22 + " (" + cls5.getName() + SmallTailInfo.EMOTION_SUFFIX);
                     }
                 } else {
-                    d c2 = this.f28321k.c(cls5);
+                    d c2 = this.k.c(cls5);
                     if (c2 == 0) {
                         if (cls5 != String.class && cls5 != Integer.class && cls5 != Boolean.class && cls5 != Float.class && cls5 != Long.class && cls5 != Double.class && cls5 != Short.class && cls5 != Byte.class && cls5 != Character.class && !c.b.b.q.p0.b.f(Enum.class, cls5)) {
                             T t = (T) h(cls5);
@@ -409,20 +407,20 @@ public class o {
                                 return t;
                             } else if (t instanceof w) {
                                 ?? r3 = (T) ((w) t);
-                                for (JsonValue jsonValue4 = r2.f32147j; jsonValue4 != null; jsonValue4 = jsonValue4.l) {
-                                    r3.i(jsonValue4.f32146i, k(cls6, null, jsonValue4));
+                                for (JsonValue jsonValue4 = r2.f31137j; jsonValue4 != null; jsonValue4 = jsonValue4.l) {
+                                    r3.i(jsonValue4.f31136i, k(cls6, null, jsonValue4));
                                 }
                                 return r3;
                             } else if (t instanceof v) {
                                 ?? r32 = (T) ((v) t);
-                                for (JsonValue jsonValue5 = r2.f32147j; jsonValue5 != null; jsonValue5 = jsonValue5.l) {
-                                    r32.h(jsonValue5.f32146i, ((Integer) k(Integer.class, null, jsonValue5)).intValue());
+                                for (JsonValue jsonValue5 = r2.f31137j; jsonValue5 != null; jsonValue5 = jsonValue5.l) {
+                                    r32.h(jsonValue5.f31136i, ((Integer) k(Integer.class, null, jsonValue5)).intValue());
                                 }
                                 return r32;
                             } else if (t instanceof u) {
                                 ?? r33 = (T) ((u) t);
-                                for (JsonValue jsonValue6 = r2.f32147j; jsonValue6 != null; jsonValue6 = jsonValue6.l) {
-                                    r33.g(jsonValue6.f32146i, ((Float) k(Float.class, null, jsonValue6)).floatValue());
+                                for (JsonValue jsonValue6 = r2.f31137j; jsonValue6 != null; jsonValue6 = jsonValue6.l) {
+                                    r33.g(jsonValue6.f31136i, ((Float) k(Float.class, null, jsonValue6)).floatValue());
                                 }
                                 return r33;
                             } else if (t instanceof x) {
@@ -433,14 +431,14 @@ public class o {
                                 return r34;
                             } else if (t instanceof m) {
                                 ?? r35 = (T) ((m) t);
-                                for (JsonValue jsonValue7 = r2.f32147j; jsonValue7 != null; jsonValue7 = jsonValue7.l) {
-                                    r35.f(Integer.parseInt(jsonValue7.f32146i), k(cls6, null, jsonValue7));
+                                for (JsonValue jsonValue7 = r2.f31137j; jsonValue7 != null; jsonValue7 = jsonValue7.l) {
+                                    r35.f(Integer.parseInt(jsonValue7.f31136i), k(cls6, null, jsonValue7));
                                 }
                                 return r35;
                             } else if (t instanceof s) {
                                 ?? r36 = (T) ((s) t);
-                                for (JsonValue jsonValue8 = r2.f32147j; jsonValue8 != null; jsonValue8 = jsonValue8.l) {
-                                    r36.g(Long.parseLong(jsonValue8.f32146i), k(cls6, null, jsonValue8));
+                                for (JsonValue jsonValue8 = r2.f31137j; jsonValue8 != null; jsonValue8 = jsonValue8.l) {
+                                    r36.g(Long.parseLong(jsonValue8.f31136i), k(cls6, null, jsonValue8));
                                 }
                                 return r36;
                             } else if (t instanceof n) {
@@ -451,15 +449,15 @@ public class o {
                                 return r37;
                             } else if (t instanceof c.b.b.q.b) {
                                 ?? r38 = (T) ((c.b.b.q.b) t);
-                                for (JsonValue jsonValue9 = r2.f32147j; jsonValue9 != null; jsonValue9 = jsonValue9.l) {
-                                    r38.f(jsonValue9.f32146i, k(cls6, null, jsonValue9));
+                                for (JsonValue jsonValue9 = r2.f31137j; jsonValue9 != null; jsonValue9 = jsonValue9.l) {
+                                    r38.f(jsonValue9.f31136i, k(cls6, null, jsonValue9));
                                 }
                                 return r38;
                             } else if (t instanceof Map) {
                                 ?? r39 = (T) ((Map) t);
-                                for (JsonValue jsonValue10 = r2.f32147j; jsonValue10 != null; jsonValue10 = jsonValue10.l) {
-                                    if (!jsonValue10.f32146i.equals(this.a)) {
-                                        r39.put(jsonValue10.f32146i, k(cls6, null, jsonValue10));
+                                for (JsonValue jsonValue10 = r2.f31137j; jsonValue10 != null; jsonValue10 = jsonValue10.l) {
+                                    if (!jsonValue10.f31136i.equals(this.a)) {
+                                        r39.put(jsonValue10.f31136i, k(cls6, null, jsonValue10));
                                     }
                                 }
                                 return r39;
@@ -477,7 +475,7 @@ public class o {
                 jsonValue2 = r2;
             }
             if (cls3 != null) {
-                d c3 = this.f28321k.c(cls3);
+                d c3 = this.k.c(cls3);
                 if (c3 != null) {
                     return (T) c3.a(this, jsonValue2, cls3);
                 }
@@ -492,19 +490,19 @@ public class o {
                 Class cls7 = cls3 != null ? cls3 : c.b.b.q.a.class;
                 if (c.b.b.q.p0.b.f(c.b.b.q.a.class, cls7)) {
                     T t3 = cls7 == c.b.b.q.a.class ? (T) new c.b.b.q.a() : (T) ((c.b.b.q.a) h(cls7));
-                    for (JsonValue jsonValue11 = jsonValue2.f32147j; jsonValue11 != null; jsonValue11 = jsonValue11.l) {
+                    for (JsonValue jsonValue11 = jsonValue2.f31137j; jsonValue11 != null; jsonValue11 = jsonValue11.l) {
                         ((c.b.b.q.a) t3).a(k(cls6, null, jsonValue11));
                     }
                     return t3;
                 } else if (c.b.b.q.p0.b.f(c0.class, cls7)) {
                     T t4 = cls7 == c0.class ? (T) new c0() : (T) ((c0) h(cls7));
-                    for (JsonValue jsonValue12 = jsonValue2.f32147j; jsonValue12 != null; jsonValue12 = jsonValue12.l) {
+                    for (JsonValue jsonValue12 = jsonValue2.f31137j; jsonValue12 != null; jsonValue12 = jsonValue12.l) {
                         ((c0) t4).addLast(k(cls6, null, jsonValue12));
                     }
                     return t4;
                 } else if (c.b.b.q.p0.b.f(Collection.class, cls7)) {
                     T t5 = cls7.isInterface() ? (T) new ArrayList() : (T) ((Collection) h(cls7));
-                    for (JsonValue jsonValue13 = jsonValue2.f32147j; jsonValue13 != null; jsonValue13 = jsonValue13.l) {
+                    for (JsonValue jsonValue13 = jsonValue2.f31137j; jsonValue13 != null; jsonValue13 = jsonValue13.l) {
                         ((Collection) t5).add(k(cls6, null, jsonValue13));
                     }
                     return t5;
@@ -515,7 +513,7 @@ public class o {
                         cls8 = componentType;
                     }
                     T t6 = (T) c.b.b.q.p0.a.a(componentType, jsonValue2.n);
-                    JsonValue jsonValue14 = jsonValue2.f32147j;
+                    JsonValue jsonValue14 = jsonValue2.f31137j;
                     while (jsonValue14 != null) {
                         c.b.b.q.p0.a.b(t6, i2, k(cls8, null, jsonValue14));
                         jsonValue14 = jsonValue14.l;
@@ -651,7 +649,7 @@ public class o {
     public <T> void o(Class<T> cls, d<T> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, cls, dVar) == null) {
-            this.f28321k.i(cls, dVar);
+            this.k.i(cls, dVar);
         }
     }
 

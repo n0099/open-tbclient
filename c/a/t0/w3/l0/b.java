@@ -16,10 +16,10 @@ public class b {
     public c.a.d.f.n.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25618b;
+    public String f24901b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25619c;
+    public boolean f24902c;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -36,22 +36,22 @@ public class b {
                 return;
             }
         }
-        this.f25618b = null;
-        this.f25619c = false;
+        this.f24901b = null;
+        this.f24902c = false;
         e(str, false);
     }
 
     public void a() {
         e c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || (c2 = c()) == null || c2.f25627f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || (c2 = c()) == null || c2.f24910f == null) {
             return;
         }
         long e2 = this.a.e();
         if (e2 > 3000) {
-            d dVar = c2.f25627f;
+            d dVar = c2.f24910f;
             dVar.a += e2;
-            dVar.f25620b++;
+            dVar.f24903b++;
             c.b(c2, 10);
         }
     }
@@ -63,28 +63,28 @@ public class b {
             return;
         }
         if (z) {
-            d dVar = c2.f25625d;
+            d dVar = c2.f24908d;
             if (dVar == null) {
                 return;
             }
-            dVar.f25620b++;
+            dVar.f24903b++;
             if (z2) {
                 dVar.a += j3;
-                dVar.f25622d += j2;
+                dVar.f24905d += j2;
             } else {
-                dVar.f25621c++;
+                dVar.f24904c++;
             }
         } else {
-            d dVar2 = c2.f25626e;
+            d dVar2 = c2.f24909e;
             if (dVar2 == null) {
                 return;
             }
-            dVar2.f25620b++;
+            dVar2.f24903b++;
             if (z2) {
                 dVar2.a += j4;
-                dVar2.f25622d += j2;
+                dVar2.f24905d += j2;
             } else {
-                dVar2.f25621c++;
+                dVar2.f24904c++;
             }
             j3 = j4;
         }
@@ -92,7 +92,7 @@ public class b {
         if (z2) {
             c.b(c2, 10);
         }
-        if (this.f25618b == "frsStat") {
+        if (this.f24901b == "frsStat") {
             if (!z2 || j3 > 3000) {
                 c.a.d.f.n.a aVar = new c.a.d.f.n.a("dbg");
                 aVar.b("act", "frs");
@@ -110,7 +110,7 @@ public class b {
     public final e c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.e(this.f25618b, d(), this.f25619c) : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.e(this.f24901b, d(), this.f24902c) : (e) invokeV.objValue;
     }
 
     public final String d() {
@@ -126,8 +126,8 @@ public class b {
     public void e(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            this.f25618b = str;
-            this.f25619c = z;
+            this.f24901b = str;
+            this.f24902c = z;
             this.a = new c.a.d.f.n.a("dbg");
             c.c(str, d(), z);
         }

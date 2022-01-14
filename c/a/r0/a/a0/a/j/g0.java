@@ -33,12 +33,12 @@ public class g0 extends a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && (iVar = this.a) != null && iVar.d()) {
             if (this.a.c()) {
-                bVar.f5180g.setShader(this.a.b());
+                bVar.f5072g.setShader(this.a.b());
                 return;
             }
             bVar.q = this.a.a();
-            bVar.f5180g.setColor(this.a.a());
-            bVar.f5179f.setShader(null);
+            bVar.f5072g.setColor(this.a.a());
+            bVar.f5071f.setShader(null);
         }
     }
 

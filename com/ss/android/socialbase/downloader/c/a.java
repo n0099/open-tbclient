@@ -6,11 +6,11 @@ public class a {
     public static int a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AbstractC2183a f62231b;
+    public static AbstractC2200a f59885b;
 
     /* renamed from: com.ss.android.socialbase.downloader.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractC2183a {
+    public static abstract class AbstractC2200a {
         public void a(String str, String str2) {
         }
 
@@ -48,9 +48,9 @@ public class a {
         if (a <= 4) {
             b(str);
         }
-        AbstractC2183a abstractC2183a = f62231b;
-        if (abstractC2183a != null) {
-            abstractC2183a.c(b(str), str2);
+        AbstractC2200a abstractC2200a = f59885b;
+        if (abstractC2200a != null) {
+            abstractC2200a.c(b(str), str2);
         }
     }
 
@@ -61,9 +61,9 @@ public class a {
         if (a <= 5) {
             b(str);
         }
-        AbstractC2183a abstractC2183a = f62231b;
-        if (abstractC2183a != null) {
-            abstractC2183a.e(b(str), str2);
+        AbstractC2200a abstractC2200a = f59885b;
+        if (abstractC2200a != null) {
+            abstractC2200a.e(b(str), str2);
         }
     }
 
@@ -74,9 +74,9 @@ public class a {
         if (a <= 6) {
             b(str);
         }
-        AbstractC2183a abstractC2183a = f62231b;
-        if (abstractC2183a != null) {
-            abstractC2183a.d(b(str), str2);
+        AbstractC2200a abstractC2200a = f59885b;
+        if (abstractC2200a != null) {
+            abstractC2200a.d(b(str), str2);
         }
     }
 
@@ -89,9 +89,9 @@ public class a {
             return;
         }
         int i2 = a;
-        AbstractC2183a abstractC2183a = f62231b;
-        if (abstractC2183a != null) {
-            abstractC2183a.a(b(str), str2);
+        AbstractC2200a abstractC2200a = f59885b;
+        if (abstractC2200a != null) {
+            abstractC2200a.a(b(str), str2);
         }
     }
 
@@ -102,9 +102,9 @@ public class a {
         if (a <= 3) {
             b(str);
         }
-        AbstractC2183a abstractC2183a = f62231b;
-        if (abstractC2183a != null) {
-            abstractC2183a.b(b(str), str2);
+        AbstractC2200a abstractC2200a = f59885b;
+        if (abstractC2200a != null) {
+            abstractC2200a.b(b(str), str2);
         }
     }
 
@@ -123,9 +123,9 @@ public class a {
         if (a <= 6) {
             b(str);
         }
-        AbstractC2183a abstractC2183a = f62231b;
-        if (abstractC2183a != null) {
-            abstractC2183a.a(b(str), str2, th);
+        AbstractC2200a abstractC2200a = f59885b;
+        if (abstractC2200a != null) {
+            abstractC2200a.a(b(str), str2, th);
         }
     }
 }

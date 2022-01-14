@@ -44,34 +44,32 @@ public class e {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f6410b;
+    public static long f6270b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ContentObserver f6411c;
+    public static ContentObserver f6271c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ContentResolver f6412d;
+    public static ContentResolver f6272d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static PackageManager f6413e;
+    public static PackageManager f6273e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f6414f;
+    public static boolean f6274f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f6415g;
+    public static long f6275g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static List<c.a.r0.a.g2.c> f6416h;
+    public static List<c.a.r0.a.g2.c> f6276h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Runnable f6417i;
+    public static Runnable f6277i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f6418j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static Uri f6419k;
+    public static int f6278j;
+    public static Uri k;
     public static String l;
     public static String m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,17 +82,17 @@ public class e {
 
         /* renamed from: c.a.r0.a.g2.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0338a implements Runnable {
+        public class RunnableC0347a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Uri f6420e;
+            public final /* synthetic */ Uri f6279e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f6421f;
+            public final /* synthetic */ a f6280f;
 
-            public RunnableC0338a(a aVar, Uri uri) {
+            public RunnableC0347a(a aVar, Uri uri) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,15 +107,15 @@ public class e {
                         return;
                     }
                 }
-                this.f6421f = aVar;
-                this.f6420e = uri;
+                this.f6280f = aVar;
+                this.f6279e = uri;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    e.q(this.f6421f.a, this.f6420e);
+                    e.q(this.f6280f.a, this.f6279e);
                 }
             }
         }
@@ -151,7 +149,7 @@ public class e {
                 if (e.a) {
                     String str = "onChange(), uri: " + uri;
                 }
-                ExecutorUtilsExt.postOnElastic(new RunnableC0338a(this, uri), "systemScreenShot", 1);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0347a(this, uri), "systemScreenShot", 1);
             }
         }
     }
@@ -162,13 +160,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6422e;
+        public final /* synthetic */ String f6281e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Handler f6423f;
+        public final /* synthetic */ Handler f6282f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f6424g;
+        public final /* synthetic */ d f6283g;
 
         public b(String str, Handler handler, d dVar) {
             Interceptable interceptable = $ic;
@@ -185,9 +183,9 @@ public class e {
                     return;
                 }
             }
-            this.f6422e = str;
-            this.f6423f = handler;
-            this.f6424g = dVar;
+            this.f6281e = str;
+            this.f6282f = handler;
+            this.f6283g = dVar;
         }
 
         @Override // java.lang.Runnable
@@ -196,21 +194,21 @@ public class e {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 e.e();
                 if (e.a) {
-                    String str = "mCount: " + e.f6418j;
+                    String str = "mCount: " + e.f6278j;
                 }
                 long j2 = c.a.r0.a.z2.d.a() ? 500L : 100L;
-                if (e.m(this.f6422e, e.f6419k) || e.f6418j > 10) {
-                    if (e.m(this.f6422e, e.f6419k) && e.l() && !e.o(this.f6422e, e.f6419k)) {
-                        for (c.a.r0.a.g2.c cVar : e.f6416h) {
+                if (e.m(this.f6281e, e.k) || e.f6278j > 10) {
+                    if (e.m(this.f6281e, e.k) && e.l() && !e.o(this.f6281e, e.k)) {
+                        for (c.a.r0.a.g2.c cVar : e.f6276h) {
                             if (cVar != null) {
-                                cVar.a(this.f6424g);
+                                cVar.a(this.f6283g);
                             }
                         }
                         return;
                     }
                     return;
                 }
-                this.f6423f.postDelayed(e.f6417i, j2);
+                this.f6282f.postDelayed(e.f6277i, j2);
             }
         }
     }
@@ -221,7 +219,7 @@ public class e {
         public static String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static String[] f6425b;
+        public static String[] f6284b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -238,7 +236,7 @@ public class e {
                 }
             }
             a = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
-            f6425b = new String[]{"_display_name", "_data", "date_added", "_id"};
+            f6284b = new String[]{"_display_name", "_data", "date_added", "_id"};
         }
 
         public static boolean e(String str) {
@@ -261,7 +259,7 @@ public class e {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Uri f6426b;
+        public Uri f6285b;
 
         public /* synthetic */ d(String str, Long l, Uri uri, a aVar) {
             this(str, l, uri);
@@ -284,7 +282,7 @@ public class e {
             }
             this.a = str;
             l.longValue();
-            this.f6426b = uri;
+            this.f6285b = uri;
         }
     }
 
@@ -302,16 +300,16 @@ public class e {
             }
         }
         a = k.a;
-        f6415g = System.currentTimeMillis() - 10000;
-        f6416h = new ArrayList();
-        f6418j = 0;
+        f6275g = System.currentTimeMillis() - 10000;
+        f6276h = new ArrayList();
+        f6278j = 0;
         l = null;
         m = null;
     }
 
     public static /* synthetic */ int e() {
-        int i2 = f6418j;
-        f6418j = i2 + 1;
+        int i2 = f6278j;
+        f6278j = i2 + 1;
         return i2;
     }
 
@@ -320,7 +318,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
             try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(f6412d, uri);
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(f6272d, uri);
                 if (bitmap == null) {
                     return 0.0d;
                 }
@@ -359,7 +357,7 @@ public class e {
             if (!c.a.r0.a.z2.d.a()) {
                 return TextUtils.isEmpty(str) || TextUtils.equals(m, str);
             }
-            Uri uri = f6419k;
+            Uri uri = k;
             return uri == null || TextUtils.equals(l, uri.toString());
         }
         return invokeL.booleanValue;
@@ -369,7 +367,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return g.a().b() && System.currentTimeMillis() - f6410b > 2000;
+            return g.a().b() && System.currentTimeMillis() - f6270b > 2000;
         }
         return invokeV.booleanValue;
     }
@@ -395,7 +393,7 @@ public class e {
                 return false;
             }
             try {
-                return MediaStore.Images.Media.getBitmap(f6412d, uri) != null;
+                return MediaStore.Images.Media.getBitmap(f6272d, uri) != null;
             } catch (Exception unused) {
                 return false;
             }
@@ -432,7 +430,7 @@ public class e {
     public static boolean p(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? Build.VERSION.SDK_INT < 23 || c.a.r0.r.a.b.a.a(context, s.f57425i) == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? Build.VERSION.SDK_INT < 23 || c.a.r0.r.a.b.a.a(context, s.f55248i) == 0 : invokeL.booleanValue;
     }
 
     /* JADX WARN: Not initialized variable reg: 3, insn: 0x0145: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:44:0x0145 */
@@ -442,50 +440,50 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, handler, uri) == null) {
             if (uri.toString().matches(c.a + ".*")) {
-                if (t() && f6414f) {
-                    f6415g = System.currentTimeMillis();
+                if (t() && f6274f) {
+                    f6275g = System.currentTimeMillis();
                     return;
                 }
-                f6418j = 0;
-                f6415g = System.currentTimeMillis();
+                f6278j = 0;
+                f6275g = System.currentTimeMillis();
                 Closeable closeable2 = null;
                 try {
                     try {
-                        cursor = f6412d.query(uri, c.f6425b, null, null, "date_added DESC");
+                        cursor = f6272d.query(uri, c.f6284b, null, null, "date_added DESC");
                         if (cursor != null) {
                             try {
                                 if (cursor.moveToFirst()) {
                                     String string = cursor.getString(cursor.getColumnIndex("_data"));
                                     long j2 = cursor.getLong(cursor.getColumnIndex("date_added"));
                                     long currentTimeMillis = System.currentTimeMillis() / 1000;
-                                    f6419k = uri;
+                                    k = uri;
                                     if (c.a.r0.a.z2.d.a()) {
-                                        f6419k = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex("_id")));
+                                        k = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex("_id")));
                                     }
                                     if (a) {
                                         String str = "imagepath: " + string;
                                         String str2 = "dateAdded: " + j2;
                                         String str3 = "nowSecs: " + currentTimeMillis;
-                                        String str4 = "imageUri: " + f6419k.toString();
+                                        String str4 = "imageUri: " + k.toString();
                                     }
                                     if (k(string)) {
                                         c.a.r0.w.d.d(cursor);
                                         return;
                                     }
-                                    l = f6419k.toString();
+                                    l = k.toString();
                                     m = string;
                                     if (c.e(string) && c.f(currentTimeMillis, j2)) {
-                                        f6414f = true;
-                                        b bVar = new b(string, handler, new d(string, Long.valueOf(j2), f6419k, null));
-                                        f6417i = bVar;
+                                        f6274f = true;
+                                        b bVar = new b(string, handler, new d(string, Long.valueOf(j2), k, null));
+                                        f6277i = bVar;
                                         handler.post(bVar);
                                     } else {
-                                        f6414f = false;
+                                        f6274f = false;
                                     }
                                 }
                             } catch (RuntimeException unused) {
-                                if (f6413e != null) {
-                                    List<ProviderInfo> queryContentProviders = f6413e.queryContentProviders(null, 0, 131072);
+                                if (f6273e != null) {
+                                    List<ProviderInfo> queryContentProviders = f6273e.queryContentProviders(null, 0, 131072);
                                     HashMap hashMap = new HashMap();
                                     hashMap.put("from", "SystemScreenshot");
                                     hashMap.put("page", "SystemScreenshot");
@@ -518,18 +516,18 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65554, null, cVar) == null) || cVar == null) {
             return;
         }
-        f6416h.add(cVar);
+        f6276h.add(cVar);
     }
 
     public static void s(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
-            f6413e = context.getPackageManager();
+            f6273e = context.getPackageManager();
             Handler handler = new Handler(Looper.getMainLooper());
-            f6412d = context.getContentResolver();
-            f6411c = new a(handler, handler);
+            f6272d = context.getContentResolver();
+            f6271c = new a(handler, handler);
             if (p(context)) {
-                f6412d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, f6411c);
+                f6272d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, f6271c);
             } else if (a && q0.G()) {
                 c.a.r0.a.e0.d.i("SYSTEM_SCREENSHOT", "WRITE_EXTERNAL_STORAGE permission denied");
             }
@@ -539,7 +537,7 @@ public class e {
     public static boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? System.currentTimeMillis() - f6415g <= 1000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? System.currentTimeMillis() - f6275g <= 1000 : invokeV.booleanValue;
     }
 
     public static void u(c.a.r0.a.g2.c cVar) {
@@ -547,6 +545,6 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65557, null, cVar) == null) || cVar == null) {
             return;
         }
-        f6416h.remove(cVar);
+        f6276h.remove(cVar);
     }
 }

@@ -15,7 +15,7 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Dialog f56050e;
+    public Dialog f53919e;
     public DialogInterface.OnCancelListener mOnCancleListener;
 
     /* loaded from: classes2.dex */
@@ -61,7 +61,7 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DelegateOnCancleListener f56051e;
+        public final /* synthetic */ DelegateOnCancleListener f53920e;
 
         public b(DelegateOnCancleListener delegateOnCancleListener) {
             Interceptable interceptable = $ic;
@@ -78,15 +78,15 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
                     return;
                 }
             }
-            this.f56051e = delegateOnCancleListener;
+            this.f53920e = delegateOnCancleListener;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f56051e.f56050e = null;
-                this.f56051e.mOnCancleListener = null;
+                this.f53920e.f53919e = null;
+                this.f53920e.mOnCancleListener = null;
             }
         }
     }
@@ -107,11 +107,11 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
             }
         }
         this.mOnCancleListener = onCancelListener;
-        this.f56050e = dialog;
+        this.f53919e = dialog;
         if (Build.VERSION.SDK_INT >= 12) {
             dialog.getWindow().getDecorView().addOnAttachStateChangeListener(new a(this));
         }
-        this.f56050e.setOnDismissListener(new b(this));
+        this.f53919e.setOnDismissListener(new b(this));
     }
 
     @Override // android.content.DialogInterface.OnCancelListener

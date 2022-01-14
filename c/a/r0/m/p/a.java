@@ -91,17 +91,17 @@ public class a extends c.a.r0.a.h0.g.d implements OnGetGeoCoderResultListener, B
 
     /* renamed from: c.a.r0.m.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0779a implements Runnable {
+    public class RunnableC0788a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReverseGeoCodeResult f11651e;
+        public final /* synthetic */ ReverseGeoCodeResult f11389e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11652f;
+        public final /* synthetic */ a f11390f;
 
-        public RunnableC0779a(a aVar, ReverseGeoCodeResult reverseGeoCodeResult) {
+        public RunnableC0788a(a aVar, ReverseGeoCodeResult reverseGeoCodeResult) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,15 +116,15 @@ public class a extends c.a.r0.a.h0.g.d implements OnGetGeoCoderResultListener, B
                     return;
                 }
             }
-            this.f11652f = aVar;
-            this.f11651e = reverseGeoCodeResult;
+            this.f11390f = aVar;
+            this.f11389e = reverseGeoCodeResult;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11652f.f3(this.f11651e);
+                this.f11390f.f3(this.f11389e);
             }
         }
     }
@@ -299,8 +299,8 @@ public class a extends c.a.r0.a.h0.g.d implements OnGetGeoCoderResultListener, B
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 ArrayList arrayList = new ArrayList();
-                if (f.U().getActivity().checkSelfPermission(s.f57423g) != 0) {
-                    arrayList.add(s.f57423g);
+                if (f.U().getActivity().checkSelfPermission(s.f55246g) != 0) {
+                    arrayList.add(s.f55246g);
                 }
                 if (arrayList.size() > 0) {
                     requestPermissions((String[]) arrayList.toArray(new String[arrayList.size()]), 0);
@@ -430,7 +430,7 @@ public class a extends c.a.r0.a.h0.g.d implements OnGetGeoCoderResultListener, B
             return;
         }
         g.b i2 = V.i("navigateTo");
-        i2.n(g.f6540g, g.f6542i);
+        i2.n(g.f6399g, g.f6401i);
         i2.j(this);
         i2.b();
     }
@@ -449,10 +449,10 @@ public class a extends c.a.r0.a.h0.g.d implements OnGetGeoCoderResultListener, B
         if (this.X0 == null) {
             this.X0 = BitmapDescriptorFactory.fromResource(c.a.r0.m.e.aiapps_location_selected);
         }
-        if (!cVar.f11654c) {
+        if (!cVar.f11392c) {
             this.W0 = (Marker) this.U0.addOverlay(new MarkerOptions().position(cVar.a.location).zIndex(88).icon(this.X0));
         }
-        if (cVar.f11654c) {
+        if (cVar.f11392c) {
             return;
         }
         Z2(false);
@@ -591,7 +591,7 @@ public class a extends c.a.r0.a.h0.g.d implements OnGetGeoCoderResultListener, B
     public void onGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048604, this, reverseGeoCodeResult) == null) && reverseGeoCodeResult != null && reverseGeoCodeResult.error == SearchResult.ERRORNO.NO_ERROR) {
-            this.J0.postDelayed(new RunnableC0779a(this, reverseGeoCodeResult), 150L);
+            this.J0.postDelayed(new RunnableC0788a(this, reverseGeoCodeResult), 150L);
         }
     }
 

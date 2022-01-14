@@ -22,7 +22,6 @@ import java.util.Arrays;
 import java.util.Locale;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes2.dex */
 public final class NTLMEngineImpl {
     public static /* synthetic */ Interceptable $ic = null;
@@ -165,7 +164,7 @@ public final class NTLMEngineImpl {
                 int i2 = (int) (this.count & 63);
                 int i3 = i2 < 56 ? 56 - i2 : 120 - i2;
                 byte[] bArr = new byte[i3 + 8];
-                bArr[0] = ByteCompanionObject.MIN_VALUE;
+                bArr[0] = Byte.MIN_VALUE;
                 for (int i4 = 0; i4 < 8; i4++) {
                     bArr[i3 + i4] = (byte) ((this.count * 8) >>> (i4 * 8));
                 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class FirstFrameSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_LIVE_TAB_ON_CREATE_DURATION = "AlaLiveTabFragmentOnCreate";

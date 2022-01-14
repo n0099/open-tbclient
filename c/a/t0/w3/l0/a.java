@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: c.a.t0.w3.l0.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C1489a {
+    public static /* synthetic */ class C1504a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -35,24 +35,24 @@ public class a {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f25610b;
+        public final String f24893b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f25611c;
+        public final String f24894c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f25612d;
+        public final String f24895d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f25613e;
+        public final String f24896e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f25614f;
+        public final boolean f24897f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final StatisticItem f25615g;
+        public final StatisticItem f24898g;
 
-        public /* synthetic */ b(String str, String str2, String str3, String str4, String str5, C1489a c1489a) {
+        public /* synthetic */ b(String str, String str2, String str3, String str4, String str5, C1504a c1504a) {
             this(str, str2, str3, str4, str5);
         }
 
@@ -61,16 +61,16 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 StatisticItem statisticItem = new StatisticItem(this.a);
-                if (!StringUtils.isNull(this.f25610b)) {
-                    statisticItem = statisticItem.param("line", this.f25610b);
+                if (!StringUtils.isNull(this.f24893b)) {
+                    statisticItem = statisticItem.param("line", this.f24893b);
                 }
-                if (!StringUtils.isNull(this.f25611c)) {
-                    statisticItem = statisticItem.param("page", this.f25611c);
+                if (!StringUtils.isNull(this.f24894c)) {
+                    statisticItem = statisticItem.param("page", this.f24894c);
                 }
-                if (!StringUtils.isNull(this.f25612d)) {
-                    statisticItem = statisticItem.param("locate", this.f25612d);
+                if (!StringUtils.isNull(this.f24895d)) {
+                    statisticItem = statisticItem.param("locate", this.f24895d);
                 }
-                return !StringUtils.isNull(this.f25613e) ? statisticItem.param("task", this.f25613e) : statisticItem;
+                return !StringUtils.isNull(this.f24896e) ? statisticItem.param("task", this.f24896e) : statisticItem;
             }
             return (StatisticItem) invokeV.objValue;
         }
@@ -80,22 +80,22 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5)) == null) {
                 if (!StringUtils.isNull(str)) {
-                    this.f25615g.param(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                    this.f24898g.param(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
                 }
                 if (!StringUtils.isNull(str2)) {
-                    this.f25615g.param("obj_id", str2);
+                    this.f24898g.param("obj_id", str2);
                 }
                 if (!StringUtils.isNull(str3)) {
-                    this.f25615g.param("fid", str3);
+                    this.f24898g.param("fid", str3);
                 }
                 if (!StringUtils.isNull(str4)) {
-                    this.f25615g.param("fname", str4);
+                    this.f24898g.param("fname", str4);
                 }
                 if (!StringUtils.isNull(str5)) {
-                    this.f25615g.param("tid", str5);
+                    this.f24898g.param("tid", str5);
                 }
-                this.f25615g.param("obj_cpid", 0).param("obj_good_id", 0).param("obj_throw_type", "BY_POST").param("client_type", "MOBILE_APP").param("user_timestamp", String.valueOf(System.currentTimeMillis())).param(UrlOcrConfig.IdCardKey.OS, "android").param(HttpConstants.OS_VERSION, Build.VERSION.RELEASE).param("log_ver", "1.1");
-                return this.f25615g;
+                this.f24898g.param("obj_cpid", 0).param("obj_good_id", 0).param("obj_throw_type", "BY_POST").param("client_type", "MOBILE_APP").param("user_timestamp", String.valueOf(System.currentTimeMillis())).param(UrlOcrConfig.IdCardKey.OS, "android").param(HttpConstants.OS_VERSION, Build.VERSION.RELEASE).param("log_ver", "1.1");
+                return this.f24898g;
             }
             return (StatisticItem) invokeLLLLL.objValue;
         }
@@ -105,7 +105,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
                 if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                    this.f25615g.param(str, str2);
+                    this.f24898g.param(str, str2);
                 }
                 return this;
             }
@@ -115,15 +115,15 @@ public class a {
         public void delete(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f25615g.delete(str);
+                this.f24898g.delete(str);
             }
         }
 
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                TiebaStatic.log(this.f25615g);
-                if (this.f25614f) {
+                TiebaStatic.log(this.f24898g);
+                if (this.f24897f) {
                     return;
                 }
                 if (!TbadkCoreApplication.getInst().isDebugMode()) {
@@ -150,12 +150,12 @@ public class a {
                 }
             }
             this.a = str;
-            this.f25610b = str2;
-            this.f25611c = str3;
-            this.f25612d = str4;
-            this.f25613e = str5;
-            this.f25614f = !(StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5));
-            this.f25615g = b();
+            this.f24893b = str2;
+            this.f24894c = str3;
+            this.f24895d = str4;
+            this.f24896e = str5;
+            this.f24897f = !(StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5));
+            this.f24898g = b();
         }
     }
 
@@ -166,10 +166,10 @@ public class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f25616b;
+        public String f24899b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f25617c;
+        public int f24900c;
 
         public c() {
             Interceptable interceptable = $ic;

@@ -22,19 +22,19 @@ public class TaskBuoyViewModel extends b<TaskBuoyViewData> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f34030b;
+    public h f32944b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f34031c;
+    public float f32945c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.j.h.c.c.c.b<f> f34032d;
+    public final c.a.j.h.c.c.c.b<f> f32946d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.j.h.c.c.c.b<d> f34033e;
+    public final c.a.j.h.c.c.c.b<d> f32947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final TaskInfo f34034f;
+    public final TaskInfo f32948f;
 
     public TaskBuoyViewModel(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
@@ -51,29 +51,29 @@ public class TaskBuoyViewModel extends b<TaskBuoyViewData> {
                 return;
             }
         }
-        this.f34034f = taskInfo;
-        this.f34030b = new h(-1, false, false);
-        this.f34031c = -1.0f;
-        this.f34032d = new c.a.j.h.c.c.c.b<>();
-        this.f34033e = new c.a.j.h.c.c.c.b<>();
+        this.f32948f = taskInfo;
+        this.f32944b = new h(-1, false, false);
+        this.f32945c = -1.0f;
+        this.f32946d = new c.a.j.h.c.c.c.b<>();
+        this.f32947e = new c.a.j.h.c.c.c.b<>();
     }
 
     public final TaskInfo c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34034f : (TaskInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32948f : (TaskInfo) invokeV.objValue;
     }
 
     public final c.a.j.h.c.c.c.b<d> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34033e : (c.a.j.h.c.c.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32947e : (c.a.j.h.c.c.c.b) invokeV.objValue;
     }
 
     public final c.a.j.h.c.c.c.b<f> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34032d : (c.a.j.h.c.c.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32946d : (c.a.j.h.c.c.c.b) invokeV.objValue;
     }
 
     public void f(TaskBuoyViewData taskBuoyViewData) {
@@ -81,14 +81,14 @@ public class TaskBuoyViewModel extends b<TaskBuoyViewData> {
         if (interceptable == null || interceptable.invokeL(1048579, this, taskBuoyViewData) == null) {
             super.b(taskBuoyViewData);
             h hVar = new h(taskBuoyViewData.getTaskStatus().getCurStatus(), taskBuoyViewData.getTaskStatus().getProcess().isCompleted(), taskBuoyViewData.getTaskStatus().isDuplicated());
-            if (!Intrinsics.areEqual(hVar, this.f34030b)) {
-                this.f34032d.p(new f(taskBuoyViewData.getTaskStatus(), taskBuoyViewData.getUiConfig(), taskBuoyViewData.getTotalProcess(), taskBuoyViewData.getExtra()));
-                this.f34030b = hVar;
+            if (!Intrinsics.areEqual(hVar, this.f32944b)) {
+                this.f32946d.p(new f(taskBuoyViewData.getTaskStatus(), taskBuoyViewData.getUiConfig(), taskBuoyViewData.getTotalProcess(), taskBuoyViewData.getExtra()));
+                this.f32944b = hVar;
                 DebugTrace.a.c(new TaskBuoyViewModel$setViewData$1(this));
             }
-            if (Float.compare(this.f34031c, taskBuoyViewData.getCurProcess().a()) != 0) {
-                this.f34033e.p(new d(taskBuoyViewData.getCurProcess()));
-                this.f34031c = taskBuoyViewData.getCurProcess().a();
+            if (Float.compare(this.f32945c, taskBuoyViewData.getCurProcess().a()) != 0) {
+                this.f32947e.p(new d(taskBuoyViewData.getCurProcess()));
+                this.f32945c = taskBuoyViewData.getCurProcess().a();
                 DebugTrace.a.c(new TaskBuoyViewModel$setViewData$2(this));
             }
         }

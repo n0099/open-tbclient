@@ -19,12 +19,12 @@ public class e implements c.a.h0.s.g.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f3531c;
+    public static e f3479c;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3532b;
+    public boolean f3480b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -59,8 +59,8 @@ public class e implements c.a.h0.s.g.c {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.f3532b) {
-                this.this$0.f3532b = false;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.f3480b) {
+                this.this$0.f3480b = false;
                 try {
                     int intExtra = intent.getIntExtra("code", 0);
                     Intent intent2 = new Intent(PolyActivity.invokerActivity, WechatSignAutoRenewActivity.class);
@@ -90,21 +90,21 @@ public class e implements c.a.h0.s.g.c {
                 return;
             }
         }
-        this.f3532b = false;
+        this.f3480b = false;
     }
 
     public static e d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f3531c == null) {
+            if (f3479c == null) {
                 synchronized (e.class) {
-                    if (f3531c == null) {
-                        f3531c = new e();
+                    if (f3479c == null) {
+                        f3479c = new e();
                     }
                 }
             }
-            return f3531c;
+            return f3479c;
         }
         return (e) invokeV.objValue;
     }
@@ -123,7 +123,7 @@ public class e implements c.a.h0.s.g.c {
                 activity.finish();
                 return;
             }
-            this.f3532b = true;
+            this.f3480b = true;
             f();
             e();
             a2.a(activity, str, str2);

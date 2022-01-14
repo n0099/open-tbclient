@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HUNDRED_DAY_FIELD_LEN = 19;

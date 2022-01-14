@@ -23,7 +23,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5017e;
+        public final /* synthetic */ String f4910e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class m {
                     return;
                 }
             }
-            this.f5017e = str;
+            this.f4910e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,7 +49,7 @@ public class m {
         public int compare(JSONObject jSONObject, JSONObject jSONObject2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, jSONObject2)) == null) ? jSONObject.optString(this.f5017e, "").compareTo(jSONObject2.optString(this.f5017e, "")) : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, jSONObject2)) == null) ? jSONObject.optString(this.f4910e, "").compareTo(jSONObject2.optString(this.f4910e, "")) : invokeLL.intValue;
         }
     }
 

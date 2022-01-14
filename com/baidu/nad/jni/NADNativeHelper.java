@@ -1,7 +1,7 @@
 package com.baidu.nad.jni;
 
-import c.a.c0.d0.s.c;
-import c.a.c0.e.a;
+import c.a.c0.g0.s.c;
+import c.a.c0.h.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

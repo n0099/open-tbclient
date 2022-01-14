@@ -11,7 +11,7 @@ public class z implements com.kwad.sdk.core.d<q.a> {
             return;
         }
         aVar.a = jSONObject.optDouble("progress");
-        aVar.f58643b = jSONObject.optInt("status");
+        aVar.f56432b = jSONObject.optInt("status");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class z implements com.kwad.sdk.core.d<q.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "progress", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "status", aVar.f58643b);
+        com.kwad.sdk.utils.t.a(jSONObject, "status", aVar.f56432b);
         return jSONObject;
     }
 }

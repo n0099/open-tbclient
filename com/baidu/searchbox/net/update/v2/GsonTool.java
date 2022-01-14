@@ -32,7 +32,7 @@ import java.io.Reader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GsonTool implements ICommandStatistics<ActionData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -40,6 +40,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public static final String ERROR_NO_OK = "0";
     public static final int FROM_CLOUD = 16;
     public static final int FROM_IM = 1;
+    public static final int FROM_PRELOAD = 17;
     public static final int FROM_UPDATE = 0;
     public static final String TAG = "GsonTool";
     public static final String TIME_STAMP = "timestamp";
@@ -57,7 +58,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public int mVersionFilterCount;
 
     /* renamed from: com.baidu.searchbox.net.update.v2.GsonTool$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;

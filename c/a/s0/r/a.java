@@ -17,7 +17,7 @@ public class a {
     public ArrayList<b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f13285b;
+    public Context f12965b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class a {
             }
         }
         this.a = new ArrayList<>();
-        this.f13285b = context;
+        this.f12965b = context;
     }
 
     public void a(b bVar) {
@@ -46,7 +46,7 @@ public class a {
         Iterator<b> it = this.a.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f13111e == bVar.getFragmentTabStructure().f13111e) {
+            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f12789e == bVar.getFragmentTabStructure().f12789e) {
                 return;
             }
         }
@@ -62,6 +62,6 @@ public class a {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13285b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12965b : (Context) invokeV.objValue;
     }
 }

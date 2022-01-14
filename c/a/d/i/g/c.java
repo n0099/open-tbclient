@@ -52,34 +52,32 @@ public class c {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f3188b;
+    public ArrayList<String> f3151b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BroadcastReceiver f3189c;
+    public BroadcastReceiver f3152c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3190d;
+    public boolean f3153d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.i.g.a f3191e;
+    public c.a.d.i.g.a f3154e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f3192f;
+    public boolean f3155f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f3193g;
+    public final Object f3156g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PluginInstallTask f3194h;
+    public PluginInstallTask f3157h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinkedList<PluginInstallTask> f3195i;
+    public LinkedList<PluginInstallTask> f3158i;
 
     /* renamed from: j  reason: collision with root package name */
-    public PluginInstallTask f3196j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public LinkedList<PluginInstallTask> f3197k;
+    public PluginInstallTask f3159j;
+    public LinkedList<PluginInstallTask> k;
     public Messenger l;
     public ServiceConnection m;
     public Handler n;
@@ -117,10 +115,10 @@ public class c {
             return;
          */
         /* JADX WARN: Code restructure failed: missing block: B:59:0x0150, code lost:
-            if (android.text.TextUtils.equals(r1, r6.this$0.f3196j.f32232f) != false) goto L58;
+            if (android.text.TextUtils.equals(r1, r6.this$0.f3159j.f31218f) != false) goto L58;
          */
         /* JADX WARN: Code restructure failed: missing block: B:76:0x0197, code lost:
-            if (android.text.TextUtils.equals(r1, r6.this$0.f3196j.f32232f) != false) goto L58;
+            if (android.text.TextUtils.equals(r1, r6.this$0.f3159j.f31218f) != false) goto L58;
          */
         /* JADX WARN: Code restructure failed: missing block: B:77:0x0199, code lost:
             r6.this$0.I();
@@ -139,8 +137,8 @@ public class c {
             }
             try {
                 if (intent == null) {
-                    if (this.this$0.f3194h == null || !TextUtils.equals(null, this.this$0.f3194h.f32232f)) {
-                        if (this.this$0.f3196j == null || !TextUtils.equals(null, this.this$0.f3196j.f32232f)) {
+                    if (this.this$0.f3157h == null || !TextUtils.equals(null, this.this$0.f3157h.f31218f)) {
+                        if (this.this$0.f3159j == null || !TextUtils.equals(null, this.this$0.f3159j.f31218f)) {
                             this.this$0.t(null);
                             return;
                         }
@@ -150,7 +148,7 @@ public class c {
                         return;
                     }
                     this.this$0.F();
-                    this.this$0.f3194h = null;
+                    this.this$0.f3157h = null;
                     this.this$0.t(null);
                     return;
                 }
@@ -160,14 +158,14 @@ public class c {
                     } catch (Exception e2) {
                         e = e2;
                         BdLog.detailException(e);
-                        if (this.this$0.f3194h == null || !TextUtils.equals(str, this.this$0.f3194h.f32232f)) {
-                            if (this.this$0.f3196j != null) {
+                        if (this.this$0.f3157h == null || !TextUtils.equals(str, this.this$0.f3157h.f31218f)) {
+                            if (this.this$0.f3159j != null) {
                             }
                             this.this$0.t(null);
                             return;
                         }
                         this.this$0.F();
-                        this.this$0.f3194h = null;
+                        this.this$0.f3157h = null;
                         this.this$0.t(null);
                     }
                 } catch (Exception e3) {
@@ -175,8 +173,8 @@ public class c {
                     str = null;
                 } catch (Throwable th) {
                     th = th;
-                    if (this.this$0.f3194h == null || !TextUtils.equals(null, this.this$0.f3194h.f32232f)) {
-                        if (this.this$0.f3196j == null || !TextUtils.equals(null, this.this$0.f3196j.f32232f)) {
+                    if (this.this$0.f3157h == null || !TextUtils.equals(null, this.this$0.f3157h.f31218f)) {
+                        if (this.this$0.f3159j == null || !TextUtils.equals(null, this.this$0.f3159j.f31218f)) {
                             this.this$0.t(null);
                         } else {
                             this.this$0.I();
@@ -185,14 +183,14 @@ public class c {
                         }
                     } else {
                         this.this$0.F();
-                        this.this$0.f3194h = null;
+                        this.this$0.f3157h = null;
                         this.this$0.t(null);
                     }
                     throw th;
                 }
                 if (TextUtils.isEmpty(str)) {
-                    if (this.this$0.f3194h == null || !TextUtils.equals(str, this.this$0.f3194h.f32232f)) {
-                        if (this.this$0.f3196j == null || !TextUtils.equals(str, this.this$0.f3196j.f32232f)) {
+                    if (this.this$0.f3157h == null || !TextUtils.equals(str, this.this$0.f3157h.f31218f)) {
+                        if (this.this$0.f3159j == null || !TextUtils.equals(str, this.this$0.f3159j.f31218f)) {
                             this.this$0.t(null);
                             return;
                         }
@@ -202,7 +200,7 @@ public class c {
                         return;
                     }
                     this.this$0.F();
-                    this.this$0.f3194h = null;
+                    this.this$0.f3157h = null;
                     this.this$0.t(null);
                     return;
                 }
@@ -214,7 +212,7 @@ public class c {
                     c.a.d.i.j.g.a.b().e(str);
                 } else if ("com.baidu.adp.plugin.installfail".equals(action)) {
                     if (z) {
-                        this.this$0.f3192f = false;
+                        this.this$0.f3155f = false;
                     }
                     this.this$0.z(str, z);
                     c.a.d.i.j.g.a.b().d(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
@@ -223,14 +221,14 @@ public class c {
                 } else {
                     "com.baidu.adp.plugin.installrepeat".equals(action);
                 }
-                if (this.this$0.f3194h == null || !TextUtils.equals(str, this.this$0.f3194h.f32232f)) {
-                    if (this.this$0.f3196j != null) {
+                if (this.this$0.f3157h == null || !TextUtils.equals(str, this.this$0.f3157h.f31218f)) {
+                    if (this.this$0.f3159j != null) {
                     }
                     this.this$0.t(null);
                     return;
                 }
                 this.this$0.F();
-                this.this$0.f3194h = null;
+                this.this$0.f3157h = null;
                 this.this$0.t(null);
             } catch (Throwable th2) {
                 th = th2;
@@ -244,13 +242,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f3198e;
+        public final /* synthetic */ Intent f3160e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f3199f;
+        public final /* synthetic */ Context f3161f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f3200g;
+        public final /* synthetic */ c f3162g;
 
         public b(c cVar, Intent intent, Context context) {
             Interceptable interceptable = $ic;
@@ -267,22 +265,22 @@ public class c {
                     return;
                 }
             }
-            this.f3200g = cVar;
-            this.f3198e = intent;
-            this.f3199f = context;
+            this.f3162g = cVar;
+            this.f3160e = intent;
+            this.f3161f = context;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.f3200g.l = new Messenger(iBinder);
-                String stringExtra = this.f3198e.getStringExtra("package_name");
-                if (this.f3200g.f3194h == null || !TextUtils.equals(stringExtra, this.f3200g.f3194h.f32232f)) {
+                this.f3162g.l = new Messenger(iBinder);
+                String stringExtra = this.f3160e.getStringExtra("package_name");
+                if (this.f3162g.f3157h == null || !TextUtils.equals(stringExtra, this.f3162g.f3157h.f31218f)) {
                     return;
                 }
                 try {
-                    this.f3199f.startService(this.f3198e);
+                    this.f3161f.startService(this.f3160e);
                 } catch (Throwable unused) {
                 }
             }
@@ -292,20 +290,20 @@ public class c {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f3200g.G();
+                this.f3162g.G();
             }
         }
     }
 
     /* renamed from: c.a.d.i.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0110c extends Handler {
+    public class HandlerC0118c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0110c(c cVar, Looper looper) {
+        public HandlerC0118c(c cVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -328,11 +326,11 @@ public class c {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.a.f3194h == null || message == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.a.f3157h == null || message == null) {
                 return;
             }
             try {
-                if (TextUtils.equals(((PluginInstallTask) OrmObject.objectWithBundle(message.getData(), PluginInstallTask.class)).f32232f, this.a.f3194h.f32232f)) {
+                if (TextUtils.equals(((PluginInstallTask) OrmObject.objectWithBundle(message.getData(), PluginInstallTask.class)).f31218f, this.a.f3157h.f31218f)) {
                     c.t.removeCallbacks(this.a.q);
                 }
             } catch (Throwable th) {
@@ -347,7 +345,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f3201e;
+        public final /* synthetic */ c f3163e;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -364,15 +362,15 @@ public class c {
                     return;
                 }
             }
-            this.f3201e = cVar;
+            this.f3163e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3201e.r();
-                this.f3201e.D();
+                this.f3163e.r();
+                this.f3163e.D();
             }
         }
     }
@@ -383,7 +381,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f3202e;
+        public final /* synthetic */ c f3164e;
 
         public e(c cVar) {
             Interceptable interceptable = $ic;
@@ -400,14 +398,14 @@ public class c {
                     return;
                 }
             }
-            this.f3202e = cVar;
+            this.f3164e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3202e.E();
+                this.f3164e.E();
             }
         }
     }
@@ -418,7 +416,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f3203e;
+        public final /* synthetic */ c f3165e;
 
         public f(c cVar) {
             Interceptable interceptable = $ic;
@@ -435,14 +433,14 @@ public class c {
                     return;
                 }
             }
-            this.f3203e = cVar;
+            this.f3165e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3203e.H();
+                this.f3165e.H();
             }
         }
     }
@@ -453,7 +451,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f3204e;
+        public final /* synthetic */ c f3166e;
 
         public g(c cVar) {
             Interceptable interceptable = $ic;
@@ -470,14 +468,14 @@ public class c {
                     return;
                 }
             }
-            this.f3204e = cVar;
+            this.f3166e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3204e.J();
+                this.f3166e.J();
             }
         }
     }
@@ -513,21 +511,21 @@ public class c {
             }
         }
         this.a = false;
-        this.f3188b = null;
-        this.f3189c = null;
-        this.f3190d = false;
-        this.f3192f = true;
-        this.f3193g = new Object();
-        this.f3195i = new LinkedList<>();
-        this.f3197k = new LinkedList<>();
-        this.n = new HandlerC0110c(this, Looper.getMainLooper());
+        this.f3151b = null;
+        this.f3152c = null;
+        this.f3153d = false;
+        this.f3155f = true;
+        this.f3156g = new Object();
+        this.f3158i = new LinkedList<>();
+        this.k = new LinkedList<>();
+        this.n = new HandlerC0118c(this, Looper.getMainLooper());
         this.o = new Messenger(this.n);
         this.p = new d(this);
         this.q = new e(this);
         this.r = new f(this);
         this.s = new g(this);
-        this.f3188b = new ArrayList<>();
-        this.f3189c = new a(this);
+        this.f3151b = new ArrayList<>();
+        this.f3152c = new a(this);
         K();
     }
 
@@ -571,13 +569,13 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            PluginInstallTask pluginInstallTask = this.f3194h;
+            PluginInstallTask pluginInstallTask = this.f3157h;
             if (pluginInstallTask != null) {
-                return TextUtils.equals(str, pluginInstallTask.f32232f);
+                return TextUtils.equals(str, pluginInstallTask.f31218f);
             }
-            PluginInstallTask pluginInstallTask2 = this.f3196j;
+            PluginInstallTask pluginInstallTask2 = this.f3159j;
             if (pluginInstallTask2 != null) {
-                return TextUtils.equals(str, pluginInstallTask2.f32232f);
+                return TextUtils.equals(str, pluginInstallTask2.f31218f);
             }
             return false;
         }
@@ -613,9 +611,9 @@ public class c {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c.a.d.i.h.a.b().g("plugin_installprocess_noresponse");
             c.a.d.i.h.a b2 = c.a.d.i.h.a.b();
-            PluginInstallTask pluginInstallTask = this.f3194h;
-            String str = pluginInstallTask == null ? "" : pluginInstallTask.f32232f;
-            b2.m("plugin_install", "installprocess_noresponse", str, this.f3195i.size() + "-" + this.f3197k.size());
+            PluginInstallTask pluginInstallTask = this.f3157h;
+            String str = pluginInstallTask == null ? "" : pluginInstallTask.f31218f;
+            b2.m("plugin_install", "installprocess_noresponse", str, this.f3158i.size() + "-" + this.k.size());
             F();
             C();
             L();
@@ -637,9 +635,9 @@ public class c {
             this.m = null;
             this.l = null;
             c.a.d.i.h.a b2 = c.a.d.i.h.a.b();
-            PluginInstallTask pluginInstallTask = this.f3194h;
-            String str = pluginInstallTask == null ? "" : pluginInstallTask.f32232f;
-            b2.m("plugin_install", "system_kill_installprocess", str, this.f3195i.size() + "-" + this.f3197k.size());
+            PluginInstallTask pluginInstallTask = this.f3157h;
+            String str = pluginInstallTask == null ? "" : pluginInstallTask.f31218f;
+            b2.m("plugin_install", "system_kill_installprocess", str, this.f3158i.size() + "-" + this.k.size());
             F();
             L();
         }
@@ -648,33 +646,33 @@ public class c {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.f3194h != null) {
-                c.a.d.i.j.g.a.b().d(this.f3194h.f32232f, "plugin_install_timeout", null);
+            if (this.f3157h != null) {
+                c.a.d.i.j.g.a.b().d(this.f3157h.f31218f, "plugin_install_timeout", null);
             }
-            PluginInstallTask pluginInstallTask = this.f3194h;
+            PluginInstallTask pluginInstallTask = this.f3157h;
             if (!A()) {
                 c.a.d.i.h.a.b().g("plugin_install_timeout_installprocess_notlive");
                 c.a.d.i.h.a b2 = c.a.d.i.h.a.b();
-                String str = pluginInstallTask == null ? "" : pluginInstallTask.f32232f;
+                String str = pluginInstallTask == null ? "" : pluginInstallTask.f31218f;
                 StringBuilder sb = new StringBuilder();
                 sb.append("timeout-");
                 sb.append(pluginInstallTask != null ? Long.valueOf(pluginInstallTask.w()) : "");
                 sb.append("-");
-                sb.append(this.f3195i.size());
+                sb.append(this.f3158i.size());
                 sb.append("-");
-                sb.append(this.f3197k.size());
+                sb.append(this.k.size());
                 b2.m("plugin_install", "timeout_installprocess_notlive", str, sb.toString());
             } else {
                 c.a.d.i.h.a.b().g("plugin_install_timeout");
                 c.a.d.i.h.a b3 = c.a.d.i.h.a.b();
-                String str2 = pluginInstallTask == null ? "" : pluginInstallTask.f32232f;
+                String str2 = pluginInstallTask == null ? "" : pluginInstallTask.f31218f;
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("timeout-");
                 sb2.append(pluginInstallTask != null ? Long.valueOf(pluginInstallTask.w()) : "");
                 sb2.append("-");
-                sb2.append(this.f3195i.size());
+                sb2.append(this.f3158i.size());
                 sb2.append("-");
-                sb2.append(this.f3197k.size());
+                sb2.append(this.k.size());
                 b3.m("plugin_install", com.alipay.sdk.data.a.O, str2, sb2.toString());
             }
             F();
@@ -686,7 +684,7 @@ public class c {
     public final void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f3196j = null;
+            this.f3159j = null;
             t.removeCallbacks(this.s);
         }
     }
@@ -694,20 +692,20 @@ public class c {
     public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.f3196j != null) {
-                c.a.d.i.j.g.a.b().d(this.f3196j.f32232f, "plugin_install_retry_timeout", null);
+            if (this.f3159j != null) {
+                c.a.d.i.j.g.a.b().d(this.f3159j.f31218f, "plugin_install_retry_timeout", null);
             }
             c.a.d.i.h.a b2 = c.a.d.i.h.a.b();
-            PluginInstallTask pluginInstallTask = this.f3196j;
-            String str = pluginInstallTask == null ? "" : pluginInstallTask.f32232f;
+            PluginInstallTask pluginInstallTask = this.f3159j;
+            String str = pluginInstallTask == null ? "" : pluginInstallTask.f31218f;
             StringBuilder sb = new StringBuilder();
             sb.append("timeout-");
-            PluginInstallTask pluginInstallTask2 = this.f3196j;
+            PluginInstallTask pluginInstallTask2 = this.f3159j;
             sb.append(pluginInstallTask2 != null ? Long.valueOf(pluginInstallTask2.w()) : "");
             sb.append("-");
-            sb.append(this.f3195i.size());
+            sb.append(this.f3158i.size());
             sb.append("-");
-            sb.append(this.f3197k.size());
+            sb.append(this.k.size());
             b2.m("plugin_install", com.alipay.sdk.data.a.O, str, sb.toString());
             I();
         }
@@ -728,7 +726,7 @@ public class c {
             if (!TextUtils.isEmpty(Build.BRAND) && Build.BRAND.toLowerCase().equals(RomUtils.MANUFACTURER_OPPO)) {
                 intentFilter.setPriority(1000);
             }
-            applicationContext.registerReceiver(this.f3189c, intentFilter);
+            applicationContext.registerReceiver(this.f3152c, intentFilter);
             this.a = true;
         } catch (Exception e2) {
             BdLog.e(e2);
@@ -738,13 +736,13 @@ public class c {
     public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (this.f3194h != null) {
-                c.a.d.i.h.a.b().i("plugin_retry_install", this.f3194h.f32232f);
+            if (this.f3157h != null) {
+                c.a.d.i.h.a.b().i("plugin_retry_install", this.f3157h.f31218f);
                 c.a.d.i.h.a b2 = c.a.d.i.h.a.b();
-                String str = this.f3194h.f32232f;
-                b2.m("plugin_install", "plugin_retry_install", str, this.f3194h.w() + "");
-                v(this.f3194h);
-                this.f3194h = null;
+                String str = this.f3157h.f31218f;
+                b2.m("plugin_install", "plugin_retry_install", str, this.f3157h.w() + "");
+                v(this.f3157h);
+                this.f3157h = null;
                 return;
             }
             t(null);
@@ -758,35 +756,35 @@ public class c {
             if (pluginInstallTask == null) {
                 return false;
             }
-            PluginSetting h2 = c.a.d.i.j.f.c.j().h(pluginInstallTask.f32232f);
-            String str = pluginInstallTask.f32231e;
+            PluginSetting h2 = c.a.d.i.j.f.c.j().h(pluginInstallTask.f31218f);
+            String str = pluginInstallTask.f31217e;
             boolean z = str != null && str.startsWith("assets://");
-            String str2 = pluginInstallTask.f32231e;
+            String str2 = pluginInstallTask.f31217e;
             if (str2 != null && str2.startsWith("file://")) {
                 if (h2 != null && h2.installStatus == 0 && h2.tempVersionCode == 0) {
-                    c.a.d.i.h.a.b().m("plugin_install", "start_service_install_status_error", pluginInstallTask.f32232f, "apkFilePath_" + pluginInstallTask.f32231e);
+                    c.a.d.i.h.a.b().m("plugin_install", "start_service_install_status_error", pluginInstallTask.f31218f, "apkFilePath_" + pluginInstallTask.f31217e);
                     return false;
                 }
-                String substring = pluginInstallTask.f32231e.substring(7);
+                String substring = pluginInstallTask.f31217e.substring(7);
                 try {
                     if (!new File(substring).exists()) {
-                        c.a.d.i.h.a.b().m("plugin_install", "start_service_file_not_find", pluginInstallTask.f32232f, "apkFilePath_" + substring);
+                        c.a.d.i.h.a.b().m("plugin_install", "start_service_file_not_find", pluginInstallTask.f31218f, "apkFilePath_" + substring);
                         return false;
                     }
                 } catch (Exception unused) {
                 }
             }
             String str3 = "f" + System.currentTimeMillis();
-            c.a.d.i.h.a.b().m("plugin_install", "start_install_service", pluginInstallTask.f32232f, "flag=" + str3 + "_" + pluginInstallTask.f32231e);
+            c.a.d.i.h.a.b().m("plugin_install", "start_install_service", pluginInstallTask.f31218f, "flag=" + str3 + "_" + pluginInstallTask.f31217e);
             Intent intent = new Intent(PluginInstallerService.ACTION_INSTALL);
-            intent.putExtra("install_src_file", pluginInstallTask.f32231e);
-            intent.putExtra("package_name", pluginInstallTask.f32232f);
+            intent.putExtra("install_src_file", pluginInstallTask.f31217e);
+            intent.putExtra("package_name", pluginInstallTask.f31218f);
             intent.putExtra("install_flag", str3);
             if (h2 != null) {
                 intent.putExtra("plugin_setting", h2);
             }
             intent.putExtra("is_debug_plugin", PluginPackageManager.u().D());
-            if (pluginInstallTask.f32233g) {
+            if (pluginInstallTask.f31219g) {
                 intent.setClass(context, PluginInstallerRetryService.class);
                 try {
                     context.startService(intent);
@@ -821,12 +819,12 @@ public class c {
 
     public final void r() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.l == null || this.f3194h == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.l == null || this.f3157h == null) {
             return;
         }
         Message message = new Message();
         try {
-            message.setData(OrmObject.bundleWithObject(this.f3194h));
+            message.setData(OrmObject.bundleWithObject(this.f3157h));
             message.replyTo = this.o;
             this.l.send(message);
         } catch (RemoteException e2) {
@@ -861,10 +859,10 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, pluginInstallTask)) == null) {
-            synchronized (this.f3193g) {
+            synchronized (this.f3156g) {
                 if (pluginInstallTask == null) {
                     try {
-                        pluginInstallTask = this.f3195i.poll();
+                        pluginInstallTask = this.f3158i.poll();
                     } catch (Throwable th) {
                         throw th;
                     }
@@ -873,31 +871,31 @@ public class c {
                 if (pluginInstallTask == null) {
                     return false;
                 }
-                if (this.f3194h != null) {
-                    Iterator<PluginInstallTask> it = this.f3195i.iterator();
+                if (this.f3157h != null) {
+                    Iterator<PluginInstallTask> it = this.f3158i.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         PluginInstallTask next = it.next();
-                        if (next != null && TextUtils.equals(pluginInstallTask.f32232f, next.f32232f)) {
+                        if (next != null && TextUtils.equals(pluginInstallTask.f31218f, next.f31218f)) {
                             z = true;
                             break;
                         }
                     }
                     if (!z) {
-                        this.f3195i.add(pluginInstallTask);
+                        this.f3158i.add(pluginInstallTask);
                     }
                     return true;
                 }
-                this.f3194h = pluginInstallTask;
+                this.f3157h = pluginInstallTask;
                 if (M(BdBaseApplication.getInst().getApplicationContext(), pluginInstallTask)) {
                     D();
                     t.removeCallbacks(this.r);
-                    t.postDelayed(this.r, this.f3194h.w());
+                    t.postDelayed(this.r, this.f3157h.w());
                     return true;
                 }
-                this.f3194h = null;
+                this.f3157h = null;
                 return t(null);
             }
         }
@@ -908,10 +906,10 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, pluginInstallTask)) == null) {
-            synchronized (this.f3193g) {
+            synchronized (this.f3156g) {
                 if (pluginInstallTask == null) {
                     try {
-                        pluginInstallTask = this.f3197k.poll();
+                        pluginInstallTask = this.k.poll();
                     } catch (Throwable th) {
                         throw th;
                     }
@@ -920,28 +918,28 @@ public class c {
                 if (pluginInstallTask == null) {
                     return false;
                 }
-                if (this.f3196j != null) {
-                    Iterator<PluginInstallTask> it = this.f3197k.iterator();
+                if (this.f3159j != null) {
+                    Iterator<PluginInstallTask> it = this.k.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         PluginInstallTask next = it.next();
-                        if (next != null && TextUtils.equals(pluginInstallTask.f32232f, next.f32232f)) {
+                        if (next != null && TextUtils.equals(pluginInstallTask.f31218f, next.f31218f)) {
                             z = true;
                             break;
                         }
                     }
                     if (!z) {
-                        this.f3197k.add(pluginInstallTask);
+                        this.k.add(pluginInstallTask);
                     }
                     return true;
                 }
-                this.f3196j = pluginInstallTask;
-                pluginInstallTask.f32233g = true;
+                this.f3159j = pluginInstallTask;
+                pluginInstallTask.f31219g = true;
                 if (M(BdBaseApplication.getInst().getApplicationContext(), pluginInstallTask)) {
                     t.removeCallbacks(this.s);
-                    t.postDelayed(this.s, this.f3196j.w());
+                    t.postDelayed(this.s, this.f3159j.w());
                     return true;
                 }
                 return t(null);
@@ -983,14 +981,14 @@ public class c {
     public final void z(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048595, this, str, z) == null) {
-            if (this.f3188b.contains(str)) {
-                this.f3188b.remove(str);
+            if (this.f3151b.contains(str)) {
+                this.f3151b.remove(str);
             }
-            if (!this.f3190d && z && this.f3188b.isEmpty()) {
-                this.f3190d = true;
-                c.a.d.i.g.a aVar = this.f3191e;
+            if (!this.f3153d && z && this.f3151b.isEmpty()) {
+                this.f3153d = true;
+                c.a.d.i.g.a aVar = this.f3154e;
                 if (aVar != null) {
-                    aVar.a(this.f3192f);
+                    aVar.a(this.f3155f);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000988));
                 s();

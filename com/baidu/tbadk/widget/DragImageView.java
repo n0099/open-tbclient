@@ -89,31 +89,29 @@ public class DragImageView extends ImageView {
     public Rect d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Matrix f42627e;
+    public Matrix f41127e;
     public h e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42628f;
+    public int f41128f;
     public int f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42629g;
+    public int f41129g;
     public int g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f42630h;
+    public float f41130h;
     public int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f42631i;
+    public float f41131i;
     public g i0;
     public boolean isThreadStoped;
 
     /* renamed from: j  reason: collision with root package name */
-    public ArrayList<Float> f42632j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public float f42633k;
+    public ArrayList<Float> f41132j;
+    public float k;
     public BlockingLinkedDeque<g> k0;
     public float l;
     public float m;
@@ -144,7 +142,7 @@ public class DragImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DragImageView f42634e;
+        public final /* synthetic */ DragImageView f41133e;
 
         public a(DragImageView dragImageView) {
             Interceptable interceptable = $ic;
@@ -161,7 +159,7 @@ public class DragImageView extends ImageView {
                     return;
                 }
             }
-            this.f42634e = dragImageView;
+            this.f41133e = dragImageView;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
@@ -169,22 +167,22 @@ public class DragImageView extends ImageView {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                DragImageView dragImageView = this.f42634e;
+                DragImageView dragImageView = this.f41133e;
                 int i2 = dragImageView.mImageType;
                 if (i2 == 1 || i2 == 2 || !dragImageView.O) {
                     return false;
                 }
-                this.f42634e.A = 2;
-                if (this.f42634e.m > this.f42634e.f42633k) {
-                    DragImageView dragImageView2 = this.f42634e;
-                    dragImageView2.m = dragImageView2.f42633k;
-                    DragImageView dragImageView3 = this.f42634e;
+                this.f41133e.A = 2;
+                if (this.f41133e.m > this.f41133e.k) {
+                    DragImageView dragImageView2 = this.f41133e;
+                    dragImageView2.m = dragImageView2.k;
+                    DragImageView dragImageView3 = this.f41133e;
                     dragImageView3.n = dragImageView3.m;
-                    this.f42634e.T();
+                    this.f41133e.T();
                 } else {
-                    DragImageView dragImageView4 = this.f42634e;
-                    dragImageView4.m = dragImageView4.f42633k * 2.0f;
-                    this.f42634e.U(true, (int) motionEvent.getX(), (int) motionEvent.getY());
+                    DragImageView dragImageView4 = this.f41133e;
+                    dragImageView4.m = dragImageView4.k * 2.0f;
+                    this.f41133e.U(true, (int) motionEvent.getX(), (int) motionEvent.getY());
                 }
                 return true;
             }
@@ -196,9 +194,9 @@ public class DragImageView extends ImageView {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (this.f42634e.mImageType != 2 && (Math.abs(f2) > 200.0f || Math.abs(f3) > 200.0f)) {
-                    this.f42634e.w.b(f2, f3);
-                    DragImageView dragImageView = this.f42634e;
+                if (this.f41133e.mImageType != 2 && (Math.abs(f2) > 200.0f || Math.abs(f3) > 200.0f)) {
+                    this.f41133e.w.b(f2, f3);
+                    DragImageView dragImageView = this.f41133e;
                     dragImageView.startAnimation(dragImageView.w);
                 }
                 return super.onFling(motionEvent, motionEvent2, f2, f3);
@@ -210,8 +208,8 @@ public class DragImageView extends ImageView {
         public void onLongPress(MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) {
-                if (this.f42634e.u != null && !this.f42634e.B) {
-                    this.f42634e.u.onLongClick(this.f42634e);
+                if (this.f41133e.u != null && !this.f41133e.B) {
+                    this.f41133e.u.onLongClick(this.f41133e);
                 }
                 super.onLongPress(motionEvent);
             }
@@ -222,38 +220,38 @@ public class DragImageView extends ImageView {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                this.f42634e.B = true;
-                if (this.f42634e.r == 0 && this.f42634e.C) {
+                this.f41133e.B = true;
+                if (this.f41133e.r == 0 && this.f41133e.C) {
                     return false;
                 }
-                int scrollX = this.f42634e.getScrollX();
-                int scrollY = this.f42634e.getScrollY();
-                if (!this.f42634e.onLeftSide()) {
-                    this.f42634e.getParent().requestDisallowInterceptTouchEvent(true);
+                int scrollX = this.f41133e.getScrollX();
+                int scrollY = this.f41133e.getScrollY();
+                if (!this.f41133e.onLeftSide()) {
+                    this.f41133e.getParent().requestDisallowInterceptTouchEvent(true);
                 }
-                if (this.f42634e.f42630h >= this.f42634e.getWidth()) {
+                if (this.f41133e.f41130h >= this.f41133e.getWidth()) {
                     scrollX = (int) (scrollX + f2);
-                    if (this.f42634e.r == 0) {
+                    if (this.f41133e.r == 0) {
                         int i2 = scrollX >= 0 ? scrollX : 0;
-                        scrollX = ((float) (this.f42634e.getWidth() + i2)) > this.f42634e.f42630h ? (int) (this.f42634e.f42630h - this.f42634e.getWidth()) : i2;
+                        scrollX = ((float) (this.f41133e.getWidth() + i2)) > this.f41133e.f41130h ? (int) (this.f41133e.f41130h - this.f41133e.getWidth()) : i2;
                     }
                 }
-                if (this.f42634e.f42631i + this.f42634e.H + this.f42634e.I >= this.f42634e.getHeight()) {
+                if (this.f41133e.f41131i + this.f41133e.H + this.f41133e.I >= this.f41133e.getHeight()) {
                     scrollY = (int) (scrollY + f3);
-                    if (this.f42634e.r == 0) {
-                        if (scrollY < (-this.f42634e.J)) {
-                            scrollY = -this.f42634e.J;
+                    if (this.f41133e.r == 0) {
+                        if (scrollY < (-this.f41133e.J)) {
+                            scrollY = -this.f41133e.J;
                         }
-                        if (this.f42634e.getHeight() + scrollY > this.f42634e.f42631i + this.f42634e.I + this.f42634e.K) {
-                            scrollY = (int) ((this.f42634e.f42631i - this.f42634e.getHeight()) + this.f42634e.I + this.f42634e.K);
+                        if (this.f41133e.getHeight() + scrollY > this.f41133e.f41131i + this.f41133e.I + this.f41133e.K) {
+                            scrollY = (int) ((this.f41133e.f41131i - this.f41133e.getHeight()) + this.f41133e.I + this.f41133e.K);
                         }
                     }
                 }
-                if (scrollX != this.f42634e.getScrollX() || scrollY != this.f42634e.getScrollY()) {
-                    this.f42634e.scrollTo(scrollX, scrollY);
-                    this.f42634e.invalidate();
-                    if (this.f42634e.y != null) {
-                        this.f42634e.y.a(this.f42634e, scrollX, scrollY);
+                if (scrollX != this.f41133e.getScrollX() || scrollY != this.f41133e.getScrollY()) {
+                    this.f41133e.scrollTo(scrollX, scrollY);
+                    this.f41133e.invalidate();
+                    if (this.f41133e.y != null) {
+                        this.f41133e.y.a(this.f41133e, scrollX, scrollY);
                     }
                 }
                 return true;
@@ -266,8 +264,8 @@ public class DragImageView extends ImageView {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-                if (this.f42634e.t != null && !this.f42634e.B) {
-                    this.f42634e.t.onClick(this.f42634e);
+                if (this.f41133e.t != null && !this.f41133e.B) {
+                    this.f41133e.t.onClick(this.f41133e);
                 }
                 return super.onSingleTapConfirmed(motionEvent);
             }
@@ -281,16 +279,16 @@ public class DragImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Rect f42635e;
+        public final /* synthetic */ Rect f41134e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float[] f42636f;
+        public final /* synthetic */ float[] f41135f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ float[] f42637g;
+        public final /* synthetic */ float[] f41136g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DragImageView f42638h;
+        public final /* synthetic */ DragImageView f41137h;
 
         public b(DragImageView dragImageView, Rect rect, float[] fArr, float[] fArr2) {
             Interceptable interceptable = $ic;
@@ -307,24 +305,24 @@ public class DragImageView extends ImageView {
                     return;
                 }
             }
-            this.f42638h = dragImageView;
-            this.f42635e = rect;
-            this.f42636f = fArr;
-            this.f42637g = fArr2;
+            this.f41137h = dragImageView;
+            this.f41134e = rect;
+            this.f41135f = fArr;
+            this.f41136g = fArr2;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) || valueAnimator == null || this.f42635e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) || valueAnimator == null || this.f41134e == null) {
                 return;
             }
             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-            float[] fArr = this.f42636f;
-            DragImageView dragImageView = this.f42638h;
-            Rect rect = this.f42635e;
-            dragImageView.c0 = dragImageView.P(floatValue, fArr[1] + ((this.f42637g[1] - fArr[1]) * valueAnimator.getAnimatedFraction()), rect.right - rect.left, rect.bottom - rect.top);
-            this.f42638h.invalidate();
+            float[] fArr = this.f41135f;
+            DragImageView dragImageView = this.f41137h;
+            Rect rect = this.f41134e;
+            dragImageView.c0 = dragImageView.P(floatValue, fArr[1] + ((this.f41136g[1] - fArr[1]) * valueAnimator.getAnimatedFraction()), rect.right - rect.left, rect.bottom - rect.top);
+            this.f41137h.invalidate();
         }
     }
 
@@ -334,7 +332,7 @@ public class DragImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DragImageView f42639e;
+        public final /* synthetic */ DragImageView f41138e;
 
         public c(DragImageView dragImageView) {
             Interceptable interceptable = $ic;
@@ -351,7 +349,7 @@ public class DragImageView extends ImageView {
                     return;
                 }
             }
-            this.f42639e = dragImageView;
+            this.f41138e = dragImageView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -365,11 +363,11 @@ public class DragImageView extends ImageView {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f42639e.V = false;
-                this.f42639e.A = 4;
-                this.f42639e.invalidate();
-                if (this.f42639e.e0 != null) {
-                    this.f42639e.e0.b();
+                this.f41138e.V = false;
+                this.f41138e.A = 4;
+                this.f41138e.invalidate();
+                if (this.f41138e.e0 != null) {
+                    this.f41138e.e0.b();
                 }
             }
         }
@@ -395,7 +393,7 @@ public class DragImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DragImageView f42640e;
+        public final /* synthetic */ DragImageView f41139e;
 
         public d(DragImageView dragImageView) {
             Interceptable interceptable = $ic;
@@ -412,7 +410,7 @@ public class DragImageView extends ImageView {
                     return;
                 }
             }
-            this.f42640e = dragImageView;
+            this.f41139e = dragImageView;
         }
 
         @Override // android.os.Handler.Callback
@@ -422,18 +420,18 @@ public class DragImageView extends ImageView {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
                 int i2 = message.what;
                 if (i2 == 0) {
-                    DragImageView dragImageView = this.f42640e;
+                    DragImageView dragImageView = this.f41139e;
                     if (!dragImageView.isThreadStoped) {
                         dragImageView.S();
                     }
                 } else if (i2 != 1) {
                     if (i2 == 2) {
-                        this.f42640e.invalidate();
-                        this.f42640e.t0 = System.currentTimeMillis();
-                        this.f42640e.mHandler.sendEmptyMessage(0);
+                        this.f41139e.invalidate();
+                        this.f41139e.t0 = System.currentTimeMillis();
+                        this.f41139e.mHandler.sendEmptyMessage(0);
                     }
-                } else if (this.f42640e.u0) {
-                    this.f42640e.S();
+                } else if (this.f41139e.u0) {
+                    this.f41139e.S();
                 }
                 return false;
             }
@@ -447,25 +445,23 @@ public class DragImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f42641e;
+        public boolean f41140e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f42642f;
+        public boolean f41141f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f42643g;
+        public long f41142g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f42644h;
+        public long f41143h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f42645i;
+        public int f41144i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f42646j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public long f42647k;
+        public int f41145j;
+        public long k;
         public long l;
         public final /* synthetic */ DragImageView m;
 
@@ -485,14 +481,14 @@ public class DragImageView extends ImageView {
                 }
             }
             this.m = dragImageView;
-            this.f42641e = false;
-            this.f42642f = false;
+            this.f41140e = false;
+            this.f41141f = false;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42641e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41140e : invokeV.booleanValue;
         }
 
         @Override // android.view.animation.Animation
@@ -506,20 +502,20 @@ public class DragImageView extends ImageView {
                 if (f2 > 1.0f) {
                     f2 = 1.0f;
                 }
-                long j2 = this.f42647k;
+                long j2 = this.k;
                 long j3 = this.l;
                 long j4 = f2 * (j2 > j3 ? (float) j2 : (float) j3);
-                long j5 = this.f42647k;
+                long j5 = this.k;
                 if (j4 <= j5) {
                     j5 = j4;
                 }
                 float f5 = ((float) j5) / 1000.0f;
-                long j6 = this.f42643g;
+                long j6 = this.f41142g;
                 if (j6 > 0) {
-                    i2 = this.f42645i;
+                    i2 = this.f41144i;
                     f3 = ((float) j6) - ((f5 * 2500.0f) / 2.0f);
                 } else {
-                    i2 = this.f42645i;
+                    i2 = this.f41144i;
                     f3 = ((float) j6) + ((f5 * 2500.0f) / 2.0f);
                 }
                 int i4 = i2 - ((int) (f5 * f3));
@@ -528,29 +524,29 @@ public class DragImageView extends ImageView {
                     j4 = j7;
                 }
                 float f6 = ((float) j4) / 1000.0f;
-                long j8 = this.f42644h;
+                long j8 = this.f41143h;
                 if (j8 > 0) {
-                    i3 = this.f42646j;
+                    i3 = this.f41145j;
                     f4 = ((float) j8) - ((2500.0f * f6) / 2.0f);
                 } else {
-                    i3 = this.f42646j;
+                    i3 = this.f41145j;
                     f4 = ((float) j8) + ((2500.0f * f6) / 2.0f);
                 }
                 int i5 = i3 - ((int) (f6 * f4));
                 int i6 = 0;
-                if (this.m.f42631i + this.m.H + this.m.I > this.m.getHeight()) {
+                if (this.m.f41131i + this.m.H + this.m.I > this.m.getHeight()) {
                     if (i5 < (-this.m.J)) {
                         i5 = -this.m.J;
                     }
-                    if (this.m.getHeight() + i5 > this.m.f42631i + this.m.I + this.m.K) {
-                        i5 = (int) ((this.m.f42631i - this.m.getHeight()) + this.m.I + this.m.K);
+                    if (this.m.getHeight() + i5 > this.m.f41131i + this.m.I + this.m.K) {
+                        i5 = (int) ((this.m.f41131i - this.m.getHeight()) + this.m.I + this.m.K);
                     }
                 } else {
                     i5 = 0;
                 }
-                if (this.m.f42630h > this.m.getWidth()) {
-                    if (this.m.getWidth() + i4 > this.m.f42630h) {
-                        i4 = (int) (this.m.f42630h - this.m.getWidth());
+                if (this.m.f41130h > this.m.getWidth()) {
+                    if (this.m.getWidth() + i4 > this.m.f41130h) {
+                        i4 = (int) (this.m.f41130h - this.m.getWidth());
                     }
                     if (i4 >= 0) {
                         i6 = i4;
@@ -574,23 +570,23 @@ public class DragImageView extends ImageView {
                 } else if (f3 < -1500.0f) {
                     f3 = -1500.0f;
                 }
-                this.f42643g = f2;
-                this.f42644h = f3;
-                this.f42647k = Math.abs((f2 * 1000.0f) / 2500.0f);
+                this.f41142g = f2;
+                this.f41143h = f3;
+                this.k = Math.abs((f2 * 1000.0f) / 2500.0f);
                 long abs = Math.abs((f3 * 1000.0f) / 2500.0f);
                 this.l = abs;
-                setDuration(Math.max(this.f42647k, abs));
+                setDuration(Math.max(this.k, abs));
                 setInterpolator(this.m.T);
-                this.f42645i = this.m.getScrollX();
-                this.f42646j = this.m.getScrollY();
-                this.f42641e = true;
+                this.f41144i = this.m.getScrollX();
+                this.f41145j = this.m.getScrollY();
+                this.f41140e = true;
             }
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f42642f = true;
+                this.f41141f = true;
             }
         }
 
@@ -599,24 +595,24 @@ public class DragImageView extends ImageView {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j2, transformation)) == null) {
-                if (!this.f42642f) {
+                if (!this.f41141f) {
                     if (this.m.o) {
-                        this.f42641e = false;
+                        this.f41140e = false;
                         return false;
                     }
                     try {
                         if (super.getTransformation(j2, transformation)) {
                             return true;
                         }
-                        this.f42641e = false;
+                        this.f41140e = false;
                         return false;
                     } catch (Exception unused) {
-                        this.f42641e = false;
+                        this.f41140e = false;
                         return false;
                     }
                 }
-                this.f42642f = false;
-                this.f42641e = false;
+                this.f41141f = false;
+                this.f41140e = false;
                 return false;
             }
             return invokeJL.booleanValue;
@@ -630,7 +626,7 @@ public class DragImageView extends ImageView {
         public Bitmap a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f42650b;
+        public int f41148b;
 
         public g() {
             Interceptable interceptable = $ic;
@@ -705,9 +701,9 @@ public class DragImageView extends ImageView {
                 return;
             }
         }
-        this.f42627e = new Matrix();
-        this.f42628f = 0;
-        this.f42629g = 0;
+        this.f41127e = new Matrix();
+        this.f41128f = 0;
+        this.f41129g = 0;
         this.o = false;
         this.p = null;
         this.q = 1300;
@@ -774,23 +770,23 @@ public class DragImageView extends ImageView {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int scrollX = getScrollX();
             int i2 = 0;
-            if (this.f42630h >= getWidth()) {
+            if (this.f41130h >= getWidth()) {
                 if (scrollX < 0) {
                     scrollX = 0;
                 }
-                float f2 = this.f42630h;
+                float f2 = this.f41130h;
                 if (getWidth() + scrollX > f2) {
                     scrollX = (int) (f2 - getWidth());
                 }
             }
             int scrollY = getScrollY();
-            if (this.f42631i + this.H + this.I >= getHeight()) {
+            if (this.f41131i + this.H + this.I >= getHeight()) {
                 int i3 = this.J;
                 if (scrollY < (-i3)) {
                     scrollY = -i3;
                 }
                 i2 = scrollY;
-                float f3 = this.f42631i;
+                float f3 = this.f41131i;
                 if (getHeight() + i2 > this.I + f3 + this.K) {
                     i2 = (int) ((f3 - getHeight()) + this.I + this.K);
                 }
@@ -836,10 +832,10 @@ public class DragImageView extends ImageView {
             if (i2 < 1690000) {
                 this.q = 1690000;
             }
-            this.f42630h = 0.0f;
-            this.f42631i = 0.0f;
-            this.f42632j = new ArrayList<>();
-            this.f42633k = 1.0f;
+            this.f41130h = 0.0f;
+            this.f41131i = 0.0f;
+            this.f41132j = new ArrayList<>();
+            this.k = 1.0f;
             this.l = 1.0f;
             this.m = 1.0f;
             this.n = 1.0f;
@@ -861,23 +857,23 @@ public class DragImageView extends ImageView {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Bitmap imageBitmap = getImageBitmap();
             if (imageBitmap != null && !imageBitmap.isRecycled() && imageBitmap.getWidth() > 0 && imageBitmap.getHeight() > 0) {
-                this.f42633k = reInitScaleValue(imageBitmap);
+                this.k = reInitScaleValue(imageBitmap);
                 this.l = getMaxScaleValue(imageBitmap);
-                this.f42632j.clear();
-                this.f42632j.add(Float.valueOf(this.f42633k));
-                float f2 = this.f42633k;
+                this.f41132j.clear();
+                this.f41132j.add(Float.valueOf(this.k));
+                float f2 = this.k;
                 this.m = f2;
                 this.n = f2;
                 T();
                 return;
             }
-            this.f42630h = 0.0f;
-            this.f42631i = 0.0f;
-            this.f42633k = 1.0f;
+            this.f41130h = 0.0f;
+            this.f41131i = 0.0f;
+            this.k = 1.0f;
             this.l = 1.0f;
             this.m = 1.0f;
             this.n = 1.0f;
-            this.f42632j.clear();
+            this.f41132j.clear();
         }
     }
 
@@ -894,7 +890,7 @@ public class DragImageView extends ImageView {
             this.u0 = false;
             long currentTimeMillis = System.currentTimeMillis();
             if (this.i0 != null) {
-                j2 = gVar.f42650b - (currentTimeMillis - this.t0);
+                j2 = gVar.f41148b - (currentTimeMillis - this.t0);
                 this.q0.offer(this.i0);
             } else {
                 j2 = 0;
@@ -932,26 +928,26 @@ public class DragImageView extends ImageView {
         }
         try {
             if (this.A != 2) {
-                int size = this.f42632j.size();
+                int size = this.f41132j.size();
                 if (size > 0) {
-                    f3 = this.f42632j.get(size - 1).floatValue();
+                    f3 = this.f41132j.get(size - 1).floatValue();
                 } else {
-                    f3 = this.f42633k;
+                    f3 = this.k;
                 }
                 this.m = f3;
             }
-            this.f42627e.setScale(this.m, this.m);
-            this.f42630h = imageBitmap.getWidth() * this.m;
-            this.f42631i = imageBitmap.getHeight() * this.m;
+            this.f41127e.setScale(this.m, this.m);
+            this.f41130h = imageBitmap.getWidth() * this.m;
+            this.f41131i = imageBitmap.getHeight() * this.m;
             float width2 = imageBitmap.getWidth() * this.n;
             float height = imageBitmap.getHeight() * this.n;
             this.J = this.H;
             int i4 = 0;
             this.K = 0;
             float f4 = 0.0f;
-            float f5 = this.f42630h < ((float) this.f42628f) ? (int) ((this.f42628f - this.f42630h) / 2.0f) : 0.0f;
-            if (this.f42631i < this.f42629g) {
-                float f6 = (int) ((this.f42629g - this.f42631i) / 2.0f);
+            float f5 = this.f41130h < ((float) this.f41128f) ? (int) ((this.f41128f - this.f41130h) / 2.0f) : 0.0f;
+            if (this.f41131i < this.f41129g) {
+                float f6 = (int) ((this.f41129g - this.f41131i) / 2.0f);
                 if (this.r == 1 && f6 > this.H) {
                     f6 = this.H;
                 }
@@ -961,7 +957,7 @@ public class DragImageView extends ImageView {
                 this.K = this.H - i5;
             }
             this.L = (int) f5;
-            this.f42627e.postTranslate(f5, f4);
+            this.f41127e.postTranslate(f5, f4);
             int scrollX = getScrollX();
             int scrollY = getScrollY();
             if (z) {
@@ -970,18 +966,18 @@ public class DragImageView extends ImageView {
                     i2 = getWidth();
                 }
                 float f7 = screenWidth;
-                if (this.f42630h > f7) {
-                    if (this.f42630h > f7 && this.f42630h / 2.0f < f7) {
+                if (this.f41130h > f7) {
+                    if (this.f41130h > f7 && this.f41130h / 2.0f < f7) {
                         f2 = i2;
-                        width = this.f42630h / 4.0f;
+                        width = this.f41130h / 4.0f;
                         i2 = (int) (f2 - width);
                     }
                     if (i2 > 0) {
-                        i2 = (int) (this.f42630h - getWidth());
+                        i2 = (int) (this.f41130h - getWidth());
                     }
                     if (this.A == 2) {
                     }
-                    if (this.f42631i <= getHeight()) {
+                    if (this.f41131i <= getHeight()) {
                     }
                     setHorizontalScrollBarEnabled(false);
                     setVerticalScrollBarEnabled(false);
@@ -990,20 +986,20 @@ public class DragImageView extends ImageView {
                     if (scrollY >= 0) {
                     }
                     scrollTo(i2, i4);
-                    setImageMatrix(this.f42627e);
+                    setImageMatrix(this.f41127e);
                     O();
                 }
                 i2 = 0;
-                if (i2 > 0 && this.f42630h - i2 < getWidth()) {
-                    i2 = (int) (this.f42630h - getWidth());
+                if (i2 > 0 && this.f41130h - i2 < getWidth()) {
+                    i2 = (int) (this.f41130h - getWidth());
                 }
                 if (this.A == 2) {
-                    scrollY += (int) ((this.f42631i - height) / 2.0f);
+                    scrollY += (int) ((this.f41131i - height) / 2.0f);
                 }
-                if (this.f42631i <= getHeight()) {
+                if (this.f41131i <= getHeight()) {
                     scrollY = 0;
-                } else if (getHeight() + scrollY > this.f42631i) {
-                    scrollY = (int) (this.f42631i - getHeight());
+                } else if (getHeight() + scrollY > this.f41131i) {
+                    scrollY = (int) (this.f41131i - getHeight());
                 }
                 setHorizontalScrollBarEnabled(false);
                 setVerticalScrollBarEnabled(false);
@@ -1014,22 +1010,22 @@ public class DragImageView extends ImageView {
                     i4 = scrollY;
                 }
                 scrollTo(i2, i4);
-                setImageMatrix(this.f42627e);
+                setImageMatrix(this.f41127e);
                 O();
             }
             if (this.A == 2) {
-                scrollX += (int) ((this.f42630h - width2) / 2.0f);
+                scrollX += (int) ((this.f41130h - width2) / 2.0f);
             }
-            if (this.f42630h > getWidth()) {
-                if (getWidth() + scrollX > this.f42630h) {
-                    f2 = this.f42630h;
+            if (this.f41130h > getWidth()) {
+                if (getWidth() + scrollX > this.f41130h) {
+                    f2 = this.f41130h;
                     width = getWidth();
                     i2 = (int) (f2 - width);
                     if (i2 > 0) {
                     }
                     if (this.A == 2) {
                     }
-                    if (this.f42631i <= getHeight()) {
+                    if (this.f41131i <= getHeight()) {
                     }
                     setHorizontalScrollBarEnabled(false);
                     setVerticalScrollBarEnabled(false);
@@ -1038,7 +1034,7 @@ public class DragImageView extends ImageView {
                     if (scrollY >= 0) {
                     }
                     scrollTo(i2, i4);
-                    setImageMatrix(this.f42627e);
+                    setImageMatrix(this.f41127e);
                     O();
                 }
                 i2 = scrollX;
@@ -1046,7 +1042,7 @@ public class DragImageView extends ImageView {
                 }
                 if (this.A == 2) {
                 }
-                if (this.f42631i <= getHeight()) {
+                if (this.f41131i <= getHeight()) {
                 }
                 setHorizontalScrollBarEnabled(false);
                 setVerticalScrollBarEnabled(false);
@@ -1055,7 +1051,7 @@ public class DragImageView extends ImageView {
                 if (scrollY >= 0) {
                 }
                 scrollTo(i2, i4);
-                setImageMatrix(this.f42627e);
+                setImageMatrix(this.f41127e);
                 O();
             }
             i2 = 0;
@@ -1063,7 +1059,7 @@ public class DragImageView extends ImageView {
             }
             if (this.A == 2) {
             }
-            if (this.f42631i <= getHeight()) {
+            if (this.f41131i <= getHeight()) {
             }
             setHorizontalScrollBarEnabled(false);
             setVerticalScrollBarEnabled(false);
@@ -1072,7 +1068,7 @@ public class DragImageView extends ImageView {
             if (scrollY >= 0) {
             }
             scrollTo(i2, i4);
-            setImageMatrix(this.f42627e);
+            setImageMatrix(this.f41127e);
             O();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -1129,7 +1125,7 @@ public class DragImageView extends ImageView {
             this.A = 3;
             N();
             float f2 = this.m;
-            float f3 = this.f42633k;
+            float f3 = this.k;
             if (f2 < f3) {
                 this.m = f3;
                 T();
@@ -1143,7 +1139,7 @@ public class DragImageView extends ImageView {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            if (this.R == null || this.f42633k != this.m) {
+            if (this.R == null || this.k != this.m) {
                 return super.canScrollHorizontally(i2);
             }
             return false;
@@ -1157,10 +1153,10 @@ public class DragImageView extends ImageView {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             int i2 = this.mImageType;
             if (i2 != 1 && i2 != 2) {
-                int size = this.f42632j.size();
+                int size = this.f41132j.size();
                 Bitmap imageBitmap = getImageBitmap();
                 if (imageBitmap != null && !imageBitmap.isRecycled() && size > 0) {
-                    float floatValue = this.f42632j.get(size - 1).floatValue();
+                    float floatValue = this.f41132j.get(size - 1).floatValue();
                     if (((int) (imageBitmap.getWidth() * imageBitmap.getHeight() * floatValue * floatValue)) * 1.25f * 1.25f <= this.q && floatValue <= 5.0f) {
                         return true;
                     }
@@ -1177,7 +1173,7 @@ public class DragImageView extends ImageView {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             int i2 = this.mImageType;
             if (i2 != 1 && i2 != 2) {
-                int size = this.f42632j.size();
+                int size = this.f41132j.size();
                 Bitmap imageBitmap = getImageBitmap();
                 if (imageBitmap != null && !imageBitmap.isRecycled() && size > 1) {
                     return true;
@@ -1192,7 +1188,7 @@ public class DragImageView extends ImageView {
     public int computeHorizontalScrollRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? (int) this.f42630h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? (int) this.f41130h : invokeV.intValue;
     }
 
     @Override // android.view.View
@@ -1209,7 +1205,7 @@ public class DragImageView extends ImageView {
     public int computeVerticalScrollRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (int) this.f42631i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (int) this.f41131i : invokeV.intValue;
     }
 
     public g createFrame() {
@@ -1325,7 +1321,7 @@ public class DragImageView extends ImageView {
             if (bVar != null) {
                 return bVar.z();
             }
-            return this.f42633k / 4.0f;
+            return this.k / 4.0f;
         }
         return invokeV.floatValue;
     }
@@ -1333,7 +1329,7 @@ public class DragImageView extends ImageView {
     public float[] getResizedSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? new float[]{this.f42630h, this.f42631i} : (float[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? new float[]{this.f41130h, this.f41131i} : (float[]) invokeV.objValue;
     }
 
     public Bitmap getVisableBitmap() {
@@ -1344,7 +1340,7 @@ public class DragImageView extends ImageView {
             Canvas canvas = new Canvas(createBitmap);
             int scrollX = getScrollX();
             int scrollY = getScrollY();
-            Matrix matrix = new Matrix(this.f42627e);
+            Matrix matrix = new Matrix(this.f41127e);
             matrix.postTranslate(-scrollX, -scrollY);
             canvas.drawBitmap(getImageBitmap(), matrix, null);
             return createBitmap;
@@ -1541,12 +1537,12 @@ public class DragImageView extends ImageView {
                 if (Math.abs(f14 - 1.0f) < 1.0E-8f) {
                     z = true;
                 } else {
-                    this.f42627e.setScale(f14, f14);
+                    this.f41127e.setScale(f14, f14);
                     float f17 = f15 * f14;
                     i4 = (int) ((f16 - f17) / 2.0f);
                     float f18 = height2 * f14;
                     i5 = (int) ((height3 - f18) / 2.0f);
-                    this.f42627e.postTranslate(i4, i5);
+                    this.f41127e.postTranslate(i4, i5);
                     width2 = (int) f17;
                     height2 = (int) f18;
                 }
@@ -1557,14 +1553,14 @@ public class DragImageView extends ImageView {
                         canvas.drawBitmap(this.F, i4, i5, (Paint) null);
                         return;
                     } else {
-                        canvas.drawBitmap(this.F, this.f42627e, this.G);
+                        canvas.drawBitmap(this.F, this.f41127e, this.G);
                         return;
                     }
                 }
                 if (z) {
                     canvas.drawBitmap(bitmap2, i4, i5, (Paint) null);
                 } else {
-                    canvas.drawBitmap(bitmap2, this.f42627e, this.G);
+                    canvas.drawBitmap(bitmap2, this.f41127e, this.G);
                 }
                 invalidate();
             }
@@ -1576,8 +1572,8 @@ public class DragImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             if (z) {
-                this.f42628f = i4 - i2;
-                this.f42629g = i5 - i3;
+                this.f41128f = i4 - i2;
+                this.f41129g = i5 - i3;
                 R();
             }
             super.onLayout(z, i2, i3, i4, i5);
@@ -1618,7 +1614,7 @@ public class DragImageView extends ImageView {
             if (i2 == 1 || i2 == 2) {
                 return true;
             }
-            return !this.C && getScrollX() >= ((int) (this.f42630h - ((float) getWidth()))) - 1;
+            return !this.C && getScrollX() >= ((int) (this.f41130h - ((float) getWidth()))) - 1;
         }
         return invokeV.booleanValue;
     }
@@ -1703,7 +1699,7 @@ public class DragImageView extends ImageView {
             if (bVar != null) {
                 return bVar.F();
             }
-            return this.f42633k == this.m;
+            return this.k == this.m;
         }
         return invokeV.booleanValue;
     }
@@ -1713,7 +1709,7 @@ public class DragImageView extends ImageView {
         if ((interceptable == null || interceptable.invokeV(1048621, this) == null) && this.mImageType == 1) {
             f fVar = this.s0;
             if (fVar != null) {
-                fVar.f42648e = false;
+                fVar.f41146e = false;
                 this.s0.interrupt();
             }
             this.mHandler.removeMessages(0);
@@ -1729,7 +1725,7 @@ public class DragImageView extends ImageView {
             if (this.E == null) {
                 f fVar = this.s0;
                 if (fVar != null) {
-                    fVar.f42648e = false;
+                    fVar.f41146e = false;
                     this.s0.interrupt();
                     this.s0 = null;
                 }
@@ -1737,7 +1733,7 @@ public class DragImageView extends ImageView {
                     return;
                 }
                 try {
-                    aVar = a.C0097a.b().a(this.p, 0, this.p.length);
+                    aVar = a.C0106a.b().a(this.p, 0, this.p.length);
                 } catch (StackOverflowError unused) {
                     aVar = null;
                 }
@@ -1761,12 +1757,12 @@ public class DragImageView extends ImageView {
                 return;
             }
             f fVar2 = this.s0;
-            if (fVar2 == null || !fVar2.f42648e) {
+            if (fVar2 == null || !fVar2.f41146e) {
                 this.u0 = true;
                 this.s0 = new f(this, null);
                 this.k0.clear();
                 this.q0.clear();
-                this.s0.f42648e = true;
+                this.s0.f41146e = true;
                 this.s0.start();
                 this.isThreadStoped = false;
             }
@@ -1786,8 +1782,8 @@ public class DragImageView extends ImageView {
                 return 1.0f;
             }
             if (this.r == 0) {
-                float width = this.f42628f / bitmap.getWidth();
-                float height = this.f42629g / bitmap.getHeight();
+                float width = this.f41128f / bitmap.getWidth();
+                float height = this.f41129g / bitmap.getHeight();
                 if (this.P) {
                     if (this.mImageType == 2) {
                         return 2.5f;
@@ -1798,14 +1794,14 @@ public class DragImageView extends ImageView {
                 } else {
                     float f2 = this.Q;
                     float f3 = f2 >= 1.0f ? f2 : 1.0f;
-                    if (bitmap.getWidth() * f3 < this.f42628f && bitmap.getHeight() * f3 < this.f42629g) {
+                    if (bitmap.getWidth() * f3 < this.f41128f && bitmap.getHeight() * f3 < this.f41129g) {
                         return f3;
                     }
                     min = Math.min(width, height);
                 }
                 return min;
             }
-            return Math.max(this.f42628f / bitmap.getWidth(), ((this.f42629g - this.H) - this.I) / bitmap.getHeight());
+            return Math.max(this.f41128f / bitmap.getWidth(), ((this.f41129g - this.H) - this.I) / bitmap.getHeight());
         }
         return invokeL.floatValue;
     }
@@ -1831,7 +1827,7 @@ public class DragImageView extends ImageView {
             }
             if (imageBitmap != null && (imageBitmap.getWidth() != bitmap.getWidth() || imageBitmap.getHeight() != bitmap.getHeight())) {
                 setImageBitmap(bitmap);
-                super.setImageMatrix(this.f42627e);
+                super.setImageMatrix(this.f41127e);
                 return;
             }
             if (this.w.a()) {
@@ -1840,7 +1836,7 @@ public class DragImageView extends ImageView {
             int scrollX = getScrollX();
             int scrollY = getScrollY();
             super.setImageBitmap(bitmap);
-            super.setImageMatrix(this.f42627e);
+            super.setImageMatrix(this.f41127e);
             scrollTo(scrollX, scrollY);
             this.mImageType = 0;
         }
@@ -1851,12 +1847,12 @@ public class DragImageView extends ImageView {
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
             O();
             int i2 = this.mImageType;
-            if (i2 == 1 || i2 == 2 || this.m == this.f42633k) {
+            if (i2 == 1 || i2 == 2 || this.m == this.k) {
                 return;
             }
-            this.f42632j.clear();
-            this.f42632j.add(Float.valueOf(this.f42633k));
-            float f2 = this.f42633k;
+            this.f41132j.clear();
+            this.f41132j.add(Float.valueOf(this.k));
+            float f2 = this.k;
             this.m = f2;
             this.n = f2;
             T();
@@ -2063,7 +2059,7 @@ public class DragImageView extends ImageView {
             }
             f fVar = this.s0;
             if (fVar != null) {
-                fVar.f42648e = false;
+                fVar.f41146e = false;
                 this.s0.interrupt();
                 this.s0 = null;
             }
@@ -2088,11 +2084,11 @@ public class DragImageView extends ImageView {
         if (!(interceptable == null || interceptable.invokeV(1048647, this) == null) || (i2 = this.mImageType) == 1 || i2 == 2) {
             return;
         }
-        int size = this.f42632j.size();
+        int size = this.f41132j.size();
         if (size > 0) {
-            this.f42632j.add(Float.valueOf(this.f42632j.get(size - 1).floatValue() * 1.25f));
+            this.f41132j.add(Float.valueOf(this.f41132j.get(size - 1).floatValue() * 1.25f));
         } else {
-            this.f42632j.add(Float.valueOf(this.f42633k));
+            this.f41132j.add(Float.valueOf(this.k));
         }
         T();
     }
@@ -2103,9 +2099,9 @@ public class DragImageView extends ImageView {
         if (!(interceptable == null || interceptable.invokeV(1048648, this) == null) || (i2 = this.mImageType) == 1 || i2 == 2) {
             return;
         }
-        int size = this.f42632j.size();
+        int size = this.f41132j.size();
         if (size > 1) {
-            this.f42632j.remove(size - 1);
+            this.f41132j.remove(size - 1);
         }
         T();
     }
@@ -2116,10 +2112,10 @@ public class DragImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile boolean f42648e;
+        public volatile boolean f41146e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DragImageView f42649f;
+        public final /* synthetic */ DragImageView f41147f;
 
         public f(DragImageView dragImageView) {
             Interceptable interceptable = $ic;
@@ -2136,28 +2132,28 @@ public class DragImageView extends ImageView {
                     return;
                 }
             }
-            this.f42649f = dragImageView;
-            this.f42648e = false;
+            this.f41147f = dragImageView;
+            this.f41146e = false;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                while (!isInterrupted() && this.f42648e && this.f42649f.E != null && this.f42649f.h0 > 0 && this.f42649f.f0 > 0 && this.f42649f.g0 > 0) {
+                while (!isInterrupted() && this.f41146e && this.f41147f.E != null && this.f41147f.h0 > 0 && this.f41147f.f0 > 0 && this.f41147f.g0 > 0) {
                     try {
-                        if (this.f42649f.r0 >= this.f42649f.E.getFrameCount()) {
-                            this.f42649f.r0 = 0;
+                        if (this.f41147f.r0 >= this.f41147f.E.getFrameCount()) {
+                            this.f41147f.r0 = 0;
                         }
-                        this.f42649f.E.c(this.f42649f.r0);
-                        g createFrame = this.f42649f.createFrame();
-                        if (createFrame.a == null || (createFrame.a.getWidth() != this.f42649f.f0 && createFrame.a.getHeight() != this.f42649f.g0)) {
+                        this.f41147f.E.c(this.f41147f.r0);
+                        g createFrame = this.f41147f.createFrame();
+                        if (createFrame.a == null || (createFrame.a.getWidth() != this.f41147f.f0 && createFrame.a.getHeight() != this.f41147f.g0)) {
                             try {
-                                createFrame.a = Bitmap.createBitmap(this.f42649f.f0, this.f42649f.g0, Bitmap.Config.ARGB_8888);
+                                createFrame.a = Bitmap.createBitmap(this.f41147f.f0, this.f41147f.g0, Bitmap.Config.ARGB_8888);
                             } catch (OutOfMemoryError unused) {
                                 TbadkCoreApplication.getInst().onAppMemoryLow();
                                 try {
-                                    createFrame.a = Bitmap.createBitmap(this.f42649f.f0, this.f42649f.g0, Bitmap.Config.ARGB_4444);
+                                    createFrame.a = Bitmap.createBitmap(this.f41147f.f0, this.f41147f.g0, Bitmap.Config.ARGB_4444);
                                 } catch (OutOfMemoryError unused2) {
                                     TbadkCoreApplication.getInst().onAppMemoryLow();
                                 }
@@ -2165,16 +2161,16 @@ public class DragImageView extends ImageView {
                                 BdLog.e(th.getMessage());
                             }
                         }
-                        this.f42649f.E.a(createFrame.a, null);
-                        createFrame.f42650b = this.f42649f.E.b(this.f42649f.r0);
-                        DragImageView.E(this.f42649f);
+                        this.f41147f.E.a(createFrame.a, null);
+                        createFrame.f41148b = this.f41147f.E.b(this.f41147f.r0);
+                        DragImageView.E(this.f41147f);
                         if (createFrame.a == null) {
-                            DragImageView.E(this.f42649f);
+                            DragImageView.E(this.f41147f);
                         }
-                        this.f42649f.r0 %= this.f42649f.h0;
-                        this.f42649f.k0.put(createFrame);
-                        if (this.f42649f.u0) {
-                            this.f42649f.mHandler.sendEmptyMessage(1);
+                        this.f41147f.r0 %= this.f41147f.h0;
+                        this.f41147f.k0.put(createFrame);
+                        if (this.f41147f.u0) {
+                            this.f41147f.mHandler.sendEmptyMessage(1);
                         }
                     } catch (Exception unused3) {
                         return;
@@ -2207,9 +2203,9 @@ public class DragImageView extends ImageView {
                 return;
             }
         }
-        this.f42627e = new Matrix();
-        this.f42628f = 0;
-        this.f42629g = 0;
+        this.f41127e = new Matrix();
+        this.f41128f = 0;
+        this.f41129g = 0;
         this.o = false;
         this.p = null;
         this.q = 1300;
@@ -2273,9 +2269,9 @@ public class DragImageView extends ImageView {
                 return;
             }
         }
-        this.f42627e = new Matrix();
-        this.f42628f = 0;
-        this.f42629g = 0;
+        this.f41127e = new Matrix();
+        this.f41128f = 0;
+        this.f41129g = 0;
         this.o = false;
         this.p = null;
         this.q = 1300;

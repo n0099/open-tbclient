@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import c.a.s0.k0.h;
 import c.a.s0.p0.c;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.f;
 import c.a.t0.w3.j0.e;
 import com.baidu.adp.BdUniqueId;
@@ -54,25 +54,25 @@ public class a {
         }
     }
 
-    public void b(Context context, f fVar, AgreeData agreeData, d2 d2Var) {
+    public void b(Context context, f fVar, AgreeData agreeData, e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fVar, agreeData, d2Var) == null) || fVar == null || agreeData == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fVar, agreeData, e2Var) == null) || fVar == null || agreeData == null) {
             return;
         }
         BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
-        StatisticItem param = new StatisticItem("c13271").param("obj_type", fVar.f13690g).param("obj_locate", fVar.f13691h).param("obj_id", fVar.f13692i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
-        if (d2Var != null) {
-            param.param("tid", d2Var.g0()).param("nid", d2Var.G0()).param("fid", d2Var.U()).param("ab_tag", d2Var.b1).param("recom_source", d2Var.Z0).param("weight", d2Var.a1).param("extra", d2Var.c1);
-            if (d2Var.L() != null) {
-                param.param(TiebaStatic.Params.OBJ_PARAM4, d2Var.L().oriUgcNid);
-                if (d2Var.S1() || d2Var.R1()) {
-                    param.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
+        StatisticItem param = new StatisticItem("c13271").param("obj_type", fVar.f13376g).param("obj_locate", fVar.f13377h).param("obj_id", fVar.f13378i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+        if (e2Var != null) {
+            param.param("tid", e2Var.g0()).param("nid", e2Var.G0()).param("fid", e2Var.U()).param("ab_tag", e2Var.b1).param("recom_source", e2Var.Z0).param("weight", e2Var.a1).param("extra", e2Var.c1);
+            if (e2Var.L() != null) {
+                param.param(TiebaStatic.Params.OBJ_PARAM4, e2Var.L().oriUgcNid);
+                if (e2Var.S1() || e2Var.R1()) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM6, e2Var.L().oriUgcVid);
                 }
             }
-            if (d2Var.U1()) {
+            if (e2Var.U1()) {
                 param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
-            } else if (!d2Var.P1() && !d2Var.S1()) {
-                int i2 = d2Var.d0;
+            } else if (!e2Var.P1() && !e2Var.S1()) {
+                int i2 = e2Var.d0;
                 if (i2 == 0 || i2 == 40) {
                     param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
                 }
@@ -147,7 +147,7 @@ public class a {
     public void d(AgreeData agreeData, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, eVar) == null) {
-            eVar.f25551b = agreeData;
+            eVar.f24836b = agreeData;
             if (agreeData.isInThread) {
                 BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
                 if (baijiahaoData != null) {

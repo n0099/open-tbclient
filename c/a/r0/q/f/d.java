@@ -16,7 +16,7 @@ public class d implements g.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c f11729e;
+    public final c f11463e;
 
     public d(@Nullable c cVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class d implements g.a {
                 return;
             }
         }
-        this.f11729e = cVar;
+        this.f11463e = cVar;
     }
 
     @Override // c.a.r0.q.j.g.a
@@ -57,11 +57,11 @@ public class d implements g.a {
                         hashMap.put(optJSONObject2.optString("appkey"), optJSONObject2.optString("openbundleid"));
                     }
                 }
-                if (this.f11729e != null) {
-                    this.f11729e.onResult(hashMap);
+                if (this.f11463e != null) {
+                    this.f11463e.onResult(hashMap);
                 }
             } catch (Exception e2) {
-                c cVar = this.f11729e;
+                c cVar = this.f11463e;
                 if (cVar != null) {
                     cVar.onFail(e2);
                 }
@@ -73,7 +73,7 @@ public class d implements g.a {
     public void onFail(Exception exc) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (cVar = this.f11729e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (cVar = this.f11463e) == null) {
             return;
         }
         cVar.onFail(exc);

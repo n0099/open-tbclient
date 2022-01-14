@@ -44,18 +44,18 @@ public class AdBillingLogReqMsg extends NetMessage {
         if (!(interceptable == null || interceptable.invokeL(65537, this, builder) == null) || (cVar = this.mReqData) == null) {
             return;
         }
-        builder.token = cVar.f12583d;
-        int i2 = cVar.f12585f;
+        builder.token = cVar.f12288d;
+        int i2 = cVar.f12290f;
         if (i2 >= 0) {
             builder.da_locate = String.valueOf(i2);
         }
-        int i3 = this.mReqData.f12581b;
+        int i3 = this.mReqData.f12286b;
         if (i3 >= 0) {
             builder.da_from = Integer.valueOf(i3);
         }
         c cVar2 = this.mReqData;
-        builder.extra_param = cVar2.f12584e;
-        builder.order_id = cVar2.f12582c;
+        builder.extra_param = cVar2.f12289e;
+        builder.order_id = cVar2.f12287c;
         int i4 = cVar2.a;
         if (i4 >= 0) {
             builder.da_type = String.valueOf(i4);

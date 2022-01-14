@@ -17,7 +17,7 @@ public class a {
     public final Executor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, LinkedList<c>> f60582b;
+    public final HashMap<String, LinkedList<c>> f58286b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a {
             }
         }
         this.a = com.kwai.filedownloader.e.b.a(10, "EventPool");
-        this.f60582b = new HashMap<>();
+        this.f58286b = new HashMap<>();
     }
 
     private void a(LinkedList<c> linkedList, b bVar) {
@@ -61,10 +61,10 @@ public class a {
             }
             if (bVar != null) {
                 String b2 = bVar.b();
-                LinkedList<c> linkedList = this.f60582b.get(b2);
+                LinkedList<c> linkedList = this.f58286b.get(b2);
                 if (linkedList == null) {
                     synchronized (b2.intern()) {
-                        linkedList = this.f60582b.get(b2);
+                        linkedList = this.f58286b.get(b2);
                         if (linkedList == null) {
                             if (d.a) {
                                 d.c(this, "No listener for this event %s", b2);
@@ -90,12 +90,12 @@ public class a {
                 d.e(this, "setListener %s", str);
             }
             if (cVar != null) {
-                LinkedList<c> linkedList = this.f60582b.get(str);
+                LinkedList<c> linkedList = this.f58286b.get(str);
                 if (linkedList == null) {
                     synchronized (str.intern()) {
-                        linkedList = this.f60582b.get(str);
+                        linkedList = this.f58286b.get(str);
                         if (linkedList == null) {
-                            HashMap<String, LinkedList<c>> hashMap = this.f60582b;
+                            HashMap<String, LinkedList<c>> hashMap = this.f58286b;
                             LinkedList<c> linkedList2 = new LinkedList<>();
                             hashMap.put(str, linkedList2);
                             linkedList = linkedList2;
@@ -127,7 +127,7 @@ public class a {
                 public final /* synthetic */ b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f60583b;
+                public final /* synthetic */ a f58287b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -144,7 +144,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f60583b = this;
+                    this.f58287b = this;
                     this.a = bVar;
                 }
 
@@ -153,7 +153,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f60583b.a(this.a);
+                            this.f58287b.a(this.a);
                         } catch (Exception unused) {
                         }
                     }

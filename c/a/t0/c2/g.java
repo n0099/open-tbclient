@@ -28,16 +28,16 @@ public class g {
     public TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TableLayout f15767b;
+    public TableLayout f15369b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f15768c;
+    public View f15370c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15769d;
+    public TextView f15371d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15770e;
+    public View f15372e;
 
     public g(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class g {
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
                 imageView.setVisibility(8);
             }
-            b(linearLayout, i2, this.f15767b, 2);
+            b(linearLayout, i2, this.f15369b, 2);
             return linearLayout;
         }
         return (View) invokeLI.objValue;
@@ -99,10 +99,10 @@ public class g {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f15767b.removeAllViews();
-            this.f15768c.setVisibility(8);
-            this.f15767b.setVisibility(8);
-            this.f15769d.setVisibility(8);
+            this.f15369b.removeAllViews();
+            this.f15370c.setVisibility(8);
+            this.f15369b.setVisibility(8);
+            this.f15371d.setVisibility(8);
         }
     }
 
@@ -111,15 +111,15 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.search_topic, (ViewGroup) null);
-            this.f15768c = inflate;
+            this.f15370c = inflate;
             View findViewById = inflate.findViewById(R.id.titleTopDivider);
-            this.f15770e = findViewById;
+            this.f15372e = findViewById;
             findViewById.setVisibility(0);
-            this.f15767b = (TableLayout) this.f15768c.findViewById(R.id.search_topic_layout);
-            TextView textView = (TextView) this.f15768c.findViewById(R.id.square_search_fourm_header_text);
-            this.f15769d = textView;
+            this.f15369b = (TableLayout) this.f15370c.findViewById(R.id.search_topic_layout);
+            TextView textView = (TextView) this.f15370c.findViewById(R.id.square_search_fourm_header_text);
+            this.f15371d = textView;
             textView.setText(this.a.getResources().getString(R.string.hot_topic_title));
-            return this.f15768c;
+            return this.f15370c;
         }
         return (View) invokeV.objValue;
     }
@@ -144,10 +144,10 @@ public class g {
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.a.getLayoutMode().j(this.f15768c);
-            int childCount = this.f15767b.getChildCount();
+            this.a.getLayoutMode().j(this.f15370c);
+            int childCount = this.f15369b.getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
-                TableRow tableRow = (TableRow) this.f15767b.getChildAt(i3);
+                TableRow tableRow = (TableRow) this.f15369b.getChildAt(i3);
                 int childCount2 = tableRow.getChildCount();
                 for (int i4 = 0; i4 < childCount2; i4++) {
                     LinearLayout linearLayout = (LinearLayout) tableRow.getChildAt(i4);
@@ -186,20 +186,20 @@ public class g {
 
     public void h(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.f15769d == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.f15371d == null) {
             return;
         }
         if (!StringUtils.isNull(str)) {
-            this.f15769d.setText(str);
+            this.f15371d.setText(str);
         } else {
-            this.f15769d.setText(this.a.getResources().getString(R.string.hot_topic_title));
+            this.f15371d.setText(this.a.getResources().getString(R.string.hot_topic_title));
         }
     }
 
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f15770e.setVisibility(z ? 0 : 8);
+            this.f15372e.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -207,9 +207,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             f(TbadkCoreApplication.getInst().getSkinType());
-            this.f15768c.setVisibility(0);
-            this.f15767b.setVisibility(0);
-            this.f15769d.setVisibility(0);
+            this.f15370c.setVisibility(0);
+            this.f15369b.setVisibility(0);
+            this.f15371d.setVisibility(0);
         }
     }
 }

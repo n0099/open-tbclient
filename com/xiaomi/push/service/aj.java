@@ -16,8 +16,8 @@ public abstract class aj {
     public abstract void a(Map<String, String> map, int i2, Notification notification);
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m634a(Context context, int i2, String str, Map<String, String> map);
+    public abstract boolean m646a(Context context, int i2, String str, Map<String, String> map);
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m635a(Map<String, String> map, int i2, Notification notification);
+    public abstract boolean m647a(Map<String, String> map, int i2, Notification notification);
 }

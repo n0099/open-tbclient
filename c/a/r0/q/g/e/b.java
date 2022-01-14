@@ -27,34 +27,32 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.r0.q.p.a f11737b;
+    public static final c.a.r0.q.p.a f11471b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11738c;
+    public static final String f11472c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Uri f11739d;
+    public static final Uri f11473d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Uri f11740e;
+    public static final Uri f11474e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Uri f11741f;
+    public static final Uri f11475f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Uri f11742g;
+    public static final Uri f11476g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Uri f11743h;
+    public static final Uri f11477h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Uri f11744i;
+    public static final Uri f11478i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Uri f11745j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static UriMatcher f11746k;
+    public static final Uri f11479j;
+    public static UriMatcher k;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -71,24 +69,24 @@ public class b {
                 return;
             }
         }
-        f11737b = c.a.r0.q.p.a.c();
-        f11738c = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-        f11739d = Uri.parse("content://" + f11738c + "/" + FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY);
-        f11740e = Uri.parse("content://" + f11738c + "/swan_app");
-        f11741f = Uri.parse("content://" + f11738c + "/pkg_main");
-        f11742g = Uri.parse("content://" + f11738c + "/pkg_sub");
-        f11743h = Uri.parse("content://" + f11738c + "/" + ETAG.KEY_EXTENSION);
-        f11744i = Uri.parse("content://" + f11738c + "/swan_plugin");
-        f11745j = Uri.parse("content://" + f11738c + "/so_lib");
+        f11471b = c.a.r0.q.p.a.c();
+        f11472c = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+        f11473d = Uri.parse("content://" + f11472c + "/" + FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY);
+        f11474e = Uri.parse("content://" + f11472c + "/swan_app");
+        f11475f = Uri.parse("content://" + f11472c + "/pkg_main");
+        f11476g = Uri.parse("content://" + f11472c + "/pkg_sub");
+        f11477h = Uri.parse("content://" + f11472c + "/" + ETAG.KEY_EXTENSION);
+        f11478i = Uri.parse("content://" + f11472c + "/swan_plugin");
+        f11479j = Uri.parse("content://" + f11472c + "/so_lib");
         UriMatcher uriMatcher = new UriMatcher(-1);
-        f11746k = uriMatcher;
-        uriMatcher.addURI(f11738c, FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY, 2);
-        f11746k.addURI(f11738c, "pkg_main", 0);
-        f11746k.addURI(f11738c, "pkg_sub", 1);
-        f11746k.addURI(f11738c, ETAG.KEY_EXTENSION, 3);
-        f11746k.addURI(f11738c, "swan_app", 4);
-        f11746k.addURI(f11738c, "swan_plugin", 5);
-        f11746k.addURI(f11738c, "so_lib", 7);
+        k = uriMatcher;
+        uriMatcher.addURI(f11472c, FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY, 2);
+        k.addURI(f11472c, "pkg_main", 0);
+        k.addURI(f11472c, "pkg_sub", 1);
+        k.addURI(f11472c, ETAG.KEY_EXTENSION, 3);
+        k.addURI(f11472c, "swan_app", 4);
+        k.addURI(f11472c, "swan_plugin", 5);
+        k.addURI(f11472c, "so_lib", 7);
     }
 
     public b(Context context) {
@@ -119,7 +117,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            int match = f11746k.match(uri);
+            int match = k.match(uri);
             if (match != 0) {
                 if (match != 1) {
                     if (match != 2) {
@@ -155,7 +153,7 @@ public class b {
                 try {
                     return a().getReadableDatabase().rawQuery(str, null);
                 } catch (SQLException e2) {
-                    f11737b.g("PMSDBProvider", "#rawQuery error", e2);
+                    f11471b.g("PMSDBProvider", "#rawQuery error", e2);
                 }
             }
             return null;
@@ -171,7 +169,7 @@ public class b {
             if (TextUtils.isEmpty(b2)) {
                 return 0;
             }
-            c.a.r0.q.p.a aVar = f11737b;
+            c.a.r0.q.p.a aVar = f11471b;
             aVar.i("PMSDBProvider", "#delete tableName=" + b2 + " selection=" + str);
             try {
                 int delete = a().getWritableDatabase().delete(b2, str, strArr);
@@ -180,7 +178,7 @@ public class b {
                 }
                 return delete;
             } catch (SQLException e2) {
-                f11737b.g("PMSDBProvider", "#delete error", e2);
+                f11471b.g("PMSDBProvider", "#delete error", e2);
                 return 0;
             }
         }
@@ -204,7 +202,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, contentValues)) == null) {
             String b2 = b(uri);
             if (!TextUtils.isEmpty(b2) && contentValues != null) {
-                c.a.r0.q.p.a aVar = f11737b;
+                c.a.r0.q.p.a aVar = f11471b;
                 aVar.i("PMSDBProvider", "#insert values=" + contentValues);
                 try {
                     long insertWithOnConflict = a().getWritableDatabase().insertWithOnConflict(b2, null, contentValues, 5);
@@ -215,7 +213,7 @@ public class b {
                     }
                     return uri;
                 } catch (SQLException e2) {
-                    f11737b.g("PMSDBProvider", "#insert error", e2);
+                    f11471b.g("PMSDBProvider", "#insert error", e2);
                 }
             }
             return null;
@@ -238,7 +236,7 @@ public class b {
             try {
                 return a().getReadableDatabase().query(b2, strArr, str, strArr2, null, null, str2, null);
             } catch (SQLException e2) {
-                f11737b.g("PMSDBProvider", "#query error", e2);
+                f11471b.g("PMSDBProvider", "#query error", e2);
                 return null;
             }
         }
@@ -253,7 +251,7 @@ public class b {
             if (TextUtils.isEmpty(b2)) {
                 return 0;
             }
-            c.a.r0.q.p.a aVar = f11737b;
+            c.a.r0.q.p.a aVar = f11471b;
             aVar.i("PMSDBProvider", "#update tableName=" + b2 + " selection=" + str);
             try {
                 int update = a().getWritableDatabase().update(b2, contentValues, str, strArr);
@@ -262,7 +260,7 @@ public class b {
                 }
                 return update;
             } catch (SQLException e2) {
-                f11737b.g("PMSDBProvider", "#update error", e2);
+                f11471b.g("PMSDBProvider", "#update error", e2);
                 return 0;
             }
         }

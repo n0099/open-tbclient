@@ -42,10 +42,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f5909e;
+        public final /* synthetic */ d f5779e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5910f;
+        public final /* synthetic */ String f5780f;
 
         public a(d dVar, String str) {
             Interceptable interceptable = $ic;
@@ -62,8 +62,8 @@ public class c {
                     return;
                 }
             }
-            this.f5909e = dVar;
-            this.f5910f = str;
+            this.f5779e = dVar;
+            this.f5780f = str;
         }
 
         @Override // java.lang.Runnable
@@ -71,7 +71,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.e0.d.k("WebSafeWhiteListMgr", "async read webDomains");
-                c.o(this.f5909e, this.f5910f);
+                c.o(this.f5779e, this.f5780f);
             }
         }
     }
@@ -82,13 +82,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f5911e;
+        public final /* synthetic */ d f5781e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5912f;
+        public final /* synthetic */ String f5782f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5913g;
+        public final /* synthetic */ String f5783g;
 
         public b(d dVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -105,9 +105,9 @@ public class c {
                     return;
                 }
             }
-            this.f5911e = dVar;
-            this.f5912f = str;
-            this.f5913g = str2;
+            this.f5781e = dVar;
+            this.f5782f = str;
+            this.f5783g = str2;
         }
 
         @Override // java.lang.Runnable
@@ -115,24 +115,24 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.e0.d.k("WebSafeWhiteListMgr", "async read serverDomains");
-                c.p(this.f5911e, this.f5912f, this.f5913g);
+                c.p(this.f5781e, this.f5782f, this.f5783g);
             }
         }
     }
 
     /* renamed from: c.a.r0.a.e2.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0302c implements Runnable {
+    public static class RunnableC0311c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f5914e;
+        public final /* synthetic */ d f5784e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5915f;
+        public final /* synthetic */ String f5785f;
 
-        public RunnableC0302c(d dVar, String str) {
+        public RunnableC0311c(d dVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,8 +147,8 @@ public class c {
                     return;
                 }
             }
-            this.f5914e = dVar;
-            this.f5915f = str;
+            this.f5784e = dVar;
+            this.f5785f = str;
         }
 
         @Override // java.lang.Runnable
@@ -156,7 +156,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.e0.d.k("WebSafeWhiteListMgr", "async read webActions");
-                c.o(this.f5914e, this.f5915f);
+                c.o(this.f5784e, this.f5785f);
             }
         }
     }
@@ -168,10 +168,10 @@ public class c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f5916b;
+        public List<String> f5786b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f5917c;
+        public long f5787c;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -186,7 +186,7 @@ public class c {
                     return;
                 }
             }
-            this.f5916b = new CopyOnWriteArrayList();
+            this.f5786b = new CopyOnWriteArrayList();
         }
 
         @NonNull
@@ -212,7 +212,7 @@ public class c {
                 return;
             }
             this.a = jSONObject.optString("token");
-            this.f5916b.addAll(d(jSONObject.optJSONArray("data")));
+            this.f5786b.addAll(d(jSONObject.optJSONArray("data")));
         }
 
         public void b(JSONObject jSONObject, String str) {
@@ -221,13 +221,13 @@ public class c {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return;
             }
-            this.f5916b.addAll(d(optJSONObject.optJSONArray(str)));
+            this.f5786b.addAll(d(optJSONObject.optJSONArray(str)));
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f5916b.clear();
+                this.f5786b.clear();
             }
         }
 
@@ -235,7 +235,7 @@ public class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "WebSafeData{token='" + this.a + ExtendedMessageFormat.QUOTE + ", data=" + this.f5916b + ", lastModifiedTime=" + this.f5917c + ExtendedMessageFormat.END_FE;
+                return "WebSafeData{token='" + this.a + ExtendedMessageFormat.QUOTE + ", data=" + this.f5786b + ", lastModifiedTime=" + this.f5787c + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -357,7 +357,7 @@ public class c {
             }
             String j2 = j();
             if (z) {
-                ExecutorUtilsExt.postOnElastic(new RunnableC0302c(dVar, j2), "load-WebActions", 2);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0311c(dVar, j2), "load-WebActions", 2);
             } else {
                 o(dVar, j2);
             }
@@ -550,7 +550,7 @@ public class c {
         if (interceptable == null || interceptable.invokeLL(65558, null, dVar, str) == null) {
             File file = new File(str);
             if (file.exists()) {
-                dVar.f5917c = file.lastModified();
+                dVar.f5787c = file.lastModified();
             }
         }
     }

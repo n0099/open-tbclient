@@ -20,7 +20,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.baidu.ar.arrender.c f33910g;
+    public com.baidu.ar.arrender.c f32831g;
     public long mI;
     public f mP;
     public e mQ;
@@ -49,7 +49,7 @@ public class g {
         this.mS = Collections.synchronizedList(new ArrayList());
         this.mT = new ConcurrentHashMap<>();
         this.mI = 0L;
-        this.f33910g = cVar;
+        this.f32831g = cVar;
         OnNeedCacheFrameListener onNeedCacheFrameListener = new OnNeedCacheFrameListener(this) { // from class: com.baidu.ar.d.g.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class g {
             }
         };
         this.mU = onNeedCacheFrameListener;
-        this.f33910g.a(onNeedCacheFrameListener);
+        this.f32831g.a(onNeedCacheFrameListener);
         this.mP = new f(looper);
         e eVar = new e(this) { // from class: com.baidu.ar.d.g.2
             public static /* synthetic */ Interceptable $ic;
@@ -122,8 +122,8 @@ public class g {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
                     this.mW.j(bVar);
-                    if (this.mW.f33910g != null) {
-                        this.mW.f33910g.f(bVar.getTimestamp());
+                    if (this.mW.f32831g != null) {
+                        this.mW.f32831g.f(bVar.getTimestamp());
                     }
                 }
             }
@@ -210,7 +210,7 @@ public class g {
                     if (!TextUtils.isEmpty(jVar.getName())) {
                         if (jVar.dj() && this.mS.contains(jVar)) {
                             if (this.mP.isEmpty()) {
-                                this.f33910g.j(true);
+                                this.f32831g.j(true);
                             }
                             this.mS.remove(jVar);
                             this.mP.b(jVar, this.mT.get(jVar.getName()));
@@ -227,7 +227,7 @@ public class g {
                                 this.mT.put(jVar.getName(), remove2);
                             }
                             if (this.mP.isEmpty()) {
-                                this.f33910g.j(false);
+                                this.f32831g.j(false);
                             }
                         }
                     }
@@ -250,7 +250,7 @@ public class g {
                 } else if (this.mP != null && this.mP.c(kVar)) {
                     this.mP.a(kVar);
                     if (this.mP.isEmpty()) {
-                        this.f33910g.j(false);
+                        this.f32831g.j(false);
                     }
                 }
             }
@@ -268,7 +268,7 @@ public class g {
                 }
                 if ((kVar instanceof j) && ((j) kVar).dj()) {
                     if (this.mP.isEmpty()) {
-                        this.f33910g.j(true);
+                        this.f32831g.j(true);
                     }
                     if (!this.mP.c(kVar)) {
                         this.mP.a(kVar, eVar);
@@ -303,8 +303,8 @@ public class g {
                 }
                 if (this.mP != null) {
                     this.mP.release();
-                    if (this.f33910g != null) {
-                        this.f33910g.j(false);
+                    if (this.f32831g != null) {
+                        this.f32831g.j(false);
                     }
                     this.mP = null;
                 }
@@ -325,7 +325,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             dh();
-            this.f33910g = null;
+            this.f32831g = null;
             this.mU = null;
         }
     }

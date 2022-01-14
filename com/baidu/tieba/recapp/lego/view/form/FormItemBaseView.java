@@ -273,10 +273,10 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bVar)) == null) {
-            if (bVar != null && bVar.a != -1 && !TextUtils.isEmpty(bVar.f49371b)) {
+            if (bVar != null && bVar.a != -1 && !TextUtils.isEmpty(bVar.f47517b)) {
                 setVisibility(0);
                 reset();
-                this.mTag = bVar.f49372c;
+                this.mTag = bVar.f47518c;
                 return true;
             }
             setVisibility(8);

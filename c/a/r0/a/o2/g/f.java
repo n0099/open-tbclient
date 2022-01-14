@@ -39,21 +39,21 @@ public class f extends d {
                 }
                 throw new IllegalArgumentException("illegal sp.");
             }
-            int i2 = cVar.f8272b;
+            int i2 = cVar.f8090b;
             if (i2 == 1) {
-                b2.putInt(cVar.f8273c, Integer.parseInt(cVar.f8274d));
+                b2.putInt(cVar.f8091c, Integer.parseInt(cVar.f8092d));
             } else if (i2 == 2) {
-                b2.putLong(cVar.f8273c, Long.parseLong(cVar.f8274d));
+                b2.putLong(cVar.f8091c, Long.parseLong(cVar.f8092d));
             } else if (i2 == 3) {
-                b2.putBoolean(cVar.f8273c, Boolean.parseBoolean(cVar.f8274d));
+                b2.putBoolean(cVar.f8091c, Boolean.parseBoolean(cVar.f8092d));
             } else if (i2 == 4) {
-                b2.putString(cVar.f8273c, cVar.f8274d);
+                b2.putString(cVar.f8091c, cVar.f8092d);
             } else if (i2 != 5) {
                 if (d.a) {
                     throw new IllegalArgumentException("wrong info params.");
                 }
             } else {
-                b2.putFloat(cVar.f8273c, Float.parseFloat(cVar.f8274d));
+                b2.putFloat(cVar.f8091c, Float.parseFloat(cVar.f8092d));
             }
             if (d.a) {
                 String str = "Put: " + cVar;

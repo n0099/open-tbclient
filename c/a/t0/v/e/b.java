@@ -24,7 +24,7 @@ public class b {
     public final Map<PlaceId, List<AdvertAppInfo>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<PlaceId, Long> f25165b;
+    public final Map<PlaceId, Long> f24462b;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -34,7 +34,7 @@ public class b {
 
     /* renamed from: c.a.t0.v.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1467b {
+    public static class C1482b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class b {
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1467b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1482b.a : (b) invokeV.objValue;
     }
 
     public void a(@NonNull PlaceId placeId, @NonNull List<AdvertAppInfo> list) {
@@ -77,7 +77,7 @@ public class b {
                 }
             }
             list2.addAll(list);
-            this.f25165b.put(placeId, Long.valueOf(System.currentTimeMillis()));
+            this.f24462b.put(placeId, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
@@ -115,7 +115,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, placeId)) == null) {
-            Long l = this.f25165b.get(placeId);
+            Long l = this.f24462b.get(placeId);
             if (l == null) {
                 return 0L;
             }
@@ -144,6 +144,6 @@ public class b {
             }
         }
         this.a = new ConcurrentHashMap();
-        this.f25165b = new ConcurrentHashMap();
+        this.f24462b = new ConcurrentHashMap();
     }
 }

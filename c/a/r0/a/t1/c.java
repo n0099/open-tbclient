@@ -25,7 +25,7 @@ public class c extends c.a.r0.a.t1.a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f9016b;
+        public final /* synthetic */ c f8819b;
 
         public a(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class c extends c.a.r0.a.t1.a {
                     return;
                 }
             }
-            this.f9016b = cVar;
+            this.f8819b = cVar;
             this.a = str;
         }
 
@@ -50,7 +50,7 @@ public class c extends c.a.r0.a.t1.a {
         public void a(@NonNull c.a.r0.a.u.h.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                this.f9016b.d(this.a, bVar);
+                this.f8819b.d(this.a, bVar);
             }
         }
     }

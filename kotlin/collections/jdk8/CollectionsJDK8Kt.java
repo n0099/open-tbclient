@@ -14,18 +14,18 @@ public final class CollectionsJDK8Kt {
     /* JADX WARN: Multi-variable type inference failed */
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final <K, V> V getOrDefault(Map<? extends K, ? extends V> map, K k2, V v) {
+    public static final <K, V> V getOrDefault(Map<? extends K, ? extends V> map, K k, V v) {
         if (map != null) {
-            return map.getOrDefault(k2, v);
+            return map.getOrDefault(k, v);
         }
         throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.Map<K, V>");
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final <K, V> boolean remove(Map<? extends K, ? extends V> map, K k2, V v) {
+    public static final <K, V> boolean remove(Map<? extends K, ? extends V> map, K k, V v) {
         if (map != null) {
-            return TypeIntrinsics.asMutableMap(map).remove(k2, v);
+            return TypeIntrinsics.asMutableMap(map).remove(k, v);
         }
         throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.MutableMap<K, V>");
     }

@@ -37,12 +37,12 @@ public class g0 extends WebChromeClient {
     public void onProgressChanged(WebView webView, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i2) == null) {
-            ProgressBar progressBar = this.a.f63202c;
+            ProgressBar progressBar = this.a.f60823c;
             if (progressBar != null) {
                 progressBar.setVisibility(0);
-                this.a.f63202c.setProgress(i2);
+                this.a.f60823c.setProgress(i2);
                 if (i2 == 100) {
-                    this.a.f63202c.setVisibility(8);
+                    this.a.f60823c.setVisibility(8);
                 }
             }
             super.onProgressChanged(webView, i2);

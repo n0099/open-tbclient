@@ -36,18 +36,18 @@ public final class g {
                 return new l() { // from class: com.meizu.cloud.pushsdk.b.g.g.1
                     @Override // com.meizu.cloud.pushsdk.b.g.l
                     public void a(b bVar, long j2) throws IOException {
-                        o.a(bVar.f60909b, 0L, j2);
+                        o.a(bVar.f58602b, 0L, j2);
                         while (j2 > 0) {
                             n.this.a();
                             j jVar = bVar.a;
-                            int min = (int) Math.min(j2, jVar.f60921c - jVar.f60920b);
-                            outputStream.write(jVar.a, jVar.f60920b, min);
-                            int i2 = jVar.f60920b + min;
-                            jVar.f60920b = i2;
+                            int min = (int) Math.min(j2, jVar.f58614c - jVar.f58613b);
+                            outputStream.write(jVar.a, jVar.f58613b, min);
+                            int i2 = jVar.f58613b + min;
+                            jVar.f58613b = i2;
                             long j3 = min;
                             j2 -= j3;
-                            bVar.f60909b -= j3;
-                            if (i2 == jVar.f60921c) {
+                            bVar.f58602b -= j3;
+                            if (i2 == jVar.f58614c) {
                                 bVar.a = jVar.a();
                                 k.a(jVar);
                             }
@@ -99,13 +99,13 @@ public final class g {
                         } else {
                             n.this.a();
                             j c2 = bVar.c(1);
-                            int read = inputStream.read(c2.a, c2.f60921c, (int) Math.min(j2, 2048 - c2.f60921c));
+                            int read = inputStream.read(c2.a, c2.f58614c, (int) Math.min(j2, 2048 - c2.f58614c));
                             if (read == -1) {
                                 return -1L;
                             }
-                            c2.f60921c += read;
+                            c2.f58614c += read;
                             long j3 = read;
-                            bVar.f60909b += j3;
+                            bVar.f58602b += j3;
                             return j3;
                         }
                     }

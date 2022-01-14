@@ -2,7 +2,7 @@ package com.baidu.tieba.InjectPlugin.FrsFeedAd;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.n.e.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.h.e.c;
 import c.a.t0.h.e.d;
 import c.a.t0.h.e.e;
@@ -159,11 +159,11 @@ public class FrsFeedAdStatic {
             ArrayList arrayList = new ArrayList();
             for (n nVar : list) {
                 c.a.t0.h.b.c cVar = new c.a.t0.h.b.c();
-                if (nVar instanceof d2) {
-                    d2 d2Var = (d2) nVar;
-                    if (d2Var.s0() == 1) {
+                if (nVar instanceof e2) {
+                    e2 e2Var = (e2) nVar;
+                    if (e2Var.s0() == 1) {
                         cVar.f(1);
-                    } else if (d2Var.s0() == 0) {
+                    } else if (e2Var.s0() == 0) {
                         cVar.f(2);
                     } else {
                         cVar.f(4);

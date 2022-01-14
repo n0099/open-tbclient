@@ -100,7 +100,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f50145e;
+        public final /* synthetic */ BuyTBeanActivity f48256e;
 
         public b(BuyTBeanActivity buyTBeanActivity) {
             Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                     return;
                 }
             }
-            this.f50145e = buyTBeanActivity;
+            this.f48256e = buyTBeanActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -135,7 +135,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f50146e;
+        public final /* synthetic */ BuyTBeanActivity f48257e;
 
         public c(BuyTBeanActivity buyTBeanActivity) {
             Interceptable interceptable = $ic;
@@ -152,7 +152,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                     return;
                 }
             }
-            this.f50146e = buyTBeanActivity;
+            this.f48257e = buyTBeanActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -160,7 +160,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f50146e.finish();
+                this.f48257e.finish();
             }
         }
     }

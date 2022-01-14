@@ -64,25 +64,23 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f56580e;
+    public final int f54431e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f56581f;
+    public final int f54432f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Segment<K, V>[] f56582g;
+    public final Segment<K, V>[] f54433g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f56583h;
+    public final int f54434h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Equivalence<Object> f56584i;
+    public final Equivalence<Object> f54435i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Equivalence<Object> f56585j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final Strength f56586k;
+    public final Equivalence<Object> f54436j;
+    public final Strength k;
     public final Strength l;
     public final long m;
     public final c.i.d.b.j<K, V> n;
@@ -157,10 +155,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 }
 
                 @Override // com.google.common.cache.LocalCache.EntryFactory
-                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k2, int i2, c.i.d.b.h<K, V> hVar) {
+                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, c.i.d.b.h<K, V> hVar) {
                     InterceptResult invokeLLIL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048576, this, segment, k2, i2, hVar)) == null) ? new o(k2, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048576, this, segment, k, i2, hVar)) == null) ? new o(k, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
                 }
             };
             STRONG_ACCESS = new EntryFactory("STRONG_ACCESS", 1) { // from class: com.google.common.cache.LocalCache.EntryFactory.2
@@ -201,10 +199,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 }
 
                 @Override // com.google.common.cache.LocalCache.EntryFactory
-                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k2, int i2, c.i.d.b.h<K, V> hVar) {
+                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, c.i.d.b.h<K, V> hVar) {
                     InterceptResult invokeLLIL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k2, i2, hVar)) == null) ? new m(k2, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new m(k, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
                 }
             };
             STRONG_WRITE = new EntryFactory("STRONG_WRITE", 2) { // from class: com.google.common.cache.LocalCache.EntryFactory.3
@@ -245,10 +243,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 }
 
                 @Override // com.google.common.cache.LocalCache.EntryFactory
-                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k2, int i2, c.i.d.b.h<K, V> hVar) {
+                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, c.i.d.b.h<K, V> hVar) {
                     InterceptResult invokeLLIL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k2, i2, hVar)) == null) ? new q(k2, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new q(k, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
                 }
             };
             STRONG_ACCESS_WRITE = new EntryFactory("STRONG_ACCESS_WRITE", 3) { // from class: com.google.common.cache.LocalCache.EntryFactory.4
@@ -290,10 +288,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 }
 
                 @Override // com.google.common.cache.LocalCache.EntryFactory
-                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k2, int i2, c.i.d.b.h<K, V> hVar) {
+                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, c.i.d.b.h<K, V> hVar) {
                     InterceptResult invokeLLIL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k2, i2, hVar)) == null) ? new n(k2, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new n(k, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
                 }
             };
             WEAK = new EntryFactory("WEAK", 4) { // from class: com.google.common.cache.LocalCache.EntryFactory.5
@@ -322,10 +320,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 }
 
                 @Override // com.google.common.cache.LocalCache.EntryFactory
-                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k2, int i2, c.i.d.b.h<K, V> hVar) {
+                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, c.i.d.b.h<K, V> hVar) {
                     InterceptResult invokeLLIL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048576, this, segment, k2, i2, hVar)) == null) ? new w(segment.keyReferenceQueue, k2, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048576, this, segment, k, i2, hVar)) == null) ? new w(segment.keyReferenceQueue, k, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
                 }
             };
             WEAK_ACCESS = new EntryFactory("WEAK_ACCESS", 5) { // from class: com.google.common.cache.LocalCache.EntryFactory.6
@@ -366,10 +364,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 }
 
                 @Override // com.google.common.cache.LocalCache.EntryFactory
-                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k2, int i2, c.i.d.b.h<K, V> hVar) {
+                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, c.i.d.b.h<K, V> hVar) {
                     InterceptResult invokeLLIL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k2, i2, hVar)) == null) ? new u(segment.keyReferenceQueue, k2, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new u(segment.keyReferenceQueue, k, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
                 }
             };
             WEAK_WRITE = new EntryFactory("WEAK_WRITE", 6) { // from class: com.google.common.cache.LocalCache.EntryFactory.7
@@ -410,10 +408,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 }
 
                 @Override // com.google.common.cache.LocalCache.EntryFactory
-                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k2, int i2, c.i.d.b.h<K, V> hVar) {
+                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, c.i.d.b.h<K, V> hVar) {
                     InterceptResult invokeLLIL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k2, i2, hVar)) == null) ? new y(segment.keyReferenceQueue, k2, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new y(segment.keyReferenceQueue, k, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
                 }
             };
             EntryFactory entryFactory = new EntryFactory("WEAK_ACCESS_WRITE", 7) { // from class: com.google.common.cache.LocalCache.EntryFactory.8
@@ -455,10 +453,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 }
 
                 @Override // com.google.common.cache.LocalCache.EntryFactory
-                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k2, int i2, c.i.d.b.h<K, V> hVar) {
+                public <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, c.i.d.b.h<K, V> hVar) {
                     InterceptResult invokeLLIL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k2, i2, hVar)) == null) ? new v(segment.keyReferenceQueue, k2, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new v(segment.keyReferenceQueue, k, i2, hVar) : (c.i.d.b.h) invokeLLIL.objValue;
                 }
             };
             WEAK_ACCESS_WRITE = entryFactory;
@@ -541,7 +539,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             }
         }
 
-        public abstract <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k2, int i2, c.i.d.b.h<K, V> hVar);
+        public abstract <K, V> c.i.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, c.i.d.b.h<K, V> hVar);
 
         public /* synthetic */ EntryFactory(String str, int i2, a aVar) {
             this(str, i2);
@@ -591,17 +589,17 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         @Override // c.i.d.b.f, c.i.d.a.g
-        public final V apply(K k2) {
+        public final V apply(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) ? this.autoDelegate.apply(k2) : (V) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.autoDelegate.apply(k) : (V) invokeL.objValue;
         }
 
         @Override // c.i.d.b.f
-        public V get(K k2) throws ExecutionException {
+        public V get(K k) throws ExecutionException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2)) == null) ? this.autoDelegate.get(k2) : (V) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? this.autoDelegate.get(k) : (V) invokeL.objValue;
         }
 
         @Override // c.i.d.b.f
@@ -612,17 +610,17 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         @Override // c.i.d.b.f
-        public V getUnchecked(K k2) {
+        public V getUnchecked(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k2)) == null) ? this.autoDelegate.getUnchecked(k2) : (V) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) ? this.autoDelegate.getUnchecked(k) : (V) invokeL.objValue;
         }
 
         @Override // c.i.d.b.f
-        public void refresh(K k2) {
+        public void refresh(K k) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, k2) == null) {
-                this.autoDelegate.refresh(k2);
+            if (interceptable == null || interceptable.invokeL(1048580, this, k) == null) {
+                this.autoDelegate.refresh(k);
             }
         }
     }
@@ -656,17 +654,17 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         @Override // c.i.d.b.f, c.i.d.a.g
-        public final V apply(K k2) {
+        public final V apply(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) ? getUnchecked(k2) : (V) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? getUnchecked(k) : (V) invokeL.objValue;
         }
 
         @Override // c.i.d.b.f
-        public V get(K k2) throws ExecutionException {
+        public V get(K k) throws ExecutionException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2)) == null) ? this.localCache.p(k2) : (V) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? this.localCache.p(k) : (V) invokeL.objValue;
         }
 
         @Override // c.i.d.b.f
@@ -677,12 +675,12 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         @Override // c.i.d.b.f
-        public V getUnchecked(K k2) {
+        public V getUnchecked(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) {
                 try {
-                    return get(k2);
+                    return get(k);
                 } catch (ExecutionException e2) {
                     throw new UncheckedExecutionException(e2.getCause());
                 }
@@ -691,10 +689,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         @Override // c.i.d.b.f
-        public void refresh(K k2) {
+        public void refresh(K k) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, k2) == null) {
-                this.localCache.F(k2);
+            if (interceptable == null || interceptable.invokeL(1048580, this, k) == null) {
+                this.localCache.F(k);
             }
         }
 
@@ -765,12 +763,12 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         @Override // c.i.d.b.c
-        public V get(K k2, Callable<? extends V> callable) throws ExecutionException {
+        public V get(K k, Callable<? extends V> callable) throws ExecutionException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k2, callable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, callable)) == null) {
                 c.i.d.a.n.p(callable);
-                return this.localCache.k(k2, new a(this, callable));
+                return this.localCache.k(k, new a(this, callable));
             }
             return (V) invokeLL.objValue;
         }
@@ -807,10 +805,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         @Override // c.i.d.b.c
-        public void put(K k2, V v) {
+        public void put(K k, V v) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2, v) == null) {
-                this.localCache.put(k2, v);
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, v) == null) {
+                this.localCache.put(k, v);
             }
         }
 
@@ -836,7 +834,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                 c.i.d.b.a aVar = new c.i.d.b.a();
                 aVar.g(this.localCache.v);
-                for (Segment<K, V> segment : this.localCache.f56582g) {
+                for (Segment<K, V> segment : this.localCache.f54433g) {
                     aVar.g(segment.statsCounter);
                 }
                 return aVar.f();
@@ -918,7 +916,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public ManualSerializationProxy(LocalCache<K, V> localCache) {
-            this(localCache.f56586k, localCache.l, localCache.f56584i, localCache.f56585j, localCache.p, localCache.o, localCache.m, localCache.n, localCache.f56583h, localCache.s, localCache.t, localCache.w);
+            this(localCache.k, localCache.l, localCache.f54435i, localCache.f54436j, localCache.p, localCache.o, localCache.m, localCache.n, localCache.f54434h, localCache.s, localCache.t, localCache.w);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1512,7 +1510,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f56592f;
+        public final int f54442f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a0(V v, int i2) {
@@ -1532,14 +1530,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56592f = i2;
+            this.f54442f = i2;
         }
 
         @Override // com.google.common.cache.LocalCache.p, com.google.common.cache.LocalCache.s
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56592f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54442f : invokeV.intValue;
         }
     }
 
@@ -1616,7 +1614,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f56593f;
+        public final int f54443f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b0(ReferenceQueue<V> referenceQueue, V v, c.i.d.b.h<K, V> hVar, int i2) {
@@ -1637,21 +1635,21 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56593f = i2;
+            this.f54443f = i2;
         }
 
         @Override // com.google.common.cache.LocalCache.x, com.google.common.cache.LocalCache.s
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56593f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54443f : invokeV.intValue;
         }
 
         @Override // com.google.common.cache.LocalCache.x, com.google.common.cache.LocalCache.s
         public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, c.i.d.b.h<K, V> hVar) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, referenceQueue, v, hVar)) == null) ? new b0(referenceQueue, v, hVar, this.f56593f) : (s) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, referenceQueue, v, hVar)) == null) ? new b0(referenceQueue, v, hVar, this.f54443f) : (s) invokeLLL.objValue;
         }
     }
 
@@ -1661,7 +1659,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ConcurrentMap<?, ?> f56594e;
+        public final ConcurrentMap<?, ?> f54444e;
 
         public c(LocalCache localCache, ConcurrentMap<?, ?> concurrentMap) {
             Interceptable interceptable = $ic;
@@ -1678,14 +1676,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56594e = concurrentMap;
+            this.f54444e = concurrentMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56594e.clear();
+                this.f54444e.clear();
             }
         }
 
@@ -1693,14 +1691,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56594e.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54444e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56594e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54444e.size() : invokeV.intValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -1724,7 +1722,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final c.i.d.b.h<K, V> f56595e;
+        public final c.i.d.b.h<K, V> f54445e;
 
         /* loaded from: classes3.dex */
         public class a extends d<K, V> {
@@ -1732,10 +1730,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public c.i.d.b.h<K, V> f56596e;
+            public c.i.d.b.h<K, V> f54446e;
 
             /* renamed from: f  reason: collision with root package name */
-            public c.i.d.b.h<K, V> f56597f;
+            public c.i.d.b.h<K, V> f54447f;
 
             public a(c0 c0Var) {
                 Interceptable interceptable = $ic;
@@ -1752,22 +1750,22 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         return;
                     }
                 }
-                this.f56596e = this;
-                this.f56597f = this;
+                this.f54446e = this;
+                this.f54447f = this;
             }
 
             @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
             public c.i.d.b.h<K, V> getNextInWriteQueue() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56596e : (c.i.d.b.h) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54446e : (c.i.d.b.h) invokeV.objValue;
             }
 
             @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
             public c.i.d.b.h<K, V> getPreviousInWriteQueue() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56597f : (c.i.d.b.h) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54447f : (c.i.d.b.h) invokeV.objValue;
             }
 
             @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
@@ -1784,7 +1782,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             public void setNextInWriteQueue(c.i.d.b.h<K, V> hVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) {
-                    this.f56596e = hVar;
+                    this.f54446e = hVar;
                 }
             }
 
@@ -1792,7 +1790,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             public void setPreviousInWriteQueue(c.i.d.b.h<K, V> hVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
-                    this.f56597f = hVar;
+                    this.f54447f = hVar;
                 }
             }
 
@@ -1810,7 +1808,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c0 f56598f;
+            public final /* synthetic */ c0 f54448f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public b(c0 c0Var, c.i.d.b.h hVar) {
@@ -1830,7 +1828,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         return;
                     }
                 }
-                this.f56598f = c0Var;
+                this.f54448f = c0Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1841,7 +1839,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar)) == null) {
                     c.i.d.b.h<K, V> nextInWriteQueue = hVar.getNextInWriteQueue();
-                    if (nextInWriteQueue == this.f56598f.f56595e) {
+                    if (nextInWriteQueue == this.f54448f.f54445e) {
                         return null;
                     }
                     return nextInWriteQueue;
@@ -1863,7 +1861,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56595e = new a(this);
+            this.f54445e = new a(this);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1874,8 +1872,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) {
                 LocalCache.d(hVar.getPreviousInWriteQueue(), hVar.getNextInWriteQueue());
-                LocalCache.d(this.f56595e.getPreviousInWriteQueue(), hVar);
-                LocalCache.d(hVar, this.f56595e);
+                LocalCache.d(this.f54445e.getPreviousInWriteQueue(), hVar);
+                LocalCache.d(hVar, this.f54445e);
                 return true;
             }
             return invokeL.booleanValue;
@@ -1888,8 +1886,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                c.i.d.b.h<K, V> nextInWriteQueue = this.f56595e.getNextInWriteQueue();
-                if (nextInWriteQueue == this.f56595e) {
+                c.i.d.b.h<K, V> nextInWriteQueue = this.f54445e.getNextInWriteQueue();
+                if (nextInWriteQueue == this.f54445e) {
                     return null;
                 }
                 return nextInWriteQueue;
@@ -1904,8 +1902,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                c.i.d.b.h<K, V> nextInWriteQueue = this.f56595e.getNextInWriteQueue();
-                if (nextInWriteQueue == this.f56595e) {
+                c.i.d.b.h<K, V> nextInWriteQueue = this.f54445e.getNextInWriteQueue();
+                if (nextInWriteQueue == this.f54445e) {
                     return null;
                 }
                 remove(nextInWriteQueue);
@@ -1920,16 +1918,16 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
                 return;
             }
-            c.i.d.b.h<K, V> nextInWriteQueue = this.f56595e.getNextInWriteQueue();
+            c.i.d.b.h<K, V> nextInWriteQueue = this.f54445e.getNextInWriteQueue();
             while (true) {
-                c.i.d.b.h<K, V> hVar = this.f56595e;
+                c.i.d.b.h<K, V> hVar = this.f54445e;
                 if (nextInWriteQueue != hVar) {
                     c.i.d.b.h<K, V> nextInWriteQueue2 = nextInWriteQueue.getNextInWriteQueue();
                     LocalCache.y(nextInWriteQueue);
                     nextInWriteQueue = nextInWriteQueue2;
                 } else {
                     hVar.setNextInWriteQueue(hVar);
-                    c.i.d.b.h<K, V> hVar2 = this.f56595e;
+                    c.i.d.b.h<K, V> hVar2 = this.f54445e;
                     hVar2.setPreviousInWriteQueue(hVar2);
                     return;
                 }
@@ -1947,7 +1945,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56595e.getNextInWriteQueue() == this.f56595e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f54445e.getNextInWriteQueue() == this.f54445e : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -1978,7 +1976,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                 int i2 = 0;
-                for (c.i.d.b.h<K, V> nextInWriteQueue = this.f56595e.getNextInWriteQueue(); nextInWriteQueue != this.f56595e; nextInWriteQueue = nextInWriteQueue.getNextInWriteQueue()) {
+                for (c.i.d.b.h<K, V> nextInWriteQueue = this.f54445e.getNextInWriteQueue(); nextInWriteQueue != this.f54445e; nextInWriteQueue = nextInWriteQueue.getNextInWriteQueue()) {
                     i2++;
                 }
                 return i2;
@@ -2169,20 +2167,20 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f56599e;
+        public final K f54449e;
 
         /* renamed from: f  reason: collision with root package name */
-        public V f56600f;
+        public V f54450f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ LocalCache f56601g;
+        public final /* synthetic */ LocalCache f54451g;
 
-        public d0(LocalCache localCache, K k2, V v) {
+        public d0(LocalCache localCache, K k, V v) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {localCache, k2, v};
+                Object[] objArr = {localCache, k, v};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -2192,9 +2190,9 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56601g = localCache;
-            this.f56599e = k2;
-            this.f56600f = v;
+            this.f54451g = localCache;
+            this.f54449e = k;
+            this.f54450f = v;
         }
 
         @Override // java.util.Map.Entry
@@ -2204,7 +2202,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    return this.f56599e.equals(entry.getKey()) && this.f56600f.equals(entry.getValue());
+                    return this.f54449e.equals(entry.getKey()) && this.f54450f.equals(entry.getValue());
                 }
                 return false;
             }
@@ -2215,21 +2213,21 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56599e : (K) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54449e : (K) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56600f : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54450f : (V) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56599e.hashCode() ^ this.f56600f.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54449e.hashCode() ^ this.f54450f.hashCode() : invokeV.intValue;
         }
 
         @Override // java.util.Map.Entry
@@ -2237,8 +2235,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, v)) == null) {
-                V v2 = (V) this.f56601g.put(this.f56599e, v);
-                this.f56600f = v;
+                V v2 = (V) this.f54451g.put(this.f54449e, v);
+                this.f54450f = v;
                 return v2;
             }
             return (V) invokeL.objValue;
@@ -2260,7 +2258,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final c.i.d.b.h<K, V> f56602e;
+        public final c.i.d.b.h<K, V> f54452e;
 
         /* loaded from: classes3.dex */
         public class a extends d<K, V> {
@@ -2268,10 +2266,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public c.i.d.b.h<K, V> f56603e;
+            public c.i.d.b.h<K, V> f54453e;
 
             /* renamed from: f  reason: collision with root package name */
-            public c.i.d.b.h<K, V> f56604f;
+            public c.i.d.b.h<K, V> f54454f;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -2288,8 +2286,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         return;
                     }
                 }
-                this.f56603e = this;
-                this.f56604f = this;
+                this.f54453e = this;
+                this.f54454f = this;
             }
 
             @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
@@ -2306,14 +2304,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             public c.i.d.b.h<K, V> getNextInAccessQueue() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56603e : (c.i.d.b.h) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54453e : (c.i.d.b.h) invokeV.objValue;
             }
 
             @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
             public c.i.d.b.h<K, V> getPreviousInAccessQueue() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56604f : (c.i.d.b.h) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54454f : (c.i.d.b.h) invokeV.objValue;
             }
 
             @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
@@ -2327,7 +2325,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             public void setNextInAccessQueue(c.i.d.b.h<K, V> hVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
-                    this.f56603e = hVar;
+                    this.f54453e = hVar;
                 }
             }
 
@@ -2335,7 +2333,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             public void setPreviousInAccessQueue(c.i.d.b.h<K, V> hVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048581, this, hVar) == null) {
-                    this.f56604f = hVar;
+                    this.f54454f = hVar;
                 }
             }
         }
@@ -2346,7 +2344,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ e f56605f;
+            public final /* synthetic */ e f54455f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public b(e eVar, c.i.d.b.h hVar) {
@@ -2366,7 +2364,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         return;
                     }
                 }
-                this.f56605f = eVar;
+                this.f54455f = eVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2377,7 +2375,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar)) == null) {
                     c.i.d.b.h<K, V> nextInAccessQueue = hVar.getNextInAccessQueue();
-                    if (nextInAccessQueue == this.f56605f.f56602e) {
+                    if (nextInAccessQueue == this.f54455f.f54452e) {
                         return null;
                     }
                     return nextInAccessQueue;
@@ -2399,7 +2397,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56602e = new a(this);
+            this.f54452e = new a(this);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2410,8 +2408,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) {
                 LocalCache.c(hVar.getPreviousInAccessQueue(), hVar.getNextInAccessQueue());
-                LocalCache.c(this.f56602e.getPreviousInAccessQueue(), hVar);
-                LocalCache.c(hVar, this.f56602e);
+                LocalCache.c(this.f54452e.getPreviousInAccessQueue(), hVar);
+                LocalCache.c(hVar, this.f54452e);
                 return true;
             }
             return invokeL.booleanValue;
@@ -2424,8 +2422,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                c.i.d.b.h<K, V> nextInAccessQueue = this.f56602e.getNextInAccessQueue();
-                if (nextInAccessQueue == this.f56602e) {
+                c.i.d.b.h<K, V> nextInAccessQueue = this.f54452e.getNextInAccessQueue();
+                if (nextInAccessQueue == this.f54452e) {
                     return null;
                 }
                 return nextInAccessQueue;
@@ -2440,8 +2438,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                c.i.d.b.h<K, V> nextInAccessQueue = this.f56602e.getNextInAccessQueue();
-                if (nextInAccessQueue == this.f56602e) {
+                c.i.d.b.h<K, V> nextInAccessQueue = this.f54452e.getNextInAccessQueue();
+                if (nextInAccessQueue == this.f54452e) {
                     return null;
                 }
                 remove(nextInAccessQueue);
@@ -2456,16 +2454,16 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
                 return;
             }
-            c.i.d.b.h<K, V> nextInAccessQueue = this.f56602e.getNextInAccessQueue();
+            c.i.d.b.h<K, V> nextInAccessQueue = this.f54452e.getNextInAccessQueue();
             while (true) {
-                c.i.d.b.h<K, V> hVar = this.f56602e;
+                c.i.d.b.h<K, V> hVar = this.f54452e;
                 if (nextInAccessQueue != hVar) {
                     c.i.d.b.h<K, V> nextInAccessQueue2 = nextInAccessQueue.getNextInAccessQueue();
                     LocalCache.x(nextInAccessQueue);
                     nextInAccessQueue = nextInAccessQueue2;
                 } else {
                     hVar.setNextInAccessQueue(hVar);
-                    c.i.d.b.h<K, V> hVar2 = this.f56602e;
+                    c.i.d.b.h<K, V> hVar2 = this.f54452e;
                     hVar2.setPreviousInAccessQueue(hVar2);
                     return;
                 }
@@ -2483,7 +2481,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56602e.getNextInAccessQueue() == this.f56602e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f54452e.getNextInAccessQueue() == this.f54452e : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -2514,7 +2512,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                 int i2 = 0;
-                for (c.i.d.b.h<K, V> nextInAccessQueue = this.f56602e.getNextInAccessQueue(); nextInAccessQueue != this.f56602e; nextInAccessQueue = nextInAccessQueue.getNextInAccessQueue()) {
+                for (c.i.d.b.h<K, V> nextInAccessQueue = this.f54452e.getNextInAccessQueue(); nextInAccessQueue != this.f54452e; nextInAccessQueue = nextInAccessQueue.getNextInAccessQueue()) {
                     i2++;
                 }
                 return i2;
@@ -2564,7 +2562,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LocalCache f56606f;
+        public final /* synthetic */ LocalCache f54456f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(LocalCache localCache, ConcurrentMap<?, ?> concurrentMap) {
@@ -2585,7 +2583,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56606f = localCache;
+            this.f54456f = localCache;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -2595,14 +2593,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             Object key;
             Object obj2;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && (obj2 = this.f56606f.get(key)) != null && this.f56606f.f56585j.equivalent(entry.getValue(), obj2) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && (obj2 = this.f54456f.get(key)) != null && this.f54456f.f54436j.equivalent(entry.getValue(), obj2) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<Map.Entry<K, V>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new f(this.f56606f) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new f(this.f54456f) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -2611,7 +2609,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             Map.Entry entry;
             Object key;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && this.f56606f.remove(key, entry.getValue()) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && this.f54456f.remove(key, entry.getValue()) : invokeL.booleanValue;
         }
     }
 
@@ -2621,25 +2619,23 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f56607e;
+        public int f54457e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f56608f;
+        public int f54458f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Segment<K, V> f56609g;
+        public Segment<K, V> f54459g;
 
         /* renamed from: h  reason: collision with root package name */
-        public AtomicReferenceArray<c.i.d.b.h<K, V>> f56610h;
+        public AtomicReferenceArray<c.i.d.b.h<K, V>> f54460h;
 
         /* renamed from: i  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56611i;
+        public c.i.d.b.h<K, V> f54461i;
 
         /* renamed from: j  reason: collision with root package name */
-        public LocalCache<K, V>.d0 f56612j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public LocalCache<K, V>.d0 f56613k;
+        public LocalCache<K, V>.d0 f54462j;
+        public LocalCache<K, V>.d0 k;
         public final /* synthetic */ LocalCache l;
 
         public h(LocalCache localCache) {
@@ -2658,8 +2654,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 }
             }
             this.l = localCache;
-            this.f56607e = localCache.f56582g.length - 1;
-            this.f56608f = -1;
+            this.f54457e = localCache.f54433g.length - 1;
+            this.f54458f = -1;
             a();
         }
 
@@ -2668,23 +2664,23 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.f56612j = null;
+            this.f54462j = null;
             if (d() || e()) {
                 return;
             }
             while (true) {
-                int i2 = this.f56607e;
+                int i2 = this.f54457e;
                 if (i2 < 0) {
                     return;
                 }
-                Segment<K, V>[] segmentArr = this.l.f56582g;
-                this.f56607e = i2 - 1;
+                Segment<K, V>[] segmentArr = this.l.f54433g;
+                this.f54457e = i2 - 1;
                 Segment<K, V> segment = segmentArr[i2];
-                this.f56609g = segment;
+                this.f54459g = segment;
                 if (segment.count != 0) {
-                    AtomicReferenceArray<c.i.d.b.h<K, V>> atomicReferenceArray = this.f56609g.table;
-                    this.f56610h = atomicReferenceArray;
-                    this.f56608f = atomicReferenceArray.length() - 1;
+                    AtomicReferenceArray<c.i.d.b.h<K, V>> atomicReferenceArray = this.f54459g.table;
+                    this.f54460h = atomicReferenceArray;
+                    this.f54458f = atomicReferenceArray.length() - 1;
                     if (e()) {
                         return;
                     }
@@ -2702,14 +2698,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     K key = hVar.getKey();
                     Object o = this.l.o(hVar, a);
                     if (o != null) {
-                        this.f56612j = new d0(this.l, key, o);
+                        this.f54462j = new d0(this.l, key, o);
                         z = true;
                     } else {
                         z = false;
                     }
                     return z;
                 } finally {
-                    this.f56609g.postReadCleanup();
+                    this.f54459g.postReadCleanup();
                 }
             }
             return invokeL.booleanValue;
@@ -2719,11 +2715,11 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                LocalCache<K, V>.d0 d0Var = this.f56612j;
+                LocalCache<K, V>.d0 d0Var = this.f54462j;
                 if (d0Var != null) {
-                    this.f56613k = d0Var;
+                    this.k = d0Var;
                     a();
-                    return this.f56613k;
+                    return this.k;
                 }
                 throw new NoSuchElementException();
             }
@@ -2736,20 +2732,20 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
                 return invokeV.booleanValue;
             }
-            c.i.d.b.h<K, V> hVar = this.f56611i;
+            c.i.d.b.h<K, V> hVar = this.f54461i;
             if (hVar == null) {
                 return false;
             }
             while (true) {
-                this.f56611i = hVar.getNext();
-                c.i.d.b.h<K, V> hVar2 = this.f56611i;
+                this.f54461i = hVar.getNext();
+                c.i.d.b.h<K, V> hVar2 = this.f54461i;
                 if (hVar2 == null) {
                     return false;
                 }
                 if (b(hVar2)) {
                     return true;
                 }
-                hVar = this.f56611i;
+                hVar = this.f54461i;
             }
         }
 
@@ -2760,14 +2756,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 return invokeV.booleanValue;
             }
             while (true) {
-                int i2 = this.f56608f;
+                int i2 = this.f54458f;
                 if (i2 < 0) {
                     return false;
                 }
-                AtomicReferenceArray<c.i.d.b.h<K, V>> atomicReferenceArray = this.f56610h;
-                this.f56608f = i2 - 1;
+                AtomicReferenceArray<c.i.d.b.h<K, V>> atomicReferenceArray = this.f54460h;
+                this.f54458f = i2 - 1;
                 c.i.d.b.h<K, V> hVar = atomicReferenceArray.get(i2);
-                this.f56611i = hVar;
+                this.f54461i = hVar;
                 if (hVar != null && (b(hVar) || d())) {
                     return true;
                 }
@@ -2778,16 +2774,16 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56612j != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f54462j != null : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                c.i.d.a.n.w(this.f56613k != null);
-                this.l.remove(this.f56613k.getKey());
-                this.f56613k = null;
+                c.i.d.a.n.w(this.k != null);
+                this.l.remove(this.k.getKey());
+                this.k = null;
             }
         }
     }
@@ -2831,7 +2827,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LocalCache f56614f;
+        public final /* synthetic */ LocalCache f54463f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(LocalCache localCache, ConcurrentMap<?, ?> concurrentMap) {
@@ -2852,28 +2848,28 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56614f = localCache;
+            this.f54463f = localCache;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f56594e.containsKey(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f54444e.containsKey(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<K> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new i(this.f56614f) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new i(this.f54463f) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f56594e.remove(obj) != null : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f54444e.remove(obj) != null : invokeL.booleanValue;
         }
     }
 
@@ -2883,13 +2879,13 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile s<K, V> f56615e;
+        public volatile s<K, V> f54464e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final SettableFuture<V> f56616f;
+        public final SettableFuture<V> f54465f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final c.i.d.a.p f56617g;
+        public final c.i.d.a.p f54466g;
 
         /* loaded from: classes3.dex */
         public class a implements c.i.d.a.g<V, V> {
@@ -2897,7 +2893,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ k f56618e;
+            public final /* synthetic */ k f54467e;
 
             public a(k kVar) {
                 Interceptable interceptable = $ic;
@@ -2914,7 +2910,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         return;
                     }
                 }
-                this.f56618e = kVar;
+                this.f54467e = kVar;
             }
 
             @Override // c.i.d.a.g
@@ -2922,7 +2918,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v)) == null) {
-                    this.f56618e.k(v);
+                    this.f54467e.k(v);
                     return v;
                 }
                 return (V) invokeL.objValue;
@@ -2964,7 +2960,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 if (v != null) {
                     k(v);
                 } else {
-                    this.f56615e = LocalCache.K();
+                    this.f54464e = LocalCache.K();
                 }
             }
         }
@@ -2973,14 +2969,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56615e.c() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54464e.c() : invokeV.intValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public V d() throws ExecutionException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (V) Uninterruptibles.getUninterruptibly(this.f56616f) : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (V) Uninterruptibles.getUninterruptibly(this.f54465f) : (V) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
@@ -3003,14 +2999,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public long g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f56617g.e(TimeUnit.NANOSECONDS) : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f54466g.e(TimeUnit.NANOSECONDS) : invokeV.longValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public V get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f56615e.get() : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f54464e.get() : (V) invokeV.objValue;
         }
 
         public final ListenableFuture<V> h(Throwable th) {
@@ -3022,34 +3018,34 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public s<K, V> i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f56615e : (s) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f54464e : (s) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean isActive() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f56615e.isActive() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f54464e.isActive() : invokeV.booleanValue;
         }
 
-        public ListenableFuture<V> j(K k2, CacheLoader<? super K, V> cacheLoader) {
+        public ListenableFuture<V> j(K k, CacheLoader<? super K, V> cacheLoader) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, k2, cacheLoader)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, k, cacheLoader)) == null) {
                 try {
-                    this.f56617g.h();
-                    V v = this.f56615e.get();
+                    this.f54466g.h();
+                    V v = this.f54464e.get();
                     if (v == null) {
-                        V load = cacheLoader.load(k2);
-                        return k(load) ? this.f56616f : Futures.immediateFuture(load);
+                        V load = cacheLoader.load(k);
+                        return k(load) ? this.f54465f : Futures.immediateFuture(load);
                     }
-                    ListenableFuture<V> reload = cacheLoader.reload(k2, v);
+                    ListenableFuture<V> reload = cacheLoader.reload(k, v);
                     if (reload == null) {
                         return Futures.immediateFuture(null);
                     }
                     return Futures.transform(reload, new a(this), MoreExecutors.directExecutor());
                 } catch (Throwable th) {
-                    ListenableFuture<V> h2 = l(th) ? this.f56616f : h(th);
+                    ListenableFuture<V> h2 = l(th) ? this.f54465f : h(th);
                     if (th instanceof InterruptedException) {
                         Thread.currentThread().interrupt();
                     }
@@ -3062,13 +3058,13 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public boolean k(V v) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, v)) == null) ? this.f56616f.set(v) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, v)) == null) ? this.f54465f.set(v) : invokeL.booleanValue;
         }
 
         public boolean l(Throwable th) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, th)) == null) ? this.f56616f.setException(th) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, th)) == null) ? this.f54465f.setException(th) : invokeL.booleanValue;
         }
 
         public k(s<K, V> sVar) {
@@ -3086,9 +3082,9 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56616f = SettableFuture.create();
-            this.f56617g = c.i.d.a.p.d();
-            this.f56615e = sVar;
+            this.f54465f = SettableFuture.create();
+            this.f54466g = c.i.d.a.p.d();
+            this.f54464e = sVar;
         }
     }
 
@@ -3098,7 +3094,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final c.i.d.b.h<K, V> f56619e;
+        public final c.i.d.b.h<K, V> f54468e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public l(ReferenceQueue<V> referenceQueue, V v, c.i.d.b.h<K, V> hVar) {
@@ -3119,14 +3115,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56619e = hVar;
+            this.f54468e = hVar;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public c.i.d.b.h<K, V> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56619e : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54468e : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
@@ -3187,22 +3183,20 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile long f56620i;
+        public volatile long f54469i;
 
         /* renamed from: j  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56621j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56622k;
+        public c.i.d.b.h<K, V> f54470j;
+        public c.i.d.b.h<K, V> k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public m(K k2, int i2, c.i.d.b.h<K, V> hVar) {
-            super(k2, i2, hVar);
+        public m(K k, int i2, c.i.d.b.h<K, V> hVar) {
+            super(k, i2, hVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k2, Integer.valueOf(i2), hVar};
+                Object[] objArr = {k, Integer.valueOf(i2), hVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -3214,37 +3208,37 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56620i = Long.MAX_VALUE;
-            this.f56621j = LocalCache.w();
-            this.f56622k = LocalCache.w();
+            this.f54469i = Long.MAX_VALUE;
+            this.f54470j = LocalCache.w();
+            this.k = LocalCache.w();
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public long getAccessTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56620i : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54469i : invokeV.longValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public c.i.d.b.h<K, V> getNextInAccessQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56621j : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54470j : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public c.i.d.b.h<K, V> getPreviousInAccessQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56622k : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public void setAccessTime(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-                this.f56620i = j2;
+                this.f54469i = j2;
             }
         }
 
@@ -3252,7 +3246,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setNextInAccessQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
-                this.f56621j = hVar;
+                this.f54470j = hVar;
             }
         }
 
@@ -3260,7 +3254,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setPreviousInAccessQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, hVar) == null) {
-                this.f56622k = hVar;
+                this.k = hVar;
             }
         }
     }
@@ -3271,25 +3265,23 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile long f56623i;
+        public volatile long f54471i;
 
         /* renamed from: j  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56624j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56625k;
+        public c.i.d.b.h<K, V> f54472j;
+        public c.i.d.b.h<K, V> k;
         public volatile long l;
         public c.i.d.b.h<K, V> m;
         public c.i.d.b.h<K, V> n;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public n(K k2, int i2, c.i.d.b.h<K, V> hVar) {
-            super(k2, i2, hVar);
+        public n(K k, int i2, c.i.d.b.h<K, V> hVar) {
+            super(k, i2, hVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k2, Integer.valueOf(i2), hVar};
+                Object[] objArr = {k, Integer.valueOf(i2), hVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -3301,9 +3293,9 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56623i = Long.MAX_VALUE;
-            this.f56624j = LocalCache.w();
-            this.f56625k = LocalCache.w();
+            this.f54471i = Long.MAX_VALUE;
+            this.f54472j = LocalCache.w();
+            this.k = LocalCache.w();
             this.l = Long.MAX_VALUE;
             this.m = LocalCache.w();
             this.n = LocalCache.w();
@@ -3313,14 +3305,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public long getAccessTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56623i : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54471i : invokeV.longValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public c.i.d.b.h<K, V> getNextInAccessQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56624j : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54472j : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
@@ -3334,7 +3326,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public c.i.d.b.h<K, V> getPreviousInAccessQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56625k : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
@@ -3355,7 +3347,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setAccessTime(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-                this.f56623i = j2;
+                this.f54471i = j2;
             }
         }
 
@@ -3363,7 +3355,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setNextInAccessQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, hVar) == null) {
-                this.f56624j = hVar;
+                this.f54472j = hVar;
             }
         }
 
@@ -3379,7 +3371,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setPreviousInAccessQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, hVar) == null) {
-                this.f56625k = hVar;
+                this.k = hVar;
             }
         }
 
@@ -3406,23 +3398,23 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f56626e;
+        public final K f54473e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f56627f;
+        public final int f54474f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final c.i.d.b.h<K, V> f56628g;
+        public final c.i.d.b.h<K, V> f54475g;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile s<K, V> f56629h;
+        public volatile s<K, V> f54476h;
 
-        public o(K k2, int i2, c.i.d.b.h<K, V> hVar) {
+        public o(K k, int i2, c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k2, Integer.valueOf(i2), hVar};
+                Object[] objArr = {k, Integer.valueOf(i2), hVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -3432,45 +3424,45 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56629h = LocalCache.K();
-            this.f56626e = k2;
-            this.f56627f = i2;
-            this.f56628g = hVar;
+            this.f54476h = LocalCache.K();
+            this.f54473e = k;
+            this.f54474f = i2;
+            this.f54475g = hVar;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public int getHash() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56627f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54474f : invokeV.intValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56626e : (K) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54473e : (K) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public c.i.d.b.h<K, V> getNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56628g : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54475g : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public s<K, V> getValueReference() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56629h : (s) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54476h : (s) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public void setValueReference(s<K, V> sVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, sVar) == null) {
-                this.f56629h = sVar;
+                this.f54476h = sVar;
             }
         }
     }
@@ -3481,7 +3473,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final V f56630e;
+        public final V f54477e;
 
         public p(V v) {
             Interceptable interceptable = $ic;
@@ -3498,7 +3490,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56630e = v;
+            this.f54477e = v;
         }
 
         @Override // com.google.common.cache.LocalCache.s
@@ -3556,7 +3548,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public V get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f56630e : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f54477e : (V) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
@@ -3576,22 +3568,20 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile long f56631i;
+        public volatile long f54478i;
 
         /* renamed from: j  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56632j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56633k;
+        public c.i.d.b.h<K, V> f54479j;
+        public c.i.d.b.h<K, V> k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public q(K k2, int i2, c.i.d.b.h<K, V> hVar) {
-            super(k2, i2, hVar);
+        public q(K k, int i2, c.i.d.b.h<K, V> hVar) {
+            super(k, i2, hVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k2, Integer.valueOf(i2), hVar};
+                Object[] objArr = {k, Integer.valueOf(i2), hVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -3603,37 +3593,37 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56631i = Long.MAX_VALUE;
-            this.f56632j = LocalCache.w();
-            this.f56633k = LocalCache.w();
+            this.f54478i = Long.MAX_VALUE;
+            this.f54479j = LocalCache.w();
+            this.k = LocalCache.w();
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public c.i.d.b.h<K, V> getNextInWriteQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56632j : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54479j : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public c.i.d.b.h<K, V> getPreviousInWriteQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56633k : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public long getWriteTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56631i : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54478i : invokeV.longValue;
         }
 
         @Override // com.google.common.cache.LocalCache.d, c.i.d.b.h
         public void setNextInWriteQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) {
-                this.f56632j = hVar;
+                this.f54479j = hVar;
             }
         }
 
@@ -3641,7 +3631,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setPreviousInWriteQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
-                this.f56633k = hVar;
+                this.k = hVar;
             }
         }
 
@@ -3649,7 +3639,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setWriteTime(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.f56631i = j2;
+                this.f54478i = j2;
             }
         }
     }
@@ -3712,10 +3702,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ConcurrentMap<?, ?> f56634e;
+        public final ConcurrentMap<?, ?> f54480e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LocalCache f56635f;
+        public final /* synthetic */ LocalCache f54481f;
 
         public t(LocalCache localCache, ConcurrentMap<?, ?> concurrentMap) {
             Interceptable interceptable = $ic;
@@ -3732,15 +3722,15 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56635f = localCache;
-            this.f56634e = concurrentMap;
+            this.f54481f = localCache;
+            this.f54480e = concurrentMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56634e.clear();
+                this.f54480e.clear();
             }
         }
 
@@ -3748,28 +3738,28 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f56634e.containsValue(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f54480e.containsValue(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56634e.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54480e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
         public Iterator<V> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new r(this.f56635f) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new r(this.f54481f) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f56634e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54480e.size() : invokeV.intValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
@@ -3793,22 +3783,22 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile long f56636h;
+        public volatile long f54482h;
 
         /* renamed from: i  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56637i;
+        public c.i.d.b.h<K, V> f54483i;
 
         /* renamed from: j  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56638j;
+        public c.i.d.b.h<K, V> f54484j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public u(ReferenceQueue<K> referenceQueue, K k2, int i2, c.i.d.b.h<K, V> hVar) {
-            super(referenceQueue, k2, i2, hVar);
+        public u(ReferenceQueue<K> referenceQueue, K k, int i2, c.i.d.b.h<K, V> hVar) {
+            super(referenceQueue, k, i2, hVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {referenceQueue, k2, Integer.valueOf(i2), hVar};
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), hVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -3820,37 +3810,37 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56636h = Long.MAX_VALUE;
-            this.f56637i = LocalCache.w();
-            this.f56638j = LocalCache.w();
+            this.f54482h = Long.MAX_VALUE;
+            this.f54483i = LocalCache.w();
+            this.f54484j = LocalCache.w();
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
         public long getAccessTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56636h : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54482h : invokeV.longValue;
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
         public c.i.d.b.h<K, V> getNextInAccessQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56637i : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54483i : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
         public c.i.d.b.h<K, V> getPreviousInAccessQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56638j : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54484j : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
         public void setAccessTime(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-                this.f56636h = j2;
+                this.f54482h = j2;
             }
         }
 
@@ -3858,7 +3848,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setNextInAccessQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
-                this.f56637i = hVar;
+                this.f54483i = hVar;
             }
         }
 
@@ -3866,7 +3856,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setPreviousInAccessQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, hVar) == null) {
-                this.f56638j = hVar;
+                this.f54484j = hVar;
             }
         }
     }
@@ -3877,27 +3867,25 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile long f56639h;
+        public volatile long f54485h;
 
         /* renamed from: i  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56640i;
+        public c.i.d.b.h<K, V> f54486i;
 
         /* renamed from: j  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56641j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public volatile long f56642k;
+        public c.i.d.b.h<K, V> f54487j;
+        public volatile long k;
         public c.i.d.b.h<K, V> l;
         public c.i.d.b.h<K, V> m;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public v(ReferenceQueue<K> referenceQueue, K k2, int i2, c.i.d.b.h<K, V> hVar) {
-            super(referenceQueue, k2, i2, hVar);
+        public v(ReferenceQueue<K> referenceQueue, K k, int i2, c.i.d.b.h<K, V> hVar) {
+            super(referenceQueue, k, i2, hVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {referenceQueue, k2, Integer.valueOf(i2), hVar};
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), hVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -3909,10 +3897,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56639h = Long.MAX_VALUE;
-            this.f56640i = LocalCache.w();
-            this.f56641j = LocalCache.w();
-            this.f56642k = Long.MAX_VALUE;
+            this.f54485h = Long.MAX_VALUE;
+            this.f54486i = LocalCache.w();
+            this.f54487j = LocalCache.w();
+            this.k = Long.MAX_VALUE;
             this.l = LocalCache.w();
             this.m = LocalCache.w();
         }
@@ -3921,14 +3909,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public long getAccessTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56639h : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54485h : invokeV.longValue;
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
         public c.i.d.b.h<K, V> getNextInAccessQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56640i : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54486i : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
@@ -3942,7 +3930,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public c.i.d.b.h<K, V> getPreviousInAccessQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56641j : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54487j : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
@@ -3956,14 +3944,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public long getWriteTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56642k : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : invokeV.longValue;
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
         public void setAccessTime(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-                this.f56639h = j2;
+                this.f54485h = j2;
             }
         }
 
@@ -3971,7 +3959,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setNextInAccessQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, hVar) == null) {
-                this.f56640i = hVar;
+                this.f54486i = hVar;
             }
         }
 
@@ -3987,7 +3975,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setPreviousInAccessQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, hVar) == null) {
-                this.f56641j = hVar;
+                this.f54487j = hVar;
             }
         }
 
@@ -4003,7 +3991,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setWriteTime(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-                this.f56642k = j2;
+                this.k = j2;
             }
         }
     }
@@ -4014,22 +4002,22 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f56643e;
+        public final int f54488e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final c.i.d.b.h<K, V> f56644f;
+        public final c.i.d.b.h<K, V> f54489f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile s<K, V> f56645g;
+        public volatile s<K, V> f54490g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public w(ReferenceQueue<K> referenceQueue, K k2, int i2, c.i.d.b.h<K, V> hVar) {
-            super(k2, referenceQueue);
+        public w(ReferenceQueue<K> referenceQueue, K k, int i2, c.i.d.b.h<K, V> hVar) {
+            super(k, referenceQueue);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {referenceQueue, k2, Integer.valueOf(i2), hVar};
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), hVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -4041,9 +4029,9 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56645g = LocalCache.K();
-            this.f56643e = i2;
-            this.f56644f = hVar;
+            this.f54490g = LocalCache.K();
+            this.f54488e = i2;
+            this.f54489f = hVar;
         }
 
         public long getAccessTime() {
@@ -4059,7 +4047,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public int getHash() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56643e : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54488e : invokeV.intValue;
         }
 
         @Override // c.i.d.b.h
@@ -4073,7 +4061,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public c.i.d.b.h<K, V> getNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56644f : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54489f : (c.i.d.b.h) invokeV.objValue;
         }
 
         public c.i.d.b.h<K, V> getNextInAccessQueue() {
@@ -4116,7 +4104,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public s<K, V> getValueReference() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f56645g : (s) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f54490g : (s) invokeV.objValue;
         }
 
         public long getWriteTime() {
@@ -4167,7 +4155,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setValueReference(s<K, V> sVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048591, this, sVar) == null) {
-                this.f56645g = sVar;
+                this.f54490g = sVar;
             }
         }
 
@@ -4185,7 +4173,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final c.i.d.b.h<K, V> f56646e;
+        public final c.i.d.b.h<K, V> f54491e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public x(ReferenceQueue<V> referenceQueue, V v, c.i.d.b.h<K, V> hVar) {
@@ -4206,14 +4194,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56646e = hVar;
+            this.f54491e = hVar;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public c.i.d.b.h<K, V> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56646e : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54491e : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
@@ -4272,22 +4260,22 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile long f56647h;
+        public volatile long f54492h;
 
         /* renamed from: i  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56648i;
+        public c.i.d.b.h<K, V> f54493i;
 
         /* renamed from: j  reason: collision with root package name */
-        public c.i.d.b.h<K, V> f56649j;
+        public c.i.d.b.h<K, V> f54494j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public y(ReferenceQueue<K> referenceQueue, K k2, int i2, c.i.d.b.h<K, V> hVar) {
-            super(referenceQueue, k2, i2, hVar);
+        public y(ReferenceQueue<K> referenceQueue, K k, int i2, c.i.d.b.h<K, V> hVar) {
+            super(referenceQueue, k, i2, hVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {referenceQueue, k2, Integer.valueOf(i2), hVar};
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), hVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -4299,37 +4287,37 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56647h = Long.MAX_VALUE;
-            this.f56648i = LocalCache.w();
-            this.f56649j = LocalCache.w();
+            this.f54492h = Long.MAX_VALUE;
+            this.f54493i = LocalCache.w();
+            this.f54494j = LocalCache.w();
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
         public c.i.d.b.h<K, V> getNextInWriteQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56648i : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54493i : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
         public c.i.d.b.h<K, V> getPreviousInWriteQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56649j : (c.i.d.b.h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54494j : (c.i.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
         public long getWriteTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56647h : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54492h : invokeV.longValue;
         }
 
         @Override // com.google.common.cache.LocalCache.w, c.i.d.b.h
         public void setNextInWriteQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) {
-                this.f56648i = hVar;
+                this.f54493i = hVar;
             }
         }
 
@@ -4337,7 +4325,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setPreviousInWriteQueue(c.i.d.b.h<K, V> hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
-                this.f56649j = hVar;
+                this.f54494j = hVar;
             }
         }
 
@@ -4345,7 +4333,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public void setWriteTime(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.f56647h = j2;
+                this.f54492h = j2;
             }
         }
     }
@@ -4356,7 +4344,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f56650f;
+        public final int f54495f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public z(ReferenceQueue<V> referenceQueue, V v, c.i.d.b.h<K, V> hVar, int i2) {
@@ -4377,21 +4365,21 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     return;
                 }
             }
-            this.f56650f = i2;
+            this.f54495f = i2;
         }
 
         @Override // com.google.common.cache.LocalCache.l, com.google.common.cache.LocalCache.s
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56650f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54495f : invokeV.intValue;
         }
 
         @Override // com.google.common.cache.LocalCache.l, com.google.common.cache.LocalCache.s
         public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, c.i.d.b.h<K, V> hVar) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, referenceQueue, v, hVar)) == null) ? new z(referenceQueue, v, hVar, this.f56650f) : (s) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, referenceQueue, v, hVar)) == null) ? new z(referenceQueue, v, hVar, this.f54495f) : (s) invokeLLL.objValue;
         }
     }
 
@@ -4428,11 +4416,11 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 return;
             }
         }
-        this.f56583h = Math.min(cacheBuilder.h(), 65536);
-        this.f56586k = cacheBuilder.m();
+        this.f54434h = Math.min(cacheBuilder.h(), 65536);
+        this.k = cacheBuilder.m();
         this.l = cacheBuilder.t();
-        this.f56584i = cacheBuilder.l();
-        this.f56585j = cacheBuilder.s();
+        this.f54435i = cacheBuilder.l();
+        this.f54436j = cacheBuilder.s();
         this.m = cacheBuilder.n();
         this.n = (c.i.d.b.j<K, V>) cacheBuilder.u();
         this.o = cacheBuilder.i();
@@ -4442,7 +4430,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         this.s = iVar;
         this.r = iVar == CacheBuilder.NullListener.INSTANCE ? g() : new ConcurrentLinkedQueue<>();
         this.t = cacheBuilder.r(D());
-        this.u = EntryFactory.getFactory(this.f56586k, L(), P());
+        this.u = EntryFactory.getFactory(this.k, L(), P());
         this.v = cacheBuilder.q().get();
         this.w = cacheLoader;
         int min = Math.min(cacheBuilder.k(), 1073741824);
@@ -4453,13 +4441,13 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         int i5 = 1;
         int i6 = 1;
         int i7 = 0;
-        while (i6 < this.f56583h && (!h() || i6 * 20 <= this.m)) {
+        while (i6 < this.f54434h && (!h() || i6 * 20 <= this.m)) {
             i7++;
             i6 <<= 1;
         }
-        this.f56581f = 32 - i7;
-        this.f56580e = i6 - 1;
-        this.f56582g = v(i6);
+        this.f54432f = 32 - i7;
+        this.f54431e = i6 - 1;
+        this.f54433g = v(i6);
         int i8 = min / i6;
         while (i5 < (i8 * i6 < min ? i8 + 1 : i8)) {
             i5 <<= 1;
@@ -4469,17 +4457,17 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             long j3 = i6;
             long j4 = (j2 / j3) + 1;
             long j5 = j2 % j3;
-            while (i4 < this.f56582g.length) {
+            while (i4 < this.f54433g.length) {
                 if (i4 == j5) {
                     j4--;
                 }
-                this.f56582g[i4] = e(i5, j4, cacheBuilder.q().get());
+                this.f54433g[i4] = e(i5, j4, cacheBuilder.q().get());
                 i4++;
             }
             return;
         }
         while (true) {
-            Segment<K, V>[] segmentArr = this.f56582g;
+            Segment<K, V>[] segmentArr = this.f54433g;
             if (i4 >= segmentArr.length) {
                 return;
             }
@@ -4618,7 +4606,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public Segment<K, V> I(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.f56582g[(i2 >>> this.f56581f) & this.f56580e] : (Segment) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.f54433g[(i2 >>> this.f54432f) & this.f54431e] : (Segment) invokeI.objValue;
     }
 
     public boolean L() {
@@ -4636,7 +4624,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public boolean N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f56586k != Strength.STRONG : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k != Strength.STRONG : invokeV.booleanValue;
     }
 
     public boolean O() {
@@ -4660,7 +4648,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            for (Segment<K, V> segment : this.f56582g) {
+            for (Segment<K, V> segment : this.f54433g) {
                 segment.cleanUp();
             }
         }
@@ -4670,7 +4658,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            for (Segment<K, V> segment : this.f56582g) {
+            for (Segment<K, V> segment : this.f54433g) {
                 segment.clear();
             }
         }
@@ -4699,7 +4687,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 return false;
             }
             long a2 = this.t.a();
-            Segment<K, V>[] segmentArr = this.f56582g;
+            Segment<K, V>[] segmentArr = this.f54433g;
             long j2 = -1;
             int i2 = 0;
             while (i2 < 3) {
@@ -4716,7 +4704,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                             Segment<K, V>[] segmentArr2 = segmentArr;
                             V liveValue = segment.getLiveValue(hVar, a2);
                             long j4 = a2;
-                            if (liveValue != null && this.f56585j.equivalent(obj, liveValue)) {
+                            if (liveValue != null && this.f54436j.equivalent(obj, liveValue)) {
                                 return true;
                             }
                             hVar = hVar.getNext();
@@ -4813,7 +4801,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            Segment<K, V>[] segmentArr = this.f56582g;
+            Segment<K, V>[] segmentArr = this.f54433g;
             long j2 = 0;
             for (int i2 = 0; i2 < segmentArr.length; i2++) {
                 if (segmentArr[i2].count != 0) {
@@ -5019,7 +5007,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public int q(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, obj)) == null) ? H(this.f56584i.hash(obj)) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, obj)) == null) ? H(this.f54435i.hash(obj)) : invokeL.intValue;
     }
 
     public void r(Iterable<?> iterable) {
@@ -5162,7 +5150,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             long j2 = 0;
-            for (Segment<K, V> segment : this.f56582g) {
+            for (Segment<K, V> segment : this.f54433g) {
                 j2 += Math.max(0, segment.count);
             }
             return j2;
@@ -5262,19 +5250,19 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Object f56587e;
+            public final /* synthetic */ Object f54437e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f56588f;
+            public final /* synthetic */ int f54438f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ k f56589g;
+            public final /* synthetic */ k f54439g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ ListenableFuture f56590h;
+            public final /* synthetic */ ListenableFuture f54440h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ Segment f56591i;
+            public final /* synthetic */ Segment f54441i;
 
             public a(Segment segment, Object obj, int i2, k kVar, ListenableFuture listenableFuture) {
                 Interceptable interceptable = $ic;
@@ -5291,11 +5279,11 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         return;
                     }
                 }
-                this.f56591i = segment;
-                this.f56587e = obj;
-                this.f56588f = i2;
-                this.f56589g = kVar;
-                this.f56590h = listenableFuture;
+                this.f54441i = segment;
+                this.f54437e = obj;
+                this.f54438f = i2;
+                this.f54439g = kVar;
+                this.f54440h = listenableFuture;
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.google.common.cache.LocalCache$Segment */
@@ -5305,10 +5293,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        this.f56591i.getAndRecordStats(this.f56587e, this.f56588f, this.f56589g, this.f56590h);
+                        this.f54441i.getAndRecordStats(this.f54437e, this.f54438f, this.f54439g, this.f54440h);
                     } catch (Throwable th) {
                         LocalCache.A.log(Level.WARNING, "Exception thrown during refresh", th);
-                        this.f56589g.l(th);
+                        this.f54439g.l(th);
                     }
                 }
             }
@@ -5449,7 +5437,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         for (int i2 = 0; i2 < length; i2++) {
                             for (c.i.d.b.h<K, V> hVar = atomicReferenceArray.get(i2); hVar != null; hVar = hVar.getNext()) {
                                 V liveValue = getLiveValue(hVar, a2);
-                                if (liveValue != null && this.map.f56585j.equivalent(obj, liveValue)) {
+                                if (liveValue != null && this.map.f54436j.equivalent(obj, liveValue)) {
                                     postReadCleanup();
                                     return true;
                                 }
@@ -5541,15 +5529,15 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             }
         }
 
-        public void enqueueNotification(K k2, int i2, V v, int i3, RemovalCause removalCause) {
+        public void enqueueNotification(K k, int i2, V v, int i3, RemovalCause removalCause) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{k2, Integer.valueOf(i2), v, Integer.valueOf(i3), removalCause}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{k, Integer.valueOf(i2), v, Integer.valueOf(i3), removalCause}) == null) {
                 this.totalWeight -= i3;
                 if (removalCause.wasEvicted()) {
                     this.statsCounter.b();
                 }
                 if (this.map.r != LocalCache.C) {
-                    this.map.r.offer(RemovalNotification.create(k2, v, removalCause));
+                    this.map.r.offer(RemovalNotification.create(k, v, removalCause));
                 }
             }
         }
@@ -5639,29 +5627,29 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             }
         }
 
-        public V get(K k2, int i2, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
+        public V get(K k, int i2, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
             InterceptResult invokeLIL;
             c.i.d.b.h<K, V> entry;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048593, this, k2, i2, cacheLoader)) == null) {
-                c.i.d.a.n.p(k2);
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048593, this, k, i2, cacheLoader)) == null) {
+                c.i.d.a.n.p(k);
                 c.i.d.a.n.p(cacheLoader);
                 try {
                     try {
-                        if (this.count != 0 && (entry = getEntry(k2, i2)) != null) {
+                        if (this.count != 0 && (entry = getEntry(k, i2)) != null) {
                             long a2 = this.map.t.a();
                             V liveValue = getLiveValue(entry, a2);
                             if (liveValue != null) {
                                 recordRead(entry, a2);
                                 this.statsCounter.a(1);
-                                return scheduleRefresh(entry, k2, i2, liveValue, a2, cacheLoader);
+                                return scheduleRefresh(entry, k, i2, liveValue, a2, cacheLoader);
                             }
                             s<K, V> valueReference = entry.getValueReference();
                             if (valueReference.e()) {
-                                return waitForLoadingValue(entry, k2, valueReference);
+                                return waitForLoadingValue(entry, k, valueReference);
                             }
                         }
-                        return lockedGetOrLoad(k2, i2, cacheLoader);
+                        return lockedGetOrLoad(k, i2, cacheLoader);
                     } catch (ExecutionException e2) {
                         Throwable cause = e2.getCause();
                         if (!(cause instanceof Error)) {
@@ -5679,11 +5667,11 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             return (V) invokeLIL.objValue;
         }
 
-        public V getAndRecordStats(K k2, int i2, k<K, V> kVar, ListenableFuture<V> listenableFuture) throws ExecutionException {
+        public V getAndRecordStats(K k, int i2, k<K, V> kVar, ListenableFuture<V> listenableFuture) throws ExecutionException {
             V v;
             InterceptResult invokeLILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048594, this, k2, i2, kVar, listenableFuture)) == null) {
+            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048594, this, k, i2, kVar, listenableFuture)) == null) {
                 try {
                     v = (V) Uninterruptibles.getUninterruptibly(listenableFuture);
                 } catch (Throwable th) {
@@ -5693,19 +5681,19 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 try {
                     if (v != null) {
                         this.statsCounter.c(kVar.g());
-                        storeLoadedValue(k2, i2, kVar, v);
+                        storeLoadedValue(k, i2, kVar, v);
                         if (v == null) {
                             this.statsCounter.e(kVar.g());
-                            removeLoadingValue(k2, i2, kVar);
+                            removeLoadingValue(k, i2, kVar);
                         }
                         return v;
                     }
-                    throw new CacheLoader.InvalidCacheLoadException("CacheLoader returned null for key " + k2 + ".");
+                    throw new CacheLoader.InvalidCacheLoadException("CacheLoader returned null for key " + k + ".");
                 } catch (Throwable th2) {
                     th = th2;
                     if (v == null) {
                         this.statsCounter.e(kVar.g());
-                        removeLoadingValue(k2, i2, kVar);
+                        removeLoadingValue(k, i2, kVar);
                     }
                     throw th;
                 }
@@ -5722,7 +5710,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         K key = first.getKey();
                         if (key == null) {
                             tryDrainReferenceQueues();
-                        } else if (this.map.f56584i.equivalent(obj, key)) {
+                        } else if (this.map.f54435i.equivalent(obj, key)) {
                             return first;
                         }
                     }
@@ -5809,10 +5797,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             }
         }
 
-        public k<K, V> insertLoadingValueReference(K k2, int i2, boolean z) {
+        public k<K, V> insertLoadingValueReference(K k, int i2, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{k2, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{k, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
                 lock();
                 try {
                     long a2 = this.map.t.a();
@@ -5822,7 +5810,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     c.i.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
                     for (c.i.d.b.h<K, V> hVar2 = hVar; hVar2 != null; hVar2 = hVar2.getNext()) {
                         K key = hVar2.getKey();
-                        if (hVar2.getHash() == i2 && key != null && this.map.f56584i.equivalent(k2, key)) {
+                        if (hVar2.getHash() == i2 && key != null && this.map.f54435i.equivalent(k, key)) {
                             s<K, V> valueReference = hVar2.getValueReference();
                             if (!valueReference.e() && (!z || a2 - hVar2.getWriteTime() >= this.map.q)) {
                                 this.modCount++;
@@ -5835,7 +5823,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     }
                     this.modCount++;
                     k<K, V> kVar2 = new k<>();
-                    c.i.d.b.h<K, V> newEntry = newEntry(k2, i2, hVar);
+                    c.i.d.b.h<K, V> newEntry = newEntry(k, i2, hVar);
                     newEntry.setValueReference(kVar2);
                     atomicReferenceArray.set(length, newEntry);
                     return kVar2;
@@ -5847,31 +5835,31 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             return (k) invokeCommon.objValue;
         }
 
-        public ListenableFuture<V> loadAsync(K k2, int i2, k<K, V> kVar, CacheLoader<? super K, V> cacheLoader) {
+        public ListenableFuture<V> loadAsync(K k, int i2, k<K, V> kVar, CacheLoader<? super K, V> cacheLoader) {
             InterceptResult invokeLILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048602, this, k2, i2, kVar, cacheLoader)) == null) {
-                ListenableFuture<V> j2 = kVar.j(k2, cacheLoader);
-                j2.addListener(new a(this, k2, i2, kVar, j2), MoreExecutors.directExecutor());
+            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048602, this, k, i2, kVar, cacheLoader)) == null) {
+                ListenableFuture<V> j2 = kVar.j(k, cacheLoader);
+                j2.addListener(new a(this, k, i2, kVar, j2), MoreExecutors.directExecutor());
                 return j2;
             }
             return (ListenableFuture) invokeLILL.objValue;
         }
 
-        public V loadSync(K k2, int i2, k<K, V> kVar, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
+        public V loadSync(K k, int i2, k<K, V> kVar, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
             InterceptResult invokeLILL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048603, this, k2, i2, kVar, cacheLoader)) == null) ? getAndRecordStats(k2, i2, kVar, kVar.j(k2, cacheLoader)) : (V) invokeLILL.objValue;
+            return (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048603, this, k, i2, kVar, cacheLoader)) == null) ? getAndRecordStats(k, i2, kVar, kVar.j(k, cacheLoader)) : (V) invokeLILL.objValue;
         }
 
-        public V lockedGetOrLoad(K k2, int i2, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
+        public V lockedGetOrLoad(K k, int i2, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
             InterceptResult invokeLIL;
             k<K, V> kVar;
             s<K, V> sVar;
             boolean z;
             V loadSync;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048604, this, k2, i2, cacheLoader)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048604, this, k, i2, cacheLoader)) == null) {
                 lock();
                 try {
                     long a2 = this.map.t.a();
@@ -5888,7 +5876,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                             break;
                         }
                         K key = hVar2.getKey();
-                        if (hVar2.getHash() == i2 && key != null && this.map.f56584i.equivalent(k2, key)) {
+                        if (hVar2.getHash() == i2 && key != null && this.map.f54435i.equivalent(k, key)) {
                             s<K, V> valueReference = hVar2.getValueReference();
                             if (valueReference.e()) {
                                 z = false;
@@ -5917,7 +5905,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     if (z) {
                         kVar = new k<>();
                         if (hVar2 == null) {
-                            hVar2 = newEntry(k2, i2, hVar);
+                            hVar2 = newEntry(k, i2, hVar);
                             hVar2.setValueReference(kVar);
                             atomicReferenceArray.set(length, hVar2);
                         } else {
@@ -5927,14 +5915,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     if (z) {
                         try {
                             synchronized (hVar2) {
-                                loadSync = loadSync(k2, i2, kVar, cacheLoader);
+                                loadSync = loadSync(k, i2, kVar, cacheLoader);
                             }
                             return loadSync;
                         } finally {
                             this.statsCounter.d(1);
                         }
                     }
-                    return waitForLoadingValue(hVar2, k2, sVar);
+                    return waitForLoadingValue(hVar2, k, sVar);
                 } finally {
                     unlock();
                     postWriteCleanup();
@@ -5943,13 +5931,13 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             return (V) invokeLIL.objValue;
         }
 
-        public c.i.d.b.h<K, V> newEntry(K k2, int i2, c.i.d.b.h<K, V> hVar) {
+        public c.i.d.b.h<K, V> newEntry(K k, int i2, c.i.d.b.h<K, V> hVar) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048605, this, k2, i2, hVar)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048605, this, k, i2, hVar)) == null) {
                 EntryFactory entryFactory = this.map.u;
-                c.i.d.a.n.p(k2);
-                return entryFactory.newEntry(this, k2, i2, hVar);
+                c.i.d.a.n.p(k);
+                return entryFactory.newEntry(this, k, i2, hVar);
             }
             return (c.i.d.b.h) invokeLIL.objValue;
         }
@@ -5987,11 +5975,11 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public V put(K k2, int i2, V v, boolean z) {
+        public V put(K k, int i2, V v, boolean z) {
             InterceptResult invokeCommon;
             int i3;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{k2, Integer.valueOf(i2), v, Boolean.valueOf(z)})) != null) {
+            if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{k, Integer.valueOf(i2), v, Boolean.valueOf(z)})) != null) {
                 return (V) invokeCommon.objValue;
             }
             lock();
@@ -6008,7 +5996,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 while (true) {
                     if (hVar2 != null) {
                         K key = hVar2.getKey();
-                        if (hVar2.getHash() == i2 && key != null && this.map.f56584i.equivalent(k2, key)) {
+                        if (hVar2.getHash() == i2 && key != null && this.map.f54435i.equivalent(k, key)) {
                             s<K, V> valueReference = hVar2.getValueReference();
                             V v2 = valueReference.get();
                             if (v2 != null) {
@@ -6016,19 +6004,19 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                                     recordLockedRead(hVar2, a2);
                                 } else {
                                     this.modCount++;
-                                    enqueueNotification(k2, i2, v2, valueReference.c(), RemovalCause.REPLACED);
-                                    setValue(hVar2, k2, v, a2);
+                                    enqueueNotification(k, i2, v2, valueReference.c(), RemovalCause.REPLACED);
+                                    setValue(hVar2, k, v, a2);
                                     evictEntries(hVar2);
                                 }
                                 return v2;
                             }
                             this.modCount++;
                             if (valueReference.isActive()) {
-                                enqueueNotification(k2, i2, v2, valueReference.c(), RemovalCause.COLLECTED);
-                                setValue(hVar2, k2, v, a2);
+                                enqueueNotification(k, i2, v2, valueReference.c(), RemovalCause.COLLECTED);
+                                setValue(hVar2, k, v, a2);
                                 i3 = this.count;
                             } else {
-                                setValue(hVar2, k2, v, a2);
+                                setValue(hVar2, k, v, a2);
                                 i3 = this.count + 1;
                             }
                             this.count = i3;
@@ -6038,8 +6026,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         }
                     } else {
                         this.modCount++;
-                        c.i.d.b.h<K, V> newEntry = newEntry(k2, i2, hVar);
-                        setValue(newEntry, k2, v, a2);
+                        c.i.d.b.h<K, V> newEntry = newEntry(k, i2, hVar);
+                        setValue(newEntry, k, v, a2);
                         atomicReferenceArray.set(length, newEntry);
                         this.count++;
                         evictEntries(newEntry);
@@ -6079,10 +6067,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, INVOKE]}, finally: {[INVOKE, INVOKE, INVOKE, IF] complete} */
-        public boolean reclaimValue(K k2, int i2, s<K, V> sVar) {
+        public boolean reclaimValue(K k, int i2, s<K, V> sVar) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048612, this, k2, i2, sVar)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048612, this, k, i2, sVar)) == null) {
                 lock();
                 try {
                     AtomicReferenceArray<c.i.d.b.h<K, V>> atomicReferenceArray = this.table;
@@ -6090,7 +6078,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     c.i.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
                     for (c.i.d.b.h<K, V> hVar2 = hVar; hVar2 != null; hVar2 = hVar2.getNext()) {
                         K key = hVar2.getKey();
-                        if (hVar2.getHash() == i2 && key != null && this.map.f56584i.equivalent(k2, key)) {
+                        if (hVar2.getHash() == i2 && key != null && this.map.f54435i.equivalent(k, key)) {
                             if (hVar2.getValueReference() == sVar) {
                                 this.modCount++;
                                 atomicReferenceArray.set(length, removeValueFromChain(hVar, hVar2, key, i2, sVar.get(), sVar, RemovalCause.COLLECTED));
@@ -6155,15 +6143,15 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             }
         }
 
-        public V refresh(K k2, int i2, CacheLoader<? super K, V> cacheLoader, boolean z) {
+        public V refresh(K k, int i2, CacheLoader<? super K, V> cacheLoader, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{k2, Integer.valueOf(i2), cacheLoader, Boolean.valueOf(z)})) == null) {
-                k<K, V> insertLoadingValueReference = insertLoadingValueReference(k2, i2, z);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{k, Integer.valueOf(i2), cacheLoader, Boolean.valueOf(z)})) == null) {
+                k<K, V> insertLoadingValueReference = insertLoadingValueReference(k, i2, z);
                 if (insertLoadingValueReference == null) {
                     return null;
                 }
-                ListenableFuture<V> loadAsync = loadAsync(k2, i2, insertLoadingValueReference, cacheLoader);
+                ListenableFuture<V> loadAsync = loadAsync(k, i2, insertLoadingValueReference, cacheLoader);
                 if (loadAsync.isDone()) {
                     try {
                         return (V) Uninterruptibles.getUninterruptibly(loadAsync);
@@ -6221,7 +6209,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                             break;
                         }
                         K key = hVar2.getKey();
-                        if (hVar2.getHash() == i2 && key != null && this.map.f56584i.equivalent(obj, key)) {
+                        if (hVar2.getHash() == i2 && key != null && this.map.f54435i.equivalent(obj, key)) {
                             break;
                         }
                         hVar2 = hVar2.getNext();
@@ -6286,10 +6274,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             return (c.i.d.b.h) invokeLL.objValue;
         }
 
-        public boolean removeLoadingValue(K k2, int i2, k<K, V> kVar) {
+        public boolean removeLoadingValue(K k, int i2, k<K, V> kVar) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048622, this, k2, i2, kVar)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048622, this, k, i2, kVar)) == null) {
                 lock();
                 try {
                     AtomicReferenceArray<c.i.d.b.h<K, V>> atomicReferenceArray = this.table;
@@ -6301,7 +6289,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                             break;
                         }
                         K key = hVar2.getKey();
-                        if (hVar2.getHash() == i2 && key != null && this.map.f56584i.equivalent(k2, key)) {
+                        if (hVar2.getHash() == i2 && key != null && this.map.f54435i.equivalent(k, key)) {
                             if (hVar2.getValueReference() == kVar) {
                                 if (kVar.isActive()) {
                                     hVar2.setValueReference(kVar.i());
@@ -6323,11 +6311,11 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             return invokeLIL.booleanValue;
         }
 
-        public c.i.d.b.h<K, V> removeValueFromChain(c.i.d.b.h<K, V> hVar, c.i.d.b.h<K, V> hVar2, K k2, int i2, V v, s<K, V> sVar, RemovalCause removalCause) {
+        public c.i.d.b.h<K, V> removeValueFromChain(c.i.d.b.h<K, V> hVar, c.i.d.b.h<K, V> hVar2, K k, int i2, V v, s<K, V> sVar, RemovalCause removalCause) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048623, this, new Object[]{hVar, hVar2, k2, Integer.valueOf(i2), v, sVar, removalCause})) == null) {
-                enqueueNotification(k2, i2, v, sVar.c(), removalCause);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048623, this, new Object[]{hVar, hVar2, k, Integer.valueOf(i2), v, sVar, removalCause})) == null) {
+                enqueueNotification(k, i2, v, sVar.c(), removalCause);
                 this.writeQueue.remove(hVar2);
                 this.accessQueue.remove(hVar2);
                 if (sVar.e()) {
@@ -6339,10 +6327,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             return (c.i.d.b.h) invokeCommon.objValue;
         }
 
-        public boolean replace(K k2, int i2, V v, V v2) {
+        public boolean replace(K k, int i2, V v, V v2) {
             InterceptResult invokeLILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048625, this, k2, i2, v, v2)) == null) {
+            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048625, this, k, i2, v, v2)) == null) {
                 lock();
                 try {
                     long a2 = this.map.t.a();
@@ -6357,7 +6345,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         }
                         K key = hVar2.getKey();
                         if (hVar2.getHash() == i2 && key != null) {
-                            if (this.map.f56584i.equivalent(k2, key)) {
+                            if (this.map.f54435i.equivalent(k, key)) {
                                 s<K, V> valueReference = hVar2.getValueReference();
                                 V v3 = valueReference.get();
                                 if (v3 == null) {
@@ -6366,10 +6354,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                                         atomicReferenceArray.set(length, removeValueFromChain(hVar, hVar2, key, i2, v3, valueReference, RemovalCause.COLLECTED));
                                         this.count--;
                                     }
-                                } else if (this.map.f56585j.equivalent(v, v3)) {
+                                } else if (this.map.f54436j.equivalent(v, v3)) {
                                     this.modCount++;
-                                    enqueueNotification(k2, i2, v3, valueReference.c(), RemovalCause.REPLACED);
-                                    setValue(hVar2, k2, v2, a2);
+                                    enqueueNotification(k, i2, v3, valueReference.c(), RemovalCause.REPLACED);
+                                    setValue(hVar2, k, v2, a2);
                                     evictEntries(hVar2);
                                     return true;
                                 } else {
@@ -6409,18 +6397,18 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             this.map.z();
         }
 
-        public V scheduleRefresh(c.i.d.b.h<K, V> hVar, K k2, int i2, V v, long j2, CacheLoader<? super K, V> cacheLoader) {
+        public V scheduleRefresh(c.i.d.b.h<K, V> hVar, K k, int i2, V v, long j2, CacheLoader<? super K, V> cacheLoader) {
             InterceptResult invokeCommon;
             V refresh;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048628, this, new Object[]{hVar, k2, Integer.valueOf(i2), v, Long.valueOf(j2), cacheLoader})) == null) ? (!this.map.G() || j2 - hVar.getWriteTime() <= this.map.q || hVar.getValueReference().e() || (refresh = refresh(k2, i2, cacheLoader, true)) == null) ? v : refresh : (V) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048628, this, new Object[]{hVar, k, Integer.valueOf(i2), v, Long.valueOf(j2), cacheLoader})) == null) ? (!this.map.G() || j2 - hVar.getWriteTime() <= this.map.q || hVar.getValueReference().e() || (refresh = refresh(k, i2, cacheLoader, true)) == null) ? v : refresh : (V) invokeCommon.objValue;
         }
 
-        public void setValue(c.i.d.b.h<K, V> hVar, K k2, V v, long j2) {
+        public void setValue(c.i.d.b.h<K, V> hVar, K k, V v, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{hVar, k2, v, Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{hVar, k, v, Long.valueOf(j2)}) == null) {
                 s<K, V> valueReference = hVar.getValueReference();
-                int weigh = this.map.n.weigh(k2, v);
+                int weigh = this.map.n.weigh(k, v);
                 c.i.d.a.n.x(weigh >= 0, "Weights must be non-negative");
                 hVar.setValueReference(this.map.l.referenceValue(this, hVar, v, weigh));
                 recordWrite(hVar, weigh, j2);
@@ -6428,10 +6416,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             }
         }
 
-        public boolean storeLoadedValue(K k2, int i2, k<K, V> kVar, V v) {
+        public boolean storeLoadedValue(K k, int i2, k<K, V> kVar, V v) {
             InterceptResult invokeLILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048630, this, k2, i2, kVar, v)) == null) {
+            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048630, this, k, i2, kVar, v)) == null) {
                 lock();
                 try {
                     long a2 = this.map.t.a();
@@ -6449,19 +6437,19 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     while (true) {
                         if (hVar2 != null) {
                             K key = hVar2.getKey();
-                            if (hVar2.getHash() == i2 && key != null && this.map.f56584i.equivalent(k2, key)) {
+                            if (hVar2.getHash() == i2 && key != null && this.map.f54435i.equivalent(k, key)) {
                                 s<K, V> valueReference = hVar2.getValueReference();
                                 V v2 = valueReference.get();
                                 if (kVar != valueReference && (v2 != null || valueReference == LocalCache.B)) {
-                                    enqueueNotification(k2, i2, v, 0, RemovalCause.REPLACED);
+                                    enqueueNotification(k, i2, v, 0, RemovalCause.REPLACED);
                                     return false;
                                 }
                                 this.modCount++;
                                 if (kVar.isActive()) {
-                                    enqueueNotification(k2, i2, v2, kVar.c(), v2 == null ? RemovalCause.COLLECTED : RemovalCause.REPLACED);
+                                    enqueueNotification(k, i2, v2, kVar.c(), v2 == null ? RemovalCause.COLLECTED : RemovalCause.REPLACED);
                                     i4--;
                                 }
-                                setValue(hVar2, k2, v, a2);
+                                setValue(hVar2, k, v, a2);
                                 this.count = i4;
                                 evictEntries(hVar2);
                             } else {
@@ -6469,8 +6457,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                             }
                         } else {
                             this.modCount++;
-                            c.i.d.b.h<K, V> newEntry = newEntry(k2, i2, hVar);
-                            setValue(newEntry, k2, v, a2);
+                            c.i.d.b.h<K, V> newEntry = newEntry(k, i2, hVar);
+                            setValue(newEntry, k, v, a2);
                             atomicReferenceArray.set(length, newEntry);
                             this.count = i4;
                             evictEntries(newEntry);
@@ -6508,19 +6496,19 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             }
         }
 
-        public V waitForLoadingValue(c.i.d.b.h<K, V> hVar, K k2, s<K, V> sVar) throws ExecutionException {
+        public V waitForLoadingValue(c.i.d.b.h<K, V> hVar, K k, s<K, V> sVar) throws ExecutionException {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048633, this, hVar, k2, sVar)) == null) {
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048633, this, hVar, k, sVar)) == null) {
                 if (sVar.e()) {
-                    c.i.d.a.n.A(!Thread.holdsLock(hVar), "Recursive load of: %s", k2);
+                    c.i.d.a.n.A(!Thread.holdsLock(hVar), "Recursive load of: %s", k);
                     try {
                         V d2 = sVar.d();
                         if (d2 != null) {
                             recordRead(hVar, this.map.t.a());
                             return d2;
                         }
-                        throw new CacheLoader.InvalidCacheLoadException("CacheLoader returned null for key " + k2 + ".");
+                        throw new CacheLoader.InvalidCacheLoadException("CacheLoader returned null for key " + k + ".");
                     } finally {
                         this.statsCounter.d(1);
                     }
@@ -6561,7 +6549,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             r9 = r10.get();
          */
         /* JADX WARN: Code restructure failed: missing block: B:14:0x004c, code lost:
-            if (r12.map.f56585j.equivalent(r15, r9) == false) goto L24;
+            if (r12.map.f54436j.equivalent(r15, r9) == false) goto L24;
          */
         /* JADX WARN: Code restructure failed: missing block: B:15:0x004e, code lost:
             r13 = com.google.common.cache.RemovalCause.EXPLICIT;
@@ -6609,7 +6597,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                             break;
                         }
                         K key = hVar2.getKey();
-                        if (hVar2.getHash() == i2 && key != null && this.map.f56584i.equivalent(obj, key)) {
+                        if (hVar2.getHash() == i2 && key != null && this.map.f54435i.equivalent(obj, key)) {
                             break;
                         }
                         hVar2 = hVar2.getNext();
@@ -6623,10 +6611,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             return invokeLIL.booleanValue;
         }
 
-        public V replace(K k2, int i2, V v) {
+        public V replace(K k, int i2, V v) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048624, this, k2, i2, v)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048624, this, k, i2, v)) == null) {
                 lock();
                 try {
                     long a2 = this.map.t.a();
@@ -6641,7 +6629,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         }
                         K key = hVar2.getKey();
                         if (hVar2.getHash() == i2 && key != null) {
-                            if (this.map.f56584i.equivalent(k2, key)) {
+                            if (this.map.f54435i.equivalent(k, key)) {
                                 s<K, V> valueReference = hVar2.getValueReference();
                                 V v2 = valueReference.get();
                                 if (v2 == null) {
@@ -6652,8 +6640,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                                     }
                                 } else {
                                     this.modCount++;
-                                    enqueueNotification(k2, i2, v2, valueReference.c(), RemovalCause.REPLACED);
-                                    setValue(hVar2, k2, v, a2);
+                                    enqueueNotification(k, i2, v2, valueReference.c(), RemovalCause.REPLACED);
+                                    setValue(hVar2, k, v, a2);
                                     evictEntries(hVar2);
                                     return v2;
                                 }

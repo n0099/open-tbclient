@@ -2,7 +2,7 @@ package com.baidu.nadcore.video.videoplayer.ui;
 
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
-import c.a.c0.h0.o;
+import c.a.c0.k0.j;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,6 +45,6 @@ public final class BdVideoGradientMask$linearGradient$2 extends Lambda implement
     public final LinearGradient invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LinearGradient(0.0f, 0.0f, this.this$0.getMeasuredWidth(), 0.0f, new int[]{this.this$0.getResources().getColor(o.nad_bd_full_more_left_mask_start_color), this.this$0.getResources().getColor(o.nad_bd_full_more_left_mask_50percent_color), this.this$0.getResources().getColor(o.nad_bd_full_more_left_mask_75percent_color), this.this$0.getResources().getColor(o.nad_bd_full_more_left_mask_95percent_color)}, new float[]{0.0f, 0.5f, 0.75f, 1.0f}, Shader.TileMode.CLAMP) : (LinearGradient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LinearGradient(0.0f, 0.0f, this.this$0.getMeasuredWidth(), 0.0f, new int[]{this.this$0.getResources().getColor(j.nad_bd_full_more_left_mask_start_color), this.this$0.getResources().getColor(j.nad_bd_full_more_left_mask_50percent_color), this.this$0.getResources().getColor(j.nad_bd_full_more_left_mask_75percent_color), this.this$0.getResources().getColor(j.nad_bd_full_more_left_mask_95percent_color)}, new float[]{0.0f, 0.5f, 0.75f, 1.0f}, Shader.TileMode.CLAMP) : (LinearGradient) invokeV.objValue;
     }
 }

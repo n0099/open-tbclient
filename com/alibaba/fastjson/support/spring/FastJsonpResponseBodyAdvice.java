@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.core.MethodParameter;
@@ -46,7 +47,7 @@ public class FastJsonpResponseBodyAdvice implements ResponseBodyAdvice<Object> {
             }
         }
         CALLBACK_PARAM_PATTERN = Pattern.compile("[0-9A-Za-z_\\.]*");
-        DEFAULT_JSONP_QUERY_PARAM_NAMES = new String[]{"callback", "jsonp"};
+        DEFAULT_JSONP_QUERY_PARAM_NAMES = new String[]{WebChromeClient.KEY_ARG_CALLBACK, "jsonp"};
     }
 
     public FastJsonpResponseBodyAdvice() {

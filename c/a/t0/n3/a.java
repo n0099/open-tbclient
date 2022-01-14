@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class a {
             return;
         }
         if (!l.z()) {
-            n.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+            n.M(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
             return;
         }
         if (z && (b2 = b()) != null) {
@@ -95,7 +95,7 @@ public class a {
                 return;
             }
             e(shareItem, 3);
-            if (shareItem.f42233b) {
+            if (shareItem.f40762b) {
                 shareItem.s = a(shareItem);
             }
             gVar.u(shareItem);
@@ -146,23 +146,23 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLI(1048580, this, shareItem, i2) == null) || shareItem == null || shareItem.q == null) {
             return;
         }
-        if (shareItem.f42233b) {
+        if (shareItem.f40762b) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", shareItem.q).param("obj_type", i2));
-        } else if (!shareItem.f42234c && !shareItem.f42237f) {
-            if (shareItem.f42235d) {
+        } else if (!shareItem.f40763c && !shareItem.f40766f) {
+            if (shareItem.f40764d) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).param("tid", shareItem.q).param("obj_type", i2));
             } else if (shareItem.a) {
                 d(i2, shareItem.C);
-            } else if (shareItem.f42236e) {
+            } else if (shareItem.f40765e) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", 7).param("obj_type", i2).param("fid", shareItem.q));
-            } else if (shareItem.f42238g) {
+            } else if (shareItem.f40767g) {
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_type", i2);
                 param.param("obj_source", shareItem.E);
                 if (!m.isEmpty(shareItem.t) && shareItem.t.contains("worldcup")) {
                     param.param("obj_param1", 9);
                 }
                 TiebaStatic.log(param);
-            } else if (shareItem.f42239h) {
+            } else if (shareItem.f40768h) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("tid", shareItem.q).param("fid", shareItem.J).param("obj_type", i2).param("obj_source", shareItem.E).param("obj_param1", shareItem.F).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.G).param(TiebaStatic.Params.OBJ_PARAM3, shareItem.H).param("obj_locate", shareItem.I));
             }
         } else {

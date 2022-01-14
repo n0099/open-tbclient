@@ -35,33 +35,33 @@ public class g implements c.a.t0.h.a.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Pattern f18844j;
+    public static final Pattern f18374j;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g0 f18845b;
+    public g0 f18375b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f18846c;
+    public boolean f18376c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.h.e.c f18847d;
+    public c.a.t0.h.e.c f18377d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f18848e;
+    public TbPageContext f18378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.InterfaceC1106a f18849f;
+    public a.InterfaceC1120a f18379f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18850g;
+    public String f18380g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18851h;
+    public String f18381h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BannerView.b f18852i;
+    public BannerView.b f18382i;
 
     /* loaded from: classes7.dex */
     public class a implements TbImageView.g {
@@ -91,18 +91,18 @@ public class g implements c.a.t0.h.a.a {
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z) {
-                if (this.a.f18845b != null && this.a.f18845b.f13709i) {
-                    String c2 = this.a.f18845b.c();
+                if (this.a.f18375b != null && this.a.f18375b.f13393i) {
+                    String c2 = this.a.f18375b.c();
                     if (!StringUtils.isNULL(c2)) {
                         this.a.A(c2);
                     }
-                    this.a.f18845b.f13709i = false;
+                    this.a.f18375b.f13393i = false;
                 }
-                if (this.a.a == null || !this.a.a.isBannerViewShowing() || this.a.f18846c) {
+                if (this.a.a == null || !this.a.a.isBannerViewShowing() || this.a.f18376c) {
                     return;
                 }
-                this.a.f18846c = true;
-                this.a.f18849f.a(this.a.f18847d, this.a.a);
+                this.a.f18376c = true;
+                this.a.f18379f.a(this.a.f18377d, this.a.a);
             }
         }
 
@@ -200,7 +200,7 @@ public class g implements c.a.t0.h.a.a {
                 return;
             }
         }
-        f18844j = Pattern.compile("(/p/){1}(\\d+)");
+        f18374j = Pattern.compile("(/p/){1}(\\d+)");
     }
 
     public g() {
@@ -217,8 +217,8 @@ public class g implements c.a.t0.h.a.a {
             }
         }
         this.a = null;
-        this.f18846c = false;
-        this.f18852i = new b(this);
+        this.f18376c = false;
+        this.f18382i = new b(this);
     }
 
     public final void A(String str) {
@@ -226,8 +226,8 @@ public class g implements c.a.t0.h.a.a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNULL(str)) {
             return;
         }
-        a.b b2 = c.a.t0.w3.l0.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "VIEW_TRUE", str, this.f18851h, this.f18850g, null);
-        b2.d(TiebaStatic.Params.OBJ_URL, this.f18845b.b());
+        a.b b2 = c.a.t0.w3.l0.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "VIEW_TRUE", str, this.f18381h, this.f18380g, null);
+        b2.d(TiebaStatic.Params.OBJ_URL, this.f18375b.b());
         b2.e();
     }
 
@@ -236,7 +236,7 @@ public class g implements c.a.t0.h.a.a {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || StringUtils.isNULL(str)) {
             return;
         }
-        a.b b2 = c.a.t0.w3.l0.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "CLICK", str, this.f18851h, this.f18850g, null);
+        a.b b2 = c.a.t0.w3.l0.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "CLICK", str, this.f18381h, this.f18380g, null);
         b2.d(TiebaStatic.Params.OBJ_URL, str2);
         b2.e();
     }
@@ -255,15 +255,15 @@ public class g implements c.a.t0.h.a.a {
     public void b(Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && (obj instanceof g0)) {
-            this.f18845b = (g0) obj;
+            this.f18375b = (g0) obj;
         }
     }
 
     @Override // c.a.t0.h.a.a
-    public void f(a.InterfaceC1106a interfaceC1106a) {
+    public void f(a.InterfaceC1120a interfaceC1120a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1106a) == null) {
-            this.f18849f = interfaceC1106a;
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1120a) == null) {
+            this.f18379f = interfaceC1120a;
         }
     }
 
@@ -277,36 +277,36 @@ public class g implements c.a.t0.h.a.a {
     @Override // c.a.t0.h.a.a
     public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f18848e == null || this.f18849f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f18378e == null || this.f18379f == null) {
             return;
         }
-        g0 g0Var = this.f18845b;
+        g0 g0Var = this.f18375b;
         if (g0Var == null) {
             z();
         } else if (!g0Var.e()) {
             z();
         } else {
-            if (!this.f18846c) {
+            if (!this.f18376c) {
                 if (this.a != null) {
                     return;
                 }
-                BannerView bannerView = new BannerView(this.f18848e.getPageActivity());
+                BannerView bannerView = new BannerView(this.f18378e.getPageActivity());
                 this.a = bannerView;
                 bannerView.setVisibility(8);
-                this.a.setBannerViewClickListener(this.f18852i);
+                this.a.setBannerViewClickListener(this.f18382i);
                 this.a.setBannerViewEvent(new a(this));
-                if (this.f18845b.d().startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
-                    TiebaStatic.eventStat(this.f18848e.getPageActivity(), "game_show", "show", 1, "ref_id", "4000601", "ref_type", "603");
+                if (this.f18375b.d().startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
+                    TiebaStatic.eventStat(this.f18378e.getPageActivity(), "game_show", "show", 1, "ref_id", "4000601", "ref_type", "603");
                 }
             } else {
-                this.f18849f.a(this.f18847d, this.a);
+                this.f18379f.a(this.f18377d, this.a);
             }
-            this.a.setBannerData(this.f18845b);
+            this.a.setBannerData(this.f18375b);
             this.a.reset();
-            if (this.f18845b.getType() != 1 || TextUtils.isEmpty(this.f18845b.b())) {
+            if (this.f18375b.getType() != 1 || TextUtils.isEmpty(this.f18375b.b())) {
                 return;
             }
-            this.a.setData(this.f18848e, this.f18845b.b());
+            this.a.setData(this.f18378e, this.f18375b.b());
         }
     }
 
@@ -326,57 +326,57 @@ public class g implements c.a.t0.h.a.a {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, map) == null) || map == null || map.isEmpty()) {
             return;
         }
-        this.f18850g = map.get("forum_name");
-        this.f18851h = map.get("forum_id");
+        this.f18380g = map.get("forum_name");
+        this.f18381h = map.get("forum_id");
     }
 
     public final void x() {
         g0 g0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (g0Var = this.f18845b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (g0Var = this.f18375b) == null) {
             return;
         }
         String d2 = g0Var.d();
-        String c2 = this.f18845b.c();
-        if (this.f18845b.a() == 1) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.f18848e.getPageActivity(), d2, false, BannerView.FRS_BANNER)));
+        String c2 = this.f18375b.c();
+        if (this.f18375b.a() == 1) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.f18378e.getPageActivity(), d2, false, BannerView.FRS_BANNER)));
             B(c2, d2);
-        } else if (this.f18845b.a() == 2) {
+        } else if (this.f18375b.a() == 2) {
             if (d2.contains(TbPatternsCompat.TB_DOMAIN_NAME)) {
-                Matcher matcher = f18844j.matcher(d2);
+                Matcher matcher = f18374j.matcher(d2);
                 if (matcher.find()) {
                     try {
-                        PbActivityConfig createNormalCfg = new PbActivityConfig(this.f18848e.getPageActivity()).createNormalCfg(matcher.group(2), null, BannerView.FRS_BANNER);
+                        PbActivityConfig createNormalCfg = new PbActivityConfig(this.f18378e.getPageActivity()).createNormalCfg(matcher.group(2), null, BannerView.FRS_BANNER);
                         createNormalCfg.setVideo_source("frs");
-                        this.f18848e.sendMessage(new CustomMessage(2004001, createNormalCfg));
+                        this.f18378e.sendMessage(new CustomMessage(2004001, createNormalCfg));
                         B(c2, d2);
                     } catch (Exception e2) {
                         BdLog.e(e2.toString());
                     }
                 }
             }
-        } else if (this.f18845b.a() == 3) {
+        } else if (this.f18375b.a() == 3) {
             new UtilHelper.NativePage();
             UtilHelper.NativePage isNativeAddress = UtilHelper.isNativeAddress(d2);
             UtilHelper.NativePageType nativePageType = isNativeAddress.type;
             if (nativePageType != UtilHelper.NativePageType.NONE) {
                 int i2 = c.a[nativePageType.ordinal()];
                 if (i2 == 1) {
-                    this.f18848e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18848e.getPageActivity()).createNormalCfg(isNativeAddress.id, BannerView.FRS_BANNER)));
+                    this.f18378e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18378e.getPageActivity()).createNormalCfg(isNativeAddress.id, BannerView.FRS_BANNER)));
                 } else if (i2 == 2) {
-                    PbActivityConfig createNormalCfg2 = new PbActivityConfig(this.f18848e.getPageActivity()).createNormalCfg(isNativeAddress.id, null, BannerView.FRS_BANNER);
+                    PbActivityConfig createNormalCfg2 = new PbActivityConfig(this.f18378e.getPageActivity()).createNormalCfg(isNativeAddress.id, null, BannerView.FRS_BANNER);
                     createNormalCfg2.setVideo_source("frs");
-                    this.f18848e.sendMessage(new CustomMessage(2004001, createNormalCfg2));
+                    this.f18378e.sendMessage(new CustomMessage(2004001, createNormalCfg2));
                 }
             } else {
-                y.q().e().c(this.f18848e.getPageActivity(), new String[]{d2}, null);
+                y.q().e().c(this.f18378e.getPageActivity(), new String[]{d2}, null);
                 if (!StringUtils.isNull(d2) && d2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
-                    TiebaStatic.eventStat(this.f18848e.getPageActivity(), BannerView.FRS_BANNER, "click", 1, "ref_id", "4000601", "ref_type", "603");
+                    TiebaStatic.eventStat(this.f18378e.getPageActivity(), BannerView.FRS_BANNER, "click", 1, "ref_id", "4000601", "ref_type", "603");
                 }
             }
             B(c2, d2);
-        } else if (this.f18845b.a() == 4) {
-            this.f18848e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18848e.getPageActivity()).createNormalCfg(d2, BannerView.FRS_BANNER)));
+        } else if (this.f18375b.a() == 4) {
+            this.f18378e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18378e.getPageActivity()).createNormalCfg(d2, BannerView.FRS_BANNER)));
             B(c2, d2);
         }
     }
@@ -387,23 +387,23 @@ public class g implements c.a.t0.h.a.a {
     public void n(c.a.t0.h.e.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            this.f18847d = cVar;
+            this.f18377d = cVar;
             if (cVar == null || !(cVar.a() instanceof TbPageContext)) {
                 return;
             }
-            this.f18848e = (TbPageContext) this.f18847d.a();
+            this.f18378e = (TbPageContext) this.f18377d.a();
         }
     }
 
     public final void z() {
         BannerView bannerView;
-        a.InterfaceC1106a interfaceC1106a;
+        a.InterfaceC1120a interfaceC1120a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (bannerView = this.a) == null || (interfaceC1106a = this.f18849f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (bannerView = this.a) == null || (interfaceC1120a = this.f18379f) == null) {
             return;
         }
-        this.f18846c = false;
-        interfaceC1106a.b(this.f18847d, bannerView);
+        this.f18376c = false;
+        interfaceC1120a.b(this.f18377d, bannerView);
         this.a = null;
     }
 }

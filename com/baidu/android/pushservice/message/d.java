@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.LinkedList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedList<e> f33351b;
+    public LinkedList<e> f32292b;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public abstract class d {
                 return;
             }
         }
-        this.f33351b = new LinkedList<>();
+        this.f32292b = new LinkedList<>();
         this.a = context;
     }
 
@@ -44,7 +44,7 @@ public abstract class d {
     public LinkedList<e> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33351b : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32292b : (LinkedList) invokeV.objValue;
     }
 
     public abstract void a(int i2);
@@ -54,10 +54,10 @@ public abstract class d {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            synchronized (this.f33351b) {
+            synchronized (this.f32292b) {
                 try {
-                    this.f33351b.add(eVar);
-                    this.f33351b.notifyAll();
+                    this.f32292b.add(eVar);
+                    this.f32292b.notifyAll();
                 } catch (Exception e2) {
                     new b.c(this.a).a(Log.getStackTraceString(e2)).a();
                 }

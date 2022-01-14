@@ -312,22 +312,22 @@ public class ActivityChooserModel extends DataSetObservable {
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, IPUT]}, finally: {[IGET, IPUT, IF] complete} */
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x0070, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:12:0x0071, code lost:
             if (r15 != null) goto L17;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0072, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0073, code lost:
             r15.close();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:19:0x0090, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:19:0x0091, code lost:
             if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:23:0x00ab, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x00ac, code lost:
             if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:27:0x00c6, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:27:0x00c7, code lost:
             if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:29:0x00c9, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:29:0x00ca, code lost:
             return null;
          */
         @Override // android.os.AsyncTask

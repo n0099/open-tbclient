@@ -11,7 +11,7 @@ public class e {
     public c.a.r0.q.i.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.q.i.f f11790b;
+    public c.a.r0.q.i.f f11522b;
 
     public e(c.a.r0.q.i.f fVar) {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public class e {
                 return;
             }
         }
-        this.f11790b = fVar;
+        this.f11522b = fVar;
     }
 }

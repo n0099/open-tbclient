@@ -25,7 +25,7 @@ public class b extends c.a.r0.j.a0.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.l0.c f11024b;
+    public c.a.r0.a.l0.c f10778b;
 
     /* loaded from: classes6.dex */
     public class a extends ResponseCallback<c.a.r0.j.a0.g.a> {
@@ -34,24 +34,24 @@ public class b extends c.a.r0.j.a0.a {
         public final /* synthetic */ c.a.r0.j.a0.g.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.y.b.a f11025b;
+        public final /* synthetic */ c.a.r0.a.y.b.a f10779b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f11026c;
+        public final /* synthetic */ b f10780c;
 
         /* renamed from: c.a.r0.j.a0.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0717a implements Runnable {
+        public class RunnableC0726a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.j.a0.g.a f11027e;
+            public final /* synthetic */ c.a.r0.j.a0.g.a f10781e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f11028f;
+            public final /* synthetic */ a f10782f;
 
-            public RunnableC0717a(a aVar, c.a.r0.j.a0.g.a aVar2) {
+            public RunnableC0726a(a aVar, c.a.r0.j.a0.g.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,29 +66,29 @@ public class b extends c.a.r0.j.a0.a {
                         return;
                     }
                 }
-                this.f11028f = aVar;
-                this.f11027e = aVar2;
+                this.f10782f = aVar;
+                this.f10781e = aVar2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.r0.j.n0.c.call(this.f11028f.f11025b, true, this.f11027e);
+                    c.a.r0.j.n0.c.call(this.f10782f.f10779b, true, this.f10781e);
                 }
             }
         }
 
         /* renamed from: c.a.r0.j.a0.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0718b implements Runnable {
+        public class RunnableC0727b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f11029e;
+            public final /* synthetic */ a f10783e;
 
-            public RunnableC0718b(a aVar) {
+            public RunnableC0727b(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,15 +103,15 @@ public class b extends c.a.r0.j.a0.a {
                         return;
                     }
                 }
-                this.f11029e = aVar;
+                this.f10783e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.f11029e;
-                    c.a.r0.j.n0.c.call(aVar.f11025b, false, aVar.a);
+                    a aVar = this.f10783e;
+                    c.a.r0.j.n0.c.call(aVar.f10779b, false, aVar.a);
                 }
             }
         }
@@ -131,9 +131,9 @@ public class b extends c.a.r0.j.a0.a {
                     return;
                 }
             }
-            this.f11026c = bVar;
+            this.f10780c = bVar;
             this.a = cVar;
-            this.f11025b = aVar;
+            this.f10779b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -143,7 +143,7 @@ public class b extends c.a.r0.j.a0.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) {
                 boolean z = c.a.r0.j.a0.a.a;
-                this.f11026c.f11024b.post(new RunnableC0717a(this, aVar));
+                this.f10780c.f10778b.post(new RunnableC0726a(this, aVar));
             }
         }
 
@@ -193,7 +193,7 @@ public class b extends c.a.r0.j.a0.a {
                     cVar.errNo = HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP;
                     cVar.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
                 }
-                this.f11026c.f11024b.post(new RunnableC0718b(this));
+                this.f10780c.f10778b.post(new RunnableC0727b(this));
             }
         }
     }
@@ -213,14 +213,14 @@ public class b extends c.a.r0.j.a0.a {
                 return;
             }
         }
-        this.f11024b = cVar;
+        this.f10778b = cVar;
     }
 
     @JavascriptInterface
     public void checkIsUserAdvisedToRest(JsObject jsObject) {
         c.a.r0.a.y.b.a F;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) || (F = c.a.r0.a.y.b.a.F(jsObject)) == null || this.f11024b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) || (F = c.a.r0.a.y.b.a.F(jsObject)) == null || this.f10778b == null) {
             return;
         }
         c.a.r0.j.a0.g.c cVar = new c.a.r0.j.a0.g.c();

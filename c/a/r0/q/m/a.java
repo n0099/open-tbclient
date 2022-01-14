@@ -19,18 +19,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, a> f11905d;
+    public static Map<String, a> f11634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Map<String, Map<String, a>> f11906e;
+    public static Map<String, Map<String, a>> f11635e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f11907b;
+    public final String f11636b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AbiType f11908c;
+    public final AbiType f11637c;
 
     static {
         InterceptResult invokeClinit;
@@ -45,8 +45,8 @@ public class a {
                 return;
             }
         }
-        f11905d = new HashMap();
-        f11906e = new HashMap();
+        f11634d = new HashMap();
+        f11635e = new HashMap();
     }
 
     public a(@NonNull String str, @NonNull AbiType abiType) {
@@ -65,8 +65,8 @@ public class a {
             }
         }
         this.a = TextUtils.isEmpty(str) ? "" : str;
-        this.f11908c = abiType;
-        this.f11907b = a(str, abiType);
+        this.f11637c = abiType;
+        this.f11636b = a(str, abiType);
     }
 
     public static String a(String str, AbiType abiType) {
@@ -97,16 +97,16 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             synchronized (a.class) {
-                map = f11906e.get(str);
+                map = f11635e.get(str);
                 if (map == null) {
                     map = new HashMap<>();
                     if (!TextUtils.isEmpty(str)) {
                         for (AbiType abiType : AbiType.values()) {
                             a aVar = new a(str, abiType);
-                            map.put(aVar.f11907b, aVar);
+                            map.put(aVar.f11636b, aVar);
                         }
-                        f11905d.putAll(map);
-                        f11906e.put(str, map);
+                        f11634d.putAll(map);
+                        f11635e.put(str, map);
                     }
                 }
             }
@@ -138,7 +138,7 @@ public class a {
                 a aVar = null;
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                     c(str);
-                    a aVar2 = f11905d.get(str2);
+                    a aVar2 = f11634d.get(str2);
                     if (aVar2 != null) {
                         if (TextUtils.equals(str, aVar2.a)) {
                             aVar = aVar2;
@@ -156,6 +156,6 @@ public class a {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11907b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11636b : (String) invokeV.objValue;
     }
 }

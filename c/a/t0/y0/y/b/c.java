@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f26616f;
+    public static final BdUniqueId f25826f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumEmotionPackageData f26617e;
+    public ForumEmotionPackageData f25827e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class c implements n {
                 return;
             }
         }
-        f26616f = BdUniqueId.gen();
+        f25826f = BdUniqueId.gen();
     }
 
     public c() {
@@ -55,6 +55,6 @@ public class c implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f26616f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f25826f : (BdUniqueId) invokeV.objValue;
     }
 }

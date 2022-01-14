@@ -21,7 +21,7 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e> f46193b;
+    public List<e> f44492b;
 
     public TopicTimelineAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f46193b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f44492b) : invokeV.intValue;
     }
 
     public void setData(List<e> list) {
@@ -53,7 +53,7 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f46193b = list;
+        this.f44492b = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +61,7 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
     public void onBindViewHolder(TopicTimelineHolder topicTimelineHolder, int i2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, topicTimelineHolder, i2) == null) || (eVar = (e) ListUtils.getItem(this.f46193b, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, topicTimelineHolder, i2) == null) || (eVar = (e) ListUtils.getItem(this.f44492b, i2)) == null) {
             return;
         }
         TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.getCellView();

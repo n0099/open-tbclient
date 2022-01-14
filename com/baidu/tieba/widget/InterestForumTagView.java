@@ -25,16 +25,16 @@ public class InterestForumTagView extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f51545e;
+    public final int f49559e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SymbolEMTextView f51546f;
+    public SymbolEMTextView f49560f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f51547g;
+    public ImageView f49561g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SelectForumData f51548h;
+    public SelectForumData f49562h;
 
     /* loaded from: classes13.dex */
     public class a implements View.OnClickListener {
@@ -42,10 +42,10 @@ public class InterestForumTagView extends LinearLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f51549e;
+        public final /* synthetic */ b f49563e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ InterestForumTagView f51550f;
+        public final /* synthetic */ InterestForumTagView f49564f;
 
         public a(InterestForumTagView interestForumTagView, b bVar) {
             Interceptable interceptable = $ic;
@@ -62,18 +62,18 @@ public class InterestForumTagView extends LinearLayout implements q {
                     return;
                 }
             }
-            this.f51550f = interestForumTagView;
-            this.f51549e = bVar;
+            this.f49564f = interestForumTagView;
+            this.f49563e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.f51549e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.f49563e) == null) {
                 return;
             }
-            bVar.a(this.f51550f.f51548h);
+            bVar.a(this.f49564f.f49562h);
         }
     }
 
@@ -112,18 +112,18 @@ public class InterestForumTagView extends LinearLayout implements q {
             setOrientation(0);
             setGravity(16);
             SymbolEMTextView symbolEMTextView = new SymbolEMTextView(getContext());
-            this.f51546f = symbolEMTextView;
+            this.f49560f = symbolEMTextView;
             symbolEMTextView.setMaxLines(1);
-            this.f51546f.setEllipsize(TextUtils.TruncateAt.END);
+            this.f49560f.setEllipsize(TextUtils.TruncateAt.END);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             int f4 = n.f(getContext(), c.a.t0.y2.b.tbds5);
             layoutParams.setMargins(0, n.f(getContext(), c.a.t0.y2.b.tbds3), f4, 0);
-            addView(this.f51546f, layoutParams);
-            this.f51547g = new ImageView(getContext());
+            addView(this.f49560f, layoutParams);
+            this.f49561g = new ImageView(getContext());
             int f5 = n.f(getContext(), c.a.t0.y2.b.tbds42);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(f5, f5);
             layoutParams2.setMargins(0, 0, f4 * 3, 0);
-            addView(this.f51547g, layoutParams2);
+            addView(this.f49561g, layoutParams2);
             setClickable(true);
         }
     }
@@ -133,8 +133,8 @@ public class InterestForumTagView extends LinearLayout implements q {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, selectForumData) == null) || selectForumData == null || getContext() == null) {
             return;
         }
-        this.f51548h = selectForumData;
-        SymbolEMTextView symbolEMTextView = this.f51546f;
+        this.f49562h = selectForumData;
+        SymbolEMTextView symbolEMTextView = this.f49560f;
         if (symbolEMTextView != null) {
             symbolEMTextView.setText(getContext().getString(g.interest_forum_name, selectForumData.forumName));
         }
@@ -144,9 +144,9 @@ public class InterestForumTagView extends LinearLayout implements q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.f51545e;
-            SymbolEMTextView symbolEMTextView = this.f51546f;
-            return symbolEMTextView != null ? i2 + n.D(symbolEMTextView.getPaint(), this.f51546f.getText().toString()).right : i2;
+            int i2 = this.f49559e;
+            SymbolEMTextView symbolEMTextView = this.f49560f;
+            return symbolEMTextView != null ? i2 + n.D(symbolEMTextView.getPaint(), this.f49560f.getText().toString()).right : i2;
         }
         return invokeV.intValue;
     }
@@ -155,7 +155,7 @@ public class InterestForumTagView extends LinearLayout implements q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            SymbolEMTextView symbolEMTextView = this.f51546f;
+            SymbolEMTextView symbolEMTextView = this.f49560f;
             if (symbolEMTextView != null) {
                 c d2 = c.d(symbolEMTextView);
                 d2.z(c.a.t0.y2.b.T_X09);
@@ -163,7 +163,7 @@ public class InterestForumTagView extends LinearLayout implements q {
                 d2.w(c.a.t0.y2.b.tbds0);
                 d2.A(g.F_X01);
             }
-            ImageView imageView = this.f51547g;
+            ImageView imageView = this.f49561g;
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, c.a.t0.y2.c.icon_pure_card_close22, c.a.t0.y2.a.CAM_X0108, WebPManager.ResourceStateType.NORMAL);
             }
@@ -176,16 +176,16 @@ public class InterestForumTagView extends LinearLayout implements q {
     public void resetNameWithMaxWidth(float f2) {
         SymbolEMTextView symbolEMTextView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048580, this, f2) == null) || (symbolEMTextView = this.f51546f) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048580, this, f2) == null) || (symbolEMTextView = this.f49560f) == null) {
             return;
         }
-        symbolEMTextView.setMaxWidth((int) (f2 - this.f51545e));
+        symbolEMTextView.setMaxWidth((int) (f2 - this.f49559e));
     }
 
     public void setCloseListener(b bVar) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || (imageView = this.f51547g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || (imageView = this.f49561g) == null) {
             return;
         }
         imageView.setOnClickListener(new a(this, bVar));
@@ -231,7 +231,7 @@ public class InterestForumTagView extends LinearLayout implements q {
                 return;
             }
         }
-        this.f51545e = n.f(getContext(), c.a.t0.y2.b.M_W_X004) + n.f(getContext(), c.a.t0.y2.b.M_W_X013);
+        this.f49559e = n.f(getContext(), c.a.t0.y2.b.M_W_X004) + n.f(getContext(), c.a.t0.y2.b.M_W_X013);
         b();
     }
 }

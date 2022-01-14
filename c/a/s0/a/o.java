@@ -25,10 +25,10 @@ public class o {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12438b;
+    public boolean f12145b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12439c;
+    public boolean f12146c;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -43,22 +43,22 @@ public class o {
         public Integer a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12440b;
+        public String f12147b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Integer f12441c;
+        public Integer f12148c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Long f12442d;
+        public Long f12149d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Long f12443e;
+        public Long f12150e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Integer f12444f;
+        public Integer f12151f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f12445g;
+        public String f12152g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -115,25 +115,25 @@ public class o {
         }
         try {
             if (this.a) {
-                boolean g2 = c.a.s0.s.g0.b.j().g("pref_key_task_first_open", true);
-                int k2 = c.a.s0.s.g0.b.j().k("pref_key_float_tip_num", 0);
-                long l = c.a.s0.s.g0.b.j().l("pref_key_new_task_complete_time", 0L);
+                boolean h2 = c.a.s0.s.h0.b.k().h("pref_key_task_first_open", true);
+                int l = c.a.s0.s.h0.b.k().l("pref_key_float_tip_num", 0);
+                long m = c.a.s0.s.h0.b.k().m("pref_key_new_task_complete_time", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
-                if (g2) {
+                if (h2) {
                     if (e(bVar)) {
-                        this.f12439c = true;
-                        c.a.s0.s.g0.b.j().t("pref_key_task_first_open", false);
+                        this.f12146c = true;
+                        c.a.s0.s.h0.b.k().u("pref_key_task_first_open", false);
                     }
-                } else if (d(bVar, currentTimeMillis / 1000, l / 1000)) {
+                } else if (d(bVar, currentTimeMillis / 1000, m / 1000)) {
                     if (z) {
                         if (e(bVar)) {
-                            this.f12439c = true;
-                            c.a.s0.s.g0.b.j().v("pref_key_float_tip_num", 0);
+                            this.f12146c = true;
+                            c.a.s0.s.h0.b.k().w("pref_key_float_tip_num", 0);
                         }
-                    } else if (k2 >= bVar.f12444f.intValue() || !e(bVar)) {
+                    } else if (l >= bVar.f12151f.intValue() || !e(bVar)) {
                     } else {
-                        this.f12439c = true;
-                        c.a.s0.s.g0.b.j().v("pref_key_float_tip_num", k2 + 1);
+                        this.f12146c = true;
+                        c.a.s0.s.h0.b.k().w("pref_key_float_tip_num", l + 1);
                     }
                 }
             }
@@ -159,8 +159,8 @@ public class o {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bVar, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (bVar != null && j3 > 0 && !TextUtils.isEmpty(bVar.f12440b) && bVar.f12442d.longValue() < bVar.f12443e.longValue() && j2 >= bVar.f12442d.longValue() && j2 <= bVar.f12443e.longValue() && bVar.f12444f.intValue() > 0 && bVar.a.intValue() >= 0 && j2 > j3) {
-                String[] split = bVar.f12440b.split(",");
+            if (bVar != null && j3 > 0 && !TextUtils.isEmpty(bVar.f12147b) && bVar.f12149d.longValue() < bVar.f12150e.longValue() && j2 >= bVar.f12149d.longValue() && j2 <= bVar.f12150e.longValue() && bVar.f12151f.intValue() > 0 && bVar.a.intValue() >= 0 && j2 > j3) {
+                String[] split = bVar.f12147b.split(",");
                 if (split != null && split.length > 0) {
                     for (String str : split) {
                         if ("3".equals(str)) {
@@ -200,22 +200,22 @@ public class o {
     public final void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            c.a.s0.s.g0.b.j().x("pref_key_strategy_json", str);
-            c.a.s0.s.g0.b.j().v("pref_key_float_tip_num", 0);
+            c.a.s0.s.h0.b.k().y("pref_key_strategy_json", str);
+            c.a.s0.s.h0.b.k().w("pref_key_float_tip_num", 0);
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.s0.s.g0.b.j().w("pref_key_new_task_complete_time", System.currentTimeMillis());
+            c.a.s0.s.h0.b.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
         }
     }
 
     public void h(c.a.s0.a.c cVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) && cVar != null && c(cVar)) {
-            c.a.s0.s.g0.b.j().w("pref_key_new_task_complete_time", System.currentTimeMillis());
+            c.a.s0.s.h0.b.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
         }
     }
 
@@ -236,12 +236,12 @@ public class o {
             FloatStrategy next = it.next();
             if (currentTimeMillis > next.show_time_begin.longValue() && currentTimeMillis < next.show_time_end.longValue()) {
                 bVar2 = new b();
-                bVar2.f12440b = next.browsetimepage;
-                bVar2.f12441c = next.duration;
-                bVar2.f12444f = next.show_num;
-                bVar2.f12442d = next.show_time_begin;
-                bVar2.f12443e = next.show_time_end;
-                bVar2.f12445g = next.toast;
+                bVar2.f12147b = next.browsetimepage;
+                bVar2.f12148c = next.duration;
+                bVar2.f12151f = next.show_num;
+                bVar2.f12149d = next.show_time_begin;
+                bVar2.f12150e = next.show_time_end;
+                bVar2.f12152g = next.toast;
                 bVar2.a = next.un_do_mission;
                 break;
             }
@@ -253,18 +253,18 @@ public class o {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("un_do_mission", bVar2.a.intValue());
-            jSONObject.put("browsetimepage", bVar2.f12440b);
-            jSONObject.put("duration", bVar2.f12441c.intValue());
-            jSONObject.put("show_time_begin", bVar2.f12442d.longValue());
-            jSONObject.put("show_time_end", bVar2.f12443e.longValue());
-            jSONObject.put("show_num", bVar2.f12444f.intValue());
-            jSONObject.put("toast", bVar2.f12445g);
+            jSONObject.put("browsetimepage", bVar2.f12147b);
+            jSONObject.put("duration", bVar2.f12148c.intValue());
+            jSONObject.put("show_time_begin", bVar2.f12149d.longValue());
+            jSONObject.put("show_time_end", bVar2.f12150e.longValue());
+            jSONObject.put("show_num", bVar2.f12151f.intValue());
+            jSONObject.put("toast", bVar2.f12152g);
             String jSONObject2 = jSONObject.toString();
             if (TextUtils.isEmpty(jSONObject2)) {
                 f("");
                 return;
             }
-            if (!jSONObject2.equals(c.a.s0.s.g0.b.j().p("pref_key_strategy_json", null))) {
+            if (!jSONObject2.equals(c.a.s0.s.h0.b.k().q("pref_key_strategy_json", null))) {
                 f(jSONObject2);
             }
             a(bVar2, true);
@@ -277,23 +277,23 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.a = z;
-            if (z && this.f12438b) {
-                this.f12438b = false;
-                if (!this.f12439c && d.y().t()) {
-                    String p = c.a.s0.s.g0.b.j().p("pref_key_strategy_json", null);
-                    if (TextUtils.isEmpty(p)) {
+            if (z && this.f12145b) {
+                this.f12145b = false;
+                if (!this.f12146c && d.y().t()) {
+                    String q = c.a.s0.s.h0.b.k().q("pref_key_strategy_json", null);
+                    if (TextUtils.isEmpty(q)) {
                         return;
                     }
                     try {
-                        JSONObject jSONObject = new JSONObject(p);
+                        JSONObject jSONObject = new JSONObject(q);
                         b bVar = new b();
                         bVar.a = Integer.valueOf(jSONObject.optInt("un_do_mission", 0));
-                        bVar.f12440b = jSONObject.optString("browsetimepage", "");
-                        bVar.f12441c = Integer.valueOf(jSONObject.optInt("duration", 0));
-                        bVar.f12442d = Long.valueOf(jSONObject.optLong("show_time_begin", 0L));
-                        bVar.f12443e = Long.valueOf(jSONObject.optLong("show_time_end", 0L));
-                        bVar.f12444f = Integer.valueOf(jSONObject.optInt("show_num", 0));
-                        bVar.f12445g = jSONObject.optString("toast", null);
+                        bVar.f12147b = jSONObject.optString("browsetimepage", "");
+                        bVar.f12148c = Integer.valueOf(jSONObject.optInt("duration", 0));
+                        bVar.f12149d = Long.valueOf(jSONObject.optLong("show_time_begin", 0L));
+                        bVar.f12150e = Long.valueOf(jSONObject.optLong("show_time_end", 0L));
+                        bVar.f12151f = Integer.valueOf(jSONObject.optInt("show_num", 0));
+                        bVar.f12152g = jSONObject.optString("toast", null);
                         a(bVar, false);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
@@ -317,7 +317,7 @@ public class o {
             }
         }
         this.a = false;
-        this.f12438b = true;
-        this.f12439c = false;
+        this.f12145b = true;
+        this.f12146c = false;
     }
 }

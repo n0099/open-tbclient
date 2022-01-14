@@ -67,7 +67,7 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i3);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            n.M(context, antiData.getForbid_info());
+            n.N(context, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i2);

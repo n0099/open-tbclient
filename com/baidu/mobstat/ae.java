@@ -18,7 +18,7 @@ public class ae extends bn {
     public static final String a = "baidu_mtj_sdk_record";
 
     /* renamed from: b  reason: collision with root package name */
-    public static ae f37606b;
+    public static ae f36372b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class ae extends bn {
                 return;
             }
         }
-        f37606b = new ae();
+        f36372b = new ae();
     }
 
     public ae() {
@@ -54,7 +54,7 @@ public class ae extends bn {
     public static ae a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f37606b : (ae) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36372b : (ae) invokeV.objValue;
     }
 
     public Long b(Context context) {

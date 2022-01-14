@@ -16,10 +16,10 @@ public class g {
     public h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f18832b;
+    public i f18362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<e> f18833c;
+    public LinkedList<e> f18363c;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class g {
             }
         }
         this.a = new h();
-        this.f18832b = new i();
-        this.f18833c = new LinkedList<>();
+        this.f18362b = new i();
+        this.f18363c = new LinkedList<>();
     }
 
     public h a() {
@@ -48,13 +48,13 @@ public class g {
     public i b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18832b : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18362b : (i) invokeV.objValue;
     }
 
     public List<e> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.f18833c) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.f18363c) : (List) invokeV.objValue;
     }
 
     public void d(e eVar) {
@@ -62,7 +62,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) || eVar == null) {
             return;
         }
-        this.f18833c.add(eVar);
+        this.f18363c.add(eVar);
     }
 
     public void e(e eVar) {

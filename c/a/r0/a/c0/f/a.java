@@ -17,10 +17,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5491b;
+    public static final boolean f5374b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f5492c;
+    public static int f5375c;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
 
@@ -37,8 +37,8 @@ public class a {
                 return;
             }
         }
-        f5491b = k.a;
-        f5492c = 5;
+        f5374b = k.a;
+        f5375c = 5;
     }
 
     public a(@IntRange(from = 1) int i2) {
@@ -62,7 +62,7 @@ public class a {
     public final int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 >> f5492c : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 >> f5375c : invokeI.intValue;
     }
 
     @SuppressLint({"BDThrowableCheck"})
@@ -72,19 +72,19 @@ public class a {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             if (i2 < 0) {
                 d.c("Component-DiffBitMap", "diff < 0: " + i2);
-                if (f5491b) {
+                if (f5374b) {
                     throw new IndexOutOfBoundsException("diff < 0: " + i2);
                 }
                 return false;
             }
             int[] iArr = this.a;
-            int length = (iArr.length << f5492c) - 1;
+            int length = (iArr.length << f5375c) - 1;
             if (i2 <= length) {
                 return ((1 << i2) & iArr[a(i2)]) != 0;
             }
             String str = "diff > " + length + ": " + i2;
             d.c("Component-DiffBitMap", str);
-            if (f5491b) {
+            if (f5374b) {
                 throw new IndexOutOfBoundsException(str);
             }
             return false;
@@ -99,7 +99,7 @@ public class a {
             if (i2 <= 0) {
                 String str = "number <= 0: " + i2;
                 d.c("Component-DiffBitMap", str);
-                if (f5491b) {
+                if (f5374b) {
                     throw new NegativeArraySizeException(str);
                 }
                 i2 = 500;
@@ -121,17 +121,17 @@ public class a {
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 < 0) {
                 d.c("Component-DiffBitMap", "diff < 0: " + i2);
-                if (f5491b) {
+                if (f5374b) {
                     throw new IndexOutOfBoundsException("diff < 0: " + i2);
                 }
                 return;
             }
             int[] iArr = this.a;
-            int length = (iArr.length << f5492c) - 1;
+            int length = (iArr.length << f5375c) - 1;
             if (i2 > length) {
                 String str = "diff > " + length + ": " + i2;
                 d.c("Component-DiffBitMap", str);
-                if (f5491b) {
+                if (f5374b) {
                     throw new IndexOutOfBoundsException(str);
                 }
                 return;

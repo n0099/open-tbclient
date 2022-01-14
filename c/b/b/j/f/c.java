@@ -16,7 +16,7 @@ public class c extends b<c.b.b.n.k.a, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.C1598a f27796b;
+    public a.C1614a f26961b;
 
     /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<c.b.b.n.k.a> {
@@ -24,22 +24,22 @@ public class c extends b<c.b.b.n.k.a, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f27797b;
+        public boolean f26962b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27798c;
+        public boolean f26963c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Texture.TextureFilter f27799d;
+        public Texture.TextureFilter f26964d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Texture.TextureFilter f27800e;
+        public Texture.TextureFilter f26965e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a.C1598a f27801f;
+        public a.C1614a f26966f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f27802g;
+        public String f26967g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -54,13 +54,13 @@ public class c extends b<c.b.b.n.k.a, a> {
                     return;
                 }
             }
-            this.f27797b = false;
-            this.f27798c = false;
+            this.f26962b = false;
+            this.f26963c = false;
             Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-            this.f27799d = textureFilter;
-            this.f27800e = textureFilter;
-            this.f27801f = null;
-            this.f27802g = null;
+            this.f26964d = textureFilter;
+            this.f26965e = textureFilter;
+            this.f26966f = null;
+            this.f26967g = null;
         }
     }
 
@@ -90,25 +90,25 @@ public class c extends b<c.b.b.n.k.a, a> {
     public c.b.b.q.a<c.b.b.j.a> a(String str, c.b.b.m.a aVar, a aVar2) {
         InterceptResult invokeLLL;
         String str2;
-        a.C1598a c1598a;
+        a.C1614a c1614a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, aVar, aVar2)) == null) {
             c.b.b.q.a<c.b.b.j.a> aVar3 = new c.b.b.q.a<>();
-            if (aVar2 != null && (c1598a = aVar2.f27801f) != null) {
-                this.f27796b = c1598a;
+            if (aVar2 != null && (c1614a = aVar2.f26966f) != null) {
+                this.f26961b = c1614a;
                 return aVar3;
             }
-            this.f27796b = new a.C1598a(aVar, aVar2 != null && aVar2.f27797b);
-            if (aVar2 != null && (str2 = aVar2.f27802g) != null) {
+            this.f26961b = new a.C1614a(aVar, aVar2 != null && aVar2.f26962b);
+            if (aVar2 != null && (str2 = aVar2.f26967g) != null) {
                 aVar3.a(new c.b.b.j.a(str2, c.b.b.n.k.h.class));
             } else {
-                for (int i2 = 0; i2 < this.f27796b.d().length; i2++) {
-                    c.b.b.m.a b2 = b(this.f27796b.c(i2));
+                for (int i2 = 0; i2 < this.f26961b.d().length; i2++) {
+                    c.b.b.m.a b2 = b(this.f26961b.c(i2));
                     p.b bVar = new p.b();
                     if (aVar2 != null) {
-                        bVar.f27840c = aVar2.f27798c;
-                        bVar.f27843f = aVar2.f27799d;
-                        bVar.f27844g = aVar2.f27800e;
+                        bVar.f27005c = aVar2.f26963c;
+                        bVar.f27008f = aVar2.f26964d;
+                        bVar.f27009g = aVar2.f26965e;
                     }
                     aVar3.a(new c.b.b.j.a(b2, Texture.class, bVar));
                 }
@@ -135,20 +135,20 @@ public class c extends b<c.b.b.n.k.a, a> {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
-            if (aVar2 != null && (str2 = aVar2.f27802g) != null) {
-                String str3 = aVar.s(this.f27796b.f27952b[0]).h().toString();
+            if (aVar2 != null && (str2 = aVar2.f26967g) != null) {
+                String str3 = aVar.s(this.f26961b.f27112b[0]).h().toString();
                 h.a f2 = ((c.b.b.n.k.h) eVar.j(str2, c.b.b.n.k.h.class)).f(str3);
                 if (f2 != null) {
                     return new c.b.b.n.k.a(aVar, f2);
                 }
-                throw new GdxRuntimeException("Could not find font region " + str3 + " in atlas " + aVar2.f27802g);
+                throw new GdxRuntimeException("Could not find font region " + str3 + " in atlas " + aVar2.f26967g);
             }
-            int length = this.f27796b.d().length;
+            int length = this.f26961b.d().length;
             c.b.b.q.a aVar3 = new c.b.b.q.a(length);
             for (int i2 = 0; i2 < length; i2++) {
-                aVar3.a(new c.b.b.n.k.i((Texture) eVar.j(this.f27796b.c(i2), Texture.class)));
+                aVar3.a(new c.b.b.n.k.i((Texture) eVar.j(this.f26961b.c(i2), Texture.class)));
             }
-            return new c.b.b.n.k.a(this.f27796b, (c.b.b.q.a<c.b.b.n.k.i>) aVar3, true);
+            return new c.b.b.n.k.a(this.f26961b, (c.b.b.q.a<c.b.b.n.k.i>) aVar3, true);
         }
         return (c.b.b.n.k.a) invokeLLLL.objValue;
     }

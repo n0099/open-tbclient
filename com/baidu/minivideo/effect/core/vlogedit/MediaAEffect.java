@@ -166,7 +166,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
             try {
                 MediaAEffect mediaAEffect = (MediaAEffect) super.clone();
                 if (TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
-                    mediaAEffect.shaderConfigKey = c.f1699b;
+                    mediaAEffect.shaderConfigKey = c.f1679b;
                 }
                 if (mediaAEffect.mediaOneAEffects != null) {
                     ArrayList arrayList = new ArrayList();

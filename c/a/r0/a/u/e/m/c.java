@@ -62,7 +62,7 @@ public class c extends c.a.r0.a.u.e.m.a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f9439b;
+        public final /* synthetic */ c f9233b;
 
         public b(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class c extends c.a.r0.a.u.e.m.a {
                     return;
                 }
             }
-            this.f9439b = cVar;
+            this.f9233b = cVar;
             this.a = str;
         }
 
@@ -87,7 +87,7 @@ public class c extends c.a.r0.a.u.e.m.a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f9439b.B(this.a, exc == null ? "" : exc.getMessage());
+                this.f9233b.B(this.a, exc == null ? "" : exc.getMessage());
             }
         }
 
@@ -103,7 +103,7 @@ public class c extends c.a.r0.a.u.e.m.a {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f9439b.d(this.a, this.f9439b.D(response));
+                this.f9233b.d(this.a, this.f9233b.D(response));
                 return response;
             }
             return invokeLI.objValue;
@@ -134,10 +134,10 @@ public class c extends c.a.r0.a.u.e.m.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, request, str) == null) {
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(request.url().toString(), request.body(), new b(this, str));
-            aVar.f11721i = request.tag();
-            aVar.f11718f = true;
-            aVar.f11719g = true;
-            aVar.f11720h = true;
+            aVar.f11456i = request.tag();
+            aVar.f11453f = true;
+            aVar.f11454g = true;
+            aVar.f11455h = true;
             c.a.r0.p.e.a.g().e(aVar);
         }
     }

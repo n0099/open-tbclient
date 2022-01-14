@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import java.io.File;
 /* loaded from: classes10.dex */
 public class StatusUtil {
@@ -47,7 +48,7 @@ public class StatusUtil {
                 }
             }
             PENDING = new Status("PENDING", 0);
-            RUNNING = new Status("RUNNING", 1);
+            RUNNING = new Status(TornadoLiteRuntime.STATE_RUNNING, 1);
             COMPLETED = new Status("COMPLETED", 2);
             IDLE = new Status("IDLE", 3);
             Status status = new Status(RomUtils.UNKNOWN, 4);

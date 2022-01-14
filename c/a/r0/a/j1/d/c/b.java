@@ -37,7 +37,7 @@ public class b {
         public final /* synthetic */ c.a.r0.a.j1.d.d.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f7587b;
+        public final /* synthetic */ File f7422b;
 
         public a(c.a.r0.a.j1.d.d.b bVar, File file) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class b {
                 }
             }
             this.a = bVar;
-            this.f7587b = file;
+            this.f7422b = file;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
@@ -67,7 +67,7 @@ public class b {
                 if (i2 != -1 || (bVar = this.a) == null) {
                     return true;
                 }
-                bVar.a(this.f7587b);
+                bVar.a(this.f7422b);
                 return true;
             }
             return invokeLIL.booleanValue;
@@ -76,15 +76,15 @@ public class b {
 
     /* renamed from: c.a.r0.a.j1.d.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0433b implements ActivityResultConsumer {
+    public static class C0442b implements ActivityResultConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.j1.d.d.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f7588b;
+        public final /* synthetic */ File f7423b;
 
-        public C0433b(c.a.r0.a.j1.d.d.b bVar, File file) {
+        public C0442b(c.a.r0.a.j1.d.d.b bVar, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class b {
                 }
             }
             this.a = bVar;
-            this.f7588b = file;
+            this.f7423b = file;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
@@ -112,7 +112,7 @@ public class b {
                 if (i2 != -1 || (bVar = this.a) == null) {
                     return true;
                 }
-                bVar.a(this.f7588b);
+                bVar.a(this.f7423b);
                 return true;
             }
             return invokeLIL.booleanValue;
@@ -256,7 +256,7 @@ public class b {
         } else {
             intent.putExtra("android.intent.extras.CAMERA_FACING", (int) r6);
         }
-        resultDispatcher.addConsumer(new C0433b(bVar, b2));
+        resultDispatcher.addConsumer(new C0442b(bVar, b2));
         try {
             resultDispatcher.startActivityForResult(intent);
         } catch (ActivityNotFoundException unused) {

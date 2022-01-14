@@ -13,34 +13,32 @@ public class c {
     public static int a = 60;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f62941b = 60;
+    public static int f60565b = 60;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f62942c = "OpenSDK.Client.File.Tracer";
+    public static String f60566c = "OpenSDK.Client.File.Tracer";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f62943d;
+    public static String f60567d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f62944e;
+    public static String f60568e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f62945f;
+    public static long f60569f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f62946g;
+    public static int f60570g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f62947h;
+    public static int f60571h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f62948i;
+    public static int f60572i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f62949j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static String f62950k;
+    public static String f60573j;
+    public static String k;
     public static String l;
     public static int m;
     public static long n;
@@ -60,14 +58,14 @@ public class c {
                 return;
             }
         }
-        f62943d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
-        f62944e = ".log";
-        f62945f = 8388608L;
-        f62946g = 262144;
-        f62947h = 1024;
-        f62948i = 10000;
-        f62949j = "debug.file.blockcount";
-        f62950k = "debug.file.keepperiod";
+        f60567d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
+        f60568e = ".log";
+        f60569f = 8388608L;
+        f60570g = 262144;
+        f60571h = 1024;
+        f60572i = 10000;
+        f60573j = "debug.file.blockcount";
+        k = "debug.file.keepperiod";
         l = "debug.file.tracelevel";
         m = 24;
         n = 604800000L;

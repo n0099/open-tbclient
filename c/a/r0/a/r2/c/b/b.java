@@ -51,12 +51,12 @@ public abstract class b extends z {
             if (eVar == null) {
                 d.c("battery", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 return false;
             } else if (context == null) {
                 d.c("battery", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = z.f6340b;
+                boolean z2 = z.f6201b;
                 return false;
             } else {
                 return true;
@@ -66,18 +66,18 @@ public abstract class b extends z {
     }
 
     @Nullable
-    public JSONObject k(@NonNull a.C0522a c0522a) {
+    public JSONObject k(@NonNull a.C0531a c0531a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0522a)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0531a)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 int i2 = 100;
-                if (c0522a.a <= 100) {
-                    i2 = c0522a.a;
+                if (c0531a.a <= 100) {
+                    i2 = c0531a.a;
                 }
                 jSONObject.put("level", String.valueOf(i2));
-                jSONObject.put("isCharging", c0522a.f8814b);
+                jSONObject.put("isCharging", c0531a.f8620b);
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;

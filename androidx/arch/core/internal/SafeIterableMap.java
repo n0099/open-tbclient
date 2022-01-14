@@ -117,12 +117,12 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         @NonNull
         public final V mValue;
 
-        public Entry(@NonNull K k2, @NonNull V v) {
+        public Entry(@NonNull K k, @NonNull V v) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k2, v};
+                Object[] objArr = {k, v};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -132,7 +132,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
                     return;
                 }
             }
-            this.mKey = k2;
+            this.mKey = k;
             this.mValue = v;
         }
 
@@ -417,12 +417,12 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         return invokeL.booleanValue;
     }
 
-    public Entry<K, V> get(K k2) {
+    public Entry<K, V> get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) {
             Entry<K, V> entry = this.mStart;
-            while (entry != null && !entry.mKey.equals(k2)) {
+            while (entry != null && !entry.mKey.equals(k)) {
                 entry = entry.mNext;
             }
             return entry;
@@ -474,11 +474,11 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mEnd : (Map.Entry) invokeV.objValue;
     }
 
-    public Entry<K, V> put(@NonNull K k2, @NonNull V v) {
+    public Entry<K, V> put(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2, v)) == null) {
-            Entry<K, V> entry = new Entry<>(k2, v);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, v)) == null) {
+            Entry<K, V> entry = new Entry<>(k, v);
             this.mSize++;
             Entry<K, V> entry2 = this.mEnd;
             if (entry2 == null) {
@@ -494,25 +494,25 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         return (Entry) invokeLL.objValue;
     }
 
-    public V putIfAbsent(@NonNull K k2, @NonNull V v) {
+    public V putIfAbsent(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k2, v)) == null) {
-            Entry<K, V> entry = get(k2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) {
+            Entry<K, V> entry = get(k);
             if (entry != null) {
                 return entry.mValue;
             }
-            put(k2, v);
+            put(k, v);
             return null;
         }
         return (V) invokeLL.objValue;
     }
 
-    public V remove(@NonNull K k2) {
+    public V remove(@NonNull K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k2)) == null) {
-            Entry<K, V> entry = get(k2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k)) == null) {
+            Entry<K, V> entry = get(k);
             if (entry == null) {
                 return null;
             }

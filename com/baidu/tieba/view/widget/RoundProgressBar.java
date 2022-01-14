@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class RoundProgressBar extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILL = 1;
@@ -25,32 +25,30 @@ public class RoundProgressBar extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f51370e;
+    public Paint f49397e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51371f;
+    public int f49398f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51372g;
+    public int f49399g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51373h;
+    public int f49400h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f51374i;
+    public float f49401i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f51375j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f51376k;
+    public float f49402j;
+    public int k;
     public int l;
     public boolean m;
     public int n;
     public RectF o;
     public a p;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface a {
         void a(int i2);
     }
@@ -82,7 +80,7 @@ public class RoundProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                i2 = this.f51376k;
+                i2 = this.k;
             }
             return i2;
         }
@@ -110,38 +108,38 @@ public class RoundProgressBar extends View {
             super.onDraw(canvas);
             int width = getWidth() / 2;
             float f2 = width;
-            int i3 = (int) ((f2 - (this.f51375j / 2.0f)) - 5.0f);
-            this.f51370e.setColor(this.f51371f);
-            this.f51370e.setStyle(Paint.Style.STROKE);
-            this.f51370e.setStrokeWidth(this.f51375j);
-            this.f51370e.setAntiAlias(true);
-            canvas.drawCircle(f2, f2, i3, this.f51370e);
-            this.f51370e.setStrokeWidth(0.0f);
-            this.f51370e.setColor(this.f51373h);
-            this.f51370e.setTextSize(this.f51374i);
-            this.f51370e.setTypeface(Typeface.DEFAULT_BOLD);
-            int i4 = (int) ((this.l / this.f51376k) * 100.0f);
-            float measureText = this.f51370e.measureText(i4 + "%");
+            int i3 = (int) ((f2 - (this.f49402j / 2.0f)) - 5.0f);
+            this.f49397e.setColor(this.f49398f);
+            this.f49397e.setStyle(Paint.Style.STROKE);
+            this.f49397e.setStrokeWidth(this.f49402j);
+            this.f49397e.setAntiAlias(true);
+            canvas.drawCircle(f2, f2, i3, this.f49397e);
+            this.f49397e.setStrokeWidth(0.0f);
+            this.f49397e.setColor(this.f49400h);
+            this.f49397e.setTextSize(this.f49401i);
+            this.f49397e.setTypeface(Typeface.DEFAULT_BOLD);
+            int i4 = (int) ((this.l / this.k) * 100.0f);
+            float measureText = this.f49397e.measureText(i4 + "%");
             if (this.m && this.n == 0) {
                 if (i4 == 0) {
                     i4 = 1;
                 }
-                canvas.drawText(i4 + "%", f2 - (measureText / 2.0f), f2 + (this.f51374i / 2.0f), this.f51370e);
+                canvas.drawText(i4 + "%", f2 - (measureText / 2.0f), f2 + (this.f49401i / 2.0f), this.f49397e);
             }
-            this.f51370e.setStrokeWidth(this.f51375j);
-            this.f51370e.setColor(this.f51372g);
+            this.f49397e.setStrokeWidth(this.f49402j);
+            this.f49397e.setColor(this.f49399g);
             float f3 = width - i3;
             float f4 = width + i3;
             this.o.set(f3, f3, f4, f4);
             int i5 = this.n;
             if (i5 == 0) {
-                this.f51370e.setStyle(Paint.Style.STROKE);
-                canvas.drawArc(this.o, -90.0f, (this.l * 360) / this.f51376k, false, this.f51370e);
+                this.f49397e.setStyle(Paint.Style.STROKE);
+                canvas.drawArc(this.o, -90.0f, (this.l * 360) / this.k, false, this.f49397e);
             } else if (i5 != 1) {
             } else {
-                this.f51370e.setStyle(Paint.Style.FILL_AND_STROKE);
+                this.f49397e.setStyle(Paint.Style.FILL_AND_STROKE);
                 if (this.l != 0) {
-                    canvas.drawArc(this.o, -90.0f, (i2 * 360) / this.f51376k, true, this.f51370e);
+                    canvas.drawArc(this.o, -90.0f, (i2 * 360) / this.k, true, this.f49397e);
                 }
             }
         }
@@ -152,7 +150,7 @@ public class RoundProgressBar extends View {
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             synchronized (this) {
                 if (i2 >= 0) {
-                    this.f51376k = i2;
+                    this.k = i2;
                 } else {
                     throw new IllegalArgumentException("max not less than 0");
                 }
@@ -172,10 +170,10 @@ public class RoundProgressBar extends View {
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             synchronized (this) {
                 if (i2 >= 0) {
-                    if (i2 > this.f51376k) {
-                        i2 = this.f51376k;
+                    if (i2 > this.k) {
+                        i2 = this.k;
                     }
-                    if (i2 <= this.f51376k) {
+                    if (i2 <= this.k) {
                         this.l = i2;
                         if (this.p != null) {
                             this.p.a(i2);
@@ -192,7 +190,7 @@ public class RoundProgressBar extends View {
     public void setRoundProgressColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f51372g = i2;
+            this.f49399g = i2;
         }
     }
 
@@ -236,15 +234,15 @@ public class RoundProgressBar extends View {
                 return;
             }
         }
-        this.f51370e = new Paint();
+        this.f49397e = new Paint();
         this.o = new RectF();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.RoundProgressBar);
-        this.f51371f = obtainStyledAttributes.getColor(R$styleable.RoundProgressBar_roundColor, getResources().getColor(R.color.CAM_X0607));
-        this.f51372g = obtainStyledAttributes.getColor(R$styleable.RoundProgressBar_roundProgressColor, getResources().getColor(R.color.CAM_X0302));
-        this.f51373h = obtainStyledAttributes.getColor(R$styleable.RoundProgressBar_roundTextColor, getResources().getColor(R.color.CAM_X0201));
-        this.f51374i = obtainStyledAttributes.getDimension(R$styleable.RoundProgressBar_roundTextSize, UtilHelper.getDimenPixelSize(R.dimen.tbds10));
-        this.f51375j = obtainStyledAttributes.getDimension(R$styleable.RoundProgressBar_roundWidth, UtilHelper.getDimenPixelSize(R.dimen.tbds7));
-        this.f51376k = obtainStyledAttributes.getInteger(R$styleable.RoundProgressBar_roundMax, 100);
+        this.f49398f = obtainStyledAttributes.getColor(R$styleable.RoundProgressBar_roundColor, getResources().getColor(R.color.CAM_X0607));
+        this.f49399g = obtainStyledAttributes.getColor(R$styleable.RoundProgressBar_roundProgressColor, getResources().getColor(R.color.CAM_X0302));
+        this.f49400h = obtainStyledAttributes.getColor(R$styleable.RoundProgressBar_roundTextColor, getResources().getColor(R.color.CAM_X0201));
+        this.f49401i = obtainStyledAttributes.getDimension(R$styleable.RoundProgressBar_roundTextSize, UtilHelper.getDimenPixelSize(R.dimen.tbds10));
+        this.f49402j = obtainStyledAttributes.getDimension(R$styleable.RoundProgressBar_roundWidth, UtilHelper.getDimenPixelSize(R.dimen.tbds7));
+        this.k = obtainStyledAttributes.getInteger(R$styleable.RoundProgressBar_roundMax, 100);
         this.m = obtainStyledAttributes.getBoolean(R$styleable.RoundProgressBar_textIsDisplayable, true);
         this.n = obtainStyledAttributes.getInt(R$styleable.RoundProgressBar_style, 0);
         obtainStyledAttributes.recycle();

@@ -21,12 +21,12 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7487c;
+    public static final boolean f7322c;
     public transient /* synthetic */ FieldHolder $fh;
     public CallbackHandler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f7488b;
+    public JSONObject f7323b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class a {
                 return;
             }
         }
-        f7487c = k.a;
+        f7322c = k.a;
     }
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
@@ -60,7 +60,7 @@ public class a {
             }
         }
         this.a = callbackHandler;
-        this.f7488b = jSONObject;
+        this.f7323b = jSONObject;
     }
 
     public void a(String str) {
@@ -73,11 +73,11 @@ public class a {
     public void b(String str, JSONObject jSONObject) {
         JSONObject wrapCallbackParamsWithEncode;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) || this.f7488b == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) || this.f7323b == null) {
             return;
         }
-        this.a.handleSchemeDispatchCallback(this.f7488b.optString(str), UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-        if (f7487c) {
+        this.a.handleSchemeDispatchCallback(this.f7323b.optString(str), UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+        if (f7322c) {
             String str2 = "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString();
         }
     }
@@ -92,11 +92,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                boolean z = f7487c;
+                boolean z = f7322c;
                 return;
             }
             try {
-                this.f7488b = new JSONObject(str);
+                this.f7323b = new JSONObject(str);
             } catch (JSONException e2) {
                 c.a.r0.a.n2.u.a.b(MediaStreamTrack.AUDIO_TRACK_KIND, 2009, "update json exception", -1, "");
                 d.c("AudioStatusCallback", "#setCallbacks error", e2);

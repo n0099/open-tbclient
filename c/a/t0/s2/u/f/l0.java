@@ -30,34 +30,32 @@ public class l0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23604b;
+    public boolean f22948b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f23605c;
+    public Rect f22949c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23606d;
+    public int f22950d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.s2.r.f f23607e;
+    public c.a.t0.s2.r.f f22951e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f23608f;
+    public boolean f22952f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Parcelable f23609g;
+    public Parcelable f22953g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f23610h;
+    public boolean f22954h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f23611i;
+    public boolean f22955i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f23612j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public PostData f23613k;
+    public boolean f22956j;
+    public PostData k;
     public PostData l;
     public int m;
 
@@ -364,13 +362,13 @@ public class l0 {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23611i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22955i : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23612j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22956j : invokeV.booleanValue;
     }
 
     public int d() {
@@ -383,13 +381,13 @@ public class l0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f23608f) {
-                this.f23608f = false;
-                Parcelable parcelable = this.f23609g;
-                this.f23609g = null;
+            if (this.f22952f) {
+                this.f22952f = false;
+                Parcelable parcelable = this.f22953g;
+                this.f22953g = null;
                 return parcelable;
             }
-            this.f23609g = null;
+            this.f22953g = null;
             return null;
         }
         return (Parcelable) invokeV.objValue;
@@ -399,19 +397,19 @@ public class l0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.f23604b) {
-                this.f23608f = false;
+            if (!this.f22948b) {
+                this.f22952f = false;
                 return null;
             }
-            c.a.t0.s2.r.f fVar = this.f23607e;
-            if (fVar != null && fVar.F() != null && this.f23607e.F().size() > 0) {
-                this.f23608f = true;
-                c.a.t0.s2.r.f fVar2 = this.f23607e;
-                this.f23607e = null;
+            c.a.t0.s2.r.f fVar = this.f22951e;
+            if (fVar != null && fVar.F() != null && this.f22951e.F().size() > 0) {
+                this.f22952f = true;
+                c.a.t0.s2.r.f fVar2 = this.f22951e;
+                this.f22951e = null;
                 return fVar2;
             }
-            this.f23608f = false;
-            this.f23607e = null;
+            this.f22952f = false;
+            this.f22951e = null;
             return null;
         }
         return (c.a.t0.s2.r.f) invokeV.objValue;
@@ -420,7 +418,7 @@ public class l0 {
     public PostData g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23613k : (PostData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : (PostData) invokeV.objValue;
     }
 
     public PostData h() {
@@ -432,42 +430,42 @@ public class l0 {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f23610h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22954h : invokeV.booleanValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23606d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22950d : invokeV.intValue;
     }
 
     public Rect k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f23605c : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f22949c : (Rect) invokeV.objValue;
     }
 
     public void l(int i2, CustomResponsedMessage<?> customResponsedMessage) {
         c.a.t0.s2.r.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i2, customResponsedMessage) == null) || customResponsedMessage == null || (fVar = this.f23607e) == null || fVar.l() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i2, customResponsedMessage) == null) || customResponsedMessage == null || (fVar = this.f22951e) == null || fVar.l() == null) {
             return;
         }
         Object data = customResponsedMessage.getData();
-        if ((data instanceof Long) && ((Long) data).longValue() == c.a.d.f.m.b.g(this.f23607e.l().getId(), 0L)) {
-            this.f23607e.l().setLike(i2);
+        if ((data instanceof Long) && ((Long) data).longValue() == c.a.d.f.m.b.g(this.f22951e.l().getId(), 0L)) {
+            this.f22951e.l().setLike(i2);
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f23604b = false;
-            this.f23607e = null;
-            this.f23608f = false;
-            this.f23609g = null;
-            this.f23605c = null;
-            this.f23606d = 0;
+            this.f22948b = false;
+            this.f22951e = null;
+            this.f22952f = false;
+            this.f22953g = null;
+            this.f22949c = null;
+            this.f22950d = 0;
         }
     }
 
@@ -475,7 +473,7 @@ public class l0 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{fVar, parcelable, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            this.f23604b = false;
+            this.f22948b = false;
             if (this.a == null) {
                 m();
                 return false;
@@ -489,12 +487,12 @@ public class l0 {
                 m();
                 return false;
             } else {
-                this.f23607e = fVar;
-                this.f23608f = false;
-                this.f23609g = parcelable;
-                this.f23610h = z;
-                this.f23611i = z2;
-                this.f23612j = z3;
+                this.f22951e = fVar;
+                this.f22952f = false;
+                this.f22953g = parcelable;
+                this.f22954h = z;
+                this.f22955i = z2;
+                this.f22956j = z3;
                 return true;
             }
         }
@@ -511,7 +509,7 @@ public class l0 {
     public void p(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048590, this, str, z) == null) {
-            this.f23604b = false;
+            this.f22948b = false;
             if (z) {
                 str = null;
             }
@@ -521,7 +519,7 @@ public class l0 {
                     this.a = str;
                     return;
                 }
-                this.f23604b = true;
+                this.f22948b = true;
                 return;
             }
             m();
@@ -532,7 +530,7 @@ public class l0 {
     public void q(PostData postData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, postData) == null) {
-            this.f23613k = postData;
+            this.k = postData;
         }
     }
 
@@ -546,31 +544,31 @@ public class l0 {
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f23606d = i2;
+            this.f22950d = i2;
         }
     }
 
     public void t(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, rect) == null) {
-            this.f23605c = rect;
+            this.f22949c = rect;
         }
     }
 
     public void u(c.a.t0.w3.j0.e eVar) {
         c.a.t0.s2.r.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, eVar) == null) || (fVar = this.f23607e) == null || fVar.O() == null || this.f23607e.O().B() == null || eVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, eVar) == null) || (fVar = this.f22951e) == null || fVar.O() == null || this.f22951e.O().B() == null || eVar == null) {
             return;
         }
-        AgreeData agreeData = eVar.f25551b;
-        AgreeData B = this.f23607e.O().B();
+        AgreeData agreeData = eVar.f24836b;
+        AgreeData B = this.f22951e.O().B();
         if (agreeData == null || B == null) {
             return;
         }
         String str = agreeData.nid;
         if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
-            BaijiahaoData L = this.f23607e.O().L();
+            BaijiahaoData L = this.f22951e.O().L();
             if (L == null || !TextUtils.equals(str, L.oriUgcNid)) {
                 return;
             }
@@ -595,18 +593,18 @@ public class l0 {
     public void v(UserPendantData userPendantData) {
         c.a.t0.s2.r.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, userPendantData) == null) || userPendantData == null || (fVar = this.f23607e) == null || fVar.F() == null || this.f23607e.F().size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, userPendantData) == null) || userPendantData == null || (fVar = this.f22951e) == null || fVar.F() == null || this.f22951e.F().size() <= 0) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (StringUtils.isNull(currentAccount)) {
             return;
         }
-        int size = this.f23607e.F().size();
+        int size = this.f22951e.F().size();
         for (int i2 = 0; i2 < size; i2++) {
-            if (this.f23607e.F().get(i2) != null && this.f23607e.F().get(i2).t() != null && currentAccount.equals(this.f23607e.F().get(i2).t().getUserId()) && this.f23607e.F().get(i2).t().getPendantData() != null) {
-                this.f23607e.F().get(i2).t().getPendantData().setImgUrl(userPendantData.getImgUrl());
-                this.f23607e.F().get(i2).t().getPendantData().setPropsId(userPendantData.getPropsId());
+            if (this.f22951e.F().get(i2) != null && this.f22951e.F().get(i2).t() != null && currentAccount.equals(this.f22951e.F().get(i2).t().getUserId()) && this.f22951e.F().get(i2).t().getPendantData() != null) {
+                this.f22951e.F().get(i2).t().getPendantData().setImgUrl(userPendantData.getImgUrl());
+                this.f22951e.F().get(i2).t().getPendantData().setPropsId(userPendantData.getPropsId());
             }
         }
     }
@@ -614,14 +612,14 @@ public class l0 {
     public void w(c.a.t0.w3.j0.e eVar) {
         c.a.t0.s2.r.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) || (fVar = this.f23607e) == null || eVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) || (fVar = this.f22951e) == null || eVar == null) {
             return;
         }
         ArrayList<PostData> F = fVar.F();
         if (ListUtils.isEmpty(F)) {
             return;
         }
-        AgreeData agreeData = eVar.f25551b;
+        AgreeData agreeData = eVar.f24836b;
         for (PostData postData : F) {
             if (postData != null && TextUtils.equals(postData.G(), agreeData.postId)) {
                 AgreeData q = postData.q();
@@ -649,13 +647,13 @@ public class l0 {
             }
         }
         this.a = null;
-        this.f23604b = false;
-        this.f23606d = 0;
-        this.f23607e = null;
-        this.f23608f = false;
-        this.f23609g = null;
-        this.f23610h = true;
-        this.f23611i = false;
-        this.f23612j = false;
+        this.f22948b = false;
+        this.f22950d = 0;
+        this.f22951e = null;
+        this.f22952f = false;
+        this.f22953g = null;
+        this.f22954h = true;
+        this.f22955i = false;
+        this.f22956j = false;
     }
 }

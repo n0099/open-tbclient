@@ -21,7 +21,7 @@ public class c extends c.a.r0.a.w1.d.d.a {
         public final /* synthetic */ c.a.r0.a.w1.d.c.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.j.b f9749b;
+        public final /* synthetic */ c.a.r0.a.h0.j.b f9538b;
 
         public a(c cVar, c.a.r0.a.w1.d.c.a aVar, c.a.r0.a.h0.j.b bVar) {
             Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class c extends c.a.r0.a.w1.d.d.a {
                 }
             }
             this.a = aVar;
-            this.f9749b = bVar;
+            this.f9538b = bVar;
         }
 
         @Override // c.a.r0.a.n.a.b
@@ -47,7 +47,7 @@ public class c extends c.a.r0.a.w1.d.d.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 c.a.r0.a.w1.e.a.b("obtain address failure, errCode = " + i2);
-                this.f9749b.a(this.a);
+                this.f9538b.a(this.a);
             }
         }
 
@@ -57,11 +57,11 @@ public class c extends c.a.r0.a.w1.d.d.a {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
                 c.a.r0.a.w1.e.a.b("obtain address success");
                 c.a.r0.a.w1.d.c.a aVar = this.a;
-                aVar.f9735d = true;
+                aVar.f9524d = true;
                 if (jSONObject != null) {
-                    aVar.f9736e = jSONObject.toString();
+                    aVar.f9525e = jSONObject.toString();
                 }
-                this.f9749b.a(this.a);
+                this.f9538b.a(this.a);
             }
         }
     }
@@ -108,9 +108,9 @@ public class c extends c.a.r0.a.w1.d.d.a {
     public void p(SwanAppActivity swanAppActivity, String str, c.a.r0.a.w1.d.b.b bVar, c.a.r0.a.h2.d.a aVar, c.a.r0.a.h0.j.b<c.a.r0.a.w1.d.c.a> bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, bVar, aVar, bVar2) == null) {
-            c.a.r0.a.w1.d.c.a aVar2 = new c.a.r0.a.w1.d.c.a(bVar.f9729f);
-            aVar2.a = bVar.f9728e;
-            if (aVar != null && aVar.f7352j.a() != LightappBusinessClient.SVC_ID_H5_TRANSERECORD) {
+            c.a.r0.a.w1.d.c.a aVar2 = new c.a.r0.a.w1.d.c.a(bVar.f9518f);
+            aVar2.a = bVar.f9517e;
+            if (aVar != null && aVar.f7193j.a() != LightappBusinessClient.SVC_ID_H5_TRANSERECORD) {
                 c.a.r0.a.w1.e.a.b("obtain address detail");
                 c.a.r0.a.c1.a.j0().a(swanAppActivity, str, str, new a(this, aVar2, bVar2));
                 return;

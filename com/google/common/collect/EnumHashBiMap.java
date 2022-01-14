@@ -149,25 +149,25 @@ public final class EnumHashBiMap<K extends Enum<K>, V> extends AbstractBiMap<K, 
         return (EnumHashBiMap) invokeL.objValue;
     }
 
-    public K checkKey(K k2) {
+    public K checkKey(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
-            n.p(k2);
-            return k2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            n.p(k);
+            return k;
         }
         return (K) invokeL.objValue;
     }
 
-    public V forcePut(K k2, V v) {
+    public V forcePut(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k2, v)) == null) ? (V) super.forcePut((EnumHashBiMap<K, V>) k2, (K) v) : (V) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, v)) == null) ? (V) super.forcePut((EnumHashBiMap<K, V>) k, (K) v) : (V) invokeLL.objValue;
     }
 
-    public V put(K k2, V v) {
+    public V put(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, k2, v)) == null) ? (V) super.put((EnumHashBiMap<K, V>) k2, (K) v) : (V) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, k, v)) == null) ? (V) super.put((EnumHashBiMap<K, V>) k, (K) v) : (V) invokeLL.objValue;
     }
 }

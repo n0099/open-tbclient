@@ -11,7 +11,7 @@ public class ca implements com.kwad.sdk.core.d<i.a> {
             return;
         }
         aVar.a = jSONObject.optInt("horizontalShowDuration", new Integer("180000").intValue());
-        aVar.f57838b = jSONObject.optInt("verticalShowDuration", new Integer("90000").intValue());
+        aVar.f55647b = jSONObject.optInt("verticalShowDuration", new Integer("90000").intValue());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class ca implements com.kwad.sdk.core.d<i.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "horizontalShowDuration", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "verticalShowDuration", aVar.f57838b);
+        com.kwad.sdk.utils.t.a(jSONObject, "verticalShowDuration", aVar.f55647b);
         return jSONObject;
     }
 }

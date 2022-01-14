@@ -16,7 +16,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.s0.c0.a;
 import c.a.s0.e1.e0;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.u.p;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -68,7 +68,7 @@ public class e {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f12982b;
+    public static final h f12668b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -243,20 +243,20 @@ public class e {
 
     /* renamed from: c.a.s0.g1.n.e$e  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0833e extends c.a.s0.g1.n.f {
+    public static class C0843e extends c.a.s0.g1.n.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d2 l;
+        public final /* synthetic */ e2 l;
         public final /* synthetic */ String m;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0833e(int i2, String str, d2 d2Var, String str2) {
+        public C0843e(int i2, String str, e2 e2Var, String str2) {
             super(i2, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str, d2Var, str2};
+                Object[] objArr = {Integer.valueOf(i2), str, e2Var, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -268,7 +268,7 @@ public class e {
                     return;
                 }
             }
-            this.l = d2Var;
+            this.l = e2Var;
             this.m = str2;
         }
 
@@ -286,17 +286,17 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String l;
-        public final /* synthetic */ d2 m;
+        public final /* synthetic */ e2 m;
         public final /* synthetic */ String n;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(int i2, String str, String str2, d2 d2Var, String str3) {
+        public f(int i2, String str, String str2, e2 e2Var, String str3) {
             super(i2, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str, str2, d2Var, str3};
+                Object[] objArr = {Integer.valueOf(i2), str, str2, e2Var, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -309,7 +309,7 @@ public class e {
                 }
             }
             this.l = str2;
-            this.m = d2Var;
+            this.m = e2Var;
             this.n = str3;
         }
 
@@ -408,7 +408,7 @@ public class e {
                 return;
             }
         }
-        f12982b = new h();
+        f12668b = new h();
         w();
         v();
     }
@@ -424,9 +424,9 @@ public class e {
         }
     }
 
-    public static void B(String str, d2 d2Var) {
+    public static void B(String str, e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, d2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, e2Var) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (TextUtils.isEmpty(str) || !(currentActivity instanceof TbPageContextSupport)) {
                 return;
@@ -434,27 +434,27 @@ public class e {
             TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) currentActivity;
             p pVar = new p();
             pVar.a = str;
-            if (d2Var != null) {
-                pVar.f14493b = d2Var.W0();
-                pVar.f14494c = d2Var.I0();
+            if (e2Var != null) {
+                pVar.f14155b = e2Var.W0();
+                pVar.f14156c = e2Var.I0();
             }
             c.a.s0.u0.a.h(pVar);
-            UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{pVar.a, pVar.f14494c});
+            UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{pVar.a, pVar.f14156c});
         }
     }
 
-    public static SpannableStringBuilder C(d2 d2Var, List<PbContent> list, String str) {
+    public static SpannableStringBuilder C(e2 e2Var, List<PbContent> list, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, d2Var, list, str)) == null) ? D(d2Var, list, str, null) : (SpannableStringBuilder) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, e2Var, list, str)) == null) ? D(e2Var, list, str, null) : (SpannableStringBuilder) invokeLLL.objValue;
     }
 
-    public static SpannableStringBuilder D(d2 d2Var, List<PbContent> list, String str, @Nullable List<c.a.s0.g1.p.a> list2) {
+    public static SpannableStringBuilder D(e2 e2Var, List<PbContent> list, String str, @Nullable List<c.a.s0.g1.p.a> list2) {
         InterceptResult invokeLLLL;
         int size;
         Pair<CharSequence, c.a.s0.g1.p.a> p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, d2Var, list, str, list2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, e2Var, list, str, list2)) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (ListUtils.isEmpty(list)) {
                 if (str == null) {
@@ -467,13 +467,13 @@ public class e {
                     if (pbContent != null && (!TextUtils.isEmpty(pbContent.text) || !TextUtils.isEmpty(i(pbContent)))) {
                         int f2 = f(pbContent.type);
                         CharSequence charSequence = null;
-                        if (f2 == 35 && (p = p(f2, d2Var, pbContent.tiebaplus_info)) != null) {
+                        if (f2 == 35 && (p = p(f2, e2Var, pbContent.tiebaplus_info)) != null) {
                             charSequence = p.first;
                             e0.b(list2);
                             list2.add(p.second);
                         }
                         if (charSequence == null) {
-                            charSequence = n(d2Var, pbContent);
+                            charSequence = n(e2Var, pbContent);
                         }
                         if (charSequence != null) {
                             spannableStringBuilder.append(charSequence);
@@ -498,14 +498,14 @@ public class e {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, list, str)) == null) ? C(null, list, str) : (SpannableStringBuilder) invokeLL.objValue;
     }
 
-    public static SpannableStringBuilder G(List<PbContent> list, List<HeadItem> list2, boolean z, @Nullable d2 d2Var, @Nullable List<c.a.s0.g1.p.a> list3) {
+    public static SpannableStringBuilder G(List<PbContent> list, List<HeadItem> list2, boolean z, @Nullable e2 e2Var, @Nullable List<c.a.s0.g1.p.a> list3) {
         InterceptResult invokeCommon;
         int size;
         CharSequence charSequence;
         char c2;
         Pair<CharSequence, c.a.s0.g1.p.a> p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{list, list2, Boolean.valueOf(z), d2Var, list3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{list, list2, Boolean.valueOf(z), e2Var, list3})) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (ListUtils.isEmpty(list)) {
                 spannableStringBuilder.append((CharSequence) "");
@@ -515,7 +515,7 @@ public class e {
                     if (pbContent != null && (!TextUtils.isEmpty(pbContent.text) || !TextUtils.isEmpty(i(pbContent)))) {
                         int f2 = f(pbContent.type);
                         SpannableStringBuilder spannableStringBuilder2 = null;
-                        if (f2 != 35 || (p = p(f2, d2Var, pbContent.tiebaplus_info)) == null) {
+                        if (f2 != 35 || (p = p(f2, e2Var, pbContent.tiebaplus_info)) == null) {
                             charSequence = null;
                         } else {
                             charSequence = p.first;
@@ -523,7 +523,7 @@ public class e {
                             list3.add(p.second);
                         }
                         if (charSequence == null) {
-                            charSequence = n(d2Var, pbContent);
+                            charSequence = n(e2Var, pbContent);
                         }
                         if (i2 != 0 || list2 == null) {
                             c2 = 65535;
@@ -689,33 +689,33 @@ public class e {
         return invokeL.intValue;
     }
 
-    public static void g(StatisticItem statisticItem, d2 d2Var) {
+    public static void g(StatisticItem statisticItem, e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, statisticItem, d2Var) == null) {
-            if (d2Var.H2()) {
+        if (interceptable == null || interceptable.invokeLL(65550, null, statisticItem, e2Var) == null) {
+            if (e2Var.H2()) {
                 statisticItem.param("obj_type", 2);
-            } else if (d2Var.h2()) {
+            } else if (e2Var.h2()) {
                 statisticItem.param("obj_type", 4);
-            } else if (d2Var.B1) {
+            } else if (e2Var.A1) {
                 statisticItem.param("obj_type", 5);
-            } else if (d2Var.P1()) {
+            } else if (e2Var.P1()) {
                 statisticItem.param("obj_type", 6);
-            } else if (d2Var.Q1()) {
+            } else if (e2Var.Q1()) {
                 statisticItem.param("obj_type", 7);
-            } else if (d2Var.S1()) {
+            } else if (e2Var.S1()) {
                 statisticItem.param("obj_type", 8);
-            } else if (d2Var.R1()) {
+            } else if (e2Var.R1()) {
                 statisticItem.param("obj_type", 9);
-            } else if (d2Var.getType() == d2.i3) {
+            } else if (e2Var.getType() == e2.i3) {
                 statisticItem.param("obj_type", 1);
             }
         }
     }
 
-    public static SpannableString h(d2 d2Var, String str, String str2) {
+    public static SpannableString h(e2 e2Var, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, d2Var, str, str2)) == null) ? m(d2Var, 16, str, str2) : (SpannableString) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, e2Var, str, str2)) == null) ? m(e2Var, 16, str, str2) : (SpannableString) invokeLLL.objValue;
     }
 
     @NonNull
@@ -733,7 +733,7 @@ public class e {
         InterceptResult invokeL;
         int b2;
         String str2;
-        a.C0816a c2;
+        a.C0826a c2;
         double d2;
         int a2;
         Interceptable interceptable = $ic;
@@ -770,33 +770,33 @@ public class e {
         return (SpannableString) invokeL.objValue;
     }
 
-    public static SpannableString k(d2 d2Var, int i2, String str, String str2, String str3) {
+    public static SpannableString k(e2 e2Var, int i2, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{d2Var, Integer.valueOf(i2), str, str2, str3})) == null) ? r(d2Var, i2, str, str2, 0, str3) : (SpannableString) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{e2Var, Integer.valueOf(i2), str, str2, str3})) == null) ? r(e2Var, i2, str, str2, 0, str3) : (SpannableString) invokeCommon.objValue;
     }
 
-    public static SpannableString l(d2 d2Var, String str, String str2, String str3) {
+    public static SpannableString l(e2 e2Var, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65555, null, d2Var, str, str2, str3)) == null) ? k(d2Var, 39, str, str2, str3) : (SpannableString) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65555, null, e2Var, str, str2, str3)) == null) ? k(e2Var, 39, str, str2, str3) : (SpannableString) invokeLLLL.objValue;
     }
 
-    public static SpannableString m(d2 d2Var, int i2, String str, String str2) {
+    public static SpannableString m(e2 e2Var, int i2, String str, String str2) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(65556, null, d2Var, i2, str, str2)) == null) ? r(d2Var, i2, str, str2, 0, null) : (SpannableString) invokeLILL.objValue;
+        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(65556, null, e2Var, i2, str, str2)) == null) ? r(e2Var, i2, str, str2, 0, null) : (SpannableString) invokeLILL.objValue;
     }
 
-    public static CharSequence n(d2 d2Var, PbContent pbContent) {
+    public static CharSequence n(e2 e2Var, PbContent pbContent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, d2Var, pbContent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, e2Var, pbContent)) == null) {
             int f2 = f(pbContent.type);
             if (f2 != 2) {
                 if (f2 != 4) {
                     if (f2 == 16) {
-                        return h(d2Var, pbContent.text, String.valueOf(pbContent.uid));
+                        return h(e2Var, pbContent.text, String.valueOf(pbContent.uid));
                     }
                     if (f2 != 18) {
                         if (f2 == 35) {
@@ -804,14 +804,14 @@ public class e {
                         }
                         if (f2 == 39) {
                             String str = pbContent.text;
-                            return l(d2Var, str, pbContent.item_id + "", pbContent.item_forum_name);
+                            return l(e2Var, str, pbContent.item_id + "", pbContent.item_forum_name);
                         } else if (f2 != 1282) {
                             String str2 = pbContent.text;
                             return new SpannableString(str2 != null ? str2 : "");
                         }
                     }
-                    if (d2Var != null && pbContent != null) {
-                        c.a.s0.j0.d.b f3 = c.a.s0.j0.d.b.f(d2Var, pbContent);
+                    if (e2Var != null && pbContent != null) {
+                        c.a.s0.j0.d.b f3 = c.a.s0.j0.d.b.f(e2Var, pbContent);
                         f3.b(HotTopicStat.Locate.THREAD_CARD);
                         f3.a(f2 == 1282);
                         return o(f3);
@@ -819,7 +819,7 @@ public class e {
                 }
                 return j(pbContent.text);
             }
-            return m(d2Var, 2, pbContent.text, pbContent.link);
+            return m(e2Var, 2, pbContent.text, pbContent.link);
         }
         return (CharSequence) invokeLL.objValue;
     }
@@ -828,7 +828,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, bVar)) == null) {
-            SpannableString b2 = f12982b.a(18).b(18, bVar.j().text, bVar);
+            SpannableString b2 = f12668b.a(18).b(18, bVar.j().text, bVar);
             SpecHotTopicHelper.addSpecTopic(bVar.l(), b2, b2.toString(), 0);
             return b2;
         }
@@ -836,15 +836,15 @@ public class e {
     }
 
     @Nullable
-    public static Pair<CharSequence, c.a.s0.g1.p.a> p(int i2, @Nullable d2 d2Var, @Nullable TiebaPlusInfo tiebaPlusInfo) {
+    public static Pair<CharSequence, c.a.s0.g1.p.a> p(int i2, @Nullable e2 e2Var, @Nullable TiebaPlusInfo tiebaPlusInfo) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65559, null, i2, d2Var, tiebaPlusInfo)) == null) {
-            if (d2Var == null || !TiePlusHelper.j(tiebaPlusInfo) || TextUtils.isEmpty(tiebaPlusInfo.desc)) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65559, null, i2, e2Var, tiebaPlusInfo)) == null) {
+            if (e2Var == null || !TiePlusHelper.j(tiebaPlusInfo) || TextUtils.isEmpty(tiebaPlusInfo.desc)) {
                 return null;
             }
-            c.a.s0.g1.p.a c2 = c.a.s0.g1.p.a.c(i2, tiebaPlusInfo, d2Var);
-            RichTextMaker a2 = f12982b.a(i2);
+            c.a.s0.g1.p.a c2 = c.a.s0.g1.p.a.c(i2, tiebaPlusInfo, e2Var);
+            RichTextMaker a2 = f12668b.a(i2);
             int intValue = tiebaPlusInfo.jump_type.intValue();
             if (intValue != 2) {
                 if (intValue != 3) {
@@ -877,18 +877,18 @@ public class e {
             int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds36);
             int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.tbds13);
             SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.item_stars));
-            spannableString.setSpan(new c.a.s0.s.i0.r.c(i3, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
+            spannableString.setSpan(new c.a.s0.s.j0.r.c(i3, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
             return spannableString;
         }
         return (SpannableString) invokeCommon.objValue;
     }
 
-    public static SpannableString r(d2 d2Var, int i2, String str, String str2, int i3, String str3) {
+    public static SpannableString r(e2 e2Var, int i2, String str, String str2, int i3, String str3) {
         InterceptResult invokeCommon;
         SpannableString spannableString;
         c.a.s0.g1.n.f gVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{d2Var, Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{e2Var, Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3})) == null) {
             String str4 = str;
             if (str4 != null) {
                 boolean z = i2 == 2 && x(str, str2);
@@ -910,9 +910,9 @@ public class e {
                 } else if (i2 == 1282) {
                     gVar = new d(i2, str2);
                 } else if (i2 == 16) {
-                    gVar = new C0833e(i2, str2, d2Var, str2);
+                    gVar = new C0843e(i2, str2, e2Var, str2);
                 } else if (i2 == 39) {
-                    gVar = new f(i2, str2, str2, d2Var, str3);
+                    gVar = new f(i2, str2, str2, e2Var, str3);
                 } else {
                     gVar = new g(i2, str2, str2);
                 }
@@ -933,11 +933,11 @@ public class e {
                     eMRichTextAnyIconSpan2.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
                     spannableString2.setSpan(eMRichTextAnyIconSpan2, str5.length() - 1, str5.length() + 1, 33);
                     spannableString2.setSpan(gVar, 0, str5.length() - 1, 33);
-                    if (a != d2Var.v1()) {
-                        a = d2Var.v1();
+                    if (a != e2Var.v1()) {
+                        a = e2Var.v1();
                         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ITEM_THROUGH_EXPOSURE);
                         statisticItem.param("tid", a);
-                        statisticItem.param("obj_locate", d2Var.b2 ? 1 : 2);
+                        statisticItem.param("obj_locate", e2Var.a2 ? 1 : 2);
                         TiebaStatic.log(statisticItem);
                         return spannableString2;
                     }
@@ -959,14 +959,14 @@ public class e {
         return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? new SpannableString("") : (SpannableString) invokeV.objValue;
     }
 
-    public static boolean t(d2 d2Var) {
+    public static boolean t(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, e2Var)) == null) {
+            if (e2Var == null) {
                 return false;
             }
-            List<PbContent> W = d2Var.W();
+            List<PbContent> W = e2Var.W();
             if (!ListUtils.isEmpty(W)) {
                 for (int count = ListUtils.getCount(W) - 1; count >= 0; count--) {
                     if (W.get(count).type.intValue() == 37) {
@@ -1001,14 +1001,14 @@ public class e {
     public static void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65565, null) == null) {
-            f12982b.b(18, new a());
+            f12668b.b(18, new a());
         }
     }
 
     public static void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, null) == null) {
-            f12982b.b(35, new b(RichTextMaker.IconPos.START, R.drawable.icon_pure_post_link16, R.color.CAM_X0304, R.dimen.M_W_X002));
+            f12668b.b(35, new b(RichTextMaker.IconPos.START, R.drawable.icon_pure_post_link16, R.color.CAM_X0304, R.dimen.M_W_X002));
         }
     }
 
@@ -1041,29 +1041,29 @@ public class e {
         return invokeLL.booleanValue;
     }
 
-    public static void y(d2 d2Var, String str) {
+    public static void y(e2 e2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65568, null, d2Var, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65568, null, e2Var, str) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (TextUtils.isEmpty(str) || currentActivity == null) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(currentActivity, str, null)));
-            if (d2Var != null) {
+            if (e2Var != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
-                if (d2Var.a2()) {
+                if (e2Var.a2()) {
                     statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
                     statisticItem.param("obj_source", 1);
-                    g(statisticItem, d2Var);
-                } else if (d2Var.b2) {
+                    g(statisticItem, e2Var);
+                } else if (e2Var.a2) {
                     statisticItem.param("obj_source", 2);
-                    if (d2Var.L() != null) {
-                        statisticItem.param("obj_type", d2Var.L().oriUgcType);
+                    if (e2Var.L() != null) {
+                        statisticItem.param("obj_type", e2Var.L().oriUgcType);
                     }
                 } else {
                     statisticItem.param("obj_source", 3);
-                    if (d2Var.L() != null) {
-                        statisticItem.param("obj_type", d2Var.L().oriUgcType);
+                    if (e2Var.L() != null) {
+                        statisticItem.param("obj_type", e2Var.L().oriUgcType);
                     }
                 }
                 statisticItem.param("obj_locate", 5);
@@ -1072,12 +1072,12 @@ public class e {
         }
     }
 
-    public static void z(String str, d2 d2Var, String str2) {
+    public static void z(String str, e2 e2Var, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65569, null, str, d2Var, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65569, null, str, e2Var, str2) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ITEM_THROUGH_CLICK);
-            statisticItem.param("tid", d2Var.v1());
-            statisticItem.param("obj_locate", d2Var.b2 ? 1 : 2);
+            statisticItem.param("tid", e2Var.v1());
+            statisticItem.param("obj_locate", e2Var.a2 ? 1 : 2);
             statisticItem.param("obj_type", str);
             TiebaStatic.log(statisticItem);
             ItemClickJumpUtil.itemClickJump(str2, str, 8, 8);

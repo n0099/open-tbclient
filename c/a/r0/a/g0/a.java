@@ -17,15 +17,15 @@ public class a extends ProviderDelegation {
 
     /* renamed from: c.a.r0.a.g0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0331a implements d<Bundle> {
+    public class C0340a implements d<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Bundle a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f6346b;
+        public final /* synthetic */ a f6207b;
 
-        public C0331a(a aVar, Bundle bundle) {
+        public C0340a(a aVar, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,7 +40,7 @@ public class a extends ProviderDelegation {
                     return;
                 }
             }
-            this.f6346b = aVar;
+            this.f6207b = aVar;
             this.a = bundle;
         }
 
@@ -50,7 +50,7 @@ public class a extends ProviderDelegation {
         public Bundle create() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6346b.b(this.a) : (Bundle) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6207b.b(this.a) : (Bundle) invokeV.objValue;
         }
     }
 
@@ -99,6 +99,6 @@ public class a extends ProviderDelegation {
     public Bundle execCall(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? (Bundle) c.a.r0.a.z2.g1.a.b(new C0331a(this, bundle)) : (Bundle) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? (Bundle) c.a.r0.a.z2.g1.a.b(new C0340a(this, bundle)) : (Bundle) invokeL.objValue;
     }
 }

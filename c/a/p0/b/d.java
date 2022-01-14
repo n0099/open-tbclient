@@ -15,10 +15,10 @@ public class d {
     public SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f4661b;
+    public SharedPreferences.Editor f4559b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f4662c;
+    public Context f4560c;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -36,10 +36,10 @@ public class d {
             }
         }
         try {
-            this.f4662c = context;
+            this.f4560c = context;
             SharedPreferences sharedPreferences = context.getSharedPreferences("leroadcfg", 4);
             this.a = sharedPreferences;
-            this.f4661b = sharedPreferences.edit();
+            this.f4559b = sharedPreferences.edit();
         } catch (Throwable th) {
             c.a.p0.l.c.d(th);
         }
@@ -54,8 +54,8 @@ public class d {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f4661b.putString("xyusec", str);
-            this.f4661b.commit();
+            this.f4559b.putString("xyusec", str);
+            this.f4559b.commit();
         }
     }
 

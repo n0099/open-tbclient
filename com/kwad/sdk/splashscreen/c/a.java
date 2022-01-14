@@ -18,51 +18,49 @@ public class a implements d {
     public ViewStub a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsAdWebView f60135b;
+    public KsAdWebView f57854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f60136c;
+    public ViewGroup f57855c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f60137d;
+    public View f57856d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f60138e;
+    public AdTemplate f57857e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public AdInfo f60139f;
+    public AdInfo f57858f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f60140g;
+    public TextView f57859g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f60141h;
+    public boolean f57860h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public f f60142i;
+    public f f57861i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.kwad.sdk.widget.f f60143j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public b f60144k;
+    public com.kwad.sdk.widget.f f57862j;
+    public b k;
     public com.kwad.sdk.splashscreen.a l;
 
     public a(ViewStub viewStub, KsAdWebView ksAdWebView, boolean z, b bVar) {
         this.a = viewStub;
-        this.f60135b = ksAdWebView;
-        this.f60144k = bVar;
-        this.f60141h = z;
+        this.f57854b = ksAdWebView;
+        this.k = bVar;
+        this.f57860h = z;
     }
 
     private void a(ViewGroup viewGroup) {
-        this.f60137d = viewGroup.findViewById(R.id.ksad_splash_actionbar_native);
-        this.f60140g = (TextView) viewGroup.findViewById(R.id.ksad_splash_actionbar_text);
-        this.f60143j = new com.kwad.sdk.widget.f(this.f60137d.getContext(), this.f60137d, this);
-        a(e.a(this.f60138e, this.f60139f, this.f60144k));
+        this.f57856d = viewGroup.findViewById(R.id.ksad_splash_actionbar_native);
+        this.f57859g = (TextView) viewGroup.findViewById(R.id.ksad_splash_actionbar_text);
+        this.f57862j = new com.kwad.sdk.widget.f(this.f57856d.getContext(), this.f57856d, this);
+        a(e.a(this.f57857e, this.f57858f, this.k));
     }
 
     private void a(e eVar) {
@@ -74,7 +72,7 @@ public class a implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        TextView textView = this.f60140g;
+        TextView textView = this.f57859g;
         if (textView == null || str == null) {
             return;
         }
@@ -82,30 +80,30 @@ public class a implements d {
     }
 
     private void a(boolean z, boolean z2) {
-        f fVar = this.f60142i;
+        f fVar = this.f57861i;
         if (fVar != null) {
             fVar.a(z, z2);
         }
     }
 
     public void a() {
-        com.kwad.sdk.core.d.a.a("SplashActionBarNativeHelper", "rollBackToNative mRootViewStub: " + this.a + ", mSplashWebView: " + this.f60135b);
+        com.kwad.sdk.core.d.a.a("SplashActionBarNativeHelper", "rollBackToNative mRootViewStub: " + this.a + ", mSplashWebView: " + this.f57854b);
         ViewStub viewStub = this.a;
-        if (viewStub == null || this.f60135b == null) {
+        if (viewStub == null || this.f57854b == null) {
             return;
         }
-        if (this.f60136c == null) {
+        if (this.f57855c == null) {
             ViewGroup viewGroup = (ViewGroup) viewStub.inflate();
-            this.f60136c = viewGroup;
+            this.f57855c = viewGroup;
             a(viewGroup);
         }
-        this.f60136c.setVisibility(0);
-        this.f60135b.setVisibility(8);
+        this.f57855c.setVisibility(0);
+        this.f57854b.setVisibility(8);
     }
 
     public void a(AdTemplate adTemplate) {
         com.kwad.sdk.splashscreen.a aVar;
-        this.f60138e = adTemplate;
+        this.f57857e = adTemplate;
         com.kwad.sdk.splashscreen.a aVar2 = this.l;
         if (aVar2 == null) {
             this.l = new com.kwad.sdk.splashscreen.a(adTemplate) { // from class: com.kwad.sdk.splashscreen.c.a.1
@@ -118,9 +116,9 @@ public class a implements d {
             aVar2.a(adTemplate);
         }
         if (adTemplate != null) {
-            this.f60139f = com.kwad.sdk.core.response.a.d.j(adTemplate);
+            this.f57858f = com.kwad.sdk.core.response.a.d.j(adTemplate);
         }
-        b bVar = this.f60144k;
+        b bVar = this.k;
         if (bVar == null || (aVar = this.l) == null) {
             return;
         }
@@ -128,17 +126,17 @@ public class a implements d {
     }
 
     public void a(@Nullable f fVar) {
-        this.f60142i = fVar;
+        this.f57861i = fVar;
     }
 
     @Override // com.kwad.sdk.widget.d
     public void a_(View view) {
-        a(true, view.equals(this.f60137d));
+        a(true, view.equals(this.f57856d));
     }
 
     public void b() {
         com.kwad.sdk.splashscreen.a aVar;
-        b bVar = this.f60144k;
+        b bVar = this.k;
         if (bVar == null || (aVar = this.l) == null) {
             return;
         }
@@ -147,8 +145,8 @@ public class a implements d {
 
     @Override // com.kwad.sdk.widget.d
     public void b(View view) {
-        if (this.f60141h) {
-            a(false, view.equals(this.f60137d));
+        if (this.f57860h) {
+            a(false, view.equals(this.f57856d));
         }
     }
 }

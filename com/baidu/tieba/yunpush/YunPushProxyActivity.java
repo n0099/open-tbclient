@@ -103,7 +103,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                 Intent intent = getIntent();
                 if (intent != null) {
                     String uri = intent.getData().toString();
-                    a.o(uri, false);
+                    a.n(uri, false);
                     if (uri.contains(PUSH_BODY)) {
                         JSONObject jSONObject = new JSONObject(uri.substring(uri.indexOf(PUSH_BODY) + 20));
                         String string2 = !jSONObject.isNull("task_id") ? jSONObject.getString("task_id") : "";

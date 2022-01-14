@@ -16,10 +16,10 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18465b;
+    public String f18008b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<Integer> f18466c;
+    public ArrayList<Integer> f18009c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,13 +44,13 @@ public class a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18465b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18008b : (String) invokeV.objValue;
     }
 
     public ArrayList<Integer> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18466c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18009c : (ArrayList) invokeV.objValue;
     }
 
     public void d(PresentCategoryList presentCategoryList) {
@@ -59,13 +59,13 @@ public class a {
             return;
         }
         this.a = presentCategoryList.category_id.intValue();
-        this.f18465b = presentCategoryList.category_name;
+        this.f18008b = presentCategoryList.category_name;
         List<Integer> list = presentCategoryList.gift_ids;
         if (list == null || list.size() <= 0) {
             return;
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
-        this.f18466c = arrayList;
+        this.f18009c = arrayList;
         arrayList.addAll(presentCategoryList.gift_ids);
     }
 }

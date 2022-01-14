@@ -15,7 +15,7 @@ public class a {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14106b;
+    public String f13776b;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a {
                 return;
             }
         }
-        this.f14106b = str;
+        this.f13776b = str;
     }
 
     public final void a(String str, int i2) {
@@ -72,6 +72,6 @@ public class a {
             return;
         }
         cVar.d();
-        a(this.f14106b, this.a.b());
+        a(this.f13776b, this.a.b());
     }
 }

@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class MultiplexProducer<K, T extends Closeable> implements Producer<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,14 +34,14 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
     public final Map<K, MultiplexProducer<K, T>.Multiplexer> mMultiplexers;
 
     /* renamed from: com.facebook.imagepipeline.producers.MultiplexProducer$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @VisibleForTesting
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Multiplexer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         public BaseProducerContext mMultiplexProducerContext;
         public final /* synthetic */ MultiplexProducer this$0;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class ForwardingConsumer extends BaseConsumer<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -165,12 +165,12 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
             }
         }
 
-        public Multiplexer(MultiplexProducer multiplexProducer, K k2) {
+        public Multiplexer(MultiplexProducer multiplexProducer, K k) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {multiplexProducer, k2};
+                Object[] objArr = {multiplexProducer, k};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -182,7 +182,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
             }
             this.this$0 = multiplexProducer;
             this.mConsumerContextPairs = Sets.newCopyOnWriteArraySet();
-            this.mKey = k2;
+            this.mKey = k;
         }
 
         private void addCallbacks(Pair<Consumer<T>, ProducerContext> pair, ProducerContext producerContext) {
@@ -563,14 +563,14 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         this.mMultiplexers = new HashMap();
     }
 
-    private synchronized MultiplexProducer<K, T>.Multiplexer createAndPutNewMultiplexer(K k2) {
+    private synchronized MultiplexProducer<K, T>.Multiplexer createAndPutNewMultiplexer(K k) {
         InterceptResult invokeL;
         MultiplexProducer<K, T>.Multiplexer multiplexer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, k2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, k)) == null) {
             synchronized (this) {
-                multiplexer = new Multiplexer(this, k2);
-                this.mMultiplexers.put(k2, multiplexer);
+                multiplexer = new Multiplexer(this, k);
+                this.mMultiplexers.put(k, multiplexer);
             }
             return multiplexer;
         }
@@ -578,13 +578,13 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized MultiplexProducer<K, T>.Multiplexer getExistingMultiplexer(K k2) {
+    public synchronized MultiplexProducer<K, T>.Multiplexer getExistingMultiplexer(K k) {
         InterceptResult invokeL;
         MultiplexProducer<K, T>.Multiplexer multiplexer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, k2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, k)) == null) {
             synchronized (this) {
-                multiplexer = this.mMultiplexers.get(k2);
+                multiplexer = this.mMultiplexers.get(k);
             }
             return multiplexer;
         }
@@ -592,12 +592,12 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void removeMultiplexer(K k2, MultiplexProducer<K, T>.Multiplexer multiplexer) {
+    public synchronized void removeMultiplexer(K k, MultiplexProducer<K, T>.Multiplexer multiplexer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, this, k2, multiplexer) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, k, multiplexer) == null) {
             synchronized (this) {
-                if (this.mMultiplexers.get(k2) == multiplexer) {
-                    this.mMultiplexers.remove(k2);
+                if (this.mMultiplexers.get(k) == multiplexer) {
+                    this.mMultiplexers.remove(k);
                 }
             }
         }

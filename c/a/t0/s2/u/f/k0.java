@@ -89,7 +89,7 @@ public class k0 extends n<f1, PbRecommendNovelHolder> {
     public PbRecommendNovelHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbRecommendNovelHolder(this.n.getPageContext(), LayoutInflater.from(this.f3299e).inflate(c.a.t0.s2.j.pb_recommend_novel, viewGroup, false), this.t) : (PbRecommendNovelHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbRecommendNovelHolder(this.n.getPageContext(), LayoutInflater.from(this.f3258e).inflate(c.a.t0.s2.j.pb_recommend_novel, viewGroup, false), this.t) : (PbRecommendNovelHolder) invokeL.objValue;
     }
 
     public View d0(int i2, View view, ViewGroup viewGroup, f1 f1Var, PbRecommendNovelHolder pbRecommendNovelHolder) {

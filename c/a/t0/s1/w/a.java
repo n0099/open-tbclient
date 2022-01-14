@@ -13,13 +13,13 @@ public class a extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22902e;
+    public String f22272e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22903f;
+    public String f22273f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22904g;
+    public String f22274g;
 
     public a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -36,12 +36,12 @@ public class a extends Thread {
                 return;
             }
         }
-        this.f22902e = null;
-        this.f22903f = null;
-        this.f22904g = null;
-        this.f22902e = str;
-        this.f22903f = str2;
-        this.f22904g = str3;
+        this.f22272e = null;
+        this.f22273f = null;
+        this.f22274g = null;
+        this.f22272e = str;
+        this.f22273f = str2;
+        this.f22274g = str3;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -53,9 +53,9 @@ public class a extends Thread {
                 return;
             }
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            netWork.addPostData("obj", this.f22902e);
-            netWork.addPostData("obj_tp", this.f22903f);
-            netWork.addPostData("group_id", this.f22904g);
+            netWork.addPostData("obj", this.f22272e);
+            netWork.addPostData("obj_tp", this.f22273f);
+            netWork.addPostData("group_id", this.f22274g);
             netWork.postNetData();
         }
     }

@@ -109,7 +109,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                         this.a.addPaySussStats();
                         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(this.a.mCurrentShowType)));
                         this.a.setResult(-1);
-                        c.a.s0.s.g0.b.j().t("show_member_deid_line", true);
+                        c.a.s0.s.h0.b.k().u("show_member_deid_line", true);
                         if (this.a.mIsClose) {
                             this.a.closeActivity();
                         } else {
@@ -271,7 +271,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MemberPayActivity f47702e;
+        public final /* synthetic */ MemberPayActivity f45928e;
 
         public e(MemberPayActivity memberPayActivity) {
             Interceptable interceptable = $ic;
@@ -288,14 +288,14 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                     return;
                 }
             }
-            this.f47702e = memberPayActivity;
+            this.f45928e = memberPayActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.f47702e.mLoadFinished) {
-                this.f47702e.requestMemberPayInfo();
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.f45928e.mLoadFinished) {
+                this.f45928e.requestMemberPayInfo();
             }
         }
     }

@@ -6,12 +6,12 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
-import c.a.c0.b.c;
-import c.a.c0.b.e;
-import c.a.c0.b.g;
-import c.a.c0.d0.f;
-import c.a.c0.p.a;
-import c.a.c0.p.o;
+import c.a.c0.d.c;
+import c.a.c0.d.e;
+import c.a.c0.d.g;
+import c.a.c0.g0.f;
+import c.a.c0.s.a;
+import c.a.c0.s.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
@@ -26,7 +26,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public AdImageView f38647h;
+    public AdImageView f37398h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NadExpressBigImgOperateView(Context context) {
@@ -51,15 +51,15 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38647h == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f37398h == null) {
             return;
         }
         Resources resources = getContext().getResources();
         int e2 = f.c.e(getContext()) - (resources.getDimensionPixelSize(c.NAD_F_M_W_X001) * 2);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f38647h.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f37398h.getLayoutParams();
         layoutParams.width = e2;
-        layoutParams.height = Math.round((e2 / resources.getInteger(c.a.c0.b.f.nad_list_big_image_width)) * resources.getInteger(c.a.c0.b.f.nad_list_big_image_height));
-        this.f38647h.setLayoutParams(layoutParams);
+        layoutParams.height = Math.round((e2 / resources.getInteger(c.a.c0.d.f.nad_list_big_image_width)) * resources.getInteger(c.a.c0.d.f.nad_list_big_image_height));
+        this.f37398h.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
@@ -78,7 +78,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     public void initLayout(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f38647h = (AdImageView) findViewById(e.nad_feed_template_big_image_id);
+            this.f37398h = (AdImageView) findViewById(e.nad_feed_template_big_image_id);
         }
     }
 
@@ -91,7 +91,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
                 return;
             }
             h();
-            AdImageView adImageView = this.f38647h;
+            AdImageView adImageView = this.f37398h;
             if (adImageView != null) {
                 adImageView.setVisibility(0);
             }
@@ -104,7 +104,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
         if ((interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) && (adBaseModel instanceof a)) {
             a aVar = (a) adBaseModel;
             setMaxTitleLine(2);
-            AdImageView adImageView = this.f38647h;
+            AdImageView adImageView = this.f37398h;
             if (adImageView != null) {
                 adImageView.displayImage(aVar.m.a);
             }

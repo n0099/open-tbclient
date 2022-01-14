@@ -22,7 +22,7 @@ public class b implements l1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10992b;
+    public static final boolean f10749b;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, a> a;
 
@@ -39,7 +39,7 @@ public class b implements l1 {
                 return;
             }
         }
-        f10992b = k.a;
+        f10749b = k.a;
     }
 
     public b() {
@@ -72,12 +72,12 @@ public class b implements l1 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, bVar)) == null) {
             a aVar = this.a.get(str);
             if (aVar != null) {
-                if (f10992b) {
+                if (f10749b) {
                     String str2 = "action: " + str + " params: " + jSONObject;
                 }
                 return aVar.a(jSONObject, bVar);
             }
-            if (f10992b) {
+            if (f10749b) {
                 String str3 = "action has not found: " + str + ", params: " + jSONObject;
             }
             return new c.a.r0.a.u.h.b(10002, "no such api.");
@@ -112,10 +112,10 @@ public class b implements l1 {
     public void d(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (f10992b && TextUtils.isEmpty(aVar.a)) {
+            if (f10749b && TextUtils.isEmpty(aVar.a)) {
                 throw new IllegalArgumentException("action name is null");
             }
-            if (f10992b && this.a.containsKey(aVar.a)) {
+            if (f10749b && this.a.containsKey(aVar.a)) {
                 throw new IllegalArgumentException("duplicate action: " + aVar);
             }
             this.a.put(aVar.a, aVar);

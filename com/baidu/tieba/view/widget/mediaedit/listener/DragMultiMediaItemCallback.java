@@ -18,16 +18,16 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51446b;
+    public int f49467b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51447c;
+    public boolean f49468c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MultiMediaAdapter f51448d;
+    public MultiMediaAdapter f49469d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f51449e;
+    public a f49470e;
 
     public DragMultiMediaItemCallback(String str, String str2, MultiMediaAdapter multiMediaAdapter, a aVar) {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
                 return;
             }
         }
-        this.f51447c = false;
-        this.f51448d = multiMediaAdapter;
-        this.f51449e = aVar;
+        this.f49468c = false;
+        this.f49469d = multiMediaAdapter;
+        this.f49470e = aVar;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -66,20 +66,20 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
             super.clearView(recyclerView, viewHolder);
             viewHolder.itemView.setScaleX(1.0f);
             viewHolder.itemView.setScaleY(1.0f);
-            MultiMediaAdapter multiMediaAdapter = this.f51448d;
+            MultiMediaAdapter multiMediaAdapter = this.f49469d;
             if (multiMediaAdapter != null) {
                 multiMediaAdapter.setDragMode(false);
-                this.f51448d.notifyDataChanged();
+                this.f49469d.notifyDataChanged();
             }
-            MultiMediaAdapter multiMediaAdapter2 = this.f51448d;
-            if (multiMediaAdapter2 != null && this.a != this.f51446b && this.f51447c) {
-                this.f51447c = false;
-                if (this.f51449e != null) {
+            MultiMediaAdapter multiMediaAdapter2 = this.f49469d;
+            if (multiMediaAdapter2 != null && this.a != this.f49467b && this.f49468c) {
+                this.f49468c = false;
+                if (this.f49470e != null) {
                     multiMediaAdapter2.resetPlayIndex();
-                    this.f51449e.onMutiItemPosChanged(this.a, this.f51446b);
+                    this.f49470e.onMutiItemPosChanged(this.a, this.f49467b);
                 }
             }
-            a aVar = this.f51449e;
+            a aVar = this.f49470e;
             if (aVar != null) {
                 aVar.setDragMode(-1, 0);
             }
@@ -98,7 +98,7 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.f51449e.isLongPress();
+            this.f49470e.isLongPress();
             return true;
         }
         return invokeV.booleanValue;
@@ -109,10 +109,10 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, recyclerView, viewHolder, viewHolder2)) == null) {
-            this.f51447c = true;
-            this.f51446b = viewHolder2.getAdapterPosition();
-            Collections.swap(this.f51448d.getList(), viewHolder.getAdapterPosition(), this.f51446b);
-            this.f51448d.notifyItemMoved(viewHolder.getAdapterPosition(), this.f51446b);
+            this.f49468c = true;
+            this.f49467b = viewHolder2.getAdapterPosition();
+            Collections.swap(this.f49469d.getList(), viewHolder.getAdapterPosition(), this.f49467b);
+            this.f49469d.notifyItemMoved(viewHolder.getAdapterPosition(), this.f49467b);
             return true;
         }
         return invokeLLL.booleanValue;
@@ -134,8 +134,8 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
             int[] iArr = new int[2];
             viewHolder.itemView.getLocationOnScreen(iArr);
             viewHolder.itemView.getLocationInWindow(new int[2]);
-            this.f51448d.setDragMode(true);
-            a aVar = this.f51449e;
+            this.f49469d.setDragMode(true);
+            a aVar = this.f49470e;
             if (aVar != null) {
                 aVar.setDragMode(this.a, iArr[0]);
             }

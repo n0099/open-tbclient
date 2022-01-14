@@ -30,7 +30,7 @@ public final class d {
                 return;
             }
         }
-        a = Boolean.valueOf(f.f61569b);
+        a = Boolean.valueOf(f.f59236b);
     }
 
     public d() {

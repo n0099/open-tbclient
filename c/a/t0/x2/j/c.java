@@ -45,7 +45,7 @@ public class c extends c.a.t0.g0.b<c.a.t0.x2.e.d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f26303e;
+        public final /* synthetic */ c f25522e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class c extends c.a.t0.g0.b<c.a.t0.x2.e.d> {
                     return;
                 }
             }
-            this.f26303e = cVar;
+            this.f25522e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -71,12 +71,12 @@ public class c extends c.a.t0.g0.b<c.a.t0.x2.e.d> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            if (!this.f26303e.y) {
+            if (!this.f25522e.y) {
                 TiebaStatic.log(new StatisticItem("c11595"));
             }
             if (view.getTag() instanceof UserData) {
                 UserData userData = (UserData) view.getTag();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f26303e.w.getPageActivity(), userData.getUserId(), userData.getUserName(), null, AddFriendActivityConfig.TYPE_FOCUS)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f25522e.w.getPageActivity(), userData.getUserId(), userData.getUserName(), null, AddFriendActivityConfig.TYPE_FOCUS)));
             }
         }
     }
@@ -180,17 +180,17 @@ public class c extends c.a.t0.g0.b<c.a.t0.x2.e.d> {
             if (j() != null) {
                 j().setVisibility(0);
             }
-            this.y = dVar.f26188e;
-            this.m.setText(dVar.f26191h);
-            this.n.setText(dVar.f26190g);
-            this.m.setVisibility(dVar.f26189f ? 0 : 4);
-            this.n.setVisibility(dVar.f26189f ? 0 : 4);
-            if (dVar.f26188e) {
+            this.y = dVar.f25410e;
+            this.m.setText(dVar.f25413h);
+            this.n.setText(dVar.f25412g);
+            this.m.setVisibility(dVar.f25411f ? 0 : 4);
+            this.n.setVisibility(dVar.f25411f ? 0 : 4);
+            if (dVar.f25410e) {
                 this.o.setText(this.w.getString(c.a.t0.y2.g.me));
             } else {
-                this.o.setText(StringHelper.getUserDescByGender(dVar.f26192i));
+                this.o.setText(StringHelper.getUserDescByGender(dVar.f25414i));
             }
-            int count = ListUtils.getCount(dVar.f26193j);
+            int count = ListUtils.getCount(dVar.f25415j);
             if (count > 3) {
                 this.t.setVisibility(0);
                 this.t.setText(String.format(this.w.getString(c.a.t0.y2.g.attention_etc_person), Integer.valueOf(count)));
@@ -199,37 +199,37 @@ public class c extends c.a.t0.g0.b<c.a.t0.x2.e.d> {
             }
             if (count >= 3) {
                 this.s.setVisibility(0);
-                this.s.setTag(dVar.f26193j.get(2));
-                if (dVar.f26193j.get(2).getGodUserData() != null && dVar.f26193j.get(2).getGodUserData().getType() == 2) {
+                this.s.setTag(dVar.f25415j.get(2));
+                if (dVar.f25415j.get(2).getGodUserData() != null && dVar.f25415j.get(2).getGodUserData().getType() == 2) {
                     this.s.setIsGod(true);
                 } else {
                     this.s.setIsGod(false);
                 }
-                this.s.startLoad(dVar.f26193j.get(2).getPortrait(), 12, false);
+                this.s.startLoad(dVar.f25415j.get(2).getPortrait(), 12, false);
             } else {
                 this.s.setVisibility(8);
             }
             if (count >= 2) {
                 this.r.setVisibility(0);
-                this.r.setTag(dVar.f26193j.get(1));
-                if (dVar.f26193j.get(1).getGodUserData() != null && dVar.f26193j.get(1).getGodUserData().getType() == 2) {
+                this.r.setTag(dVar.f25415j.get(1));
+                if (dVar.f25415j.get(1).getGodUserData() != null && dVar.f25415j.get(1).getGodUserData().getType() == 2) {
                     this.r.setIsGod(true);
                 } else {
                     this.r.setIsGod(false);
                 }
-                this.r.startLoad(dVar.f26193j.get(1).getPortrait(), 12, false);
+                this.r.startLoad(dVar.f25415j.get(1).getPortrait(), 12, false);
             } else {
                 this.r.setVisibility(8);
             }
             if (count >= 1) {
                 this.q.setVisibility(0);
-                this.q.setTag(dVar.f26193j.get(0));
-                if (dVar.f26193j.get(0).getGodUserData() != null && dVar.f26193j.get(0).getGodUserData().getType() == 2) {
+                this.q.setTag(dVar.f25415j.get(0));
+                if (dVar.f25415j.get(0).getGodUserData() != null && dVar.f25415j.get(0).getGodUserData().getType() == 2) {
                     this.q.setIsGod(true);
                 } else {
                     this.q.setIsGod(false);
                 }
-                this.q.startLoad(dVar.f26193j.get(0).getPortrait(), 12, false);
+                this.q.startLoad(dVar.f25415j.get(0).getPortrait(), 12, false);
             } else {
                 this.q.setVisibility(8);
             }

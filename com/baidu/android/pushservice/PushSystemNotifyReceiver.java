@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PushSystemNotifyReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class PushSystemNotifyReceiver extends BroadcastReceiver {
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ PushSystemNotifyReceiver f32668b;
+                        public final /* synthetic */ PushSystemNotifyReceiver f31630b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -60,7 +60,7 @@ public class PushSystemNotifyReceiver extends BroadcastReceiver {
                                     return;
                                 }
                             }
-                            this.f32668b = this;
+                            this.f31630b = this;
                             this.a = context;
                         }
 

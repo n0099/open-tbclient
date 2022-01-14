@@ -24,11 +24,11 @@ public class a implements c.a.r0.a.f1.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> f9634c;
+    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> f9425c;
 
     /* renamed from: c.a.r0.a.u1.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0591a {
+    public static /* synthetic */ class C0600a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -56,7 +56,7 @@ public class a implements c.a.r0.a.f1.f.a {
         }
     }
 
-    public /* synthetic */ a(C0591a c0591a) {
+    public /* synthetic */ a(C0600a c0600a) {
         this();
     }
 
@@ -110,12 +110,12 @@ public class a implements c.a.r0.a.f1.f.a {
             LayoutInflater from = LayoutInflater.from(c.a.r0.a.c1.a.c());
             for (int i2 : iArr) {
                 View inflate = from.inflate(i2, (ViewGroup) null);
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f9634c.get(Integer.valueOf(i2));
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f9425c.get(Integer.valueOf(i2));
                 if (copyOnWriteArrayList == null) {
                     copyOnWriteArrayList = new CopyOnWriteArrayList<>();
                 }
                 copyOnWriteArrayList.add(inflate);
-                this.f9634c.put(Integer.valueOf(i2), copyOnWriteArrayList);
+                this.f9425c.put(Integer.valueOf(i2), copyOnWriteArrayList);
             }
             if (c.a.r0.a.f1.f.a.a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
@@ -136,7 +136,7 @@ public class a implements c.a.r0.a.f1.f.a {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             View view = null;
             try {
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f9634c.get(Integer.valueOf(i2));
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f9425c.get(Integer.valueOf(i2));
                 if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
                     view = copyOnWriteArrayList.remove(0);
                 }
@@ -170,6 +170,6 @@ public class a implements c.a.r0.a.f1.f.a {
                 return;
             }
         }
-        this.f9634c = new ConcurrentHashMap<>();
+        this.f9425c = new ConcurrentHashMap<>();
     }
 }

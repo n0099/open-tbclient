@@ -28,20 +28,20 @@ public abstract class d implements c.a.r0.a.u.c.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final JSONObject f9101c;
+    public static final JSONObject f8903c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pair<c.a.r0.a.u.h.b, JSONObject> f9102d;
+    public static final Pair<c.a.r0.a.u.h.b, JSONObject> f8904d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pair<c.a.r0.a.u.h.b, JSONObject> f9103e;
+    public static final Pair<c.a.r0.a.u.h.b, JSONObject> f8905e;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public c.a.r0.a.u.c.b a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public CallbackHandler f9104b;
+    public CallbackHandler f8906b;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -66,9 +66,9 @@ public abstract class d implements c.a.r0.a.u.c.a {
                 return;
             }
         }
-        f9101c = new JSONObject();
-        f9102d = new Pair<>(c.a.r0.a.u.h.b.d(), f9101c);
-        f9103e = new Pair<>(c.a.r0.a.u.h.b.e(), f9101c);
+        f8903c = new JSONObject();
+        f8904d = new Pair<>(c.a.r0.a.u.h.b.d(), f8903c);
+        f8905e = new Pair<>(c.a.r0.a.u.h.b.e(), f8903c);
     }
 
     public d(@NonNull c.a.r0.a.u.c.b bVar) {
@@ -87,7 +87,7 @@ public abstract class d implements c.a.r0.a.u.c.a {
             }
         }
         this.a = bVar;
-        this.f9104b = bVar.h();
+        this.f8906b = bVar.h();
     }
 
     @Nullable
@@ -418,13 +418,13 @@ public abstract class d implements c.a.r0.a.u.c.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 p("json str is empty", null, true);
-                return f9102d;
+                return f8904d;
             }
             try {
                 return new Pair<>(c.a.r0.a.u.h.b.f(), new JSONObject(str));
             } catch (JSONException e2) {
                 p("json str parse fail", e2, true);
-                return f9103e;
+                return f8905e;
             }
         }
         return (Pair) invokeL.objValue;
@@ -434,11 +434,11 @@ public abstract class d implements c.a.r0.a.u.c.a {
     public final void w(@NonNull String str, @NonNull c.a.r0.a.u.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, bVar) == null) {
-            if (TextUtils.isEmpty(str) && !(this.f9104b instanceof NullableCallbackHandler)) {
+            if (TextUtils.isEmpty(str) && !(this.f8906b instanceof NullableCallbackHandler)) {
                 q("#realInvokeCallback check-fail callback=" + str, false);
                 return;
             }
-            this.f9104b.handleSchemeDispatchCallback(str, bVar.a());
+            this.f8906b.handleSchemeDispatchCallback(str, bVar.a());
         }
     }
 }

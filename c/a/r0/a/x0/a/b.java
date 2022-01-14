@@ -26,7 +26,7 @@ public class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f9777b;
+    public static final byte[] f9564b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public class b {
             }
         }
         a = k.a;
-        f9777b = new byte[]{31, -117};
+        f9564b = new byte[]{31, -117};
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
@@ -54,7 +54,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, file)) == null) {
             if (bArr != null && bArr.length >= 2 && file != null && file.exists()) {
-                byte[] bArr2 = f9777b;
+                byte[] bArr2 = f9564b;
                 bArr[0] = bArr2[0];
                 bArr[1] = bArr2[1];
                 try {

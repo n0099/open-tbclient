@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.tabfeed.model;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.o1.j.e;
 import c.a.t0.o1.j.f;
 import c.a.t0.o1.j.h.b;
@@ -29,25 +29,23 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f46110e;
+    public boolean f44416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f46111f;
+    public boolean f44417f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46112g;
+    public int f44418g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f46113h;
+    public String f44419h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f46114i;
+    public String f44420i;
 
     /* renamed from: j  reason: collision with root package name */
-    public e f46115j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.t0.o1.j.j.a f46116k;
+    public e f44421j;
+    public c.a.t0.o1.j.j.a k;
     public c.a.d.c.g.a l;
 
     /* loaded from: classes12.dex */
@@ -82,7 +80,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f46111f = false;
+                this.a.f44417f = false;
                 if (responsedMessage == null) {
                     return;
                 }
@@ -97,11 +95,11 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
                 ErrorData errorData = new ErrorData();
                 errorData.setError_code(this.a.mErrorCode);
                 errorData.setError_msg(this.a.mErrorString);
-                if (this.a.f46115j == null) {
+                if (this.a.f44421j == null) {
                     return;
                 }
                 if (this.a.mErrorCode != 0 || bVar == null) {
-                    this.a.f46115j.onServerError(errorData);
+                    this.a.f44421j.onServerError(errorData);
                 } else {
                     this.a.F(bVar);
                 }
@@ -127,14 +125,14 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
                 return;
             }
         }
-        this.f46110e = true;
-        this.f46111f = false;
-        this.f46112g = 1;
+        this.f44416e = true;
+        this.f44417f = false;
+        this.f44418g = 1;
         this.l = new a(this, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655);
         c.a.t0.w3.f0.a.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
         c.a.t0.w3.f0.a.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
-        this.f46116k = new c.a.t0.o1.j.j.a();
-        this.f46115j = eVar;
+        this.k = new c.a.t0.o1.j.j.a();
+        this.f44421j = eVar;
     }
 
     public final void E(int i2) {
@@ -142,16 +140,16 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
             tabFeedListRequestMessage.loadType = i2;
-            tabFeedListRequestMessage.tabCode = this.f46114i;
-            tabFeedListRequestMessage.tabName = this.f46113h;
+            tabFeedListRequestMessage.tabCode = this.f44420i;
+            tabFeedListRequestMessage.tabName = this.f44419h;
             if (i2 == 2) {
-                tabFeedListRequestMessage.pn = this.f46112g + 1;
+                tabFeedListRequestMessage.pn = this.f44418g + 1;
             } else if (i2 != 1) {
                 return;
             } else {
                 tabFeedListRequestMessage.pn = 1;
             }
-            this.f46111f = true;
+            this.f44417f = true;
             tabFeedListRequestMessage.setTag(getUniqueId());
             sendMessage(tabFeedListRequestMessage);
         }
@@ -161,10 +159,10 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             if (bVar != null) {
-                this.f46112g = bVar.b();
+                this.f44418g = bVar.b();
             }
-            if (this.f46115j != null) {
-                this.f46115j.onNetCallback(this.f46116k.a(this.f46110e, bVar));
+            if (this.f44421j != null) {
+                this.f44421j.onNetCallback(this.k.a(this.f44416e, bVar));
             }
         }
     }
@@ -174,7 +172,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c.a.t0.o1.j.j.a aVar = this.f46116k;
+            c.a.t0.o1.j.j.a aVar = this.k;
             if (aVar == null) {
                 return false;
             }
@@ -199,7 +197,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.cancelMessage();
-            this.f46111f = false;
+            this.f44417f = false;
         }
     }
 
@@ -208,17 +206,17 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.l);
-            this.f46111f = false;
-            this.f46110e = true;
+            this.f44417f = false;
+            this.f44416e = true;
         }
     }
 
     @Override // c.a.t0.o1.j.f
-    public List<d2> i() {
+    public List<e2> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            c.a.t0.o1.j.j.a aVar = this.f46116k;
+            c.a.t0.o1.j.j.a aVar = this.k;
             if (aVar == null) {
                 return null;
             }
@@ -240,10 +238,10 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
     @Override // c.a.t0.o1.j.f
     public void loadMore() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f46111f) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f44417f) {
             return;
         }
-        this.f46110e = false;
+        this.f44416e = false;
         E(2);
     }
 
@@ -251,18 +249,18 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
     public void o(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048585, this, str, str2, i2) == null) {
-            this.f46114i = str;
-            this.f46113h = str2;
+            this.f44420i = str;
+            this.f44419h = str2;
         }
     }
 
     @Override // c.a.t0.o1.j.f
     public void refresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f46111f) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f44417f) {
             return;
         }
-        this.f46110e = true;
+        this.f44416e = true;
         E(1);
     }
 

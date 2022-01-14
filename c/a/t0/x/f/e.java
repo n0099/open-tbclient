@@ -18,7 +18,7 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c.a.s0.t.f.a> f25851b;
+    public List<c.a.s0.t.f.a> f25091b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f25851b == null) {
-                this.f25851b = new ArrayList();
+            if (this.f25091b == null) {
+                this.f25091b = new ArrayList();
             }
-            return this.f25851b;
+            return this.f25091b;
         }
         return (List) invokeV.objValue;
     }
@@ -59,12 +59,12 @@ public class e {
         }
         this.a = listdata.key;
         if (listdata.friend_list != null) {
-            this.f25851b = new ArrayList();
+            this.f25091b = new ArrayList();
             for (friendList friendlist : listdata.friend_list) {
                 c.a.s0.t.f.a aVar = new c.a.s0.t.f.a();
                 aVar.j(friendlist);
                 aVar.k(this.a);
-                this.f25851b.add(aVar);
+                this.f25091b.add(aVar);
             }
         }
     }
@@ -76,12 +76,12 @@ public class e {
         }
         this.a = robotslist.key;
         if (robotslist.friend_list != null) {
-            this.f25851b = new ArrayList();
+            this.f25091b = new ArrayList();
             for (friendList friendlist : robotslist.friend_list) {
                 c.a.s0.t.f.a aVar = new c.a.s0.t.f.a();
                 aVar.j(friendlist);
                 aVar.k(this.a);
-                this.f25851b.add(aVar);
+                this.f25091b.add(aVar);
             }
         }
     }

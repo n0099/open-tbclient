@@ -17,18 +17,18 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile d f24294e;
+    public static volatile d f23613e;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f24295b;
+    public a f23614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f24296c;
+    public c f23615c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<StatisticItem> f24297d;
+    public List<StatisticItem> f23616d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -48,23 +48,23 @@ public class d {
         arrayList.add(1);
         this.a.add(2);
         c cVar = new c();
-        this.f24296c = cVar;
-        this.f24295b = new a(cVar, this.a);
-        g(c.a.s0.s.g0.b.j().k("key_abtest_channel", 0));
+        this.f23615c = cVar;
+        this.f23614b = new a(cVar, this.a);
+        g(c.a.s0.s.h0.b.k().l("key_abtest_channel", 0));
     }
 
     public static d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f24294e == null) {
+            if (f23613e == null) {
                 synchronized (c.class) {
-                    if (f24294e == null) {
-                        f24294e = new d();
+                    if (f23613e == null) {
+                        f23613e = new d();
                     }
                 }
             }
-            return f24294e;
+            return f23613e;
         }
         return (d) invokeV.objValue;
     }
@@ -74,17 +74,17 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
             return;
         }
-        if (this.f24297d == null) {
-            this.f24297d = new ArrayList();
+        if (this.f23616d == null) {
+            this.f23616d = new ArrayList();
         }
-        this.f24297d.add(statisticItem);
+        this.f23616d.add(statisticItem);
     }
 
     public int b(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
-            a aVar = this.f24295b;
+            a aVar = this.f23614b;
             if (aVar == null) {
                 return 0;
             }
@@ -97,7 +97,7 @@ public class d {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (m.isEmpty(str) || (cVar = this.f24296c) == null || !cVar.g()) {
+            if (m.isEmpty(str) || (cVar = this.f23615c) == null || !cVar.g()) {
                 c.a.y0.a.a.d(str);
             }
         }
@@ -107,7 +107,7 @@ public class d {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (m.isEmpty(str) || (cVar = this.f24296c) == null || !cVar.g()) {
+            if (m.isEmpty(str) || (cVar = this.f23615c) == null || !cVar.g()) {
                 c.a.y0.a.a.e(str);
             }
         }
@@ -116,7 +116,7 @@ public class d {
     public void f(String str) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (aVar = this.f24295b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (aVar = this.f23614b) == null) {
             return;
         }
         aVar.b(str);
@@ -125,7 +125,7 @@ public class d {
     public void g(int i2) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (cVar = this.f24296c) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (cVar = this.f23615c) == null) {
             return;
         }
         cVar.k(i2);
@@ -134,11 +134,11 @@ public class d {
     public void h(String str, String str2) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || ListUtils.isEmpty(this.f24297d) || (cVar = this.f24296c) == null || !cVar.g()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || ListUtils.isEmpty(this.f23616d) || (cVar = this.f23615c) == null || !cVar.g()) {
             return;
         }
         int i2 = -1;
-        for (StatisticItem statisticItem : this.f24297d) {
+        for (StatisticItem statisticItem : this.f23616d) {
             if (statisticItem != null) {
                 if (statisticItem.getPosition() == 0) {
                     i(str, str2, statisticItem);
@@ -148,13 +148,13 @@ public class d {
                 }
             }
         }
-        this.f24297d.clear();
+        this.f23616d.clear();
     }
 
     public void i(String str, String str2, StatisticItem statisticItem) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) || statisticItem == null || (cVar = this.f24296c) == null || !cVar.g()) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) || statisticItem == null || (cVar = this.f23615c) == null || !cVar.g()) {
             return;
         }
         HashMap hashMap = new HashMap();

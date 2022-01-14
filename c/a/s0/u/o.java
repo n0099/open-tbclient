@@ -14,19 +14,19 @@ public class o {
     public TiePlusStat.StatType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TiePlusStat.RichTextType f14488b;
+    public TiePlusStat.RichTextType f14150b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14489c;
+    public String f14151c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14490d;
+    public String f14152d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14491e;
+    public boolean f14153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14492f;
+    public String f14154f;
 
     public o(TiePlusStat.StatType statType, TiePlusStat.RichTextType richTextType, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -44,17 +44,17 @@ public class o {
             }
         }
         this.a = statType;
-        this.f14488b = richTextType;
-        this.f14489c = str;
-        this.f14490d = str2;
-        this.f14492f = str3;
+        this.f14150b = richTextType;
+        this.f14151c = str;
+        this.f14152d = str2;
+        this.f14154f = str3;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TiePlusStaticData{statType=" + this.a + ", richTextType=" + this.f14488b + ", tid='" + this.f14489c + ExtendedMessageFormat.QUOTE + ", orderId='" + this.f14490d + ExtendedMessageFormat.QUOTE + ", hasDownload=" + this.f14491e + ", packageName='" + this.f14492f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "TiePlusStaticData{statType=" + this.a + ", richTextType=" + this.f14150b + ", tid='" + this.f14151c + ExtendedMessageFormat.QUOTE + ", orderId='" + this.f14152d + ExtendedMessageFormat.QUOTE + ", hasDownload=" + this.f14153e + ", packageName='" + this.f14154f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

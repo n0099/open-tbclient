@@ -66,26 +66,26 @@ public class Static {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
                             TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                            if (data != null && data.a != null && data.a.f47099e != null) {
+                            if (data != null && data.a != null && data.a.f45355e != null) {
                                 String str = "";
                                 boolean z = false;
-                                if (data.f47094h == null) {
-                                    if (data.f47088b < data.a.f47099e.size()) {
-                                        ArrayList<String> arrayList = data.a.f47099e.get(data.f47088b);
+                                if (data.f45350h == null) {
+                                    if (data.f45344b < data.a.f45355e.size()) {
+                                        ArrayList<String> arrayList = data.a.f45355e.get(data.f45344b);
                                         if (arrayList.size() > 0) {
                                             str = arrayList.get(0);
                                         }
                                     }
-                                } else if (data.f47094h.length() > 0) {
-                                    str = data.f47094h;
+                                } else if (data.f45350h.length() > 0) {
+                                    str = data.f45350h;
                                     z = true;
                                 }
                                 if (PermissionUtil.isAgreePrivacyPolicy() && str.length() > 0) {
-                                    data.f47089c = data.f47092f.getTestImageData(data.a.f47097c, str, data.a.f47101g, data.a.f47098d, data.f47093g);
-                                    data.f47090d = System.currentTimeMillis() - currentTimeMillis;
-                                    data.f47091e = str;
+                                    data.f45345c = data.f45348f.getTestImageData(data.a.f45353c, str, data.a.f45357g, data.a.f45354d, data.f45349g);
+                                    data.f45346d = System.currentTimeMillis() - currentTimeMillis;
+                                    data.f45347e = str;
                                     if (z) {
-                                        data.f47094h = str;
+                                        data.f45350h = str;
                                     }
                                     return new CustomResponsedMessage<>(2017000, data);
                                 }

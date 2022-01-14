@@ -24,7 +24,7 @@ public class b {
     public Map<BdUniqueId, ArrayList<StatisticItem>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f25342b;
+    public String[] f24632b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class b {
                 return;
             }
         }
-        this.f25342b = new String[]{TiebaStatic.Params.OBJ_FLOOR, TiebaStatic.Params.OBJ_ISAD, "obj_id", "tid", "pid", "thread_type", "fid", TiebaStatic.Params.POST_TYPE, TiebaStatic.Params.IS_OFFICIAL, TiebaStatic.Params.OBJ_AD_LOCATE, TiebaStatic.Params.RECOM_WEIGHT, "recom_source", TiebaStatic.Params.RECOM_AB_TAG, TiebaStatic.Params.RECOM_EXTRA, TiebaStatic.Params.RECOM_TYPE, TiebaStatic.Params.UGC_VID, TiebaStatic.Params.UGC_NID, TiebaStatic.Params.UGC_TYPE, "obj_locate", TiebaStatic.Params.LIST_ORDER};
+        this.f24632b = new String[]{TiebaStatic.Params.OBJ_FLOOR, TiebaStatic.Params.OBJ_ISAD, "obj_id", "tid", "pid", "thread_type", "fid", TiebaStatic.Params.POST_TYPE, TiebaStatic.Params.IS_OFFICIAL, TiebaStatic.Params.OBJ_AD_LOCATE, TiebaStatic.Params.RECOM_WEIGHT, "recom_source", TiebaStatic.Params.RECOM_AB_TAG, TiebaStatic.Params.RECOM_EXTRA, TiebaStatic.Params.RECOM_TYPE, TiebaStatic.Params.UGC_VID, TiebaStatic.Params.UGC_NID, TiebaStatic.Params.UGC_TYPE, "obj_locate", TiebaStatic.Params.LIST_ORDER};
         if (this.a == null) {
             this.a = new LinkedHashMap();
         }
@@ -116,17 +116,17 @@ public class b {
                 List list = (List) entry.getValue();
                 if (ListUtils.getCount(list) != 0) {
                     StatisticItem statisticItem2 = (StatisticItem) list.get(0);
-                    for (int i3 = 0; i3 < this.f25342b.length; i3++) {
+                    for (int i3 = 0; i3 < this.f24632b.length; i3++) {
                         StringBuilder sb = new StringBuilder();
                         for (int i4 = 0; i4 < list.size(); i4++) {
-                            sb.append(b(((StatisticItem) list.get(i4)).getParams(), this.f25342b[i3]));
+                            sb.append(b(((StatisticItem) list.get(i4)).getParams(), this.f24632b[i3]));
                             sb.append("|");
                         }
                         if (sb.length() > 0) {
                             sb.deleteCharAt(sb.length() - 1);
                         }
-                        statisticItem2.delete(this.f25342b[i3]);
-                        statisticItem2.param(this.f25342b[i3] + "s", sb.toString());
+                        statisticItem2.delete(this.f24632b[i3]);
+                        statisticItem2.param(this.f24632b[i3] + "s", sb.toString());
                     }
                     TiebaStatic.log(statisticItem2);
                 }

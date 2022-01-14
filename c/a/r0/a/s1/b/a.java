@@ -53,7 +53,7 @@ public class a extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
                 return false;
             }
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "joParams" + optParamsAsJo.toString();
             }
             c.a.r0.a.c1.a.R().b(eVar, optParamsAsJo);

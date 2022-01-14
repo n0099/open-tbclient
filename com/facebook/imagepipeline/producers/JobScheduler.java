@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.util.concurrent.Executor;
@@ -17,7 +18,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JobScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String QUEUE_TIME_KEY = "queueTime";
@@ -44,7 +45,7 @@ public class JobScheduler {
     public final Runnable mSubmitJobRunnable;
 
     /* renamed from: com.facebook.imagepipeline.producers.JobScheduler$3  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState;
         public static /* synthetic */ Interceptable $ic;
@@ -84,13 +85,13 @@ public class JobScheduler {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface JobRunnable {
         void run(EncodedImage encodedImage, int i2);
     }
 
     @VisibleForTesting
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class JobStartExecutorSupplier {
         public static /* synthetic */ Interceptable $ic;
         public static ScheduledExecutorService sJobStarterExecutor;
@@ -125,7 +126,7 @@ public class JobScheduler {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @VisibleForTesting
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class JobState {
         public static final /* synthetic */ JobState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -150,7 +151,7 @@ public class JobScheduler {
             }
             IDLE = new JobState("IDLE", 0);
             QUEUED = new JobState("QUEUED", 1);
-            RUNNING = new JobState("RUNNING", 2);
+            RUNNING = new JobState(TornadoLiteRuntime.STATE_RUNNING, 2);
             JobState jobState = new JobState("RUNNING_AND_PENDING", 3);
             RUNNING_AND_PENDING = jobState;
             $VALUES = new JobState[]{IDLE, QUEUED, RUNNING, jobState};

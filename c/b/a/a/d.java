@@ -15,28 +15,28 @@ public class d {
     public final c.b.a.b.b<d> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.b.a.b.b<d> f27725b;
+    public final c.b.a.b.b<d> f26892b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27726c;
+    public boolean f26893c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f27727d;
+    public boolean f26894d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ComponentOperationHandler f27728e;
+    public ComponentOperationHandler f26895e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.b.a.c.a<a> f27729f;
+    public c.b.a.c.a<a> f26896f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.b.b.q.a<a> f27730g;
+    public c.b.b.q.a<a> f26897g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.b.b.q.d f27731h;
+    public c.b.b.q.d f26898h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.b.b.q.d f27732i;
+    public c.b.b.q.d f26899i;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -51,12 +51,12 @@ public class d {
                 return;
             }
         }
-        this.f27729f = new c.b.a.c.a<>();
-        this.f27730g = new c.b.b.q.a<>(false, 16);
-        this.f27731h = new c.b.b.q.d();
-        this.f27732i = new c.b.b.q.d();
+        this.f26896f = new c.b.a.c.a<>();
+        this.f26897g = new c.b.b.q.a<>(false, 16);
+        this.f26898h = new c.b.b.q.d();
+        this.f26899i = new c.b.b.q.d();
         this.a = new c.b.a.b.b<>();
-        this.f27725b = new c.b.a.b.b<>();
+        this.f26892b = new c.b.a.b.b<>();
     }
 
     public d a(a aVar) {
@@ -64,7 +64,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             if (b(aVar)) {
-                ComponentOperationHandler componentOperationHandler = this.f27728e;
+                ComponentOperationHandler componentOperationHandler = this.f26895e;
                 if (componentOperationHandler != null) {
                     componentOperationHandler.a(this);
                 } else {
@@ -91,9 +91,9 @@ public class d {
                 k(cls);
             }
             int d3 = b.d(cls);
-            this.f27729f.d(d3, aVar);
-            this.f27730g.a(aVar);
-            this.f27731h.k(d3);
+            this.f26896f.d(d3, aVar);
+            this.f26897g.a(aVar);
+            this.f26898h.k(d3);
             return true;
         }
         return invokeL.booleanValue;
@@ -103,8 +103,8 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
-            if (bVar.c() < this.f27729f.b()) {
-                return (T) this.f27729f.a(bVar.c());
+            if (bVar.c() < this.f26896f.b()) {
+                return (T) this.f26896f.a(bVar.c());
             }
             return null;
         }
@@ -120,13 +120,13 @@ public class d {
     public c.b.b.q.d e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27731h : (c.b.b.q.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26898h : (c.b.b.q.d) invokeV.objValue;
     }
 
     public c.b.b.q.d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27732i : (c.b.b.q.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26899i : (c.b.b.q.d) invokeV.objValue;
     }
 
     public void g() {
@@ -139,7 +139,7 @@ public class d {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f27725b.b(this);
+            this.f26892b.b(this);
         }
     }
 
@@ -147,9 +147,9 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) {
-            a a = this.f27729f.a(b.b(cls).c());
+            a a = this.f26896f.a(b.b(cls).c());
             if (a != null && k(cls)) {
-                ComponentOperationHandler componentOperationHandler = this.f27728e;
+                ComponentOperationHandler componentOperationHandler = this.f26895e;
                 if (componentOperationHandler != null) {
                     componentOperationHandler.c(this);
                 } else {
@@ -169,8 +169,8 @@ public class d {
             return;
         }
         while (true) {
-            c.b.b.q.a<a> aVar = this.f27730g;
-            if (aVar.f28217f <= 0) {
+            c.b.b.q.a<a> aVar = this.f26897g;
+            if (aVar.f27361f <= 0) {
                 return;
             }
             i(aVar.get(0).getClass());
@@ -182,11 +182,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cls)) == null) {
             int c2 = b.b(cls).c();
-            a a = this.f27729f.a(c2);
+            a a = this.f26896f.a(c2);
             if (a != null) {
-                this.f27729f.d(c2, null);
-                this.f27730g.i(a, true);
-                this.f27731h.c(c2);
+                this.f26896f.d(c2, null);
+                this.f26897g.i(a, true);
+                this.f26898h.c(c2);
                 return true;
             }
             return false;

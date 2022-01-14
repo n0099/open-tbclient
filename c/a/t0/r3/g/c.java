@@ -18,15 +18,15 @@ public class c extends BdAsyncTask<Void, Void, String> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f22509d;
+    public static final String f21892d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22510b;
+    public String f21893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f22511c;
+    public a f21894c;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -46,7 +46,7 @@ public class c extends BdAsyncTask<Void, Void, String> {
                 return;
             }
         }
-        f22509d = File.separator;
+        f21892d = File.separator;
     }
 
     public c(String str, String str2, a aVar) {
@@ -65,8 +65,8 @@ public class c extends BdAsyncTask<Void, Void, String> {
             }
         }
         this.a = str;
-        this.f22510b = str2;
-        this.f22511c = aVar;
+        this.f21893b = str2;
+        this.f21894c = aVar;
     }
 
     public final void b(File file) {
@@ -93,15 +93,15 @@ public class c extends BdAsyncTask<Void, Void, String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (!m.isEmpty(this.a) && !m.isEmpty(this.f22510b)) {
+            if (!m.isEmpty(this.a) && !m.isEmpty(this.f21893b)) {
                 new File(this.a).mkdirs();
-                String str = this.a + f22509d + "videosplash.temp";
+                String str = this.a + f21892d + "videosplash.temp";
                 File file = new File(str);
                 if (file.exists()) {
                     file.delete();
                 }
                 c.a.d.f.j.a.e eVar = new c.a.d.f.j.a.e();
-                eVar.b().s(this.f22510b);
+                eVar.b().s(this.f21893b);
                 if (new c.a.d.f.j.a.c(eVar).c(str, null, 3, 3000, -1, -1, true, true)) {
                     return d();
                 }
@@ -115,12 +115,12 @@ public class c extends BdAsyncTask<Void, Void, String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            File file = new File(this.a + f22509d + "videosplash.temp");
+            File file = new File(this.a + f21892d + "videosplash.temp");
             StringBuilder sb = new StringBuilder();
-            sb.append(t.c(this.f22510b));
+            sb.append(t.c(this.f21893b));
             sb.append(".mp4");
             String sb2 = sb.toString();
-            File file2 = new File(this.a + f22509d + sb2);
+            File file2 = new File(this.a + f21892d + sb2);
             if (file2.exists()) {
                 file2.delete();
             }
@@ -137,13 +137,13 @@ public class c extends BdAsyncTask<Void, Void, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f22511c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f21894c == null) {
             return;
         }
         if (!m.isEmpty(str)) {
-            this.f22511c.a(true, str, this.f22510b);
+            this.f21894c.a(true, str, this.f21893b);
         } else {
-            this.f22511c.a(false, null, null);
+            this.f21894c.a(false, null, null);
         }
     }
 }

@@ -31,34 +31,34 @@ public final class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6899b;
+    public static final boolean f6750b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6900c;
+    public static final boolean f6751c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f6901d;
+    public static final boolean f6752d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f6902e;
+    public static final boolean f6753e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f6903f;
+    public static final boolean f6754f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f6904g;
+    public static final int f6755g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Set<String> f6905h;
+    public static final Set<String> f6756h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.h0.o.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0385a extends ProviderDelegation {
+    public static class C0394a extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0385a() {
+        public C0394a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,25 +99,25 @@ public final class a {
             }
         }
         a = k.a;
-        f6899b = ProcessUtils.isMainProcess() ? j("swan_prefetch_app_data", 1) : e();
-        f6900c = j("swan_prefetch_slave_data", 0);
-        f6901d = j("swan_prefetch_click", 0);
-        f6902e = j("swan_prefetch_event_on", 1);
-        f6903f = j("swan_prefetch_sub_pkg", 0);
-        f6904g = d("swan_prefetch_app_data_multi", 0);
+        f6750b = ProcessUtils.isMainProcess() ? j("swan_prefetch_app_data", 1) : e();
+        f6751c = j("swan_prefetch_slave_data", 0);
+        f6752d = j("swan_prefetch_click", 0);
+        f6753e = j("swan_prefetch_event_on", 1);
+        f6754f = j("swan_prefetch_sub_pkg", 0);
+        f6755g = d("swan_prefetch_app_data_multi", 0);
         if (a) {
-            String str = "prefetch switch - " + f6899b;
-            String str2 = "master prefetch switch -  " + f6902e;
-            String str3 = "sub pkg prefetch switch -  " + f6903f;
-            String str4 = "master multi preload switch -  " + f6904g;
+            String str = "prefetch switch - " + f6750b;
+            String str2 = "master prefetch switch -  " + f6753e;
+            String str3 = "sub pkg prefetch switch -  " + f6754f;
+            String str4 = "master multi preload switch -  " + f6755g;
         }
-        f6905h = c.a.r0.a.z2.a1.a.a("hZPrR8cXXYgGHX2eGYOASkdmRyPkKcyT", "3mHyKpYFH6SF5FTWTLVaVdgi3lDGrxYy");
+        f6756h = c.a.r0.a.z2.a1.a.a("hZPrR8cXXYgGHX2eGYOASkdmRyPkKcyT", "3mHyKpYFH6SF5FTWTLVaVdgi3lDGrxYy");
     }
 
     public static boolean a(@Nullable PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pMSAppInfo)) == null) ? f6901d && m(pMSAppInfo) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pMSAppInfo)) == null) ? f6752d && m(pMSAppInfo) : invokeL.booleanValue;
     }
 
     public static int b(String str) {
@@ -154,7 +154,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
-            g c2 = e.c(C0385a.class, null);
+            g c2 = e.c(C0394a.class, null);
             boolean z = false;
             if (c2.a() && c2.a.getBoolean("result", false)) {
                 z = true;
@@ -186,13 +186,13 @@ public final class a {
     public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? !TextUtils.isEmpty(str) && f6905h.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? !TextUtils.isEmpty(str) && f6756h.contains(str) : invokeL.booleanValue;
     }
 
     public static boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f6899b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f6750b : invokeV.booleanValue;
     }
 
     public static boolean i() {
@@ -229,25 +229,25 @@ public final class a {
     public static void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            d.k("PrefetchABSwitcher", "preload master is on = " + f6899b);
-            d.k("PrefetchABSwitcher", "preload slave is on = " + f6900c);
+            d.k("PrefetchABSwitcher", "preload master is on = " + f6750b);
+            d.k("PrefetchABSwitcher", "preload slave is on = " + f6751c);
             c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
             boolean z = a0 != null && m(a0.V().f0());
             d.k("PrefetchABSwitcher", "prefetch master show is on = " + z);
-            d.k("PrefetchABSwitcher", "prefetch master click is on = " + f6901d);
-            d.k("PrefetchABSwitcher", "sub pkg prefetch switch -  " + f6903f);
+            d.k("PrefetchABSwitcher", "prefetch master click is on = " + f6752d);
+            d.k("PrefetchABSwitcher", "sub pkg prefetch switch -  " + f6754f);
             c.a.r0.a.h0.l.g.a a2 = h.b().a();
             if (a2 != null) {
                 d.k("PrefetchABSwitcher", "current running master id = " + a2.i().c());
             }
-            d.k("PrefetchABSwitcher", "master multi preload switch -  " + f6904g);
+            d.k("PrefetchABSwitcher", "master multi preload switch -  " + f6755g);
         }
     }
 
     public static int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f6904g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f6755g : invokeV.intValue;
     }
 
     public static boolean m(@Nullable PMSAppInfo pMSAppInfo) {
@@ -264,7 +264,7 @@ public final class a {
                         return false;
                     }
                 }
-                if (pMSAppInfo != null && f6902e) {
+                if (pMSAppInfo != null && f6753e) {
                     boolean z = c.a.r0.a.v.a.b(pMSAppInfo.appId) != 0;
                     c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
                     SwanAppConfigData P = a0 == null ? null : a0.P();
@@ -310,7 +310,7 @@ public final class a {
                 }
                 c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
                 SwanAppConfigData P = a0 == null ? null : a0.P();
-                z = ((P != null && (hVar = P.t) != null && TextUtils.equals(hVar.f40725b, "show")) || g(pMSAppInfo.appKey)) ? true : true;
+                z = ((P != null && (hVar = P.t) != null && TextUtils.equals(hVar.f39361b, "show")) || g(pMSAppInfo.appKey)) ? true : true;
                 if (a) {
                     String str2 = "appId - " + pMSAppInfo.appKey + ", show prefetch - " + z;
                 }
@@ -324,12 +324,12 @@ public final class a {
     public static boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? f6900c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? f6751c : invokeV.booleanValue;
     }
 
     public static boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f6903f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f6754f : invokeV.booleanValue;
     }
 }

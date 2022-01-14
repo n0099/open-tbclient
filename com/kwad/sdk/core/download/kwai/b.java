@@ -19,23 +19,23 @@ public class b extends AlertDialog {
     public static b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57993b;
+    public String f55798b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f57994c;
+    public a f55799c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f57995d;
+    public AdTemplate f55800d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f57996e;
+    public boolean f55801e;
 
     public b(Activity activity, @NonNull AdTemplate adTemplate, String str) {
         super(Wrapper.wrapContextIfNeed(activity));
-        this.f57996e = false;
+        this.f55801e = false;
         setOwnerActivity(activity);
-        this.f57995d = adTemplate;
-        this.f57993b = str;
+        this.f55800d = adTemplate;
+        this.f55798b = str;
     }
 
     public static b a(Activity activity, AdTemplate adTemplate, String str) {
@@ -88,12 +88,12 @@ public class b extends AlertDialog {
     }
 
     public void a(boolean z) {
-        this.f57996e = z;
+        this.f55801e = z;
         dismiss();
     }
 
     public boolean b() {
-        return this.f57996e;
+        return this.f55801e;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -110,24 +110,24 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog
     public void onBackPressed() {
         super.onBackPressed();
-        com.kwad.sdk.core.report.a.n(this.f57995d);
+        com.kwad.sdk.core.report.a.n(this.f55800d);
     }
 
     @Override // android.app.AlertDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.f57994c == null) {
-            a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f57995d, !af.e(getOwnerActivity()) ? 1 : 0, this.f57993b);
-            this.f57994c = aVar;
+        if (this.f55799c == null) {
+            a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f55800d, !af.e(getOwnerActivity()) ? 1 : 0, this.f55798b);
+            this.f55799c = aVar;
             aVar.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.kwai.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.kwad.sdk.core.report.a.n(b.this.f57995d);
+                    com.kwad.sdk.core.report.a.n(b.this.f55800d);
                     b.this.dismiss();
                 }
             });
         }
-        setContentView(this.f57994c);
+        setContentView(this.f55799c);
         setCanceledOnTouchOutside(true);
         getWindow().getDecorView().setPadding(0, 0, 0, 0);
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -137,7 +137,7 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        a aVar = this.f57994c;
+        a aVar = this.f55799c;
         if (aVar != null) {
             aVar.c();
         }

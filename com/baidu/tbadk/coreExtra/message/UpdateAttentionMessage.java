@@ -24,34 +24,32 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42212b;
+        public String f40742b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f42213c;
+        public String f40743c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f42214d;
+        public boolean f40744d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f42215e;
+        public boolean f40745e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f42216f;
+        public boolean f40746f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HttpResponse f42217g;
+        public HttpResponse f40747g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f42218h;
+        public JSONObject f40748h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f42219i;
+        public boolean f40749i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f42220j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public String f42221k;
+        public boolean f40750j;
+        public String k;
         public BlockPopInfoData l;
         public int m;
 
@@ -68,8 +66,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f42215e = false;
-            this.f42216f = false;
+            this.f40745e = false;
+            this.f40746f = false;
             this.m = 0;
         }
 
@@ -78,17 +76,17 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f42221k = jSONObject.optString("block_dealurl");
+            this.k = jSONObject.optString("block_dealurl");
             String optString = jSONObject.optString("block_content");
             String optString2 = jSONObject.optString("block_confirm");
             String optString3 = jSONObject.optString("block_cancel");
-            if (m.isEmpty(optString) || m.isEmpty(this.f42221k) || m.isEmpty(optString2) || m.isEmpty(optString3)) {
+            if (m.isEmpty(optString) || m.isEmpty(this.k) || m.isEmpty(optString2) || m.isEmpty(optString3)) {
                 return;
             }
             BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
             this.l = blockPopInfoData;
             blockPopInfoData.block_info = optString;
-            blockPopInfoData.ahead_url = this.f42221k;
+            blockPopInfoData.ahead_url = this.k;
             blockPopInfoData.ahead_info = optString2;
             blockPopInfoData.ok_info = optString3;
         }
@@ -100,7 +98,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f42218h = jSONObject;
+                this.f40748h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -144,7 +142,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f42214d;
+            return getData().f40744d;
         }
         return invokeV.booleanValue;
     }
@@ -156,7 +154,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f42216f;
+            return getData().f40746f;
         }
         return invokeV.booleanValue;
     }

@@ -1,392 +1,585 @@
 package c.a.c0.g0;
 
+import android.text.TextUtils;
+import android.webkit.MimeTypeMap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.io.DocumentOpenUtil;
+import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.down.utils.Utils;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
+import com.baidu.tbadk.widget.OvalActionButton;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.bumptech.glide.load.resource.bitmap.Downsampler;
+import com.kuaishou.weapon.un.x;
+import com.kwad.v8.debug.ExecutionState;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
+import com.sina.weibo.sdk.utils.FileUtils;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class g {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEFAULT = 2131296265;
-    public static final int FILL = 2131296266;
-    public static final int LINE = 2131296270;
-    public static final int ROUND_RECT = 2131296275;
-    public static final int STROKE = 2131296280;
-    public static final int accessibility_action_clickable_span = 2131296300;
-    public static final int accessibility_custom_action_0 = 2131296301;
-    public static final int accessibility_custom_action_1 = 2131296302;
-    public static final int accessibility_custom_action_10 = 2131296303;
-    public static final int accessibility_custom_action_11 = 2131296304;
-    public static final int accessibility_custom_action_12 = 2131296305;
-    public static final int accessibility_custom_action_13 = 2131296306;
-    public static final int accessibility_custom_action_14 = 2131296307;
-    public static final int accessibility_custom_action_15 = 2131296308;
-    public static final int accessibility_custom_action_16 = 2131296309;
-    public static final int accessibility_custom_action_17 = 2131296310;
-    public static final int accessibility_custom_action_18 = 2131296311;
-    public static final int accessibility_custom_action_19 = 2131296312;
-    public static final int accessibility_custom_action_2 = 2131296313;
-    public static final int accessibility_custom_action_20 = 2131296314;
-    public static final int accessibility_custom_action_21 = 2131296315;
-    public static final int accessibility_custom_action_22 = 2131296316;
-    public static final int accessibility_custom_action_23 = 2131296317;
-    public static final int accessibility_custom_action_24 = 2131296318;
-    public static final int accessibility_custom_action_25 = 2131296319;
-    public static final int accessibility_custom_action_26 = 2131296320;
-    public static final int accessibility_custom_action_27 = 2131296321;
-    public static final int accessibility_custom_action_28 = 2131296322;
-    public static final int accessibility_custom_action_29 = 2131296323;
-    public static final int accessibility_custom_action_3 = 2131296324;
-    public static final int accessibility_custom_action_30 = 2131296325;
-    public static final int accessibility_custom_action_31 = 2131296326;
-    public static final int accessibility_custom_action_4 = 2131296327;
-    public static final int accessibility_custom_action_5 = 2131296328;
-    public static final int accessibility_custom_action_6 = 2131296329;
-    public static final int accessibility_custom_action_7 = 2131296330;
-    public static final int accessibility_custom_action_8 = 2131296331;
-    public static final int accessibility_custom_action_9 = 2131296332;
-    public static final int action_bar = 2131296343;
-    public static final int action_bar_activity_content = 2131296344;
-    public static final int action_bar_container = 2131296345;
-    public static final int action_bar_root = 2131296350;
-    public static final int action_bar_spinner = 2131296351;
-    public static final int action_bar_subtitle = 2131296352;
-    public static final int action_bar_title = 2131296353;
-    public static final int action_container = 2131296355;
-    public static final int action_context_bar = 2131296356;
-    public static final int action_divider = 2131296357;
-    public static final int action_image = 2131296359;
-    public static final int action_menu_divider = 2131296362;
-    public static final int action_menu_presenter = 2131296363;
-    public static final int action_mode_bar = 2131296364;
-    public static final int action_mode_bar_stub = 2131296365;
-    public static final int action_mode_close_button = 2131296366;
-    public static final int action_text = 2131296367;
-    public static final int actions = 2131296369;
-    public static final int activity_chooser_view_content = 2131296373;
-    public static final int ad_app_info_view = 2131296394;
-    public static final int ad_author_avatar_interaction = 2131296396;
-    public static final int ad_author_avatar_txt_interaction = 2131296397;
-    public static final int ad_author_container_interaction = 2131296398;
-    public static final int ad_mini_video_detail_rating_bar_root_view = 2131296473;
-    public static final int ad_mini_video_info_view = 2131296474;
-    public static final int ad_mini_video_mini_pop = 2131296475;
-    public static final int ad_mini_video_tail_frame_view_new = 2131296476;
-    public static final int ad_transition_btn_view = 2131296509;
-    public static final int ad_video_download_btn = 2131296513;
-    public static final int add = 2131296521;
-    public static final int alertTitle = 2131296865;
-    public static final int anchor = 2131296880;
-    public static final int async = 2131296966;
-    public static final int back_blur_img = 2131297032;
-    public static final int bd_layer_bottom = 2131297126;
-    public static final int blocking = 2131297285;
-    public static final int body = 2131297289;
-    public static final int bottom = 2131297300;
-    public static final int bt_continue_play = 2131297363;
-    public static final int bt_retry = 2131297369;
-    public static final int btn_wv_copy = 2131297459;
-    public static final int btn_wv_search = 2131297460;
-    public static final int btn_wv_wrong_word_report = 2131297461;
-    public static final int bubble_arrow_down = 2131297468;
-    public static final int bubble_arrow_left = 2131297469;
-    public static final int bubble_arrow_right = 2131297470;
-    public static final int bubble_arrow_up = 2131297471;
-    public static final int bubble_btn = 2131297473;
-    public static final int bubble_content = 2131297475;
-    public static final int bubble_jump_arrow = 2131297478;
-    public static final int bubble_root = 2131297483;
-    public static final int bubble_text = 2131297486;
-    public static final int buttonPanel = 2131297490;
-    public static final int by_common = 2131297541;
-    public static final int by_common_header = 2131297542;
-    public static final int by_org = 2131297543;
-    public static final int by_org_header = 2131297544;
-    public static final int by_org_unit = 2131297545;
-    public static final int by_org_unit_header = 2131297546;
-    public static final int center = 2131297898;
-    public static final int centerCrop = 2131297902;
-    public static final int centerInside = 2131297903;
-    public static final int checkbox = 2131298045;
-    public static final int chronometer = 2131298112;
-    public static final int command_layout = 2131298166;
-    public static final int common_btn = 2131298195;
-    public static final int common_btn_icon = 2131298196;
-    public static final int common_btn_text = 2131298197;
-    public static final int content = 2131298256;
-    public static final int contentPanel = 2131298260;
-    public static final int custom = 2131298404;
-    public static final int customPanel = 2131298405;
-    public static final int decor_content_parent = 2131298451;
-    public static final int default_activity_button = 2131298454;
-    public static final int dialog_button = 2131298511;
-    public static final int dialog_customPanel = 2131298522;
-    public static final int dialog_custom_content = 2131298523;
-    public static final int dialog_handler = 2131298526;
-    public static final int dialog_icon = 2131298528;
-    public static final int dialog_message = 2131298536;
-    public static final int dialog_root = 2131298543;
-    public static final int dialog_title = 2131298548;
-    public static final int divider2 = 2131298595;
-    public static final int divider3 = 2131298596;
-    public static final int divider4 = 2131298597;
-    public static final int edit_query = 2131298794;
-    public static final int end = 2131298909;
-    public static final int errorview_big_container = 2131298974;
-    public static final int errorview_clickreload = 2131298975;
-    public static final int errorview_desc = 2131298976;
-    public static final int errorview_img = 2131298977;
-    public static final int expand_activities_button = 2131299023;
-    public static final int expand_full_button = 2131299024;
-    public static final int expanded_menu = 2131299035;
-    public static final int expires_on = 2131299041;
-    public static final int expires_on_header = 2131299042;
-    public static final int feed_ad_operate_app_info_view = 2131299102;
-    public static final int feed_ad_operate_command_app_name = 2131299103;
-    public static final int feed_ad_operate_download_app_name = 2131299104;
-    public static final int feed_ad_recommend_view = 2131299106;
-    public static final int feed_ad_recommend_words_container = 2131299107;
-    public static final int feed_template_base = 2131299116;
-    public static final int fitCenter = 2131299175;
-    public static final int fitEnd = 2131299176;
-    public static final int fitStart = 2131299177;
-    public static final int fitXY = 2131299179;
-    public static final int forever = 2131299277;
-    public static final int fragment_container_view_tag = 2131299423;
-    public static final int full_bottom_shadow = 2131299734;
-    public static final int full_top_shadow = 2131299745;
-    public static final int gone = 2131299951;
-    public static final int group_divider = 2131299983;
-    public static final int home = 2131300117;
-    public static final int hv_btn_content = 2131300290;
-    public static final int hv_btn_subtext = 2131300291;
-    public static final int hv_btn_text = 2131300292;
-    public static final int hv_content = 2131300293;
-    public static final int hv_divider = 2131300294;
-    public static final int icon = 2131300301;
-    public static final int icon_group = 2131300319;
-    public static final int image = 2131300415;
-    public static final int image_poster = 2131300437;
-    public static final int info = 2131300566;
-    public static final int inner = 2131300572;
-    public static final int interaction_comment_item = 2131300597;
-    public static final int interaction_comment_text = 2131300598;
-    public static final int interaction_comment_view = 2131300599;
-    public static final int interaction_praise_item = 2131300600;
-    public static final int interaction_praise_text = 2131300601;
-    public static final int interaction_praise_view = 2131300602;
-    public static final int interaction_share_item = 2131300603;
-    public static final int interaction_share_text = 2131300604;
-    public static final int interaction_share_view = 2131300605;
-    public static final int invisible = 2131300668;
-    public static final int issued_on = 2131300675;
-    public static final int issued_on_header = 2131300676;
-    public static final int issued_to_header = 2131300677;
-    public static final int italic = 2131300678;
-    public static final int layer_seek_bar = 2131301306;
-    public static final int layer_seekbar = 2131301307;
-    public static final int layout_enum = 2131301334;
-    public static final int left = 2131301401;
-    public static final int line = 2131301493;
-    public static final int line1 = 2131301495;
-    public static final int line3 = 2131301497;
-    public static final int line_loading_view = 2131301509;
-    public static final int listMode = 2131301531;
-    public static final int list_item = 2131301536;
-    public static final int loading_bar = 2131301684;
-    public static final int main_battery_view = 2131301785;
-    public static final int main_container = 2131301786;
-    public static final int main_duration_text = 2131301787;
-    public static final int main_progress_text = 2131301791;
-    public static final int main_system_info_area = 2131301793;
-    public static final int main_system_time_text = 2131301794;
-    public static final int main_title_back_button = 2131301799;
-    public static final int main_title_text = 2131301800;
-    public static final int main_view_seekbar = 2131301804;
-    public static final int matrix = 2131301861;
-    public static final int message = 2131301929;
-    public static final int message_scrollview = 2131301943;
-    public static final int message_text = 2131301944;
-    public static final int multiply = 2131302066;
-    public static final int nad_app_info_container = 2131302091;
-    public static final int nad_app_permission = 2131302092;
-    public static final int nad_app_privacy = 2131302093;
-    public static final int nad_app_version = 2131302094;
-    public static final int nad_author_container = 2131302095;
-    public static final int nad_author_full_name = 2131302096;
-    public static final int nad_author_name = 2131302097;
-    public static final int nad_base_delete_id = 2131302098;
-    public static final int nad_bdvideoplayer_seekbar = 2131302099;
-    public static final int nad_bottom_line = 2131302100;
-    public static final int nad_btn_panel = 2131302101;
-    public static final int nad_common_btn = 2131302102;
-    public static final int nad_common_btn_icon = 2131302103;
-    public static final int nad_common_btn_text = 2131302104;
-    public static final int nad_dialog_message_content = 2131302106;
-    public static final int nad_feed_ad_label_view = 2131302123;
-    public static final int nad_feed_ad_operate_command_button = 2131302124;
-    public static final int nad_feed_ad_operate_progress_button = 2131302125;
-    public static final int nad_feed_ad_operate_view = 2131302126;
-    public static final int nad_feed_ad_recommend_tv = 2131302127;
-    public static final int nad_feed_template_base = 2131302128;
-    public static final int nad_feed_template_base_title_id = 2131302129;
-    public static final int nad_feed_template_big_image_id = 2131302130;
-    public static final int nad_feed_template_big_image_video_icon_id = 2131302131;
-    public static final int nad_feed_template_big_video_length_id = 2131302132;
-    public static final int nad_feed_template_cover_image = 2131302133;
-    public static final int nad_feed_template_rl = 2131302134;
-    public static final int nad_feed_template_single_image_id = 2131302135;
-    public static final int nad_feed_template_tripe_image_one_id = 2131302136;
-    public static final int nad_feed_template_tripe_image_three_id = 2131302137;
-    public static final int nad_feed_template_tripe_image_two_id = 2131302138;
-    public static final int nad_feed_template_video_id = 2131302139;
-    public static final int nad_full_author_name = 2131302140;
-    public static final int nad_main_duration_text = 2131302142;
-    public static final int nad_main_progress_text = 2131302143;
-    public static final int nad_mini_author_name = 2131302144;
-    public static final int nad_mini_video_info = 2131302146;
-    public static final int nad_mini_video_model = 2131302147;
-    public static final int nad_mini_video_pause = 2131302148;
-    public static final int nad_mini_video_player_container = 2131302149;
-    public static final int nad_mini_video_recommend_tag = 2131302150;
-    public static final int nad_mini_video_title = 2131302151;
-    public static final int nad_operate_ad_name = 2131302152;
-    public static final int nad_operate_ad_rating_bar = 2131302153;
-    public static final int nad_operate_ad_rating_text = 2131302154;
-    public static final int nad_permission = 2131302155;
-    public static final int nad_privacy = 2131302157;
-    public static final int nad_right_vertical_container = 2131302166;
-    public static final int nad_title_panel = 2131302169;
-    public static final int nad_tv_net_divide = 2131302170;
-    public static final int nad_ui_layout = 2131302171;
-    public static final int nad_version = 2131302172;
-    public static final int nad_video_btn_placeholder = 2131302173;
-    public static final int nad_video_detail_container = 2131302174;
-    public static final int nad_video_title = 2131302175;
-    public static final int nad_webcontent_error_code = 2131302176;
-    public static final int negative_button = 2131302254;
-    public static final int neutral_button = 2131302268;
-    public static final int none = 2131302383;
-    public static final int normal = 2131302390;
-    public static final int notification_background = 2131302405;
-    public static final int notification_main_column = 2131302407;
-    public static final int notification_main_column_container = 2131302408;
-    public static final int packed = 2131302548;
-    public static final int parent = 2131302554;
-    public static final int parentPanel = 2131302555;
-    public static final int password_edit = 2131302584;
-    public static final int percent = 2131302904;
-    public static final int placeholder = 2131303138;
-    public static final int play_error_layout_retry = 2131303147;
-    public static final int positive_button = 2131303225;
-    public static final int progress = 2131303357;
-    public static final int progress_circular = 2131303363;
-    public static final int progress_horizontal = 2131303365;
-    public static final int progress_indicator = 2131303367;
-    public static final int radio = 2131303529;
-    public static final int remember = 2131303670;
-    public static final int right = 2131303755;
-    public static final int right_icon = 2131303777;
-    public static final int right_side = 2131303783;
-    public static final int root_container = 2131303857;
-    public static final int rootview = 2131303874;
-    public static final int safe_dialog_content = 2131303904;
-    public static final int safe_dialog_sub_content = 2131303905;
-    public static final int screen = 2131304152;
-    public static final int scrollIndicatorDown = 2131304163;
-    public static final int scrollIndicatorUp = 2131304164;
-    public static final int scrollView = 2131304165;
-    public static final int search_badge = 2131304184;
-    public static final int search_bar = 2131304185;
-    public static final int search_button = 2131304191;
-    public static final int search_close_btn = 2131304192;
-    public static final int search_edit_frame = 2131304195;
-    public static final int search_go_btn = 2131304206;
-    public static final int search_mag_icon = 2131304221;
-    public static final int search_plate = 2131304222;
-    public static final int search_src_text = 2131304229;
-    public static final int search_voice_btn = 2131304238;
-    public static final int searchbox_alert_dialog = 2131304240;
-    public static final int select_dialog_listview = 2131304276;
-    public static final int select_separator_one = 2131304299;
-    public static final int shadowLayout = 2131304341;
-    public static final int shortcut = 2131304402;
-    public static final int spacer = 2131304507;
-    public static final int split_action_bar = 2131304529;
-    public static final int spread = 2131304530;
-    public static final int spread_inside = 2131304532;
-    public static final int src_atop = 2131304567;
-    public static final int src_in = 2131304568;
-    public static final int src_over = 2131304569;
-    public static final int ssl_certificate_container = 2131304570;
-    public static final int ssl_divider = 2131304571;
-    public static final int ssl_header_icon = 2131304572;
-    public static final int ssl_header_text = 2131304573;
-    public static final int start = 2131304585;
-    public static final int submenuarrow = 2131304656;
-    public static final int submit_area = 2131304657;
-    public static final int tabMode = 2131304762;
-    public static final int tag_accessibility_actions = 2131304804;
-    public static final int tag_accessibility_clickable_spans = 2131304805;
-    public static final int tag_accessibility_heading = 2131304806;
-    public static final int tag_accessibility_pane_title = 2131304807;
-    public static final int tag_screen_reader_focusable = 2131304874;
-    public static final int tag_transition_group = 2131304888;
-    public static final int tag_unhandled_key_event_manager = 2131304889;
-    public static final int tag_unhandled_key_listeners = 2131304890;
-    public static final int tail_frame_author_avatar = 2131304916;
-    public static final int tail_frame_btn_container = 2131304917;
-    public static final int tail_frame_check_btn_txt = 2131304918;
-    public static final int tail_frame_download_btn_txt = 2131304920;
-    public static final int tail_frame_popular_text = 2131304921;
-    public static final int tail_frame_rating_bar = 2131304922;
-    public static final int tail_frame_replay_btn = 2131304923;
-    public static final int tail_frame_scope = 2131304924;
-    public static final int tail_frame_sub_title = 2131304925;
-    public static final int tail_frame_title = 2131304926;
-    public static final int tail_frame_trade = 2131304927;
-    public static final int text = 2131304994;
-    public static final int text2 = 2131304996;
-    public static final int textSpacerNoButtons = 2131305003;
-    public static final int textSpacerNoTitle = 2131305004;
-    public static final int text_pcdn_status = 2131305040;
-    public static final int text_status = 2131305049;
-    public static final int text_version_code = 2131305054;
-    public static final int time = 2131305222;
-    public static final int title = 2131305271;
-    public static final int titleDividerNoCustom = 2131305273;
-    public static final int title_template = 2131305342;
-    public static final int titlebar = 2131305355;
-    public static final int titlebar_left_layout = 2131305360;
-    public static final int titlebar_right_layout = 2131305368;
-    public static final int to_common = 2131305386;
-    public static final int to_common_header = 2131305387;
-    public static final int to_org = 2131305389;
-    public static final int to_org_header = 2131305390;
-    public static final int to_org_unit = 2131305391;
-    public static final int to_org_unit_header = 2131305392;
-    public static final int top = 2131305419;
-    public static final int topPanel = 2131305422;
-    public static final int top_function_container = 2131305447;
-    public static final int tv_bottom = 2131305671;
-    public static final int tv_enum = 2131305707;
-    public static final int tv_error = 2131305708;
-    public static final int tv_net_duration = 2131305764;
-    public static final int tv_net_size = 2131305765;
-    public static final int tv_net_tips = 2131305766;
-    public static final int tv_title = 2131305854;
-    public static final int tv_why_show_ad = 2131305879;
-    public static final int uniform = 2131305971;
-    public static final int up = 2131305995;
-    public static final int username_edit = 2131306104;
-    public static final int validity_header = 2131306112;
-    public static final int value = 2131306113;
-    public static final int video_floating = 2131306173;
-    public static final int video_pause_icon = 2131306221;
-    public static final int video_replay_icon = 2131306248;
-    public static final int visible_removing_fragment_view_tag = 2131306397;
-    public static final int webview_container = 2131306620;
-    public static final int webview_titlebar_root = 2131306634;
-    public static final int widget_errorview_error_layout = 2131306650;
-    public static final int wrap = 2131306691;
-    public static final int wrap_content = 2131306692;
+    public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, Integer> a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static HashMap<String, Integer> f1885b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static HashMap<String, String> f1886c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static HashMap<String, String> f1887d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static HashMap<String, Integer> f1888e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final Pattern f1889f;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1412378846, "Lc/a/c0/g0/g;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1412378846, "Lc/a/c0/g0/g;");
+                return;
+            }
+        }
+        a = new HashMap<>();
+        f1885b = new HashMap<>();
+        f1886c = new HashMap<>();
+        f1887d = new HashMap<>();
+        f1888e = new HashMap<>();
+        a("application/andrew-inset", "ez", 5);
+        a("application/dsptype", "tsp", 5);
+        a("application/futuresplash", "spl", 5);
+        a("application/hta", "hta", 5);
+        a("application/mac-binhex40", "hqx", 5);
+        a("application/mac-compactpro", "cpt", 5);
+        a("application/mathematica", BaseContentUploader.NB, 5);
+        a("application/msaccess", "mdb", 5);
+        a("application/oda", "oda", 5);
+        a("application/ogg", "ogg", 1);
+        a(DocumentOpenUtil.PDF_TYPE, DocumentOpenUtil.PDF, 4);
+        a("application/pgp-keys", "key", 5);
+        a("application/pgp-signature", "pgp", 5);
+        a("application/pics-rules", "prf", 5);
+        a("application/rar", "rar", 8);
+        a("application/x-rar-compressed", "rar", 8);
+        a("application/rdf+xml", "rdf", 5);
+        a("application/rss+xml", "rss", 5);
+        a("application/zip", "zip", 8);
+        a("application/x-zip-compressed", "zip", 8);
+        a("application/vnd.android.package-archive", "apk", 3);
+        a("application/vnd.cinderella", "cdy", 5);
+        a("application/vnd.ms-pki.stl", "stl", 5);
+        a("application/vnd.oasis.opendocument.database", "odb", 5);
+        a("application/vnd.oasis.opendocument.formula", "odf", 5);
+        a("application/vnd.oasis.opendocument.graphics", "odg", 5);
+        a("application/vnd.oasis.opendocument.graphics-template", "otg", 5);
+        a("application/vnd.oasis.opendocument.image", "odi", 5);
+        a("application/vnd.oasis.opendocument.spreadsheet", "ods", 5);
+        a("application/vnd.oasis.opendocument.spreadsheet-template", "ots", 5);
+        a("application/vnd.oasis.opendocument.text", "odt", 5);
+        a("application/vnd.oasis.opendocument.text-master", "odm", 5);
+        a("application/vnd.oasis.opendocument.text-template", "ott", 5);
+        a("application/vnd.oasis.opendocument.text-web", "oth", 5);
+        a("application/vnd.google-earth.kml+xml", "kml", 5);
+        a("application/vnd.google-earth.kmz", "kmz", 5);
+        a(DocumentOpenUtil.WORD_TYPE, DocumentOpenUtil.DOC, 4);
+        a(DocumentOpenUtil.WORD_TYPE, "dot", 4);
+        a(DocumentOpenUtil.DOCUMENT_TYPE, DocumentOpenUtil.DOCX, 4);
+        a("application/vnd.openxmlformats-officedocument.wordprocessingml.template", "dotx", 4);
+        a(DocumentOpenUtil.EXCEL_TYPE, DocumentOpenUtil.XLS, 4);
+        a(DocumentOpenUtil.EXCEL_TYPE, "xlt", 4);
+        a(DocumentOpenUtil.SHEET_TYPE, DocumentOpenUtil.XLSX, 4);
+        a("application/vnd.openxmlformats-officedocument.spreadsheetml.template", "xltx", 4);
+        a(DocumentOpenUtil.PPT_TYPE, DocumentOpenUtil.PPT, 4);
+        a(DocumentOpenUtil.PPT_TYPE, "pot", 4);
+        a(DocumentOpenUtil.PPT_TYPE, "pps", 4);
+        a(DocumentOpenUtil.PRESENT_TYPE, DocumentOpenUtil.PPTX, 4);
+        a("application/vnd.openxmlformats-officedocument.presentationml.template", "potx", 4);
+        a("application/vnd.openxmlformats-officedocument.presentationml.slideshow", "ppsx", 4);
+        a("application/vnd.rim.cod", "cod", 5);
+        a("application/vnd.smaf", "mmf", 5);
+        a("application/vnd.stardivision.calc", "sdc", 5);
+        a("application/vnd.stardivision.draw", "sda", 5);
+        a("application/vnd.stardivision.impress", "sdd", 5);
+        a("application/vnd.stardivision.impress", "sdp", 5);
+        a("application/vnd.stardivision.math", "smf", 5);
+        a("application/vnd.stardivision.writer", "sdw", 5);
+        a("application/vnd.stardivision.writer", "vor", 5);
+        a("application/vnd.stardivision.writer-global", "sgl", 5);
+        a("application/vnd.sun.xml.calc", "sxc", 5);
+        a("application/vnd.sun.xml.calc.template", "stc", 5);
+        a("application/vnd.sun.xml.draw", "sxd", 5);
+        a("application/vnd.sun.xml.draw.template", "std", 5);
+        a("application/vnd.sun.xml.impress", "sxi", 5);
+        a("application/vnd.sun.xml.impress.template", "sti", 5);
+        a("application/vnd.sun.xml.math", "sxm", 5);
+        a("application/vnd.sun.xml.writer", "sxw", 5);
+        a("application/vnd.sun.xml.writer.global", "sxg", 5);
+        a("application/vnd.sun.xml.writer.template", "stw", 5);
+        a("application/vnd.visio", "vsd", 5);
+        a("application/x-abiword", "abw", 5);
+        a("application/x-apple-diskimage", "dmg", 5);
+        a("application/x-bcpio", "bcpio", 5);
+        a("application/x-bittorrent", "torrent", 5);
+        a("application/x-cdf", "cdf", 5);
+        a("application/x-cdlink", "vcd", 5);
+        a("application/x-chess-pgn", "pgn", 5);
+        a("application/x-cpio", "cpio", 5);
+        a("application/x-debian-package", "deb", 5);
+        a("application/x-debian-package", "udeb", 5);
+        a("application/x-director", "dcr", 5);
+        a("application/x-director", "dir", 5);
+        a("application/x-director", "dxr", 5);
+        a("application/x-dms", "dms", 5);
+        a("application/x-doom", "wad", 5);
+        a("application/x-dvi", "dvi", 5);
+        a("application/x-flac", "flac", 1);
+        a("application/x-font", "pfa", 5);
+        a("application/x-font", "pfb", 5);
+        a("application/x-font", "gsf", 5);
+        a("application/x-font", "pcf", 5);
+        a("application/x-font", "pcf.Z", 5);
+        a("application/x-freemind", "mm", 5);
+        a("application/x-futuresplash", "spl", 5);
+        a("application/x-gnumeric", "gnumeric", 5);
+        a("application/x-go-sgf", "sgf", 5);
+        a("application/x-graphing-calculator", "gcf", 5);
+        a("application/x-gtar", "gtar", 5);
+        a("application/x-gtar", "tgz", 5);
+        a("application/x-gtar", "taz", 5);
+        a("application/x-hdf", "hdf", 5);
+        a("application/x-ica", "ica", 5);
+        a("application/x-internet-signup", "ins", 5);
+        a("application/x-internet-signup", "isp", 5);
+        a("application/x-iphone", "iii", 5);
+        a("application/x-iso9660-image", "iso", 5);
+        a("application/x-jmol", "jmz", 5);
+        a("application/x-kchart", "chrt", 5);
+        a("application/x-killustrator", "kil", 5);
+        a("application/x-koan", "skp", 5);
+        a("application/x-koan", "skd", 5);
+        a("application/x-koan", "skt", 5);
+        a("application/x-koan", "skm", 5);
+        a("application/x-kpresenter", "kpr", 5);
+        a("application/x-kpresenter", "kpt", 5);
+        a("application/x-kspread", "ksp", 5);
+        a("application/x-kword", "kwd", 5);
+        a("application/x-kword", "kwt", 5);
+        a("application/x-latex", "latex", 5);
+        a("application/x-lha", "lha", 5);
+        a("application/x-lzh", "lzh", 5);
+        a("application/x-lzx", "lzx", 5);
+        a("application/x-maker", "frm", 5);
+        a("application/x-maker", "maker", 5);
+        a("application/x-maker", ExecutionState.FRAME, 5);
+        a("application/x-maker", "fb", 5);
+        a("application/x-maker", "book", 5);
+        a("application/x-maker", "fbdoc", 5);
+        a("application/x-mif", "mif", 5);
+        a("application/x-ms-wmd", "wmd", 5);
+        a("application/x-ms-wmz", "wmz", 5);
+        a("application/x-msi", "msi", 5);
+        a("application/x-ns-proxy-autoconfig", "pac", 5);
+        a("application/x-nwc", "nwc", 5);
+        a("application/x-object", "o", 5);
+        a("application/x-oz-application", "oza", 5);
+        a("application/x-pkcs12", "p12", 5);
+        a("application/x-pkcs12", "pfx", 5);
+        a("application/x-pkcs7-certreqresp", "p7r", 5);
+        a("application/x-pkcs7-crl", "crl", 5);
+        a("application/x-quicktimeplayer", "qtl", 5);
+        a("application/x-shar", "shar", 5);
+        a("application/x-shockwave-flash", "swf", 5);
+        a("application/x-stuffit", "sit", 5);
+        a("application/x-sv4cpio", "sv4cpio", 5);
+        a("application/x-sv4crc", "sv4crc", 5);
+        a("application/x-tar", "tar", 8);
+        a("application/x-texinfo", "texinfo", 5);
+        a("application/x-texinfo", "texi", 5);
+        a("application/x-troff", "t", 5);
+        a("application/x-troff", "roff", 5);
+        a("application/x-troff-man", "man", 5);
+        a("application/x-ustar", "ustar", 5);
+        a("application/x-wais-source", "src", 5);
+        a("application/x-wingz", "wz", 5);
+        a("application/x-webarchive", "webarchive", 5);
+        a("application/x-webarchive-xml", "webarchivexml", 5);
+        a("application/x-x509-ca-cert", "crt", 5);
+        a("application/x-x509-user-cert", "crt", 5);
+        a("application/x-xcf", "xcf", 5);
+        a("application/x-xfig", "fig", 5);
+        a("application/xhtml+xml", "xhtml", 5);
+        a("application/font-sfnt", "ttf", 5);
+        a("audio/3gpp", "3gpp", 1);
+        a("audio/amr", "amr", 1);
+        a("audio/basic", "snd", 1);
+        a("audio/midi", "mid", 1);
+        a("audio/midi", "midi", 1);
+        a("audio/midi", "kar", 1);
+        a("audio/midi", "xmf", 1);
+        a("audio/mobile-xmf", "mxmf", 1);
+        a("audio/mpeg", "mp3", 1);
+        a("audio/mpeg", "mpga", 1);
+        a("audio/mpeg", "mpega", 1);
+        a("audio/mpeg", "mp2", 1);
+        a("audio/mpeg", "m4a", 1);
+        a("audio/mpegurl", "m3u", 1);
+        a("audio/prs.sid", "sid", 1);
+        a("audio/x-aiff", "aif", 1);
+        a("audio/x-aiff", "aiff", 1);
+        a("audio/x-aiff", "aifc", 1);
+        a("audio/x-gsm", "gsm", 1);
+        a("audio/x-mpegurl", "m3u", 1);
+        a("audio/x-ms-wma", "wma", 1);
+        a("audio/x-ms-wax", "wax", 1);
+        a("audio/x-pn-realaudio", "ra", 1);
+        a("audio/x-pn-realaudio", x.C, 1);
+        a("audio/x-pn-realaudio", "ram", 1);
+        a("audio/x-realaudio", "ra", 1);
+        a("audio/x-scpls", "pls", 1);
+        a("audio/x-sd2", "sd2", 1);
+        a("audio/x-wav", "wav", 1);
+        a("image/bmp", "bmp", 2);
+        a("image/gif", "gif", 2);
+        a("image/ico", "cur", 5);
+        a("image/ico", "ico", 2);
+        a("image/ief", "ief", 5);
+        a("image/jpeg", "jpeg", 2);
+        a("image/jpeg", "jpg", 2);
+        a("image/jpeg", "jpe", 2);
+        a("image/pcx", "pcx", 5);
+        a("image/png", "png", 2);
+        a("image/svg+xml", OvalActionButton.SVG, 5);
+        a("image/svg+xml", "svgz", 5);
+        a("image/tiff", "tiff", 5);
+        a("image/tiff", "tif", 5);
+        a("image/vnd.djvu", "djvu", 5);
+        a("image/vnd.djvu", "djv", 5);
+        a(Downsampler.WBMP_MIME_TYPE, "wbmp", 2);
+        a("image/webp", OvalActionButton.WEBP, 2);
+        a("image/x-cmu-raster", "ras", 5);
+        a("image/x-coreldraw", "cdr", 5);
+        a("image/x-coreldrawpattern", "pat", 5);
+        a("image/x-coreldrawtemplate", "cdt", 5);
+        a("image/x-corelphotopaint", "cpt", 5);
+        a("image/x-icon", "ico", 2);
+        a("image/x-jg", "art", 5);
+        a("image/x-jng", "jng", 5);
+        a("image/x-ms-bmp", "bmp", 2);
+        a("image/x-photoshop", "psd", 5);
+        a("image/x-portable-anymap", "pnm", 5);
+        a("image/x-portable-bitmap", "pbm", 5);
+        a("image/x-portable-graymap", "pgm", 5);
+        a("image/x-portable-pixmap", "ppm", 5);
+        a("image/x-rgb", "rgb", 5);
+        a("image/x-xbitmap", "xbm", 5);
+        a("image/x-xpixmap", "xpm", 5);
+        a("image/x-xwindowdump", "xwd", 5);
+        a("model/iges", "igs", 5);
+        a("model/iges", "iges", 5);
+        a("model/mesh", "msh", 5);
+        a("model/mesh", "mesh", 5);
+        a("model/mesh", "silo", 5);
+        a("text/calendar", "ics", 5);
+        a("text/calendar", "icz", 5);
+        a("text/comma-separated-values", "csv", 5);
+        a("text/css", "css", 5);
+        a(SapiWebView.DATA_MIME_TYPE, "htm", 11);
+        a(SapiWebView.DATA_MIME_TYPE, "html", 11);
+        a("text/h323", "323", 5);
+        a("text/iuls", "uls", 5);
+        a("text/mathml", "mml", 5);
+        a("text/plain-story", "txt", 6);
+        a("text/plain", "dat", 5);
+        a("text/plain", "txt", 4);
+        a("text/plain", "asc", 5);
+        a("text/plain", "text", 4);
+        a("text/plain", "diff", 5);
+        a("text/plain", "po", 5);
+        a("text/richtext", "rtx", 5);
+        a("text/rtf", "rtf", 5);
+        a("text/texmacs", TimeDisplaySetting.TIME_DISPLAY_SETTING, 5);
+        a("text/text", "phps", 5);
+        a("text/tab-separated-values", "tsv", 5);
+        a("text/xml", "xml", 5);
+        a("text/x-bibtex", "bib", 5);
+        a("text/x-boo", "boo", 5);
+        a("text/x-c++hdr", "h++", 5);
+        a("text/x-c++hdr", "hpp", 5);
+        a("text/x-c++hdr", "hxx", 5);
+        a("text/x-c++hdr", "hh", 5);
+        a("text/x-c++src", "c++", 5);
+        a("text/x-c++src", "cpp", 5);
+        a("text/x-c++src", "cxx", 5);
+        a("text/x-chdr", "h", 5);
+        a("text/x-component", "htc", 5);
+        a("text/x-csh", "csh", 5);
+        a("text/x-csrc", "c", 5);
+        a("text/x-dsrc", "d", 5);
+        a("text/x-haskell", "hs", 5);
+        a("text/x-java", ExceptionHandlerImpl.EXCEPTION_TYPE_JAVA, 5);
+        a("text/x-literate-haskell", "lhs", 5);
+        a("text/x-moc", "moc", 5);
+        a("text/x-pascal", "p", 5);
+        a("text/x-pascal", "pas", 5);
+        a("text/x-pcs-gcd", "gcd", 5);
+        a("text/x-setext", "etx", 5);
+        a("text/x-tcl", "tcl", 5);
+        a("text/x-tex", "tex", 5);
+        a("text/x-tex", "ltx", 5);
+        a("text/x-tex", "sty", 5);
+        a("text/x-tex", "cls", 5);
+        a("text/x-vcalendar", "vcs", 5);
+        a("text/x-vcard", "vcf", 5);
+        a("video/mkv", "mkv", 0);
+        a("video/3gpp", "3gpp", 0);
+        a("video/3gpp", "3gp", 0);
+        a("video/3gpp", "3g2", 0);
+        a("video/dl", "dl", 0);
+        a("video/dv", "dif", 0);
+        a("video/dv", "dv", 0);
+        a("video/fli", "fli", 0);
+        a("video/m4v", "m4v", 0);
+        a("video/mpeg", "mpeg", 0);
+        a("video/mpeg", "mpg", 0);
+        a("video/mpeg", "mpe", 0);
+        a("video/mp4", "mp4", 0);
+        a("video/mpeg", "vob", 0);
+        a("video/quicktime", "qt", 0);
+        a("video/quicktime", "mov", 0);
+        a("video/vnd.mpegurl", "mxu", 0);
+        a("video/x-la-asf", "lsf", 0);
+        a("video/x-la-asf", "lsx", 0);
+        a("video/x-mng", "mng", 0);
+        a("video/x-ms-asf", "asf", 0);
+        a("video/x-ms-asf", "asx", 0);
+        a("video/x-ms-wm", "wm", 0);
+        a("video/x-ms-wmv", "wmv", 0);
+        a("video/x-ms-wmx", "wmx", 0);
+        a("video/x-ms-wvx", "wvx", 0);
+        a("video/x-msvideo", "avi", 0);
+        a("video/x-sgi-movie", "movie", 0);
+        a("video/x-webex", "wrf", 0);
+        a("x-conference/x-cooltalk", "ice", 5);
+        a("x-epoc/x-sisx-app", "sisx", 5);
+        a("video/vnd.rn-realvideo", "rmvb", 0);
+        a("video/x-flv", BdVideoSeries.FORMAT_FLV, 0);
+        a("audio/aac", "aac", 1);
+        a("application/vnd.rn-realmedia", x.C, 0);
+        a("message/rfc822", "mht", 11);
+        a("application/x.mpegurl", "m3u8", 0);
+        a("application/vnd.apple.mpegurl", "m3u8", 0);
+        a("application/x.mpegurl", "m3u", 0);
+        a("application/vnd.apple.mpegurl", "m3u", 0);
+        f1889f = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+    }
+
+    public static void a(String str, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i2) == null) {
+            a.put(str2, Integer.valueOf(i2));
+            f1885b.put(str, Integer.valueOf(i2));
+            HashMap<String, Integer> hashMap = f1888e;
+            hashMap.put(str + "@" + str2, Integer.valueOf(i2));
+            f1886c.put(str2, str);
+            if (f1887d.containsKey(str)) {
+                return;
+            }
+            f1887d.put(str, str2);
+        }
+    }
+
+    public static int b(String str, String str2) {
+        InterceptResult invokeLL;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            String lowerCase = !TextUtils.isEmpty(str) ? str.toLowerCase(Locale.getDefault()) : "";
+            if (!TextUtils.isEmpty(lowerCase) && !TextUtils.isEmpty(str2)) {
+                HashMap<String, Integer> hashMap = f1888e;
+                num = hashMap.get(str2 + "@" + lowerCase);
+                if (num == null) {
+                    num = a.get(lowerCase);
+                }
+                if (num == null) {
+                    num = f1885b.get(str2);
+                }
+            } else if (TextUtils.isEmpty(str2)) {
+                num = a.get(lowerCase);
+            } else {
+                num = f1885b.get(str2);
+            }
+            if (num == null) {
+                num = 5;
+            }
+            return num.intValue();
+        }
+        return invokeLL.intValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) ? "" : str.substring(lastIndexOf + 1) : (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return f1887d.get(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        String str4;
+        String substring;
+        String str5;
+        int lastIndexOf;
+        int lastIndexOf2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, str3)) == null) {
+            String str6 = null;
+            if (str2 != null) {
+                str4 = g(str2);
+                if (str4 != null && (lastIndexOf2 = str4.lastIndexOf(File.separator) + 1) > 0) {
+                    str4 = str4.substring(lastIndexOf2);
+                }
+            } else {
+                str4 = null;
+            }
+            if (TextUtils.isEmpty(str4)) {
+                str4 = h.c(str);
+            }
+            if (TextUtils.isEmpty(str4)) {
+                str4 = Utils.DEFAULT_DL_FILENAME;
+            }
+            int lastIndexOf3 = str4.lastIndexOf(".");
+            if (lastIndexOf3 >= 0) {
+                if (str3 != null) {
+                    String substring2 = str4.substring(str4.lastIndexOf(".") + 1);
+                    String d2 = d(str3);
+                    String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
+                    String lowerCase = !TextUtils.isEmpty(substring2) ? substring2.toLowerCase(Locale.getDefault()) : "";
+                    String lowerCase2 = !TextUtils.isEmpty(d2) ? d2.toLowerCase(Locale.getDefault()) : "";
+                    String lowerCase3 = !TextUtils.isEmpty(extensionFromMimeType) ? extensionFromMimeType.toLowerCase(Locale.getDefault()) : "";
+                    String f2 = f(lowerCase);
+                    String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
+                    String lowerCase4 = !TextUtils.isEmpty(f2) ? f2.toLowerCase(Locale.getDefault()) : "";
+                    String lowerCase5 = TextUtils.isEmpty(mimeTypeFromExtension) ? "" : mimeTypeFromExtension.toLowerCase(Locale.getDefault());
+                    if (TextUtils.equals(lowerCase4, lowerCase5)) {
+                        if (!TextUtils.isEmpty(lowerCase2) && TextUtils.equals(lowerCase2, lowerCase3)) {
+                            str6 = "." + lowerCase2;
+                        }
+                    } else if (TextUtils.isEmpty(lowerCase4)) {
+                        if (!TextUtils.isEmpty(lowerCase3)) {
+                            str6 = "." + lowerCase3;
+                        }
+                    } else if (TextUtils.isEmpty(lowerCase5)) {
+                        if (!TextUtils.isEmpty(lowerCase4)) {
+                            str6 = "." + lowerCase;
+                        } else if (!TextUtils.isEmpty(lowerCase2)) {
+                            str6 = "." + lowerCase2;
+                        }
+                    }
+                }
+                substring = str6 == null ? str4.substring(lastIndexOf3) : str6;
+                str4 = str4.substring(0, lastIndexOf3);
+            } else {
+                if (str3 != null) {
+                    str5 = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
+                    if (TextUtils.isEmpty(str5)) {
+                        if (str3.toLowerCase(Locale.getDefault()).startsWith(FileUtils.IMAGE_FILE_START)) {
+                            str5 = ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                        }
+                    } else {
+                        str5 = "." + str5;
+                    }
+                } else {
+                    str5 = null;
+                }
+                if (str5 == null) {
+                    if (str3 != null && str3.toLowerCase(Locale.getDefault()).startsWith("text/")) {
+                        str5 = str3.equalsIgnoreCase(SapiWebView.DATA_MIME_TYPE) ? DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION : DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION;
+                    } else {
+                        String c2 = h.c(str);
+                        if (!TextUtils.isEmpty(c2) && (lastIndexOf = c2.lastIndexOf(".")) != -1) {
+                            str6 = c2.substring(lastIndexOf + 1);
+                        }
+                        if (TextUtils.isEmpty(str6)) {
+                            substring = DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION;
+                        } else {
+                            substring = "." + str6;
+                        }
+                    }
+                }
+                if (str4 != null && str4.length() > 50) {
+                    str4 = str4.substring(0, 50);
+                }
+                return str4 + str5;
+            }
+            str5 = substring;
+            if (str4 != null) {
+                str4 = str4.substring(0, 50);
+            }
+            return str4 + str5;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return f1886c.get(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            try {
+                Matcher matcher = f1889f.matcher(str);
+                if (matcher.find()) {
+                    return matcher.group(2);
+                }
+                return null;
+            } catch (IllegalStateException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
 }

@@ -26,34 +26,32 @@ public class b implements c.a.t0.j3.e0.a {
     public final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f18929b;
+    public final int f18456b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f18930c;
+    public final int f18457c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f18931d;
+    public final int f18458d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f18932e;
+    public final int f18459e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f18933f;
+    public final int f18460f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f18934g;
+    public final int f18461g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f18935h;
+    public final int f18462h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Map<String, AdvertAppInfo> f18936i;
+    public final Map<String, AdvertAppInfo> f18463i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f18937j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final int f18938k;
+    public int f18464j;
+    public final int k;
     public final int l;
     public final int m;
 
@@ -72,17 +70,17 @@ public class b implements c.a.t0.j3.e0.a {
                 return;
             }
         }
-        this.f18929b = c.a.t0.a.h().n();
-        this.f18930c = c.a.t0.a.h().q();
-        this.f18931d = c.a.t0.a.h().k();
-        this.f18932e = c.a.t0.a.h().l() - 1;
-        this.f18933f = c.a.t0.a.h().m();
-        this.f18934g = c.a.t0.a.h().p();
-        this.f18935h = c.a.t0.a.h().o();
-        this.f18937j = e.a("daily_show_count");
-        this.f18936i = new HashMap();
+        this.f18456b = c.a.t0.a.h().n();
+        this.f18457c = c.a.t0.a.h().q();
+        this.f18458d = c.a.t0.a.h().k();
+        this.f18459e = c.a.t0.a.h().l() - 1;
+        this.f18460f = c.a.t0.a.h().m();
+        this.f18461g = c.a.t0.a.h().p();
+        this.f18462h = c.a.t0.a.h().o();
+        this.f18464j = e.a("daily_show_count");
+        this.f18463i = new HashMap();
         int[] p = n.p(TbadkCoreApplication.getInst());
-        this.f18938k = p[0];
+        this.k = p[0];
         this.l = p[1];
         this.m = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds376);
         int r = c.a.t0.a.h().r();
@@ -97,25 +95,25 @@ public class b implements c.a.t0.j3.e0.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            if (!gVar.f12671j && !gVar.f12672k) {
-                int i2 = gVar.f12664c;
-                String str = gVar.f12668g;
-                int i3 = gVar.f12665d;
-                int i4 = gVar.f12670i;
-                float f2 = gVar.f12667f;
-                int i5 = gVar.f12669h;
+            if (!gVar.f12374j && !gVar.k) {
+                int i2 = gVar.f12367c;
+                String str = gVar.f12371g;
+                int i3 = gVar.f12368d;
+                int i4 = gVar.f12373i;
+                float f2 = gVar.f12370f;
+                int i5 = gVar.f12372h;
                 t(i2, i3, i4, gVar);
-                if (this.f18936i.containsKey(str)) {
-                    return this.f18936i.get(str);
+                if (this.f18463i.containsKey(str)) {
+                    return this.f18463i.get(str);
                 }
-                if (r(i2, i3) && s(i5, f2, gVar.f12666e)) {
+                if (r(i2, i3) && s(i5, f2, gVar.f12369e)) {
                     AdvertAppInfo i6 = this.a.i();
                     if (i6 != null) {
                         i6.p4 = "PIC_PAGE_BANNER";
                         i6.position = i2;
-                        this.f18936i.put(str, i6);
-                        int i7 = this.f18937j + 1;
-                        this.f18937j = i7;
+                        this.f18463i.put(str, i6);
+                        int i7 = this.f18464j + 1;
+                        this.f18464j = i7;
                         e.g("daily_show_count", i7);
                     }
                     return i6;
@@ -157,8 +155,8 @@ public class b implements c.a.t0.j3.e0.a {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) {
-            if (i2 >= this.f18932e && i2 > i3) {
-                return i3 == 0 || i2 - i3 >= this.f18933f;
+            if (i2 >= this.f18459e && i2 > i3) {
+                return i3 == 0 || i2 - i3 >= this.f18460f;
             }
             return false;
         }
@@ -170,16 +168,16 @@ public class b implements c.a.t0.j3.e0.a {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (this.f18929b == 4) {
+            if (this.f18456b == 4) {
                 return true;
             }
             if (f2 == 0.0f) {
                 return false;
             }
-            if (!(((float) this.f18938k) / ((float) this.l) > f2)) {
-                return ((int) (((((float) this.l) - f3) / 2.0f) - ((float) i2))) > this.m && ((i3 = this.f18929b) == 1 || i3 == 2);
+            if (!(((float) this.k) / ((float) this.l) > f2)) {
+                return ((int) (((((float) this.l) - f3) / 2.0f) - ((float) i2))) > this.m && ((i3 = this.f18456b) == 1 || i3 == 2);
             }
-            int i4 = this.f18929b;
+            int i4 = this.f18456b;
             return i4 == 3 || i4 == 1;
         }
         return invokeCommon.booleanValue;
@@ -187,17 +185,17 @@ public class b implements c.a.t0.j3.e0.a {
 
     public final void t(int i2, int i3, int i4, g gVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), gVar}) == null) || this.f18937j >= this.f18935h) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), gVar}) == null) || this.f18464j >= this.f18462h) {
             return;
         }
-        this.a.h(this.f18931d);
+        this.a.h(this.f18458d);
         if (this.a.j()) {
             return;
         }
-        int i5 = i3 == 0 ? this.f18932e : this.f18933f + i3;
-        if (i2 < i3 || i5 >= i4 || i2 < i5 - this.f18934g) {
+        int i5 = i3 == 0 ? this.f18459e : this.f18460f + i3;
+        if (i2 < i3 || i5 >= i4 || i2 < i5 - this.f18461g) {
             return;
         }
-        this.a.d(Math.min(this.f18935h - this.f18937j, this.f18930c), q(gVar));
+        this.a.d(Math.min(this.f18462h - this.f18464j, this.f18457c), q(gVar));
     }
 }

@@ -49,7 +49,7 @@ public class h extends c.a.t0.g0.b<c.a.t0.a0.f.c.f.b.c> {
         this.p.addView(this.m.e());
         this.p.addView(this.n.e());
         this.p.addView(this.o.e());
-        l(this.f18210f, TbadkCoreApplication.getInst().getSkinType());
+        l(this.f17767f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // c.a.t0.g0.b
@@ -85,9 +85,9 @@ public class h extends c.a.t0.g0.b<c.a.t0.a0.f.c.f.b.c> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) || cVar == null) {
             return;
         }
-        this.m.f(cVar.f14812e);
-        this.n.f(cVar.f14813f);
-        this.o.f(cVar.f14814g);
+        this.m.f(cVar.f14459e);
+        this.n.f(cVar.f14460f);
+        this.o.f(cVar.f14461g);
     }
 
     public void q(i iVar) {

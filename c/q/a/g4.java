@@ -43,10 +43,10 @@ public class g4 extends Handler {
             int i2 = message.what;
             a5.h();
             if (i2 == 100101) {
-                this.a.f31254j.removeMessages(100101);
+                this.a.f30278j.removeMessages(100101);
                 y2 a = c3.a(this.a.a);
                 g3 g3Var = new g3(null);
-                g3Var.a = this.a.f31246b;
+                g3Var.a = this.a.f30270b;
                 a.g(g3Var, m2.L(this.a.a) * 1000, 2002, 0);
                 a.m();
                 this.a.d(PBError.TIMEOUT);

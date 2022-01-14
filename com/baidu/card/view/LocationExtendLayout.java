@@ -26,19 +26,19 @@ public class LocationExtendLayout extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f34260e;
+    public ImageView f33165e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f34261f;
+    public TextView f33166f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f34262g;
+    public TextView f33167g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f34263h;
+    public TextView f33168h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f34264i;
+    public TextView f33169i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LocationExtendLayout(Context context) {
@@ -64,11 +64,11 @@ public class LocationExtendLayout extends LinearLayout implements q {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            WebPManager.setPureDrawable(this.f34260e, R.drawable.icon_pure_location, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.f34261f, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f34264i, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f34262g, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f34263h, R.color.CAM_X0109);
+            WebPManager.setPureDrawable(this.f33165e, R.drawable.icon_pure_location, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.f33166f, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f33169i, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f33167g, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f33168h, R.color.CAM_X0109);
         }
     }
 
@@ -77,11 +77,11 @@ public class LocationExtendLayout extends LinearLayout implements q {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(0);
             LayoutInflater.from(context).inflate(R.layout.layout_location_extend, (ViewGroup) this, true);
-            this.f34260e = (ImageView) findViewById(R.id.channel_location_icon);
-            this.f34261f = (TextView) findViewById(R.id.channel_location);
-            this.f34264i = (TextView) findViewById(R.id.channel_location_distance);
-            this.f34262g = (TextView) findViewById(R.id.channel_location_split_one);
-            this.f34263h = (TextView) findViewById(R.id.channel_location_split_two);
+            this.f33165e = (ImageView) findViewById(R.id.channel_location_icon);
+            this.f33166f = (TextView) findViewById(R.id.channel_location);
+            this.f33169i = (TextView) findViewById(R.id.channel_location_distance);
+            this.f33167g = (TextView) findViewById(R.id.channel_location_split_one);
+            this.f33168h = (TextView) findViewById(R.id.channel_location_split_two);
         }
     }
 
@@ -90,20 +90,20 @@ public class LocationExtendLayout extends LinearLayout implements q {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             setVisibility(0);
             if (!TextUtils.isEmpty(str)) {
-                this.f34261f.setText(str);
-                this.f34261f.setVisibility(0);
-                this.f34260e.setVisibility(0);
+                this.f33166f.setText(str);
+                this.f33166f.setVisibility(0);
+                this.f33165e.setVisibility(0);
                 if (!TextUtils.isEmpty(str2)) {
-                    this.f34263h.setVisibility(0);
+                    this.f33168h.setVisibility(0);
                 } else {
-                    this.f34263h.setVisibility(8);
+                    this.f33168h.setVisibility(8);
                 }
             } else {
-                this.f34261f.setVisibility(8);
-                this.f34260e.setVisibility(8);
-                this.f34263h.setVisibility(8);
+                this.f33166f.setVisibility(8);
+                this.f33165e.setVisibility(8);
+                this.f33168h.setVisibility(8);
             }
-            this.f34264i.setText(str2);
+            this.f33169i.setText(str2);
             a();
         }
     }

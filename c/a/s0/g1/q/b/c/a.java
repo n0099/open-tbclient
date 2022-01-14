@@ -14,7 +14,7 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final WheelView f13061e;
+    public final WheelView f12741e;
 
     public a(WheelView wheelView) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
                 return;
             }
         }
-        this.f13061e = wheelView;
+        this.f12741e = wheelView;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -39,7 +39,7 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            this.f13061e.scrollBy(f3);
+            this.f12741e.scrollBy(f3);
             return true;
         }
         return invokeCommon.booleanValue;

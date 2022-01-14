@@ -17,24 +17,24 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f30340g;
+    public static final a f29391g;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30341b;
+    public final int f29392b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f30342c;
+    public final int f29393c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f30343d;
+    public final int f29394d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f30344e;
+    public final int f29395e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Typeface f30345f;
+    public final Typeface f29396f;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public final class a {
                 return;
             }
         }
-        f30340g = new a(-1, -16777216, 0, 0, -1, null);
+        f29391g = new a(-1, -16777216, 0, 0, -1, null);
     }
 
     public a(int i2, int i3, int i4, int i5, int i6, Typeface typeface) {
@@ -68,11 +68,11 @@ public final class a {
             }
         }
         this.a = i2;
-        this.f30341b = i3;
-        this.f30342c = i4;
-        this.f30343d = i5;
-        this.f30344e = i6;
-        this.f30345f = typeface;
+        this.f29392b = i3;
+        this.f29393c = i4;
+        this.f29394d = i5;
+        this.f29395e = i6;
+        this.f29396f = typeface;
     }
 
     @TargetApi(19)
@@ -100,7 +100,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, captionStyle)) == null) {
-            return new a(captionStyle.hasForegroundColor() ? captionStyle.foregroundColor : f30340g.a, captionStyle.hasBackgroundColor() ? captionStyle.backgroundColor : f30340g.f30341b, captionStyle.hasWindowColor() ? captionStyle.windowColor : f30340g.f30342c, captionStyle.hasEdgeType() ? captionStyle.edgeType : f30340g.f30343d, captionStyle.hasEdgeColor() ? captionStyle.edgeColor : f30340g.f30344e, captionStyle.getTypeface());
+            return new a(captionStyle.hasForegroundColor() ? captionStyle.foregroundColor : f29391g.a, captionStyle.hasBackgroundColor() ? captionStyle.backgroundColor : f29391g.f29392b, captionStyle.hasWindowColor() ? captionStyle.windowColor : f29391g.f29393c, captionStyle.hasEdgeType() ? captionStyle.edgeType : f29391g.f29394d, captionStyle.hasEdgeColor() ? captionStyle.edgeColor : f29391g.f29395e, captionStyle.getTypeface());
         }
         return (a) invokeL.objValue;
     }

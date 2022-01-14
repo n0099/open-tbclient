@@ -18,13 +18,13 @@ public final class d {
     public static String a = "DES/ECB/NoPadding";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f55227b = "DESede/ECB/NoPadding";
+    public static String f53130b = "DESede/ECB/NoPadding";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f55228c = "AES/ECB/NoPadding";
+    public static String f53131c = "AES/ECB/NoPadding";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f55229d;
+    public static final char[] f53132d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public final class d {
                 return;
             }
         }
-        f55229d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f53132d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public static String a(File file) {
@@ -119,7 +119,7 @@ public final class d {
                 int i2 = 0;
                 for (int i3 = 0; i3 < length; i3++) {
                     int i4 = i2 + 1;
-                    char[] cArr2 = f55229d;
+                    char[] cArr2 = f53132d;
                     cArr[i2] = cArr2[(bArr[i3] >>> 4) & 15];
                     i2 = i4 + 1;
                     cArr[i4] = cArr2[bArr[i3] & 15];

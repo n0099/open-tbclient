@@ -14,10 +14,10 @@ public class f {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f18876b;
+    public double f18406b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f18877c;
+    public double f18407c;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class f {
             f fVar = new f();
             fVar.a = jSONObject.optString("bottom_picture", "");
             jSONObject.optInt("cover_shadow_switch", 0);
-            fVar.f18876b = jSONObject.optDouble("player_width_ratio", 0.0d);
-            fVar.f18877c = jSONObject.optDouble("right_margin_ratio", 0.0d);
+            fVar.f18406b = jSONObject.optDouble("player_width_ratio", 0.0d);
+            fVar.f18407c = jSONObject.optDouble("right_margin_ratio", 0.0d);
             jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
             return fVar;
         }

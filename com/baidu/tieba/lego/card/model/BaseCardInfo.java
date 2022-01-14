@@ -38,13 +38,13 @@ public class BaseCardInfo extends BaseLegoCardInfo {
     public String getFidFromPostUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1499b.a(str).d("fid") : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1515b.a(str).d("fid") : "" : (String) invokeL.objValue;
     }
 
     public String getTouidFromPostUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1499b.a(str).d("touid") : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1515b.a(str).d("touid") : "" : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
@@ -55,10 +55,10 @@ public class BaseCardInfo extends BaseLegoCardInfo {
             if (shouldResponseAttention()) {
                 if (obj instanceof UpdateAttentionMessage.a) {
                     UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
-                    return responseAttentionUser(aVar.f42213c, aVar.f42214d);
+                    return responseAttentionUser(aVar.f40743c, aVar.f40744d);
                 } else if (obj instanceof c.a.t0.x1.p.b) {
                     c.a.t0.x1.p.b bVar = (c.a.t0.x1.p.b) obj;
-                    return responseAttentionForum(bVar.a, bVar.f26003b);
+                    return responseAttentionForum(bVar.a, bVar.f25236b);
                 } else {
                     return false;
                 }

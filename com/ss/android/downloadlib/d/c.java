@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f61962b;
+    public static volatile c f59619b;
     public SQLiteDatabase a;
 
     public c() {
@@ -23,14 +23,14 @@ public class c {
     }
 
     public static c a() {
-        if (f61962b == null) {
+        if (f59619b == null) {
             synchronized (c.class) {
-                if (f61962b == null) {
-                    f61962b = new c();
+                if (f59619b == null) {
+                    f59619b = new c();
                 }
             }
         }
-        return f61962b;
+        return f59619b;
     }
 
     public boolean b() {

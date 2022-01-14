@@ -24,7 +24,7 @@ public class h {
     public static volatile int a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f1094b;
+    public static volatile String f1093b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -115,14 +115,14 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TextUtils.isEmpty(f1094b)) {
-                f1094b = g();
-                if (TextUtils.isEmpty(f1094b)) {
-                    f1094b = h();
+            if (TextUtils.isEmpty(f1093b)) {
+                f1093b = g();
+                if (TextUtils.isEmpty(f1093b)) {
+                    f1093b = h();
                 }
-                return f1094b;
+                return f1093b;
             }
-            return f1094b;
+            return f1093b;
         }
         return (String) invokeV.objValue;
     }
@@ -134,7 +134,7 @@ public class h {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (context != null && (packageManager = context.getPackageManager()) != null) {
                 try {
-                    if (packageManager.checkPermission(s.f57425i, context.getPackageName()) == 0) {
+                    if (packageManager.checkPermission(s.f55248i, context.getPackageName()) == 0) {
                         return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
                     }
                     return false;

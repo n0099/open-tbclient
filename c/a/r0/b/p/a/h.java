@@ -35,33 +35,31 @@ public class h extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10383e;
+        public final /* synthetic */ CallbackHandler f10159e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10384f;
+        public final /* synthetic */ String f10160f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f10385g;
+        public final /* synthetic */ Context f10161g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f10386h;
+        public final /* synthetic */ String f10162h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f10387i;
+        public final /* synthetic */ c.a.r0.a.d2.e f10163i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ d.C0552d f10388j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ Bundle f10389k;
+        public final /* synthetic */ d.C0561d f10164j;
+        public final /* synthetic */ Bundle k;
         public final /* synthetic */ h l;
 
-        public a(h hVar, CallbackHandler callbackHandler, String str, Context context, String str2, c.a.r0.a.d2.e eVar, d.C0552d c0552d, Bundle bundle) {
+        public a(h hVar, CallbackHandler callbackHandler, String str, Context context, String str2, c.a.r0.a.d2.e eVar, d.C0561d c0561d, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hVar, callbackHandler, str, context, str2, eVar, c0552d, bundle};
+                Object[] objArr = {hVar, callbackHandler, str, context, str2, eVar, c0561d, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -72,13 +70,13 @@ public class h extends z {
                 }
             }
             this.l = hVar;
-            this.f10383e = callbackHandler;
-            this.f10384f = str;
-            this.f10385g = context;
-            this.f10386h = str2;
-            this.f10387i = eVar;
-            this.f10388j = c0552d;
-            this.f10389k = bundle;
+            this.f10159e = callbackHandler;
+            this.f10160f = str;
+            this.f10161g = context;
+            this.f10162h = str2;
+            this.f10163i = eVar;
+            this.f10164j = c0561d;
+            this.k = bundle;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,15 +86,15 @@ public class h extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    if (this.l.o(this.f10385g, this.f10386h)) {
-                        this.l.m(this.f10387i, (Activity) this.f10385g, this.f10388j, this.f10383e, this.f10384f, this.f10389k);
+                    if (this.l.o(this.f10161g, this.f10162h)) {
+                        this.l.m(this.f10163i, (Activity) this.f10161g, this.f10164j, this.f10159e, this.f10160f, this.k);
                         return;
                     } else {
-                        this.f10383e.handleSchemeDispatchCallback(this.f10384f, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
+                        this.f10159e.handleSchemeDispatchCallback(this.f10160f, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
                         return;
                     }
                 }
-                c.a.r0.a.h2.c.d.q(iVar, this.f10383e, this.f10384f);
+                c.a.r0.a.h2.c.d.q(iVar, this.f10159e, this.f10160f);
             }
         }
     }
@@ -107,20 +105,20 @@ public class h extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.C0552d f10390e;
+        public final /* synthetic */ d.C0561d f10165e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10391f;
+        public final /* synthetic */ CallbackHandler f10166f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10392g;
+        public final /* synthetic */ String f10167g;
 
-        public b(h hVar, d.C0552d c0552d, CallbackHandler callbackHandler, String str) {
+        public b(h hVar, d.C0561d c0561d, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hVar, c0552d, callbackHandler, str};
+                Object[] objArr = {hVar, c0561d, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -130,9 +128,9 @@ public class h extends z {
                     return;
                 }
             }
-            this.f10390e = c0552d;
-            this.f10391f = callbackHandler;
-            this.f10392g = str;
+            this.f10165e = c0561d;
+            this.f10166f = callbackHandler;
+            this.f10167g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -142,25 +140,25 @@ public class h extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!iVar.c()) {
-                    c.a.r0.a.e0.d.o("ThirdPartyLoginAction", iVar.b() + " " + this.f10390e.toString());
+                    c.a.r0.a.e0.d.o("ThirdPartyLoginAction", iVar.b() + " " + this.f10165e.toString());
                     String f2 = c.a.r0.a.h2.c.d.f(iVar.b());
                     if (!TextUtils.isEmpty(f2)) {
-                        this.f10391f.handleSchemeDispatchCallback(this.f10392g, UnitedSchemeUtility.wrapCallbackParams(iVar.b(), f2).toString());
+                        this.f10166f.handleSchemeDispatchCallback(this.f10167g, UnitedSchemeUtility.wrapCallbackParams(iVar.b(), f2).toString());
                     } else {
-                        this.f10391f.handleSchemeDispatchCallback(this.f10392g, UnitedSchemeUtility.wrapCallbackParams(iVar.b()).toString());
+                        this.f10166f.handleSchemeDispatchCallback(this.f10167g, UnitedSchemeUtility.wrapCallbackParams(iVar.b()).toString());
                     }
                 } else if (TextUtils.isEmpty(iVar.a.a)) {
-                    this.f10391f.handleSchemeDispatchCallback(this.f10392g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                    this.f10166f.handleSchemeDispatchCallback(this.f10167g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
                 } else {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("code", iVar.a.a);
-                        this.f10391f.handleSchemeDispatchCallback(this.f10392g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
+                        this.f10166f.handleSchemeDispatchCallback(this.f10167g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
                     } catch (JSONException e2) {
-                        if (z.f6340b) {
+                        if (z.f6201b) {
                             e2.printStackTrace();
                         }
-                        this.f10391f.handleSchemeDispatchCallback(this.f10392g, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
+                        this.f10166f.handleSchemeDispatchCallback(this.f10167g, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
                     }
                 }
             }
@@ -209,20 +207,20 @@ public class h extends z {
             }
             String optString2 = optParamsAsJo.optString("type", "");
             int n = n(optString2);
-            d.C0552d c0552d = new d.C0552d(optParamsAsJo);
+            d.C0561d c0561d = new d.C0561d(optParamsAsJo);
             Bundle bundle = new Bundle();
             bundle.putInt("key_login_mode", n);
-            eVar.d0().g(context, "mapp_i_login", new a(this, callbackHandler, optString, context, optString2, eVar, c0552d, bundle));
+            eVar.d0().g(context, "mapp_i_login", new a(this, callbackHandler, optString, context, optString2, eVar, c0561d, bundle));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void m(c.a.r0.a.d2.e eVar, Activity activity, d.C0552d c0552d, CallbackHandler callbackHandler, String str, Bundle bundle) {
+    public final void m(c.a.r0.a.d2.e eVar, Activity activity, d.C0561d c0561d, CallbackHandler callbackHandler, String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{eVar, activity, c0552d, callbackHandler, str, bundle}) == null) {
-            eVar.d0().r(activity, c0552d, bundle, new b(this, c0552d, callbackHandler, str), "SwanThirdPartLogin");
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{eVar, activity, c0561d, callbackHandler, str, bundle}) == null) {
+            eVar.d0().r(activity, c0561d, bundle, new b(this, c0561d, callbackHandler, str), "SwanThirdPartLogin");
         }
     }
 

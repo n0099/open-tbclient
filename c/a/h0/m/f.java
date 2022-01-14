@@ -13,10 +13,10 @@ public class f {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3609b;
+    public String f3556b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f3610c;
+    public Bitmap f3557c;
 
     public f(ImageView imageView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class f {
             }
         }
         this.a = imageView;
-        this.f3609b = str;
-        this.f3610c = bitmap;
+        this.f3556b = str;
+        this.f3557c = bitmap;
     }
 }

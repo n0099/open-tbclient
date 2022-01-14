@@ -58,7 +58,7 @@ public class a extends n<b, GodReplyMoreViewHolder> {
     public GodReplyMoreViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new GodReplyMoreViewHolder(LayoutInflater.from(this.f3299e).inflate(j.pb_god_reply_look_more_item, viewGroup, false)) : (GodReplyMoreViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new GodReplyMoreViewHolder(LayoutInflater.from(this.f3258e).inflate(j.pb_god_reply_look_more_item, viewGroup, false)) : (GodReplyMoreViewHolder) invokeL.objValue;
     }
 
     public View c0(int i2, View view, ViewGroup viewGroup, b bVar, GodReplyMoreViewHolder godReplyMoreViewHolder) {

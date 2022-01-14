@@ -16,25 +16,25 @@ public class m {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23059b;
+    public int f22424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f23060c;
+    public List<String> f22425c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f23061d;
+    public List<String> f22426d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f23062e;
+    public String f22427e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f23063f;
+    public boolean f22428f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f23064g;
+    public int f22429g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23065h;
+    public int f22430h;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public class m {
             m mVar = new m();
             managerElection.begin_vote_time.intValue();
             mVar.a = managerElection.can_vote.intValue() == 1;
-            mVar.f23059b = managerElection.vote_num.intValue();
-            mVar.f23063f = managerElection.is_show_distribute.intValue() == 1;
-            mVar.f23064g = managerElection.remainder_time.intValue();
-            mVar.f23065h = managerElection.status.intValue();
-            mVar.f23062e = managerElection.tail_text;
+            mVar.f22424b = managerElection.vote_num.intValue();
+            mVar.f22428f = managerElection.is_show_distribute.intValue() == 1;
+            mVar.f22429g = managerElection.remainder_time.intValue();
+            mVar.f22430h = managerElection.status.intValue();
+            mVar.f22427e = managerElection.tail_text;
             List<String> list = managerElection.vote_condition_pic;
-            mVar.f23060c = managerElection.vote_condition_title;
-            mVar.f23061d = managerElection.vote_condition;
+            mVar.f22425c = managerElection.vote_condition_title;
+            mVar.f22426d = managerElection.vote_condition;
             return mVar;
         }
         return (m) invokeL.objValue;
@@ -82,43 +82,43 @@ public class m {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23063f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22428f : invokeV.booleanValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23064g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22429g : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23065h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22430h : invokeV.intValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23062e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22427e : (String) invokeV.objValue;
     }
 
     public List<String> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23061d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22426d : (List) invokeV.objValue;
     }
 
     public List<String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23060c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22425c : (List) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f23059b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22424b : invokeV.intValue;
     }
 
     public void j(boolean z) {
@@ -131,14 +131,14 @@ public class m {
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f23065h = i2;
+            this.f22430h = i2;
         }
     }
 
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f23059b = i2;
+            this.f22424b = i2;
         }
     }
 }

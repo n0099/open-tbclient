@@ -22,20 +22,20 @@ import org.json.JSONArray;
 public class e extends c.a implements t {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SQLiteDatabase f62185b;
+    public static volatile SQLiteDatabase f59839b;
     public b a;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f62186c;
+    public g f59840c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f62187d;
+    public g f59841d;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f62188e;
+    public g f59842e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f62189f;
+    public volatile boolean f59843f;
 
     public e() {
         this(false);
@@ -43,28 +43,28 @@ public class e extends c.a implements t {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (f62185b == null) {
+        if (f59839b == null) {
             synchronized (e.class) {
-                if (f62185b == null) {
-                    f62185b = a.a().getWritableDatabase();
-                    this.f62186c = new g(f62185b, "downloader", com.ss.android.socialbase.downloader.constants.c.a, com.ss.android.socialbase.downloader.constants.c.f62241b);
-                    this.f62187d = new g(f62185b, "downloadChunk", com.ss.android.socialbase.downloader.constants.c.f62242c, com.ss.android.socialbase.downloader.constants.c.f62243d);
-                    this.f62188e = new g(f62185b, "segments", com.ss.android.socialbase.downloader.constants.c.f62244e, com.ss.android.socialbase.downloader.constants.c.f62245f);
+                if (f59839b == null) {
+                    f59839b = a.a().getWritableDatabase();
+                    this.f59840c = new g(f59839b, "downloader", com.ss.android.socialbase.downloader.constants.c.a, com.ss.android.socialbase.downloader.constants.c.f59895b);
+                    this.f59841d = new g(f59839b, "downloadChunk", com.ss.android.socialbase.downloader.constants.c.f59896c, com.ss.android.socialbase.downloader.constants.c.f59897d);
+                    this.f59842e = new g(f59839b, "segments", com.ss.android.socialbase.downloader.constants.c.f59898e, com.ss.android.socialbase.downloader.constants.c.f59899f);
                 }
             }
         }
     }
 
     private void i() {
-        f62185b.beginTransaction();
+        f59839b.beginTransaction();
     }
 
     private void j() {
         try {
-            if (f62185b == null || !f62185b.inTransaction()) {
+            if (f59839b == null || !f59839b.inTransaction()) {
                 return;
             }
-            f62185b.endTransaction();
+            f59839b.endTransaction();
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -73,15 +73,15 @@ public class e extends c.a implements t {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void k() {
         i();
-        f62185b.delete("downloader", null, null);
-        f62185b.delete("downloadChunk", null, null);
-        f62185b.setTransactionSuccessful();
+        f59839b.delete("downloader", null, null);
+        f59839b.delete("downloadChunk", null, null);
+        f59839b.setTransactionSuccessful();
         j();
     }
 
     private void update(final int i2, final ContentValues contentValues) {
         h();
-        if (f62185b == null) {
+        if (f59839b == null) {
             return;
         }
         com.ss.android.socialbase.downloader.downloader.c.b(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.e.3
@@ -129,7 +129,7 @@ public class e extends c.a implements t {
     public boolean e(int i2) {
         g gVar;
         h();
-        if (f62185b != null && (gVar = this.f62186c) != null) {
+        if (f59839b != null && (gVar = this.f59840c) != null) {
             try {
                 a(i2, gVar.b());
                 return true;
@@ -162,9 +162,9 @@ public class e extends c.a implements t {
     public Map<Long, i> l(int i2) {
         Cursor cursor;
         h();
-        if (f62185b != null) {
+        if (f59839b != null) {
             try {
-                cursor = f62185b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "segments", "_id"), new String[]{Integer.toString(i2)});
+                cursor = f59839b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "segments", "_id"), new String[]{Integer.toString(i2)});
                 try {
                     if (cursor.moveToNext()) {
                         int columnIndex = cursor.getColumnIndex("info");
@@ -201,11 +201,11 @@ public class e extends c.a implements t {
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public void m(int i2) {
         h();
-        if (f62185b == null) {
+        if (f59839b == null) {
             return;
         }
         try {
-            a(i2, this.f62188e.b());
+            a(i2, this.f59842e.b());
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -214,7 +214,7 @@ public class e extends c.a implements t {
     public e(boolean z) {
         this.a = null;
         if (z) {
-            this.f62189f = false;
+            this.f59843f = false;
             a();
         }
     }
@@ -223,9 +223,9 @@ public class e extends c.a implements t {
     public DownloadInfo b(int i2) {
         Cursor cursor;
         h();
-        if (f62185b != null) {
+        if (f59839b != null) {
             try {
-                cursor = f62185b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "_id"), new String[]{Integer.toString(i2)});
+                cursor = f59839b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "_id"), new String[]{Integer.toString(i2)});
                 try {
                     if (cursor.moveToNext()) {
                         DownloadInfo downloadInfo = new DownloadInfo(cursor);
@@ -256,10 +256,10 @@ public class e extends c.a implements t {
     public List<com.ss.android.socialbase.downloader.model.b> c(int i2) {
         ArrayList arrayList = new ArrayList();
         h();
-        if (f62185b != null) {
+        if (f59839b != null) {
             Cursor cursor = null;
             try {
-                cursor = f62185b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloadChunk", "_id"), new String[]{Integer.toString(i2)});
+                cursor = f59839b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloadChunk", "_id"), new String[]{Integer.toString(i2)});
                 while (cursor.moveToNext()) {
                     arrayList.add(new com.ss.android.socialbase.downloader.model.b(cursor));
                 }
@@ -280,14 +280,14 @@ public class e extends c.a implements t {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void d(final int i2) {
         h();
-        if (f62185b == null || this.f62187d == null) {
+        if (f59839b == null || this.f59841d == null) {
             return;
         }
         com.ss.android.socialbase.downloader.downloader.c.b(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.e.4
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    e.this.a(i2, e.this.f62187d.b());
+                    e.this.a(i2, e.this.f59841d.b());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -319,9 +319,9 @@ public class e extends c.a implements t {
         try {
             if (!a(downloadInfo.getId())) {
                 c(downloadInfo);
-            } else if (this.f62186c == null) {
+            } else if (this.f59840c == null) {
             } else {
-                b(downloadInfo, this.f62186c.c());
+                b(downloadInfo, this.f59840c.c());
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -384,14 +384,14 @@ public class e extends c.a implements t {
 
     private void c(final DownloadInfo downloadInfo) {
         h();
-        if (f62185b == null || this.f62186c == null) {
+        if (f59839b == null || this.f59840c == null) {
             return;
         }
         com.ss.android.socialbase.downloader.downloader.c.b(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.e.9
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    e.this.a(downloadInfo, e.this.f62186c.a());
+                    e.this.a(downloadInfo, e.this.f59840c.a());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -423,10 +423,10 @@ public class e extends c.a implements t {
                  */
                 /* JADX WARN: Code restructure failed: missing block: B:167:0x033d, code lost:
                     r0.a();
-                    r18.f62192d.f62189f = true;
+                    r18.f59846d.f59843f = true;
                  */
                 /* JADX WARN: Code restructure failed: missing block: B:168:0x0345, code lost:
-                    r18.f62192d.a(r2, r3);
+                    r18.f59846d.a(r2, r3);
                  */
                 /* JADX WARN: Code restructure failed: missing block: B:169:0x034e, code lost:
                     throw r0;
@@ -445,7 +445,7 @@ public class e extends c.a implements t {
                     d dVar3;
                     boolean z;
                     e.this.h();
-                    if (e.f62185b == null) {
+                    if (e.f59839b == null) {
                         return;
                     }
                     k B = com.ss.android.socialbase.downloader.downloader.c.B();
@@ -455,7 +455,7 @@ public class e extends c.a implements t {
                     Cursor cursor = null;
                     int i2 = 0;
                     try {
-                        cursor = e.f62185b.rawQuery("SELECT * FROM downloader", null);
+                        cursor = e.f59839b.rawQuery("SELECT * FROM downloader", null);
                         while (cursor.moveToNext()) {
                             DownloadInfo downloadInfo = new DownloadInfo(cursor);
                             downloadInfo.setStatusAtDbInit(downloadInfo.getRealStatus());
@@ -570,7 +570,7 @@ public class e extends c.a implements t {
                                     d dVar4 = dVar;
                                     if (dVar4 != null) {
                                         dVar4.a();
-                                        e.this.f62189f = true;
+                                        e.this.f59843f = true;
                                     }
                                     e.this.a(sparseArray, sparseArray2);
                                 }
@@ -611,7 +611,7 @@ public class e extends c.a implements t {
                                     d dVar5 = dVar;
                                     if (dVar5 != null) {
                                         dVar5.a();
-                                        e.this.f62189f = true;
+                                        e.this.f59843f = true;
                                     }
                                     e.this.a(sparseArray, sparseArray2);
                                 }
@@ -641,7 +641,7 @@ public class e extends c.a implements t {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void c() {
         h();
-        if (f62185b == null) {
+        if (f59839b == null) {
             return;
         }
         com.ss.android.socialbase.downloader.downloader.c.b(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.e.2
@@ -669,7 +669,7 @@ public class e extends c.a implements t {
 
     @Override // com.ss.android.socialbase.downloader.b.c
     public boolean d() {
-        return this.f62189f;
+        return this.f59843f;
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
@@ -698,10 +698,10 @@ public class e extends c.a implements t {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(List<DownloadInfo> list, List<Integer> list2, SparseArray<DownloadInfo> sparseArray, SparseArray<DownloadInfo> sparseArray2, SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray3) {
         int size = sparseArray.size();
-        if (size < 0 || f62185b == null) {
+        if (size < 0 || f59839b == null) {
             return;
         }
-        synchronized (f62185b) {
+        synchronized (f59839b) {
             try {
                 i();
                 if (!list.isEmpty()) {
@@ -711,26 +711,26 @@ public class e extends c.a implements t {
                             strArr[i2] = String.valueOf(list.get(i2));
                         }
                         String str = "CAST(_id AS TEXT) IN (" + new String(new char[list.size() - 1]).replace("\u0000", "?,") + "?)";
-                        f62185b.delete("downloader", str, strArr);
-                        f62185b.delete("downloadChunk", str, strArr);
+                        f59839b.delete("downloader", str, strArr);
+                        f59839b.delete("downloadChunk", str, strArr);
                     } else {
                         String join = TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, list2);
-                        f62185b.delete("downloader", "_id IN (?)", new String[]{join});
-                        f62185b.delete("downloadChunk", "_id IN (?)", new String[]{join});
+                        f59839b.delete("downloader", "_id IN (?)", new String[]{join});
+                        f59839b.delete("downloadChunk", "_id IN (?)", new String[]{join});
                     }
                 }
                 for (int i3 = 0; i3 < size; i3++) {
                     int keyAt = sparseArray.keyAt(i3);
                     DownloadInfo downloadInfo = sparseArray.get(keyAt);
-                    f62185b.delete("downloader", "_id = ?", new String[]{String.valueOf(keyAt)});
-                    f62185b.insert("downloader", null, downloadInfo.toContentValues());
+                    f59839b.delete("downloader", "_id = ?", new String[]{String.valueOf(keyAt)});
+                    f59839b.insert("downloader", null, downloadInfo.toContentValues());
                     if (downloadInfo.getChunkCount() > 1) {
                         List<com.ss.android.socialbase.downloader.model.b> c2 = c(keyAt);
                         if (c2.size() > 0) {
-                            f62185b.delete("downloadChunk", "_id = ?", new String[]{String.valueOf(keyAt)});
+                            f59839b.delete("downloadChunk", "_id = ?", new String[]{String.valueOf(keyAt)});
                             for (com.ss.android.socialbase.downloader.model.b bVar : c2) {
                                 bVar.b(downloadInfo.getId());
-                                f62185b.insert("downloadChunk", null, bVar.a());
+                                f59839b.insert("downloadChunk", null, bVar.a());
                             }
                         }
                     }
@@ -745,7 +745,7 @@ public class e extends c.a implements t {
                         }
                     }
                 }
-                f62185b.setTransactionSuccessful();
+                f59839b.setTransactionSuccessful();
                 j();
             } catch (Throwable th) {
                 throw th;
@@ -788,10 +788,10 @@ public class e extends c.a implements t {
     public List<DownloadInfo> a(String str) {
         h();
         ArrayList arrayList = new ArrayList();
-        if (f62185b != null) {
+        if (f59839b != null) {
             Cursor cursor = null;
             try {
-                cursor = f62185b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "url"), new String[]{str});
+                cursor = f59839b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "url"), new String[]{str});
                 if (cursor.moveToNext()) {
                     arrayList.add(new DownloadInfo(cursor));
                 }
@@ -827,14 +827,14 @@ public class e extends c.a implements t {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void a(final com.ss.android.socialbase.downloader.model.b bVar) {
         h();
-        if (f62185b == null || this.f62187d == null) {
+        if (f59839b == null || this.f59841d == null) {
             return;
         }
         com.ss.android.socialbase.downloader.downloader.c.b(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.e.5
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    e.this.a(bVar, e.this.f62187d.a());
+                    e.this.a(bVar, e.this.f59841d.a());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -875,14 +875,14 @@ public class e extends c.a implements t {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void a(final int i2, final int i3, final long j2) {
         h();
-        if (i2 == 0 || i3 < 0 || j2 < 0 || f62185b == null || this.f62187d == null) {
+        if (i2 == 0 || i3 < 0 || j2 < 0 || f59839b == null || this.f59841d == null) {
             return;
         }
         com.ss.android.socialbase.downloader.downloader.c.b(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.e.6
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    e.this.a(i2, i3, j2, e.this.f62187d.c());
+                    e.this.a(i2, i3, j2, e.this.f59841d.c());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -893,14 +893,14 @@ public class e extends c.a implements t {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void a(final int i2, final int i3, final int i4, final long j2) {
         h();
-        if (i2 == 0 || i3 < 0 || i4 < 0 || j2 < 0 || f62185b == null || this.f62187d == null) {
+        if (i2 == 0 || i3 < 0 || i4 < 0 || j2 < 0 || f59839b == null || this.f59841d == null) {
             return;
         }
         com.ss.android.socialbase.downloader.downloader.c.b(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.e.7
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    e.this.a(i2, i3, i4, j2, e.this.f62187d.c());
+                    e.this.a(i2, i3, i4, j2, e.this.f59841d.c());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -911,14 +911,14 @@ public class e extends c.a implements t {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void a(final int i2, final int i3, final int i4, final int i5) {
         h();
-        if (i2 == 0 || i4 < 0 || i5 == i3 || i5 < 0 || f62185b == null || this.f62187d == null) {
+        if (i2 == 0 || i4 < 0 || i5 == i3 || i5 < 0 || f59839b == null || this.f59841d == null) {
             return;
         }
         com.ss.android.socialbase.downloader.downloader.c.b(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.e.8
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    e.this.a(i2, i3, i4, i5, e.this.f62187d.c());
+                    e.this.a(i2, i3, i4, i5, e.this.f59841d.c());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -932,7 +932,7 @@ public class e extends c.a implements t {
             synchronized (sQLiteStatement) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("chunkIndex", Integer.valueOf(i5));
-                f62185b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
+                f59839b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -945,7 +945,7 @@ public class e extends c.a implements t {
             synchronized (sQLiteStatement) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("curOffset", Long.valueOf(j2));
-                f62185b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3)});
+                f59839b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3)});
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -958,7 +958,7 @@ public class e extends c.a implements t {
             synchronized (sQLiteStatement) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("curOffset", Long.valueOf(j2));
-                f62185b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
+                f59839b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -968,11 +968,11 @@ public class e extends c.a implements t {
     @Override // com.ss.android.socialbase.downloader.b.c
     public DownloadInfo a(int i2, int i3) {
         h();
-        if (f62185b == null) {
+        if (f59839b == null) {
             return null;
         }
         int i4 = 10;
-        while (f62185b.isDbLockedByCurrentThread() && i4 - 1 >= 0) {
+        while (f59839b.isDbLockedByCurrentThread() && i4 - 1 >= 0) {
             try {
                 Thread.sleep(5L);
             } catch (Throwable th) {
@@ -981,14 +981,14 @@ public class e extends c.a implements t {
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("chunkCount", Integer.valueOf(i3));
-        f62185b.update("downloader", contentValues, "_id = ? ", new String[]{Integer.toString(i2)});
+        f59839b.update("downloader", contentValues, "_id = ? ", new String[]{Integer.toString(i2)});
         return null;
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
     public boolean a(final DownloadInfo downloadInfo) {
         h();
-        if (downloadInfo == null || f62185b == null) {
+        if (downloadInfo == null || f59839b == null) {
             return false;
         }
         com.ss.android.socialbase.downloader.downloader.c.b(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.e.10
@@ -1026,7 +1026,7 @@ public class e extends c.a implements t {
     public boolean a(int i2, Map<Long, i> map) {
         long currentTimeMillis = System.currentTimeMillis();
         h();
-        if (f62185b == null) {
+        if (f59839b == null) {
             return false;
         }
         JSONArray jSONArray = new JSONArray();
@@ -1038,7 +1038,7 @@ public class e extends c.a implements t {
             th.printStackTrace();
         }
         r0 = "json=" + jSONArray;
-        SQLiteStatement d2 = this.f62188e.d();
+        SQLiteStatement d2 = this.f59842e.d();
         synchronized (d2) {
             d2.clearBindings();
             d2.bindLong(1, i2);
@@ -1052,7 +1052,7 @@ public class e extends c.a implements t {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2, ContentValues contentValues) {
         int i3 = 10;
-        while (f62185b.isDbLockedByCurrentThread() && i3 - 1 >= 0) {
+        while (f59839b.isDbLockedByCurrentThread() && i3 - 1 >= 0) {
             try {
                 Thread.sleep(5L);
             } catch (Throwable th) {
@@ -1060,7 +1060,7 @@ public class e extends c.a implements t {
                 return;
             }
         }
-        f62185b.update("downloader", contentValues, "_id = ? ", new String[]{String.valueOf(i2)});
+        f59839b.update("downloader", contentValues, "_id = ? ", new String[]{String.valueOf(i2)});
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c

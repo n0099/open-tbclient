@@ -17,7 +17,7 @@ public class d1 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f13656b;
+    public ArrayList<a> f13342b;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -57,7 +57,7 @@ public class d1 {
     public ArrayList<a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13656b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13342b : (ArrayList) invokeV.objValue;
     }
 
     public int b() {
@@ -76,7 +76,7 @@ public class d1 {
         if (list == null || list.size() <= 0) {
             return;
         }
-        this.f13656b = new ArrayList<>();
+        this.f13342b = new ArrayList<>();
         for (PbPresentList pbPresentList : pbPresent.list) {
             if (pbPresentList != null) {
                 a aVar = new a();
@@ -84,7 +84,7 @@ public class d1 {
                 String str = pbPresentList.gift_name;
                 aVar.a = pbPresentList.thumbnail_url;
                 pbPresentList.num.intValue();
-                this.f13656b.add(aVar);
+                this.f13342b.add(aVar);
             }
         }
     }
@@ -92,7 +92,7 @@ public class d1 {
     public void d(ArrayList<a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.f13656b = arrayList;
+            this.f13342b = arrayList;
         }
     }
 

@@ -1,5 +1,6 @@
 package c.a.a1.t;
 
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +31,7 @@ public class o {
             try {
                 Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
                 long[] jArr2 = {30, -30};
-                Object[] objArr = {new String("/proc/meminfo"), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
+                Object[] objArr = {new String(HardwareInfoUtils.MEM_INFO_FILE), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
                 if (method != null) {
                     method.invoke(null, objArr);
                     for (int i2 = 0; i2 < 4; i2++) {

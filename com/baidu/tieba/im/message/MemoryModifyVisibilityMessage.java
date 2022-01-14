@@ -17,10 +17,10 @@ public class MemoryModifyVisibilityMessage extends CustomResponsedMessage<a> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f46794b;
+        public int f45064b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f46795c;
+        public boolean f45065c;
 
         public a(String str, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class MemoryModifyVisibilityMessage extends CustomResponsedMessage<a> {
                 }
             }
             this.a = str;
-            this.f46794b = i2;
-            this.f46795c = z;
+            this.f45064b = i2;
+            this.f45065c = z;
         }
     }
 

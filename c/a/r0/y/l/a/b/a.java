@@ -17,10 +17,10 @@ public final class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SparseArray<Integer> f12244b;
+    public static final SparseArray<Integer> f11959b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SparseArray<String> f12245c;
+    public static final SparseArray<String> f11960c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,56 +38,56 @@ public final class a {
         }
         a = k.a;
         SparseArray<Integer> sparseArray = new SparseArray<>(32);
-        f12244b = sparseArray;
+        f11959b = sparseArray;
         sparseArray.put(CyberPlayerManager.MEDIA_INFO_CONNECTED_SERVER, 2001);
-        f12244b.put(CyberPlayerManager.MEDIA_INFO_START_PULL_STREAM, 2002);
-        f12244b.put(904, 2003);
-        f12244b.put(CyberPlayerManager.MEDIA_INFO_START_PLAY, 2004);
-        f12244b.put(10004, 2006);
-        f12244b.put(701, 2007);
-        f12244b.put(10005, 2008);
-        f12244b.put(10006, 2009);
-        f12244b.put(10007, -2301);
-        f12244b.put(10008, 2101);
-        f12244b.put(923, 2103);
-        f12244b.put(10009, 2105);
-        f12244b.put(10010, 2106);
-        f12244b.put(10003, 2107);
-        f12244b.put(10011, 2108);
-        f12244b.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, 3001);
-        f12244b.put(3002, 3002);
-        f12244b.put(3003, 3003);
-        f12244b.put(3004, 3005);
+        f11959b.put(CyberPlayerManager.MEDIA_INFO_START_PULL_STREAM, 2002);
+        f11959b.put(904, 2003);
+        f11959b.put(CyberPlayerManager.MEDIA_INFO_START_PLAY, 2004);
+        f11959b.put(10004, 2006);
+        f11959b.put(701, 2007);
+        f11959b.put(10005, 2008);
+        f11959b.put(10006, 2009);
+        f11959b.put(10007, -2301);
+        f11959b.put(10008, 2101);
+        f11959b.put(923, 2103);
+        f11959b.put(10009, 2105);
+        f11959b.put(10010, 2106);
+        f11959b.put(10003, 2107);
+        f11959b.put(10011, 2108);
+        f11959b.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, 3001);
+        f11959b.put(3002, 3002);
+        f11959b.put(3003, 3003);
+        f11959b.put(3004, 3005);
         SparseArray<String> sparseArray2 = new SparseArray<>();
-        f12245c = sparseArray2;
+        f11960c = sparseArray2;
         sparseArray2.put(10007, "MEDIA_ERR_NETWORK");
-        f12245c.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, "MEDIA_ERR_NETWORK");
-        f12245c.put(3002, "MEDIA_ERR_NETWORK");
-        f12245c.put(3003, "MEDIA_ERR_NETWORK");
-        f12245c.put(3004, "MEDIA_ERR_NETWORK");
-        f12245c.put(-2022, "MEDIA_ERR_NETWORK");
-        f12245c.put(-111, "MEDIA_ERR_NETWORK");
-        f12245c.put(10008, "MEDIA_ERR_DECODE");
+        f11960c.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, "MEDIA_ERR_NETWORK");
+        f11960c.put(3002, "MEDIA_ERR_NETWORK");
+        f11960c.put(3003, "MEDIA_ERR_NETWORK");
+        f11960c.put(3004, "MEDIA_ERR_NETWORK");
+        f11960c.put(-2022, "MEDIA_ERR_NETWORK");
+        f11960c.put(-111, "MEDIA_ERR_NETWORK");
+        f11960c.put(10008, "MEDIA_ERR_DECODE");
     }
 
     public static String a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? f12245c.get(i2, "MEDIA_ERR_SRC_NOT_SUPPORTED") : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? f11960c.get(i2, "MEDIA_ERR_SRC_NOT_SUPPORTED") : (String) invokeI.objValue;
     }
 
     public static int b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (f12244b.indexOfKey(i2) < 0) {
+            if (f11959b.indexOfKey(i2) < 0) {
                 if (a) {
                     String str = "Please check sStatusCodeMap already putted correct K,V pair. what: " + i2;
                     return 100;
                 }
                 return 100;
             }
-            return f12244b.get(i2).intValue();
+            return f11959b.get(i2).intValue();
         }
         return invokeI.intValue;
     }

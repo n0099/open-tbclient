@@ -17,10 +17,10 @@ public class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f22006b;
+    public List<c.a.d.n.e.a> f20976b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s f22007c;
+    public s f20977c;
 
     public a(TbPageContext tbPageContext, s sVar) {
         Interceptable interceptable = $ic;
@@ -38,16 +38,16 @@ public class a {
             }
         }
         this.a = tbPageContext;
-        this.f22007c = sVar;
+        this.f20977c = sVar;
         a();
-        this.f22007c.addAdapters(this.f22006b);
+        this.f20977c.addAdapters(this.f20976b);
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ArrayList arrayList = new ArrayList();
-            this.f22006b = arrayList;
+            this.f20976b = arrayList;
             arrayList.add(new b(this.a));
         }
     }
@@ -55,7 +55,7 @@ public class a {
     public void b() {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.f22007c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.f20977c) == null) {
             return;
         }
         sVar.getListAdapter().notifyDataSetChanged();
@@ -64,7 +64,7 @@ public class a {
     public void c(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f22007c.setData(list);
+            this.f20977c.setData(list);
         }
     }
 }

@@ -22,7 +22,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.a0.f.c.e.c, OfficialRecommendLiveViewH
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.c.e.c.f14778f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.c.e.c.f14426f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

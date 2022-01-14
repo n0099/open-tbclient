@@ -18,10 +18,10 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CompressProgressView f50441e;
+    public CompressProgressView f48532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f50442f;
+    public TextView f48533f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocalVideoCompressingDialogView(Context context) {
@@ -48,8 +48,8 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.local_video_compress_dialog, this);
-            this.f50441e = (CompressProgressView) findViewById(R.id.compress_progress_view);
-            this.f50442f = (TextView) findViewById(R.id.compress_progress_text);
+            this.f48532e = (CompressProgressView) findViewById(R.id.compress_progress_view);
+            this.f48533f = (TextView) findViewById(R.id.compress_progress_text);
         }
     }
 
@@ -64,8 +64,8 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 0 || i2 > 100) {
             return;
         }
-        this.f50441e.setProgress(i2);
-        TextView textView = this.f50442f;
+        this.f48532e.setProgress(i2);
+        TextView textView = this.f48533f;
         textView.setText(i2 + "%");
     }
 

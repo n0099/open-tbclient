@@ -44,14 +44,14 @@ public class j {
         if (!(interceptable == null || interceptable.invokeLL(65537, null, httpMessage, tVar) == null) || httpMessage == null || tVar == null) {
             return;
         }
-        httpMessage.addParam("tid", tVar.f26871c);
-        httpMessage.addParam("fid", tVar.f26872d);
-        httpMessage.addParam(TiebaStatic.Params.OBJ_TO, tVar.f26875g);
-        httpMessage.addParam("obj_id", tVar.f26879k);
-        httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM3, tVar.f26876h);
-        httpMessage.addParam("obj_source", tVar.f26874f);
+        httpMessage.addParam("tid", tVar.f26074c);
+        httpMessage.addParam("fid", tVar.f26075d);
+        httpMessage.addParam(TiebaStatic.Params.OBJ_TO, tVar.f26078g);
+        httpMessage.addParam("obj_id", tVar.k);
+        httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM3, tVar.f26079h);
+        httpMessage.addParam("obj_source", tVar.f26077f);
         httpMessage.addParam("obj_locate", tVar.a);
-        httpMessage.addParam("obj_param1", tVar.f26877i);
+        httpMessage.addParam("obj_param1", tVar.f26080i);
         if (!StringUtils.isNull(tVar.n)) {
             httpMessage.addParam(TiebaStatic.Params.TOPIC_TYPE, tVar.n);
         }

@@ -22,10 +22,10 @@ public class UMHGuideItem extends BaseItemView {
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f53341b;
+    public MaskTextView f51292b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f53342c;
+    public MaskTextView f51293c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UMHGuideItem(Context context) {
@@ -62,8 +62,8 @@ public class UMHGuideItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_umh_guide_item"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "item_logo"));
-            this.f53341b = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_title"));
-            this.f53342c = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_desc"));
+            this.f51292b = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_title"));
+            this.f51293c = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_desc"));
         }
     }
 
@@ -73,8 +73,8 @@ public class UMHGuideItem extends BaseItemView {
             return;
         }
         setNetImageViewUrl(this.a, getData().logo);
-        this.f53341b.setMaskText(getData().name);
-        this.f53342c.setMaskText(getData().desc);
+        this.f51292b.setMaskText(getData().name);
+        this.f51293c.setMaskText(getData().desc);
         handlePoint();
     }
 

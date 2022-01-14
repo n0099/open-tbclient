@@ -21,15 +21,15 @@ public class j extends c.a.r0.a.d2.f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f8470d;
+    public static final boolean f8286d;
     public transient /* synthetic */ FieldHolder $fh;
     public NetworkBroadcastReceiver a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TelephonyManager f8471b;
+    public TelephonyManager f8287b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f8472c;
+    public a f8288c;
 
     /* loaded from: classes.dex */
     public class a extends PhoneStateListener {
@@ -38,13 +38,13 @@ public class j extends c.a.r0.a.d2.f {
         public WeakReference<CallbackHandler> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8473b;
+        public String f8289b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8474c;
+        public String f8290c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ j f8475d;
+        public final /* synthetic */ j f8291d;
 
         public a(j jVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -61,17 +61,17 @@ public class j extends c.a.r0.a.d2.f {
                     return;
                 }
             }
-            this.f8475d = jVar;
-            this.f8474c = "";
+            this.f8291d = jVar;
+            this.f8290c = "";
             this.a = new WeakReference<>(callbackHandler);
-            this.f8473b = str;
+            this.f8289b = str;
         }
 
         public void a(CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
                 this.a = new WeakReference<>(callbackHandler);
-                this.f8473b = str;
+                this.f8289b = str;
             }
         }
 
@@ -79,16 +79,16 @@ public class j extends c.a.r0.a.d2.f {
         public void onDataConnectionStateChanged(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-                if (j.f8470d) {
+                if (j.f8286d) {
                     String str = "——> onDataConnectionStateChanged: state " + i2 + " networkType " + i3;
                 }
                 if (2 == i2) {
                     String d2 = SwanAppNetworkUtils.d(i3, null);
-                    if (TextUtils.isEmpty(d2) || d2.equals(this.f8474c)) {
+                    if (TextUtils.isEmpty(d2) || d2.equals(this.f8290c)) {
                         return;
                     }
-                    this.f8474c = d2;
-                    SwanAppNetworkUtils.k(this.f8475d, this.a.get(), this.f8473b);
+                    this.f8290c = d2;
+                    SwanAppNetworkUtils.k(this.f8291d, this.a.get(), this.f8289b);
                 }
             }
         }
@@ -107,7 +107,7 @@ public class j extends c.a.r0.a.d2.f {
                 return;
             }
         }
-        f8470d = c.a.r0.a.k.a;
+        f8286d = c.a.r0.a.k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -133,14 +133,14 @@ public class j extends c.a.r0.a.d2.f {
     public void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
-            if (this.f8471b == null) {
-                this.f8471b = (TelephonyManager) getSystemService("phone");
+            if (this.f8287b == null) {
+                this.f8287b = (TelephonyManager) getSystemService("phone");
                 a aVar = new a(this, callbackHandler, str);
-                this.f8472c = aVar;
-                this.f8471b.listen(aVar, 64);
+                this.f8288c = aVar;
+                this.f8287b.listen(aVar, 64);
                 return;
             }
-            a aVar2 = this.f8472c;
+            a aVar2 = this.f8288c;
             if (aVar2 != null) {
                 aVar2.a(callbackHandler, str);
             }

@@ -344,7 +344,7 @@ public class NetWork {
     public long getNetDataSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f2816b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f2793b : invokeV.longValue;
     }
 
     public int getNetErrorCode() {

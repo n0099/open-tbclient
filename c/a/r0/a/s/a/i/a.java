@@ -23,17 +23,17 @@ public class a extends c.a.r0.a.u.e.a.a {
 
     /* renamed from: c.a.r0.a.s.a.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0539a implements c<i<b.e>> {
+    public class C0548a implements c<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8936e;
+        public final /* synthetic */ String f8741e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f8937f;
+        public final /* synthetic */ a f8742f;
 
-        public C0539a(a aVar, String str) {
+        public C0548a(a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,8 +48,8 @@ public class a extends c.a.r0.a.u.e.a.a {
                     return;
                 }
             }
-            this.f8937f = aVar;
-            this.f8936e = str;
+            this.f8742f = aVar;
+            this.f8741e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,12 +59,12 @@ public class a extends c.a.r0.a.u.e.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (d.h(iVar)) {
-                    this.f8937f.z(this.f8936e);
+                    this.f8742f.z(this.f8741e);
                     return;
                 }
                 int b2 = iVar.b();
                 d.f(b2);
-                this.f8937f.d(this.f8936e, new c.a.r0.a.u.h.b(b2, d.f(b2)));
+                this.f8742f.d(this.f8741e, new c.a.r0.a.u.h.b(b2, d.f(b2)));
             }
         }
     }
@@ -112,7 +112,7 @@ public class a extends c.a.r0.a.u.e.a.a {
                 if (TextUtils.isEmpty(optString)) {
                     return new c.a.r0.a.u.h.b(201, "cb is empty");
                 }
-                a0.d0().g(c.a.r0.a.d2.d.J(), "account_get_union_bduss", new C0539a(this, optString));
+                a0.d0().g(c.a.r0.a.d2.d.J(), "account_get_union_bduss", new C0548a(this, optString));
                 return c.a.r0.a.u.h.b.f();
             }
             return bVar;

@@ -6,7 +6,6 @@ import c.a.s0.b.f.a0;
 import c.a.s0.b.f.b0;
 import c.a.s0.b.f.c0;
 import c.a.s0.b.f.d0;
-import c.a.s0.b.f.e0;
 import c.a.s0.b.f.f;
 import c.a.s0.b.f.g;
 import c.a.s0.b.f.h;
@@ -15,7 +14,7 @@ import c.a.s0.b.f.j;
 import c.a.s0.b.f.k;
 import c.a.s0.b.f.l;
 import c.a.s0.b.f.m;
-import c.a.s0.b.f.n;
+import c.a.s0.b.f.o;
 import c.a.s0.b.f.p;
 import c.a.s0.b.f.q;
 import c.a.s0.b.f.r;
@@ -46,15 +45,15 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f12491d;
+    public static c f12199d;
     public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<String, e> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<BdUniqueId, c.a.s0.b.f.a> f12492b;
+    public final HashMap<BdUniqueId, c.a.s0.b.f.a> f12200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<BdUniqueId, e> f12493c;
+    public final HashMap<BdUniqueId, e> f12201c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -70,8 +69,8 @@ public class c {
             }
         }
         this.a = new HashMap<>();
-        this.f12492b = new HashMap<>();
-        this.f12493c = new HashMap<>();
+        this.f12200b = new HashMap<>();
+        this.f12201c = new HashMap<>();
         n();
         k(c());
     }
@@ -80,14 +79,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12491d == null) {
+            if (f12199d == null) {
                 synchronized (c.class) {
-                    if (f12491d == null) {
-                        f12491d = new c();
+                    if (f12199d == null) {
+                        f12199d = new c();
                     }
                 }
             }
-            return f12491d;
+            return f12199d;
         }
         return (c) invokeV.objValue;
     }
@@ -101,7 +100,7 @@ public class c {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.s0.s.g0.b.j().v("static_opt_open", d.g0() ? 1 : 0);
+            c.a.s0.s.h0.b.k().w("static_opt_open", d.i0() ? 1 : 0);
         }
     }
 
@@ -125,7 +124,7 @@ public class c {
             HashMap<String, e> hashMap = new HashMap<>();
             try {
                 e();
-                JSONArray jSONArray = new JSONArray(c.a.s0.s.g0.b.j().p(e(), "[]"));
+                JSONArray jSONArray = new JSONArray(c.a.s0.s.h0.b.k().q(e(), "[]"));
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     if (jSONObject != null) {
@@ -160,7 +159,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) {
-            c.a.s0.b.f.a aVar = this.f12492b.get(bdUniqueId);
+            c.a.s0.b.f.a aVar = this.f12200b.get(bdUniqueId);
             if (aVar == null) {
                 return null;
             }
@@ -172,7 +171,7 @@ public class c {
     public Map<BdUniqueId, e> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12493c : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12201c : (Map) invokeV.objValue;
     }
 
     public void i(JSONArray jSONArray) {
@@ -182,7 +181,7 @@ public class c {
                 String e2 = e();
                 if (jSONArray == null) {
                     this.a.clear();
-                    c.a.s0.s.g0.b.j().C(e2);
+                    c.a.s0.s.h0.b.k().D(e2);
                     return;
                 }
                 HashMap<String, e> hashMap = new HashMap<>();
@@ -194,7 +193,7 @@ public class c {
                     }
                 }
                 k(hashMap);
-                c.a.s0.s.g0.b.j().x(e2, jSONArray.toString());
+                c.a.s0.s.h0.b.k().y(e2, jSONArray.toString());
                 a();
             } catch (Exception e3) {
                 e3.printStackTrace();
@@ -232,7 +231,7 @@ public class c {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            for (Map.Entry<BdUniqueId, c.a.s0.b.f.a> entry : this.f12492b.entrySet()) {
+            for (Map.Entry<BdUniqueId, c.a.s0.b.f.a> entry : this.f12200b.entrySet()) {
                 c.a.s0.b.f.a value = entry.getValue();
                 if (value != null) {
                     p(value);
@@ -245,9 +244,9 @@ public class c {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f12493c.clear();
-            for (BdUniqueId bdUniqueId : this.f12492b.keySet()) {
-                this.f12493c.put(bdUniqueId, g(bdUniqueId));
+            this.f12201c.clear();
+            for (BdUniqueId bdUniqueId : this.f12200b.keySet()) {
+                this.f12201c.put(bdUniqueId, g(bdUniqueId));
             }
         }
     }
@@ -255,35 +254,34 @@ public class c {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            o(new b0());
-            o(new m());
-            o(new h());
-            o(new v());
+            o(new a0());
+            o(new l());
+            o(new g());
+            o(new u());
             o(new c.a.s0.b.f.c());
             o(new c.a.s0.b.f.d());
-            o(new z());
-            o(new f());
-            o(new j());
-            o(new i());
-            o(new q());
-            o(new x());
-            o(new u());
-            o(new n());
-            o(new g());
-            o(new c.a.s0.b.f.e());
-            o(new k());
-            o(new e0());
-            o(new r());
-            o(new p());
-            o(new c0());
-            o(new d0());
-            o(new s());
-            o(new c.a.s0.b.f.b());
-            o(new t());
-            o(new w());
-            o(new l());
-            o(new a0());
             o(new y());
+            o(new i());
+            o(new h());
+            o(new p());
+            o(new w());
+            o(new t());
+            o(new m());
+            o(new f());
+            o(new c.a.s0.b.f.e());
+            o(new j());
+            o(new d0());
+            o(new q());
+            o(new o());
+            o(new b0());
+            o(new c0());
+            o(new r());
+            o(new c.a.s0.b.f.b());
+            o(new s());
+            o(new v());
+            o(new k());
+            o(new z());
+            o(new x());
         }
     }
 
@@ -292,7 +290,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) || aVar == null || aVar.c() == null) {
             return;
         }
-        this.f12492b.put(aVar.c(), aVar);
+        this.f12200b.put(aVar.c(), aVar);
     }
 
     public final void p(c.a.s0.b.f.a aVar) {

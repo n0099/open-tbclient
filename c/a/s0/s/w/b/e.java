@@ -14,7 +14,7 @@ public class e {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13998b;
+    public int f13672b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class e {
             }
         }
         this.a = -2;
-        this.f13998b = -1;
+        this.f13672b = -1;
     }
 
     public void a(int i2) {
@@ -47,10 +47,10 @@ public class e {
         }
         ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
         if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(this.f13998b, this.a);
+            layoutParams = new ViewGroup.LayoutParams(this.f13672b, this.a);
         } else {
             layoutParams.height = this.a;
-            layoutParams.width = this.f13998b;
+            layoutParams.width = this.f13672b;
         }
         viewPager.setLayoutParams(layoutParams);
     }

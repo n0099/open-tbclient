@@ -128,7 +128,7 @@ public final class bk implements ai {
 
     @Override // com.xiaomi.push.service.ai
     /* renamed from: a  reason: collision with other method in class */
-    public void mo671a() {
+    public void mo683a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f943a) {
             return;

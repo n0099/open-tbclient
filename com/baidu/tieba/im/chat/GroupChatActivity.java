@@ -44,7 +44,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public final /* synthetic */ GroupData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f46517b;
+        public final /* synthetic */ GroupChatActivity f44798b;
 
         public a(GroupChatActivity groupChatActivity, GroupData groupData) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                     return;
                 }
             }
-            this.f46517b = groupChatActivity;
+            this.f44798b = groupChatActivity;
             this.a = groupData;
         }
 
@@ -82,7 +82,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public final /* synthetic */ GroupData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f46518b;
+        public final /* synthetic */ GroupChatActivity f44799b;
 
         public b(GroupChatActivity groupChatActivity, GroupData groupData) {
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                     return;
                 }
             }
-            this.f46518b = groupChatActivity;
+            this.f44799b = groupChatActivity;
             this.a = groupData;
         }
 
@@ -113,18 +113,18 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                 return;
             }
             if (bool.booleanValue()) {
-                this.f46518b.mListView.closeNotNotify();
+                this.f44799b.mListView.closeNotNotify();
             } else {
-                this.f46518b.mListView.showNotNotfiy();
+                this.f44799b.mListView.showNotNotfiy();
             }
-            if (this.f46518b.mListModel == null || (groupData = this.a) == null) {
+            if (this.f44799b.mListModel == null || (groupData = this.a) == null) {
                 return;
             }
             String name = groupData.getName();
             if (TextUtils.isEmpty(name)) {
                 return;
             }
-            this.f46518b.mListView.refreshHeaderFooter(name, true);
+            this.f44799b.mListView.refreshHeaderFooter(name, true);
         }
     }
 

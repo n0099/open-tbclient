@@ -16,7 +16,7 @@ public class g {
             if (!n.a) {
                 n.x(context);
             }
-            return n.f3038c;
+            return n.f3006c;
         }
         return invokeL.intValue;
     }

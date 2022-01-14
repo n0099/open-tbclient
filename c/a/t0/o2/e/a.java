@@ -16,19 +16,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final C1290a a;
+    public static final C1304a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.t0.o2.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C1290a {
+    /* loaded from: classes8.dex */
+    public static final class C1304a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1290a() {
+        public C1304a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public final class a {
             }
         }
 
-        public /* synthetic */ C1290a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1304a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
@@ -55,10 +55,10 @@ public final class a {
                 Intrinsics.checkNotNullParameter(fid, "fid");
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_CLICK);
                 statisticItem.param("obj_name", i2);
-                if (d.p()) {
+                if (d.m()) {
                     i5 = 1;
                 } else {
-                    i5 = d.q() ? 2 : 3;
+                    i5 = d.n() ? 2 : 3;
                 }
                 statisticItem.param("obj_type", i5);
                 statisticItem.param("obj_locate", i3);
@@ -88,10 +88,10 @@ public final class a {
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_SHOW);
                 statisticItem.param("obj_name", i2);
-                if (d.p()) {
+                if (d.m()) {
                     i4 = 1;
                 } else {
-                    i4 = d.q() ? 2 : 3;
+                    i4 = d.n() ? 2 : 3;
                 }
                 statisticItem.param("obj_type", i4);
                 statisticItem.param("obj_source", i3);
@@ -113,7 +113,7 @@ public final class a {
                 return;
             }
         }
-        a = new C1290a(null);
+        a = new C1304a(null);
     }
 
     @JvmStatic

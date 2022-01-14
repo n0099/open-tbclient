@@ -19,10 +19,10 @@ public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f27350b;
+    public static final boolean f26532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile x f27351c;
+    public static volatile x f26533c;
     public transient /* synthetic */ FieldHolder $fh;
     public y a;
 
@@ -33,7 +33,7 @@ public class x {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, JSONObject> f27352b;
+        public Map<String, JSONObject> f26534b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class x {
                 }
             }
             this.a = 0;
-            this.f27352b = new HashMap();
+            this.f26534b = new HashMap();
         }
     }
 
@@ -66,7 +66,7 @@ public class x {
                 return;
             }
         }
-        f27350b = b0.m();
+        f26532b = b0.m();
     }
 
     public x() {
@@ -87,14 +87,14 @@ public class x {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f27351c == null) {
+            if (f26533c == null) {
                 synchronized (x.class) {
-                    if (f27351c == null) {
-                        f27351c = new x();
+                    if (f26533c == null) {
+                        f26533c = new x();
                     }
                 }
             }
-            return f27351c;
+            return f26533c;
         }
         return (x) invokeV.objValue;
     }
@@ -150,7 +150,7 @@ public class x {
                         if (aVar != null && !TextUtils.isEmpty(str)) {
                             JSONObject jSONObject2 = new JSONObject();
                             JSONArray jSONArray = new JSONArray();
-                            for (JSONObject jSONObject3 : aVar.f27352b.values()) {
+                            for (JSONObject jSONObject3 : aVar.f26534b.values()) {
                                 jSONArray.put(jSONObject3);
                             }
                             jSONObject2.put("total", aVar.a);
@@ -189,8 +189,8 @@ public class x {
             map.put(str, aVar2);
             aVar = aVar2;
         }
-        Map<String, JSONObject> map2 = aVar.f27352b;
-        if (map2.containsKey(str2) && f27350b) {
+        Map<String, JSONObject> map2 = aVar.f26534b;
+        if (map2.containsKey(str2) && f26532b) {
             String str3 = "*******duplicate ubc id record: " + str2;
         }
         try {

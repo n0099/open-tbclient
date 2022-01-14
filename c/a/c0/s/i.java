@@ -1,29 +1,41 @@
 package c.a.c0.s;
+
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes.dex */
-public interface i {
-    void a(int i2);
+public final class i {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final String a;
+    @NonNull
 
-    void onBufferEnd();
+    /* renamed from: b  reason: collision with root package name */
+    public final String f2233b;
+    @NonNull
 
-    void onBufferStart();
+    /* renamed from: c  reason: collision with root package name */
+    public final String f2234c;
+    @NonNull
 
-    void onEnd(int i2);
+    /* renamed from: d  reason: collision with root package name */
+    public final String f2235d;
+    @NonNull
 
-    void onError(int i2, int i3, String str);
+    /* renamed from: e  reason: collision with root package name */
+    public final String f2236e;
+    @NonNull
 
-    void onInfo(int i2, int i3);
+    /* renamed from: f  reason: collision with root package name */
+    public final String f2237f;
+    @NonNull
 
-    void onPause();
+    /* renamed from: g  reason: collision with root package name */
+    public final String f2238g;
+    @NonNull
 
-    void onPrepared();
-
-    void onResume();
-
-    void onSeekEnd();
-
-    void onStart();
-
-    void onUpdateProgress(int i2, int i3, int i4);
-
-    void onVideoSizeChanged(int i2, int i3);
+    /* renamed from: h  reason: collision with root package name */
+    public final List<d> f2239h;
 }

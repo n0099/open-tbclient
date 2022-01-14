@@ -28,7 +28,7 @@ public class a {
     public ArrayList<b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f25647b;
+    public f f24929b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class a {
             }
         }
         this.a = new ArrayList<>();
-        this.f25647b = new f();
+        this.f24929b = new f();
     }
 
     public void a(b bVar) {
@@ -53,11 +53,11 @@ public class a {
             if (bVar != null) {
                 this.a.add(bVar);
             }
-            if (this.f25647b == null || bVar == null || bVar.getClass().getAnnotation(c.a.f.a.a.class) == null) {
+            if (this.f24929b == null || bVar == null || bVar.getClass().getAnnotation(c.a.f.a.a.class) == null) {
                 return;
             }
             try {
-                this.f25647b.a((c.a.t0.w3.n0.d.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + c.a.t0.w3.n0.d.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
+                this.f24929b.a((c.a.t0.w3.n0.d.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + c.a.t0.w3.n0.d.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
@@ -120,7 +120,7 @@ public class a {
 
     public final void e(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) || this.f25647b == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) || this.f24929b == null) {
             return;
         }
         e eVar = new e();
@@ -142,9 +142,9 @@ public class a {
         }
         eVar.i(g.e(str));
         eVar.g(g.c(str));
-        c.a.t0.w3.n0.d.c c2 = this.f25647b.c(eVar, cVar);
+        c.a.t0.w3.n0.d.c c2 = this.f24929b.c(eVar, cVar);
         if (c2.g()) {
-            this.f25647b.d(webView, c2);
+            this.f24929b.d(webView, c2);
         }
     }
 
@@ -166,9 +166,9 @@ public class a {
     public void h(WebView webView, String str, @Nullable HashMap hashMap) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, webView, str, hashMap) == null) || (fVar = this.f25647b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, webView, str, hashMap) == null) || (fVar = this.f24929b) == null) {
             return;
         }
-        this.f25647b.e(webView, fVar.f(str, hashMap));
+        this.f24929b.e(webView, fVar.f(str, hashMap));
     }
 }

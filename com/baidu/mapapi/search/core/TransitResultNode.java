@@ -19,13 +19,13 @@ public class TransitResultNode implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36738b;
+    public String f35528b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f36739c;
+    public LatLng f35529c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36740d;
+    public String f35530d;
 
     static {
         InterceptResult invokeClinit;
@@ -58,13 +58,13 @@ public class TransitResultNode implements Parcelable {
                 return;
             }
         }
-        this.f36738b = null;
-        this.f36739c = null;
-        this.f36740d = null;
+        this.f35528b = null;
+        this.f35529c = null;
+        this.f35530d = null;
         this.a = i2;
-        this.f36738b = str;
-        this.f36739c = latLng;
-        this.f36740d = str2;
+        this.f35528b = str;
+        this.f35529c = latLng;
+        this.f35530d = str2;
     }
 
     public TransitResultNode(Parcel parcel) {
@@ -82,13 +82,13 @@ public class TransitResultNode implements Parcelable {
                 return;
             }
         }
-        this.f36738b = null;
-        this.f36739c = null;
-        this.f36740d = null;
+        this.f35528b = null;
+        this.f35529c = null;
+        this.f35530d = null;
         this.a = parcel.readInt();
-        this.f36738b = parcel.readString();
-        this.f36739c = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f36740d = parcel.readString();
+        this.f35528b = parcel.readString();
+        this.f35529c = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f35530d = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -110,19 +110,19 @@ public class TransitResultNode implements Parcelable {
     public String getCityName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36738b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35528b : (String) invokeV.objValue;
     }
 
     public LatLng getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36739c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35529c : (LatLng) invokeV.objValue;
     }
 
     public String getSearchWord() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36740d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35530d : (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -130,9 +130,9 @@ public class TransitResultNode implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
             parcel.writeInt(this.a);
-            parcel.writeString(this.f36738b);
-            parcel.writeValue(this.f36739c);
-            parcel.writeString(this.f36740d);
+            parcel.writeString(this.f35528b);
+            parcel.writeValue(this.f35529c);
+            parcel.writeString(this.f35530d);
         }
     }
 }

@@ -20,14 +20,14 @@ public class f {
     public static final String a = "f";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f37187c = true;
+    public static boolean f35963c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f37188d = 1;
+    public static int f35964d = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f37189b;
+    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f35965b;
 
     static {
         InterceptResult invokeClinit;
@@ -59,35 +59,35 @@ public class f {
                 return;
             }
         }
-        this.f37189b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
+        this.f35965b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
         a(historyTraceQueryOptions);
     }
 
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f37188d = i2;
+            f35964d = i2;
         }
     }
 
     private void a(HistoryTraceQueryOptions historyTraceQueryOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, historyTraceQueryOptions) == null) {
-            this.f37189b.a("order_id", b(historyTraceQueryOptions));
-            this.f37189b.a("original_order_id", historyTraceQueryOptions.getOrderId().toLowerCase());
-            this.f37189b.a("company", historyTraceQueryOptions.getUserId());
-            this.f37189b.a("order_attr", historyTraceQueryOptions.getDriverId());
-            this.f37189b.a("track_status", String.valueOf(historyTraceQueryOptions.getQueryOrderState()));
-            this.f37189b.a("status", String.valueOf(historyTraceQueryOptions.getCurrentOrderState()));
+            this.f35965b.a("order_id", b(historyTraceQueryOptions));
+            this.f35965b.a("original_order_id", historyTraceQueryOptions.getOrderId().toLowerCase());
+            this.f35965b.a("company", historyTraceQueryOptions.getUserId());
+            this.f35965b.a("order_attr", historyTraceQueryOptions.getDriverId());
+            this.f35965b.a("track_status", String.valueOf(historyTraceQueryOptions.getQueryOrderState()));
+            this.f35965b.a("status", String.valueOf(historyTraceQueryOptions.getCurrentOrderState()));
             if (CoordType.BD09LL != SDKInitializer.getCoordType() && CoordType.GCJ02 == SDKInitializer.getCoordType()) {
-                this.f37189b.a("coord_type", "gcj02");
+                this.f35965b.a("coord_type", "gcj02");
             } else {
-                this.f37189b.a("coord_type", "bd09ll");
+                this.f35965b.a("coord_type", "bd09ll");
             }
-            this.f37189b.a("page_index", String.valueOf(f37188d));
-            f37188d = 1;
-            this.f37189b.a("page_size", "5000");
-            this.f37189b.a("is_processed", "1");
+            this.f35965b.a("page_index", String.valueOf(f35964d));
+            f35964d = 1;
+            this.f35965b.a("page_size", "5000");
+            this.f35965b.a("is_processed", "1");
             b();
         }
     }
@@ -124,21 +124,21 @@ public class f {
                 }
                 authToken = SyncSysInfo.getAuthToken();
             }
-            this.f37189b.a("token", authToken);
+            this.f35965b.a("token", authToken);
         }
     }
 
     private String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? f37187c ? g.a() : g.b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? f35963c ? g.a() : g.b() : (String) invokeV.objValue;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuffer stringBuffer = new StringBuffer(this.f37189b.a());
+            StringBuffer stringBuffer = new StringBuffer(this.f35965b.a());
             stringBuffer.append(SyncSysInfo.getPhoneInfo());
             String signMD5String = AppMD5.getSignMD5String(stringBuffer.toString());
             stringBuffer.append("&sign=");

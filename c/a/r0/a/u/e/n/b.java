@@ -28,18 +28,18 @@ public class b extends c.a.r0.a.u.e.n.a {
 
         /* renamed from: c.a.r0.a.u.e.n.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0578a implements a.InterfaceC0520a {
+        public class C0587a implements a.InterfaceC0529a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ m f9440b;
+            public final /* synthetic */ m f9234b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ a f9441c;
+            public final /* synthetic */ a f9235c;
 
-            public C0578a(a aVar, String str, m mVar) {
+            public C0587a(a aVar, String str, m mVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,18 +54,18 @@ public class b extends c.a.r0.a.u.e.n.a {
                         return;
                     }
                 }
-                this.f9441c = aVar;
+                this.f9235c = aVar;
                 this.a = str;
-                this.f9440b = mVar;
+                this.f9234b = mVar;
             }
 
-            @Override // c.a.r0.a.r2.a.a.InterfaceC0520a
+            @Override // c.a.r0.a.r2.a.a.InterfaceC0529a
             public void a(double[] dArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
                     if (dArr == null || dArr.length != 3) {
-                        this.f9441c.a.p("illegal accelerometers", null, true);
-                        this.f9441c.a.d(this.a, new c.a.r0.a.u.h.b(1001));
+                        this.f9235c.a.p("illegal accelerometers", null, true);
+                        this.f9235c.a.d(this.a, new c.a.r0.a.u.h.b(1001));
                         return;
                     }
                     JSONObject jSONObject = new JSONObject();
@@ -73,10 +73,10 @@ public class b extends c.a.r0.a.u.e.n.a {
                         jSONObject.put("x", dArr[0]);
                         jSONObject.put("y", dArr[1]);
                         jSONObject.put("z", dArr[2]);
-                        this.f9440b.d(this.f9441c.a, jSONObject);
+                        this.f9234b.d(this.f9235c.a, jSONObject);
                     } catch (JSONException e2) {
-                        this.f9441c.a.p("json put data fail", e2, true);
-                        this.f9440b.f(this.f9441c.a, "json put data fail");
+                        this.f9235c.a.p("json put data fail", e2, true);
+                        this.f9234b.f(this.f9235c.a, "json put data fail");
                     }
                 }
             }
@@ -107,8 +107,8 @@ public class b extends c.a.r0.a.u.e.n.a {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, eVar, jSONObject, str)) == null) {
                 m mVar = new m("accelerometerChange", jSONObject, str);
                 c.a.r0.a.r2.a.a a = c.a.r0.a.r2.a.a.a();
-                a.b(this.a.getContext(), C0579b.a(jSONObject.optString("interval")));
-                a.e(new C0578a(this, str, mVar));
+                a.b(this.a.getContext(), C0588b.a(jSONObject.optString("interval")));
+                a.e(new C0587a(this, str, mVar));
                 a.f();
                 mVar.b(this.a);
                 return c.a.r0.a.u.h.b.f();
@@ -119,7 +119,7 @@ public class b extends c.a.r0.a.u.e.n.a {
 
     /* renamed from: c.a.r0.a.u.e.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0579b {
+    public static class C0588b {
         public static /* synthetic */ Interceptable $ic;
         public static ArrayMap<String, Integer> a;
         public transient /* synthetic */ FieldHolder $fh;

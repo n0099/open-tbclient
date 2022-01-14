@@ -18,7 +18,7 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f18866b;
+    public List<a> f18396b;
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -27,10 +27,10 @@ public class c {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f18867b;
+        public long f18397b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f18868c;
+        public long f18398c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -52,11 +52,11 @@ public class c {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
                 this.a = jSONObject.optInt("style");
                 long optLong = jSONObject.optLong(DelayTB.DELAY);
-                this.f18867b = optLong;
+                this.f18397b = optLong;
                 if (optLong < 0) {
-                    this.f18867b = 0L;
+                    this.f18397b = 0L;
                 }
-                this.f18868c = jSONObject.optLong("duration");
+                this.f18398c = jSONObject.optLong("duration");
                 return this;
             }
             return (a) invokeL.objValue;
@@ -87,9 +87,9 @@ public class c {
             c cVar = new c();
             cVar.a = jSONObject.optString("backgroundColor");
             JSONArray optJSONArray = jSONObject.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-            cVar.f18866b = new ArrayList();
+            cVar.f18396b = new ArrayList();
             for (int i2 = 0; optJSONArray != null && i2 < optJSONArray.length(); i2++) {
-                List<a> list = cVar.f18866b;
+                List<a> list = cVar.f18396b;
                 a aVar = new a();
                 aVar.a(optJSONArray.optJSONObject(i2));
                 list.add(aVar);

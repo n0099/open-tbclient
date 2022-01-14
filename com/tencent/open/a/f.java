@@ -30,7 +30,7 @@ public class f extends SQLiteOpenHelper {
     public static final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f62877b;
+    public static f f60503b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -76,10 +76,10 @@ public class f extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (f.class) {
-                if (f62877b == null) {
-                    f62877b = new f(com.tencent.open.utils.f.a());
+                if (f60503b == null) {
+                    f60503b = new f(com.tencent.open.utils.f.a());
                 }
-                fVar = f62877b;
+                fVar = f60503b;
             }
             return fVar;
         }

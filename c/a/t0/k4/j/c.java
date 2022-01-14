@@ -303,7 +303,7 @@ public class c {
                     } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (b2 = b(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && b2.a() >= 1000 && c(b2.c())) {
                         list.add(b2);
                     }
-                } else if (file.isDirectory() && !path.contains(r1.f57417k) && z) {
+                } else if (file.isDirectory() && !path.contains(r1.k) && z) {
                     d(path, list, z);
                 }
             }

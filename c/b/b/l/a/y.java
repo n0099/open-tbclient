@@ -17,13 +17,13 @@ public class y implements h {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f27903b;
+    public final String f27065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AssetManager f27904c;
+    public final AssetManager f27066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a0 f27905d;
+    public a0 f27067d;
 
     public y(AssetManager assetManager, ContextWrapper contextWrapper, boolean z) {
         Interceptable interceptable = $ic;
@@ -40,13 +40,13 @@ public class y implements h {
                 return;
             }
         }
-        this.f27905d = null;
-        this.f27904c = assetManager;
+        this.f27067d = null;
+        this.f27066c = assetManager;
         String absolutePath = contextWrapper.getFilesDir().getAbsolutePath();
         if (!absolutePath.endsWith("/")) {
             absolutePath = absolutePath + "/";
         }
-        this.f27903b = absolutePath;
+        this.f27065b = absolutePath;
         if (z) {
             this.a = h(contextWrapper);
         } else {
@@ -59,8 +59,8 @@ public class y implements h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            g gVar = new g(this.f27904c, str, Files.FileType.Internal);
-            return this.f27905d != null ? g(gVar, str) : gVar;
+            g gVar = new g(this.f27066c, str, Files.FileType.Internal);
+            return this.f27067d != null ? g(gVar, str) : gVar;
         }
         return (c.b.b.m.a) invokeL.objValue;
     }
@@ -69,14 +69,14 @@ public class y implements h {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27903b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27065b : (String) invokeV.objValue;
     }
 
     @Override // c.b.b.l.a.h
     public a0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27905d : (a0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27067d : (a0) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Files
@@ -84,8 +84,8 @@ public class y implements h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, fileType)) == null) {
-            g gVar = new g(fileType == Files.FileType.Internal ? this.f27904c : null, str, fileType);
-            return (this.f27905d == null || fileType != Files.FileType.Internal) ? gVar : g(gVar, str);
+            g gVar = new g(fileType == Files.FileType.Internal ? this.f27066c : null, str, fileType);
+            return (this.f27067d == null || fileType != Files.FileType.Internal) ? gVar : g(gVar, str);
         }
         return (c.b.b.m.a) invokeLL.objValue;
     }
@@ -109,7 +109,7 @@ public class y implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, aVar, str)) == null) {
             try {
-                this.f27904c.open(str).close();
+                this.f27066c.open(str).close();
                 return aVar;
             } catch (Exception unused) {
                 w wVar = new w(str);

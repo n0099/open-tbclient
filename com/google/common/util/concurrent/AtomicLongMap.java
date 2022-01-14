@@ -84,14 +84,14 @@ public final class AtomicLongMap<K> implements Serializable {
         })) : (Map) invokeV.objValue;
     }
 
-    public long addAndGet(K k2, long j2) {
+    public long addAndGet(K k, long j2) {
         AtomicLong atomicLong;
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, k2, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, k, j2)) == null) {
             do {
-                atomicLong = this.map.get(k2);
-                if (atomicLong == null && (atomicLong = this.map.putIfAbsent(k2, new AtomicLong(j2))) == null) {
+                atomicLong = this.map.get(k);
+                if (atomicLong == null && (atomicLong = this.map.putIfAbsent(k, new AtomicLong(j2))) == null) {
                     return j2;
                 }
                 while (true) {
@@ -104,7 +104,7 @@ public final class AtomicLongMap<K> implements Serializable {
                         return j4;
                     }
                 }
-            } while (!this.map.replace(k2, atomicLong, new AtomicLong(j2)));
+            } while (!this.map.replace(k, atomicLong, new AtomicLong(j2)));
             return j2;
         }
         return invokeLJ.longValue;
@@ -138,17 +138,17 @@ public final class AtomicLongMap<K> implements Serializable {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.map.containsKey(obj) : invokeL.booleanValue;
     }
 
-    public long decrementAndGet(K k2) {
+    public long decrementAndGet(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k2)) == null) ? addAndGet(k2, -1L) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k)) == null) ? addAndGet(k, -1L) : invokeL.longValue;
     }
 
-    public long get(K k2) {
+    public long get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k2)) == null) {
-            AtomicLong atomicLong = this.map.get(k2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) {
+            AtomicLong atomicLong = this.map.get(k);
             if (atomicLong == null) {
                 return 0L;
             }
@@ -157,14 +157,14 @@ public final class AtomicLongMap<K> implements Serializable {
         return invokeL.longValue;
     }
 
-    public long getAndAdd(K k2, long j2) {
+    public long getAndAdd(K k, long j2) {
         AtomicLong atomicLong;
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, k2, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, k, j2)) == null) {
             do {
-                atomicLong = this.map.get(k2);
-                if (atomicLong == null && (atomicLong = this.map.putIfAbsent(k2, new AtomicLong(j2))) == null) {
+                atomicLong = this.map.get(k);
+                if (atomicLong == null && (atomicLong = this.map.putIfAbsent(k, new AtomicLong(j2))) == null) {
                     return 0L;
                 }
                 while (true) {
@@ -175,28 +175,28 @@ public final class AtomicLongMap<K> implements Serializable {
                         return j3;
                     }
                 }
-            } while (!this.map.replace(k2, atomicLong, new AtomicLong(j2)));
+            } while (!this.map.replace(k, atomicLong, new AtomicLong(j2)));
             return 0L;
         }
         return invokeLJ.longValue;
     }
 
-    public long getAndDecrement(K k2) {
+    public long getAndDecrement(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, k2)) == null) ? getAndAdd(k2, -1L) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, k)) == null) ? getAndAdd(k, -1L) : invokeL.longValue;
     }
 
-    public long getAndIncrement(K k2) {
+    public long getAndIncrement(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2)) == null) ? getAndAdd(k2, 1L) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k)) == null) ? getAndAdd(k, 1L) : invokeL.longValue;
     }
 
-    public long incrementAndGet(K k2) {
+    public long incrementAndGet(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k2)) == null) ? addAndGet(k2, 1L) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k)) == null) ? addAndGet(k, 1L) : invokeL.longValue;
     }
 
     public boolean isEmpty() {
@@ -205,14 +205,14 @@ public final class AtomicLongMap<K> implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.map.isEmpty() : invokeV.booleanValue;
     }
 
-    public long put(K k2, long j2) {
+    public long put(K k, long j2) {
         AtomicLong atomicLong;
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048587, this, k2, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048587, this, k, j2)) == null) {
             do {
-                atomicLong = this.map.get(k2);
-                if (atomicLong == null && (atomicLong = this.map.putIfAbsent(k2, new AtomicLong(j2))) == null) {
+                atomicLong = this.map.get(k);
+                if (atomicLong == null && (atomicLong = this.map.putIfAbsent(k, new AtomicLong(j2))) == null) {
                     return 0L;
                 }
                 while (true) {
@@ -223,7 +223,7 @@ public final class AtomicLongMap<K> implements Serializable {
                         return j3;
                     }
                 }
-            } while (!this.map.replace(k2, atomicLong, new AtomicLong(j2)));
+            } while (!this.map.replace(k, atomicLong, new AtomicLong(j2)));
             return 0L;
         }
         return invokeLJ.longValue;
@@ -238,32 +238,32 @@ public final class AtomicLongMap<K> implements Serializable {
         }
     }
 
-    public long putIfAbsent(K k2, long j2) {
+    public long putIfAbsent(K k, long j2) {
         AtomicLong atomicLong;
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, k2, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, k, j2)) == null) {
             do {
-                atomicLong = this.map.get(k2);
-                if (atomicLong == null && (atomicLong = this.map.putIfAbsent(k2, new AtomicLong(j2))) == null) {
+                atomicLong = this.map.get(k);
+                if (atomicLong == null && (atomicLong = this.map.putIfAbsent(k, new AtomicLong(j2))) == null) {
                     return 0L;
                 }
                 long j3 = atomicLong.get();
                 if (j3 != 0) {
                     return j3;
                 }
-            } while (!this.map.replace(k2, atomicLong, new AtomicLong(j2)));
+            } while (!this.map.replace(k, atomicLong, new AtomicLong(j2)));
             return 0L;
         }
         return invokeLJ.longValue;
     }
 
-    public long remove(K k2) {
+    public long remove(K k) {
         InterceptResult invokeL;
         long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, k2)) == null) {
-            AtomicLong atomicLong = this.map.get(k2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, k)) == null) {
+            AtomicLong atomicLong = this.map.get(k);
             if (atomicLong == null) {
                 return 0L;
             }
@@ -273,7 +273,7 @@ public final class AtomicLongMap<K> implements Serializable {
                     break;
                 }
             } while (!atomicLong.compareAndSet(j2, 0L));
-            this.map.remove(k2, atomicLong);
+            this.map.remove(k, atomicLong);
             return j2;
         }
         return invokeL.longValue;
@@ -292,20 +292,20 @@ public final class AtomicLongMap<K> implements Serializable {
         }
     }
 
-    public boolean removeIfZero(K k2) {
+    public boolean removeIfZero(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, k2)) == null) ? remove(k2, 0L) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, k)) == null) ? remove(k, 0L) : invokeL.booleanValue;
     }
 
-    public boolean replace(K k2, long j2, long j3) {
+    public boolean replace(K k, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{k2, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{k, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             if (j2 == 0) {
-                return putIfAbsent(k2, j3) == 0;
+                return putIfAbsent(k, j3) == 0;
             }
-            AtomicLong atomicLong = this.map.get(k2);
+            AtomicLong atomicLong = this.map.get(k);
             if (atomicLong == null) {
                 return false;
             }
@@ -350,11 +350,11 @@ public final class AtomicLongMap<K> implements Serializable {
         return (AtomicLongMap) invokeL.objValue;
     }
 
-    public boolean remove(K k2, long j2) {
+    public boolean remove(K k, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048591, this, k2, j2)) == null) {
-            AtomicLong atomicLong = this.map.get(k2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048591, this, k, j2)) == null) {
+            AtomicLong atomicLong = this.map.get(k);
             if (atomicLong == null) {
                 return false;
             }
@@ -363,7 +363,7 @@ public final class AtomicLongMap<K> implements Serializable {
                 return false;
             }
             if (j3 == 0 || atomicLong.compareAndSet(j3, 0L)) {
-                this.map.remove(k2, atomicLong);
+                this.map.remove(k, atomicLong);
                 return true;
             }
             return false;

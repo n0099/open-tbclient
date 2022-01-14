@@ -11,7 +11,7 @@ public class c0 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ PProvider f31272e;
+    public final /* synthetic */ PProvider f30295e;
 
     public c0(PProvider pProvider) {
         Interceptable interceptable = $ic;
@@ -28,16 +28,16 @@ public class c0 implements Runnable {
                 return;
             }
         }
-        this.f31272e = pProvider;
+        this.f30295e = pProvider;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PProvider pProvider = this.f31272e;
+            PProvider pProvider = this.f30295e;
             pProvider.a = pProvider.getContext();
-            PProvider pProvider2 = this.f31272e;
+            PProvider pProvider2 = this.f30295e;
             if (pProvider2.a == null) {
                 return;
             }

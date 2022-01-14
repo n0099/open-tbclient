@@ -25,10 +25,10 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.y0.y.b.b f44594e;
+        public final /* synthetic */ c.a.t0.y0.y.b.b f42953e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.y0.y.a.a f44595f;
+        public final /* synthetic */ c.a.t0.y0.y.a.a f42954f;
 
         public a(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, c.a.t0.y0.y.b.b bVar, c.a.t0.y0.y.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -45,17 +45,17 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f44594e = bVar;
-            this.f44595f = aVar;
+            this.f42953e = bVar;
+            this.f42954f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.t0.y0.y.b.b bVar = this.f44594e;
+                c.a.t0.y0.y.b.b bVar = this.f42953e;
                 bVar.c(!bVar.b());
-                c.a.t0.y0.y.a.a aVar = this.f44595f;
+                c.a.t0.y0.y.a.a aVar = this.f42954f;
                 if (aVar != null) {
                     aVar.b();
                 }
@@ -69,10 +69,10 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.y0.y.b.b f44596e;
+        public final /* synthetic */ c.a.t0.y0.y.b.b f42955e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.y0.y.a.a f44597f;
+        public final /* synthetic */ c.a.t0.y0.y.a.a f42956f;
 
         public b(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, c.a.t0.y0.y.b.b bVar, c.a.t0.y0.y.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -89,19 +89,19 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f44596e = bVar;
-            this.f44597f = aVar;
+            this.f42955e = bVar;
+            this.f42956f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44596e.c(false);
-                this.f44596e.d(0);
-                c.a.t0.y0.y.a.a aVar = this.f44597f;
+                this.f42955e.c(false);
+                this.f42955e.d(0);
+                c.a.t0.y0.y.a.a aVar = this.f42956f;
                 if (aVar != null) {
-                    aVar.a(this.f44596e.a());
+                    aVar.a(this.f42955e.a());
                 }
             }
         }
@@ -113,10 +113,10 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.y0.y.b.b f44598e;
+        public final /* synthetic */ c.a.t0.y0.y.b.b f42957e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.y0.y.a.a f44599f;
+        public final /* synthetic */ c.a.t0.y0.y.a.a f42958f;
 
         public c(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, c.a.t0.y0.y.b.b bVar, c.a.t0.y0.y.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -133,19 +133,19 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f44598e = bVar;
-            this.f44599f = aVar;
+            this.f42957e = bVar;
+            this.f42958f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44598e.c(false);
-                this.f44598e.d(1);
-                c.a.t0.y0.y.a.a aVar = this.f44599f;
+                this.f42957e.c(false);
+                this.f42957e.d(1);
+                c.a.t0.y0.y.a.a aVar = this.f42958f;
                 if (aVar != null) {
-                    aVar.a(this.f44598e.a());
+                    aVar.a(this.f42957e.a());
                 }
             }
         }

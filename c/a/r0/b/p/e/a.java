@@ -30,18 +30,18 @@ public class a implements a1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10413b;
+    public static final boolean f10188b;
     public transient /* synthetic */ FieldHolder $fh;
     public PaymentManager a;
 
     /* renamed from: c.a.r0.b.p.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0662a extends c.a.h0.o.a {
+    public class C0671a extends c.a.h0.o.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
 
-        public C0662a(a aVar, long j2) {
+        public C0671a(a aVar, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,7 @@ public class a implements a1 {
         public void a(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                if (a.f10413b) {
+                if (a.f10188b) {
                     String str2 = "requestBatchRebateInfo onResult: " + i2 + " " + str;
                 }
                 d.j(a.e());
@@ -96,7 +96,7 @@ public class a implements a1 {
         @Override // c.a.h0.o.a
         public void a(int i2, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && a.f10413b) {
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && a.f10188b) {
                 String str2 = "requestSingleRebateInfo onResult: " + i2 + " " + str;
             }
         }
@@ -115,7 +115,7 @@ public class a implements a1 {
                 return;
             }
         }
-        f10413b = k.a;
+        f10188b = k.a;
     }
 
     public a() {
@@ -165,18 +165,18 @@ public class a implements a1 {
             if (!TextUtils.isEmpty(E)) {
                 try {
                     if (currentTimeMillis - Long.parseLong(E) < 86400) {
-                        boolean z = f10413b;
+                        boolean z = f10188b;
                         return;
                     }
                 } catch (NumberFormatException e2) {
-                    if (f10413b) {
+                    if (f10188b) {
                         e2.printStackTrace();
                         return;
                     }
                     return;
                 }
             }
-            this.a.p(new C0662a(this, currentTimeMillis));
+            this.a.p(new C0671a(this, currentTimeMillis));
         }
     }
 
@@ -197,7 +197,7 @@ public class a implements a1 {
                 jSONObject.put("scene", str8);
                 this.a.o(jSONObject, new b(this));
             } catch (JSONException e2) {
-                if (f10413b) {
+                if (f10188b) {
                     e2.printStackTrace();
                 }
             }

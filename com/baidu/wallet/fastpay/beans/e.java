@@ -12,6 +12,7 @@ import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.fastpay.datamodel.QueryLocationResponse;
 import com.baidu.wallet.paysdk.PayUtils;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes13.dex */
@@ -21,7 +22,7 @@ public class e extends BaseBean<Object> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53050b;
+    public String f51007b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> e(Context context) {
@@ -42,14 +43,14 @@ public class e extends BaseBean<Object> {
             }
         }
         this.a = "";
-        this.f53050b = "";
+        this.f51007b = "";
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             this.a = str;
-            this.f53050b = str2;
+            this.f51007b = str2;
         }
     }
 
@@ -69,8 +70,8 @@ public class e extends BaseBean<Object> {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("mobile_num", PayUtils.encrypt("phone_number", this.a)));
             arrayList.add(new RestNameValuePair("cmd", "1067"));
-            arrayList.add(new RestNameValuePair("callback", "phonePriceInfo_common"));
-            arrayList.add(new RestNameValuePair("device_token", this.f53050b));
+            arrayList.add(new RestNameValuePair(WebChromeClient.KEY_ARG_CALLBACK, "phonePriceInfo_common"));
+            arrayList.add(new RestNameValuePair("device_token", this.f51007b));
             return arrayList;
         }
         return (List) invokeV.objValue;

@@ -17,12 +17,12 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f18956c;
+    public static e f18481c;
     public transient /* synthetic */ FieldHolder $fh;
     public f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f18957b;
+    public CustomMessageListener f18482b;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -74,23 +74,23 @@ public class e {
                 return;
             }
         }
-        this.f18957b = new a(this, 2000994);
+        this.f18482b = new a(this, 2000994);
         this.a = new h();
-        MessageManager.getInstance().registerListener(this.f18957b);
+        MessageManager.getInstance().registerListener(this.f18482b);
     }
 
     public static e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f18956c == null) {
+            if (f18481c == null) {
                 synchronized (e.class) {
-                    if (f18956c == null) {
-                        f18956c = new e();
+                    if (f18481c == null) {
+                        f18481c = new e();
                     }
                 }
             }
-            return f18956c;
+            return f18481c;
         }
         return (e) invokeV.objValue;
     }

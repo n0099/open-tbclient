@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import c.a.t0.a0.f.c.e.h;
 import c.a.t0.a0.f.c.e.i;
-import c.a.t0.q4.a;
+import c.a.t0.r4.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -57,34 +57,32 @@ public class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f14878b;
+    public Context f14523b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f14879c;
+    public ViewGroup f14524c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f14880d;
+    public ViewGroup f14525d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AppBarLayout f14881e;
+    public AppBarLayout f14526e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f14882f;
+    public LinearLayout f14527f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f14883g;
+    public FrameLayout f14528g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.a0.f.c.h.d f14884h;
+    public c.a.t0.a0.f.c.h.d f14529h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ScrollHorizontalTabView f14885i;
+    public ScrollHorizontalTabView f14530i;
 
     /* renamed from: j  reason: collision with root package name */
-    public NestedNoScrollViewPager f14886j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public g f14887k;
+    public NestedNoScrollViewPager f14531j;
+    public g k;
     public boolean l;
     public boolean m;
     public int n;
@@ -103,13 +101,13 @@ public class a {
 
     /* renamed from: c.a.t0.a0.f.c.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0910a extends CustomMessageListener {
+    public class C0923a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0910a(a aVar, int i2) {
+        public C0923a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -309,14 +307,14 @@ public class a {
 
         /* renamed from: c.a.t0.a0.f.c.h.a$f$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0911a implements Runnable {
+        public class RunnableC0924a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ f f14888e;
+            public final /* synthetic */ f f14532e;
 
-            public RunnableC0911a(f fVar) {
+            public RunnableC0924a(f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -331,16 +329,16 @@ public class a {
                         return;
                     }
                 }
-                this.f14888e = fVar;
+                this.f14532e = fVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f14888e.a.f14887k == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f14532e.a.k == null) {
                     return;
                 }
-                this.f14888e.a.f14887k.c();
+                this.f14532e.a.k.c();
             }
         }
 
@@ -370,7 +368,7 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                c.a.d.f.m.e.a().postDelayed(new RunnableC0911a(this), 500L);
+                c.a.d.f.m.e.a().postDelayed(new RunnableC0924a(this), 500L);
             }
         }
     }
@@ -496,13 +494,13 @@ public class a {
         this.w = 8;
         this.y = new SparseArray<>();
         this.z = false;
-        this.A = new C0910a(this, 2921442);
+        this.A = new C0923a(this, 2921442);
         this.B = new b(this, 2001371);
         this.C = new c(this);
         this.D = new f(this, 2921414);
         this.a = tbPageContext;
         this.m = z;
-        this.f14878b = tbPageContext.getPageActivity();
+        this.f14523b = tbPageContext.getPageActivity();
         this.o = fragmentManager;
         q();
     }
@@ -514,11 +512,11 @@ public class a {
             if (i2 <= 0) {
                 i2 = 0;
             }
-            g gVar = this.f14887k;
+            g gVar = this.k;
             if (gVar == null || i2 < gVar.getCount()) {
                 i3 = i2;
             }
-            NestedNoScrollViewPager nestedNoScrollViewPager = this.f14886j;
+            NestedNoScrollViewPager nestedNoScrollViewPager = this.f14531j;
             if (nestedNoScrollViewPager != null) {
                 nestedNoScrollViewPager.setCurrentItem(i3);
             }
@@ -529,9 +527,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
             i iVar = new i();
-            iVar.f14789e = hVar;
-            this.f14884h.k(iVar);
-            this.f14882f.setVisibility(0);
+            iVar.f14437e = hVar;
+            this.f14529h.k(iVar);
+            this.f14527f.setVisibility(0);
         }
     }
 
@@ -568,16 +566,16 @@ public class a {
             ArrayList arrayList = new ArrayList();
             TabData tabData = new TabData();
             tabData.tabId = 100;
-            tabData.tabName = this.f14878b.getResources().getString(R.string.special_recommend_tab_title);
+            tabData.tabName = this.f14523b.getResources().getString(R.string.special_recommend_tab_title);
             arrayList.add(tabData);
             TabData tabData2 = new TabData();
             tabData2.tabId = 200;
-            tabData2.tabName = this.f14878b.getResources().getString(R.string.special_yanzhi_tab_title);
+            tabData2.tabName = this.f14523b.getResources().getString(R.string.special_yanzhi_tab_title);
             arrayList.add(tabData2);
             if (z) {
                 TabData tabData3 = new TabData();
                 tabData3.tabId = 400;
-                tabData3.tabName = this.f14878b.getResources().getString(R.string.special_friend_tab_title);
+                tabData3.tabName = this.f14523b.getResources().getString(R.string.special_friend_tab_title);
                 arrayList.add(tabData3);
             }
             return arrayList;
@@ -588,7 +586,7 @@ public class a {
     public ViewGroup m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14879c : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14524c : (ViewGroup) invokeV.objValue;
     }
 
     public void n() {
@@ -606,16 +604,16 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             y();
             this.y.clear();
-            boolean z = c.a.s0.s.g0.b.j().k("key_show_ala_friend_tab", 0) == 1;
-            this.f14886j.setOffscreenPageLimit(z ? 2 : 1);
+            boolean z = c.a.s0.s.h0.b.k().l("key_show_ala_friend_tab", 0) == 1;
+            this.f14531j.setOffscreenPageLimit(z ? 2 : 1);
             this.x.add(LiveTabRecomSubFragment.newInstance(this.m, 1));
             this.x.add(LiveTabYanzhiSubFragment.newInstance(this.m));
             if (z) {
                 this.x.add(LiveTabFriendSubFragment.newInstance(this.m));
             }
             g gVar = new g(this, this.o, this.x);
-            this.f14887k = gVar;
-            this.f14886j.setAdapter(gVar);
+            this.k = gVar;
+            this.f14531j.setAdapter(gVar);
             TbPageContext tbPageContext = this.a;
             if (tbPageContext != null && tbPageContext.getPageActivity() != null && this.a.getPageActivity().getIntent() != null) {
                 int intExtra = this.a.getPageActivity().getIntent().getIntExtra("locate_type", 0);
@@ -625,9 +623,9 @@ public class a {
                     this.p = 1;
                 }
             }
-            this.f14885i.setViewPager(this.f14886j);
-            this.f14885i.setScrollTabPageListener(new e(this));
-            this.f14885i.setData(l(z));
+            this.f14530i.setViewPager(this.f14531j);
+            this.f14530i.setScrollTabPageListener(new e(this));
+            this.f14530i.setData(l(z));
         }
     }
 
@@ -638,18 +636,18 @@ public class a {
                 if (TbSingleton.getInstance().getYYLiveTabConfig() == null || ListUtils.isEmpty(TbSingleton.getInstance().getYYLiveTabConfig().a())) {
                     return;
                 }
-                List<a.C1337a> a = TbSingleton.getInstance().getYYLiveTabConfig().a();
+                List<a.C1357a> a = TbSingleton.getInstance().getYYLiveTabConfig().a();
                 this.y.clear();
-                this.y.put(this.s, this.f14878b.getResources().getString(R.string.special_recommend_tab_title));
+                this.y.put(this.s, this.f14523b.getResources().getString(R.string.special_recommend_tab_title));
                 for (int i2 = 0; i2 < a.size(); i2++) {
-                    this.y.put(a.get(i2).a, a.get(i2).f22397b);
+                    this.y.put(a.get(i2).a, a.get(i2).f21918b);
                 }
             } else if (this.y.size() == 0) {
-                this.y.put(this.s, this.f14878b.getResources().getString(R.string.special_recommend_tab_title));
-                this.y.put(this.t, this.f14878b.getResources().getString(R.string.special_music_tab_title));
-                this.y.put(this.u, this.f14878b.getResources().getString(R.string.special_talk_tab_title));
-                this.y.put(this.v, this.f14878b.getResources().getString(R.string.special_game_tab_title));
-                this.y.put(this.w, this.f14878b.getResources().getString(R.string.special_other_tab_title));
+                this.y.put(this.s, this.f14523b.getResources().getString(R.string.special_recommend_tab_title));
+                this.y.put(this.t, this.f14523b.getResources().getString(R.string.special_music_tab_title));
+                this.y.put(this.u, this.f14523b.getResources().getString(R.string.special_talk_tab_title));
+                this.y.put(this.v, this.f14523b.getResources().getString(R.string.special_game_tab_title));
+                this.y.put(this.w, this.f14523b.getResources().getString(R.string.special_other_tab_title));
             }
         }
     }
@@ -659,26 +657,26 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
-                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.f14878b).inflate(R.layout.ala_live_tab_layout, (ViewGroup) null);
-                this.f14879c = viewGroup;
+                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.f14523b).inflate(R.layout.ala_live_tab_layout, (ViewGroup) null);
+                this.f14524c = viewGroup;
                 AppBarLayout appBarLayout = (AppBarLayout) viewGroup.findViewById(R.id.live_tab_appbar_layout);
-                this.f14881e = appBarLayout;
+                this.f14526e = appBarLayout;
                 appBarLayout.addOnOffsetChangedListener((AppBarLayout.OnOffsetChangedListener) new d(this));
-                this.f14880d = (ViewGroup) this.f14879c.findViewById(R.id.live_tab_root_container);
-                this.f14882f = (LinearLayout) this.f14879c.findViewById(R.id.live_tab_base_container);
-                this.f14883g = (FrameLayout) this.f14879c.findViewById(R.id.super_entrance_container);
-                ScrollHorizontalTabView scrollHorizontalTabView = (ScrollHorizontalTabView) this.f14879c.findViewById(R.id.live_tab_top_tab_layout);
-                this.f14885i = scrollHorizontalTabView;
+                this.f14525d = (ViewGroup) this.f14524c.findViewById(R.id.live_tab_root_container);
+                this.f14527f = (LinearLayout) this.f14524c.findViewById(R.id.live_tab_base_container);
+                this.f14528g = (FrameLayout) this.f14524c.findViewById(R.id.super_entrance_container);
+                ScrollHorizontalTabView scrollHorizontalTabView = (ScrollHorizontalTabView) this.f14524c.findViewById(R.id.live_tab_top_tab_layout);
+                this.f14530i = scrollHorizontalTabView;
                 scrollHorizontalTabView.setOnTabClickListener(this.C);
-                this.f14884h = new c.a.t0.a0.f.c.h.d(this.a);
-                this.f14886j = (NestedNoScrollViewPager) this.f14879c.findViewById(R.id.live_tab_view_pager);
+                this.f14529h = new c.a.t0.a0.f.c.h.d(this.a);
+                this.f14531j = (NestedNoScrollViewPager) this.f14524c.findViewById(R.id.live_tab_view_pager);
                 j(c.a.t0.a0.f.c.c.e(), false, false);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, this.f14878b.getResources().getDimensionPixelSize(R.dimen.tbds256));
-                if (this.f14884h.j() != null && this.f14884h.j().getParent() == null) {
-                    this.f14883g.addView(this.f14884h.j(), layoutParams);
-                    this.f14882f.setVisibility(8);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, this.f14523b.getResources().getDimensionPixelSize(R.dimen.tbds256));
+                if (this.f14529h.j() != null && this.f14529h.j().getParent() == null) {
+                    this.f14528g.addView(this.f14529h.j(), layoutParams);
+                    this.f14527f.setVisibility(8);
                 }
-                ((FrameLayout.LayoutParams) this.f14880d.getLayoutParams()).bottomMargin = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+                ((FrameLayout.LayoutParams) this.f14525d.getLayoutParams()).bottomMargin = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
                 v();
             } finally {
                 TTIStats.record("AlaLiveTabView.initView", System.currentTimeMillis() - currentTimeMillis);
@@ -710,13 +708,13 @@ public class a {
                     t(keyAt);
                 }
                 g gVar = new g(this, this.o, this.x);
-                this.f14887k = gVar;
+                this.k = gVar;
                 gVar.notifyDataSetChanged();
-                this.f14886j.setAdapter(this.f14887k);
-                this.f14886j.setOffscreenPageLimit(arrayList.size());
+                this.f14531j.setAdapter(this.k);
+                this.f14531j.setOffscreenPageLimit(arrayList.size());
                 this.p = 0;
-                this.f14885i.setViewPager(this.f14886j);
-                this.f14885i.setData(arrayList);
+                this.f14530i.setViewPager(this.f14531j);
+                this.f14530i.setData(arrayList);
             } finally {
                 TTIStats.record("AlaLiveTabView.initYYTabs", System.currentTimeMillis() - currentTimeMillis);
             }
@@ -726,7 +724,7 @@ public class a {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f14887k.b();
+            this.k.b();
         }
     }
 
@@ -743,7 +741,7 @@ public class a {
     public void u(boolean z) {
         c.a.t0.a0.f.c.h.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (dVar = this.f14884h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (dVar = this.f14529h) == null) {
             return;
         }
         dVar.t(z);
@@ -753,10 +751,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            this.f14884h.l(this.a, skinType);
-            this.f14885i.onChangeSkinType(skinType);
-            SkinManager.setBackgroundColor(this.f14879c, R.color.CAM_X0202);
-            SkinManager.setBackgroundColor(this.f14885i, R.color.CAM_X0202);
+            this.f14529h.l(this.a, skinType);
+            this.f14530i.onChangeSkinType(skinType);
+            SkinManager.setBackgroundColor(this.f14524c, R.color.CAM_X0202);
+            SkinManager.setBackgroundColor(this.f14530i, R.color.CAM_X0202);
         }
     }
 
@@ -772,7 +770,7 @@ public class a {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f14887k.d(this.f14886j.getCurrentItem());
+            this.k.d(this.f14531j.getCurrentItem());
         }
     }
 
@@ -798,7 +796,7 @@ public class a {
                 this.x = new ArrayList();
             }
             this.x.clear();
-            g gVar = this.f14887k;
+            g gVar = this.k;
             if (gVar != null) {
                 gVar.notifyDataSetChanged();
             }
@@ -808,7 +806,7 @@ public class a {
     public void z(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f14880d.setVisibility(z ? 0 : 8);
+            this.f14525d.setVisibility(z ? 0 : 8);
         }
     }
 }

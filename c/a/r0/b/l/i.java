@@ -34,7 +34,7 @@ public class i extends ProviderDelegation {
             Bundle bundle2 = new Bundle();
             a0 A = a.A(getAgent().getContext());
             bundle2.putString("NICK_NAME", A.a);
-            bundle2.putString("AVATAR_URL", A.f10298b);
+            bundle2.putString("AVATAR_URL", A.f10074b);
             return bundle2;
         }
         return (Bundle) invokeL.objValue;

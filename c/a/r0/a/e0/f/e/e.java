@@ -14,10 +14,10 @@ public class e {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5799b;
+    public static String f5673b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f5800c;
+    public static String f5674c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return f5799b + "/swan-core/master/master.html";
+            return f5673b + "/swan-core/master/master.html";
         }
         return (String) invokeV.objValue;
     }
@@ -49,7 +49,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f5799b + "/swan-core/slaves/slaves.html";
+            return f5673b + "/swan-core/slaves/slaves.html";
         }
         return (String) invokeV.objValue;
     }
@@ -57,13 +57,13 @@ public class e {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? TextUtils.equals(f5800c, "update_tag_by_remote_debug") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? TextUtils.equals(f5674c, "update_tag_by_remote_debug") : invokeV.booleanValue;
     }
 
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? !TextUtils.isEmpty(f5799b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? !TextUtils.isEmpty(f5673b) : invokeV.booleanValue;
     }
 
     public static void e(String str) {
@@ -72,7 +72,7 @@ public class e {
             if (a) {
                 String str2 = "Current launch mode is " + str;
             }
-            f5800c = str;
+            f5674c = str;
             if (TextUtils.equals(str, "update_tag_by_activity_on_new_intent")) {
                 d.g().o();
             }
@@ -82,14 +82,14 @@ public class e {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            f5800c = "update_tag_by_remote_debug";
+            f5674c = "update_tag_by_remote_debug";
         }
     }
 
     public static void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            f5799b = str;
+            f5673b = str;
         }
     }
 }

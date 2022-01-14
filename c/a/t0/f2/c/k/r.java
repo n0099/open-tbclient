@@ -16,22 +16,22 @@ public class r {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17953b;
+    public String f17519b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f17954c;
+    public String f17520c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f17955d;
+    public String f17521d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17956e;
+    public int f17522e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17957f;
+    public int f17523f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17958g;
+    public int f17524g;
 
     public r() {
         Interceptable interceptable = $ic;
@@ -50,13 +50,13 @@ public class r {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17957f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17523f : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17954c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17520c : (String) invokeV.objValue;
     }
 
     public long c() {
@@ -68,37 +68,37 @@ public class r {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17955d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17521d : (String) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17956e == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17522e == 1 : invokeV.booleanValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17956e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17522e : invokeV.intValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17953b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17519b : (String) invokeV.objValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17958g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17524g : invokeV.intValue;
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f17956e = i2;
+            this.f17522e = i2;
         }
     }
 
@@ -125,11 +125,11 @@ public class r {
             }
         }
         this.a = vipTaskItem.task_id.intValue();
-        this.f17953b = vipTaskItem.title;
-        this.f17954c = vipTaskItem.desc;
-        this.f17955d = vipTaskItem.img_url;
+        this.f17519b = vipTaskItem.title;
+        this.f17520c = vipTaskItem.desc;
+        this.f17521d = vipTaskItem.img_url;
         String str = vipTaskItem.link;
-        this.f17956e = vipTaskItem.is_finish.intValue();
+        this.f17522e = vipTaskItem.is_finish.intValue();
     }
 
     public r(PointTaskInfo pointTaskInfo) {
@@ -151,10 +151,10 @@ public class r {
             return;
         }
         this.a = pointTaskInfo.task_id.longValue();
-        this.f17953b = pointTaskInfo.task_name;
-        this.f17954c = pointTaskInfo.task_intro;
-        this.f17956e = pointTaskInfo.is_finish.intValue();
-        this.f17957f = pointTaskInfo.points_add.intValue();
-        this.f17958g = pointTaskInfo.type.intValue();
+        this.f17519b = pointTaskInfo.task_name;
+        this.f17520c = pointTaskInfo.task_intro;
+        this.f17522e = pointTaskInfo.is_finish.intValue();
+        this.f17523f = pointTaskInfo.points_add.intValue();
+        this.f17524g = pointTaskInfo.type.intValue();
     }
 }

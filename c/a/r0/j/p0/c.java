@@ -21,13 +21,13 @@ public class c implements n {
     public ArrayList<c.a.r0.a.a3.c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f11399b;
+    public FrameLayout f11144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11400c;
+    public boolean f11145c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f11401d;
+    public boolean f11146d;
 
     public c(@NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class c implements n {
             }
         }
         this.a = new ArrayList<>();
-        this.f11401d = false;
-        this.f11399b = frameLayout;
+        this.f11146d = false;
+        this.f11144b = frameLayout;
     }
 
     @Override // c.a.r0.a.p.b.a.n
@@ -58,7 +58,7 @@ public class c implements n {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.g(), aVar.c());
                 layoutParams.leftMargin = aVar.e();
                 layoutParams.topMargin = aVar.f();
-                this.f11399b.updateViewLayout(view, layoutParams);
+                this.f11144b.updateViewLayout(view, layoutParams);
                 return true;
             }
             return false;
@@ -70,7 +70,7 @@ public class c implements n {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11400c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11145c : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.a.p.b.a.n
@@ -84,7 +84,7 @@ public class c implements n {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.g(), aVar.c());
             layoutParams.leftMargin = aVar.e();
             layoutParams.topMargin = aVar.f();
-            this.f11399b.addView(view, layoutParams);
+            this.f11144b.addView(view, layoutParams);
             return true;
         }
         return invokeLL.booleanValue;
@@ -99,7 +99,7 @@ public class c implements n {
                 return false;
             }
             ViewParent parent = view.getParent();
-            FrameLayout frameLayout = this.f11399b;
+            FrameLayout frameLayout = this.f11144b;
             return parent == frameLayout && frameLayout.indexOfChild(view) >= 0;
         }
         return invokeL.booleanValue;
@@ -137,7 +137,7 @@ public class c implements n {
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f11401d = z;
+            this.f11146d = z;
         }
     }
 
@@ -145,21 +145,21 @@ public class c implements n {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f11399b.getContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f11144b.getContext() : (Context) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.p.b.a.n
     public FrameLayout getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11399b : (FrameLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11144b : (FrameLayout) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.p.b.a.n
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11401d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11146d : invokeV.booleanValue;
     }
 
     public final synchronized void i() {
@@ -225,7 +225,7 @@ public class c implements n {
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f11400c = z;
+            this.f11145c = z;
         }
     }
 
@@ -235,7 +235,7 @@ public class c implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view)) == null) {
             if (d(view)) {
-                this.f11399b.removeView(view);
+                this.f11144b.removeView(view);
                 return true;
             }
             return false;

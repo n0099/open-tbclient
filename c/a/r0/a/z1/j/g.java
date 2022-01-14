@@ -22,31 +22,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static class a implements c.a.r0.a.v1.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f10156e;
+        public final /* synthetic */ int f9932e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f10157f;
+        public final /* synthetic */ boolean f9933f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f10158g;
+        public final /* synthetic */ Activity f9934g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.j1.d.d.c f10159h;
+        public final /* synthetic */ c.a.r0.a.j1.d.d.c f9935h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Context f10160i;
+        public final /* synthetic */ Context f9936i;
 
         public a(int i2, boolean z, Activity activity, c.a.r0.a.j1.d.d.c cVar, Context context) {
             Interceptable interceptable = $ic;
@@ -63,11 +63,11 @@ public class g {
                     return;
                 }
             }
-            this.f10156e = i2;
-            this.f10157f = z;
-            this.f10158g = activity;
-            this.f10159h = cVar;
-            this.f10160i = context;
+            this.f9932e = i2;
+            this.f9933f = z;
+            this.f9934g = activity;
+            this.f9935h = cVar;
+            this.f9936i = context;
         }
 
         @Override // c.a.r0.a.v1.f
@@ -76,11 +76,11 @@ public class g {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 Bundle bundle = new Bundle();
                 bundle.putString("swanAppId", c.a.r0.a.d2.e.f0());
-                bundle.putInt("count", this.f10156e);
-                bundle.putBoolean("compressed", this.f10157f);
+                bundle.putInt("count", this.f9932e);
+                bundle.putBoolean("compressed", this.f9933f);
                 bundle.putString("launchType", "Image");
                 bundle.putString("swanTmpPath", c.a.r0.a.g1.f.U().G().k());
-                c.a.r0.a.j1.d.c.d.l(this.f10158g, bundle, this.f10159h);
+                c.a.r0.a.j1.d.c.d.l(this.f9934g, bundle, this.f9935h);
             }
         }
 
@@ -91,7 +91,7 @@ public class g {
                 if (g.a) {
                     String str2 = str + "";
                 }
-                Toast.makeText(this.f10160i, str, 1).show();
+                Toast.makeText(this.f9936i, str, 1).show();
             }
         }
     }

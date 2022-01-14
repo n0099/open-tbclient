@@ -30,7 +30,7 @@ public class c {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6201b;
+    public static String f6062b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -39,19 +39,19 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.e0.h.a f6202e;
+        public final /* synthetic */ c.a.r0.a.e0.h.a f6063e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.l.a f6203f;
+        public final /* synthetic */ c.a.r0.a.h0.l.a f6064f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.p.e.b f6204g;
+        public final /* synthetic */ c.a.r0.a.p.e.b f6065g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.f1.e.b f6205h;
+        public final /* synthetic */ c.a.r0.a.f1.e.b f6066h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ d.g f6206i;
+        public final /* synthetic */ d.g f6067i;
 
         public a(c.a.r0.a.e0.h.a aVar, c.a.r0.a.h0.l.a aVar2, c.a.r0.a.p.e.b bVar, c.a.r0.a.f1.e.b bVar2, d.g gVar) {
             Interceptable interceptable = $ic;
@@ -68,20 +68,20 @@ public class c {
                     return;
                 }
             }
-            this.f6202e = aVar;
-            this.f6203f = aVar2;
-            this.f6204g = bVar;
-            this.f6205h = bVar2;
-            this.f6206i = gVar;
+            this.f6063e = aVar;
+            this.f6064f = aVar2;
+            this.f6065g = bVar;
+            this.f6066h = bVar2;
+            this.f6067i = gVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                this.f6202e.i();
+                this.f6063e.i();
                 c.a.r0.a.e0.h.a.g(0);
-                c.a(this.f6203f, this.f6204g, this.f6205h, this.f6206i);
+                c.a(this.f6064f, this.f6065g, this.f6066h, this.f6067i);
             }
         }
     }
@@ -93,16 +93,16 @@ public class c {
         public final /* synthetic */ c.a.r0.a.h0.l.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.p.e.b f6207b;
+        public final /* synthetic */ c.a.r0.a.p.e.b f6068b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.f1.e.b f6208c;
+        public final /* synthetic */ c.a.r0.a.f1.e.b f6069c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.g f6209d;
+        public final /* synthetic */ d.g f6070d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAlertDialog f6210e;
+        public final /* synthetic */ SwanAppAlertDialog f6071e;
 
         public b(c.a.r0.a.h0.l.a aVar, c.a.r0.a.p.e.b bVar, c.a.r0.a.f1.e.b bVar2, d.g gVar, SwanAppAlertDialog swanAppAlertDialog) {
             Interceptable interceptable = $ic;
@@ -120,18 +120,18 @@ public class c {
                 }
             }
             this.a = aVar;
-            this.f6207b = bVar;
-            this.f6208c = bVar2;
-            this.f6209d = gVar;
-            this.f6210e = swanAppAlertDialog;
+            this.f6068b = bVar;
+            this.f6069c = bVar2;
+            this.f6070d = gVar;
+            this.f6071e = swanAppAlertDialog;
         }
 
         @Override // c.a.r0.a.e0.h.a.b
         public void onConnected() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a(this.a, this.f6207b, this.f6208c, this.f6209d);
-                this.f6210e.dismiss();
+                c.a(this.a, this.f6068b, this.f6069c, this.f6070d);
+                this.f6071e.dismiss();
             }
         }
     }
@@ -160,7 +160,7 @@ public class c {
             ubcFlowEvent.a(true);
             o.F(ubcFlowEvent);
             c.a.r0.a.g1.f U = c.a.r0.a.g1.f.U();
-            SwanAppConfigData swanAppConfigData = gVar.f5251b;
+            SwanAppConfigData swanAppConfigData = gVar.f5142b;
             if (swanAppConfigData == null) {
                 if (a) {
                     Log.getStackTraceString(new Exception("loadInfo.mConfigData is null."));
@@ -169,10 +169,10 @@ public class c {
                 return;
             }
             String d2 = d(U, bVar2, swanAppConfigData);
-            String h2 = gVar.f5251b.h(d2);
+            String h2 = gVar.f5142b.h(d2);
             SwanAppActivity activity = U.getActivity();
             if (activity != null && !activity.isFinishing()) {
-                c.a.r0.a.h0.p.b.c().b(aVar, bVar, bVar2, gVar.f5251b, gVar, false);
+                c.a.r0.a.h0.p.b.c().b(aVar, bVar, bVar2, gVar.f5142b, gVar, false);
                 aVar.f(activity);
                 bVar.f(activity);
                 c.a.r0.a.h0.g.g V = U.V();
@@ -180,7 +180,7 @@ public class c {
                     return;
                 }
                 c.a.r0.a.m1.b e2 = c.a.r0.a.m1.b.e(d2, U.z());
-                c.a.r0.a.h0.t.a.o(q0.a(e2.f7845g, e2.f7843e, e2.f7844f), bVar);
+                c.a.r0.a.h0.t.a.o(q0.a(e2.f7674g, e2.f7672e, e2.f7673f), bVar);
                 g(V, d2);
                 n.E();
                 c.a.r0.a.n1.g.e(bVar.c());
@@ -241,7 +241,7 @@ public class c {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f6201b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f6062b : (String) invokeV.objValue;
     }
 
     public static String d(c.a.r0.a.g1.f fVar, c.a.r0.a.f1.e.b bVar, SwanAppConfigData swanAppConfigData) {
@@ -256,7 +256,7 @@ public class c {
                     b2 = fVar.g();
                 }
             }
-            f6201b = b2;
+            f6062b = b2;
             return b2;
         }
         return (String) invokeLLL.objValue;
@@ -295,7 +295,7 @@ public class c {
         c.a.r0.a.h0.g.f.M3(null);
         c.a.r0.a.g1.f U = c.a.r0.a.g1.f.U();
         g.b i2 = gVar.i("init");
-        int i3 = c.a.r0.a.h0.g.g.f6542i;
+        int i3 = c.a.r0.a.h0.g.g.f6401i;
         i2.n(i3, i3);
         i2.f();
         i2.l("normal", c.a.r0.a.m1.b.e(str, U.z()), true).a();
@@ -311,7 +311,7 @@ public class c {
             } else {
                 c.a.r0.a.h0.g.f.M3(null);
                 g.b i2 = gVar.i("init");
-                int i3 = c.a.r0.a.h0.g.g.f6542i;
+                int i3 = c.a.r0.a.h0.g.g.f6401i;
                 i2.n(i3, i3);
                 i2.f();
                 i2.l("web_mode", c.a.r0.a.m1.b.e(str, str), true).a();

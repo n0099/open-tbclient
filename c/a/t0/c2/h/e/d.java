@@ -22,25 +22,23 @@ public class d implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f15810e;
+    public String f15410e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15811f;
+    public String f15411f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f15812g;
+    public long f15412g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15813h;
+    public int f15413h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15814i;
+    public int f15414i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f15815j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f15816k;
+    public String f15415j;
+    public String k;
     public String l;
     public String m;
     public int n;
@@ -75,14 +73,14 @@ public class d implements n {
                 return;
             }
         }
-        this.f15810e = "";
-        this.f15811f = "";
+        this.f15410e = "";
+        this.f15411f = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15811f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15411f : (String) invokeV.objValue;
     }
 
     public long d() {
@@ -94,13 +92,13 @@ public class d implements n {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15815j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15415j : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15816k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (String) invokeV.objValue;
     }
 
     @Override // c.a.d.n.e.n
@@ -113,7 +111,7 @@ public class d implements n {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15810e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15410e : (String) invokeV.objValue;
     }
 
     public String i() {
@@ -125,7 +123,7 @@ public class d implements n {
     public long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15812g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15412g : invokeV.longValue;
     }
 
     public String l() {
@@ -145,24 +143,24 @@ public class d implements n {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, sugLiveInfo) == null) || sugLiveInfo == null) {
             return;
         }
-        this.f15810e = sugLiveInfo.word;
+        this.f15410e = sugLiveInfo.word;
         AlaLiveInfo alaLiveInfo = sugLiveInfo.ala_info;
         if (alaLiveInfo != null) {
             this.o = alaLiveInfo.room_id.longValue();
-            this.f15813h = sugLiveInfo.ala_info.live_type.intValue();
+            this.f15413h = sugLiveInfo.ala_info.live_type.intValue();
             AlaUserInfo alaUserInfo = sugLiveInfo.ala_info.user_info;
             if (alaUserInfo != null) {
-                this.f15812g = alaUserInfo.user_id.longValue();
+                this.f15412g = alaUserInfo.user_id.longValue();
             }
             YyExt yyExt = sugLiveInfo.ala_info.yy_ext;
             if (yyExt != null) {
-                this.f15815j = yyExt.sid;
-                this.f15816k = yyExt.ssid;
+                this.f15415j = yyExt.sid;
+                this.k = yyExt.ssid;
                 this.l = yyExt.template_id;
                 this.m = yyExt.yy_uid;
                 int intValue = yyExt.is_yy_game.intValue();
-                this.f15814i = intValue;
-                this.n = q(this.f15813h, intValue);
+                this.f15414i = intValue;
+                this.n = q(this.f15413h, intValue);
             }
         }
     }
@@ -170,7 +168,7 @@ public class d implements n {
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f15811f = str;
+            this.f15411f = str;
         }
     }
 

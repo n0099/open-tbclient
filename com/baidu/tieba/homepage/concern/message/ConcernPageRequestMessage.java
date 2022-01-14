@@ -54,7 +54,7 @@ public class ConcernPageRequestMessage extends NetMessage {
             String d2 = isEmpty ? "" : b.f().d("CONCERN");
             g gVar = this.adInfo;
             if (gVar != null && !isEmpty) {
-                str = gVar.f12663b;
+                str = gVar.f12366b;
             }
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(e2);
@@ -81,9 +81,9 @@ public class ConcernPageRequestMessage extends NetMessage {
                         builder.page_tag = d.u();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(c.a.s0.s.g0.b.j().l(c.a.s0.s.g0.b.n("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(c.a.s0.s.h0.b.k().m(c.a.s0.s.h0.b.o("concern_data_res_request_time"), 0L));
                 int i2 = 1;
-                builder.follow_type = Integer.valueOf(c.a.s0.b.d.j() ? c.a.s0.s.g0.b.j().k("key_home_concern_all_status", 0) : 1);
+                builder.follow_type = Integer.valueOf(c.a.s0.b.d.i() ? c.a.s0.s.h0.b.k().l("key_home_concern_all_status", 0) : 1);
                 if (z) {
                     b0.a(builder, true);
                 }

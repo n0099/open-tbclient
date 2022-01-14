@@ -48,7 +48,7 @@ public class b extends z {
                 return false;
             }
             eVar.e0().g().edit().clear().apply();
-            c.a.r0.a.u2.d.f9668h.update();
+            c.a.r0.a.u2.d.f9459h.update();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
             return true;
         }

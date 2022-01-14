@@ -26,7 +26,7 @@ public class f extends c.a.d.n.e.a<c.a.t0.a0.l.d.h, CardViewHolder<c.a.t0.a0.l.h
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f15278e;
+        public final /* synthetic */ f f14900e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -43,21 +43,21 @@ public class f extends c.a.d.n.e.a<c.a.t0.a0.l.d.h, CardViewHolder<c.a.t0.a0.l.h
                     return;
                 }
             }
-            this.f15278e = fVar;
+            this.f14900e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f15278e.b0();
+                this.f14900e.b0();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.h.f15314f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.h.f14935f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +81,7 @@ public class f extends c.a.d.n.e.a<c.a.t0.a0.l.d.h, CardViewHolder<c.a.t0.a0.l.h
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hVar, aVar) == null) {
             aVar.v(8);
-            aVar.w(this.f3299e.getResources().getString(R.string.ala_income_value));
+            aVar.w(this.f3258e.getResources().getString(R.string.ala_income_value));
             aVar.l(this.m, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -89,7 +89,7 @@ public class f extends c.a.d.n.e.a<c.a.t0.a0.l.d.h, CardViewHolder<c.a.t0.a0.l.h
     public final void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.s0.m.a.w(this.m.getPageActivity(), true, c.a.s0.s.g0.b.j().p("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives"), this.f3299e.getResources().getString(R.string.ala_income_value));
+            c.a.s0.m.a.w(this.m.getPageActivity(), true, c.a.s0.s.h0.b.k().q("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives"), this.f3258e.getResources().getString(R.string.ala_income_value));
         }
     }
 

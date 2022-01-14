@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ErrorConstant {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class Code {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DATA_WRITE_DB = 2407;
@@ -62,7 +62,7 @@ public class ErrorConstant {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class ErrorMsg {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DATA_WRITE_DB = "data:write db error";
@@ -106,7 +106,7 @@ public class ErrorConstant {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class TipMsg {
         public static /* synthetic */ Interceptable $ic;
         public static final String DATA_WRITE_DB;

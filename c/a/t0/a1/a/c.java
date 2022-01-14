@@ -22,13 +22,13 @@ public class c {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f15411b;
+    public BdUniqueId f15028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f15412c;
+    public b f15029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f15413d;
+    public HttpMessageListener f15030d;
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -64,9 +64,9 @@ public class c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getOrginalMessage() == null) {
                 return;
             }
-            boolean z = httpResponsedMessage.getOrginalMessage().getTag() == this.a.f15411b;
-            if (this.a.f15412c != null) {
-                this.a.f15412c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
+            boolean z = httpResponsedMessage.getOrginalMessage().getTag() == this.a.f15028b;
+            if (this.a.f15029c != null) {
+                this.a.f15029c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
             }
         }
     }
@@ -92,11 +92,11 @@ public class c {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
-        this.f15413d = aVar;
+        this.f15030d = aVar;
         this.a = tbPageContext;
-        this.f15411b = bdUniqueId;
+        this.f15028b = bdUniqueId;
         aVar.setTag(bdUniqueId);
-        this.a.registerListener(this.f15413d);
+        this.a.registerListener(this.f15030d);
         c();
     }
 
@@ -116,7 +116,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
-            httpMessage.setTag(this.f15411b);
+            httpMessage.setTag(this.f15028b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -124,7 +124,7 @@ public class c {
     public void e(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f15412c = bVar;
+            this.f15029c = bVar;
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.nearby;
 
 import android.os.Bundle;
-import c.a.s0.x.v.d;
+import c.a.s0.x.v.e;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -92,12 +92,12 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
-            c.a.s0.x.v.e.a aVar = customResponsedMessage.getData() instanceof c.a.s0.x.v.e.a ? (c.a.s0.x.v.e.a) customResponsedMessage.getData() : null;
+            c.a.s0.x.v.f.a aVar = customResponsedMessage.getData() instanceof c.a.s0.x.v.f.a ? (c.a.s0.x.v.f.a) customResponsedMessage.getData() : null;
             if (aVar == null || aVar.b() != 1) {
                 return;
             }
             NearbyFriendsActivity nearbyFriendsActivity = this.a;
-            new d(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.nearby_root), aVar).j();
+            new e(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.nearby_root), aVar).m();
         }
     }
 

@@ -26,16 +26,16 @@ public class d {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f23583b;
+    public TbPageContext f22927b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f23584c;
+    public TextView f22928c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23585d;
+    public int f22929d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f23586e;
+    public CustomMessageListener f22930e;
 
     /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
@@ -92,12 +92,12 @@ public class d {
             }
         }
         this.a = 3;
-        this.f23585d = 0;
-        this.f23586e = new a(this, 2016502);
-        this.f23583b = tbPageContext;
-        this.f23584c = (TextView) view.findViewById(i.pb_list_video_item_play_count);
+        this.f22929d = 0;
+        this.f22930e = new a(this, 2016502);
+        this.f22927b = tbPageContext;
+        this.f22928c = (TextView) view.findViewById(i.pb_list_video_item_play_count);
         c(TbadkCoreApplication.getInst().getSkinType());
-        tbPageContext.registerListener(this.f23586e);
+        tbPageContext.registerListener(this.f22930e);
     }
 
     public final void b(j jVar) {
@@ -105,8 +105,8 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || jVar == null) {
             return;
         }
-        int i2 = this.f23585d + 1;
-        this.f23585d = i2;
+        int i2 = this.f22929d + 1;
+        this.f22929d = i2;
         jVar.i(i2);
     }
 
@@ -114,9 +114,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             if (this.a != i2) {
-                this.f23584c.setCompoundDrawablesWithIntrinsicBounds(h.icon_pb_video_num_gray, 0, 0, 0);
-                this.f23584c.setCompoundDrawablePadding(n.f(this.f23583b.getPageActivity(), g.ds12));
-                SkinManager.setViewTextColor(this.f23584c, f.CAM_X0108, 1);
+                this.f22928c.setCompoundDrawablesWithIntrinsicBounds(h.icon_pb_video_num_gray, 0, 0, 0);
+                this.f22928c.setCompoundDrawablePadding(n.f(this.f22927b.getPageActivity(), g.ds12));
+                SkinManager.setViewTextColor(this.f22928c, f.CAM_X0108, 1);
             }
             this.a = i2;
         }
@@ -124,16 +124,16 @@ public class d {
 
     public void d(j jVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) || this.f23584c == null || jVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) || this.f22928c == null || jVar == null) {
             return;
         }
         int d2 = jVar.d();
-        int i2 = this.f23585d;
+        int i2 = this.f22929d;
         if (d2 < i2) {
             jVar.i(i2);
         } else {
-            this.f23585d = jVar.d();
+            this.f22929d = jVar.d();
         }
-        this.f23584c.setText(StringHelper.numberUniformFormat(this.f23585d));
+        this.f22928c.setText(StringHelper.numberUniformFormat(this.f22929d));
     }
 }

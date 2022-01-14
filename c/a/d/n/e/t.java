@@ -13,7 +13,7 @@ public class t implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f3394e;
+    public static final BdUniqueId f3348e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class t implements n {
                 return;
             }
         }
-        f3394e = BdUniqueId.gen();
+        f3348e = BdUniqueId.gen();
     }
 
     public t() {
@@ -50,6 +50,6 @@ public class t implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f3394e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f3348e : (BdUniqueId) invokeV.objValue;
     }
 }

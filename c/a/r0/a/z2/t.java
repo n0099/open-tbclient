@@ -35,10 +35,10 @@ public class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f10263e;
+        public final /* synthetic */ b f10039e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10264f;
+        public final /* synthetic */ String f10040f;
 
         public a(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public class t {
                     return;
                 }
             }
-            this.f10263e = bVar;
-            this.f10264f = str;
+            this.f10039e = bVar;
+            this.f10040f = str;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
@@ -64,7 +64,7 @@ public class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
                 super.onCancellation(dataSource);
-                this.f10263e.a(this.f10264f, null);
+                this.f10039e.a(this.f10040f, null);
             }
         }
 
@@ -72,7 +72,7 @@ public class t {
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                this.f10263e.a(this.f10264f, null);
+                this.f10039e.a(this.f10040f, null);
             }
         }
 
@@ -88,17 +88,17 @@ public class t {
                         } else {
                             copy = bitmap.copy(bitmap.getConfig(), true);
                         }
-                        this.f10263e.a(this.f10264f, copy);
+                        this.f10039e.a(this.f10040f, copy);
                         return;
                     } catch (Exception e2) {
                         if (t.a) {
                             e2.getMessage();
                         }
-                        this.f10263e.a(this.f10264f, null);
+                        this.f10039e.a(this.f10040f, null);
                         return;
                     }
                 }
-                this.f10263e.a(this.f10264f, null);
+                this.f10039e.a(this.f10040f, null);
             }
         }
     }

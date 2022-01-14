@@ -35,10 +35,10 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
         public final /* synthetic */ Tencent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.sapi2.a.a.a f39357b;
+        public final /* synthetic */ com.baidu.sapi2.a.a.a f38056b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ QQOauthLoginActivity f39358c;
+        public final /* synthetic */ QQOauthLoginActivity f38057c;
 
         public a(QQOauthLoginActivity qQOauthLoginActivity, Tencent tencent, com.baidu.sapi2.a.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -55,16 +55,16 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
                     return;
                 }
             }
-            this.f39358c = qQOauthLoginActivity;
+            this.f38057c = qQOauthLoginActivity;
             this.a = tencent;
-            this.f39357b = aVar;
+            this.f38056b = aVar;
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f39357b.a();
+                this.f38056b.a();
             }
         }
 
@@ -80,10 +80,10 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
                         this.a.setAccessToken(optString, optString2);
                         this.a.setOpenId(optString3);
-                        this.f39358c.a(this.a, this.f39357b);
+                        this.f38057c.a(this.a, this.f38056b);
                         return;
                     }
-                    this.f39357b.a();
+                    this.f38056b.a();
                 }
             }
         }
@@ -92,7 +92,7 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
         public void onError(UiError uiError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
-                this.f39357b.a();
+                this.f38056b.a();
             }
         }
     }
@@ -104,10 +104,10 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
         public final /* synthetic */ com.baidu.sapi2.a.a.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Tencent f39359b;
+        public final /* synthetic */ Tencent f38058b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ QQOauthLoginActivity f39360c;
+        public final /* synthetic */ QQOauthLoginActivity f38059c;
 
         public b(QQOauthLoginActivity qQOauthLoginActivity, com.baidu.sapi2.a.a.a aVar, Tencent tencent) {
             Interceptable interceptable = $ic;
@@ -124,9 +124,9 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
                     return;
                 }
             }
-            this.f39360c = qQOauthLoginActivity;
+            this.f38059c = qQOauthLoginActivity;
             this.a = aVar;
-            this.f39359b = tencent;
+            this.f38058b = tencent;
         }
 
         @Override // com.tencent.tauth.IUiListener
@@ -142,7 +142,7 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 if (obj != null) {
-                    this.a.a(this.f39359b.getAccessToken(), this.f39359b.getOpenId(), ((JSONObject) obj).optString("unionid"));
+                    this.a.a(this.f38058b.getAccessToken(), this.f38058b.getOpenId(), ((JSONObject) obj).optString("unionid"));
                     return;
                 }
                 this.a.a();

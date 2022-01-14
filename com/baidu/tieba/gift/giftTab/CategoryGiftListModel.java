@@ -19,13 +19,13 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<j0> f45660e;
+    public ArrayList<j0> f43990e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f45661f;
+    public b f43991f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f45662g;
+    public c.a.d.c.g.a f43992g;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -66,15 +66,15 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
                 int i2 = 0;
                 if (z) {
                     CategoryGiftListHttpResponseMessage categoryGiftListHttpResponseMessage = (CategoryGiftListHttpResponseMessage) responsedMessage;
-                    this.a.f45660e = categoryGiftListHttpResponseMessage.getGiftList();
+                    this.a.f43990e = categoryGiftListHttpResponseMessage.getGiftList();
                     i2 = categoryGiftListHttpResponseMessage.getCategoryId();
                 } else if (responsedMessage instanceof CategoryGiftListSocketResponseMessage) {
                     CategoryGiftListSocketResponseMessage categoryGiftListSocketResponseMessage = (CategoryGiftListSocketResponseMessage) responsedMessage;
-                    this.a.f45660e = categoryGiftListSocketResponseMessage.getGiftList();
+                    this.a.f43990e = categoryGiftListSocketResponseMessage.getGiftList();
                     i2 = categoryGiftListSocketResponseMessage.getCategoryId();
                 }
-                if (this.a.f45661f != null) {
-                    this.a.f45661f.a(responsedMessage.getError(), responsedMessage.getErrorString(), i2, this.a.f45660e);
+                if (this.a.f43991f != null) {
+                    this.a.f43991f.a(responsedMessage.getError(), responsedMessage.getErrorString(), i2, this.a.f43990e);
                 }
             }
         }
@@ -103,7 +103,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
                 return;
             }
         }
-        this.f45662g = new a(this, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
+        this.f43992g = new a(this, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
         registerTask();
         registerListener();
     }
@@ -111,7 +111,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f45661f = bVar;
+            this.f43991f = bVar;
         }
     }
 
@@ -138,7 +138,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            registerListener(this.f45662g);
+            registerListener(this.f43992g);
         }
     }
 

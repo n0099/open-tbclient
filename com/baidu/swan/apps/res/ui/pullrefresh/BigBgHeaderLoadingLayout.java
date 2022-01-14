@@ -29,13 +29,11 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f40463i;
+    public RelativeLayout f39120i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f40464j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ProgressBar f40465k;
+    public ImageView f39121j;
+    public ProgressBar k;
     public TextView l;
     public TextView m;
     public TextView n;
@@ -67,10 +65,10 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f40463i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
-            this.f40464j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
+            this.f39120i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+            this.f39121j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
             this.l = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
-            this.f40465k = (ProgressBar) findViewById(f.pull_to_refresh_header_progressbar);
+            this.k = (ProgressBar) findViewById(f.pull_to_refresh_header_progressbar);
             this.m = (TextView) findViewById(f.pull_to_refresh_header_time);
             this.n = (TextView) findViewById(f.pull_to_refresh_last_update_time_text);
             this.q = (ImageView) findViewById(f.pull_to_refresh_header_background);
@@ -97,7 +95,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RelativeLayout relativeLayout = this.f40463i;
+            RelativeLayout relativeLayout = this.f39120i;
             if (relativeLayout != null) {
                 return relativeLayout.getHeight();
             }
@@ -136,8 +134,8 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (ILoadingLayout$State.RELEASE_TO_REFRESH == getPreState()) {
-                this.f40464j.clearAnimation();
-                this.f40464j.startAnimation(this.p);
+                this.f39121j.clearAnimation();
+                this.f39121j.startAnimation(this.p);
             }
             this.l.setText(h.aiapps_pull_to_refresh_header_hint_normal);
         }
@@ -147,9 +145,9 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public void onRefreshing() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f40464j.clearAnimation();
-            this.f40464j.setVisibility(4);
-            this.f40465k.setVisibility(0);
+            this.f39121j.clearAnimation();
+            this.f39121j.setVisibility(4);
+            this.k.setVisibility(0);
             this.l.setText(h.aiapps_pull_to_refresh_header_updateing);
         }
     }
@@ -158,8 +156,8 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public void onReleaseToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f40464j.clearAnimation();
-            this.f40464j.startAnimation(this.o);
+            this.f39121j.clearAnimation();
+            this.f39121j.startAnimation(this.o);
             this.l.setText(h.aiapps_pull_to_refresh_header_hint_ready);
         }
     }
@@ -168,7 +166,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public void onReset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f40464j.clearAnimation();
+            this.f39121j.clearAnimation();
             this.l.setText(h.aiapps_pull_to_refresh_header_hint_normal);
         }
     }
@@ -177,8 +175,8 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public void onStateChanged(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
-            this.f40464j.setVisibility(0);
-            this.f40465k.setVisibility(4);
+            this.f39121j.setVisibility(0);
+            this.k.setVisibility(4);
             super.onStateChanged(iLoadingLayout$State, iLoadingLayout$State2);
         }
     }

@@ -14,16 +14,16 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12885b;
+    public String f12576b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12886c;
+    public String f12577c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f12887d;
+    public long f12578d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12888e;
+    public boolean f12579e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class a {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return aVar.f12887d == this.f12887d && aVar.f12886c.equals(this.f12886c) && aVar.f12885b.equals(this.f12885b) && aVar.f12888e == this.f12888e && aVar.a == this.a;
+                return aVar.f12578d == this.f12578d && aVar.f12577c.equals(this.f12577c) && aVar.f12576b.equals(this.f12576b) && aVar.f12579e == this.f12579e && aVar.a == this.a;
             }
             return false;
         }
@@ -59,7 +59,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.f12885b + ",forumName=" + this.f12886c + ",forumId=" + this.f12887d + ",isLiked=" + this.f12888e + "," + PreferencesUtil.RIGHT_MOUNT;
+            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.f12576b + ",forumName=" + this.f12577c + ",forumId=" + this.f12578d + ",isLiked=" + this.f12579e + "," + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

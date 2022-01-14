@@ -19,18 +19,18 @@ public class a implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ExecutorService f28324e;
+    public final ExecutorService f27465e;
 
     /* renamed from: c.b.b.q.o0.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class ThreadFactoryC1604a implements ThreadFactory {
+    public class ThreadFactoryC1620a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f28325e;
+        public final /* synthetic */ String f27466e;
 
-        public ThreadFactoryC1604a(a aVar, String str) {
+        public ThreadFactoryC1620a(a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +45,7 @@ public class a implements h {
                     return;
                 }
             }
-            this.f28325e = str;
+            this.f27466e = str;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -53,7 +53,7 @@ public class a implements h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.f28325e);
+                Thread thread = new Thread(runnable, this.f27466e);
                 thread.setDaemon(true);
                 return thread;
             }
@@ -67,7 +67,7 @@ public class a implements h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f28326e;
+        public final /* synthetic */ c f27467e;
 
         public b(a aVar, c cVar) {
             Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class a implements h {
                     return;
                 }
             }
-            this.f28326e = cVar;
+            this.f27467e = cVar;
         }
 
         /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
@@ -93,7 +93,7 @@ public class a implements h {
         public T call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28326e.call() : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27467e.call() : invokeV.objValue;
         }
     }
 
@@ -112,15 +112,15 @@ public class a implements h {
                 return;
             }
         }
-        this.f28324e = Executors.newFixedThreadPool(i2, new ThreadFactoryC1604a(this, str));
+        this.f27465e = Executors.newFixedThreadPool(i2, new ThreadFactoryC1620a(this, str));
     }
 
     public <T> c.b.b.q.o0.b<T> a(c<T> cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            if (!this.f28324e.isShutdown()) {
-                return new c.b.b.q.o0.b<>(this.f28324e.submit(new b(this, cVar)));
+            if (!this.f27465e.isShutdown()) {
+                return new c.b.b.q.o0.b<>(this.f27465e.submit(new b(this, cVar)));
             }
             throw new GdxRuntimeException("Cannot run tasks on an executor that has been shutdown (disposed)");
         }
@@ -131,9 +131,9 @@ public class a implements h {
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f28324e.shutdown();
+            this.f27465e.shutdown();
             try {
-                this.f28324e.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
+                this.f27465e.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
             } catch (InterruptedException e2) {
                 throw new GdxRuntimeException("Couldn't shutdown loading thread", e2);
             }

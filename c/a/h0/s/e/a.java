@@ -18,43 +18,43 @@ public interface a {
 
     /* renamed from: c.a.h0.s.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0141a {
+    public static class C0149a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3722b;
+        public String f3668b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f3723c;
+        public long f3669c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f3724d;
+        public long f3670d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f3725e;
+        public long f3671e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f3726f;
+        public String f3672f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f3727g;
+        public int f3673g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<C0142a> f3728h;
+        public List<C0150a> f3674h;
 
         /* renamed from: c.a.h0.s.e.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0142a {
+        public static class C0150a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f3729b;
+            public String f3675b;
 
-            public C0142a() {
+            public C0150a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,32 +68,32 @@ public interface a {
                 }
             }
 
-            public static C0142a a(JSONObject jSONObject) {
+            public static C0150a a(JSONObject jSONObject) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
                     if (jSONObject == null) {
                         return null;
                     }
-                    C0142a c0142a = new C0142a();
-                    c0142a.a = jSONObject.isNull("promotionInsId") ? "" : jSONObject.optString("promotionInsId");
-                    c0142a.f3729b = jSONObject.isNull("valid") ? "" : jSONObject.optString("valid");
-                    return c0142a;
+                    C0150a c0150a = new C0150a();
+                    c0150a.a = jSONObject.isNull("promotionInsId") ? "" : jSONObject.optString("promotionInsId");
+                    c0150a.f3675b = jSONObject.isNull("valid") ? "" : jSONObject.optString("valid");
+                    return c0150a;
                 }
-                return (C0142a) invokeL.objValue;
+                return (C0150a) invokeL.objValue;
             }
 
-            public static JSONObject b(C0142a c0142a) {
+            public static JSONObject b(C0150a c0150a) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0142a)) == null) {
-                    if (c0142a == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0150a)) == null) {
+                    if (c0150a == null) {
                         return null;
                     }
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("promotionInsId", c0142a.a);
-                        jSONObject.put("valid", c0142a.f3729b);
+                        jSONObject.put("promotionInsId", c0150a.a);
+                        jSONObject.put("valid", c0150a.f3675b);
                     } catch (JSONException e2) {
                         h.d(e2.getMessage());
                     }
@@ -102,7 +102,7 @@ public interface a {
                 return (JSONObject) invokeL.objValue;
             }
 
-            public static List<C0142a> c(JSONArray jSONArray) {
+            public static List<C0150a> c(JSONArray jSONArray) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
@@ -124,7 +124,7 @@ public interface a {
             }
         }
 
-        public C0141a() {
+        public C0149a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,26 +140,26 @@ public interface a {
             this.a = 2;
         }
 
-        public static JSONObject a(C0141a c0141a) {
+        public static JSONObject a(C0149a c0149a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c0141a)) == null) {
-                if (c0141a == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c0149a)) == null) {
+                if (c0149a == null) {
                     return null;
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, c0141a.a);
-                    jSONObject.put("msg", c0141a.f3722b);
-                    jSONObject.put("totalAmount", c0141a.f3723c);
-                    jSONObject.put("userPayAmount", c0141a.f3724d);
-                    jSONObject.put("reduceAmount", c0141a.f3725e);
-                    jSONObject.put("overdueStatus", c0141a.f3727g);
-                    jSONObject.put("usedHostMarketingDetail", c0141a.f3726f);
-                    if (c0141a.f3728h != null && !c0141a.f3728h.isEmpty()) {
+                    jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, c0149a.a);
+                    jSONObject.put("msg", c0149a.f3668b);
+                    jSONObject.put("totalAmount", c0149a.f3669c);
+                    jSONObject.put("userPayAmount", c0149a.f3670d);
+                    jSONObject.put("reduceAmount", c0149a.f3671e);
+                    jSONObject.put("overdueStatus", c0149a.f3673g);
+                    jSONObject.put("usedHostMarketingDetail", c0149a.f3672f);
+                    if (c0149a.f3674h != null && !c0149a.f3674h.isEmpty()) {
                         JSONArray jSONArray = new JSONArray();
-                        for (C0142a c0142a : c0141a.f3728h) {
-                            jSONArray.put(C0142a.b(c0142a));
+                        for (C0150a c0150a : c0149a.f3674h) {
+                            jSONArray.put(C0150a.b(c0150a));
                         }
                         jSONObject.put("promotionStatus", jSONArray);
                     }
@@ -175,11 +175,11 @@ public interface a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Data{statusCode=" + this.a + ", message='" + this.f3722b + ExtendedMessageFormat.QUOTE + ", totalAmount=" + this.f3723c + ", userPayAmount=" + this.f3724d + ", reduceAmount=" + this.f3725e + ", usedHostMarketingDetail='" + this.f3726f + ExtendedMessageFormat.QUOTE + ", overdueStatus='" + this.f3727g + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "Data{statusCode=" + this.a + ", message='" + this.f3668b + ExtendedMessageFormat.QUOTE + ", totalAmount=" + this.f3669c + ", userPayAmount=" + this.f3670d + ", reduceAmount=" + this.f3671e + ", usedHostMarketingDetail='" + this.f3672f + ExtendedMessageFormat.QUOTE + ", overdueStatus='" + this.f3673g + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    void a(C0141a c0141a);
+    void a(C0149a c0149a);
 }

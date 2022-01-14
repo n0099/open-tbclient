@@ -48,15 +48,15 @@ public class MapsKt__MapsJVMKt extends MapsKt__MapWithDefaultKt {
         return new MapBuilder();
     }
 
-    public static final <K, V> V getOrPut(ConcurrentMap<K, V> getOrPut, K k2, Function0<? extends V> defaultValue) {
+    public static final <K, V> V getOrPut(ConcurrentMap<K, V> getOrPut, K k, Function0<? extends V> defaultValue) {
         Intrinsics.checkNotNullParameter(getOrPut, "$this$getOrPut");
         Intrinsics.checkNotNullParameter(defaultValue, "defaultValue");
-        V v = getOrPut.get(k2);
+        V v = getOrPut.get(k);
         if (v != null) {
             return v;
         }
         V invoke = defaultValue.invoke();
-        V putIfAbsent = getOrPut.putIfAbsent(k2, invoke);
+        V putIfAbsent = getOrPut.putIfAbsent(k, invoke);
         return putIfAbsent != null ? putIfAbsent : invoke;
     }
 

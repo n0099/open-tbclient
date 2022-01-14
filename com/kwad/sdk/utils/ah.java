@@ -18,17 +18,17 @@ public class ah {
     public static Map<String, Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Set<String> f60176b;
+    public static Set<String> f57892b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f60177c;
+    public static Method f57893c;
 
     static {
         HashSet hashSet = new HashSet();
-        f60176b = hashSet;
+        f57892b = hashSet;
         hashSet.add("android.permission.REQUEST_INSTALL_PACKAGES");
-        f60176b.add("android.permission.WRITE_SETTINGS");
-        f60176b.add("android.permission.SYSTEM_ALERT_WINDOW");
+        f57892b.add("android.permission.WRITE_SETTINGS");
+        f57892b.add("android.permission.SYSTEM_ALERT_WINDOW");
     }
 
     public static int a(Context context, String str) {
@@ -39,7 +39,7 @@ public class ah {
             } catch (PackageManager.NameNotFoundException unused) {
             }
         }
-        if (!f60176b.contains(str) || (b2 = b(context, str)) == -2) {
+        if (!f57892b.contains(str) || (b2 = b(context, str)) == -2) {
             int c2 = c(context, str);
             return c2 != -2 ? c2 : context.checkPermission(str, Process.myPid(), Process.myUid());
         }
@@ -144,12 +144,12 @@ public class ah {
         if (a.containsKey(str)) {
             int intValue = a.get(str).intValue();
             try {
-                if (f60177c == null) {
+                if (f57893c == null) {
                     Method declaredMethod = AppOpsManager.class.getDeclaredMethod("checkOp", Integer.TYPE, Integer.TYPE, String.class);
-                    f60177c = declaredMethod;
+                    f57893c = declaredMethod;
                     declaredMethod.setAccessible(true);
                 }
-                return ((Integer) f60177c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
+                return ((Integer) f57893c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
                 return 0;

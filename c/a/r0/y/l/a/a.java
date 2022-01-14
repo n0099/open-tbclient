@@ -19,22 +19,22 @@ public class a {
     public BroadcastReceiver a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f12241b;
+    public Context f11956b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12242c;
+    public int f11957c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f12243d;
+    public b f11958d;
 
     /* renamed from: c.a.r0.y.l.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0802a extends BroadcastReceiver {
+    public class C0811a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a this$0;
 
-        public C0802a(a aVar) {
+        public C0811a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,11 +56,11 @@ public class a {
         public void onReceive(Context context, Intent intent) {
             int d2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE") && (d2 = this.this$0.d()) != this.this$0.f12242c) {
-                if (this.this$0.f12243d != null) {
-                    this.this$0.f12243d.a(this.this$0.f12242c, d2);
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE") && (d2 = this.this$0.d()) != this.this$0.f11957c) {
+                if (this.this$0.f11958d != null) {
+                    this.this$0.f11958d.a(this.this$0.f11957c, d2);
                 }
-                this.this$0.f12242c = d2;
+                this.this$0.f11957c = d2;
             }
         }
     }
@@ -88,10 +88,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (SwanAppNetworkUtils.j(this.f12241b)) {
+            if (SwanAppNetworkUtils.j(this.f11956b)) {
                 return 1;
             }
-            return SwanAppNetworkUtils.i(this.f12241b) ? 2 : 0;
+            return SwanAppNetworkUtils.i(this.f11956b) ? 2 : 0;
         }
         return invokeV.intValue;
     }
@@ -99,25 +99,25 @@ public class a {
     public void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f12241b = context;
-            this.f12242c = d();
-            C0802a c0802a = new C0802a(this);
-            this.a = c0802a;
-            this.f12241b.registerReceiver(c0802a, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            this.f11956b = context;
+            this.f11957c = d();
+            C0811a c0811a = new C0811a(this);
+            this.a = c0811a;
+            this.f11956b.registerReceiver(c0811a, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         }
     }
 
     public void f(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f12243d = bVar;
+            this.f11958d = bVar;
         }
     }
 
     public void g() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (context = this.f12241b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (context = this.f11956b) == null) {
             return;
         }
         context.unregisterReceiver(this.a);

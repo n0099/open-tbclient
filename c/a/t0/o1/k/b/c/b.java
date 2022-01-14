@@ -8,26 +8,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.NewHottopic.PkModule;
 import tbclient.NewHottopic.TimeLine;
 import tbclient.NewHottopic.TopicDetail;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21239b;
+    public String f20678b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21240c;
+    public String f20679c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21241d;
+    public String f20680d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.o1.k.c.c.b f21242e;
+    public c.a.t0.o1.k.c.c.b f20681e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f21243f;
+    public f f20682f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,10 +49,10 @@ public class b {
             return;
         }
         this.a = topicDetail.topic_id.longValue();
-        this.f21239b = topicDetail.topic_desc;
+        this.f20678b = topicDetail.topic_desc;
         topicDetail.discuss_num.longValue();
-        this.f21240c = topicDetail.topic_image;
-        this.f21241d = topicDetail.bg_image;
+        this.f20679c = topicDetail.topic_image;
+        this.f20680d = topicDetail.bg_image;
     }
 
     public void b(PkModule pkModule) {
@@ -61,9 +61,9 @@ public class b {
             return;
         }
         c.a.t0.o1.k.c.c.b bVar = new c.a.t0.o1.k.c.c.b();
-        this.f21242e = bVar;
+        this.f20681e = bVar;
         bVar.a = this.a;
-        bVar.f21287f = 2;
+        bVar.f20724f = 2;
         bVar.a(pkModule);
     }
 
@@ -73,7 +73,7 @@ public class b {
             return;
         }
         f fVar = new f();
-        this.f21243f = fVar;
+        this.f20682f = fVar;
         fVar.a(this.a, timeLine);
     }
 }

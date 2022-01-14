@@ -18,7 +18,7 @@ public class c extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f5904b;
+    public static final String[] f5774b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class c extends a {
                 return;
             }
         }
-        f5904b = new String[]{"setStorage", "getStorage", "removeStorage", "getSystemInfo", "getStorageInfo"};
+        f5774b = new String[]{"setStorage", "getStorage", "removeStorage", "getSystemInfo", "getStorageInfo"};
     }
 
     public c() {
@@ -56,7 +56,7 @@ public class c extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            for (String str3 : f5904b) {
+            for (String str3 : f5774b) {
                 if (TextUtils.equals(str3, str2)) {
                     return true;
                 }

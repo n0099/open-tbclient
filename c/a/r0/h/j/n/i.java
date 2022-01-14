@@ -31,11 +31,11 @@ public class i implements c.a.r0.h.j.p.a {
     private void setResult(c.a.r0.h.j.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, aVar) == null) {
-            this.a.f9899d.clear();
+            this.a.f9685d.clear();
             if (aVar != null) {
-                this.a.f9899d.putString("functionType", aVar.a());
-                this.a.f9899d.putString("resultData", aVar.b());
-                this.a.f9899d.putInt("resultStatus", aVar.c());
+                this.a.f9685d.putString("functionType", aVar.a());
+                this.a.f9685d.putString("resultData", aVar.b());
+                this.a.f9685d.putInt("resultStatus", aVar.c());
             }
             this.a.c();
         }

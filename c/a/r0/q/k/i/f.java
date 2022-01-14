@@ -18,15 +18,15 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f11871d;
+    public static f f11601d;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11872b;
+    public String f11602b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11873c;
+    public String f11603c;
 
     /* loaded from: classes6.dex */
     public static class a extends c.a.r0.w.j {
@@ -66,22 +66,22 @@ public class f {
             }
         }
         this.a = new a();
-        this.f11872b = AppRuntime.getAppContext().getString(c.a.r0.q.e.swan_launch_failed_default_dialog_msg);
-        this.f11873c = AppRuntime.getAppContext().getString(c.a.r0.q.e.swan_launch_failed_default_toast_msg);
+        this.f11602b = AppRuntime.getAppContext().getString(c.a.r0.q.e.swan_launch_failed_default_dialog_msg);
+        this.f11603c = AppRuntime.getAppContext().getString(c.a.r0.q.e.swan_launch_failed_default_toast_msg);
     }
 
     public static f b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11871d == null) {
+            if (f11601d == null) {
                 synchronized (f.class) {
-                    if (f11871d == null) {
-                        f11871d = new f();
+                    if (f11601d == null) {
+                        f11601d = new f();
                     }
                 }
             }
-            return f11871d;
+            return f11601d;
         }
         return (f) invokeV.objValue;
     }
@@ -89,13 +89,13 @@ public class f {
     public String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.a.getString(String.format("%04d", Long.valueOf(j2)), this.f11872b) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.a.getString(String.format("%04d", Long.valueOf(j2)), this.f11602b) : (String) invokeJ.objValue;
     }
 
     public String c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.a.getString(String.format("%04d", Long.valueOf(j2)), this.f11873c) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.a.getString(String.format("%04d", Long.valueOf(j2)), this.f11603c) : (String) invokeJ.objValue;
     }
 
     public String d() {

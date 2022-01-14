@@ -31,22 +31,20 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d f9908f;
+    public final d f9694f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f9909g;
+    public final String f9695g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Set<c.a.r0.a.z2.g1.c<i.a>> f9910h;
+    public final Set<c.a.r0.a.z2.g1.c<i.a>> f9696h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Set<c.a.r0.a.z2.g1.c<c>> f9911i;
+    public final Set<c.a.r0.a.z2.g1.c<c>> f9697i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Set<String> f9912j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final Set<Integer> f9913k;
+    public final Set<String> f9698j;
+    public final Set<Integer> k;
     public Exception l;
     public long m;
     public boolean n;
@@ -58,7 +56,7 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f9914e;
+        public final /* synthetic */ c f9699e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -75,15 +73,15 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
                     return;
                 }
             }
-            this.f9914e = cVar;
+            this.f9699e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f9914e.f9908f) {
-                    this.f9914e.f9908f.a0(this.f9914e, this.f9914e.W());
+                synchronized (this.f9699e.f9694f) {
+                    this.f9699e.f9694f.a0(this.f9699e, this.f9699e.W());
                 }
             }
         }
@@ -120,18 +118,18 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
                 return;
             }
         }
-        this.f9910h = new HashSet();
-        this.f9911i = new HashSet();
-        this.f9912j = new HashSet();
-        this.f9913k = new HashSet();
+        this.f9696h = new HashSet();
+        this.f9697i = new HashSet();
+        this.f9698j = new HashSet();
+        this.k = new HashSet();
         this.l = null;
         this.m = 0L;
         this.n = false;
         this.o = new a(this);
-        this.f9908f = dVar;
-        this.f9909g = TextUtils.isEmpty(str) ? UUID.randomUUID().toString() : str;
+        this.f9694f = dVar;
+        this.f9695g = TextUtils.isEmpty(str) ? UUID.randomUUID().toString() : str;
         if (p) {
-            U("IpcSession", "host=" + dVar + " id=" + str + " mId=" + this.f9909g);
+            U("IpcSession", "host=" + dVar + " id=" + str + " mId=" + this.f9695g);
         }
     }
 
@@ -169,7 +167,7 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            H(this.f9911i, cVar);
+            H(this.f9697i, cVar);
             return this;
         }
         return (c) invokeL.objValue;
@@ -179,7 +177,7 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
-            H(this.f9910h, cVar);
+            H(this.f9696h, cVar);
             return this;
         }
         return (c) invokeL.objValue;
@@ -189,7 +187,7 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, set, callbackt)) == null) {
-            synchronized (this.f9908f) {
+            synchronized (this.f9694f) {
                 if (Z() && callbackt != null) {
                     set.add(callbackt);
                 }
@@ -203,8 +201,8 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            synchronized (this.f9908f) {
-                this.f9913k.add(Integer.valueOf(i2));
+            synchronized (this.f9694f) {
+                this.k.add(Integer.valueOf(i2));
                 Y();
             }
             return this;
@@ -216,8 +214,8 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this.f9908f) {
-                this.f9912j.add(str);
+            synchronized (this.f9694f) {
+                this.f9698j.add(str);
                 Y();
             }
             return this;
@@ -229,7 +227,7 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            synchronized (this.f9908f) {
+            synchronized (this.f9694f) {
                 this.n = z;
                 Y();
             }
@@ -243,20 +241,20 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             Bundle D = D();
-            D.putString("ipc_session_id", this.f9909g);
+            D.putString("ipc_session_id", this.f9695g);
             D.putLong("ipc_session_timeout", this.m);
             D.putInt("ipc_session_repal", SwanAppProcessInfo.current().index);
-            D.putString("ipc_topic", this.f9908f.W(this));
+            D.putString("ipc_topic", this.f9694f.W(this));
             c.a.r0.a.y1.c.c cVar = new c.a.r0.a.y1.c.c(V(), D);
             cVar.p(true);
             cVar.f(!SwanAppProcessInfo.current().isSwanService || this.n);
-            for (Integer num : this.f9913k) {
+            for (Integer num : this.k) {
                 int intValue = num.intValue();
                 if (SwanAppProcessInfo.checkProcessId(intValue)) {
                     cVar.a(intValue);
                 }
             }
-            for (String str : this.f9912j) {
+            for (String str : this.f9698j) {
                 if (!TextUtils.isEmpty(str)) {
                     cVar.c(str);
                 }
@@ -273,19 +271,19 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, exc)) == null) {
-            synchronized (this.f9908f) {
+            synchronized (this.f9694f) {
                 if (!R()) {
                     c.a.r0.a.d2.d.L().removeCallbacks(this.o);
                     this.m = -1L;
                     this.l = exc;
-                    this.f9910h.clear();
-                    for (c.a.r0.a.z2.g1.c<c> cVar : this.f9911i) {
+                    this.f9696h.clear();
+                    for (c.a.r0.a.z2.g1.c<c> cVar : this.f9697i) {
                         cVar.onCallback(this);
                     }
-                    this.f9911i.clear();
+                    this.f9697i.clear();
                     this.n = false;
-                    this.f9912j.clear();
-                    this.f9913k.clear();
+                    this.f9698j.clear();
+                    this.k.clear();
                     b();
                 }
             }
@@ -309,7 +307,7 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
     public String Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f9909g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f9695g : (String) invokeV.objValue;
     }
 
     public boolean R() {
@@ -323,7 +321,7 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j2)) == null) {
-            synchronized (this.f9908f) {
+            synchronized (this.f9694f) {
                 if (Z()) {
                     this.m = Math.max(Math.max(j2, b.n0), this.m);
                     Handler L = c.a.r0.a.d2.d.L();
@@ -386,10 +384,10 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, aVar)) == null) {
-            synchronized (this.f9908f) {
-                z = (!Z() || this.f9910h.isEmpty() || aVar == null) ? false : true;
+            synchronized (this.f9694f) {
+                z = (!Z() || this.f9696h.isEmpty() || aVar == null) ? false : true;
                 if (z) {
-                    for (c.a.r0.a.z2.g1.c<i.a> cVar : this.f9910h) {
+                    for (c.a.r0.a.z2.g1.c<i.a> cVar : this.f9696h) {
                         cVar.onCallback(aVar);
                     }
                 }
@@ -410,10 +408,10 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            synchronized (this.f9908f) {
-                z = (R() || P() || TextUtils.isEmpty(this.f9909g)) ? false : true;
+            synchronized (this.f9694f) {
+                z = (R() || P() || TextUtils.isEmpty(this.f9695g)) ? false : true;
                 if (p) {
-                    U("valid", z + " isFinished=" + R() + " hasException=" + this.l + " id=" + this.f9909g);
+                    U("valid", z + " isFinished=" + R() + " hasException=" + this.l + " id=" + this.f9695g);
                 }
             }
             return z;
@@ -440,7 +438,7 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             synchronized (this) {
-                str = "IpcSession: id=" + this.f9909g + " timeout=" + this.m;
+                str = "IpcSession: id=" + this.f9695g + " timeout=" + this.m;
             }
             return str;
         }
@@ -451,7 +449,7 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j2)) == null) {
-            synchronized (this.f9908f) {
+            synchronized (this.f9694f) {
                 if (p) {
                     U(NotificationCompat.CATEGORY_CALL, "timeoutAtLeast=" + j2);
                 }
@@ -463,7 +461,7 @@ public final class c extends c.a.r0.a.f1.e.f.c<c> implements b {
                     c.a.r0.a.y1.c.a.e().h(L());
                     b();
                 } else {
-                    this.f9908f.a0(this, new IllegalStateException("invalid session call"));
+                    this.f9694f.a0(this, new IllegalStateException("invalid session call"));
                 }
                 Y();
             }

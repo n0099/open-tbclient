@@ -17,7 +17,7 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4560b;
+    public String f4465b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class h {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4560b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4465b : (String) invokeV.objValue;
     }
 
     public final String b(Context context) {
@@ -86,7 +86,7 @@ public class h {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Context appContext = AppRuntime.getAppContext();
             this.a = c(appContext);
-            this.f4560b = b(appContext);
+            this.f4465b = b(appContext);
         }
     }
 }

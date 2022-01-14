@@ -12,7 +12,7 @@ public class h extends b<a> {
         public String a = "";
 
         /* renamed from: b  reason: collision with root package name */
-        public String f57837b = "";
+        public String f55646b = "";
     }
 
     public h() {
@@ -68,6 +68,6 @@ public class h extends b<a> {
 
     public String e() {
         a a2 = a();
-        return (a2 == null || TextUtils.isEmpty(a2.f57837b)) ? "" : a2.f57837b;
+        return (a2 == null || TextUtils.isEmpty(a2.f55646b)) ? "" : a2.f55646b;
     }
 }

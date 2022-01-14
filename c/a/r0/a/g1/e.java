@@ -23,18 +23,18 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f6369e;
+    public static final boolean f6229e;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f6370b;
+    public a f6230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f6371c;
+    public boolean f6231c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.r0.a.g1.j.a f6372d;
+    public final c.a.r0.a.g1.j.a f6232d;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -43,24 +43,24 @@ public class e {
         public b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Timer f6373b;
+        public Timer f6233b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f6374c;
+        public long f6234c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f6375d;
+        public int f6235d;
 
         /* renamed from: c.a.r0.a.g1.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0334a extends TimerTask {
+        public class C0343a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f6376e;
+            public final /* synthetic */ a f6236e;
 
-            public C0334a(a aVar) {
+            public C0343a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,22 +75,22 @@ public class e {
                         return;
                     }
                 }
-                this.f6376e = aVar;
+                this.f6236e = aVar;
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (e.f6369e) {
-                        String str = "task run: " + this.f6376e.f6374c;
+                    if (e.f6229e) {
+                        String str = "task run: " + this.f6236e.f6234c;
                     }
-                    this.f6376e.f6374c -= 10;
-                    if (this.f6376e.f6374c > 0 || this.f6376e.a == null) {
+                    this.f6236e.f6234c -= 10;
+                    if (this.f6236e.f6234c > 0 || this.f6236e.a == null) {
                         return;
                     }
-                    this.f6376e.a.h(1);
-                    this.f6376e.l();
+                    this.f6236e.a.h(1);
+                    this.f6236e.l();
                 }
             }
         }
@@ -108,18 +108,18 @@ public class e {
                     return;
                 }
             }
-            this.f6374c = 300L;
-            this.f6375d = 0;
+            this.f6234c = 300L;
+            this.f6235d = 0;
         }
 
         public final synchronized void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    if (this.f6373b != null) {
-                        this.f6373b.cancel();
-                        this.f6373b.purge();
-                        this.f6373b = null;
+                    if (this.f6233b != null) {
+                        this.f6233b.cancel();
+                        this.f6233b.purge();
+                        this.f6233b = null;
                     }
                 }
             }
@@ -128,32 +128,32 @@ public class e {
         public final TimerTask e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0334a(this) : (TimerTask) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0343a(this) : (TimerTask) invokeV.objValue;
         }
 
         public void f() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f6375d == 2) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f6235d == 2) {
                 return;
             }
-            this.f6375d = 4;
+            this.f6235d = 4;
             d();
         }
 
         public final void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f6374c = c.a.r0.a.u1.l.c.a();
-                if (e.f6369e && c.a.r0.a.x1.a.a.u().getBoolean("swan_5min_back_optimize", false)) {
-                    this.f6374c = 30L;
+                this.f6234c = c.a.r0.a.u1.l.c.a();
+                if (e.f6229e && c.a.r0.a.x1.a.a.u().getBoolean("swan_5min_back_optimize", false)) {
+                    this.f6234c = 30L;
                 }
             }
         }
 
         public void h() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f6375d == 4) {
-                this.f6375d = 3;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f6235d == 4) {
+                this.f6235d = 3;
                 d();
                 i();
             }
@@ -163,7 +163,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 Timer timer = new Timer();
-                this.f6373b = timer;
+                this.f6233b = timer;
                 timer.schedule(e(), 0L, 10000L);
             }
         }
@@ -178,7 +178,7 @@ public class e {
         public void k() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.f6375d = 1;
+                this.f6235d = 1;
                 g();
                 d();
                 i();
@@ -188,7 +188,7 @@ public class e {
         public void l() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.f6375d = 2;
+                this.f6235d = 2;
                 d();
                 g();
             }
@@ -275,7 +275,7 @@ public class e {
                 return;
             }
         }
-        f6369e = k.a;
+        f6229e = k.a;
     }
 
     public e() {
@@ -292,26 +292,26 @@ public class e {
             }
         }
         this.a = new c(this);
-        this.f6370b = new a();
-        this.f6372d = c.a.r0.a.g1.j.c.c();
+        this.f6230b = new a();
+        this.f6232d = c.a.r0.a.g1.j.c.c();
     }
 
     public void c(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f6371c) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f6231c) {
             return;
         }
         if (context == null && (context = c.a.r0.a.c1.a.c()) == null) {
             return;
         }
-        this.f6371c = true;
+        this.f6231c = true;
         context.registerReceiver(this.a, c.getIntentFilter());
     }
 
     public final void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (f6369e) {
+            if (f6229e) {
                 String str = "onScreenStatusChanged isOn: " + z;
             }
             if (z) {
@@ -325,21 +325,21 @@ public class e {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f6370b.f();
+            this.f6230b.f();
         }
     }
 
     public void f(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && this.f6371c) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && this.f6231c) {
             if (context == null && (context = c.a.r0.a.c1.a.c()) == null) {
                 return;
             }
-            this.f6371c = false;
+            this.f6231c = false;
             try {
                 context.unregisterReceiver(this.a);
             } catch (IllegalArgumentException e2) {
-                if (f6369e) {
+                if (f6229e) {
                     e2.printStackTrace();
                 }
             }
@@ -349,32 +349,32 @@ public class e {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f6370b.h();
+            this.f6230b.h();
         }
     }
 
     public void h(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f6370b.j(bVar);
+            this.f6230b.j(bVar);
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            boolean z = f6369e;
-            this.f6372d.onPause();
-            this.f6370b.k();
+            boolean z = f6229e;
+            this.f6232d.onPause();
+            this.f6230b.k();
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            boolean z = f6369e;
-            this.f6372d.onResume();
-            this.f6370b.l();
+            boolean z = f6229e;
+            this.f6232d.onResume();
+            this.f6230b.l();
         }
     }
 }

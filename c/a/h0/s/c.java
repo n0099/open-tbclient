@@ -31,7 +31,7 @@ public class c {
     public Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IChannelPay f3698b;
+    public IChannelPay f3644b;
 
     /* loaded from: classes.dex */
     public class a extends c.a.h0.l.a<Map<String, String>> {
@@ -40,13 +40,13 @@ public class c {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ChannelListView f3699b;
+        public final /* synthetic */ ChannelListView f3645b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f3700c;
+        public final /* synthetic */ String f3646c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c f3701d;
+        public final /* synthetic */ c f3647d;
 
         public a(c cVar, String str, ChannelListView channelListView, String str2) {
             Interceptable interceptable = $ic;
@@ -63,10 +63,10 @@ public class c {
                     return;
                 }
             }
-            this.f3701d = cVar;
+            this.f3647d = cVar;
             this.a = str;
-            this.f3699b = channelListView;
-            this.f3700c = str2;
+            this.f3645b = channelListView;
+            this.f3646c = str2;
         }
 
         @Override // c.a.h0.l.a
@@ -79,7 +79,7 @@ public class c {
                 } else {
                     message = th != null ? th.getMessage() : null;
                 }
-                ChannelListView channelListView = this.f3699b;
+                ChannelListView channelListView = this.f3645b;
                 channelListView.errorEnd(l.a().getString(i.pay_second_interface_fail) + message, str);
                 c.a.h0.p.c cVar = new c.a.h0.p.c("1");
                 cVar.b(new SdkException("pay_platform error --> " + str, th).getStackMessage());
@@ -99,8 +99,8 @@ public class c {
                     hashMap.put("isFoldChannel", this.a);
                 }
                 c.a.h0.p.b.c("8", hashMap);
-                this.f3699b.hideToastLoading();
-                this.f3701d.f("STEP_INNER", map, this.f3700c, this.f3699b, null);
+                this.f3645b.hideToastLoading();
+                this.f3647d.f("STEP_INNER", map, this.f3646c, this.f3645b, null);
             }
         }
     }
@@ -112,22 +112,22 @@ public class c {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f3702b;
+        public final /* synthetic */ Map f3648b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ChannelListView f3703c;
+        public final /* synthetic */ ChannelListView f3649c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f3704d;
+        public final /* synthetic */ String f3650d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f3705e;
+        public final /* synthetic */ String f3651e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f3706f;
+        public final /* synthetic */ String f3652f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f3707g;
+        public final /* synthetic */ c f3653g;
 
         public b(c cVar, String str, Map map, ChannelListView channelListView, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -144,13 +144,13 @@ public class c {
                     return;
                 }
             }
-            this.f3707g = cVar;
+            this.f3653g = cVar;
             this.a = str;
-            this.f3702b = map;
-            this.f3703c = channelListView;
-            this.f3704d = str2;
-            this.f3705e = str3;
-            this.f3706f = str4;
+            this.f3648b = map;
+            this.f3649c = channelListView;
+            this.f3650d = str2;
+            this.f3651e = str3;
+            this.f3652f = str4;
         }
 
         @Override // c.a.h0.s.g.a
@@ -159,21 +159,21 @@ public class c {
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 h.g("WalletChannel->thirdPay onResult statusCode = " + i2 + " msg = " + str);
                 if (TextUtils.equals(this.a, "DIRECT_OUTTER")) {
-                    this.f3707g.e(i2, str, this.f3702b, this.f3703c, this.f3704d);
+                    this.f3653g.e(i2, str, this.f3648b, this.f3649c, this.f3650d);
                     return;
                 }
-                this.f3703c.payEnd(i2, e.a(i2, this.f3705e, str), "1", this.a, this.f3702b, this.f3706f);
+                this.f3649c.payEnd(i2, e.a(i2, this.f3651e, str), "1", this.a, this.f3648b, this.f3652f);
             }
         }
     }
 
     /* renamed from: c.a.h0.s.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0139c extends c.a.h0.l.a<String> {
+    public class C0147c extends c.a.h0.l.a<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0139c(c cVar) {
+        public C0147c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,7 +222,7 @@ public class c {
             }
         }
         this.a = activity;
-        this.f3698b = iChannelPay;
+        this.f3644b = iChannelPay;
     }
 
     public void b(Bundle bundle, PayChannelEntity payChannelEntity, String str, ChannelListView channelListView) {
@@ -236,9 +236,9 @@ public class c {
             return;
         }
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put(c.a.h0.l.h.b.f3593b, payChannel);
+        jSONObject.put(c.a.h0.l.h.b.f3540b, payChannel);
         if (!TextUtils.isEmpty(installmentPeriod)) {
-            jSONObject.put(c.a.h0.l.h.b.f3594c, installmentPeriod);
+            jSONObject.put(c.a.h0.l.h.b.f3541c, installmentPeriod);
         }
         bundle.putString("reqData", jSONObject.toString());
         c.a.h0.l.h.b.j().u(bundle, new a(this, str, channelListView, payChannel));
@@ -276,7 +276,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, map, channelListView, str2}) == null) {
             if (!TextUtils.isEmpty(str2) && i2 == 0) {
-                new g().d(str2, new c.a.h0.l.c(), new C0139c(this));
+                new g().d(str2, new c.a.h0.l.c(), new C0147c(this));
             }
             channelListView.payEnd(i2, c.a.h0.r.d.a(map.get("orderId"), map.get("payInfo"), str), "1");
         }
@@ -286,13 +286,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048580, this, str, map, str2, channelListView, str3) == null) {
             c.a.h0.s.g.b bVar = new c.a.h0.s.g.b();
-            bVar.f3730b = c(map);
+            bVar.f3676b = c(map);
             bVar.a = str2;
             String str4 = map.get("payOrderNo");
-            f.f3667f = str4;
-            if (this.f3698b != null) {
+            f.f3613f = str4;
+            if (this.f3644b != null) {
                 c.a.h0.p.b.d();
-                this.f3698b.pay(this.a, bVar, new b(this, str, map, channelListView, str3, str4, str2));
+                this.f3644b.pay(this.a, bVar, new b(this, str, map, channelListView, str3, str4, str2));
                 h.g("WalletChannel->thirdPay setIsPreparePaying()");
                 channelListView.setIsPreparePaying(false);
             }

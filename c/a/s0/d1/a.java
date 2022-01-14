@@ -22,17 +22,17 @@ public class a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f12634b;
+    public HttpMessageListener f12337b;
 
     /* renamed from: c.a.s0.d1.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0820a extends HttpMessageListener {
+    public class C0830a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0820a(a aVar, int i2) {
+        public C0830a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -83,8 +83,8 @@ public class a {
                 return;
             }
         }
-        this.f12634b = new C0820a(this, CmdConfigHttp.CMD_TRACK_CONFIG);
-        MessageManager.getInstance().registerListener(this.f12634b);
+        this.f12337b = new C0830a(this, CmdConfigHttp.CMD_TRACK_CONFIG);
+        MessageManager.getInstance().registerListener(this.f12337b);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
         tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

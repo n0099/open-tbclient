@@ -32,10 +32,10 @@ public class c extends WebChromeClient {
     public final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebChromeClient f14009b;
+    public WebChromeClient f13682b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q f14010c;
+    public q f13683c;
 
     /* loaded from: classes6.dex */
     public static final class a {
@@ -95,20 +95,20 @@ public class c extends WebChromeClient {
     public final String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f14010c.o(str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f13683c.o(str, str2) : (String) invokeLL.objValue;
     }
 
     public void c(q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-            this.f14010c = qVar;
+            this.f13683c = qVar;
         }
     }
 
     public void d(WebChromeClient webChromeClient) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webChromeClient) == null) {
-            this.f14009b = webChromeClient;
+            this.f13682b = webChromeClient;
         }
     }
 
@@ -117,7 +117,7 @@ public class c extends WebChromeClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 return webChromeClient.getDefaultVideoPoster();
             }
@@ -131,7 +131,7 @@ public class c extends WebChromeClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 return webChromeClient.getVideoLoadingProgressView();
             }
@@ -144,7 +144,7 @@ public class c extends WebChromeClient {
     public void getVisitedHistory(ValueCallback<String[]> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, valueCallback) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.getVisitedHistory(valueCallback);
             } else {
@@ -157,7 +157,7 @@ public class c extends WebChromeClient {
     public void onCloseWindow(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, webView) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onCloseWindow(webView);
             } else {
@@ -171,7 +171,7 @@ public class c extends WebChromeClient {
     public void onConsoleMessage(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048583, this, str, i2, str2) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onConsoleMessage(str, i2, str2);
             } else {
@@ -185,7 +185,7 @@ public class c extends WebChromeClient {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2), message})) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 return webChromeClient.onCreateWindow(webView, z, z2, message);
             }
@@ -198,7 +198,7 @@ public class c extends WebChromeClient {
     public void onExceededDatabaseQuota(String str, String str2, long j2, long j3, long j4, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), quotaUpdater}) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onExceededDatabaseQuota(str, str2, j2, j3, j4, quotaUpdater);
             } else {
@@ -211,7 +211,7 @@ public class c extends WebChromeClient {
     public void onGeolocationPermissionsHidePrompt() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onGeolocationPermissionsHidePrompt();
             } else {
@@ -224,7 +224,7 @@ public class c extends WebChromeClient {
     public void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissions.Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, callback) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onGeolocationPermissionsShowPrompt(str, callback);
             } else {
@@ -237,7 +237,7 @@ public class c extends WebChromeClient {
     public void onHideCustomView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onHideCustomView();
             } else {
@@ -251,7 +251,7 @@ public class c extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, webView, str, str2, jsResult)) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 return webChromeClient.onJsAlert(webView, str, str2, jsResult);
             }
@@ -265,7 +265,7 @@ public class c extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048591, this, webView, str, str2, jsResult)) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 return webChromeClient.onJsBeforeUnload(webView, str, str2, jsResult);
             }
@@ -279,7 +279,7 @@ public class c extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048592, this, webView, str, str2, jsResult)) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 return webChromeClient.onJsConfirm(webView, str, str2, jsResult);
             }
@@ -297,7 +297,7 @@ public class c extends WebChromeClient {
                 jsPromptResult.confirm(this.a.b(str, str2));
                 return true;
             }
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 return webChromeClient.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
@@ -311,7 +311,7 @@ public class c extends WebChromeClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 return webChromeClient.onJsTimeout();
             }
@@ -324,7 +324,7 @@ public class c extends WebChromeClient {
     public void onProgressChanged(WebView webView, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048595, this, webView, i2) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onProgressChanged(webView, i2);
             } else {
@@ -337,7 +337,7 @@ public class c extends WebChromeClient {
     public void onReachedMaxAppCacheSize(long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onReachedMaxAppCacheSize(j2, j3, quotaUpdater);
             } else {
@@ -350,7 +350,7 @@ public class c extends WebChromeClient {
     public void onReceivedIcon(WebView webView, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, webView, bitmap) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onReceivedIcon(webView, bitmap);
             } else {
@@ -363,7 +363,7 @@ public class c extends WebChromeClient {
     public void onReceivedTitle(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048598, this, webView, str) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onReceivedTitle(webView, str);
             } else {
@@ -376,7 +376,7 @@ public class c extends WebChromeClient {
     public void onReceivedTouchIconUrl(WebView webView, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048599, this, webView, str, z) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onReceivedTouchIconUrl(webView, str, z);
             } else {
@@ -389,7 +389,7 @@ public class c extends WebChromeClient {
     public void onRequestFocus(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, webView) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onRequestFocus(webView);
             } else {
@@ -402,7 +402,7 @@ public class c extends WebChromeClient {
     public void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048602, this, view, customViewCallback) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onShowCustomView(view, customViewCallback);
             } else {
@@ -424,9 +424,9 @@ public class c extends WebChromeClient {
                     intent.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
                 }
                 intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
-                q qVar = this.f14010c;
+                q qVar = this.f13683c;
                 if (qVar != null && (qVar.getContext() instanceof TbWebViewActivity)) {
-                    TbWebViewActivity tbWebViewActivity = (TbWebViewActivity) this.f14010c.getContext();
+                    TbWebViewActivity tbWebViewActivity = (TbWebViewActivity) this.f13683c.getContext();
                     tbWebViewActivity.setUploadMessageAboveL(valueCallback);
                     tbWebViewActivity.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
                 }
@@ -440,11 +440,11 @@ public class c extends WebChromeClient {
     public void openFileChooser(ValueCallback<Uri> valueCallback) {
         WebChromeClient webChromeClient;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, valueCallback) == null) || (webChromeClient = this.f14009b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, valueCallback) == null) || (webChromeClient = this.f13682b) == null) {
             return;
         }
         try {
-            webChromeClient.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class).invoke(this.f14009b, valueCallback);
+            webChromeClient.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class).invoke(this.f13682b, valueCallback);
         } catch (IllegalAccessException e2) {
             e.a(e2.getMessage());
         } catch (NoSuchMethodException e3) {
@@ -472,7 +472,7 @@ public class c extends WebChromeClient {
             }
         }
         this.a = new a(this);
-        this.f14009b = webChromeClient;
+        this.f13682b = webChromeClient;
     }
 
     @Override // android.webkit.WebChromeClient
@@ -480,7 +480,7 @@ public class c extends WebChromeClient {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, consoleMessage)) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 return webChromeClient.onConsoleMessage(consoleMessage);
             }
@@ -493,7 +493,7 @@ public class c extends WebChromeClient {
     public void onShowCustomView(View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048601, this, view, i2, customViewCallback) == null) {
-            WebChromeClient webChromeClient = this.f14009b;
+            WebChromeClient webChromeClient = this.f13682b;
             if (webChromeClient != null) {
                 webChromeClient.onShowCustomView(view, i2, customViewCallback);
             } else {
@@ -505,11 +505,11 @@ public class c extends WebChromeClient {
     public void openFileChooser(ValueCallback valueCallback, String str) {
         WebChromeClient webChromeClient;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048605, this, valueCallback, str) == null) || (webChromeClient = this.f14009b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048605, this, valueCallback, str) == null) || (webChromeClient = this.f13682b) == null) {
             return;
         }
         try {
-            webChromeClient.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class).invoke(this.f14009b, valueCallback, str);
+            webChromeClient.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class).invoke(this.f13682b, valueCallback, str);
         } catch (IllegalAccessException e2) {
             e.a(e2.getMessage());
         } catch (NoSuchMethodException e3) {
@@ -524,11 +524,11 @@ public class c extends WebChromeClient {
     public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
         WebChromeClient webChromeClient;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048606, this, valueCallback, str, str2) == null) || (webChromeClient = this.f14009b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048606, this, valueCallback, str, str2) == null) || (webChromeClient = this.f13682b) == null) {
             return;
         }
         try {
-            webChromeClient.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class, String.class).invoke(this.f14009b, valueCallback, str, str2);
+            webChromeClient.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class, String.class).invoke(this.f13682b, valueCallback, str, str2);
         } catch (IllegalAccessException e2) {
             e.a(e2.getMessage());
         } catch (NoSuchMethodException e3) {

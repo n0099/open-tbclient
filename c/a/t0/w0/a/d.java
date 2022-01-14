@@ -42,25 +42,23 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f25356e;
+    public TbPageContext f24646e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VlogEditManager f25357f;
+    public VlogEditManager f24647f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MultiMediaDataSourceViewAdapter f25358g;
+    public MultiMediaDataSourceViewAdapter f24648g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbGLMediaPreviewView f25359h;
+    public TbGLMediaPreviewView f24649h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PreViewPickCoverView f25360i;
+    public PreViewPickCoverView f24650i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f25361j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public float f25362k;
+    public float f24651j;
+    public float k;
     public TbMultiMediaData l;
     public List<MultiMediaData> m;
     public h n;
@@ -109,10 +107,10 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f25363e;
+        public final /* synthetic */ ArrayList f24652e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f25364f;
+        public final /* synthetic */ d f24653f;
 
         public b(d dVar, ArrayList arrayList) {
             Interceptable interceptable = $ic;
@@ -129,15 +127,15 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
                     return;
                 }
             }
-            this.f25364f = dVar;
-            this.f25363e = arrayList;
+            this.f24653f = dVar;
+            this.f24652e = arrayList;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f25364f.n.c(this.f25363e);
+                this.f24653f.n.c(this.f24652e);
             }
         }
     }
@@ -148,7 +146,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f25365e;
+        public final /* synthetic */ d f24654e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -165,28 +163,28 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
                     return;
                 }
             }
-            this.f25365e = dVar;
+            this.f24654e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f25365e.A();
+                this.f24654e.A();
             }
         }
     }
 
     /* renamed from: c.a.t0.w0.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class RunnableC1479d implements Runnable {
+    public class RunnableC1494d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f25366e;
+        public final /* synthetic */ d f24655e;
 
-        public RunnableC1479d(d dVar) {
+        public RunnableC1494d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -201,18 +199,18 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
                     return;
                 }
             }
-            this.f25366e = dVar;
+            this.f24655e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Buffer captureVideoCover;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (captureVideoCover = this.f25366e.f25357f.captureVideoCover(this.f25366e.f25357f.getCurrentIndex(), this.f25366e.f25357f.getCurrentPlayTime(), this.f25366e.f25359h.getWidth(), this.f25366e.f25359h.getHeight())) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (captureVideoCover = this.f24655e.f24647f.captureVideoCover(this.f24655e.f24647f.getCurrentIndex(), this.f24655e.f24647f.getCurrentPlayTime(), this.f24655e.f24649h.getWidth(), this.f24655e.f24649h.getHeight())) == null) {
                 return;
             }
-            d dVar = this.f25366e;
-            dVar.C(captureVideoCover, dVar.f25359h.getWidth(), this.f25366e.f25359h.getHeight());
+            d dVar = this.f24655e;
+            dVar.C(captureVideoCover, dVar.f24649h.getWidth(), this.f24655e.f24649h.getHeight());
         }
     }
 
@@ -222,7 +220,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f25367e;
+        public final /* synthetic */ d f24656e;
 
         /* loaded from: classes8.dex */
         public class a implements Runnable {
@@ -230,10 +228,10 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f25368e;
+            public final /* synthetic */ Bitmap f24657e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ e f25369f;
+            public final /* synthetic */ e f24658f;
 
             public a(e eVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
@@ -250,17 +248,17 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
                         return;
                     }
                 }
-                this.f25369f = eVar;
-                this.f25368e = bitmap;
+                this.f24658f = eVar;
+                this.f24657e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f25369f.f25367e.f25360i == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24658f.f24656e.f24650i == null) {
                     return;
                 }
-                this.f25369f.f25367e.f25360i.updateVideoCover(this.f25368e);
+                this.f24658f.f24656e.f24650i.updateVideoCover(this.f24657e);
             }
         }
 
@@ -270,7 +268,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f25370e;
+            public final /* synthetic */ e f24659e;
 
             public b(e eVar) {
                 Interceptable interceptable = $ic;
@@ -287,14 +285,14 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
                         return;
                     }
                 }
-                this.f25370e = eVar;
+                this.f24659e = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f25370e.f25367e.f25360i.hideCoverImage();
+                    this.f24659e.f24656e.f24650i.hideCoverImage();
                 }
             }
         }
@@ -314,15 +312,15 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
                     return;
                 }
             }
-            this.f25367e = dVar;
+            this.f24656e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f25367e.f25357f != null && this.f25367e.f25357f.isPaused()) {
-                if (this.f25367e.p != null) {
-                    u.a().post(new a(this, BitmapFactory.decodeFile(this.f25367e.p.path)));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f24656e.f24647f != null && this.f24656e.f24647f.isPaused()) {
+                if (this.f24656e.p != null) {
+                    u.a().post(new a(this, BitmapFactory.decodeFile(this.f24656e.p.path)));
                     return;
                 }
                 u.a().post(new b(this));
@@ -346,9 +344,9 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
                 return;
             }
         }
-        this.f25356e = tbPageContext;
-        this.f25359h = tbGLMediaPreviewView;
-        this.f25360i = preViewPickCoverView;
+        this.f24646e = tbPageContext;
+        this.f24649h = tbGLMediaPreviewView;
+        this.f24650i = preViewPickCoverView;
         this.m = new ArrayList();
         this.l = tbMultiMediaData;
         try {
@@ -364,26 +362,26 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.f25361j = tbMultiMediaData.videoRatio;
+        this.f24651j = tbMultiMediaData.videoRatio;
         this.t = new c.a.t0.w0.a.c(z);
     }
 
     public final void A() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f25357f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24647f == null) {
             return;
         }
         int j2 = t.j(R.dimen.tbds32);
-        if (this.f25359h.getWidth() > this.f25359h.getHeight()) {
+        if (this.f24649h.getWidth() > this.f24649h.getHeight()) {
             j2 = t.j(R.dimen.tbds28);
         }
         c.a.t0.j4.e.d().j((int) (j2 * 1.0f));
-        h hVar = new h(this.f25356e.getPageActivity(), this.f25357f);
+        h hVar = new h(this.f24646e.getPageActivity(), this.f24647f);
         this.n = hVar;
         hVar.h("cover_sticker");
-        TbGLMediaPreviewView tbGLMediaPreviewView = this.f25359h;
+        TbGLMediaPreviewView tbGLMediaPreviewView = this.f24649h;
         if (tbGLMediaPreviewView != null) {
-            this.n.i(tbGLMediaPreviewView.getWidth(), this.f25359h.getHeight());
+            this.n.i(tbGLMediaPreviewView.getWidth(), this.f24649h.getHeight());
         }
         TextWordsEntity textWordsEntity = this.q;
         if (textWordsEntity != null) {
@@ -400,16 +398,16 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f25359h.post(new c(this));
-            this.f25360i.setPreViewPickCoverViewListener(this);
-            this.f25360i.setOnTextWordsEditListener(this);
-            this.f25360i.setCoverEntity(this.q);
-            this.f25360i.setLastPercent(0.0f);
-            this.f25360i.updateSmartCover(0.0f);
+            this.f24649h.post(new c(this));
+            this.f24650i.setPreViewPickCoverViewListener(this);
+            this.f24650i.setOnTextWordsEditListener(this);
+            this.f24650i.setCoverEntity(this.q);
+            this.f24650i.setLastPercent(0.0f);
+            this.f24650i.updateSmartCover(0.0f);
             updateVideoCoverPercent(0.0f);
-            this.f25360i.notifyCoverData();
-            this.f25360i.setMultiMediaData(this.l);
-            this.f25357f.seek(0L);
+            this.f24650i.notifyCoverData();
+            this.f24650i.setMultiMediaData(this.l);
+            this.f24647f.seek(0L);
         }
     }
 
@@ -421,8 +419,8 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
             aVar.o(i3);
             aVar.p(true);
             aVar.n(buffer);
-            aVar.r(this.f25361j);
-            VlogEditManager vlogEditManager = this.f25357f;
+            aVar.r(this.f24651j);
+            VlogEditManager vlogEditManager = this.f24647f;
             aVar.q(vlogEditManager == null ? null : vlogEditManager.getMultiMediaData(vlogEditManager.getCurrentIndex()));
             aVar.s("manual");
             c.a.t0.w0.a.g.b m = aVar.m();
@@ -452,19 +450,19 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
     public void c(VlogEditManager vlogEditManager, MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, vlogEditManager, multiMediaDataSourceViewAdapter) == null) {
-            this.f25357f = vlogEditManager;
+            this.f24647f = vlogEditManager;
             vlogEditManager.setStickerMinScale(0.5f);
-            this.f25357f.setStickerMaxScale(5.0f);
-            this.f25358g = multiMediaDataSourceViewAdapter;
+            this.f24647f.setStickerMaxScale(5.0f);
+            this.f24648g = multiMediaDataSourceViewAdapter;
             multiMediaDataSourceViewAdapter.setMultiMediaDataTextureListener(new a(this));
             this.r = new ArrayList<>();
             ArrayList<IMediaRenderer> arrayList = new ArrayList<>();
             this.s = arrayList;
-            this.f25358g.buildProcessorsAndRenderers(this.r, arrayList, true);
-            this.f25359h.setEffectProcessor(this.r);
-            this.f25359h.setMediaRenderers(this.s);
-            this.f25358g.setOnChangeStickerListener(this);
-            this.f25358g.setOnChangeCoverStickerListener(this);
+            this.f24648g.buildProcessorsAndRenderers(this.r, arrayList, true);
+            this.f24649h.setEffectProcessor(this.r);
+            this.f24649h.setMediaRenderers(this.s);
+            this.f24648g.setOnChangeStickerListener(this);
+            this.f24648g.setOnChangeCoverStickerListener(this);
             z();
         }
     }
@@ -474,12 +472,12 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.t.c(true);
-            VlogEditManager vlogEditManager = this.f25357f;
+            VlogEditManager vlogEditManager = this.f24647f;
             if (vlogEditManager != null) {
                 vlogEditManager.cancelStickerSelected();
             }
             x();
-            this.f25359h.queueEvent(new RunnableC1479d(this));
+            this.f24649h.queueEvent(new RunnableC1494d(this));
         }
     }
 
@@ -494,7 +492,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
     public void f(TextWordsEntity.TextStyleEntity textStyleEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, textStyleEntity) == null) {
-            this.f25357f.setUpEditLayer("cover_sticker");
+            this.f24647f.setUpEditLayer("cover_sticker");
             if (textStyleEntity == null) {
                 return;
             }
@@ -515,8 +513,8 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
     public void g(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.f25362k = f2;
-            this.f25360i.updateSmartCover(f2);
+            this.k = f2;
+            this.f24650i.updateSmartCover(f2);
         }
     }
 
@@ -542,23 +540,23 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (this.p != null) {
-                this.f25357f.deleteMultiMediaData(0);
+                this.f24647f.deleteMultiMediaData(0);
                 this.p = null;
             }
-            this.f25357f.reset();
-            g(this.f25362k);
+            this.f24647f.reset();
+            g(this.k);
         }
     }
 
     @Override // c.a.t0.w0.a.a
     public void k(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || this.f25357f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || this.f24647f == null) {
             return;
         }
-        this.f25360i.makeCoverStable();
+        this.f24650i.makeCoverStable();
         if (this.p != null) {
-            this.f25357f.deleteMultiMediaData(0);
+            this.f24647f.deleteMultiMediaData(0);
         }
         MultiMediaData multiMediaData = new MultiMediaData();
         this.p = multiMediaData;
@@ -568,18 +566,18 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         multiMediaData.end = 3000L;
         ArrayList arrayList = new ArrayList();
         arrayList.add(this.p);
-        this.f25357f.needDrawEffect(false);
-        this.f25357f.addMultiMediaData(0, arrayList);
-        this.f25357f.reset();
-        this.f25360i.updateVideoCover(BitmapFactory.decodeFile(str));
-        this.f25357f.seek(0L);
+        this.f24647f.needDrawEffect(false);
+        this.f24647f.addMultiMediaData(0, arrayList);
+        this.f24647f.reset();
+        this.f24650i.updateVideoCover(BitmapFactory.decodeFile(str));
+        this.f24647f.seek(0L);
     }
 
     @Override // c.a.t0.n4.m.d.a
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f25360i.hideToolView();
+            this.f24650i.hideToolView();
         }
     }
 
@@ -594,7 +592,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
     public float n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f25362k : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.k : invokeV.floatValue;
     }
 
     @Override // c.a.t0.w0.a.a
@@ -613,7 +611,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         if (hVar != null) {
             hVar.c(arrayList);
         } else {
-            this.f25359h.post(new b(this, arrayList));
+            this.f24649h.post(new b(this, arrayList));
         }
     }
 
@@ -629,7 +627,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048595, this, i2, multiMediaData, str) == null) {
             this.o = multiMediaData;
-            this.f25360i.hideToolView();
+            this.f24650i.hideToolView();
         }
     }
 
@@ -637,7 +635,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
     public void onClickSticker(MultiMediaData multiMediaData, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048596, this, multiMediaData, str, z) == null) {
-            this.f25360i.showToolView(multiMediaData.getExt("text"));
+            this.f24650i.showToolView(multiMediaData.getExt("text"));
         }
     }
 
@@ -646,7 +644,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             this.o = null;
-            this.f25360i.hideToolView();
+            this.f24650i.hideToolView();
         }
     }
 
@@ -663,7 +661,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
             this.v.addAll(this.m);
             this.o = null;
             w();
-            this.f25357f.setUpEditLayer("");
+            this.f24647f.setUpEditLayer("");
             c.a.t0.w0.a.b bVar = this.u;
             if (bVar != null) {
                 bVar.onCoverPathCallBack(str);
@@ -680,7 +678,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
                 multiMediaData2.setExt("text", t.l(R.string.ugc_capture_text_words_hint));
             }
             this.o = null;
-            this.f25360i.hideToolView();
+            this.f24650i.hideToolView();
         }
     }
 
@@ -688,7 +686,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
     public void onDestroy() {
         PreViewPickCoverView preViewPickCoverView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (preViewPickCoverView = this.f25360i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (preViewPickCoverView = this.f24650i) == null) {
             return;
         }
         preViewPickCoverView.release();
@@ -699,7 +697,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, multiMediaData, str) == null) {
             this.o = multiMediaData;
-            this.f25360i.showToolView(multiMediaData.getExt("text"));
+            this.f24650i.showToolView(multiMediaData.getExt("text"));
         }
     }
 
@@ -717,7 +715,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             this.o = null;
             w();
-            this.f25357f.setUpEditLayer("");
+            this.f24647f.setUpEditLayer("");
         }
     }
 
@@ -725,11 +723,11 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
     public void updateVideoCover(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
-            VlogEditManager vlogEditManager = this.f25357f;
+            VlogEditManager vlogEditManager = this.f24647f;
             if (vlogEditManager != null) {
                 vlogEditManager.seek(j2);
             }
-            this.f25359h.queueEvent(new e(this));
+            this.f24649h.queueEvent(new e(this));
         }
     }
 
@@ -737,7 +735,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
     public void updateVideoCoverPercent(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048605, this, f2) == null) {
-            this.f25362k = f2;
+            this.k = f2;
         }
     }
 
@@ -769,7 +767,7 @@ public class d implements c.a.t0.w0.a.a, PreViewPickCoverView.e, c.a.t0.n4.m.d.a
     public final void y(MultiMediaData multiMediaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, multiMediaData) == null) {
-            VlogEditManager vlogEditManager = this.f25357f;
+            VlogEditManager vlogEditManager = this.f24647f;
             if (vlogEditManager != null) {
                 vlogEditManager.deleteCoverStickerData(multiMediaData);
             }

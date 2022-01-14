@@ -19,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,34 +33,32 @@ public class a implements d {
     public MediaCodec a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MediaFormat f1333b;
+    public MediaFormat f1327b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ByteBuffer[] f1334c;
+    public ByteBuffer[] f1328c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ByteBuffer[] f1335d;
+    public ByteBuffer[] f1329d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BufferedOutputStream f1336e;
+    public BufferedOutputStream f1330e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1337f;
+    public boolean f1331f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteBuffer f1338g;
+    public ByteBuffer f1332g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f1339h;
+    public byte[] f1333h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f1340i;
+    public int f1334i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f1341j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f1342k;
+    public int f1335j;
+    public int k;
     public int l;
     public c.a.a1.l.d.j.c.a m;
 
@@ -78,7 +77,7 @@ public class a implements d {
                 return;
             }
         }
-        this.f1342k = i3;
+        this.k = i3;
         this.l = g(i2);
         MediaCodecInfo h2 = h("audio/mp4a-latm");
         if (h2 == null) {
@@ -91,20 +90,20 @@ public class a implements d {
         }
         this.a = MediaCodec.createByCodecName(h2.getName());
         MediaFormat mediaFormat = new MediaFormat();
-        this.f1333b = mediaFormat;
+        this.f1327b = mediaFormat;
         mediaFormat.setString("mime", "audio/mp4a-latm");
-        this.f1333b.setInteger("aac-profile", 2);
-        this.f1333b.setInteger("sample-rate", i2);
-        this.f1333b.setInteger("channel-count", i3);
-        this.f1333b.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
-        this.f1333b.setInteger("max-input-size", 8192);
-        this.f1333b.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 16);
-        this.a.configure(this.f1333b, (Surface) null, (MediaCrypto) null, 1);
+        this.f1327b.setInteger("aac-profile", 2);
+        this.f1327b.setInteger("sample-rate", i2);
+        this.f1327b.setInteger("channel-count", i3);
+        this.f1327b.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
+        this.f1327b.setInteger("max-input-size", 8192);
+        this.f1327b.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 16);
+        this.a.configure(this.f1327b, (Surface) null, (MediaCrypto) null, 1);
         this.a.start();
-        this.f1334c = this.a.getInputBuffers();
-        this.f1335d = this.a.getOutputBuffers();
-        this.f1338g = ByteBuffer.allocateDirect(8192);
-        this.f1339h = new byte[4096];
+        this.f1328c = this.a.getInputBuffers();
+        this.f1329d = this.a.getOutputBuffers();
+        this.f1332g = ByteBuffer.allocateDirect(8192);
+        this.f1333h = new byte[4096];
     }
 
     @Override // c.a.a1.l.d.d
@@ -121,7 +120,7 @@ public class a implements d {
                 }
                 i();
             } while (dequeueInputBuffer < 0);
-            while (!this.f1337f) {
+            while (!this.f1331f) {
                 i();
             }
         }
@@ -131,7 +130,7 @@ public class a implements d {
     public void b(String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f1336e = new BufferedOutputStream(new FileOutputStream(str));
+            this.f1330e = new BufferedOutputStream(new FileOutputStream(str));
         }
     }
 
@@ -140,25 +139,25 @@ public class a implements d {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3)) == null) {
-            if (this.f1338g.capacity() < i3) {
-                this.f1338g = ByteBuffer.allocateDirect(i3);
+            if (this.f1332g.capacity() < i3) {
+                this.f1332g = ByteBuffer.allocateDirect(i3);
             }
-            this.f1338g.clear();
-            this.f1338g.put(bArr, i2, i3);
-            this.f1338g.flip();
-            while (this.f1338g.hasRemaining()) {
+            this.f1332g.clear();
+            this.f1332g.put(bArr, i2, i3);
+            this.f1332g.flip();
+            while (this.f1332g.hasRemaining()) {
                 int dequeueInputBuffer = this.a.dequeueInputBuffer(10000L);
                 if (dequeueInputBuffer >= 0) {
-                    ByteBuffer byteBuffer = this.f1334c[dequeueInputBuffer];
-                    int min = Math.min(byteBuffer.capacity(), this.f1338g.remaining());
-                    if (min != this.f1339h.length) {
-                        this.f1339h = new byte[min];
+                    ByteBuffer byteBuffer = this.f1328c[dequeueInputBuffer];
+                    int min = Math.min(byteBuffer.capacity(), this.f1332g.remaining());
+                    if (min != this.f1333h.length) {
+                        this.f1333h = new byte[min];
                     }
-                    this.f1338g.get(this.f1339h, 0, min);
+                    this.f1332g.get(this.f1333h, 0, min);
                     byteBuffer.clear();
-                    byteBuffer.put(this.f1339h);
+                    byteBuffer.put(this.f1333h);
                     this.a.queueInputBuffer(dequeueInputBuffer, 0, min, 0L, 0);
-                    this.f1340i += min;
+                    this.f1334i += min;
                 }
                 i();
             }
@@ -179,12 +178,12 @@ public class a implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, bArr, i2) == null) {
             int i3 = this.l;
-            int i4 = this.f1342k;
+            int i4 = this.k;
             bArr[0] = -1;
             bArr[1] = -7;
             bArr[2] = (byte) (64 + (i3 << 2) + (i4 >> 2));
             bArr[3] = (byte) (((i4 & 3) << 6) + (i2 >> 11));
-            bArr[4] = (byte) ((i2 & 2047) >> 3);
+            bArr[4] = (byte) ((i2 & RevenueServerConst.GetUserCouponStoreResponse) >> 3);
             bArr[5] = (byte) (((i2 & 7) << 5) + 31);
             bArr[6] = -4;
         }
@@ -205,8 +204,8 @@ public class a implements d {
             }
             this.a = null;
             try {
-                this.f1336e.flush();
-                this.f1336e.close();
+                this.f1330e.flush();
+                this.f1330e.close();
             } catch (IOException e4) {
                 e4.printStackTrace();
             }
@@ -276,9 +275,9 @@ public class a implements d {
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
             int dequeueOutputBuffer = this.a.dequeueOutputBuffer(bufferInfo, 10000L);
             if (dequeueOutputBuffer == -2) {
-                this.f1333b = this.a.getOutputFormat();
+                this.f1327b = this.a.getOutputFormat();
             } else if (dequeueOutputBuffer == -3) {
-                this.f1335d = this.a.getOutputBuffers();
+                this.f1329d = this.a.getOutputBuffers();
             } else if (dequeueOutputBuffer == -1) {
                 c.j("VideoMuxer", "writeOutput INFO_TRY_AGAIN_LATER");
             } else if (dequeueOutputBuffer >= 0) {
@@ -289,27 +288,27 @@ public class a implements d {
                 int i2 = bufferInfo.size;
                 if (i2 > 0) {
                     int i3 = i2 + 7;
-                    ByteBuffer byteBuffer = this.f1335d[dequeueOutputBuffer];
+                    ByteBuffer byteBuffer = this.f1329d[dequeueOutputBuffer];
                     byteBuffer.position(bufferInfo.offset);
                     byteBuffer.limit(bufferInfo.offset + i2);
                     byte[] bArr = new byte[i3];
                     e(bArr, i3);
                     byteBuffer.get(bArr, 7, i2);
                     byteBuffer.position(bufferInfo.offset);
-                    this.f1336e.write(bArr, 0, i3);
-                    this.f1341j += bufferInfo.size;
+                    this.f1330e.write(bArr, 0, i3);
+                    this.f1335j += bufferInfo.size;
                     byteBuffer.clear();
                 }
                 this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
                 if ((bufferInfo.flags & 4) != 0) {
-                    this.f1337f = true;
+                    this.f1331f = true;
                     try {
                         f();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                     if (this.m != null) {
-                        c.j("VideoMuxer: ", "----Encode done-----,numBytesSubmitted:" + this.f1340i + ",numBytesDequeued:" + this.f1341j);
+                        c.j("VideoMuxer: ", "----Encode done-----,numBytesSubmitted:" + this.f1334i + ",numBytesDequeued:" + this.f1335j);
                         this.m.onFinishedWriting(true);
                     }
                 }

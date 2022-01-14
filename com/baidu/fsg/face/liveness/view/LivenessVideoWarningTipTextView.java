@@ -117,10 +117,10 @@ public class LivenessVideoWarningTipTextView extends TextView {
                 public final /* synthetic */ a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f35576b;
+                public final /* synthetic */ int f34420b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoWarningTipTextView f35577c;
+                public final /* synthetic */ LivenessVideoWarningTipTextView f34421c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -137,9 +137,9 @@ public class LivenessVideoWarningTipTextView extends TextView {
                             return;
                         }
                     }
-                    this.f35577c = this;
+                    this.f34421c = this;
                     this.a = aVar;
-                    this.f35576b = dimensionPixelOffset;
+                    this.f34420b = dimensionPixelOffset;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -150,8 +150,8 @@ public class LivenessVideoWarningTipTextView extends TextView {
                         if (aVar2 != null) {
                             aVar2.b();
                         }
-                        this.f35577c.clearAnimation();
-                        this.f35577c.setTranslationY(this.f35576b);
+                        this.f34421c.clearAnimation();
+                        this.f34421c.setTranslationY(this.f34420b);
                     }
                 }
 

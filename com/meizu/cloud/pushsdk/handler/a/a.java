@@ -18,41 +18,41 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     public com.meizu.cloud.pushsdk.handler.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f61078b;
+    public Context f58765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Integer, String> f61079c;
+    public Map<Integer, String> f58766c;
 
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         if (context == null) {
             throw new IllegalArgumentException("Context must not be null.");
         }
-        this.f61078b = context.getApplicationContext();
+        this.f58765b = context.getApplicationContext();
         this.a = aVar;
         HashMap hashMap = new HashMap();
-        this.f61079c = hashMap;
+        this.f58766c = hashMap;
         hashMap.put(2, "MESSAGE_TYPE_PUSH_SERVICE_V2");
-        this.f61079c.put(4, "MESSAGE_TYPE_PUSH_SERVICE_V3");
-        this.f61079c.put(16, "MESSAGE_TYPE_REGISTER");
-        this.f61079c.put(32, "MESSAGE_TYPE_UNREGISTER");
-        this.f61079c.put(8, "MESSAGE_TYPE_THROUGH");
-        this.f61079c.put(64, "MESSAGE_TYPE_NOTIFICATION_CLICK");
-        this.f61079c.put(128, "MESSAGE_TYPE_NOTIFICATION_DELETE");
-        this.f61079c.put(256, "MESSAGE_TYPE_PUSH_SWITCH_STATUS");
-        this.f61079c.put(512, "MESSAGE_TYPE_PUSH_REGISTER_STATUS");
-        this.f61079c.put(2048, "MESSAGE_TYPE_PUSH_SUBTAGS_STATUS");
-        this.f61079c.put(1024, "MESSAGE_TYPE_PUSH_UNREGISTER_STATUS");
-        this.f61079c.put(4096, "MESSAGE_TYPE_PUSH_SUBALIAS_STATUS");
-        this.f61079c.put(8192, "MESSAGE_TYPE_SCHEDULE_NOTIFICATION");
-        this.f61079c.put(16384, "MESSAGE_TYPE_RECEIVE_NOTIFY_MESSAGE");
-        this.f61079c.put(32768, "MESSAGE_TYPE_NOTIFICATION_STATE");
-        this.f61079c.put(65536, "MESSAGE_TYPE_UPLOAD_FILE_LOG");
-        this.f61079c.put(131072, "MESSAGE_TYPE_NOTIFICATION_ARRIVED");
-        this.f61079c.put(262144, "MESSAGE_TYPE_NOTIFICATION_WITHDRAW");
+        this.f58766c.put(4, "MESSAGE_TYPE_PUSH_SERVICE_V3");
+        this.f58766c.put(16, "MESSAGE_TYPE_REGISTER");
+        this.f58766c.put(32, "MESSAGE_TYPE_UNREGISTER");
+        this.f58766c.put(8, "MESSAGE_TYPE_THROUGH");
+        this.f58766c.put(64, "MESSAGE_TYPE_NOTIFICATION_CLICK");
+        this.f58766c.put(128, "MESSAGE_TYPE_NOTIFICATION_DELETE");
+        this.f58766c.put(256, "MESSAGE_TYPE_PUSH_SWITCH_STATUS");
+        this.f58766c.put(512, "MESSAGE_TYPE_PUSH_REGISTER_STATUS");
+        this.f58766c.put(2048, "MESSAGE_TYPE_PUSH_SUBTAGS_STATUS");
+        this.f58766c.put(1024, "MESSAGE_TYPE_PUSH_UNREGISTER_STATUS");
+        this.f58766c.put(4096, "MESSAGE_TYPE_PUSH_SUBALIAS_STATUS");
+        this.f58766c.put(8192, "MESSAGE_TYPE_SCHEDULE_NOTIFICATION");
+        this.f58766c.put(16384, "MESSAGE_TYPE_RECEIVE_NOTIFY_MESSAGE");
+        this.f58766c.put(32768, "MESSAGE_TYPE_NOTIFICATION_STATE");
+        this.f58766c.put(65536, "MESSAGE_TYPE_UPLOAD_FILE_LOG");
+        this.f58766c.put(131072, "MESSAGE_TYPE_NOTIFICATION_ARRIVED");
+        this.f58766c.put(262144, "MESSAGE_TYPE_NOTIFICATION_WITHDRAW");
     }
 
     private String a(int i2) {
-        return this.f61079c.get(Integer.valueOf(i2));
+        return this.f58766c.get(Integer.valueOf(i2));
     }
 
     public com.meizu.cloud.pushsdk.notification.c a(T t) {
@@ -81,19 +81,19 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         if (TextUtils.isEmpty(a)) {
             return false;
         }
-        String k2 = com.meizu.cloud.pushsdk.util.b.k(c(), messageV3.getPackageName());
+        String k = com.meizu.cloud.pushsdk.util.b.k(c(), messageV3.getPackageName());
         boolean z = false;
         int i2 = 0;
         while (true) {
-            if (z | TextUtils.isEmpty(k2)) {
+            if (z | TextUtils.isEmpty(k)) {
                 e.a aVar = new e.a((String) com.meizu.cloud.pushsdk.b.a.a("https://api-push.meizu.com/garcia/api/server/getPublicKey").a().a().a());
                 if (!TextUtils.isEmpty(aVar.a())) {
-                    k2 = aVar.a();
-                    c.k.a.a.a.d("AbstractMessageHandler", "down load public key: " + k2);
+                    k = aVar.a();
+                    c.k.a.a.a.d("AbstractMessageHandler", "down load public key: " + k);
                     com.meizu.cloud.pushsdk.util.b.k(c(), messageV3.getPackageName(), aVar.a());
                 }
             }
-            String a2 = com.meizu.cloud.pushsdk.util.c.a(k2, a);
+            String a2 = com.meizu.cloud.pushsdk.util.c.a(k, a);
             c.k.a.a.a.b("AbstractMessageHandler", "decryptSign " + a2);
             if (!TextUtils.isEmpty(a2) && com.meizu.cloud.pushsdk.handler.a.b.e.a(a2, messageV3)) {
                 return true;
@@ -195,7 +195,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     }
 
     public Context c() {
-        return this.f61078b;
+        return this.f58765b;
     }
 
     public abstract T c(Intent intent);

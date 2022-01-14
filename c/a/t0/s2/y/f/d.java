@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.s0.e1.k0;
 import c.a.s0.e1.n0;
 import c.a.s0.e1.s;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.j3.t;
 import c.a.t0.s2.r.n;
 import c.a.t0.s2.r.q;
@@ -73,7 +73,7 @@ public class d extends c.a.t0.s2.y.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f23971e;
+        public final /* synthetic */ d f23303e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class d extends c.a.t0.s2.y.f.a {
                     return;
                 }
             }
-            this.f23971e = dVar;
+            this.f23303e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -98,11 +98,11 @@ public class d extends c.a.t0.s2.y.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == c.a.t0.s2.i.qq_share_container) {
-                    if (this.f23971e.J(11009)) {
-                        this.f23971e.L(8);
+                    if (this.f23303e.J(11009)) {
+                        this.f23303e.L(8);
                     }
-                } else if (view.getId() == c.a.t0.s2.i.share_num_container && this.f23971e.J(11009)) {
-                    this.f23971e.L(3);
+                } else if (view.getId() == c.a.t0.s2.i.share_num_container && this.f23303e.J(11009)) {
+                    this.f23303e.L(3);
                 }
             }
         }
@@ -139,7 +139,7 @@ public class d extends c.a.t0.s2.y.f.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return c.a.t0.s2.u.f.g1.b.d(this.a.K(), ShareSwitch.isOn() ? 1 : 6, this.a.f23947b.getPbModel());
+                return c.a.t0.s2.u.f.g1.b.d(this.a.K(), ShareSwitch.isOn() ? 1 : 6, this.a.f23281b.getPbModel());
             }
             return (ShareItem) invokeV.objValue;
         }
@@ -152,7 +152,7 @@ public class d extends c.a.t0.s2.y.f.a {
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f23972b;
+        public final /* synthetic */ d f23304b;
 
         public c(d dVar, int i2) {
             Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public class d extends c.a.t0.s2.y.f.a {
                     return;
                 }
             }
-            this.f23972b = dVar;
+            this.f23304b = dVar;
             this.a = i2;
         }
 
@@ -179,7 +179,7 @@ public class d extends c.a.t0.s2.y.f.a {
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.f23972b.f23947b.getContext(), this.a, shareItem, false));
+                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.f23304b.f23281b.getContext(), this.a, shareItem, false));
             }
         }
     }
@@ -254,7 +254,7 @@ public class d extends c.a.t0.s2.y.f.a {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null || currentAccount.length() <= 0) {
-                TbadkCoreApplication.getInst().login(this.f23947b.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f23947b.getPbActivity(), true, i2)));
+                TbadkCoreApplication.getInst().login(this.f23281b.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f23281b.getPbActivity(), true, i2)));
                 return false;
             }
             return true;
@@ -266,11 +266,11 @@ public class d extends c.a.t0.s2.y.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            c.a.t0.s2.r.f fVar = this.f23949d;
+            c.a.t0.s2.r.f fVar = this.f23283d;
             if (fVar == null || fVar.O() == null) {
                 return -1;
             }
-            return this.f23949d.O().w();
+            return this.f23283d.O().w();
         }
         return invokeV.intValue;
     }
@@ -293,51 +293,51 @@ public class d extends c.a.t0.s2.y.f.a {
     public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AbsVideoPbFragment videoPbFragment = this.f23947b.getVideoPbFragment();
+            AbsVideoPbFragment videoPbFragment = this.f23281b.getVideoPbFragment();
             this.n = new h(videoPbFragment, videoPbFragment, PostData.z0);
-            PbFirstFloorCommentAndPraiseAdapter pbFirstFloorCommentAndPraiseAdapter = new PbFirstFloorCommentAndPraiseAdapter(this.f23947b.getVideoPbFragment(), r.f23079j);
+            PbFirstFloorCommentAndPraiseAdapter pbFirstFloorCommentAndPraiseAdapter = new PbFirstFloorCommentAndPraiseAdapter(this.f23281b.getVideoPbFragment(), r.f22443j);
             this.o = pbFirstFloorCommentAndPraiseAdapter;
             pbFirstFloorCommentAndPraiseAdapter.n0(this.D);
-            this.p = new e(this.f23947b.getContext(), c.a.t0.s2.r.y.f23105f);
-            this.q = new PbFirstFloorEnterForumAdapter(this.f23947b, c.a.t0.s2.r.h.m);
-            this.r = new m0(this.f23947b.getVideoPbFragment(), q.l);
-            this.u = new a0(this.f23947b.getVideoPbFragment(), c.a.t0.s2.r.k.f23055g, this.f23947b.getUniqueId());
-            this.v = new b0(this.f23947b.getVideoPbFragment(), c.a.t0.s2.r.l.f23058e);
-            this.t = new i0(this.f23947b.getVideoPbFragment(), n.O0);
-            this.w = new k(this.f23947b.getVideoPbFragment(), c.a.t0.s2.r.e.f23031g);
-            c.a.t0.s2.u.f.i iVar = new c.a.t0.s2.u.f.i(this.f23947b.getVideoPbFragment(), c.a.s0.s.q.q.j4);
+            this.p = new e(this.f23281b.getContext(), c.a.t0.s2.r.y.f22468f);
+            this.q = new PbFirstFloorEnterForumAdapter(this.f23281b, c.a.t0.s2.r.h.m);
+            this.r = new m0(this.f23281b.getVideoPbFragment(), q.l);
+            this.u = new a0(this.f23281b.getVideoPbFragment(), c.a.t0.s2.r.k.f22420g, this.f23281b.getUniqueId());
+            this.v = new b0(this.f23281b.getVideoPbFragment(), c.a.t0.s2.r.l.f22423e);
+            this.t = new i0(this.f23281b.getVideoPbFragment(), n.O0);
+            this.w = new k(this.f23281b.getVideoPbFragment(), c.a.t0.s2.r.e.f22398g);
+            c.a.t0.s2.u.f.i iVar = new c.a.t0.s2.u.f.i(this.f23281b.getVideoPbFragment(), c.a.s0.s.q.q.j4);
             this.x = iVar;
             iVar.g0(true);
-            this.y = new y(this.f23947b.getVideoPbFragment());
-            l lVar = new l(this.f23947b.getVideoPbFragment(), PostData.A0);
+            this.y = new y(this.f23281b.getVideoPbFragment());
+            l lVar = new l(this.f23281b.getVideoPbFragment(), PostData.A0);
             this.m = lVar;
-            lVar.Q0(this.f23947b.getVideoPbFragment());
-            this.s = new PbReplyLoadMoreAdapter(this.f23947b.getVideoPbFragment(), PostData.G0);
-            this.B = c.a.t0.j3.y.q().a(this.f23947b.getVideoPbFragment().getBaseFragmentActivity(), AdvertAppInfo.B4);
-            this.C = c.a.t0.j3.y.q().a(this.f23947b.getVideoPbFragment().getBaseFragmentActivity(), AdvertAppInfo.D4);
-            g gVar = new g(this.f23947b.getPageContext(), d2.A3, this.f23947b.getUniqueId());
+            lVar.Q0(this.f23281b.getVideoPbFragment());
+            this.s = new PbReplyLoadMoreAdapter(this.f23281b.getVideoPbFragment(), PostData.G0);
+            this.B = c.a.t0.j3.y.q().a(this.f23281b.getVideoPbFragment().getBaseFragmentActivity(), AdvertAppInfo.B4);
+            this.C = c.a.t0.j3.y.q().a(this.f23281b.getVideoPbFragment().getBaseFragmentActivity(), AdvertAppInfo.D4);
+            g gVar = new g(this.f23281b.getPageContext(), e2.A3, this.f23281b.getUniqueId());
             this.z = gVar;
-            gVar.b0(this.f23948c);
-            this.A = new PbFirstFloorItemAdapter(this.f23947b.getContext(), c.a.t0.s2.r.i.f23051g);
-            this.f23950e.add(this.n);
-            this.f23950e.add(this.o);
-            this.f23950e.add(this.p);
-            this.f23950e.add(this.q);
-            this.f23950e.add(this.r);
-            this.f23950e.add(this.t);
-            this.f23950e.add(this.u);
-            this.f23950e.add(this.v);
-            this.f23950e.add(this.w);
-            this.f23950e.add(this.x);
-            this.f23950e.add(this.y);
-            this.f23950e.add(this.B);
-            this.f23950e.add(this.C);
-            this.f23950e.add(this.m);
-            this.f23950e.add(this.s);
-            this.f23950e.add(this.z);
-            this.f23950e.add(this.A);
-            this.f23950e.add(new PbPrivateTitleAdapter(this.f23947b.getVideoPbFragment()));
-            this.f23948c.addAdapters(this.f23950e);
+            gVar.b0(this.f23282c);
+            this.A = new PbFirstFloorItemAdapter(this.f23281b.getContext(), c.a.t0.s2.r.i.f22416g);
+            this.f23284e.add(this.n);
+            this.f23284e.add(this.o);
+            this.f23284e.add(this.p);
+            this.f23284e.add(this.q);
+            this.f23284e.add(this.r);
+            this.f23284e.add(this.t);
+            this.f23284e.add(this.u);
+            this.f23284e.add(this.v);
+            this.f23284e.add(this.w);
+            this.f23284e.add(this.x);
+            this.f23284e.add(this.y);
+            this.f23284e.add(this.B);
+            this.f23284e.add(this.C);
+            this.f23284e.add(this.m);
+            this.f23284e.add(this.s);
+            this.f23284e.add(this.z);
+            this.f23284e.add(this.A);
+            this.f23284e.add(new PbPrivateTitleAdapter(this.f23281b.getVideoPbFragment()));
+            this.f23282c.addAdapters(this.f23284e);
         }
     }
 

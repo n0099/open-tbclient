@@ -13,7 +13,7 @@ public class AdError {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61470b;
+    public String f59139b;
 
     public AdError() {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class AdError {
             }
         }
         this.a = i2;
-        this.f61470b = str;
+        this.f59139b = str;
     }
 
     public int getErrorCode() {
@@ -57,6 +57,6 @@ public class AdError {
     public String getErrorMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61470b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59139b : (String) invokeV.objValue;
     }
 }

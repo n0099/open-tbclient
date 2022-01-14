@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes8.dex */
@@ -16,34 +17,32 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24545b;
+    public int f23853b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f24546c;
+    public byte[] f23854c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24547d;
+    public int f23855d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24548e;
+    public int f23856e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24549f;
+    public int f23857f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f24550g;
+    public int f23858g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f24551h;
+    public int f23859h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f24552i;
+    public int f23860i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f24553j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int[] f24554k;
+    public int f23861j;
+    public int[] k;
     public int[] l;
     public int m;
     public int n;
@@ -72,21 +71,21 @@ public class b {
                 return;
             }
         }
-        this.f24551h = 12;
-        this.f24553j = 4096;
-        this.f24554k = new int[5003];
+        this.f23859h = 12;
+        this.f23861j = 4096;
+        this.k = new int[5003];
         this.l = new int[5003];
         this.m = 5003;
         this.n = 0;
         this.o = false;
         this.s = 0;
         this.t = 0;
-        this.u = new int[]{0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535};
+        this.u = new int[]{0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, RevenueServerConst.GetUserCouponStoreResponse, 4095, 8191, 16383, 32767, 65535};
         this.w = new byte[256];
         this.a = i2;
-        this.f24545b = i3;
-        this.f24546c = bArr;
-        this.f24547d = Math.max(2, i4);
+        this.f23853b = i3;
+        this.f23854c = bArr;
+        this.f23855d = Math.max(2, i4);
     }
 
     public final int a(int i2) {
@@ -124,7 +123,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             for (int i3 = 0; i3 < i2; i3++) {
-                this.f24554k[i3] = -1;
+                this.k[i3] = -1;
             }
         }
     }
@@ -138,8 +137,8 @@ public class b {
         this.p = i2;
         int i3 = 0;
         this.o = false;
-        this.f24550g = i2;
-        this.f24552i = a(i2);
+        this.f23858g = i2;
+        this.f23860i = a(i2);
         int i4 = 1 << (i2 - 1);
         this.q = i4;
         this.r = i4 + 1;
@@ -156,9 +155,9 @@ public class b {
         while (true) {
             int h3 = h();
             if (h3 != -1) {
-                int i8 = (h3 << this.f24551h) + h2;
+                int i8 = (h3 << this.f23859h) + h2;
                 int i9 = (h3 << i6) ^ h2;
-                int[] iArr2 = this.f24554k;
+                int[] iArr2 = this.k;
                 if (iArr2[i9] == i8) {
                     h2 = this.l[i9];
                 } else {
@@ -172,7 +171,7 @@ public class b {
                             if (i9 < 0) {
                                 i9 += i7;
                             }
-                            iArr = this.f24554k;
+                            iArr = this.k;
                             if (iArr[i9] == i8) {
                                 h2 = this.l[i9];
                                 break;
@@ -181,11 +180,11 @@ public class b {
                     }
                     i(h2, outputStream);
                     int i11 = this.n;
-                    if (i11 < this.f24553j) {
+                    if (i11 < this.f23861j) {
                         int[] iArr3 = this.l;
                         this.n = i11 + 1;
                         iArr3[i9] = i11;
-                        this.f24554k[i9] = i8;
+                        this.k[i9] = i8;
                     } else {
                         c(outputStream);
                     }
@@ -202,10 +201,10 @@ public class b {
     public void f(OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, outputStream) == null) {
-            outputStream.write(this.f24547d);
-            this.f24548e = this.a * this.f24545b;
-            this.f24549f = 0;
-            e(this.f24547d + 1, outputStream);
+            outputStream.write(this.f23855d);
+            this.f23856e = this.a * this.f23853b;
+            this.f23857f = 0;
+            e(this.f23855d + 1, outputStream);
             outputStream.write(0);
         }
     }
@@ -225,14 +224,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = this.f24548e;
+            int i2 = this.f23856e;
             if (i2 == 0) {
                 return -1;
             }
-            this.f24548e = i2 - 1;
-            byte[] bArr = this.f24546c;
-            int i3 = this.f24549f;
-            this.f24549f = i3 + 1;
+            this.f23856e = i2 - 1;
+            byte[] bArr = this.f23854c;
+            int i3 = this.f23857f;
+            this.f23857f = i3 + 1;
             return bArr[i3] & 255;
         }
         return invokeV.intValue;
@@ -251,25 +250,25 @@ public class b {
             } else {
                 this.s = i2;
             }
-            this.t += this.f24550g;
+            this.t += this.f23858g;
             while (this.t >= 8) {
                 b((byte) (this.s & 255), outputStream);
                 this.s >>= 8;
                 this.t -= 8;
             }
-            if (this.n > this.f24552i || this.o) {
+            if (this.n > this.f23860i || this.o) {
                 if (this.o) {
                     int i6 = this.p;
-                    this.f24550g = i6;
-                    this.f24552i = a(i6);
+                    this.f23858g = i6;
+                    this.f23860i = a(i6);
                     this.o = false;
                 } else {
-                    int i7 = this.f24550g + 1;
-                    this.f24550g = i7;
-                    if (i7 == this.f24551h) {
-                        this.f24552i = this.f24553j;
+                    int i7 = this.f23858g + 1;
+                    this.f23858g = i7;
+                    if (i7 == this.f23859h) {
+                        this.f23860i = this.f23861j;
                     } else {
-                        this.f24552i = a(i7);
+                        this.f23860i = a(i7);
                     }
                 }
             }

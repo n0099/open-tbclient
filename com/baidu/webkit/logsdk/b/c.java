@@ -16,10 +16,10 @@ public final class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashSet<String> f54918b;
+    public HashSet<String> f52831b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f54919c;
+    public HashSet<String> f52832c;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public final class c {
         }
         this.a = "full";
         this.a = str;
-        this.f54918b = new HashSet<>();
-        this.f54919c = new HashSet<>();
+        this.f52831b = new HashSet<>();
+        this.f52832c = new HashSet<>();
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {
@@ -50,7 +50,7 @@ public final class c {
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f54918b.add(string);
+                this.f52831b.add(string);
             }
         }
     }
@@ -63,7 +63,7 @@ public final class c {
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f54919c.add(string);
+                this.f52832c.add(string);
             }
         }
     }

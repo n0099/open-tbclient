@@ -141,7 +141,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
-                if (e.a(context, new String[]{s.f57419c})) {
+                if (e.a(context, new String[]{s.f55242c})) {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     int phoneCount = Build.VERSION.SDK_INT >= 23 ? ((TelephonyManager) context.getSystemService("phone")).getPhoneCount() : Build.VERSION.SDK_INT >= 22 ? SubscriptionManager.from(context).getActiveSubscriptionInfoCount() : 1;
                     if (phoneCount == 0) {

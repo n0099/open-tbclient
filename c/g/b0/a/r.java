@@ -103,7 +103,7 @@ public class r extends k {
     public void d(FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
-            this.f29107h.loadDrawFeedAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+            this.f28217h.loadDrawFeedAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
     }
 

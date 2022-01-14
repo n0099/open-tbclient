@@ -26,7 +26,7 @@ public final class ReflectUtils {
     public final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f34990b;
+    public final boolean f33863b;
 
     /* loaded from: classes10.dex */
     public class NULL {
@@ -69,7 +69,7 @@ public final class ReflectUtils {
             }
         }
         this.a = cls;
-        this.f34990b = true;
+        this.f33863b = true;
     }
 
     public ReflectUtils(Object obj) {
@@ -88,7 +88,7 @@ public final class ReflectUtils {
             }
         }
         this.a = obj;
-        this.f34990b = false;
+        this.f33863b = false;
     }
 
     public static ReflectUtils a(Constructor<?> constructor, Object... objArr) throws RuntimeException {
@@ -350,7 +350,7 @@ public final class ReflectUtils {
             public final /* synthetic */ boolean a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ReflectUtils f34991b;
+            public final /* synthetic */ ReflectUtils f33864b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -367,7 +367,7 @@ public final class ReflectUtils {
                         return;
                     }
                 }
-                this.f34991b = this;
+                this.f33864b = this;
                 this.a = r7;
             }
 
@@ -378,10 +378,10 @@ public final class ReflectUtils {
                 if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, obj, method, objArr)) == null) {
                     String name = method.getName();
                     try {
-                        return ReflectUtils.on(this.f34991b.a).call(name, objArr).get();
+                        return ReflectUtils.on(this.f33864b.a).call(name, objArr).get();
                     } catch (RuntimeException e2) {
                         if (this.a) {
-                            Map map = (Map) this.f34991b.a;
+                            Map map = (Map) this.f33864b.a;
                             int length = objArr == null ? 0 : objArr.length;
                             if (length == 0 && name.startsWith("get")) {
                                 return map.get(ReflectUtils.d(name.substring(3)));
@@ -486,7 +486,7 @@ public final class ReflectUtils {
             Class<?> type = type();
             do {
                 for (Field field : type.getDeclaredFields()) {
-                    if ((!this.f34990b) ^ Modifier.isStatic(field.getModifiers())) {
+                    if ((!this.f33863b) ^ Modifier.isStatic(field.getModifiers())) {
                         String name = field.getName();
                         if (!linkedHashMap.containsKey(name)) {
                             linkedHashMap.put(name, field(name));
@@ -543,6 +543,6 @@ public final class ReflectUtils {
     public Class<?> type() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f34990b ? (Class) this.a : this.a.getClass() : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f33863b ? (Class) this.a : this.a.getClass() : (Class) invokeV.objValue;
     }
 }

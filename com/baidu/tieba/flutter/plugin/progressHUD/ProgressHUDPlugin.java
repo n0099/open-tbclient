@@ -60,7 +60,7 @@ public class ProgressHUDPlugin implements FlutterPlugin, ProgressHUDAuto.HostPro
     public void showAttentionWithStatus(ProgressHUDAuto.StringParam stringParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, stringParam) == null) {
-            n.M(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
+            n.N(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
         }
     }
 
@@ -68,7 +68,7 @@ public class ProgressHUDPlugin implements FlutterPlugin, ProgressHUDAuto.HostPro
     public void showAttentionWithStatusForTime(ProgressHUDAuto.AttentionTimeParam attentionTimeParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, attentionTimeParam) == null) {
-            n.N(TbadkCoreApplication.getInst().getCurrentActivity(), attentionTimeParam.getStatus(), attentionTimeParam.getTime().intValue());
+            n.O(TbadkCoreApplication.getInst().getCurrentActivity(), attentionTimeParam.getStatus(), attentionTimeParam.getTime().intValue());
         }
     }
 
@@ -76,7 +76,7 @@ public class ProgressHUDPlugin implements FlutterPlugin, ProgressHUDAuto.HostPro
     public void showErrorWithStatus(ProgressHUDAuto.StringParam stringParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, stringParam) == null) {
-            n.M(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
+            n.N(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
         }
     }
 
@@ -84,7 +84,7 @@ public class ProgressHUDPlugin implements FlutterPlugin, ProgressHUDAuto.HostPro
     public void showSuccessWithStatus(ProgressHUDAuto.StringParam stringParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, stringParam) == null) {
-            n.M(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
+            n.N(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
         }
     }
 

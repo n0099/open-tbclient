@@ -13,19 +13,19 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24740b;
+    public String f24053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MetaData f24741c;
+    public MetaData f24054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f24742d;
+    public long f24055d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24743e;
+    public String f24056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TiebaFieldsInfo f24744f;
+    public TiebaFieldsInfo f24057f;
 
     public a() {
         Interceptable interceptable = $ic;

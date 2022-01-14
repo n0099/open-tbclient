@@ -38,21 +38,21 @@ public class u implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        t c2044a;
+        t c2061a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this) {
                 v vVar = this.a;
                 int i2 = t.a.a;
                 if (iBinder == null) {
-                    c2044a = null;
+                    c2061a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface(IDeviceidInterface.Stub.DESCRIPTOR);
-                    c2044a = (queryLocalInterface == null || !(queryLocalInterface instanceof t)) ? new t.a.C2044a(iBinder) : (t) queryLocalInterface;
+                    c2061a = (queryLocalInterface == null || !(queryLocalInterface instanceof t)) ? new t.a.C2061a(iBinder) : (t) queryLocalInterface;
                 }
-                vVar.f56357b = c2044a;
+                vVar.f54223b = c2061a;
                 v vVar2 = this.a;
-                v.a aVar = vVar2.f56359d;
+                v.a aVar = vVar2.f54225d;
                 if (aVar != null) {
                     aVar.a("Deviceid Service Connected", vVar2);
                 }
@@ -65,7 +65,7 @@ public class u implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f56357b = null;
+            this.a.f54223b = null;
         }
     }
 }

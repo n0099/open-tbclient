@@ -29,10 +29,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10117b;
+    public static final boolean f9894b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f10118c;
+    public static d f9895c;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference<Activity> a;
 
@@ -49,7 +49,7 @@ public class d {
                 return;
             }
         }
-        f10117b = k.a;
+        f9894b = k.a;
     }
 
     public d() {
@@ -70,14 +70,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f10118c == null) {
+            if (f9895c == null) {
                 synchronized (d.class) {
-                    if (f10118c == null) {
-                        f10118c = new d();
+                    if (f9895c == null) {
+                        f9895c = new d();
                     }
                 }
             }
-            return f10118c;
+            return f9895c;
         }
         return (d) invokeV.objValue;
     }
@@ -103,14 +103,14 @@ public class d {
                 illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
             }
             if (illegalArgumentException != null) {
-                if (f10117b) {
+                if (f9894b) {
                     throw illegalArgumentException;
                 }
                 return false;
             } else if (TextUtils.isEmpty(str)) {
                 return false;
             } else {
-                if (f10117b) {
+                if (f9894b) {
                     String str4 = "start loading emoji " + str;
                 }
                 this.a = new WeakReference<>(activity);

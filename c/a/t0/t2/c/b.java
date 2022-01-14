@@ -22,16 +22,16 @@ public class b {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f24567b;
+    public HeadImageView f23874b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f24568c;
+    public TextView f23875c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f24569d;
+    public TextView f23876d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f24570e;
+    public ImageView f23877e;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -49,17 +49,17 @@ public class b {
             }
         }
         this.a = null;
-        this.f24567b = null;
-        this.f24568c = null;
-        this.f24569d = null;
-        this.f24570e = null;
+        this.f23874b = null;
+        this.f23875c = null;
+        this.f23876d = null;
+        this.f23877e = null;
         View inflate = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
         this.a = inflate;
-        this.f24567b = (HeadImageView) inflate.findViewById(R.id.zan_list_item_head);
-        this.f24568c = (TextView) this.a.findViewById(R.id.zan_list_item_name);
-        this.f24569d = (TextView) this.a.findViewById(R.id.zan_list_item_time);
+        this.f23874b = (HeadImageView) inflate.findViewById(R.id.zan_list_item_head);
+        this.f23875c = (TextView) this.a.findViewById(R.id.zan_list_item_name);
+        this.f23876d = (TextView) this.a.findViewById(R.id.zan_list_item_time);
         ImageView imageView = (ImageView) this.a.findViewById(R.id.zan_list_item_line_bottom);
-        this.f24570e = imageView;
+        this.f23877e = imageView;
         imageView.setVisibility(0);
         this.a.setTag(this);
     }
@@ -85,10 +85,10 @@ public class b {
     public void c(String str, String str2, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.f24568c.setText(str);
-            this.f24567b.setImageDrawable(null);
-            this.f24569d.setText(StringHelper.getFormatTime(j2));
-            this.f24567b.startLoad(str2, 28, false);
+            this.f23875c.setText(str);
+            this.f23874b.setImageDrawable(null);
+            this.f23876d.setText(StringHelper.getFormatTime(j2));
+            this.f23874b.startLoad(str2, 28, false);
         }
     }
 }

@@ -21,10 +21,10 @@ public class PreviewViewContainer extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f50533e;
+    public b f48618e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50534f;
+    public View f48619f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
@@ -45,19 +45,19 @@ public class PreviewViewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f50534f = null;
+        this.f48619f = null;
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
-            if (this.f50534f == null) {
-                this.f50534f = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
+            if (this.f48619f == null) {
+                this.f48619f = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
-                addView(this.f50534f, layoutParams);
+                addView(this.f48619f, layoutParams);
             }
-            this.f50534f.setVisibility(z ? 0 : 8);
+            this.f48619f.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -73,7 +73,7 @@ public class PreviewViewContainer extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            b bVar = this.f50533e;
+            b bVar = this.f48618e;
             if (bVar != null) {
                 bVar.b(motionEvent);
             }
@@ -87,7 +87,7 @@ public class PreviewViewContainer extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f50533e = bVar;
+        this.f48618e = bVar;
     }
 
     public void showFaceFailIdentifyView() {
@@ -116,6 +116,6 @@ public class PreviewViewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f50534f = null;
+        this.f48619f = null;
     }
 }

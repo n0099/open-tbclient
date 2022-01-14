@@ -29,34 +29,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class r extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ListView f26527b;
+    public ListView f25739b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f26528c;
+    public ViewGroup f25740c;
 
     /* renamed from: d  reason: collision with root package name */
-    public w f26529d;
+    public w f25741d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26530e;
+    public int f25742e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f26531f;
+    public d f25743f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f26532e;
+        public final /* synthetic */ r f25744e;
 
         public a(r rVar) {
             Interceptable interceptable = $ic;
@@ -73,29 +73,29 @@ public class r extends PopupWindow {
                     return;
                 }
             }
-            this.f26532e = rVar;
+            this.f25744e = rVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                c.a.s0.f.a item = this.f26532e.f26529d.getItem(i2);
-                if ((item instanceof c.a.s0.f.a) && this.f26532e.f26531f != null) {
-                    this.f26532e.f26531f.onItemClick(i2, item);
+                c.a.s0.f.a item = this.f25744e.f25741d.getItem(i2);
+                if ((item instanceof c.a.s0.f.a) && this.f25744e.f25743f != null) {
+                    this.f25744e.f25743f.onItemClick(i2, item);
                 }
-                this.f26532e.h();
+                this.f25744e.h();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f26533e;
+        public final /* synthetic */ r f25745e;
 
         public b(r rVar) {
             Interceptable interceptable = $ic;
@@ -112,19 +112,19 @@ public class r extends PopupWindow {
                     return;
                 }
             }
-            this.f26533e = rVar;
+            this.f25745e = rVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f26533e.h();
+                this.f25745e.h();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public class r extends PopupWindow {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface d {
         void onItemClick(int i2, c.a.s0.f.a aVar);
     }
@@ -197,7 +197,7 @@ public class r extends PopupWindow {
         this.a = context;
         setWidth(-1);
         setHeight(-1);
-        setContentView(e(new ArrayList(), c.a.s0.f.a.f12745f));
+        setContentView(e(new ArrayList(), c.a.s0.f.a.f12443f));
         setFocusable(true);
         setTouchable(true);
         setOutsideTouchable(true);
@@ -237,19 +237,19 @@ public class r extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
             BdListView bdListView = new BdListView(this.a);
-            this.f26527b = bdListView;
+            this.f25739b = bdListView;
             bdListView.setCacheColorHint(this.a.getResources().getColor(17170445));
             bdListView.setDivider(null);
             bdListView.setDividerHeight(0);
             bdListView.setFadingEdgeLength(0);
             w wVar = new w(this.a);
-            this.f26529d = wVar;
+            this.f25741d = wVar;
             wVar.b(list, str);
-            bdListView.setAdapter((ListAdapter) this.f26529d);
+            bdListView.setAdapter((ListAdapter) this.f25741d);
             bdListView.setOnItemClickListener(new a(this));
             FrameLayout frameLayout = new FrameLayout(this.a);
             FrameLayout frameLayout2 = new FrameLayout(this.a);
-            this.f26528c = frameLayout2;
+            this.f25740c = frameLayout2;
             frameLayout2.setBackgroundColor(this.a.getResources().getColor(R.color.common_color_10175));
             frameLayout2.setOnClickListener(new b(this));
             frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
@@ -277,8 +277,8 @@ public class r extends PopupWindow {
             alphaAnimation.setDuration(350L);
             alphaAnimation.setInterpolator(new LinearInterpolator());
             alphaAnimation.setAnimationListener(new c(this));
-            this.f26527b.startAnimation(translateAnimation);
-            this.f26528c.startAnimation(alphaAnimation);
+            this.f25739b.startAnimation(translateAnimation);
+            this.f25740c.startAnimation(alphaAnimation);
         }
     }
 
@@ -294,23 +294,23 @@ public class r extends PopupWindow {
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, list, str) == null) || list == null) {
             return;
         }
-        this.f26530e = d(list, str);
+        this.f25742e = d(list, str);
         int dimensionPixelSize = list.size() > 5 ? this.a.getResources().getDimensionPixelSize(R.dimen.ds618) : -2;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f26527b.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f25739b.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new FrameLayout.LayoutParams(-1, dimensionPixelSize);
         } else {
             layoutParams.height = dimensionPixelSize;
         }
-        this.f26527b.setLayoutParams(layoutParams);
-        this.f26529d.b(list, str);
-        this.f26529d.notifyDataSetChanged();
+        this.f25739b.setLayoutParams(layoutParams);
+        this.f25741d.b(list, str);
+        this.f25741d.notifyDataSetChanged();
     }
 
     public void j(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            this.f26531f = dVar;
+            this.f25743f = dVar;
         }
     }
 
@@ -323,15 +323,15 @@ public class r extends PopupWindow {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setDuration(350L);
             alphaAnimation.setInterpolator(new LinearInterpolator());
-            this.f26527b.startAnimation(translateAnimation);
-            this.f26528c.startAnimation(alphaAnimation);
+            this.f25739b.startAnimation(translateAnimation);
+            this.f25740c.startAnimation(alphaAnimation);
         }
     }
 
     public void l(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            this.f26527b.setSelection(this.f26530e);
+            this.f25739b.setSelection(this.f25742e);
             if (Build.VERSION.SDK_INT < 24) {
                 if (c.a.d.f.m.g.k(this, view)) {
                     k();

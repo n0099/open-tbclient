@@ -14,12 +14,12 @@ public class c implements l1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f10993c;
+    public static volatile c f10750c;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.i.c.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f10994b;
+    public b f10751b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class c implements l1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f10993c == null) {
+            if (f10750c == null) {
                 synchronized (c.class) {
-                    if (f10993c == null) {
-                        f10993c = new c();
+                    if (f10750c == null) {
+                        f10750c = new c();
                     }
                 }
             }
-            return f10993c;
+            return f10750c;
         }
         return (c) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public class c implements l1 {
                 return this.a.a(str, jSONObject, bVar);
             }
             if (this.a.f()) {
-                return this.f10994b.a(str, jSONObject, bVar);
+                return this.f10751b.a(str, jSONObject, bVar);
             }
             return new c.a.r0.a.u.h.b(10001, "authorize fail.");
         }
@@ -73,7 +73,7 @@ public class c implements l1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = new c.a.r0.i.c.b();
-            this.f10994b = new b();
+            this.f10751b = new b();
         }
     }
 }

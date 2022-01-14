@@ -6,20 +6,20 @@ public class a {
     public static HashMap<String, Class<?>> a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f60932b;
+    public Class<?> f58625b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60933c;
+    public String f58626c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f60934d;
+    public Object f58627d;
 
     public a(Object obj) {
-        this.f60934d = obj;
+        this.f58627d = obj;
     }
 
     public a(String str) {
-        this.f60933c = str;
+        this.f58626c = str;
     }
 
     public static a a(Object obj) {
@@ -39,18 +39,18 @@ public class a {
     }
 
     public Class<?> a() throws ClassNotFoundException {
-        Class<?> cls = this.f60932b;
+        Class<?> cls = this.f58625b;
         if (cls != null) {
             return cls;
         }
-        Object obj = this.f60934d;
+        Object obj = this.f58627d;
         if (obj != null) {
             return obj.getClass();
         }
-        Class<?> cls2 = a.get(this.f60933c);
+        Class<?> cls2 = a.get(this.f58626c);
         if (cls2 == null) {
-            Class<?> cls3 = Class.forName(this.f60933c);
-            a.put(this.f60933c, cls3);
+            Class<?> cls3 = Class.forName(this.f58626c);
+            a.put(this.f58626c, cls3);
             return cls3;
         }
         return cls2;

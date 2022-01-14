@@ -19,7 +19,7 @@ public class a implements d {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f6686b;
+    public static final Set<String> f6545b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,11 +37,11 @@ public class a implements d {
         }
         a = k.a;
         HashSet hashSet = new HashSet();
-        f6686b = hashSet;
+        f6545b = hashSet;
         hashSet.add("https");
-        f6686b.add("http");
-        f6686b.add("sms");
-        f6686b.add(InputType.TEL);
+        f6545b.add("http");
+        f6545b.add("sms");
+        f6545b.add(InputType.TEL);
     }
 
     public a() {
@@ -81,7 +81,7 @@ public class a implements d {
             if (str == null || (parse = Uri.parse(str)) == null) {
                 return true;
             }
-            boolean contains = f6686b.contains(parse.getScheme());
+            boolean contains = f6545b.contains(parse.getScheme());
             if (a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(contains ? "legal schemes : " : "illegal schemes : ");

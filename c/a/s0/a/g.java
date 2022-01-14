@@ -55,43 +55,41 @@ public class g {
     public static String a0 = "forumName";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f12411b = "unidispatch";
+    public static String f12120b = "unidispatch";
     public static String b0 = "useMainState";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f12412c = "/homepage";
+    public static String f12121c = "/homepage";
     public static String c0 = "tabCode";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f12413d = "/enterforum";
+    public static String f12122d = "/enterforum";
     public static String d0 = "expanddata";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f12414e = "/recommendforum";
+    public static String f12123e = "/recommendforum";
     public static String e0 = "taskInfo";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f12415f = "/frs";
+    public static String f12124f = "/frs";
     public static String f0 = "actionid";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f12416g = "/pb";
+    public static String f12125g = "/pb";
     public static String g0 = "shipin";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f12417h = "/tbwebview";
+    public static String f12126h = "/tbwebview";
     public static String h0 = "wise";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f12418i = "/usercenter";
+    public static String f12127i = "/usercenter";
     public static String i0 = "shoubai";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f12419j = "/topicdetail";
+    public static String f12128j = "/topicdetail";
     public static String j0 = "tbShareH5";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static String f12420k = "/tiebachushou";
+    public static String k = "/tiebachushou";
     public static String k0 = "QQ";
     public static String l = "/tiebayy";
     public static String l0 = "from_tb_token";
@@ -173,7 +171,7 @@ public class g {
     public static boolean c(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) ? uri != null && a.equals(uri.getScheme()) && f12411b.equals(uri.getHost()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) ? uri != null && a.equals(uri.getScheme()) && f12120b.equals(uri.getHost()) : invokeL.booleanValue;
     }
 
     public final void a(String str, Uri uri, String str2) {
@@ -195,7 +193,7 @@ public class g {
 
     public void d(Uri uri, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, bVar) == null) && uri != null && c(uri) && f12415f.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, bVar) == null) && uri != null && c(uri) && f12124f.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = t;
             hashMap.put(str, uri.getQueryParameter(str));
@@ -225,17 +223,17 @@ public class g {
             l(uri.getQueryParameter(D));
             a("", uri, queryParameter2);
             w.c(uri);
-            if (f12412c.equals(uri.getPath())) {
+            if (f12121c.equals(uri.getPath())) {
                 hashMap.put(G, 2);
                 String str = I;
                 hashMap.put(str, uri.getQueryParameter(str));
                 String str2 = J;
                 hashMap.put(str2, uri.getQueryParameter(str2));
                 hashMap.put(F, queryParameter4);
-            } else if (f12413d.equals(uri.getPath())) {
+            } else if (f12122d.equals(uri.getPath())) {
                 hashMap.put(G, 1);
                 hashMap.put(H, queryParameter4);
-            } else if (f12414e.equals(uri.getPath())) {
+            } else if (f12123e.equals(uri.getPath())) {
                 hashMap.put(G, 1);
                 hashMap.put(H, "1_recommend");
             } else if (m.equals(uri.getPath())) {
@@ -258,7 +256,7 @@ public class g {
 
     public void f(Uri uri, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, uri, bVar) == null) && uri != null && c(uri) && f12416g.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, uri, bVar) == null) && uri != null && c(uri) && f12125g.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = u;
             hashMap.put(str, uri.getQueryParameter(str));
@@ -281,7 +279,7 @@ public class g {
 
     public void g(Uri uri, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, uri, bVar) == null) && uri != null && c(uri) && f12419j.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, uri, bVar) == null) && uri != null && c(uri) && f12128j.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = A;
             hashMap.put(str, uri.getQueryParameter(str));
@@ -293,7 +291,7 @@ public class g {
 
     public void h(Uri uri, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, uri, bVar) == null) && uri != null && c(uri) && f12418i.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, uri, bVar) == null) && uri != null && c(uri) && f12127i.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = z;
             hashMap.put(str, uri.getQueryParameter(str));
@@ -318,7 +316,7 @@ public class g {
 
     public void j(String str, Uri uri, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, uri, bVar) == null) && uri != null && c(uri) && f12417h.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, uri, bVar) == null) && uri != null && c(uri) && f12126h.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str2 = B;
             hashMap.put(str2, uri.getQueryParameter(str2));

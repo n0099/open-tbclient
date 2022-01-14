@@ -17,10 +17,8 @@ public class l extends c.a.s0.g0.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f26320j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final int f26321k;
+    public static final int f25538j;
+    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +34,8 @@ public class l extends c.a.s0.g0.c {
                 return;
             }
         }
-        f26320j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.y2.b.tbds403);
-        f26321k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.y2.b.tbds90);
+        f25538j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.y2.b.tbds403);
+        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.y2.b.tbds90);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,13 +63,13 @@ public class l extends c.a.s0.g0.c {
     public final void g() {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.f12778c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12778c.getLayoutParams();
-            int i2 = f26320j;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.f12476c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12476c.getLayoutParams();
+            int i2 = f25538j;
             layoutParams.width = i2;
             layoutParams.height = i2;
-            layoutParams.topMargin = f26321k;
-            this.f12778c.setLayoutParams(layoutParams);
+            layoutParams.topMargin = k;
+            this.f12476c.setLayoutParams(layoutParams);
         }
     }
 }

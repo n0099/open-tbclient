@@ -11,19 +11,19 @@ public class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26794e;
+    public boolean f26000e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26795f;
+    public int f26001f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f26796g;
+    public int f26002g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26797h;
+    public boolean f26003h;
 
     /* renamed from: i  reason: collision with root package name */
-    public k f26798i;
+    public k f26004i;
 
     public b(k kVar) {
         Interceptable interceptable = $ic;
@@ -40,35 +40,35 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f26797h = false;
-        this.f26798i = kVar;
+        this.f26003h = false;
+        this.f26004i = kVar;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f26795f = i2;
+            this.f26001f = i2;
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f26794e = z;
+            this.f26000e = z;
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f26796g = i2;
+            this.f26002g = i2;
         }
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f26797h = z;
+            this.f26003h = z;
         }
     }
 
@@ -76,13 +76,13 @@ public class b implements Runnable {
     public void run() {
         k kVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (kVar = this.f26798i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (kVar = this.f26004i) == null) {
             return;
         }
-        if (!this.f26797h) {
-            kVar.m(this.f26795f, this.f26796g, this.f26794e, 2);
+        if (!this.f26003h) {
+            kVar.m(this.f26001f, this.f26002g, this.f26000e, 2);
         } else {
-            kVar.m(this.f26795f, this.f26796g, this.f26794e, 1);
+            kVar.m(this.f26001f, this.f26002g, this.f26000e, 1);
         }
     }
 }

@@ -86,16 +86,16 @@ public class d extends q<TTSplashAd> {
         public final TTSplashAd a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f29059b;
+        public final String f28170b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f29060c;
+        public boolean f28171c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f29061d;
+        public boolean f28172d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f29062e;
+        public final /* synthetic */ d f28173e;
 
         public b(d dVar, TTSplashAd tTSplashAd, String str) {
             Interceptable interceptable = $ic;
@@ -112,9 +112,9 @@ public class d extends q<TTSplashAd> {
                     return;
                 }
             }
-            this.f29062e = dVar;
+            this.f28173e = dVar;
             this.a = tTSplashAd;
-            this.f29059b = str;
+            this.f28170b = str;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
@@ -122,8 +122,8 @@ public class d extends q<TTSplashAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
                 LogPrinter.d();
-                this.f29062e.onAdClicked(this.f29061d);
-                this.f29061d = true;
+                this.f28173e.onAdClicked(this.f28172d);
+                this.f28172d = true;
             }
         }
 
@@ -132,8 +132,8 @@ public class d extends q<TTSplashAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
                 LogPrinter.d();
-                this.f29062e.onAdShow(this.a, this.f29060c);
-                this.f29060c = true;
+                this.f28173e.onAdShow(this.a, this.f28171c);
+                this.f28171c = true;
             }
         }
 
@@ -142,7 +142,7 @@ public class d extends q<TTSplashAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f29062e.onAdClose();
+                this.f28173e.onAdClose();
             }
         }
 
@@ -151,7 +151,7 @@ public class d extends q<TTSplashAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                this.f29062e.onAdClose();
+                this.f28173e.onAdClose();
             }
         }
     }
@@ -215,7 +215,7 @@ public class d extends q<TTSplashAd> {
             super.loadInternal(context, funAdSlot);
             AdSlot a2 = a();
             onLoadStart(funAdSlot);
-            this.f29107h.loadSplashAd(a2, new a(this), 5000);
+            this.f28217h.loadSplashAd(a2, new a(this), 5000);
         }
     }
 

@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.zip.CRC32;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PackageInfo implements NoProGuard, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODE_FILTERD = 1102;

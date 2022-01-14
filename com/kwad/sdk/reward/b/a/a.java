@@ -13,18 +13,18 @@ import org.json.JSONObject;
 public class a extends com.kwad.sdk.reward.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public c f59462b = new c();
+    public c f57213b = new c();
 
     /* renamed from: c  reason: collision with root package name */
-    public C2115a f59463c = new C2115a();
+    public C2132a f57214c = new C2132a();
 
     /* renamed from: d  reason: collision with root package name */
-    public final b f59464d = new b(com.kwad.sdk.core.config.b.az());
+    public final b f57215d = new b(com.kwad.sdk.core.config.b.az());
 
     /* renamed from: com.kwad.sdk.reward.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2115a extends com.kwad.sdk.reward.b.a {
-        public C2115a() {
+    public static class C2132a extends com.kwad.sdk.reward.b.a {
+        public C2132a() {
             this.a = "安装应用";
         }
     }
@@ -52,7 +52,7 @@ public class a extends com.kwad.sdk.reward.b.a {
     }
 
     private void n() {
-        if (this.f59462b.d() && this.f59463c.d() && this.f59464d.d()) {
+        if (this.f57213b.d() && this.f57214c.d() && this.f57215d.d()) {
             a();
         } else {
             b();
@@ -61,36 +61,36 @@ public class a extends com.kwad.sdk.reward.b.a {
 
     @Override // com.kwad.sdk.reward.b.a, com.kwad.sdk.reward.b.b
     public boolean d() {
-        return this.f59462b.d() && this.f59463c.d() && this.f59464d.d();
+        return this.f57213b.d() && this.f57214c.d() && this.f57215d.d();
     }
 
     public void g() {
         com.kwad.sdk.core.d.a.a("LaunchAppTask", "markWatchVideoCompleted");
-        this.f59462b.a();
+        this.f57213b.a();
         n();
     }
 
     public void h() {
         com.kwad.sdk.core.d.a.a("LaunchAppTask", "markInstallCompleted");
-        this.f59463c.a();
+        this.f57214c.a();
         n();
     }
 
     public void i() {
         com.kwad.sdk.core.d.a.a("LaunchAppTask", "markInstallUncompleted");
-        this.f59463c.b();
+        this.f57214c.b();
         n();
     }
 
     public void j() {
         com.kwad.sdk.core.d.a.a("LaunchAppTask", "markUseAppCompleted");
-        this.f59464d.a();
+        this.f57215d.a();
         n();
     }
 
     public boolean k() {
         com.kwad.sdk.core.d.a.a("LaunchAppTask", "isInstallCompleted");
-        return this.f59463c.d();
+        return this.f57214c.d();
     }
 
     public int l() {
@@ -105,18 +105,18 @@ public class a extends com.kwad.sdk.reward.b.a {
 
     public List<com.kwad.sdk.reward.b.b> m() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.f59462b);
-        arrayList.add(this.f59463c);
-        arrayList.add(this.f59464d);
+        arrayList.add(this.f57213b);
+        arrayList.add(this.f57214c);
+        arrayList.add(this.f57215d);
         return arrayList;
     }
 
     @Override // com.kwad.sdk.reward.b.a, com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         try {
-            this.f59462b.parseJson(jSONObject.optJSONObject("mWatchVideoTask"));
-            this.f59463c.parseJson(jSONObject.optJSONObject("mInstallAppTask"));
-            this.f59464d.parseJson(jSONObject.optJSONObject("mUseAppTask"));
+            this.f57213b.parseJson(jSONObject.optJSONObject("mWatchVideoTask"));
+            this.f57214c.parseJson(jSONObject.optJSONObject("mInstallAppTask"));
+            this.f57215d.parseJson(jSONObject.optJSONObject("mUseAppTask"));
         } catch (Throwable unused) {
         }
     }
@@ -124,9 +124,9 @@ public class a extends com.kwad.sdk.reward.b.a {
     @Override // com.kwad.sdk.reward.b.a, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "mWatchVideoTask", this.f59462b);
-        t.a(jSONObject, "mInstallAppTask", this.f59463c);
-        t.a(jSONObject, "mUseAppTask", this.f59464d);
+        t.a(jSONObject, "mWatchVideoTask", this.f57213b);
+        t.a(jSONObject, "mInstallAppTask", this.f57214c);
+        t.a(jSONObject, "mUseAppTask", this.f57215d);
         return jSONObject;
     }
 }

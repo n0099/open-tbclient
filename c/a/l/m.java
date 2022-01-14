@@ -17,10 +17,8 @@ public class m extends c.a.l.a<c.a.s0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public CardForumHeadLayout f4269j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.s0.s.q.a f4270k;
+    public CardForumHeadLayout f4192j;
+    public c.a.s0.s.q.a k;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -28,7 +26,7 @@ public class m extends c.a.l.a<c.a.s0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f4271e;
+        public final /* synthetic */ m f4193e;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -45,16 +43,16 @@ public class m extends c.a.l.a<c.a.s0.s.q.a> {
                     return;
                 }
             }
-            this.f4271e = mVar;
+            this.f4193e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4271e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4193e.c() == null) {
                 return;
             }
-            this.f4271e.c().a(view, this.f4271e.f4270k);
+            this.f4193e.c().a(view, this.f4193e.k);
         }
     }
 
@@ -76,19 +74,19 @@ public class m extends c.a.l.a<c.a.s0.s.q.a> {
                 return;
             }
         }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13748f instanceof CardForumHeadLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13748f.getParent() == null) {
-            this.f4269j = (CardForumHeadLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13748f;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13438f instanceof CardForumHeadLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13438f.getParent() == null) {
+            this.f4192j = (CardForumHeadLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13438f;
         } else {
-            this.f4269j = new CardForumHeadLayout(context);
+            this.f4192j = new CardForumHeadLayout(context);
         }
-        this.f4269j.setAfterClickListener(new a(this));
+        this.f4192j.setAfterClickListener(new a(this));
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4269j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4192j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,19 +95,19 @@ public class m extends c.a.l.a<c.a.s0.s.q.a> {
     public void onBindDataToView(c.a.s0.s.q.a aVar) {
         CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || (cardForumHeadLayout = this.f4269j) == null || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || (cardForumHeadLayout = this.f4192j) == null || aVar == null) {
             return;
         }
-        this.f4270k = aVar;
+        this.k = aVar;
         cardForumHeadLayout.setOnClickListener();
-        this.f4269j.setData(aVar.getThreadData());
+        this.f4192j.setData(aVar.getThreadData());
     }
 
     @Override // c.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) || (cardForumHeadLayout = this.f4269j) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) || (cardForumHeadLayout = this.f4192j) == null) {
             return;
         }
         cardForumHeadLayout.onChangeSkinType();

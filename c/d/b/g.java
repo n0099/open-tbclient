@@ -26,13 +26,13 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f28815c;
+    public static final g f27932c;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<b> a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.d.b.e0.p.c f28816b;
+    public final c.d.b.e0.p.c f27933b;
 
     /* loaded from: classes9.dex */
     public static final class a {
@@ -70,13 +70,13 @@ public final class g {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f28817b;
+        public final String f27934b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f28818c;
+        public final String f27935c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final ByteString f28819d;
+        public final ByteString f27936d;
 
         public boolean a(String str) {
             InterceptResult invokeL;
@@ -84,15 +84,15 @@ public final class g {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 if (this.a.startsWith(CertificatePinner.Pin.WILDCARD)) {
                     int indexOf = str.indexOf(46);
-                    if ((str.length() - indexOf) - 1 == this.f28817b.length()) {
-                        String str2 = this.f28817b;
+                    if ((str.length() - indexOf) - 1 == this.f27934b.length()) {
+                        String str2 = this.f27934b;
                         if (str.regionMatches(false, indexOf + 1, str2, 0, str2.length())) {
                             return true;
                         }
                     }
                     return false;
                 }
-                return str.equals(this.f28817b);
+                return str.equals(this.f27934b);
             }
             return invokeL.booleanValue;
         }
@@ -103,7 +103,7 @@ public final class g {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj instanceof b) {
                     b bVar = (b) obj;
-                    if (this.a.equals(bVar.a) && this.f28818c.equals(bVar.f28818c) && this.f28819d.equals(bVar.f28819d)) {
+                    if (this.a.equals(bVar.a) && this.f27935c.equals(bVar.f27935c) && this.f27936d.equals(bVar.f27936d)) {
                         return true;
                     }
                 }
@@ -115,14 +115,14 @@ public final class g {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f28818c.hashCode()) * 31) + this.f28819d.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f27935c.hashCode()) * 31) + this.f27936d.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.f28818c + this.f28819d.base64();
+                return this.f27935c + this.f27936d.base64();
             }
             return (String) invokeV.objValue;
         }
@@ -141,7 +141,7 @@ public final class g {
                 return;
             }
         }
-        f28815c = new a().a();
+        f27932c = new a().a();
     }
 
     public g(Set<b> set, @Nullable c.d.b.e0.p.c cVar) {
@@ -160,7 +160,7 @@ public final class g {
             }
         }
         this.a = set;
-        this.f28816b = cVar;
+        this.f27933b = cVar;
     }
 
     public static String c(Certificate certificate) {
@@ -194,7 +194,7 @@ public final class g {
             if (b2.isEmpty()) {
                 return;
             }
-            c.d.b.e0.p.c cVar = this.f28816b;
+            c.d.b.e0.p.c cVar = this.f27933b;
             if (cVar != null) {
                 list = cVar.a(list, str);
             }
@@ -206,22 +206,22 @@ public final class g {
                 ByteString byteString2 = null;
                 for (int i3 = 0; i3 < size2; i3++) {
                     b bVar = b2.get(i3);
-                    if (bVar.f28818c.equals("sha256/")) {
+                    if (bVar.f27935c.equals("sha256/")) {
                         if (byteString == null) {
                             byteString = e(x509Certificate);
                         }
-                        if (bVar.f28819d.equals(byteString)) {
+                        if (bVar.f27936d.equals(byteString)) {
                             return;
                         }
-                    } else if (bVar.f28818c.equals("sha1/")) {
+                    } else if (bVar.f27935c.equals("sha1/")) {
                         if (byteString2 == null) {
                             byteString2 = d(x509Certificate);
                         }
-                        if (bVar.f28819d.equals(byteString2)) {
+                        if (bVar.f27936d.equals(byteString2)) {
                             return;
                         }
                     } else {
-                        throw new AssertionError("unsupported hashAlgorithm: " + bVar.f28818c);
+                        throw new AssertionError("unsupported hashAlgorithm: " + bVar.f27935c);
                     }
                 }
             }
@@ -275,7 +275,7 @@ public final class g {
             }
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                if (c.d.b.e0.e.p(this.f28816b, gVar.f28816b) && this.a.equals(gVar.a)) {
+                if (c.d.b.e0.e.p(this.f27933b, gVar.f27933b) && this.a.equals(gVar.a)) {
                     return true;
                 }
             }
@@ -287,14 +287,14 @@ public final class g {
     public g f(@Nullable c.d.b.e0.p.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? c.d.b.e0.e.p(this.f28816b, cVar) ? this : new g(this.a, cVar) : (g) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? c.d.b.e0.e.p(this.f27933b, cVar) ? this : new g(this.a, cVar) : (g) invokeL.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.d.b.e0.p.c cVar = this.f28816b;
+            c.d.b.e0.p.c cVar = this.f27933b;
             return ((cVar != null ? cVar.hashCode() : 0) * 31) + this.a.hashCode();
         }
         return invokeV.intValue;

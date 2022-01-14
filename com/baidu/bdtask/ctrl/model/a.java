@@ -44,23 +44,23 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ReentrantLock f34041c;
+    public static final ReentrantLock f32955c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final C1766a f34042d;
+    public static final C1782a f32956d;
     public transient /* synthetic */ FieldHolder $fh;
     public SubTaskState a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PriorityQueue<SubTaskState> f34043b;
+    public PriorityQueue<SubTaskState> f32957b;
 
     /* renamed from: com.baidu.bdtask.ctrl.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C1766a {
+    public static final class C1782a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1766a() {
+        public C1782a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,10 +77,10 @@ public final class a {
         public final ReentrantLock a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f34041c : (ReentrantLock) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f32955c : (ReentrantLock) invokeV.objValue;
         }
 
-        public /* synthetic */ C1766a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1782a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -98,8 +98,8 @@ public final class a {
                 return;
             }
         }
-        f34042d = new C1766a(null);
-        f34041c = new ReentrantLock(true);
+        f32956d = new C1782a(null);
+        f32955c = new ReentrantLock(true);
     }
 
     public a() {
@@ -115,7 +115,7 @@ public final class a {
                 return;
             }
         }
-        this.f34043b = c.a.j.f.f.a.a(5);
+        this.f32957b = c.a.j.f.f.a.a(5);
     }
 
     public static /* bridge */ /* synthetic */ Pair h(a aVar, SubTaskState subTaskState, boolean z, int i2, Object obj) {
@@ -132,13 +132,13 @@ public final class a {
         TaskStatus taskStatus;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ReentrantLock a = f34042d.a();
+            ReentrantLock a = f32956d.a();
             a.lock();
             try {
                 if (this.a != null && (subTaskState2 = this.a) != null && (taskStatus = subTaskState2.getTaskStatus()) != null && taskStatus.isActivated()) {
                     subTaskState = this.a;
                 } else {
-                    Iterator<SubTaskState> it = this.f34043b.iterator();
+                    Iterator<SubTaskState> it = this.f32957b.iterator();
                     while (it.hasNext()) {
                         SubTaskState next = it.next();
                         if (next.getTaskStatus().isActivated()) {
@@ -171,7 +171,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ReentrantLock a = f34042d.a();
+            ReentrantLock a = f32956d.a();
             a.lock();
             try {
                 return m(new TaskStateQueue$findSubTaskBySingleKey$$inlined$withLock$lambda$1(this, str));
@@ -192,7 +192,7 @@ public final class a {
                     return this.a;
                 }
             }
-            Iterator<SubTaskState> it = this.f34043b.iterator();
+            Iterator<SubTaskState> it = this.f32957b.iterator();
             while (it.hasNext()) {
                 SubTaskState next = it.next();
                 if (function12.invoke(next.getTaskInfo()).booleanValue()) {
@@ -208,7 +208,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, function1)) == null) {
-            ReentrantLock a = f34042d.a();
+            ReentrantLock a = f32956d.a();
             a.lock();
             try {
                 ArrayList arrayList = new ArrayList();
@@ -222,7 +222,7 @@ public final class a {
                         }
                     }
                 }
-                Iterator<SubTaskState> it = this.f34043b.iterator();
+                Iterator<SubTaskState> it = this.f32957b.iterator();
                 while (it.hasNext()) {
                     SubTaskState next = it.next();
                     if (next != null) {
@@ -279,7 +279,7 @@ public final class a {
     public final void i(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, subTaskState) == null) {
-            ReentrantLock a = f34042d.a();
+            ReentrantLock a = f32956d.a();
             a.lock();
             try {
                 TaskInfo taskInfo = subTaskState.getTaskInfo();
@@ -287,7 +287,7 @@ public final class a {
                     this.a = subTaskState;
                 } else if (taskInfo.isPassiveTask()) {
                     o(subTaskState.getTaskInfo());
-                    c.a.j.f.f.a.b(this.f34043b, subTaskState, 5);
+                    c.a.j.f.f.a.b(this.f32957b, subTaskState, 5);
                 }
                 Unit unit = Unit.INSTANCE;
             } finally {
@@ -299,7 +299,7 @@ public final class a {
     public final void j(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, taskInfo) == null) {
-            ReentrantLock a = f34042d.a();
+            ReentrantLock a = f32956d.a();
             a.lock();
             try {
                 if (taskInfo.isPassiveTask()) {
@@ -320,7 +320,7 @@ public final class a {
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x005e, code lost:
         com.baidu.bdtask.framework.utils.DebugTrace.a.c(com.baidu.bdtask.ctrl.model.TaskStateQueue$peekPassiveTask$1$2.INSTANCE);
-        c.a.j.k.e.a.a.f4067c.f(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.a.e(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.Companion, r3.getTaskInfo(), r3.getTaskStatus(), (java.lang.String) r4.getSecond(), 0, 8, null));
+        c.a.j.k.e.a.a.f4004c.f(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.a.e(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.Companion, r3.getTaskInfo(), r3.getTaskStatus(), (java.lang.String) r4.getSecond(), 0, 8, null));
         r2 = r3;
      */
     /*
@@ -331,14 +331,14 @@ public final class a {
         SubTaskState poll;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ReentrantLock a = f34042d.a();
+            ReentrantLock a = f32956d.a();
             a.lock();
             try {
                 SubTaskState a2 = a();
                 SubTaskState subTaskState = null;
                 if (a2 == null || !a2.getTaskStatus().isActivated() || a2.getTaskStatus().isInterrupted()) {
                     PriorityQueue<SubTaskState> d2 = c.a.j.f.f.a.d(5);
-                    d2.addAll(this.f34043b);
+                    d2.addAll(this.f32957b);
                     while (true) {
                         if (d2.isEmpty() || (poll = d2.poll()) == null) {
                             break;
@@ -348,7 +348,7 @@ public final class a {
                         if (((Boolean) h2.getFirst()).booleanValue()) {
                             break;
                         }
-                        c.a.j.k.e.a.a.f4067c.f(UBCRegisterTaskInfo.Companion.d(poll.getTaskInfo(), poll.getTaskStatus(), (String) h2.getSecond(), 0));
+                        c.a.j.k.e.a.a.f4004c.f(UBCRegisterTaskInfo.Companion.d(poll.getTaskInfo(), poll.getTaskStatus(), (String) h2.getSecond(), 0));
                         DebugTrace.a.c(TaskStateQueue$peekPassiveTask$1$3.INSTANCE);
                         poll.getTaskStatus().reset2Interrupted();
                     }
@@ -365,7 +365,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            ReentrantLock a = f34042d.a();
+            ReentrantLock a = f32956d.a();
             a.lock();
             try {
                 return m(new TaskStateQueue$findSubTaskByActionId$$inlined$withLock$lambda$1(this, str));
@@ -425,7 +425,7 @@ public final class a {
     public final void o(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, taskInfo) == null) {
-            Iterator<SubTaskState> it = this.f34043b.iterator();
+            Iterator<SubTaskState> it = this.f32957b.iterator();
             while (it.hasNext()) {
                 if (Intrinsics.areEqual(it.next().getTaskInfo().getId(), taskInfo.getId())) {
                     it.remove();
@@ -438,7 +438,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            ReentrantLock a = f34042d.a();
+            ReentrantLock a = f32956d.a();
             a.lock();
             try {
                 return m(new TaskStateQueue$findSubTaskByActTaskId$$inlined$withLock$lambda$1(this, str));
@@ -453,20 +453,20 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            ReentrantLock a = f34042d.a();
+            ReentrantLock a = f32956d.a();
             a.lock();
             try {
                 JSONArray jSONArray = new JSONArray();
-                Iterator<SubTaskState> it = this.f34043b.iterator();
+                Iterator<SubTaskState> it = this.f32957b.iterator();
                 while (it.hasNext()) {
                     SubTaskState next = it.next();
-                    if (b.f34056e.a().e(next.getTaskInfo())) {
+                    if (b.f32970e.a().e(next.getTaskInfo())) {
                         jSONArray.put(next.toJson());
                     }
                 }
                 JSONObject jSONObject = new JSONObject();
                 if (this.a != null) {
-                    b a2 = b.f34056e.a();
+                    b a2 = b.f32970e.a();
                     SubTaskState subTaskState = this.a;
                     if (a2.e(subTaskState != null ? subTaskState.getTaskInfo() : null)) {
                         SubTaskState subTaskState2 = this.a;
@@ -496,7 +496,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             DebugTrace.a.c(new TaskStateQueue$deserializeFromJson$1(str));
-            ReentrantLock a = f34042d.a();
+            ReentrantLock a = f32956d.a();
             a.lock();
             try {
                 try {
@@ -521,7 +521,7 @@ public final class a {
                                 c.a.j.f.f.a.b(a3, b2, 5);
                             }
                         }
-                        aVar.f34043b = a3;
+                        aVar.f32957b = a3;
                     }
                     if (!aVar.s()) {
                         if (aVar.a != null) {
@@ -538,8 +538,8 @@ public final class a {
                                 i(first2);
                             }
                         }
-                        while (!aVar.f34043b.isEmpty()) {
-                            SubTaskState subTaskState = aVar.f34043b.poll();
+                        while (!aVar.f32957b.isEmpty()) {
+                            SubTaskState subTaskState = aVar.f32957b.poll();
                             Pair<SubTaskState, String> n2 = n(subTaskState);
                             List<UBCRecoveryTaskInfo> passive = uBCRecoveryTaskQueue.getPassive();
                             UBCRecoveryTaskInfo.a aVar3 = UBCRecoveryTaskInfo.Companion;
@@ -557,7 +557,7 @@ public final class a {
                             }
                         }
                     }
-                    c.a.j.k.e.a.a.f4067c.e(uBCRecoveryTaskQueue);
+                    c.a.j.k.e.a.a.f4004c.e(uBCRecoveryTaskQueue);
                     SubTaskState a4 = a();
                     if (a4 != null && a4.getTaskInfo().isPassiveTask()) {
                         Pair<Boolean, String> g2 = g(a4, false);
@@ -565,10 +565,10 @@ public final class a {
                             a4.getTaskStatus().reset2Interrupted();
                             i2 = 500;
                         }
-                        c.a.j.k.e.a.a.f4067c.f(UBCRegisterTaskInfo.Companion.b(a4.getTaskInfo(), a4.getTaskStatus(), g2.getSecond(), i2));
+                        c.a.j.k.e.a.a.f4004c.f(UBCRegisterTaskInfo.Companion.b(a4.getTaskInfo(), a4.getTaskStatus(), g2.getSecond(), i2));
                     }
                     if (a4 != null && a4.getTaskInfo().isInitiActiveTask()) {
-                        c.a.j.k.e.a.a.f4067c.f(UBCRegisterTaskInfo.a.c(UBCRegisterTaskInfo.Companion, a4.getTaskInfo(), a4.getTaskStatus(), null, 0, 12, null));
+                        c.a.j.k.e.a.a.f4004c.f(UBCRegisterTaskInfo.a.c(UBCRegisterTaskInfo.Companion, a4.getTaskInfo(), a4.getTaskStatus(), null, 0, 12, null));
                     }
                     DebugTrace.a.c(new TaskStateQueue$deserializeFromJson$$inlined$withLock$lambda$1(this, str));
                 } catch (Exception e2) {
@@ -584,7 +584,7 @@ public final class a {
     public final boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.a == null && this.f34043b.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.a == null && this.f32957b.isEmpty() : invokeV.booleanValue;
     }
 
     public a(a aVar) {
@@ -602,15 +602,15 @@ public final class a {
                 return;
             }
         }
-        this.f34043b = c.a.j.f.f.a.a(5);
+        this.f32957b = c.a.j.f.f.a.a(5);
         SubTaskState subTaskState = aVar.a;
         this.a = subTaskState != null ? subTaskState.deepCopy() : null;
         PriorityQueue<SubTaskState> a = c.a.j.f.f.a.a(5);
-        a.addAll(aVar.f34043b);
+        a.addAll(aVar.f32957b);
         while (!a.isEmpty()) {
             SubTaskState poll = a.poll();
             if (poll != null) {
-                c.a.j.f.f.a.b(this.f34043b, poll.deepCopy(), 5);
+                c.a.j.f.f.a.b(this.f32957b, poll.deepCopy(), 5);
             }
         }
     }

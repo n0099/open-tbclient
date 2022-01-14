@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public abstract class b implements g {
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, String> f58086b = new HashMap();
+    public final Map<String, String> f55890b = new HashMap();
     public final JSONObject a = new JSONObject();
 
     public b() {
@@ -53,7 +53,7 @@ public abstract class b implements g {
     }
 
     public void a(String str, String str2) {
-        this.f58086b.put(str, str2);
+        this.f55890b.put(str, str2);
     }
 
     public void a(String str, List<? extends com.kwad.sdk.core.b> list) {
@@ -84,7 +84,7 @@ public abstract class b implements g {
 
     @Override // com.kwad.sdk.core.network.g
     public Map<String, String> c() {
-        return this.f58086b;
+        return this.f55890b;
     }
 
     @Override // com.kwad.sdk.core.network.g

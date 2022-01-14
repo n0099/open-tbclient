@@ -169,7 +169,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewSquareSearchActivity f47488e;
+        public final /* synthetic */ NewSquareSearchActivity f45726e;
 
         public c(NewSquareSearchActivity newSquareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -186,14 +186,14 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     return;
                 }
             }
-            this.f47488e = newSquareSearchActivity;
+            this.f45726e = newSquareSearchActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                n.K(this.f47488e.getPageContext().getPageActivity(), this.f47488e.mViewController.o());
+                n.L(this.f45726e.getPageContext().getPageActivity(), this.f45726e.mViewController.o());
             }
         }
     }
@@ -204,7 +204,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewSquareSearchActivity f47489e;
+        public final /* synthetic */ NewSquareSearchActivity f45727e;
 
         public d(NewSquareSearchActivity newSquareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -221,14 +221,14 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     return;
                 }
             }
-            this.f47489e = newSquareSearchActivity;
+            this.f45727e = newSquareSearchActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47489e.closeActivity();
+                this.f45727e.closeActivity();
             }
         }
     }
@@ -239,7 +239,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewSquareSearchActivity f47490e;
+        public final /* synthetic */ NewSquareSearchActivity f45728e;
 
         public e(NewSquareSearchActivity newSquareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -256,7 +256,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     return;
                 }
             }
-            this.f47490e = newSquareSearchActivity;
+            this.f45728e = newSquareSearchActivity;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -355,7 +355,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             if (StringUtils.isNull(stringExtra)) {
                 return;
             }
-            if (!c.a.d.a.b.g().i("MainTabActivity")) {
+            if (!c.a.d.a.b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
                 setIsAddSwipeBackLayout(false);
             }
@@ -395,7 +395,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 return;
             }
             try {
-                this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(c.a.s0.s.g0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
+                this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(c.a.s0.s.h0.b.k().q("hot_search_info", ""), HotSearchInfoData.class);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }

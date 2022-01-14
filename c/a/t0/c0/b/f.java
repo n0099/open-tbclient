@@ -18,22 +18,22 @@ public class f {
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f15672b;
+    public d f15277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d> f15673c;
+    public List<d> f15278c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ManagerElection f15674d;
+    public ManagerElection f15279d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f15675e;
+    public boolean f15280e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f15676f;
+    public long f15281f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f15677g;
+    public BdUniqueId f15282g;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -58,71 +58,71 @@ public class f {
     public List<d> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15673c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15278c : (List) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15676f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15281f : invokeV.longValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15675e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15280e : invokeV.booleanValue;
     }
 
     public ManagerElection e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15674d : (ManagerElection) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15279d : (ManagerElection) invokeV.objValue;
     }
 
     public d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15672b : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15277b : (d) invokeV.objValue;
     }
 
     public BdUniqueId g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15677g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15282g : (BdUniqueId) invokeV.objValue;
     }
 
     public void h(ArrayList<d> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
-            this.f15673c = arrayList;
+            this.f15278c = arrayList;
         }
     }
 
     public void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.f15676f = j2;
+            this.f15281f = j2;
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f15675e = z;
+            this.f15280e = z;
         }
     }
 
     public void k(ManagerElection managerElection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, managerElection) == null) {
-            this.f15674d = managerElection;
+            this.f15279d = managerElection;
         }
     }
 
     public void l(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
-            this.f15677g = bdUniqueId;
+            this.f15282g = bdUniqueId;
         }
     }
 
@@ -136,7 +136,7 @@ public class f {
     public void n(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
-            this.f15672b = dVar;
+            this.f15277b = dVar;
         }
     }
 }

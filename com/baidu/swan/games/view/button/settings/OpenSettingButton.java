@@ -56,7 +56,7 @@ public class OpenSettingButton extends ApiButton {
                 return;
             }
             g.b i2 = V.i("navigateTo");
-            i2.n(g.f6540g, g.f6542i);
+            i2.n(g.f6399g, g.f6401i);
             i2.k("authority", null).a();
         }
     }

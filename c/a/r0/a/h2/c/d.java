@@ -45,7 +45,7 @@ public final class d {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, C0413d> f7271b;
+    public static final Map<String, C0422d> f7115b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -54,7 +54,7 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f7272e;
+        public final /* synthetic */ String f7116e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public final class d {
                     return;
                 }
             }
-            this.f7272e = str;
+            this.f7116e = str;
         }
 
         @Override // java.lang.Runnable
@@ -79,7 +79,7 @@ public final class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Context e2 = d.e();
-                Toast.makeText(e2, "aiapps-oauth :: " + this.f7272e, 0).show();
+                Toast.makeText(e2, "aiapps-oauth :: " + this.f7116e, 0).show();
             }
         }
     }
@@ -90,7 +90,7 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f7273e;
+        public final /* synthetic */ f f7117e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public final class d {
                     return;
                 }
             }
-            this.f7273e = fVar;
+            this.f7117e = fVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -116,12 +116,12 @@ public final class d {
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                 if (i2 == -2) {
                     d.k("onNegBtn", Boolean.FALSE);
-                    n.q("click", this.f7273e.f7279b, false);
-                    d.d(this.f7273e.f7279b, false);
+                    n.q("click", this.f7117e.f7123b, false);
+                    d.d(this.f7117e.f7123b, false);
                 } else if (i2 == -1) {
                     d.k("onPosBtn", Boolean.FALSE);
-                    n.q("click", this.f7273e.f7279b, true);
-                    d.d(this.f7273e.f7279b, true);
+                    n.q("click", this.f7117e.f7123b, true);
+                    d.d(this.f7117e.f7123b, true);
                 }
                 c.a.r0.a.c1.b.n().a("na_authorize_end");
             }
@@ -134,7 +134,7 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f7274e;
+        public final /* synthetic */ f f7118e;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public final class d {
                     return;
                 }
             }
-            this.f7274e = fVar;
+            this.f7118e = fVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
@@ -159,20 +159,20 @@ public final class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
                 d.k("onCancel", Boolean.FALSE);
-                n.q("click", this.f7274e.f7279b, false);
-                d.d(this.f7274e.f7279b, false);
+                n.q("click", this.f7118e.f7123b, false);
+                d.d(this.f7118e.f7123b, false);
             }
         }
     }
 
     /* renamed from: c.a.r0.a.h2.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0413d {
+    public static class C0422d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Set<c.a.r0.a.h2.c.a> a;
 
-        public C0413d(String str) {
+        public C0422d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,7 +205,7 @@ public final class d {
             }
         }
         a = k.a;
-        f7271b = new HashMap();
+        f7115b = new HashMap();
     }
 
     public static RequestBody b(Map<String, String> map) {
@@ -243,11 +243,11 @@ public final class d {
     }
 
     public static void d(String str, boolean z) {
-        C0413d remove;
+        C0422d remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z) == null) {
-            synchronized (f7271b) {
-                remove = f7271b.remove(str);
+            synchronized (f7115b) {
+                remove = f7115b.remove(str);
             }
             if (remove == null || remove.a.isEmpty()) {
                 return;
@@ -322,7 +322,7 @@ public final class d {
     public static boolean h(i<b.e> iVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, iVar)) == null) ? iVar != null && iVar.c() && iVar.a.f7332b : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, iVar)) == null) ? iVar != null && iVar.c() && iVar.a.f7174b : invokeL.booleanValue;
     }
 
     public static boolean i(JSONObject jSONObject) {
@@ -390,7 +390,7 @@ public final class d {
     public static void n(c.a.r0.a.h2.d.a aVar, CallbackHandler callbackHandler, String str) {
         c.a.r0.a.u2.a aVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65550, null, aVar, callbackHandler, str) == null) || aVar == null || (aVar2 = aVar.f7352j) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65550, null, aVar, callbackHandler, str) == null) || aVar == null || (aVar2 = aVar.f7193j) == null) {
             return;
         }
         int i2 = -1;
@@ -445,7 +445,7 @@ public final class d {
     public static void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            f7271b.clear();
+            f7115b.clear();
         }
     }
 
@@ -489,19 +489,19 @@ public final class d {
     public static void u(Context context, c.a.r0.a.d2.e eVar, f fVar, JSONObject jSONObject, c.a.r0.a.h2.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65557, null, context, eVar, fVar, jSONObject, aVar) == null) {
-            if (fVar != null && !TextUtils.isEmpty(fVar.f7279b)) {
-                synchronized (f7271b) {
-                    C0413d c0413d = f7271b.get(fVar.f7279b);
-                    if (c0413d != null) {
-                        c0413d.a.add(aVar);
+            if (fVar != null && !TextUtils.isEmpty(fVar.f7123b)) {
+                synchronized (f7115b) {
+                    C0422d c0422d = f7115b.get(fVar.f7123b);
+                    if (c0422d != null) {
+                        c0422d.a.add(aVar);
                         return;
                     }
-                    C0413d c0413d2 = new C0413d(fVar.f7279b);
-                    c0413d2.a.add(aVar);
-                    f7271b.put(fVar.f7279b, c0413d2);
+                    C0422d c0422d2 = new C0422d(fVar.f7123b);
+                    c0422d2.a.add(aVar);
+                    f7115b.put(fVar.f7123b, c0422d2);
                     b bVar = new b(fVar);
                     c cVar = new c(fVar);
-                    n.q("show", fVar.f7279b, false);
+                    n.q("show", fVar.f7123b, false);
                     c.a.r0.a.c1.b.n().a("na_authorize_start");
                     v(context, eVar, fVar, jSONObject, bVar, cVar);
                     return;

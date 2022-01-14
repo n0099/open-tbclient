@@ -34,45 +34,43 @@ public class a {
     public SearchMajorActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f17461b;
+    public View f17040b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f17462c;
+    public NavigationBar f17041c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f17463d;
+    public RelativeLayout f17042d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f17464e;
+    public EditText f17043e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f17465f;
+    public ImageView f17044f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f17466g;
+    public ImageView f17045g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView f17467h;
+    public RecyclerView f17046h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayoutManager f17468i;
+    public LinearLayoutManager f17047i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SearchMajorResultItemAdapter f17469j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public LinearLayout f17470k;
+    public SearchMajorResultItemAdapter f17048j;
+    public LinearLayout k;
 
     /* renamed from: c.a.t0.d2.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class View$OnTouchListenerC1065a implements View.OnTouchListener {
+    public class View$OnTouchListenerC1079a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f17471e;
+        public final /* synthetic */ a f17049e;
 
-        public View$OnTouchListenerC1065a(a aVar) {
+        public View$OnTouchListenerC1079a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +85,7 @@ public class a {
                     return;
                 }
             }
-            this.f17471e = aVar;
+            this.f17049e = aVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -96,10 +94,10 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f17471e.f17463d.setFocusable(true);
-                    this.f17471e.f17463d.setFocusableInTouchMode(true);
-                    if (this.f17471e.f17464e.hasFocus()) {
-                        n.w(this.f17471e.a, this.f17471e.f17464e);
+                    this.f17049e.f17042d.setFocusable(true);
+                    this.f17049e.f17042d.setFocusableInTouchMode(true);
+                    if (this.f17049e.f17043e.hasFocus()) {
+                        n.w(this.f17049e.a, this.f17049e.f17043e);
                         return false;
                     }
                     return false;
@@ -116,7 +114,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f17472e;
+        public final /* synthetic */ a f17050e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -133,14 +131,14 @@ public class a {
                     return;
                 }
             }
-            this.f17472e = aVar;
+            this.f17050e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17472e.f17464e.setText("");
+                this.f17050e.f17043e.setText("");
             }
         }
     }
@@ -160,7 +158,7 @@ public class a {
                 return;
             }
         }
-        this.f17461b = view;
+        this.f17040b = view;
         this.a = searchMajorActivity;
         h();
     }
@@ -168,47 +166,47 @@ public class a {
     public LinearLayout d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17470k : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (LinearLayout) invokeV.objValue;
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.f17461b.findViewById(R.id.navigation_bar);
-            this.f17462c = navigationBar;
+            NavigationBar navigationBar = (NavigationBar) this.f17040b.findViewById(R.id.navigation_bar);
+            this.f17041c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f17462c.setCenterTextTitle(this.a.getResources().getString(R.string.search_major));
+            this.f17041c.setCenterTextTitle(this.a.getResources().getString(R.string.search_major));
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) this.f17461b.findViewById(R.id.search_container);
-            this.f17463d = relativeLayout;
-            relativeLayout.setOnTouchListener(new View$OnTouchListenerC1065a(this));
-            this.f17466g = (ImageView) this.f17461b.findViewById(R.id.search_icon);
-            this.f17464e = (EditText) this.f17461b.findViewById(R.id.search_box);
-            ImageView imageView = (ImageView) this.f17461b.findViewById(R.id.search_del);
-            this.f17465f = imageView;
+            RelativeLayout relativeLayout = (RelativeLayout) this.f17040b.findViewById(R.id.search_container);
+            this.f17042d = relativeLayout;
+            relativeLayout.setOnTouchListener(new View$OnTouchListenerC1079a(this));
+            this.f17045g = (ImageView) this.f17040b.findViewById(R.id.search_icon);
+            this.f17043e = (EditText) this.f17040b.findViewById(R.id.search_box);
+            ImageView imageView = (ImageView) this.f17040b.findViewById(R.id.search_del);
+            this.f17044f = imageView;
             imageView.setOnClickListener(new b(this));
             k(false);
-            this.f17464e.setText("");
-            this.f17464e.requestFocus();
+            this.f17043e.setText("");
+            this.f17043e.requestFocus();
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f17470k = (LinearLayout) this.f17461b.findViewById(R.id.layout_container);
-            this.f17467h = (RecyclerView) this.f17461b.findViewById(R.id.rv_major_list);
+            this.k = (LinearLayout) this.f17040b.findViewById(R.id.layout_container);
+            this.f17046h = (RecyclerView) this.f17040b.findViewById(R.id.rv_major_list);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.a);
-            this.f17468i = linearLayoutManager;
-            this.f17467h.setLayoutManager(linearLayoutManager);
+            this.f17047i = linearLayoutManager;
+            this.f17046h.setLayoutManager(linearLayoutManager);
             SearchMajorResultItemAdapter searchMajorResultItemAdapter = new SearchMajorResultItemAdapter(this.a);
-            this.f17469j = searchMajorResultItemAdapter;
-            this.f17467h.setAdapter(searchMajorResultItemAdapter);
+            this.f17048j = searchMajorResultItemAdapter;
+            this.f17046h.setAdapter(searchMajorResultItemAdapter);
         }
     }
 
@@ -224,45 +222,45 @@ public class a {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.f17469j;
+            SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.f17048j;
             if (searchMajorResultItemAdapter != null) {
                 searchMajorResultItemAdapter.notifyDataSetChanged();
             }
-            this.f17462c.onChangeSkinType(this.a.getPageContext(), i2);
-            this.f17464e.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            this.f17464e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f17466g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setBackgroundResource(this.f17463d, R.drawable.search_major_bg);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f17465f, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f17041c.onChangeSkinType(this.a.getPageContext(), i2);
+            this.f17043e.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            this.f17043e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f17045g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setBackgroundResource(this.f17042d, R.drawable.search_major_bg);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f17044f, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || StringUtils.isNull(this.f17464e.getText().toString())) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || StringUtils.isNull(this.f17043e.getText().toString())) {
             return;
         }
-        this.f17463d.setFocusable(true);
-        this.f17463d.setFocusableInTouchMode(true);
-        this.f17463d.requestFocus();
+        this.f17042d.setFocusable(true);
+        this.f17042d.setFocusableInTouchMode(true);
+        this.f17042d.requestFocus();
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f17465f.setVisibility(z ? 0 : 8);
+            this.f17044f.setVisibility(z ? 0 : 8);
         }
     }
 
     public void l(List<String> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, str) == null) {
-            this.f17467h.setVisibility(0);
-            SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.f17469j;
+            this.f17046h.setVisibility(0);
+            SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.f17048j;
             if (searchMajorResultItemAdapter != null) {
                 searchMajorResultItemAdapter.setKeyWord(str);
-                this.f17469j.setData(list);
-                this.f17467h.setAdapter(this.f17469j);
+                this.f17048j.setData(list);
+                this.f17046h.setAdapter(this.f17048j);
             }
         }
     }
@@ -270,8 +268,8 @@ public class a {
     public void m(ErrorData errorData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, errorData) == null) {
-            this.f17467h.setVisibility(8);
-            SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.f17469j;
+            this.f17046h.setVisibility(8);
+            SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.f17048j;
             if (searchMajorResultItemAdapter != null) {
                 searchMajorResultItemAdapter.setNoData();
             }
@@ -281,35 +279,35 @@ public class a {
     public void n(SearchMajorResultItemAdapter.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f17469j.setOnItemClickListener(bVar);
+            this.f17048j.setOnItemClickListener(bVar);
         }
     }
 
     public void o(RecyclerView.OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, onScrollListener) == null) {
-            this.f17467h.addOnScrollListener(onScrollListener);
+            this.f17046h.addOnScrollListener(onScrollListener);
         }
     }
 
     public void p(TextView.OnEditorActionListener onEditorActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onEditorActionListener) == null) {
-            this.f17464e.setOnEditorActionListener(onEditorActionListener);
+            this.f17043e.setOnEditorActionListener(onEditorActionListener);
         }
     }
 
     public void q(View.OnFocusChangeListener onFocusChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onFocusChangeListener) == null) {
-            this.f17464e.setOnFocusChangeListener(onFocusChangeListener);
+            this.f17043e.setOnFocusChangeListener(onFocusChangeListener);
         }
     }
 
     public void r(TextWatcher textWatcher) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, textWatcher) == null) {
-            this.f17464e.addTextChangedListener(textWatcher);
+            this.f17043e.addTextChangedListener(textWatcher);
         }
     }
 }

@@ -26,21 +26,19 @@ import java.io.InputStream;
 import java.nio.channels.Channels;
 import java.nio.channels.Pipe;
 /* loaded from: classes.dex */
-public class e extends f.AbstractC0252f {
+public class e extends f.AbstractC0261f {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final boolean f5252k;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.r0.q.i.f f5253h;
+    public final c.a.r0.q.i.f f5143h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.r0.q.f.f f5254i;
+    public final c.a.r0.q.f.f f5144i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.r0.a.r2.f.b f5255j;
+    public c.a.r0.a.r2.f.b f5145j;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -48,7 +46,7 @@ public class e extends f.AbstractC0252f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f5256e;
+        public final /* synthetic */ e f5146e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -65,14 +63,14 @@ public class e extends f.AbstractC0252f {
                     return;
                 }
             }
-            this.f5256e = eVar;
+            this.f5146e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5256e.j();
+                this.f5146e.j();
             }
         }
     }
@@ -90,7 +88,7 @@ public class e extends f.AbstractC0252f {
                 return;
             }
         }
-        f5252k = k.a;
+        k = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -111,11 +109,11 @@ public class e extends f.AbstractC0252f {
                 return;
             }
         }
-        this.f5253h = fVar;
-        this.f5254i = fVar2;
+        this.f5143h = fVar;
+        this.f5144i = fVar2;
     }
 
-    @Override // c.a.r0.a.a1.f.AbstractC0252f
+    @Override // c.a.r0.a.a1.f.AbstractC0261f
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -128,23 +126,23 @@ public class e extends f.AbstractC0252f {
         }
     }
 
-    @Override // c.a.r0.a.a1.f.AbstractC0252f
+    @Override // c.a.r0.a.a1.f.AbstractC0261f
     public boolean f(Pipe.SourceChannel sourceChannel, Bundle bundle) {
         InterceptResult invokeLL;
         c.a.r0.a.f1.g.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sourceChannel, bundle)) == null) {
             String string = bundle.getString("launch_id");
-            if (f5252k) {
+            if (k) {
                 aVar = c.a.r0.a.f1.g.a.d(string);
-                b.C0311b e2 = aVar.e();
+                b.C0320b e2 = aVar.e();
                 e2.b("SwanExtractor");
                 e2.d(1);
             } else {
                 aVar = null;
             }
             boolean k2 = k(Channels.newInputStream(sourceChannel), string);
-            if (aVar != null && f5252k) {
+            if (aVar != null && k) {
                 aVar.g("SwanExtractor", "done: " + k2);
             }
             return k2;
@@ -155,10 +153,10 @@ public class e extends f.AbstractC0252f {
     public final void j() {
         c.a.r0.q.i.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (fVar = this.f5253h) == null || fVar.f11762h != 0 || d.w()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (fVar = this.f5143h) == null || fVar.f11495h != 0 || d.w()) {
             return;
         }
-        d.e(this.f5253h.f11761g + File.separator + this.f5253h.f11763i);
+        d.e(this.f5143h.f11494g + File.separator + this.f5143h.f11496i);
     }
 
     public final boolean k(InputStream inputStream, String str) {
@@ -173,7 +171,7 @@ public class e extends f.AbstractC0252f {
                 return true;
             }
             c.a.r0.a.e0.d.k("SwanExtractor", "#extract error=" + q);
-            if (f5252k) {
+            if (k) {
                 c.a.r0.a.f1.g.a d2 = c.a.r0.a.f1.g.a.d(str);
                 d2.g("SwanExtractor", "onProcess installe error=" + q);
             }
@@ -214,10 +212,10 @@ public class e extends f.AbstractC0252f {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || c.a.r0.a.r2.f.a.c() <= 0) {
             return;
         }
-        boolean z = f5252k;
-        if (this.f5255j == null) {
+        boolean z = k;
+        if (this.f5145j == null) {
             c.a.r0.a.r2.f.b bVar = new c.a.r0.a.r2.f.b(str);
-            this.f5255j = bVar;
+            this.f5145j = bVar;
             bVar.startWatching();
         }
     }
@@ -227,19 +225,19 @@ public class e extends f.AbstractC0252f {
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || c.a.r0.a.r2.f.a.c() <= 0) {
             return;
         }
-        boolean z = f5252k;
-        c.a.r0.a.r2.f.b bVar = this.f5255j;
+        boolean z = k;
+        c.a.r0.a.r2.f.b bVar = this.f5145j;
         if (bVar == null) {
             return;
         }
         bVar.stopWatching();
-        this.f5255j = null;
+        this.f5145j = null;
     }
 
     public final void p(String str, String str2) {
         c.a.r0.q.f.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || (fVar = this.f5254i) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || (fVar = this.f5144i) == null) {
             return;
         }
         fVar.n(str, str2);
@@ -252,7 +250,7 @@ public class e extends f.AbstractC0252f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, bufferedInputStream, str)) == null) {
             c.a.r0.a.f1.g.a d2 = c.a.r0.a.f1.g.a.d(str);
-            c.a.r0.q.i.f fVar = this.f5253h;
+            c.a.r0.q.i.f fVar = this.f5143h;
             if (fVar == null) {
                 c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
                 aVar.k(11L);
@@ -261,14 +259,14 @@ public class e extends f.AbstractC0252f {
                 c.a.r0.a.u2.e.a().f(aVar);
                 return aVar;
             }
-            int i3 = fVar.f11762h;
+            int i3 = fVar.f11495h;
             boolean z = true;
             if (i3 == 1) {
                 c.a.r0.a.p.b.a.e g2 = c.a.r0.a.c1.b.g();
-                c.a.r0.q.i.f fVar2 = this.f5253h;
-                i2 = g2.a(fVar2.f11761g, String.valueOf(fVar2.f11763i));
+                c.a.r0.q.i.f fVar2 = this.f5143h;
+                i2 = g2.a(fVar2.f11494g, String.valueOf(fVar2.f11496i));
             } else if (i3 == 0) {
-                i2 = d.e.i(fVar.f11761g, String.valueOf(fVar.f11763i));
+                i2 = d.e.i(fVar.f11494g, String.valueOf(fVar.f11496i));
             } else {
                 c.a.r0.a.u2.a aVar2 = new c.a.r0.a.u2.a();
                 aVar2.k(11L);
@@ -285,7 +283,7 @@ public class e extends f.AbstractC0252f {
                 c.a.r0.a.u2.e.a().f(aVar3);
                 return aVar3;
             } else if (i2.isFile() && !i2.delete()) {
-                if (f5252k) {
+                if (k) {
                     d2.g("SwanExtractor", "解压失败：解压目录被文件占用，且无法删除");
                 }
                 c.a.r0.a.u2.a aVar4 = new c.a.r0.a.u2.a();
@@ -298,7 +296,7 @@ public class e extends f.AbstractC0252f {
                 if (!i2.exists()) {
                     b().putBoolean("result_output_dir_allow_rollback", true);
                     if (!i2.mkdirs()) {
-                        if (f5252k) {
+                        if (k) {
                             d2.g("SwanExtractor", "解压失败：解压文件夹创建失败");
                         }
                         q.k(new a(this), "doFallbackIfNeeded");
@@ -311,14 +309,14 @@ public class e extends f.AbstractC0252f {
                     }
                 }
                 n(i2.getPath());
-                if (f5252k) {
+                if (k) {
                     d2.g("SwanExtractor", "开始执行解压操作, folder:" + i2.getPath());
                 }
                 b().putString("result_output_dir", i2.toString());
                 long currentTimeMillis = System.currentTimeMillis();
                 try {
                     a.c i4 = c.a.r0.a.a1.g.a.i(bufferedInputStream);
-                    int i5 = i4 == null ? -1 : i4.f5278b;
+                    int i5 = i4 == null ? -1 : i4.f5168b;
                     boolean z2 = i5 != -1;
                     m(z2);
                     if (z2) {
@@ -333,13 +331,13 @@ public class e extends f.AbstractC0252f {
                     }
                     l(z2);
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    if (f5252k) {
+                    if (k) {
                         c.a.r0.a.a1.g.a.h((int) (currentTimeMillis2 - currentTimeMillis));
                     }
-                    if (this.f5254i != null) {
+                    if (this.f5144i != null) {
                         Bundle bundle = new Bundle();
                         bundle.putInt("download_package_type_id", i5);
-                        j.a(this.f5254i, bundle, "event_download_package_type");
+                        j.a(this.f5144i, bundle, "event_download_package_type");
                     }
                     o();
                     if (z) {
@@ -349,7 +347,7 @@ public class e extends f.AbstractC0252f {
                     aVar6.k(11L);
                     if (z2) {
                         aVar6.i(2330L);
-                        aVar6.f("decrypt failed:" + bVar.f5277b);
+                        aVar6.f("decrypt failed:" + bVar.f5167b);
                     } else {
                         aVar6.i(2320L);
                         aVar6.f("unzip failed");
@@ -357,7 +355,7 @@ public class e extends f.AbstractC0252f {
                     c.a.r0.a.u2.e.a().f(aVar6);
                     return aVar6;
                 } catch (IOException e2) {
-                    if (f5252k) {
+                    if (k) {
                         d2.g("SwanExtractor", "obtainEncryptedBundle Exception: " + e2.toString());
                         e2.printStackTrace();
                     }

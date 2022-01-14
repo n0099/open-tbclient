@@ -11,7 +11,7 @@ public abstract class b implements f {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f31633b;
+    public Object f30641b;
 
     public b(String str, Object obj) {
         Interceptable interceptable = $ic;
@@ -29,6 +29,6 @@ public abstract class b implements f {
             }
         }
         this.a = str;
-        this.f31633b = obj;
+        this.f30641b = obj;
     }
 }

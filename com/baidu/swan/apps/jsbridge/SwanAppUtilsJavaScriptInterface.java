@@ -45,10 +45,10 @@ public class SwanAppUtilsJavaScriptInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f40150e;
+        public final /* synthetic */ String f38822e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f40151f;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f38823f;
 
         public a(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str) {
             Interceptable interceptable = $ic;
@@ -65,22 +65,22 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f40151f = swanAppUtilsJavaScriptInterface;
-            this.f40150e = str;
+            this.f38823f = swanAppUtilsJavaScriptInterface;
+            this.f38822e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = this.f40150e;
+                String str = this.f38822e;
                 if (!str.startsWith("javascript:")) {
                     str = "javascript:" + str;
                 }
                 if (SwanAppUtilsJavaScriptInterface.DEBUG) {
                     String str2 = "share result:" + str;
                 }
-                this.f40151f.mWebView.evaluateJavascript(str, null);
+                this.f38823f.mWebView.evaluateJavascript(str, null);
             }
         }
     }
@@ -92,10 +92,10 @@ public class SwanAppUtilsJavaScriptInterface {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f40152b;
+        public final /* synthetic */ String f38824b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f40153c;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f38825c;
 
         public b(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -112,16 +112,16 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f40153c = swanAppUtilsJavaScriptInterface;
+            this.f38825c = swanAppUtilsJavaScriptInterface;
             this.a = str;
-            this.f40152b = str2;
+            this.f38824b = str2;
         }
 
         @Override // c.a.r0.a.c1.d.j.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f40153c.notifyCallback(this.f40152b, String.valueOf(false));
+                this.f38825c.notifyCallback(this.f38824b, String.valueOf(false));
             }
         }
 
@@ -129,7 +129,7 @@ public class SwanAppUtilsJavaScriptInterface {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f40153c.notifyCallback(this.a, String.valueOf(true));
+                this.f38825c.notifyCallback(this.a, String.valueOf(true));
             }
         }
     }
@@ -140,10 +140,10 @@ public class SwanAppUtilsJavaScriptInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f40154e;
+        public final /* synthetic */ String f38826e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f40155f;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f38827f;
 
         public c(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str) {
             Interceptable interceptable = $ic;
@@ -160,8 +160,8 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f40155f = swanAppUtilsJavaScriptInterface;
-            this.f40154e = str;
+            this.f38827f = swanAppUtilsJavaScriptInterface;
+            this.f38826e = str;
         }
 
         @Override // java.lang.Runnable
@@ -169,7 +169,7 @@ public class SwanAppUtilsJavaScriptInterface {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean unused = SwanAppUtilsJavaScriptInterface.DEBUG;
-                this.f40155f.doUbcEvent(this.f40154e);
+                this.f38827f.doUbcEvent(this.f38826e);
             }
         }
     }

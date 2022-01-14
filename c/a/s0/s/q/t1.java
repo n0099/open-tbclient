@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import tbclient.RecommendInfo;
 import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes6.dex */
-public class t1 extends d2 {
+public class t1 extends e2 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId h4;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,14 +74,14 @@ public class t1 extends d2 {
         }
     }
 
-    @Override // c.a.s0.s.q.d2
+    @Override // c.a.s0.s.q.e2
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4 : (String) invokeV.objValue;
     }
 
-    @Override // c.a.s0.s.q.d2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
+    @Override // c.a.s0.s.q.e2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

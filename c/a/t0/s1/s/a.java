@@ -48,54 +48,54 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile a f22856h;
+    public static volatile a f22226h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile Long f22857i;
+    public static volatile Long f22227i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static volatile long f22858j;
+    public static volatile long f22228j;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedList<ChatMessage> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, c.a.s0.d0.a<ChatMessage>> f22859b;
+    public final HashMap<String, c.a.s0.d0.a<ChatMessage>> f22229b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.d f22860c;
+    public a.d f22230c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.s1.s.d f22861d;
+    public c.a.t0.s1.s.d f22231d;
 
     /* renamed from: e  reason: collision with root package name */
-    public VoiceSendModel f22862e;
+    public VoiceSendModel f22232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<a.b<ChatMessage>> f22863f;
+    public WeakReference<a.b<ChatMessage>> f22233f;
 
     /* renamed from: g  reason: collision with root package name */
-    public VoiceSendModel.b f22864g;
+    public VoiceSendModel.b f22234g;
 
     /* renamed from: c.a.t0.s1.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1361a implements a.d {
+    public class C1376a implements a.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* renamed from: c.a.t0.s1.s.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C1362a extends k0<Boolean> {
+        public class C1377a extends k0<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CommonGroupChatMessage a;
 
-            public C1362a(C1361a c1361a, CommonGroupChatMessage commonGroupChatMessage) {
+            public C1377a(C1376a c1376a, CommonGroupChatMessage commonGroupChatMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1361a, commonGroupChatMessage};
+                    Object[] objArr = {c1376a, commonGroupChatMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -125,12 +125,12 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CommonGroupChatMessage a;
 
-            public b(C1361a c1361a, CommonGroupChatMessage commonGroupChatMessage) {
+            public b(C1376a c1376a, CommonGroupChatMessage commonGroupChatMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1361a, commonGroupChatMessage};
+                    Object[] objArr = {c1376a, commonGroupChatMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -161,12 +161,12 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PersonalChatMessage a;
 
-            public c(C1361a c1361a, PersonalChatMessage personalChatMessage) {
+            public c(C1376a c1376a, PersonalChatMessage personalChatMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1361a, personalChatMessage};
+                    Object[] objArr = {c1376a, personalChatMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -196,12 +196,12 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PersonalChatMessage a;
 
-            public d(C1361a c1361a, PersonalChatMessage personalChatMessage) {
+            public d(C1376a c1376a, PersonalChatMessage personalChatMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1361a, personalChatMessage};
+                    Object[] objArr = {c1376a, personalChatMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -232,12 +232,12 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ OfficialChatMessage a;
 
-            public e(C1361a c1361a, OfficialChatMessage officialChatMessage) {
+            public e(C1376a c1376a, OfficialChatMessage officialChatMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1361a, officialChatMessage};
+                    Object[] objArr = {c1376a, officialChatMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -267,12 +267,12 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ OfficialChatMessage a;
 
-            public f(C1361a c1361a, OfficialChatMessage officialChatMessage) {
+            public f(C1376a c1376a, OfficialChatMessage officialChatMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1361a, officialChatMessage};
+                    Object[] objArr = {c1376a, officialChatMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -296,7 +296,7 @@ public class a {
             }
         }
 
-        public C1361a(a aVar) {
+        public C1376a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -328,7 +328,7 @@ public class a {
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, imageUploadResult) == null) {
                 synchronized (this) {
                     synchronized (a.class) {
-                        aVar = (c.a.s0.d0.a) this.a.f22859b.remove(str);
+                        aVar = (c.a.s0.d0.a) this.a.f22229b.remove(str);
                     }
                     if (aVar == null) {
                         return;
@@ -352,15 +352,15 @@ public class a {
                         }
                         chatMessage.setContent(a.f(str3, str2, i3, i2));
                         a.j().t(chatMessage);
-                        if (this.a.f22861d != null) {
-                            this.a.f22861d.a(1);
+                        if (this.a.f22231d != null) {
+                            this.a.f22231d.a(1);
                         }
                     }
                     c.a.s0.s.b0.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", -1, "result is null", new Object[0]);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001215, chatMessage));
                     if (chatMessage instanceof CommonGroupChatMessage) {
                         CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
-                        n0.c(new C1362a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
+                        n0.c(new C1377a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
                     } else if (chatMessage instanceof PersonalChatMessage) {
                         PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
                         n0.c(new c(this, personalChatMessage), new d(this, personalChatMessage));
@@ -380,7 +380,7 @@ public class a {
         public final /* synthetic */ CommonGroupChatMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f22865b;
+        public final /* synthetic */ LinkedList f22235b;
 
         public b(a aVar, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
             Interceptable interceptable = $ic;
@@ -398,7 +398,7 @@ public class a {
                 }
             }
             this.a = commonGroupChatMessage;
-            this.f22865b = linkedList;
+            this.f22235b = linkedList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -407,7 +407,7 @@ public class a {
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.t0.s1.h.c.h().l(this.a.getGroupId(), this.f22865b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.t0.s1.h.c.h().l(this.a.getGroupId(), this.f22235b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -418,7 +418,7 @@ public class a {
         public final /* synthetic */ CommonGroupChatMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ChatMessage f22866b;
+        public final /* synthetic */ ChatMessage f22236b;
 
         public c(a aVar, CommonGroupChatMessage commonGroupChatMessage, ChatMessage chatMessage) {
             Interceptable interceptable = $ic;
@@ -436,7 +436,7 @@ public class a {
                 }
             }
             this.a = commonGroupChatMessage;
-            this.f22866b = chatMessage;
+            this.f22236b = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -447,7 +447,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                 this.a.setLogTime(System.currentTimeMillis());
                 MessageManager.getInstance().sendMessage(this.a);
-                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(this.a.getGroupId(), this.f22866b.getCustomGroupType(), this.f22866b, 3)));
+                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(this.a.getGroupId(), this.f22236b.getCustomGroupType(), this.f22236b, 3)));
             }
         }
     }
@@ -459,7 +459,7 @@ public class a {
         public final /* synthetic */ PersonalChatMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f22867b;
+        public final /* synthetic */ LinkedList f22237b;
 
         public d(a aVar, PersonalChatMessage personalChatMessage, LinkedList linkedList) {
             Interceptable interceptable = $ic;
@@ -477,7 +477,7 @@ public class a {
                 }
             }
             this.a = personalChatMessage;
-            this.f22867b = linkedList;
+            this.f22237b = linkedList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -486,7 +486,7 @@ public class a {
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.t0.s1.h.m.t().m(c.a.t0.s1.w.c.m(this.a), this.f22867b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.t0.s1.h.m.t().m(c.a.t0.s1.w.c.m(this.a), this.f22237b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -497,7 +497,7 @@ public class a {
         public final /* synthetic */ PersonalChatMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ChatMessage f22868b;
+        public final /* synthetic */ ChatMessage f22238b;
 
         public e(a aVar, PersonalChatMessage personalChatMessage, ChatMessage chatMessage) {
             Interceptable interceptable = $ic;
@@ -515,7 +515,7 @@ public class a {
                 }
             }
             this.a = personalChatMessage;
-            this.f22868b = chatMessage;
+            this.f22238b = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -526,7 +526,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                 this.a.setLogTime(System.currentTimeMillis());
                 MessageManager.getInstance().sendMessage(this.a);
-                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.a.getToUserId()), 2, this.f22868b, 3)));
+                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.a.getToUserId()), 2, this.f22238b, 3)));
             }
         }
     }
@@ -538,7 +538,7 @@ public class a {
         public final /* synthetic */ OfficialChatMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f22869b;
+        public final /* synthetic */ LinkedList f22239b;
 
         public f(a aVar, OfficialChatMessage officialChatMessage, LinkedList linkedList) {
             Interceptable interceptable = $ic;
@@ -556,7 +556,7 @@ public class a {
                 }
             }
             this.a = officialChatMessage;
-            this.f22869b = linkedList;
+            this.f22239b = linkedList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -565,7 +565,7 @@ public class a {
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.t0.s1.h.l.t().m(c.a.t0.s1.w.c.m(this.a), this.f22869b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.t0.s1.h.l.t().m(c.a.t0.s1.w.c.m(this.a), this.f22239b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -576,7 +576,7 @@ public class a {
         public final /* synthetic */ OfficialChatMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ChatMessage f22870b;
+        public final /* synthetic */ ChatMessage f22240b;
 
         public g(a aVar, OfficialChatMessage officialChatMessage, ChatMessage chatMessage) {
             Interceptable interceptable = $ic;
@@ -594,7 +594,7 @@ public class a {
                 }
             }
             this.a = officialChatMessage;
-            this.f22870b = chatMessage;
+            this.f22240b = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -605,7 +605,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                 this.a.setLogTime(System.currentTimeMillis());
                 MessageManager.getInstance().sendMessage(this.a);
-                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.a.getToUserId()), 4, this.f22870b, 3)));
+                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.a.getToUserId()), 4, this.f22240b, 3)));
             }
         }
     }
@@ -618,12 +618,12 @@ public class a {
 
         /* renamed from: c.a.t0.s1.s.a$h$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C1363a extends k0<Boolean> {
+        public class C1378a extends k0<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CommonGroupChatMessage a;
 
-            public C1363a(h hVar, CommonGroupChatMessage commonGroupChatMessage) {
+            public C1378a(h hVar, CommonGroupChatMessage commonGroupChatMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -858,8 +858,8 @@ public class a {
                             }
                             c.a.s0.s.b0.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
                             a.j().t(chatMessage);
-                            if (this.a.f22861d != null) {
-                                this.a.f22861d.a(2);
+                            if (this.a.f22231d != null) {
+                                this.a.f22231d.a(2);
                                 return;
                             }
                             return;
@@ -868,7 +868,7 @@ public class a {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001215, chatMessage));
                         if (chatMessage instanceof CommonGroupChatMessage) {
                             CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
-                            n0.c(new C1363a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
+                            n0.c(new C1378a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
                         } else if (chatMessage instanceof PersonalChatMessage) {
                             PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
                             n0.c(new c(this, personalChatMessage), new d(this, personalChatMessage));
@@ -890,10 +890,10 @@ public class a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f22871b;
+        public final /* synthetic */ String f22241b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f22872c;
+        public final /* synthetic */ a f22242c;
 
         public i(a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -910,9 +910,9 @@ public class a {
                     return;
                 }
             }
-            this.f22872c = aVar;
+            this.f22242c = aVar;
             this.a = str;
-            this.f22871b = str2;
+            this.f22241b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -928,7 +928,7 @@ public class a {
         public void onPostExecute(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                this.f22872c.r(this.f22871b, new c.a.d.n.d.a(bitmap, false));
+                this.f22242c.r(this.f22241b, new c.a.d.n.d.a(bitmap, false));
             }
         }
     }
@@ -1228,8 +1228,8 @@ public class a {
                 return;
             }
         }
-        f22857i = 0L;
-        f22858j = 0L;
+        f22227i = 0L;
+        f22228j = 0L;
     }
 
     public a() {
@@ -1246,8 +1246,8 @@ public class a {
             }
         }
         this.a = new LinkedList<>();
-        this.f22859b = new HashMap<>();
-        this.f22864g = new h(this);
+        this.f22229b = new HashMap<>();
+        this.f22234g = new h(this);
         k();
     }
 
@@ -1273,14 +1273,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f22856h == null) {
+            if (f22226h == null) {
                 synchronized (a.class) {
-                    if (f22856h == null) {
-                        f22856h = new a();
+                    if (f22226h == null) {
+                        f22226h = new a();
                     }
                 }
             }
-            return f22856h;
+            return f22226h;
         }
         return (a) invokeV.objValue;
     }
@@ -1299,14 +1299,14 @@ public class a {
     public static void w(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65546, null, j2) == null) {
-            f22858j = j2;
+            f22228j = j2;
         }
     }
 
     public static void x(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65547, null, j2) == null) {
-            f22857i = Long.valueOf(j2);
+            f22227i = Long.valueOf(j2);
         }
     }
 
@@ -1314,7 +1314,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessage)) == null) {
-            HashMap<String, c.a.s0.d0.a<ChatMessage>> hashMap = this.f22859b;
+            HashMap<String, c.a.s0.d0.a<ChatMessage>> hashMap = this.f22229b;
             if (hashMap != null && chatMessage != null) {
                 for (Map.Entry<String, c.a.s0.d0.a<ChatMessage>> entry : hashMap.entrySet()) {
                     c.a.s0.d0.a<ChatMessage> value = entry.getValue();
@@ -1324,16 +1324,16 @@ public class a {
                             continue;
                         } else if (chatMessage.getCustomGroupType() != 2 && chatMessage.getCustomGroupType() != 4) {
                             if (chatMessage.getGroupId() != null && f2.getGroupId() != null && chatMessage.getGroupId().equals(f2.getGroupId())) {
-                                WeakReference<a.b<ChatMessage>> weakReference = this.f22863f;
+                                WeakReference<a.b<ChatMessage>> weakReference = this.f22233f;
                                 if (weakReference != null && weakReference.get() != null) {
-                                    value.m(this.f22863f.get());
+                                    value.m(this.f22233f.get());
                                 }
                                 return true;
                             }
                         } else if (chatMessage.getToUserId() == f2.getToUserId()) {
-                            WeakReference<a.b<ChatMessage>> weakReference2 = this.f22863f;
+                            WeakReference<a.b<ChatMessage>> weakReference2 = this.f22233f;
                             if (weakReference2 != null && weakReference2.get() != null) {
-                                value.m(this.f22863f.get());
+                                value.m(this.f22233f.get());
                             }
                             return true;
                         }
@@ -1380,9 +1380,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             VoiceSendModel voiceSendModel = new VoiceSendModel(null);
-            this.f22862e = voiceSendModel;
-            voiceSendModel.x(this.f22864g);
-            this.f22860c = new C1361a(this);
+            this.f22232e = voiceSendModel;
+            voiceSendModel.x(this.f22234g);
+            this.f22230c = new C1376a(this);
         }
     }
 
@@ -1481,39 +1481,39 @@ public class a {
     public void u(a.b<ChatMessage> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.f22863f = new WeakReference<>(bVar);
+            this.f22233f = new WeakReference<>(bVar);
         }
     }
 
     public void v(c.a.t0.s1.s.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
-            this.f22861d = dVar;
+            this.f22231d = dVar;
         }
     }
 
     public void y(ChatMessage chatMessage, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, chatMessage, str) == null) {
-            c.a.s0.d0.a<ChatMessage> aVar = this.f22859b.get(str);
+            c.a.s0.d0.a<ChatMessage> aVar = this.f22229b.get(str);
             if (aVar == null) {
                 aVar = new c.a.s0.d0.a<>(str, "IM");
                 aVar.j();
                 aVar.i(chatMessage);
-                WeakReference<a.b<ChatMessage>> weakReference = this.f22863f;
+                WeakReference<a.b<ChatMessage>> weakReference = this.f22233f;
                 if (weakReference != null && weakReference.get() != null) {
-                    aVar.m(this.f22863f.get());
+                    aVar.m(this.f22233f.get());
                 }
-                aVar.l(this.f22860c);
+                aVar.l(this.f22230c);
                 if (chatMessage instanceof CommonGroupChatMessage) {
                     aVar.h(((CommonGroupChatMessage) chatMessage).getGroupId());
                 } else if (chatMessage instanceof PersonalChatMessage) {
-                    aVar.h(String.valueOf(f22857i));
+                    aVar.h(String.valueOf(f22227i));
                 } else if (chatMessage instanceof OfficialChatMessage) {
-                    aVar.h(String.valueOf(f22858j));
+                    aVar.h(String.valueOf(f22228j));
                 }
                 synchronized (a.class) {
-                    this.f22859b.put(str, aVar);
+                    this.f22229b.put(str, aVar);
                 }
             }
             chatMessage.setLogTime(System.currentTimeMillis());
@@ -1530,7 +1530,7 @@ public class a {
                 chatMessage.getClientLogID();
                 chatMessage.getCmd();
             }
-            this.f22862e.y(voiceMsgData.getVoice_md5(), chatMessage);
+            this.f22232e.y(voiceMsgData.getVoice_md5(), chatMessage);
         }
     }
 }

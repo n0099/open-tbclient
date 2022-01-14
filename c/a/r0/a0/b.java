@@ -20,15 +20,15 @@ public final class b implements c.a.r0.q.m.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f10285c;
+    public static boolean f10061c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<b.a> f10286d;
+    public static final Set<b.a> f10062d;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10287b;
+    public String f10063b;
 
     /* loaded from: classes6.dex */
     public class a implements WebKitFactory.WebkitInstallListener {
@@ -37,21 +37,21 @@ public final class b implements c.a.r0.q.m.b {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f10288b;
+        public final /* synthetic */ File f10064b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f10289c;
+        public final /* synthetic */ b f10065c;
 
         /* renamed from: c.a.r0.a0.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0648a implements Runnable {
+        public class RunnableC0657a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f10290e;
+            public final /* synthetic */ a f10066e;
 
-            public RunnableC0648a(a aVar) {
+            public RunnableC0657a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,15 +66,15 @@ public final class b implements c.a.r0.q.m.b {
                         return;
                     }
                 }
-                this.f10290e = aVar;
+                this.f10066e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.f10290e.f10289c;
-                    bVar.j(bVar.f10287b);
+                    b bVar = this.f10066e.f10065c;
+                    bVar.j(bVar.f10063b);
                 }
             }
         }
@@ -94,9 +94,9 @@ public final class b implements c.a.r0.q.m.b {
                     return;
                 }
             }
-            this.f10289c = bVar;
+            this.f10065c = bVar;
             this.a = str;
-            this.f10288b = file;
+            this.f10064b = file;
         }
 
         @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
@@ -105,30 +105,30 @@ public final class b implements c.a.r0.q.m.b {
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 boolean z = true;
                 if (d.B(this.a, str)) {
-                    synchronized (b.f10286d) {
-                        this.f10289c.i(true);
+                    synchronized (b.f10062d) {
+                        this.f10065c.i(true);
                     }
                     return;
                 }
-                if (b.e(this.f10289c) <= 2) {
+                if (b.e(this.f10065c) <= 2) {
                     if (8 == i2) {
-                        this.f10289c.f10287b = this.a;
+                        this.f10065c.f10063b = this.a;
                     } else {
-                        b bVar = this.f10289c;
-                        bVar.f10287b = this.a + File.pathSeparator + this.f10289c.a;
-                        if (d.f(this.f10288b, new File(this.f10289c.f10287b)) != this.f10288b.length()) {
+                        b bVar = this.f10065c;
+                        bVar.f10063b = this.a + File.pathSeparator + this.f10065c.a;
+                        if (d.f(this.f10064b, new File(this.f10065c.f10063b)) != this.f10064b.length()) {
                             z = false;
                         }
                     }
-                    if (z && c.a.r0.a.d2.d.L().postDelayed(new RunnableC0648a(this), 1000L)) {
+                    if (z && c.a.r0.a.d2.d.L().postDelayed(new RunnableC0657a(this), 1000L)) {
                         return;
                     }
                 }
                 if (8 == i2) {
                     d.k(this.a);
                 }
-                synchronized (b.f10286d) {
-                    this.f10289c.i(false);
+                synchronized (b.f10062d) {
+                    this.f10065c.i(false);
                 }
             }
         }
@@ -154,7 +154,7 @@ public final class b implements c.a.r0.q.m.b {
                 return;
             }
         }
-        f10286d = new HashSet();
+        f10062d = new HashSet();
     }
 
     public b() {
@@ -183,12 +183,12 @@ public final class b implements c.a.r0.q.m.b {
     public void a(String str, b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            synchronized (f10286d) {
-                f10286d.add(aVar);
-                if (f10285c) {
+            synchronized (f10062d) {
+                f10062d.add(aVar);
+                if (f10061c) {
                     return;
                 }
-                f10285c = true;
+                f10061c = true;
                 j(str);
             }
         }
@@ -197,14 +197,14 @@ public final class b implements c.a.r0.q.m.b {
     public final void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            synchronized (f10286d) {
-                for (b.a aVar : f10286d) {
+            synchronized (f10062d) {
+                for (b.a aVar : f10062d) {
                     if (aVar != null) {
                         aVar.a(z);
                     }
                 }
-                f10286d.clear();
-                f10285c = false;
+                f10062d.clear();
+                f10061c = false;
                 this.a = 0;
             }
         }
@@ -214,14 +214,14 @@ public final class b implements c.a.r0.q.m.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                synchronized (f10286d) {
+                synchronized (f10062d) {
                     i(false);
                 }
                 return;
             }
             File file = new File(str);
             if (!file.isFile()) {
-                synchronized (f10286d) {
+                synchronized (f10062d) {
                     i(false);
                 }
                 return;

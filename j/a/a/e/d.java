@@ -127,13 +127,13 @@ public final class d {
     public static final int pay_ui_pei_action_bar_red_dot_margin = 2131166856;
     public static final int pay_ui_pei_action_bar_text_padding = 2131166857;
     public static final int pay_ui_shenqu_watchcoun = 2131166858;
-    public static final int tooltip_corner_radius = 2131167940;
-    public static final int tooltip_horizontal_padding = 2131167941;
-    public static final int tooltip_margin = 2131167942;
-    public static final int tooltip_precise_anchor_extra_offset = 2131167943;
-    public static final int tooltip_precise_anchor_threshold = 2131167944;
-    public static final int tooltip_vertical_padding = 2131167945;
-    public static final int tooltip_y_offset_non_touch = 2131167946;
-    public static final int tooltip_y_offset_touch = 2131167947;
+    public static final int tooltip_corner_radius = 2131167941;
+    public static final int tooltip_horizontal_padding = 2131167942;
+    public static final int tooltip_margin = 2131167943;
+    public static final int tooltip_precise_anchor_extra_offset = 2131167944;
+    public static final int tooltip_precise_anchor_threshold = 2131167945;
+    public static final int tooltip_vertical_padding = 2131167946;
+    public static final int tooltip_y_offset_non_touch = 2131167947;
+    public static final int tooltip_y_offset_touch = 2131167948;
     public transient /* synthetic */ FieldHolder $fh;
 }

@@ -37,13 +37,13 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f1 f48416b;
+    public f1 f46612b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f48417c;
+    public b f46613c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f48418d;
+    public View.OnClickListener f46614d;
     public View devider;
     public TextView novelAuthor;
     public TbImageView novelCover;
@@ -61,7 +61,7 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbRecommendNovelHolder f48419e;
+        public final /* synthetic */ PbRecommendNovelHolder f46615e;
 
         public a(PbRecommendNovelHolder pbRecommendNovelHolder) {
             Interceptable interceptable = $ic;
@@ -78,35 +78,35 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f48419e = pbRecommendNovelHolder;
+            this.f46615e = pbRecommendNovelHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f48419e.a.getPageActivity()) && n.C() && this.f48419e.f48416b != null && !StringUtils.isNull(this.f48419e.f48416b.L0)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f46615e.a.getPageActivity()) && n.C() && this.f46615e.f46612b != null && !StringUtils.isNull(this.f46615e.f46612b.L0)) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    n.L(this.f48419e.a.getPageActivity(), l.book_plugin_not_install_tip);
+                    n.M(this.f46615e.a.getPageActivity(), l.book_plugin_not_install_tip);
                     return;
                 }
-                if (this.f48419e.f48417c != null) {
-                    this.f48419e.f48417c.a(this.f48419e.f48416b);
+                if (this.f46615e.f46613c != null) {
+                    this.f46615e.f46613c.a(this.f46615e.f46612b);
                 }
-                PbRecommendNovelHolder pbRecommendNovelHolder = this.f48419e;
+                PbRecommendNovelHolder pbRecommendNovelHolder = this.f46615e;
                 if (view == pbRecommendNovelHolder.novelReadBtn) {
-                    String str = pbRecommendNovelHolder.f48416b.L0;
+                    String str = pbRecommendNovelHolder.f46612b.L0;
                     a1 a1Var = new a1();
-                    TbPageContext tbPageContext = (TbPageContext) j.a(this.f48419e.a.getPageActivity());
+                    TbPageContext tbPageContext = (TbPageContext) j.a(this.f46615e.a.getPageActivity());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, a1Var));
                     TiebaStatic.log(new StatisticItem("c11387").param("obj_source", 6).param("obj_locate", "0").param("obj_param1", str));
-                    TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.f48419e.f48416b.L0).param("obj_locate", "3"));
+                    TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.f46615e.f46612b.L0).param("obj_locate", "3"));
                 } else if (view == pbRecommendNovelHolder.recommendNovelItem) {
-                    this.f48419e.a.sendMessage(new CustomMessage(2002001, new BookCoverActivityConfig(this.f48419e.a.getPageActivity(), this.f48419e.f48416b.L0)));
-                    TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.f48419e.f48416b.L0).param("obj_locate", "1"));
-                } else if (view != pbRecommendNovelHolder.recommendOptionBtn || StringUtils.isNull(pbRecommendNovelHolder.f48416b.K0)) {
+                    this.f46615e.a.sendMessage(new CustomMessage(2002001, new BookCoverActivityConfig(this.f46615e.a.getPageActivity(), this.f46615e.f46612b.L0)));
+                    TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.f46615e.f46612b.L0).param("obj_locate", "1"));
+                } else if (view != pbRecommendNovelHolder.recommendOptionBtn || StringUtils.isNull(pbRecommendNovelHolder.f46612b.K0)) {
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f48419e.a.getPageActivity()), new String[]{this.f48419e.f48416b.K0});
-                    TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.f48419e.f48416b.L0).param("obj_locate", "2"));
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f46615e.a.getPageActivity()), new String[]{this.f46615e.f46612b.K0});
+                    TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.f46615e.f46612b.L0).param("obj_locate", "2"));
                 }
             }
         }
@@ -135,9 +135,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f48418d = new a(this);
+        this.f46614d = new a(this);
         this.a = tbPageContext;
-        this.f48417c = bVar;
+        this.f46613c = bVar;
         this.recommendTitle = (TextView) view.findViewById(i.textview_recommend_title);
         this.recommendOptionBtn = (TextView) view.findViewById(i.textview_recommend_option_btn);
         this.novelCover = (TbImageView) view.findViewById(i.novel_cover);
@@ -151,9 +151,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         tbImageView.setDefaultResource(h.transparent_bg);
         this.novelSubscription.setDefaultBgResource(h.transparent_bg);
         this.devider = view.findViewById(i.recommend_devider);
-        this.novelReadBtn.setOnClickListener(this.f48418d);
-        this.recommendNovelItem.setOnClickListener(this.f48418d);
-        this.recommendOptionBtn.setOnClickListener(this.f48418d);
+        this.novelReadBtn.setOnClickListener(this.f46614d);
+        this.recommendNovelItem.setOnClickListener(this.f46614d);
+        this.recommendOptionBtn.setOnClickListener(this.f46614d);
     }
 
     public void bindDataToView(f1 f1Var) {
@@ -161,7 +161,7 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, f1Var) == null) || f1Var == null) {
             return;
         }
-        this.f48416b = f1Var;
+        this.f46612b = f1Var;
         this.recommendTitle.setText(f1Var.I0);
         this.recommendOptionBtn.setText(f1Var.J0);
         this.novelSubscription.startLoad(f1Var.Q0, 10, false);
@@ -192,6 +192,6 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         SkinManager.setViewTextColor(this.novelReadBtn, f.CAM_X0302, 1);
         SkinManager.setBackgroundColor(this.devider, f.CAM_X0204);
         SkinManager.setBackgroundResource(this.novelReadBtn, h.btn_pb_novel_recommend_read);
-        TiebaStatic.log(new StatisticItem("c11441").param("obj_id", this.f48416b.L0));
+        TiebaStatic.log(new StatisticItem("c11441").param("obj_id", this.f46612b.L0));
     }
 }

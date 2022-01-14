@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.webkit.WebSettings;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -37,10 +38,10 @@ public final class SensorsDataUtils {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f63978b;
+    public static final SimpleDateFormat f61578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<String> f63979c;
+    public static final List<String> f61579c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,7 +57,7 @@ public final class SensorsDataUtils {
                 return;
             }
         }
-        f63978b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
+        f61578b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
         new HashMap<String, String>() { // from class: dxm.sasdk.util.SensorsDataUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +87,7 @@ public final class SensorsDataUtils {
                 put("46011", "中国电信");
             }
         };
-        f63979c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
+        f61579c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -148,7 +149,7 @@ public final class SensorsDataUtils {
                 return a;
             }
             try {
-                a = Settings.Secure.getString(context.getContentResolver(), "android_id");
+                a = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -232,7 +233,7 @@ public final class SensorsDataUtils {
     public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f63979c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f61579c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
     }
 
     public static void h(JSONObject jSONObject, JSONObject jSONObject2) throws JSONException {
@@ -243,8 +244,8 @@ public final class SensorsDataUtils {
                 String next = keys.next();
                 Object obj = jSONObject.get(next);
                 if (obj instanceof Date) {
-                    synchronized (f63978b) {
-                        jSONObject2.put(next, f63978b.format((Date) obj));
+                    synchronized (f61578b) {
+                        jSONObject2.put(next, f61578b.format((Date) obj));
                     }
                 } else {
                     jSONObject2.put(next, obj);
@@ -261,7 +262,7 @@ public final class SensorsDataUtils {
             if (a(context, "android.permission.ACCESS_NETWORK_STATE")) {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                 if (connectivityManager == null || (networkInfo = connectivityManager.getNetworkInfo(1)) == null || !networkInfo.isConnectedOrConnecting()) {
-                    if (Build.VERSION.SDK_INT < 30 || a(context, s.f57419c)) {
+                    if (Build.VERSION.SDK_INT < 30 || a(context, s.f55242c)) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
                             case 1:
                             case 2:

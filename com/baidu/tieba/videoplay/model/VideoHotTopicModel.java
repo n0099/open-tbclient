@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import c.a.d.a.f;
 import c.a.s0.j0.d.a;
 import c.a.s0.s.q.b1;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -27,34 +27,34 @@ public class VideoHotTopicModel extends BdBaseModel {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoHotTopicParams f50872e;
+    public VideoHotTopicParams f48936e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public b f50873f;
+    public b f48937f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.s0.j0.d.a f50874g;
+    public c.a.s0.j0.d.a f48938g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public List<Map<String, Object>> f50875h;
+    public List<Map<String, Object>> f48939h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50876i;
+    public int f48940i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f50877j;
+    public boolean f48941j;
 
     /* loaded from: classes12.dex */
-    public class a implements a.InterfaceC0844a {
+    public class a implements a.InterfaceC0854a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicParams a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ VideoHotTopicModel f50878b;
+        public final /* synthetic */ VideoHotTopicModel f48942b;
 
         public a(VideoHotTopicModel videoHotTopicModel, VideoHotTopicParams videoHotTopicParams) {
             Interceptable interceptable = $ic;
@@ -71,35 +71,35 @@ public class VideoHotTopicModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f50878b = videoHotTopicModel;
+            this.f48942b = videoHotTopicModel;
             this.a = videoHotTopicParams;
         }
 
-        @Override // c.a.s0.j0.d.a.InterfaceC0844a
+        @Override // c.a.s0.j0.d.a.InterfaceC0854a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50878b.f50877j = false;
+                this.f48942b.f48941j = false;
             }
         }
 
-        @Override // c.a.s0.j0.d.a.InterfaceC0844a
-        public void b(@NonNull List<d2> list, @Nullable Map<String, Object> map) {
+        @Override // c.a.s0.j0.d.a.InterfaceC0854a
+        public void b(@NonNull List<e2> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.f50878b.f50873f == null || list.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.f48942b.f48937f == null || list.isEmpty()) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
-            for (d2 d2Var : list) {
+            for (e2 e2Var : list) {
                 VideoItemData videoItemData = new VideoItemData();
-                videoItemData.buildWithThreadData(d2Var);
+                videoItemData.buildWithThreadData(e2Var);
                 arrayList.add(videoItemData);
             }
             if (map != null) {
-                this.f50878b.f50875h.add(map);
+                this.f48942b.f48939h.add(map);
             }
-            this.a.setCurrentPn(this.f50878b.f50876i);
-            this.f50878b.f50873f.a(arrayList);
+            this.a.setCurrentPn(this.f48942b.f48940i);
+            this.f48942b.f48937f.a(arrayList);
         }
     }
 
@@ -126,37 +126,37 @@ public class VideoHotTopicModel extends BdBaseModel {
                 return;
             }
         }
-        this.f50874g = (c.a.s0.j0.d.a) ServiceManager.getService(c.a.s0.j0.d.a.a);
-        this.f50875h = new ArrayList();
-        this.f50877j = false;
-        this.f50872e = videoHotTopicParams;
-        this.f50874g.a(tbPageContext, videoHotTopicParams.getTopicId(), videoHotTopicParams.getTopicName());
-        this.f50874g.c(new a(this, videoHotTopicParams));
+        this.f48938g = (c.a.s0.j0.d.a) ServiceManager.getService(c.a.s0.j0.d.a.a);
+        this.f48939h = new ArrayList();
+        this.f48941j = false;
+        this.f48936e = videoHotTopicParams;
+        this.f48938g.a(tbPageContext, videoHotTopicParams.getTopicId(), videoHotTopicParams.getTopicName());
+        this.f48938g.c(new a(this, videoHotTopicParams));
     }
 
     @NonNull
     public List<Map<String, Object>> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50875h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48939h : (List) invokeV.objValue;
     }
 
     public void B(@NonNull Long l) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l) == null) || this.f50877j) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l) == null) || this.f48941j) {
             return;
         }
-        this.f50877j = true;
-        this.f50876i = this.f50872e.getCurrentPn() + 1;
+        this.f48941j = true;
+        this.f48940i = this.f48936e.getCurrentPn() + 1;
         b1 b1Var = new b1();
-        b1Var.k(this.f50876i);
-        this.f50874g.b(this.f50872e.getSortType(), b1Var, l.longValue());
+        b1Var.k(this.f48940i);
+        this.f48938g.b(this.f48936e.getSortType(), b1Var, l.longValue());
     }
 
     public void C(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f50873f = bVar;
+            this.f48937f = bVar;
         }
     }
 

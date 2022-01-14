@@ -11,12 +11,12 @@ public abstract class a<K, V> implements c<K, V> {
     public transient /* synthetic */ FieldHolder $fh;
     public K a;
 
-    public a(@NonNull K k2) {
+    public a(@NonNull K k) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k2};
+            Object[] objArr = {k};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -26,6 +26,6 @@ public abstract class a<K, V> implements c<K, V> {
                 return;
             }
         }
-        this.a = k2;
+        this.a = k;
     }
 }

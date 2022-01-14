@@ -22,14 +22,14 @@ public class c<T> implements c.a.r0.q.f.e<T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c.a.r0.q.p.a f11786g;
+    public static final c.a.r0.q.p.a f11518g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.q.f.e<T> f11787e;
+    public c.a.r0.q.f.e<T> f11519e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11788f;
+    public int f11520f;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class c<T> implements c.a.r0.q.f.e<T> {
                 return;
             }
         }
-        f11786g = c.a.r0.q.p.a.e();
+        f11518g = c.a.r0.q.p.a.e();
     }
 
     public c(c.a.r0.q.f.e<T> eVar) {
@@ -62,21 +62,21 @@ public class c<T> implements c.a.r0.q.f.e<T> {
                 return;
             }
         }
-        this.f11788f = 0;
-        this.f11787e = eVar;
+        this.f11520f = 0;
+        this.f11519e = eVar;
     }
 
     @Override // c.a.r0.q.f.e
     public void a(T t) {
         c.a.r0.q.f.e<T> eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (eVar = this.f11787e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (eVar = this.f11519e) == null) {
             return;
         }
         try {
             eVar.a(t);
         } catch (Exception e2) {
-            f11786g.g("PMSDownStreamCallbackGuard", "#onDownloadProgress 错误", e2);
+            f11518g.g("PMSDownStreamCallbackGuard", "#onDownloadProgress 错误", e2);
         }
     }
 
@@ -84,13 +84,13 @@ public class c<T> implements c.a.r0.q.f.e<T> {
     public void c(T t) {
         c.a.r0.q.f.e<T> eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) || (eVar = this.f11787e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) || (eVar = this.f11519e) == null) {
             return;
         }
         try {
             eVar.c(t);
         } catch (Exception e2) {
-            f11786g.g("PMSDownStreamCallbackGuard", "#onDownloadStart 错误", e2);
+            f11518g.g("PMSDownStreamCallbackGuard", "#onDownloadStart 错误", e2);
         }
     }
 
@@ -99,13 +99,13 @@ public class c<T> implements c.a.r0.q.f.e<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            c.a.r0.q.f.e<T> eVar = this.f11787e;
+            c.a.r0.q.f.e<T> eVar = this.f11519e;
             String d2 = eVar != null ? eVar.d(t) : null;
             if (d2 == null) {
                 try {
                     return c.a.r0.q.p.e.d(AppRuntime.getAppContext()).getAbsolutePath();
                 } catch (Exception e2) {
-                    f11786g.g("PMSDownStreamCallbackGuard", "#getDownloadPath getPmsDir出错", e2);
+                    f11518g.g("PMSDownStreamCallbackGuard", "#getDownloadPath getPmsDir出错", e2);
                     return d2;
                 }
             }
@@ -118,13 +118,13 @@ public class c<T> implements c.a.r0.q.f.e<T> {
     public void e(T t, c.a.r0.q.i.b bVar) {
         c.a.r0.q.f.e<T> eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, t, bVar) == null) || (eVar = this.f11787e) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, t, bVar) == null) || (eVar = this.f11519e) == null) {
             return;
         }
         try {
             eVar.e(t, bVar);
         } catch (Exception e2) {
-            f11786g.g("PMSDownStreamCallbackGuard", "#onDownloadError 错误", e2);
+            f11518g.g("PMSDownStreamCallbackGuard", "#onDownloadError 错误", e2);
         }
     }
 
@@ -132,13 +132,13 @@ public class c<T> implements c.a.r0.q.f.e<T> {
     public void f(T t) {
         c.a.r0.q.f.e<T> eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || (eVar = this.f11787e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || (eVar = this.f11519e) == null) {
             return;
         }
         try {
             eVar.f(t);
         } catch (Exception e2) {
-            f11786g.g("PMSDownStreamCallbackGuard", "#onDownloading 错误", e2);
+            f11518g.g("PMSDownStreamCallbackGuard", "#onDownloading 错误", e2);
         }
     }
 
@@ -156,7 +156,7 @@ public class c<T> implements c.a.r0.q.f.e<T> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{t, file, Long.valueOf(j2), readableByteChannel})) == null) {
-            c.a.r0.q.f.e<T> eVar = this.f11787e;
+            c.a.r0.q.f.e<T> eVar = this.f11519e;
             if (eVar != null) {
                 return eVar.h(t, file, j2, readableByteChannel);
             }
@@ -169,13 +169,13 @@ public class c<T> implements c.a.r0.q.f.e<T> {
     public void i(T t) {
         c.a.r0.q.f.e<T> eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, t) == null) || (eVar = this.f11787e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, t) == null) || (eVar = this.f11519e) == null) {
             return;
         }
         try {
             eVar.i(t);
         } catch (Exception e2) {
-            f11786g.g("PMSDownStreamCallbackGuard", "#onDownloadFinish 错误", e2);
+            f11518g.g("PMSDownStreamCallbackGuard", "#onDownloadFinish 错误", e2);
         }
     }
 
@@ -183,13 +183,13 @@ public class c<T> implements c.a.r0.q.f.e<T> {
     public void j(T t) {
         c.a.r0.q.f.e<T> eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) || (eVar = this.f11787e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) || (eVar = this.f11519e) == null) {
             return;
         }
         try {
             eVar.j(t);
         } catch (Exception e2) {
-            f11786g.g("PMSDownStreamCallbackGuard", "#onDownloadStop 错误", e2);
+            f11518g.g("PMSDownStreamCallbackGuard", "#onDownloadStop 错误", e2);
         }
     }
 
@@ -197,7 +197,7 @@ public class c<T> implements c.a.r0.q.f.e<T> {
     public Map<String, Object> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11787e.k() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11519e.k() : (Map) invokeV.objValue;
     }
 
     @Override // c.a.r0.q.f.g
@@ -206,7 +206,7 @@ public class c<T> implements c.a.r0.q.f.e<T> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
-            c.a.r0.q.f.e<T> eVar = this.f11787e;
+            c.a.r0.q.f.e<T> eVar = this.f11519e;
             return eVar == null ? new Bundle() : eVar.m(bundle, set);
         }
         return (Bundle) invokeLL.objValue;

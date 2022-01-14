@@ -1,6 +1,6 @@
 package c.a.t0.o1.k.b.c;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.data.BaseCardInfo;
@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final BdUniqueId f21251j;
+    public static final BdUniqueId f20689j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f21252e;
+    public boolean f20690e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21253f;
+    public int f20691f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f21254g;
+    public long f20692g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21255h;
+    public String f20693h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d2 f21256i;
+    public e2 f20694i;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class d extends BaseCardInfo {
                 return;
             }
         }
-        f21251j = BdUniqueId.gen();
+        f20689j = BdUniqueId.gen();
     }
 
     public d() {
@@ -70,16 +70,16 @@ public class d extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, threadInfo) == null) || threadInfo == null) {
             return;
         }
-        d2 d2Var = new d2();
-        this.f21256i = d2Var;
-        d2Var.c3(threadInfo);
-        this.f21256i.g3();
+        e2 e2Var = new e2();
+        this.f20694i = e2Var;
+        e2Var.c3(threadInfo);
+        this.f20694i.g3();
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f21251j : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f20689j : (BdUniqueId) invokeV.objValue;
     }
 }

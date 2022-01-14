@@ -23,17 +23,17 @@ public class j extends c.a.r0.a.u.e.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f9265i;
+    public static final boolean f9063i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public SwanAppWebPopWindow f9266f;
+    public SwanAppWebPopWindow f9064f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.a.h0.g.m.a f9267g;
+    public c.a.r0.a.h0.g.m.a f9065g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.a.h0.g.d f9268h;
+    public c.a.r0.a.h0.g.d f9066h;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
@@ -41,16 +41,16 @@ public class j extends c.a.r0.a.u.e.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9269e;
+        public final /* synthetic */ String f9067e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9270f;
+        public final /* synthetic */ c.a.r0.a.d2.e f9068f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f9271g;
+        public final /* synthetic */ String f9069g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ j f9272h;
+        public final /* synthetic */ j f9070h;
 
         public a(j jVar, String str, c.a.r0.a.d2.e eVar, String str2) {
             Interceptable interceptable = $ic;
@@ -67,10 +67,10 @@ public class j extends c.a.r0.a.u.e.f.a {
                     return;
                 }
             }
-            this.f9272h = jVar;
-            this.f9269e = str;
-            this.f9270f = eVar;
-            this.f9271g = str2;
+            this.f9070h = jVar;
+            this.f9067e = str;
+            this.f9068f = eVar;
+            this.f9069g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,9 +80,9 @@ public class j extends c.a.r0.a.u.e.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.f9272h.I(this.f9270f, this.f9271g, this.f9269e);
+                    this.f9070h.I(this.f9068f, this.f9069g, this.f9067e);
                 } else {
-                    this.f9272h.d(this.f9269e, new c.a.r0.a.u.h.b(10005, "system deny"));
+                    this.f9070h.d(this.f9067e, new c.a.r0.a.u.h.b(10005, "system deny"));
                 }
             }
         }
@@ -94,19 +94,19 @@ public class j extends c.a.r0.a.u.e.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9273e;
+        public final /* synthetic */ String f9071e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9274f;
+        public final /* synthetic */ c.a.r0.a.d2.e f9072f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f9275g;
+        public final /* synthetic */ String f9073g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f9276h;
+        public final /* synthetic */ String f9074h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ j f9277i;
+        public final /* synthetic */ j f9075i;
 
         /* loaded from: classes.dex */
         public class a extends c.a.r0.a.h0.g.m.a {
@@ -137,11 +137,11 @@ public class j extends c.a.r0.a.u.e.f.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     super.b();
-                    c.a.r0.a.e0.d.i("WebPopWindowApi", "swanId=" + this.a.f9274f.f5660f + ", nowId=" + c.a.r0.a.d2.e.f0());
-                    if (TextUtils.equals(this.a.f9274f.f5660f, c.a.r0.a.d2.e.f0())) {
+                    c.a.r0.a.e0.d.i("WebPopWindowApi", "swanId=" + this.a.f9072f.f5537f + ", nowId=" + c.a.r0.a.d2.e.f0());
+                    if (TextUtils.equals(this.a.f9072f.f5537f, c.a.r0.a.d2.e.f0())) {
                         return;
                     }
-                    this.a.f9277i.H();
+                    this.a.f9075i.H();
                 }
             }
 
@@ -150,11 +150,11 @@ public class j extends c.a.r0.a.u.e.f.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     c.a.r0.a.e0.d.i("WebPopWindowApi", "call onFragmentDestroyed");
-                    this.a.f9277i.H();
-                    if (this.a.f9277i.f9268h == null || this.a.f9277i.f9267g == null) {
+                    this.a.f9075i.H();
+                    if (this.a.f9075i.f9066h == null || this.a.f9075i.f9065g == null) {
                         return;
                     }
-                    this.a.f9277i.f9268h.L2(this.a.f9277i.f9267g);
+                    this.a.f9075i.f9066h.L2(this.a.f9075i.f9065g);
                 }
             }
         }
@@ -174,11 +174,11 @@ public class j extends c.a.r0.a.u.e.f.a {
                     return;
                 }
             }
-            this.f9277i = jVar;
-            this.f9273e = str;
-            this.f9274f = eVar;
-            this.f9275g = str2;
-            this.f9276h = str3;
+            this.f9075i = jVar;
+            this.f9071e = str;
+            this.f9072f = eVar;
+            this.f9073g = str2;
+            this.f9074h = str3;
         }
 
         @Override // java.lang.Runnable
@@ -188,44 +188,44 @@ public class j extends c.a.r0.a.u.e.f.a {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (activity = c.a.r0.a.g1.f.U().getActivity()) == null) {
                 return;
             }
-            if (this.f9277i.f9266f != null && this.f9277i.f9266f.x()) {
-                this.f9277i.d(this.f9273e, new c.a.r0.a.u.h.b(303, "execute failed, halfScreenWebview is showing"));
+            if (this.f9075i.f9064f != null && this.f9075i.f9064f.x()) {
+                this.f9075i.d(this.f9071e, new c.a.r0.a.u.h.b(303, "execute failed, halfScreenWebview is showing"));
                 return;
             }
             c.a.r0.a.h0.g.g V = c.a.r0.a.g1.f.U().V();
             if (V == null) {
                 return;
             }
-            this.f9277i.f9268h = V.m();
-            if (this.f9277i.f9268h == null) {
+            this.f9075i.f9066h = V.m();
+            if (this.f9075i.f9066h == null) {
                 return;
             }
-            if (this.f9277i.f9267g != null) {
-                this.f9277i.f9268h.L2(this.f9277i.f9267g);
+            if (this.f9075i.f9065g != null) {
+                this.f9075i.f9066h.L2(this.f9075i.f9065g);
             }
-            this.f9277i.f9267g = new a(this);
-            this.f9277i.f9268h.h2(this.f9277i.f9267g);
-            j jVar = this.f9277i;
-            SwanAppWebPopWindow swanAppWebPopWindow = new SwanAppWebPopWindow(activity, this.f9275g);
+            this.f9075i.f9065g = new a(this);
+            this.f9075i.f9066h.h2(this.f9075i.f9065g);
+            j jVar = this.f9075i;
+            SwanAppWebPopWindow swanAppWebPopWindow = new SwanAppWebPopWindow(activity, this.f9073g);
             swanAppWebPopWindow.q0(c.a.r0.a.h.swan_app_baidu_guarantee_title);
-            jVar.f9266f = swanAppWebPopWindow;
-            if (TextUtils.equals(this.f9276h, "protect")) {
-                SwanAppWebPopWindow swanAppWebPopWindow2 = this.f9277i.f9266f;
+            jVar.f9064f = swanAppWebPopWindow;
+            if (TextUtils.equals(this.f9074h, "protect")) {
+                SwanAppWebPopWindow swanAppWebPopWindow2 = this.f9075i.f9064f;
                 swanAppWebPopWindow2.m0(SwanAppWebPopWindow.CloseStyle.CLOSE_AT_BOTTOM);
                 swanAppWebPopWindow2.n0();
             }
-            SwanAppWebPopWindow swanAppWebPopWindow3 = this.f9277i.f9266f;
+            SwanAppWebPopWindow swanAppWebPopWindow3 = this.f9075i.f9064f;
             swanAppWebPopWindow3.l0();
             swanAppWebPopWindow3.s0();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("status", 0);
             } catch (JSONException e2) {
-                if (j.f9265i) {
+                if (j.f9063i) {
                     e2.printStackTrace();
                 }
             }
-            this.f9277i.d(this.f9273e, new c.a.r0.a.u.h.b(0, "show halfScreenWebview success", jSONObject));
+            this.f9075i.d(this.f9071e, new c.a.r0.a.u.h.b(0, "show halfScreenWebview success", jSONObject));
         }
     }
 
@@ -242,7 +242,7 @@ public class j extends c.a.r0.a.u.e.f.a {
                 return;
             }
         }
-        f9265i = k.a;
+        f9063i = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -279,7 +279,7 @@ public class j extends c.a.r0.a.u.e.f.a {
     public final void H() {
         SwanAppWebPopWindow swanAppWebPopWindow;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f9268h.U() && (swanAppWebPopWindow = this.f9266f) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f9066h.U() && (swanAppWebPopWindow = this.f9064f) != null) {
             swanAppWebPopWindow.r();
         }
     }
@@ -313,7 +313,7 @@ public class j extends c.a.r0.a.u.e.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             q("#showHalfScreenWebview", false);
-            if (f9265i) {
+            if (f9063i) {
                 String str2 = "#showHalfScreenWebview params=" + str;
             }
             c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();

@@ -12,14 +12,14 @@ import com.squareup.wire.Message;
 public class b implements c.a.t0.x1.s.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.InterfaceC1256d a;
+    public d.InterfaceC1270d a;
 
-    public b(d.InterfaceC1256d interfaceC1256d) {
+    public b(d.InterfaceC1270d interfaceC1270d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC1256d};
+            Object[] objArr = {interfaceC1270d};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,7 +29,7 @@ public class b implements c.a.t0.x1.s.b {
                 return;
             }
         }
-        this.a = interfaceC1256d;
+        this.a = interfaceC1270d;
     }
 
     @Override // c.a.t0.x1.s.b
@@ -39,27 +39,27 @@ public class b implements c.a.t0.x1.s.b {
             c.a.t0.n1.c.a aVar = new c.a.t0.n1.c.a();
             e eVar = new e();
             eVar.a = j2;
-            eVar.f26021b = str;
+            eVar.f25253b = str;
             c.a.t0.x1.p.a a = c.a.t0.x1.r.b.d().a(eVar);
             if (a != null) {
                 a.c(z, message, z2, i2);
             }
             aVar.b(a);
-            d.InterfaceC1256d interfaceC1256d = this.a;
-            if (interfaceC1256d != null) {
-                interfaceC1256d.e(z, aVar, z2, "", str, true);
+            d.InterfaceC1270d interfaceC1270d = this.a;
+            if (interfaceC1270d != null) {
+                interfaceC1270d.e(z, aVar, z2, "", str, true);
             }
         }
     }
 
     @Override // c.a.t0.x1.s.b
     public void b(long j2, String str, String str2, int i2) {
-        d.InterfaceC1256d interfaceC1256d;
+        d.InterfaceC1270d interfaceC1270d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), str, str2, Integer.valueOf(i2)}) == null) || (interfaceC1256d = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), str, str2, Integer.valueOf(i2)}) == null) || (interfaceC1270d = this.a) == null) {
             return;
         }
-        interfaceC1256d.c(str, str2, i2, true, 1);
+        interfaceC1270d.c(str, str2, i2, true, 1);
     }
 
     @Override // c.a.t0.x1.s.b

@@ -27,13 +27,13 @@ public class b extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Handler f64218e;
+        public final Handler f61814e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final i.l.a.b f64219f;
+        public final i.l.a.b f61815f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f64220g;
+        public volatile boolean f61816g;
 
         public a(Handler handler) {
             Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public class b extends g {
                     return;
                 }
             }
-            this.f64218e = handler;
-            this.f64219f = i.l.a.a.a().b();
+            this.f61814e = handler;
+            this.f61815f = i.l.a.a.a().b();
         }
 
         @Override // i.g.a
@@ -66,19 +66,19 @@ public class b extends g {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j2), timeUnit})) == null) {
-                if (this.f64220g) {
+                if (this.f61816g) {
                     return e.c();
                 }
-                this.f64219f.c(aVar);
-                RunnableC2262b runnableC2262b = new RunnableC2262b(aVar, this.f64218e);
-                Message obtain = Message.obtain(this.f64218e, runnableC2262b);
+                this.f61815f.c(aVar);
+                RunnableC2279b runnableC2279b = new RunnableC2279b(aVar, this.f61814e);
+                Message obtain = Message.obtain(this.f61814e, runnableC2279b);
                 obtain.obj = this;
-                this.f64218e.sendMessageDelayed(obtain, timeUnit.toMillis(j2));
-                if (this.f64220g) {
-                    this.f64218e.removeCallbacks(runnableC2262b);
+                this.f61814e.sendMessageDelayed(obtain, timeUnit.toMillis(j2));
+                if (this.f61816g) {
+                    this.f61814e.removeCallbacks(runnableC2279b);
                     return e.c();
                 }
-                return runnableC2262b;
+                return runnableC2279b;
             }
             return (k) invokeCommon.objValue;
         }
@@ -87,35 +87,35 @@ public class b extends g {
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64220g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61816g : invokeV.booleanValue;
         }
 
         @Override // i.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f64220g = true;
-                this.f64218e.removeCallbacksAndMessages(this);
+                this.f61816g = true;
+                this.f61814e.removeCallbacksAndMessages(this);
             }
         }
     }
 
     /* renamed from: i.l.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class RunnableC2262b implements Runnable, k {
+    public static final class RunnableC2279b implements Runnable, k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i.n.a f64221e;
+        public final i.n.a f61817e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Handler f64222f;
+        public final Handler f61818f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f64223g;
+        public volatile boolean f61819g;
 
-        public RunnableC2262b(i.n.a aVar, Handler handler) {
+        public RunnableC2279b(i.n.a aVar, Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,15 +130,15 @@ public class b extends g {
                     return;
                 }
             }
-            this.f64221e = aVar;
-            this.f64222f = handler;
+            this.f61817e = aVar;
+            this.f61818f = handler;
         }
 
         @Override // i.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64223g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61819g : invokeV.booleanValue;
         }
 
         @Override // java.lang.Runnable
@@ -147,7 +147,7 @@ public class b extends g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    this.f64221e.call();
+                    this.f61817e.call();
                 } catch (Throwable th) {
                     if (th instanceof OnErrorNotImplementedException) {
                         illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
@@ -165,8 +165,8 @@ public class b extends g {
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f64223g = true;
-                this.f64222f.removeCallbacks(this);
+                this.f61819g = true;
+                this.f61818f.removeCallbacks(this);
             }
         }
     }

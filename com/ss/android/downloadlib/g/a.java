@@ -17,7 +17,7 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2172a implements InvocationHandler {
+    public static class C2189a implements InvocationHandler {
         public Object a;
 
         @Override // java.lang.reflect.InvocationHandler
@@ -31,7 +31,7 @@ public class a {
             return method.invoke(this.a, objArr);
         }
 
-        public C2172a(Object obj) {
+        public C2189a(Object obj) {
             this.a = obj;
         }
     }
@@ -60,7 +60,7 @@ public class a {
             if (obj2 == null || (cls = Class.forName("android.app.IActivityManager")) == null) {
                 return;
             }
-            declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C2172a(obj2)));
+            declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C2189a(obj2)));
         } catch (Throwable unused) {
         }
     }
@@ -111,21 +111,21 @@ public class a {
                     objArr[1] = optString;
                 } else if (com.ss.android.socialbase.appdownloader.f.d.d()) {
                     JSONObject i2 = com.ss.android.downloadlib.addownload.j.i();
-                    String optString2 = i2.optString("hook_kllk_arg1", "com." + com.ss.android.socialbase.downloader.constants.e.f62250c + ".market");
+                    String optString2 = i2.optString("hook_kllk_arg1", "com." + com.ss.android.socialbase.downloader.constants.e.f59904c + ".market");
                     if (!StringUtil.NULL_STRING.equals(optString2)) {
                         objArr[1] = optString2;
                     }
                     String optString3 = com.ss.android.downloadlib.addownload.j.i().optString("hook_kllk_arg2", "com.android.browser");
                     JSONObject i3 = com.ss.android.downloadlib.addownload.j.i();
-                    String optString4 = i3.optString("hook_kllk_arg3", "m.store." + com.ss.android.socialbase.downloader.constants.e.f62250c + "mobile.com");
+                    String optString4 = i3.optString("hook_kllk_arg3", "m.store." + com.ss.android.socialbase.downloader.constants.e.f59904c + "mobile.com");
                     StringBuilder sb = new StringBuilder();
-                    sb.append(com.ss.android.socialbase.downloader.constants.e.f62250c);
+                    sb.append(com.ss.android.socialbase.downloader.constants.e.f59904c);
                     sb.append("_extra_pkg_name");
                     intent.putExtra(sb.toString(), optString3);
                     intent.putExtra("refererHost", optString4);
                     if (com.ss.android.downloadlib.addownload.j.i().optInt("hook_kllk_arg4", 0) == 1) {
                         Intent intent2 = new Intent();
-                        intent2.putExtra(com.ss.android.socialbase.downloader.constants.e.f62250c + "_extra_pkg_name", optString3);
+                        intent2.putExtra(com.ss.android.socialbase.downloader.constants.e.f59904c + "_extra_pkg_name", optString3);
                         intent2.putExtra("refererHost", optString4);
                         intent.putExtra("android.intent.extra.INTENT", intent2);
                     }

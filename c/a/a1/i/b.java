@@ -17,16 +17,16 @@ public class b {
     public List<AudioPlayData> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<AudioPlayData> f1175b;
+    public List<AudioPlayData> f1172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.a1.i.g.a f1176c;
+    public c.a.a1.i.g.a f1173c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1177d;
+    public int f1174d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InterfaceC0013b f1178e;
+    public InterfaceC0013b f1175e;
 
     /* loaded from: classes.dex */
     public class a extends c.a.a1.l.d.j.c.a {
@@ -34,13 +34,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f1179e;
+        public final /* synthetic */ String f1176e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AudioPlayData f1180f;
+        public final /* synthetic */ AudioPlayData f1177f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f1181g;
+        public final /* synthetic */ b f1178g;
 
         public a(b bVar, String str, AudioPlayData audioPlayData) {
             Interceptable interceptable = $ic;
@@ -57,31 +57,31 @@ public class b {
                     return;
                 }
             }
-            this.f1181g = bVar;
-            this.f1179e = str;
-            this.f1180f = audioPlayData;
+            this.f1178g = bVar;
+            this.f1176e = str;
+            this.f1177f = audioPlayData;
         }
 
         @Override // c.a.a1.l.d.j.c.a, c.a.a1.l.d.j.b
         public void onExceptionThrown(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f1181g.f1178e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f1178g.f1175e == null) {
                 return;
             }
-            this.f1181g.f1178e.onFailed(str);
+            this.f1178g.f1175e.onFailed(str);
         }
 
         @Override // c.a.a1.l.d.j.c.a
         public void onFinishedWriting(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                AudioPlayData audioPlayData = new AudioPlayData(this.f1179e, 0, (int) x.b(this.f1179e), this.f1180f.volume);
-                if (this.f1181g.f1175b == null) {
-                    this.f1181g.f1175b = new ArrayList();
+                AudioPlayData audioPlayData = new AudioPlayData(this.f1176e, 0, (int) x.b(this.f1176e), this.f1177f.volume);
+                if (this.f1178g.f1172b == null) {
+                    this.f1178g.f1172b = new ArrayList();
                 }
-                this.f1181g.f1175b.add(audioPlayData);
-                b.c(this.f1181g);
-                this.f1181g.f();
+                this.f1178g.f1172b.add(audioPlayData);
+                b.c(this.f1178g);
+                this.f1178g.f();
             }
         }
 
@@ -123,8 +123,8 @@ public class b {
     }
 
     public static /* synthetic */ int c(b bVar) {
-        int i2 = bVar.f1177d;
-        bVar.f1177d = i2 + 1;
+        int i2 = bVar.f1174d;
+        bVar.f1174d = i2 + 1;
         return i2;
     }
 
@@ -133,46 +133,46 @@ public class b {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (c.a.a1.t.h.c(this.a, this.f1177d) == null) {
-                InterfaceC0013b interfaceC0013b = this.f1178e;
+            if (c.a.a1.t.h.c(this.a, this.f1174d) == null) {
+                InterfaceC0013b interfaceC0013b = this.f1175e;
                 if (interfaceC0013b != null) {
-                    interfaceC0013b.onSuccess(this.f1175b);
+                    interfaceC0013b.onSuccess(this.f1172b);
                     return;
                 }
                 return;
             }
-            AudioPlayData audioPlayData2 = this.a.get(this.f1177d);
+            AudioPlayData audioPlayData2 = this.a.get(this.f1174d);
             if (!FileUtils.isExists(audioPlayData2.audioPath)) {
                 String str = audioPlayData2.audioPath;
                 int i2 = audioPlayData2.start;
                 audioPlayData = new AudioPlayData(str, i2, audioPlayData2.end - i2, audioPlayData2.volume);
-                if (this.f1175b == null) {
+                if (this.f1172b == null) {
                     arrayList = new ArrayList();
-                    this.f1175b = arrayList;
+                    this.f1172b = arrayList;
                 }
-                this.f1175b.add(audioPlayData);
-                this.f1177d++;
+                this.f1172b.add(audioPlayData);
+                this.f1174d++;
                 f();
             } else if (audioPlayData2.mSpeed == 1.0f) {
                 audioPlayData = new AudioPlayData(audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, audioPlayData2.volume);
-                if (this.f1175b == null) {
+                if (this.f1172b == null) {
                     arrayList = new ArrayList();
-                    this.f1175b = arrayList;
+                    this.f1172b = arrayList;
                 }
-                this.f1175b.add(audioPlayData);
-                this.f1177d++;
+                this.f1172b.add(audioPlayData);
+                this.f1174d++;
                 f();
             } else {
                 String str2 = FileUtils.removeExtention(audioPlayData2.audioPath) + "_speed.aac";
                 try {
                     c.a.a1.i.g.a aVar = new c.a.a1.i.g.a(audioPlayData2.audioPath, str2, null);
-                    this.f1176c = aVar;
+                    this.f1173c = aVar;
                     aVar.S(new a(this, str2, audioPlayData2));
-                    this.f1176c.D(null);
-                    this.f1176c.G(audioPlayData2.mSpeed);
-                    this.f1176c.B(audioPlayData2.start);
-                    this.f1176c.R(audioPlayData2.end);
-                    this.f1176c.I();
+                    this.f1173c.D(null);
+                    this.f1173c.G(audioPlayData2.mSpeed);
+                    this.f1173c.B(audioPlayData2.start);
+                    this.f1173c.R(audioPlayData2.end);
+                    this.f1173c.I();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -183,7 +183,7 @@ public class b {
     public void g(InterfaceC0013b interfaceC0013b) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0013b) == null) {
-            this.f1178e = interfaceC0013b;
+            this.f1175e = interfaceC0013b;
         }
     }
 

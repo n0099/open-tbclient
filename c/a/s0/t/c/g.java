@@ -22,25 +22,23 @@ public class g implements c.a.t0.x1.o.h.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14158e;
+    public String f13827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14159f;
+    public String f13828f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14160g;
+    public String f13829g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14161h;
+    public String f13830h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f14162i;
+    public String f13831i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f14163j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f14164k;
+    public String f13832j;
+    public String k;
     public String l;
     public String m;
     public String n;
@@ -70,13 +68,13 @@ public class g implements c.a.t0.x1.o.h.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (StringUtils.isNull(this.f14158e) && StringUtils.isNull(this.n) && StringUtils.isNull(this.p)) {
+            if (StringUtils.isNull(this.f13827e) && StringUtils.isNull(this.n) && StringUtils.isNull(this.p)) {
                 return true;
             }
             if (b()) {
-                return StringUtils.isNull(this.f14160g) || StringUtils.isNull(this.f14161h);
+                return StringUtils.isNull(this.f13829g) || StringUtils.isNull(this.f13830h);
             }
-            return StringUtils.isNull(this.f14159f);
+            return StringUtils.isNull(this.f13828f);
         }
         return invokeV.booleanValue;
     }
@@ -84,7 +82,7 @@ public class g implements c.a.t0.x1.o.h.b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "dynamic".equals(this.f14162i) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "dynamic".equals(this.f13831i) : invokeV.booleanValue;
     }
 
     public final JSONArray c(JSONObject jSONObject, String str) {
@@ -106,11 +104,11 @@ public class g implements c.a.t0.x1.o.h.b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f14158e = jSONObject.optString("url");
-        this.f14159f = jSONObject.optString("icon_url");
-        this.f14160g = jSONObject.optString("fold_lottie");
-        this.f14161h = jSONObject.optString("unfold_lottie");
-        this.f14162i = jSONObject.optString("float_type");
+        this.f13827e = jSONObject.optString("url");
+        this.f13828f = jSONObject.optString("icon_url");
+        this.f13829g = jSONObject.optString("fold_lottie");
+        this.f13830h = jSONObject.optString("unfold_lottie");
+        this.f13831i = jSONObject.optString("float_type");
         jSONObject.optString("fold_name");
         jSONObject.optString("unfold_name");
         this.l = jSONObject.optString("view_statistics_url");
@@ -124,8 +122,8 @@ public class g implements c.a.t0.x1.o.h.b {
         b.a aVar = new b.a();
         this.t = aVar;
         aVar.a = jSONObject.optString("parallel_charge_url");
-        this.t.f25925c = e(c(jSONObject, "show_urls"));
-        this.t.f25926d = e(c(jSONObject, "click_urls"));
+        this.t.f25163c = e(c(jSONObject, "show_urls"));
+        this.t.f25164d = e(c(jSONObject, "click_urls"));
         String c2 = c.a.d.f.p.t.c(TbadkApplication.getInst().getAndroidId());
         String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
         StringBuilder sb = new StringBuilder();

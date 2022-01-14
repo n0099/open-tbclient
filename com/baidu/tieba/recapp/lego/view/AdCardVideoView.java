@@ -37,7 +37,7 @@ public class AdCardVideoView extends AdCardBaseView implements r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCardVideoView f49405e;
+        public final /* synthetic */ AdCardVideoView f47550e;
 
         public a(AdCardVideoView adCardVideoView) {
             Interceptable interceptable = $ic;
@@ -54,16 +54,16 @@ public class AdCardVideoView extends AdCardBaseView implements r {
                     return;
                 }
             }
-            this.f49405e = adCardVideoView;
+            this.f47550e = adCardVideoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int jump2DownloadDetailPage = this.f49405e.mVideoView.jump2DownloadDetailPage();
-                if (this.f49405e.afterClickSchemeListener != null) {
-                    this.f49405e.afterClickSchemeListener.a(jump2DownloadDetailPage, null);
+                int jump2DownloadDetailPage = this.f47550e.mVideoView.jump2DownloadDetailPage();
+                if (this.f47550e.afterClickSchemeListener != null) {
+                    this.f47550e.afterClickSchemeListener.a(jump2DownloadDetailPage, null);
                 }
             }
         }
@@ -151,7 +151,7 @@ public class AdCardVideoView extends AdCardBaseView implements r {
             String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.p4) ? getPageTypeByBusiness() : advertAppInfo.p4;
             e eVar = advertAppInfo.o4;
             if (eVar != null) {
-                i2 = eVar.f13665b;
+                i2 = eVar.f13350b;
                 pageTypeByBusiness = eVar.a;
             }
             this.mVideoView.setStatisticInfo(advertAppInfo, i2, pageTypeByBusiness);

@@ -2,6 +2,7 @@ package com.kuaishou.weapon.un;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +45,7 @@ public class g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                d1 d1Var = new d1(str, q0.f57389f);
+                d1 d1Var = new d1(str, q0.f55214f);
                 d1Var.e(l1.g(this.a));
                 d1Var.j(l1.l());
                 d1Var.c(l1.e(this.a));
@@ -103,7 +104,7 @@ public class g0 {
                 jSONObject.put("26", e0Var.a("cpuinfo") ? 1 : 0);
                 jSONObject.put("27", e0Var.a("meminfo") ? 1 : 0);
                 jSONObject.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT, e0Var.b("/proc/cpuinfo") ? 1 : 0);
-                jSONObject.put("29", e0Var.b("/proc/meminfo") ? 1 : 0);
+                jSONObject.put("29", e0Var.b(HardwareInfoUtils.MEM_INFO_FILE) ? 1 : 0);
                 jSONObject.put("96", e0Var.a());
                 m0 m0Var = new m0();
                 Set<String> c2 = m0Var.c();

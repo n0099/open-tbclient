@@ -8,7 +8,12 @@ import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.t0.m3.d.a;
+import c.a.t0.m3.b;
+import c.a.t0.m3.c;
+import c.a.t0.m3.e;
+import c.a.t0.m3.f;
+import c.a.t0.m3.g;
+import c.a.t0.m3.m.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -22,7 +27,6 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -86,16 +90,16 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     private void InitUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mRootView = (ViewGroup) findViewById(R.id.official_account_push_container);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            this.mRootView = (ViewGroup) findViewById(e.official_account_push_container);
+            NavigationBar navigationBar = (NavigationBar) findViewById(e.view_navigation_bar);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.offical_account_push_msg));
-            this.mList = (BdListView) findViewById(R.id.list);
-            NoDataView a = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.e.a(R.string.no_data_text), null);
+            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(g.offical_account_push_msg));
+            this.mList = (BdListView) findViewById(e.list);
+            NoDataView a = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(TbadkCoreApplication.getInst().getContext(), c.ds120)), NoDataViewFactory.e.a(g.no_data_text), null);
             this.mNoDataView = a;
             a.setVisibility(0);
-            this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.no_network);
+            this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(e.no_network);
         }
     }
 
@@ -148,7 +152,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0205, i2);
+            SkinManager.setBackgroundColor(this.mRootView, b.CAM_X0205, i2);
             this.mNoDataView.onChangeSkinType(getPageContext(), i2);
             this.mNetworkView.onChangeSkinType(getPageContext(), i2);
         }
@@ -159,7 +163,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.official_account_push_activity);
+            setContentView(f.official_account_push_activity);
             dealWithIntent();
             InitUI();
             InitData();
@@ -179,8 +183,8 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.mList.setVisibility(8);
             this.mNoDataView.setVisibility(0);
-            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.no_data_text));
-            SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(g.no_data_text));
+            SkinManager.setBackgroundColor(this.mRootView, b.CAM_X0201);
         }
     }
 
@@ -189,8 +193,8 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.mList.setVisibility(8);
             this.mNoDataView.setVisibility(0);
-            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.refresh_view_title_text));
-            SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(g.refresh_view_title_text));
+            SkinManager.setBackgroundColor(this.mRootView, b.CAM_X0201);
         }
     }
 

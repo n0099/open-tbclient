@@ -35,10 +35,10 @@ public class a implements u {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.r0.g.t.c<JSONObject> f10562b;
+    public static final c.a.r0.g.t.c<JSONObject> f10334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f10563c;
+    public static final long f10335c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,8 +55,8 @@ public class a implements u {
             }
         }
         a = k.a;
-        f10562b = new c.a.r0.g.t.c<>();
-        f10563c = TimeUnit.MINUTES.toMillis(2L);
+        f10334b = new c.a.r0.g.t.c<>();
+        f10335c = TimeUnit.MINUTES.toMillis(2L);
     }
 
     public a() {
@@ -99,7 +99,7 @@ public class a implements u {
                 String str2 = "getIMUnReadMessageList params=" + str;
             }
             String str3 = c.a.r0.a.d2.d.J().getAppId() + c.a.r0.a.d2.d.J().r().M().c(context);
-            JSONObject c2 = f10562b.c(str3);
+            JSONObject c2 = f10334b.c(str3);
             if (a) {
                 String str4 = "getIMUnReadMessageList k=" + str3;
             }
@@ -115,7 +115,7 @@ public class a implements u {
                 if (a) {
                     String str6 = "getIMUnReadMessageList ret with request=" + f2;
                 }
-                return f10562b.a(str3, f2, f10563c);
+                return f10334b.a(str3, f2, f10335c);
             }
         }
         return (JSONObject) invokeLL.objValue;
@@ -125,7 +125,7 @@ public class a implements u {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            f10562b.b();
+            f10334b.b();
         }
     }
 
@@ -184,11 +184,11 @@ public class a implements u {
                 return null;
             }
             String n = c.a.r0.a.c1.a.o().n();
-            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(n, new Request.Builder().url(n).post(new FormBody.Builder().add("appkey", a0.N()).add(com.alipay.sdk.cons.b.f31824k, str2).build()).build().body(), null);
-            aVar.f11718f = true;
-            aVar.f11719g = true;
-            aVar.f11720h = true;
-            aVar.f11714b = "POST";
+            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(n, new Request.Builder().url(n).post(new FormBody.Builder().add("appkey", a0.N()).add(com.alipay.sdk.cons.b.k, str2).build()).build().body(), null);
+            aVar.f11453f = true;
+            aVar.f11454g = true;
+            aVar.f11455h = true;
+            aVar.f11449b = "POST";
             HttpRequestBuilder a2 = c.a.r0.p.e.b.a(aVar);
             c.a.r0.p.e.a.g().u(a2, aVar);
             try {

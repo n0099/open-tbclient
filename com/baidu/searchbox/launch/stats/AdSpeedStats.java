@@ -11,20 +11,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class AdSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_DO_SHOW_DURATION = "adDoShow";
     public static final String AD_DURATION = "adDuration";
     public static final String AD_NO_SHOW_DURATION = "adNoShowDuration";
     public static final String AD_SHOW_DURATION = "adShow";
+    public static final String AD_SHOW_SOURCE_DURATION = "adShowSource";
     public static final String AD_TB_LOADAD_DURATION = "tbAdLoad";
     public static final String AD_WILL_SHOW_DURATION = "adWillShow";
+    public static final String AD_XIAOXIONG_LOADAD_DURATION = "xiaoxiongAdLoad";
+    public static final String AD_XUZHANG_LOADAD_DURATION = "xuzhangAdLoad";
     public static final String DRAW_DONE_2_AD_SHOW_GAP = "draw2AdShow";
     public static final String HAS_AD_DURATION = "hasAdDuration";
     public static final String NO_AD_DURATION = "noAdDuration";
     public static final String SDK_AD_LOAD_DURATION = "SdkAdLoad";
     public transient /* synthetic */ FieldHolder $fh;
+    public String adSource;
     public long mAdShowEndTimeStamp;
     public long mAdShowStartTimeStamp;
     public long mAdStartTimeStamp;
@@ -33,6 +37,8 @@ public final class AdSpeedStats extends AbstractSpeedStats {
     public long mSdkAdWillShowTimeStamp;
     public long mSecondDrawDispatchedTimeStamp;
     public long mTbAdloadEndTimeStamp;
+    public long mXiaoxiongAdloadEndTimeStamp;
+    public long mXuzhangAdloadEndTimeStamp;
 
     public AdSpeedStats() {
         Interceptable interceptable = $ic;
@@ -47,6 +53,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
                 return;
             }
         }
+        this.adSource = "0";
         this.mAdStartTimeStamp = -1L;
         this.mTbAdloadEndTimeStamp = -1L;
         this.mSdkAdDoShowTimeStamp = -1L;
@@ -55,6 +62,8 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         this.mAdShowEndTimeStamp = -1L;
         this.mAdViewEndTimeStamp = -1L;
         this.mSecondDrawDispatchedTimeStamp = -1L;
+        this.mXuzhangAdloadEndTimeStamp = -1L;
+        this.mXiaoxiongAdloadEndTimeStamp = -1L;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -84,6 +93,12 @@ public final class AdSpeedStats extends AbstractSpeedStats {
                         return;
                     case SpeedStatsStampTable.AD_VIEW_END_STAMP_KEY /* 3307 */:
                         this.mAdViewEndTimeStamp = j2;
+                        return;
+                    case SpeedStatsStampTable.AD_XUZHANG_LOAD_END_STAMP_KEY /* 3308 */:
+                        this.mXuzhangAdloadEndTimeStamp = j2;
+                        return;
+                    case SpeedStatsStampTable.AD_XIAOXIONG_LOAD_END_STAMP_KEY /* 3309 */:
+                        this.mXiaoxiongAdloadEndTimeStamp = j2;
                         return;
                     default:
                         return;
@@ -148,68 +163,83 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         long j7;
         long j8;
         long j9;
+        long j10;
+        long j11;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
             super.packData(jSONObject);
             if (jSONObject == null) {
                 return false;
             }
-            long j10 = this.mAdShowEndTimeStamp;
-            if (j10 < 0) {
-                j10 = this.mAdViewEndTimeStamp;
+            long j12 = this.mAdShowEndTimeStamp;
+            if (j12 < 0) {
+                j12 = this.mAdViewEndTimeStamp;
             }
-            long j11 = this.mAdStartTimeStamp;
-            long j12 = j10 - j11;
-            long j13 = this.mTbAdloadEndTimeStamp;
-            long j14 = j13 - j11;
-            long j15 = this.mAdShowStartTimeStamp;
-            if (j15 > 0) {
-                long j16 = this.mSdkAdWillShowTimeStamp;
-                long j17 = j16 - j13;
-                long j18 = this.mSdkAdDoShowTimeStamp;
-                long j19 = j18 - j16;
-                j4 = j15 - j18;
-                long j20 = j10 - j15;
-                long j21 = j15 - j13;
-                long j22 = j12 - j20;
-                j9 = j20;
-                j7 = 0;
-                j8 = j17;
-                j3 = j22;
-                j6 = j21;
-                j5 = j19;
-                j2 = 0;
-            } else {
-                j2 = j10 - j13;
-                j3 = j12;
+            long j13 = this.mAdStartTimeStamp;
+            long j14 = j12 - j13;
+            long j15 = this.mTbAdloadEndTimeStamp;
+            long j16 = j15 - j13;
+            long j17 = this.mXuzhangAdloadEndTimeStamp;
+            long j18 = j17 > 0 ? j17 - j15 : 0L;
+            long j19 = this.mXiaoxiongAdloadEndTimeStamp;
+            long j20 = j12;
+            long j21 = j19 > 0 ? j19 - this.mTbAdloadEndTimeStamp : 0L;
+            long j22 = this.mAdShowStartTimeStamp;
+            if (j22 > 0) {
+                long j23 = this.mSdkAdWillShowTimeStamp;
+                j2 = j21;
+                long j24 = this.mTbAdloadEndTimeStamp;
+                long j25 = j23 - j24;
+                j3 = j18;
+                long j26 = this.mSdkAdDoShowTimeStamp;
+                long j27 = j26 - j23;
+                long j28 = j22 - j26;
+                long j29 = j20 - j22;
+                j6 = j22 - j24;
+                long j30 = j14 - j29;
+                j11 = j25;
+                j9 = 0;
+                j10 = j29;
+                j8 = j28;
+                j5 = j30;
+                j7 = j27;
                 j4 = 0;
-                j5 = 0;
+            } else {
+                j2 = j21;
+                j3 = j18;
+                j4 = j20 - this.mTbAdloadEndTimeStamp;
+                j5 = j14;
                 j6 = 0;
                 j7 = 0;
                 j8 = 0;
                 j9 = 0;
+                j10 = 0;
+                j11 = 0;
             }
-            if (j12 < j7 || j12 > 60000 || j14 < j7 || j14 > 60000 || j8 < j7 || j8 > 60000 || j5 < j7 || j5 > 60000 || j4 < j7 || j4 > 60000 || j9 < j7 || j9 > 60000 || j6 < j7 || j6 > 60000 || j2 < j7 || j2 > 60000) {
+            if (j14 < j9 || j14 > 60000 || j16 < j9 || j16 > 60000 || j11 < j9 || j11 > 60000 || j7 < j9 || j7 > 60000 || j8 < j9 || j8 > 60000 || j10 < j9 || j10 > 60000 || j6 < j9 || j6 > 60000 || j4 < j9 || j4 > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(AD_DURATION, String.valueOf(j12));
-            hashMap.put(AD_TB_LOADAD_DURATION, String.valueOf(j14));
-            hashMap.put(AD_NO_SHOW_DURATION, String.valueOf(j3));
+            hashMap.put(AD_DURATION, String.valueOf(j14));
+            hashMap.put(AD_TB_LOADAD_DURATION, String.valueOf(j16));
+            hashMap.put(AD_NO_SHOW_DURATION, String.valueOf(j5));
+            hashMap.put(AD_SHOW_SOURCE_DURATION, String.valueOf(this.adSource));
+            hashMap.put(AD_XUZHANG_LOADAD_DURATION, String.valueOf(j3));
+            hashMap.put(AD_XIAOXIONG_LOADAD_DURATION, String.valueOf(j2));
             if (this.mAdShowStartTimeStamp > 0) {
-                hashMap.put(SDK_AD_LOAD_DURATION, String.valueOf(j8));
-                hashMap.put(AD_WILL_SHOW_DURATION, String.valueOf(j5));
-                hashMap.put(AD_DO_SHOW_DURATION, String.valueOf(j4));
-                hashMap.put(AD_SHOW_DURATION, String.valueOf(j9));
+                hashMap.put(SDK_AD_LOAD_DURATION, String.valueOf(j11));
+                hashMap.put(AD_WILL_SHOW_DURATION, String.valueOf(j7));
+                hashMap.put(AD_DO_SHOW_DURATION, String.valueOf(j8));
+                hashMap.put(AD_SHOW_DURATION, String.valueOf(j10));
                 hashMap.put(HAS_AD_DURATION, String.valueOf(j6));
             } else {
-                hashMap.put(NO_AD_DURATION, String.valueOf(j2));
+                hashMap.put(NO_AD_DURATION, String.valueOf(j4));
             }
-            long j23 = this.mSdkAdDoShowTimeStamp - this.mSecondDrawDispatchedTimeStamp;
-            if (j23 > 0 && j23 < 60000) {
-                hashMap.put(DRAW_DONE_2_AD_SHOW_GAP, String.valueOf(j23));
+            long j31 = this.mSdkAdDoShowTimeStamp - this.mSecondDrawDispatchedTimeStamp;
+            if (j31 > 0 && j31 < 60000) {
+                hashMap.put(DRAW_DONE_2_AD_SHOW_GAP, String.valueOf(j31));
             }
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(j3, hashMap);
+            JSONObject jsonData = SpeedStatsUtils.getJsonData(j5, hashMap);
             if (jsonData != null) {
                 try {
                     jSONObject.put(SpeedStatsMainTable.AD_SHOW, jsonData);
@@ -238,6 +268,13 @@ public final class AdSpeedStats extends AbstractSpeedStats {
             this.mAdShowEndTimeStamp = -1L;
             this.mAdViewEndTimeStamp = -1L;
             this.mSecondDrawDispatchedTimeStamp = -1L;
+        }
+    }
+
+    public void setAdSource(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.adSource = str;
         }
     }
 }

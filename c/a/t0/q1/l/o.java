@@ -14,28 +14,26 @@ import tbclient.VideoInfo;
 /* loaded from: classes8.dex */
 public class o implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final BdUniqueId f22181k;
+    public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f22182e;
+    public long f21575e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22183f;
+    public String f21576f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22184g;
+    public String f21577g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22185h;
+    public String f21578h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f22186i;
+    public int f21579i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f22187j;
+    public String f21580j;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +48,7 @@ public class o implements c.a.d.n.e.n {
                 return;
             }
         }
-        f22181k = BdUniqueId.gen();
+        k = BdUniqueId.gen();
     }
 
     public o() {
@@ -72,9 +70,9 @@ public class o implements c.a.d.n.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaTopic) == null) || mediaTopic == null) {
             return;
         }
-        this.f22182e = mediaTopic.topic_id.longValue();
-        this.f22183f = mediaTopic.topic_name;
-        this.f22184g = mediaTopic.pic_url;
+        this.f21575e = mediaTopic.topic_id.longValue();
+        this.f21576f = mediaTopic.topic_name;
+        this.f21577g = mediaTopic.pic_url;
         VideoInfo videoInfo = mediaTopic.video_info;
         if (videoInfo == null || videoInfo.video_duration.intValue() <= 0) {
             return;
@@ -86,11 +84,11 @@ public class o implements c.a.d.n.e.n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
             String str = videoInfo.video_md5;
-            this.f22185h = videoInfo.video_url;
-            this.f22186i = videoInfo.video_duration.intValue();
+            this.f21578h = videoInfo.video_url;
+            this.f21579i = videoInfo.video_duration.intValue();
             videoInfo.video_width.intValue();
             videoInfo.video_height.intValue();
-            this.f22187j = videoInfo.thumbnail_url;
+            this.f21580j = videoInfo.thumbnail_url;
             videoInfo.thumbnail_width.intValue();
             videoInfo.thumbnail_height.intValue();
             videoInfo.video_length.intValue();
@@ -102,6 +100,6 @@ public class o implements c.a.d.n.e.n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f22181k : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k : (BdUniqueId) invokeV.objValue;
     }
 }

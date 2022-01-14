@@ -75,13 +75,13 @@ public class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeRecyclerView f23352e;
+        public final /* synthetic */ BdTypeRecyclerView f22707e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f23353f;
+        public final /* synthetic */ String f22708f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ LinearSmoothScroller f23354g;
+        public final /* synthetic */ LinearSmoothScroller f22709g;
 
         public b(BdTypeRecyclerView bdTypeRecyclerView, String str, LinearSmoothScroller linearSmoothScroller) {
             Interceptable interceptable = $ic;
@@ -98,22 +98,22 @@ public class l {
                     return;
                 }
             }
-            this.f23352e = bdTypeRecyclerView;
-            this.f23353f = str;
-            this.f23354g = linearSmoothScroller;
+            this.f22707e = bdTypeRecyclerView;
+            this.f22708f = str;
+            this.f22709g = linearSmoothScroller;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a = l.a(this.f23352e, this.f23353f)) < 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a = l.a(this.f22707e, this.f22708f)) < 0) {
                 return;
             }
-            this.f23354g.setTargetPosition(a);
-            RecyclerView.LayoutManager layoutManager = this.f23352e.getLayoutManager();
+            this.f22709g.setTargetPosition(a);
+            RecyclerView.LayoutManager layoutManager = this.f22707e.getLayoutManager();
             if (layoutManager != null) {
-                layoutManager.startSmoothScroll(this.f23354g);
+                layoutManager.startSmoothScroll(this.f22709g);
             }
         }
     }

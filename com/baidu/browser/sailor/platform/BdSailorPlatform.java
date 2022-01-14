@@ -430,7 +430,7 @@ public final class BdSailorPlatform implements INoProGuard {
             c.a.k.b.d.a a2 = c.a.k.b.d.a.a();
             try {
                 a2.e();
-                a2.f4193b.clearCache(z);
+                a2.f4127b.clearCache(z);
             } catch (Exception e2) {
                 Log.printStackTrace(e2);
             }
@@ -574,7 +574,7 @@ public final class BdSailorPlatform implements INoProGuard {
         Context appContext = getAppContext();
         if (a2.a == null) {
             a2.a = appContext.getApplicationContext();
-            Log.d(c.a.k.b.d.a.f4191d, "in BdWebViewSingleton, init");
+            Log.d(c.a.k.b.d.a.f4125d, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
         long currentTimeMillis2 = System.currentTimeMillis();

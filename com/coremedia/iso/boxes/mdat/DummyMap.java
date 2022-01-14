@@ -132,11 +132,11 @@ public class DummyMap<K, V> implements Map<K, V> {
     }
 
     @Override // java.util.Map
-    public V put(K k2, V v) {
+    public V put(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k2, v)) == null) {
-            this.keys.add(k2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) {
+            this.keys.add(k);
             return this.value;
         }
         return (V) invokeLL.objValue;
@@ -146,8 +146,8 @@ public class DummyMap<K, V> implements Map<K, V> {
     public void putAll(Map<? extends K, ? extends V> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
-            for (K k2 : map.keySet()) {
-                this.keys.add(k2);
+            for (K k : map.keySet()) {
+                this.keys.add(k);
             }
         }
     }

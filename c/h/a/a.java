@@ -21,25 +21,23 @@ public class a extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f29385e;
+    public f f28492e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f29386f;
+    public e f28493f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f29387g;
+    public g f28494g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f29388h;
+    public final Handler f28495h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f29389i;
+    public final int f28496i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f29390j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f29391k;
+    public String f28497j;
+    public boolean k;
     public boolean l;
     public boolean m;
     public boolean n;
@@ -50,11 +48,11 @@ public class a extends Thread {
 
     /* renamed from: c.h.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1632a implements f {
+    public static class C1648a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1632a() {
+        public C1648a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +139,7 @@ public class a extends Thread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f29392e;
+        public final /* synthetic */ a f28498e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -158,15 +156,15 @@ public class a extends Thread {
                     return;
                 }
             }
-            this.f29392e = aVar;
+            this.f28498e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29392e.p = 0L;
-                this.f29392e.q = false;
+                this.f28498e.p = 0L;
+                this.f28498e.q = false;
             }
         }
     }
@@ -199,7 +197,7 @@ public class a extends Thread {
                 return;
             }
         }
-        s = new C1632a();
+        s = new C1648a();
         t = new b();
         u = new c();
     }
@@ -219,12 +217,12 @@ public class a extends Thread {
                 return;
             }
         }
-        this.f29385e = s;
-        this.f29386f = t;
-        this.f29387g = u;
-        this.f29388h = new Handler(Looper.getMainLooper());
-        this.f29390j = "";
-        this.f29391k = false;
+        this.f28492e = s;
+        this.f28493f = t;
+        this.f28494g = u;
+        this.f28495h = new Handler(Looper.getMainLooper());
+        this.f28497j = "";
+        this.k = false;
         this.l = true;
         this.m = false;
         this.n = false;
@@ -232,7 +230,7 @@ public class a extends Thread {
         this.p = 0L;
         this.q = false;
         this.r = new d(this);
-        this.f29389i = i2;
+        this.f28496i = i2;
     }
 
     public a c(f fVar) {
@@ -240,9 +238,9 @@ public class a extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
             if (fVar == null) {
-                this.f29385e = s;
+                this.f28492e = s;
             } else {
-                this.f29385e = fVar;
+                this.f28492e = fVar;
             }
             return this;
         }
@@ -263,7 +261,7 @@ public class a extends Thread {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f29390j = null;
+            this.f28497j = null;
             return this;
         }
         return (a) invokeV.objValue;
@@ -274,13 +272,13 @@ public class a extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setName("|ANR-WatchDog|");
-            long j2 = this.f29389i;
+            long j2 = this.f28496i;
             long j3 = 0;
             while (!isInterrupted()) {
                 boolean z = this.p == 0;
                 this.p += j2;
                 if (z) {
-                    this.f29388h.post(this.r);
+                    this.f28495h.post(this.r);
                 }
                 try {
                     Thread.sleep(j2);
@@ -292,7 +290,7 @@ public class a extends Thread {
                             this.n = false;
                             ANRError NewMainAllStackTrace = ANRError.NewMainAllStackTrace(this.o.b(), j3);
                             if (NewMainAllStackTrace != null) {
-                                this.f29385e.onAppNotResponding(NewMainAllStackTrace);
+                                this.f28492e.onAppNotResponding(NewMainAllStackTrace);
                             }
                         } else {
                             j3 = this.p;
@@ -303,25 +301,25 @@ public class a extends Thread {
                         if (!this.l && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
                             this.q = true;
                         } else {
-                            j2 = this.f29386f.a(this.p);
+                            j2 = this.f28493f.a(this.p);
                             if (j2 <= 0) {
-                                if (this.f29390j != null) {
-                                    this.f29385e.onAppNotResponding(ANRError.New(this.p, this.f29390j, this.f29391k));
+                                if (this.f28497j != null) {
+                                    this.f28492e.onAppNotResponding(ANRError.New(this.p, this.f28497j, this.k));
                                 } else if (this.m) {
                                     this.n = true;
                                     c.h.a.b bVar = new c.h.a.b();
                                     this.o = bVar;
                                     bVar.a();
                                 } else {
-                                    this.f29385e.onAppNotResponding(ANRError.NewMainOnly(this.p));
+                                    this.f28492e.onAppNotResponding(ANRError.NewMainOnly(this.p));
                                 }
-                                j2 = this.f29389i;
+                                j2 = this.f28496i;
                                 this.q = true;
                             }
                         }
                     }
                 } catch (InterruptedException e2) {
-                    this.f29387g.a(e2);
+                    this.f28494g.a(e2);
                     return;
                 }
             }

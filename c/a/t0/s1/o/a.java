@@ -34,37 +34,37 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static a f22816h;
+    public static a f22187h;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f22817b;
+    public Handler f22188b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<Long, GroupMsgData> f22818c;
+    public ConcurrentHashMap<Long, GroupMsgData> f22189c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcurrentHashMap<Long, NewpushGroupRepair> f22819d;
+    public ConcurrentHashMap<Long, NewpushGroupRepair> f22190d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConcurrentHashMap<Long, Runnable> f22820e;
+    public ConcurrentHashMap<Long, Runnable> f22191e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Vector<Long> f22821f;
+    public Vector<Long> f22192f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final CustomMessageListener f22822g;
+    public final CustomMessageListener f22193g;
 
     /* renamed from: c.a.t0.s1.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class HandlerC1357a extends Handler {
+    public class HandlerC1372a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC1357a(a aVar, Looper looper) {
+        public HandlerC1372a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -93,13 +93,13 @@ public class a {
                         MessageUtils.updateGroupNotExist(message.getData());
                         return;
                     case 10002:
-                        MessageManager.getInstance().registerListener(this.a.f22822g);
+                        MessageManager.getInstance().registerListener(this.a.f22193g);
                         return;
                     case 10003:
                         if (message.getData() == null || !message.getData().containsKey(TbEnum.SystemMessage.KEY_GROUP_ID)) {
                             return;
                         }
-                        this.a.f22821f.remove(Long.valueOf(message.getData().getLong(TbEnum.SystemMessage.KEY_GROUP_ID)));
+                        this.a.f22192f.remove(Long.valueOf(message.getData().getLong(TbEnum.SystemMessage.KEY_GROUP_ID)));
                         return;
                     default:
                         return;
@@ -114,19 +114,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f22823e;
+        public final /* synthetic */ long f22194e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f22824f;
+        public final /* synthetic */ long f22195f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f22825g;
+        public final /* synthetic */ int f22196g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f22826h;
+        public final /* synthetic */ long f22197h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f22827i;
+        public final /* synthetic */ a f22198i;
 
         public b(a aVar, long j2, long j3, int i2, long j4) {
             Interceptable interceptable = $ic;
@@ -143,20 +143,20 @@ public class a {
                     return;
                 }
             }
-            this.f22827i = aVar;
-            this.f22823e = j2;
-            this.f22824f = j3;
-            this.f22825g = i2;
-            this.f22826h = j4;
+            this.f22198i = aVar;
+            this.f22194e = j2;
+            this.f22195f = j3;
+            this.f22196g = i2;
+            this.f22197h = j4;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                GroupMsgData groupMsgData = (GroupMsgData) this.f22827i.f22818c.get(Long.valueOf(this.f22823e));
+                GroupMsgData groupMsgData = (GroupMsgData) this.f22198i.f22189c.get(Long.valueOf(this.f22194e));
                 if (groupMsgData == null) {
-                    this.f22827i.q(this.f22823e);
+                    this.f22198i.q(this.f22194e);
                     return;
                 }
                 LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
@@ -170,12 +170,12 @@ public class a {
                     listMessage.clear();
                 }
                 long j3 = j2;
-                this.f22827i.q(this.f22823e);
-                if (j3 > this.f22824f) {
-                    this.f22827i.f22819d.put(Long.valueOf(this.f22823e), MessageUtils.makeNewpushGroupRepair(this.f22823e, this.f22825g, this.f22824f, j3, this.f22826h));
-                    c.a.t0.s1.m.b.l().s(this.f22823e, 1L, 0L, true);
-                    this.f22827i.f22821f.add(Long.valueOf(this.f22823e));
-                    this.f22827i.o(this.f22823e);
+                this.f22198i.q(this.f22194e);
+                if (j3 > this.f22195f) {
+                    this.f22198i.f22190d.put(Long.valueOf(this.f22194e), MessageUtils.makeNewpushGroupRepair(this.f22194e, this.f22196g, this.f22195f, j3, this.f22197h));
+                    c.a.t0.s1.m.b.l().s(this.f22194e, 1L, 0L, true);
+                    this.f22198i.f22192f.add(Long.valueOf(this.f22194e));
+                    this.f22198i.o(this.f22194e);
                 }
             }
         }
@@ -247,18 +247,18 @@ public class a {
             }
         }
         this.a = null;
-        this.f22817b = null;
-        this.f22818c = null;
-        this.f22819d = null;
-        this.f22820e = null;
-        this.f22821f = null;
-        this.f22822g = new c(this, 2005016);
-        this.a = new HandlerC1357a(this, Looper.getMainLooper());
-        this.f22817b = new Handler(Looper.myLooper());
-        this.f22818c = new ConcurrentHashMap<>();
-        this.f22819d = new ConcurrentHashMap<>();
-        this.f22820e = new ConcurrentHashMap<>();
-        this.f22821f = new Vector<>();
+        this.f22188b = null;
+        this.f22189c = null;
+        this.f22190d = null;
+        this.f22191e = null;
+        this.f22192f = null;
+        this.f22193g = new c(this, 2005016);
+        this.a = new HandlerC1372a(this, Looper.getMainLooper());
+        this.f22188b = new Handler(Looper.myLooper());
+        this.f22189c = new ConcurrentHashMap<>();
+        this.f22190d = new ConcurrentHashMap<>();
+        this.f22191e = new ConcurrentHashMap<>();
+        this.f22192f = new Vector<>();
         this.a.sendEmptyMessage(10002);
     }
 
@@ -266,14 +266,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f22816h == null) {
+            if (f22187h == null) {
                 synchronized (a.class) {
-                    if (f22816h == null) {
-                        f22816h = new a();
+                    if (f22187h == null) {
+                        f22187h = new a();
                     }
                 }
             }
-            return f22816h;
+            return f22187h;
         }
         return (a) invokeV.objValue;
     }
@@ -281,12 +281,12 @@ public class a {
     public final void g(long j2, long j3, int i2, long j4) {
         GroupMsgData groupMsgData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Long.valueOf(j4)}) == null) || (groupMsgData = this.f22818c.get(Long.valueOf(j3))) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Long.valueOf(j4)}) == null) || (groupMsgData = this.f22189c.get(Long.valueOf(j3))) == null) {
             return;
         }
         LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
         if (listMessage != null && listMessage.size() != 0) {
-            if (this.f22820e.containsKey(Long.valueOf(j3))) {
+            if (this.f22191e.containsKey(Long.valueOf(j3))) {
                 return;
             }
             p(j2, j3, i2, j4);
@@ -302,22 +302,22 @@ public class a {
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
             }
-            Handler handler2 = this.f22817b;
+            Handler handler2 = this.f22188b;
             if (handler2 != null) {
                 handler2.removeCallbacksAndMessages(null);
             }
-            ConcurrentHashMap<Long, Runnable> concurrentHashMap = this.f22820e;
+            ConcurrentHashMap<Long, Runnable> concurrentHashMap = this.f22191e;
             if (concurrentHashMap != null) {
                 for (Map.Entry<Long, Runnable> entry : concurrentHashMap.entrySet()) {
                     q(entry.getKey().longValue());
                 }
-                this.f22820e.clear();
+                this.f22191e.clear();
             }
-            ConcurrentHashMap<Long, GroupMsgData> concurrentHashMap2 = this.f22818c;
+            ConcurrentHashMap<Long, GroupMsgData> concurrentHashMap2 = this.f22189c;
             if (concurrentHashMap2 != null) {
                 concurrentHashMap2.clear();
             }
-            Vector<Long> vector = this.f22821f;
+            Vector<Long> vector = this.f22192f;
             if (vector != null) {
                 vector.clear();
             }
@@ -328,8 +328,8 @@ public class a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            if (this.f22819d.containsKey(Long.valueOf(j2))) {
-                return this.f22819d.remove(Long.valueOf(j2));
+            if (this.f22190d.containsKey(Long.valueOf(j2))) {
+                return this.f22190d.remove(Long.valueOf(j2));
             }
             return null;
         }
@@ -340,7 +340,7 @@ public class a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-            GroupMsgData groupMsgData = this.f22818c.get(Long.valueOf(j2));
+            GroupMsgData groupMsgData = this.f22189c.get(Long.valueOf(j2));
             LinkedList linkedList = null;
             if (groupMsgData == null) {
                 return null;
@@ -413,7 +413,7 @@ public class a {
         long groupId = groupMsgData.getGroupInfo().getGroupId();
         ImMessageCenterPojo g2 = j.f().g(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
         if (!(g2 != null)) {
-            if (this.f22821f.contains(Long.valueOf(groupId))) {
+            if (this.f22192f.contains(Long.valueOf(groupId))) {
                 return;
             }
             n(groupMsgData, listMessage, groupId);
@@ -421,10 +421,10 @@ public class a {
         }
         long sid = g2.getSid();
         long c2 = c.a.t0.s1.w.b.c(g2.getPulled_msgId());
-        GroupMsgData groupMsgData2 = this.f22818c.get(Long.valueOf(groupId));
+        GroupMsgData groupMsgData2 = this.f22189c.get(Long.valueOf(groupId));
         if (groupMsgData2 == null) {
             groupMsgData2 = new GroupMsgData(groupMsgData.getCmd());
-            this.f22818c.put(Long.valueOf(groupId), groupMsgData2);
+            this.f22189c.put(Long.valueOf(groupId), groupMsgData2);
         }
         Iterator<ChatMessage> it = listMessage.iterator();
         while (it.hasNext()) {
@@ -434,19 +434,19 @@ public class a {
             }
         }
         listMessage.clear();
-        List<ChatMessage> k2 = k(groupId);
-        if (k2 != null && k2.size() > 0) {
-            if (!z && sid > 0 && k2.get(0).getSid() != 1 + sid) {
-                groupMsgData2.getListMessage().addAll(k2);
+        List<ChatMessage> k = k(groupId);
+        if (k != null && k.size() > 0) {
+            if (!z && sid > 0 && k.get(0).getSid() != 1 + sid) {
+                groupMsgData2.getListMessage().addAll(k);
             } else {
-                listMessage.addAll(k2);
+                listMessage.addAll(k);
                 long sid2 = listMessage.get(listMessage.size() - 1).getSid();
                 j3 = listMessage.get(listMessage.size() - 1).getMsgId();
                 j2 = sid2;
                 if (z) {
-                    this.f22821f.remove(Long.valueOf(groupId));
+                    this.f22192f.remove(Long.valueOf(groupId));
                 }
-                if (this.f22821f.contains(Long.valueOf(groupId))) {
+                if (this.f22192f.contains(Long.valueOf(groupId))) {
                     g(j2, groupId, groupMsgData.getGroupInfo().getUserType(), j3);
                     return;
                 }
@@ -457,7 +457,7 @@ public class a {
         j3 = c2;
         if (z) {
         }
-        if (this.f22821f.contains(Long.valueOf(groupId))) {
+        if (this.f22192f.contains(Long.valueOf(groupId))) {
         }
     }
 
@@ -470,7 +470,7 @@ public class a {
         bundle.putLong(TbEnum.SystemMessage.KEY_GROUP_ID, j2);
         bundle.putLong("lastMid", linkedList.get(0).getMsgId());
         if (linkedList.get(0).getSid() > 0) {
-            this.f22819d.put(Long.valueOf(j2), MessageUtils.makeNewpushGroupRepair(groupMsgData));
+            this.f22190d.put(Long.valueOf(j2), MessageUtils.makeNewpushGroupRepair(groupMsgData));
         }
         bundle.putInt("type", groupMsgData.getGroupInfo().getCustomType());
         Message message = new Message();
@@ -478,7 +478,7 @@ public class a {
         message.setData(bundle);
         this.a.sendMessage(message);
         linkedList.clear();
-        this.f22821f.add(Long.valueOf(j2));
+        this.f22192f.add(Long.valueOf(j2));
         o(j2);
     }
 
@@ -498,17 +498,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Long.valueOf(j4)}) == null) {
             b bVar = new b(this, j3, j2, i2, j4);
-            this.f22817b.postDelayed(bVar, c.a.t0.s1.o.b.a().b().b());
-            this.f22820e.put(Long.valueOf(j3), bVar);
+            this.f22188b.postDelayed(bVar, c.a.t0.s1.o.b.a().b().b());
+            this.f22191e.put(Long.valueOf(j3), bVar);
         }
     }
 
     public final void q(long j2) {
         Runnable remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) || (remove = this.f22820e.remove(Long.valueOf(j2))) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) || (remove = this.f22191e.remove(Long.valueOf(j2))) == null) {
             return;
         }
-        this.f22817b.removeCallbacks(remove);
+        this.f22188b.removeCallbacks(remove);
     }
 }

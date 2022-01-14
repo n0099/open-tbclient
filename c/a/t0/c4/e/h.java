@@ -21,16 +21,16 @@ public class h {
     public TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f15952b;
+    public View f15546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f15953c;
+    public TextView f15547c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f15954d;
+    public TbImageView f15548d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f15955e;
+    public TextView f15549e;
 
     public h(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -54,17 +54,17 @@ public class h {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15952b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15546b : (View) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.background_preview_bottom, (ViewGroup) null);
-            this.f15952b = inflate;
-            this.f15953c = (TextView) inflate.findViewById(R.id.text_bg_name);
-            this.f15954d = (TbImageView) this.f15952b.findViewById(R.id.bg_permission_icon);
-            this.f15955e = (TextView) this.f15952b.findViewById(R.id.text_bg_description);
+            this.f15546b = inflate;
+            this.f15547c = (TextView) inflate.findViewById(R.id.text_bg_name);
+            this.f15548d = (TbImageView) this.f15546b.findViewById(R.id.bg_permission_icon);
+            this.f15549e = (TextView) this.f15546b.findViewById(R.id.text_bg_description);
             c();
         }
     }
@@ -72,7 +72,7 @@ public class h {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.s0.x0.a.a(this.a, this.f15952b);
+            c.a.s0.x0.a.a(this.a, this.f15546b);
         }
     }
 
@@ -81,8 +81,8 @@ public class h {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, dressItemData) == null) || dressItemData == null) {
             return;
         }
-        this.f15953c.setText(dressItemData.getTitle());
-        this.f15954d.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-        this.f15955e.setText(dressItemData.getDescription());
+        this.f15547c.setText(dressItemData.getTitle());
+        this.f15548d.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
+        this.f15549e.setText(dressItemData.getDescription());
     }
 }

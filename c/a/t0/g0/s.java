@@ -1,7 +1,7 @@
 package c.a.t0.g0;
 
 import android.content.Context;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.s.a;
 import c.a.s0.s.s.j;
 import c.a.s0.t.c.k0;
@@ -30,34 +30,32 @@ public class s {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f18314b;
+    public Context f17864b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PopupDialog f18315c;
+    public PopupDialog f17865c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.s0.s.s.j f18316d;
+    public c.a.s0.s.s.j f17866d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.s.s.a f18317e;
+    public c.a.s0.s.s.a f17867e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j f18318f;
+    public j f17868f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CardPersonDynamicThreadData f18319g;
+    public CardPersonDynamicThreadData f17869g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<c.a.s0.s.s.g> f18320h;
+    public List<c.a.s0.s.s.g> f17870h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.s0.s.s.g f18321i;
+    public c.a.s0.s.s.g f17871i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.s0.s.s.g f18322j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.s0.s.s.g f18323k;
+    public c.a.s0.s.s.g f17872j;
+    public c.a.s0.s.s.g k;
     public c.a.s0.s.s.g l;
     public SetPrivacyModel m;
     public ForumManageModel n;
@@ -131,32 +129,32 @@ public class s {
         public void onClick() {
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f18319g == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f17869g == null) {
                 return;
             }
             this.a.q();
             int i3 = 2;
-            if (this.a.f18319g.u == 1) {
+            if (this.a.f17869g.u == 1) {
                 i2 = 2;
             } else {
-                int i4 = this.a.f18319g.u;
+                int i4 = this.a.f17869g.u;
                 i2 = 1;
             }
-            if (this.a.f18319g == null || !this.a.f18319g.s) {
-                if (this.a.f18319g.getThreadData() != null) {
-                    this.a.p.f(this.a.f18319g.getThreadData().v1());
+            if (this.a.f17869g == null || !this.a.f17869g.s) {
+                if (this.a.f17869g.getThreadData() != null) {
+                    this.a.p.f(this.a.f17869g.getThreadData().v1());
                 }
-                i3 = (TbSingleton.getInstance().mCallFansTid == null || this.a.f18319g.getThreadData() == null || !TbSingleton.getInstance().mCallFansTid.equals(this.a.f18319g.getThreadData().v1())) ? 1 : 1;
+                i3 = (TbSingleton.getInstance().mCallFansTid == null || this.a.f17869g.getThreadData() == null || !TbSingleton.getInstance().mCallFansTid.equals(this.a.f17869g.getThreadData().v1())) ? 1 : 1;
                 this.a.p.b();
-                if (this.a.f18319g.getThreadData() != null) {
-                    this.a.p.d(i2, i3, this.a.f18319g.getThreadData().v1());
+                if (this.a.f17869g.getThreadData() != null) {
+                    this.a.p.d(i2, i3, this.a.f17869g.getThreadData().v1());
                     return;
                 }
                 return;
             }
             this.a.a.showToast(c.a.t0.y2.g.privacy_thread_can_not_use_call_fans);
-            if (this.a.f18319g.getThreadData() != null) {
-                this.a.p.d(i2, 3, this.a.f18319g.getThreadData().v1());
+            if (this.a.f17869g.getThreadData() != null) {
+                this.a.p.d(i2, 3, this.a.f17869g.getThreadData().v1());
             }
         }
     }
@@ -167,7 +165,7 @@ public class s {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f18324e;
+        public final /* synthetic */ s f17873e;
 
         public c(s sVar) {
             Interceptable interceptable = $ic;
@@ -184,7 +182,7 @@ public class s {
                     return;
                 }
             }
-            this.f18324e = sVar;
+            this.f17873e = sVar;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -192,20 +190,20 @@ public class s {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (!c.a.d.f.p.l.A()) {
-                    c.a.d.f.p.n.L(this.f18324e.f18314b, c.a.t0.y2.g.neterror);
+                    c.a.d.f.p.n.M(this.f17873e.f17864b, c.a.t0.y2.g.neterror);
                     return;
                 }
-                if (this.f18324e.f18319g.u != 1) {
-                    if (this.f18324e.f18319g.u == 3) {
+                if (this.f17873e.f17869g.u != 1) {
+                    if (this.f17873e.f17869g.u == 3) {
                         TiebaStatic.log(new StatisticItem("c12600").param("obj_type", 1));
                     }
                 } else {
                     TiebaStatic.log(new StatisticItem("c12599").param("obj_type", 3));
                 }
-                if (this.f18324e.o) {
-                    this.f18324e.n.Q(this.f18324e.f18319g.t);
+                if (this.f17873e.o) {
+                    this.f17873e.n.Q(this.f17873e.f17869g.t);
                 }
-                this.f18324e.n.S(this.f18324e.f18319g.f43964e, this.f18324e.f18319g.l, this.f18324e.f18319g.f43965f, this.f18324e.f18319g.f43968i, 0, 0, true, this.f18324e.f18319g.t.L(), false);
+                this.f17873e.n.S(this.f17873e.f17869g.f42361e, this.f17873e.f17869g.l, this.f17873e.f17869g.f42362f, this.f17873e.f17869g.f42365i, 0, 0, true, this.f17873e.f17869g.t.L(), false);
                 aVar.dismiss();
             }
         }
@@ -269,7 +267,7 @@ public class s {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                c.a.d.f.p.n.M(this.a.f18314b, str);
+                c.a.d.f.p.n.N(this.a.f17864b, str);
             }
         }
 
@@ -277,26 +275,26 @@ public class s {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.a.f18319g.s) {
-                    this.a.f18319g.s = false;
-                    c.a.d.f.p.n.L(this.a.f18314b, c.a.t0.y2.g.thread_has_open);
-                    if (this.a.f18321i != null) {
-                        this.a.f18321i.m(this.a.f18314b.getString(c.a.t0.y2.g.set_thread_privacy));
+                if (this.a.f17869g.s) {
+                    this.a.f17869g.s = false;
+                    c.a.d.f.p.n.M(this.a.f17864b, c.a.t0.y2.g.thread_has_open);
+                    if (this.a.f17871i != null) {
+                        this.a.f17871i.m(this.a.f17864b.getString(c.a.t0.y2.g.set_thread_privacy));
                     }
-                    if (this.a.f18318f != null) {
-                        this.a.f18318f.a(false);
+                    if (this.a.f17868f != null) {
+                        this.a.f17868f.a(false);
                         return;
                     }
                     return;
                 }
-                this.a.f18319g.s = true;
-                if (this.a.f18321i != null) {
-                    this.a.f18321i.m(this.a.f18314b.getString(c.a.t0.y2.g.set_thread_public_open));
+                this.a.f17869g.s = true;
+                if (this.a.f17871i != null) {
+                    this.a.f17871i.m(this.a.f17864b.getString(c.a.t0.y2.g.set_thread_public_open));
                 }
-                if (this.a.f18318f != null) {
-                    this.a.f18318f.a(true);
+                if (this.a.f17868f != null) {
+                    this.a.f17868f.a(true);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016558, this.a.f18319g.f43965f));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016558, this.a.f17869g.f42362f));
             }
         }
     }
@@ -330,22 +328,22 @@ public class s {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!c.a.d.f.p.l.A()) {
-                    c.a.d.f.p.n.L(this.a.f18314b, c.a.t0.y2.g.neterror);
+                    c.a.d.f.p.n.M(this.a.f17864b, c.a.t0.y2.g.neterror);
                     return;
                 }
-                if (this.a.f18319g.s) {
-                    if (this.a.f18319g.u == 1) {
+                if (this.a.f17869g.s) {
+                    if (this.a.f17869g.u == 1) {
                         TiebaStatic.log(new StatisticItem("c12599").param("obj_type", 2));
                     }
-                } else if (this.a.f18319g.u != 1) {
-                    if (this.a.f18319g.u == 3) {
+                } else if (this.a.f17869g.u != 1) {
+                    if (this.a.f17869g.u == 3) {
                         TiebaStatic.log(new StatisticItem("c12600").param("obj_type", 2));
                     }
                 } else {
                     TiebaStatic.log(new StatisticItem("c12599").param("obj_type", 1));
                 }
                 if (this.a.m == null) {
-                    this.a.m = new SetPrivacyModel(this.a.a, this.a.f18319g);
+                    this.a.m = new SetPrivacyModel(this.a.a, this.a.f17869g);
                 }
                 if (!this.a.m.C()) {
                     this.a.m.D(this.a.r);
@@ -386,11 +384,11 @@ public class s {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!c.a.d.f.p.l.A()) {
-                    c.a.d.f.p.n.L(this.a.f18314b, c.a.t0.y2.g.neterror);
+                    c.a.d.f.p.n.M(this.a.f17864b, c.a.t0.y2.g.neterror);
                     return;
                 }
                 k0 tiebaPlusConfigData = TbSingleton.getInstance().getTiebaPlusConfigData();
-                d2 threadData = this.a.f18319g.getThreadData();
+                e2 threadData = this.a.f17869g.getThreadData();
                 if (tiebaPlusConfigData == null || threadData == null || (d2 = tiebaPlusConfigData.d(threadData.v1())) == null) {
                     return;
                 }
@@ -430,12 +428,12 @@ public class s {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!c.a.d.f.p.l.A()) {
-                    c.a.d.f.p.n.L(this.a.f18314b, c.a.t0.y2.g.neterror);
+                    c.a.d.f.p.n.M(this.a.f17864b, c.a.t0.y2.g.neterror);
                     return;
                 }
-                if (this.a.f18319g != null && this.a.n != null) {
+                if (this.a.f17869g != null && this.a.n != null) {
                     this.a.p();
-                    this.a.f18317e.show();
+                    this.a.f17867e.show();
                 }
                 this.a.q();
             }
@@ -471,22 +469,22 @@ public class s {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof ForumManageModel.b)) {
                 ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                if (bVar.f50067c == 0) {
-                    c.a.d.f.p.n.L(this.a.f18314b, c.a.t0.y2.g.delete_success);
-                    if (this.a.f18319g != null) {
-                        if (c.a.d.f.p.m.isEmpty(this.a.f18319g.K)) {
-                            if (c.a.d.f.p.m.isEmpty(this.a.f18319g.f43965f)) {
+                if (bVar.f48182c == 0) {
+                    c.a.d.f.p.n.M(this.a.f17864b, c.a.t0.y2.g.delete_success);
+                    if (this.a.f17869g != null) {
+                        if (c.a.d.f.p.m.isEmpty(this.a.f17869g.K)) {
+                            if (c.a.d.f.p.m.isEmpty(this.a.f17869g.f42362f)) {
                                 return;
                             }
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016557, this.a.f18319g.f43965f));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016557, this.a.f17869g.f42362f));
                             return;
                         }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921436, this.a.f18319g.K));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921436, this.a.f17869g.K));
                     }
-                } else if (!c.a.d.f.p.m.isEmpty(bVar.f50066b)) {
-                    c.a.d.f.p.n.M(this.a.f18314b, bVar.f50066b);
+                } else if (!c.a.d.f.p.m.isEmpty(bVar.f48181b)) {
+                    c.a.d.f.p.n.N(this.a.f17864b, bVar.f48181b);
                 } else {
-                    c.a.d.f.p.n.L(this.a.f18314b, c.a.t0.y2.g.delete_fail);
+                    c.a.d.f.p.n.M(this.a.f17864b, c.a.t0.y2.g.delete_fail);
                 }
             }
         }
@@ -523,9 +521,9 @@ public class s {
             return;
         }
         this.a = tbPageContext;
-        this.f18314b = tbPageContext.getPageActivity();
-        this.f18320h = new ArrayList();
-        this.f18316d = new c.a.s0.s.s.j(this.f18314b);
+        this.f17864b = tbPageContext.getPageActivity();
+        this.f17870h = new ArrayList();
+        this.f17866d = new c.a.s0.s.s.j(this.f17864b);
         ForumManageModel forumManageModel = new ForumManageModel(this.a);
         this.n = forumManageModel;
         forumManageModel.setLoadDataCallBack(this.v);
@@ -536,110 +534,110 @@ public class s {
         c.a.s0.s.s.g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, cardPersonDynamicThreadData, z) == null) {
-            this.f18319g = cardPersonDynamicThreadData;
-            if (cardPersonDynamicThreadData == null || (gVar = this.f18321i) == null) {
+            this.f17869g = cardPersonDynamicThreadData;
+            if (cardPersonDynamicThreadData == null || (gVar = this.f17871i) == null) {
                 return;
             }
             if (cardPersonDynamicThreadData.s) {
-                gVar.m(this.f18314b.getString(c.a.t0.y2.g.set_thread_public_open));
+                gVar.m(this.f17864b.getString(c.a.t0.y2.g.set_thread_public_open));
             } else {
-                d2 d2Var = cardPersonDynamicThreadData.t;
-                if (d2Var != null && d2Var.O2()) {
-                    if (this.f18320h.contains(this.f18321i)) {
-                        this.f18320h.remove(this.f18321i);
-                        this.f18316d.j(this.f18320h);
+                e2 e2Var = cardPersonDynamicThreadData.t;
+                if (e2Var != null && e2Var.O2()) {
+                    if (this.f17870h.contains(this.f17871i)) {
+                        this.f17870h.remove(this.f17871i);
+                        this.f17866d.j(this.f17870h);
                     }
                 } else {
-                    this.f18321i.m(this.f18314b.getString(c.a.t0.y2.g.set_thread_privacy));
+                    this.f17871i.m(this.f17864b.getString(c.a.t0.y2.g.set_thread_privacy));
                 }
             }
-            this.f18321i.p(z);
-            if (this.f18322j != null) {
+            this.f17871i.p(z);
+            if (this.f17872j != null) {
                 if (TbSingleton.getInstance().mCanCallFans) {
-                    this.f18322j.m(this.f18314b.getString(c.a.t0.y2.g.call_fans));
+                    this.f17872j.m(this.f17864b.getString(c.a.t0.y2.g.call_fans));
                 } else {
-                    if (TbSingleton.getInstance().mCallFansTid != null && this.f18319g.getThreadData() != null && TbSingleton.getInstance().mCallFansTid.equals(this.f18319g.getThreadData().v1())) {
-                        this.f18322j.m(this.f18314b.getString(c.a.t0.y2.g.have_called_fans));
+                    if (TbSingleton.getInstance().mCallFansTid != null && this.f17869g.getThreadData() != null && TbSingleton.getInstance().mCallFansTid.equals(this.f17869g.getThreadData().v1())) {
+                        this.f17872j.m(this.f17864b.getString(c.a.t0.y2.g.have_called_fans));
                     } else {
-                        this.f18322j.m(this.f18314b.getString(c.a.t0.y2.g.call_fans));
+                        this.f17872j.m(this.f17864b.getString(c.a.t0.y2.g.call_fans));
                     }
-                    this.f18322j.o(c.a.t0.y2.a.cp_cont_b_alpha33);
+                    this.f17872j.o(c.a.t0.y2.a.cp_cont_b_alpha33);
                 }
-                this.f18322j.p(z);
+                this.f17872j.p(z);
             }
         }
     }
 
     public void o() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f18315c == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f17865c == null) {
             if (TbSingleton.getInstance().getTiebaPlusConfigData() != null && TbSingleton.getInstance().getTiebaPlusConfigData().f()) {
-                c.a.s0.s.s.g gVar = new c.a.s0.s.s.g(this.f18314b.getString(c.a.t0.y2.g.heating_thread), this.f18316d);
+                c.a.s0.s.s.g gVar = new c.a.s0.s.s.g(this.f17864b.getString(c.a.t0.y2.g.heating_thread), this.f17866d);
                 this.l = gVar;
                 gVar.l(this.t);
-                this.f18320h.add(this.l);
+                this.f17870h.add(this.l);
             }
-            c.a.s0.s.s.g gVar2 = new c.a.s0.s.s.g(this.f18316d);
-            this.f18321i = gVar2;
+            c.a.s0.s.s.g gVar2 = new c.a.s0.s.s.g(this.f17866d);
+            this.f17871i = gVar2;
             gVar2.l(this.s);
             if (!this.o) {
-                this.f18320h.add(this.f18321i);
+                this.f17870h.add(this.f17871i);
             }
             if (TbSingleton.getInstance().mShowCallFans && !this.o) {
-                c.a.s0.s.s.g gVar3 = new c.a.s0.s.s.g(this.f18314b.getString(c.a.t0.y2.g.call_fans), this.f18316d);
-                this.f18322j = gVar3;
+                c.a.s0.s.s.g gVar3 = new c.a.s0.s.s.g(this.f17864b.getString(c.a.t0.y2.g.call_fans), this.f17866d);
+                this.f17872j = gVar3;
                 gVar3.l(this.q);
-                this.f18320h.add(this.f18322j);
+                this.f17870h.add(this.f17872j);
             }
-            c.a.s0.s.s.g gVar4 = new c.a.s0.s.s.g(this.f18314b.getString(c.a.t0.y2.g.delete), this.f18316d);
-            this.f18323k = gVar4;
+            c.a.s0.s.s.g gVar4 = new c.a.s0.s.s.g(this.f17864b.getString(c.a.t0.y2.g.delete), this.f17866d);
+            this.k = gVar4;
             gVar4.l(this.u);
-            this.f18320h.add(this.f18323k);
-            this.f18316d.l(new a(this));
-            this.f18316d.j(this.f18320h);
-            this.f18315c = new PopupDialog(this.a, this.f18316d);
+            this.f17870h.add(this.k);
+            this.f17866d.m(new a(this));
+            this.f17866d.j(this.f17870h);
+            this.f17865c = new PopupDialog(this.a, this.f17866d);
         }
     }
 
     public final void p() {
-        d2 d2Var;
+        e2 e2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f18317e == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f17867e == null) {
             c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.a.getPageActivity());
-            this.f18317e = aVar;
+            this.f17867e = aVar;
             if (this.o) {
                 aVar.setMessageId(c.a.t0.y2.g.del_dynamic_confirm);
             } else {
-                CardPersonDynamicThreadData cardPersonDynamicThreadData = this.f18319g;
-                if (cardPersonDynamicThreadData != null && (d2Var = cardPersonDynamicThreadData.t) != null && d2Var.X1()) {
-                    this.f18317e.setMessageId(c.a.t0.y2.g.del_work_thread_confirm);
+                CardPersonDynamicThreadData cardPersonDynamicThreadData = this.f17869g;
+                if (cardPersonDynamicThreadData != null && (e2Var = cardPersonDynamicThreadData.t) != null && e2Var.X1()) {
+                    this.f17867e.setMessageId(c.a.t0.y2.g.del_work_thread_confirm);
                 } else {
-                    this.f18317e.setMessageId(c.a.t0.y2.g.del_thread_confirm);
+                    this.f17867e.setMessageId(c.a.t0.y2.g.del_thread_confirm);
                 }
             }
-            this.f18317e.setPositiveButton(c.a.t0.y2.g.dialog_ok, new c(this));
-            this.f18317e.setNegativeButton(c.a.t0.y2.g.dialog_cancel, new d(this));
-            this.f18317e.setCancelable(true);
-            this.f18317e.create(this.a);
+            this.f17867e.setPositiveButton(c.a.t0.y2.g.dialog_ok, new c(this));
+            this.f17867e.setNegativeButton(c.a.t0.y2.g.dialog_cancel, new d(this));
+            this.f17867e.setCancelable(true);
+            this.f17867e.create(this.a);
         }
     }
 
     public void q() {
         PopupDialog popupDialog;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (popupDialog = this.f18315c) != null && popupDialog.isShowing()) {
-            this.f18315c.dismiss();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (popupDialog = this.f17865c) != null && popupDialog.isShowing()) {
+            this.f17865c.dismiss();
         }
     }
 
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.s0.s.s.j jVar = this.f18316d;
+            c.a.s0.s.s.j jVar = this.f17866d;
             if (jVar != null) {
                 jVar.i();
             }
-            c.a.s0.s.s.a aVar = this.f18317e;
+            c.a.s0.s.s.a aVar = this.f17867e;
             if (aVar != null) {
                 c.a.s0.x0.a.a(this.a, aVar.getRealView());
             }
@@ -649,7 +647,7 @@ public class s {
     public void s(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jVar) == null) {
-            this.f18318f = jVar;
+            this.f17868f = jVar;
         }
     }
 
@@ -663,7 +661,7 @@ public class s {
     public void u() {
         PopupDialog popupDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (popupDialog = this.f18315c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (popupDialog = this.f17865c) == null) {
             return;
         }
         popupDialog.showDialog();

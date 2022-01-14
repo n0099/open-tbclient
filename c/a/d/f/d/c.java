@@ -19,22 +19,22 @@ public abstract class c<T> {
     public final c.a.d.a.k.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2724b;
+    public String f2703b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e.b f2725c;
+    public e.b f2704c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e.a f2726d;
+    public e.a f2705d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2727e;
+    public int f2706e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<String> f2728f;
+    public LinkedList<String> f2707f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Object f2729g;
+    public Object f2708g;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -42,7 +42,7 @@ public abstract class c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f2730e;
+        public final /* synthetic */ c f2709e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public abstract class c<T> {
                     return;
                 }
             }
-            this.f2730e = cVar;
+            this.f2709e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2730e.m();
+                this.f2709e.m();
             }
         }
     }
@@ -86,8 +86,8 @@ public abstract class c<T> {
                 return;
             }
         }
-        this.f2728f = new LinkedList<>();
-        this.f2729g = new Object();
+        this.f2707f = new LinkedList<>();
+        this.f2708g = new Object();
         this.a = bVar;
     }
 
@@ -95,11 +95,11 @@ public abstract class c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
             synchronized (this) {
-                synchronized (this.f2729g) {
-                    if (this.f2728f.contains(str)) {
+                synchronized (this.f2708g) {
+                    if (this.f2707f.contains(str)) {
                         return;
                     }
-                    this.f2728f.addLast(str);
+                    this.f2707f.addLast(str);
                     if (z) {
                         j();
                     }
@@ -113,18 +113,18 @@ public abstract class c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
             try {
-                synchronized (this.f2729g) {
-                    this.f2728f.remove(gVar.a);
+                synchronized (this.f2708g) {
+                    this.f2707f.remove(gVar.a);
                 }
                 ContentValues p = p(gVar);
                 SQLiteDatabase f2 = this.a.f();
-                if (f2.update(this.f2724b, p, "m_key = ?", new String[]{gVar.a}) == 0) {
-                    f2.insert(this.f2724b, null, p);
-                    if (this.f2726d != null) {
+                if (f2.update(this.f2703b, p, "m_key = ?", new String[]{gVar.a}) == 0) {
+                    f2.insert(this.f2703b, null, p);
+                    if (this.f2705d != null) {
                         j();
                     }
                 }
-                if (this.f2725c == null || (d2 = this.f2725c.d(gVar)) == null) {
+                if (this.f2704c == null || (d2 = this.f2704c.d(gVar)) == null) {
                     return;
                 }
                 e(d2);
@@ -137,9 +137,9 @@ public abstract class c<T> {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f2727e = 0;
-            synchronized (this.f2729g) {
-                this.f2728f.clear();
+            this.f2706e = 0;
+            synchronized (this.f2708g) {
+                this.f2707f.clear();
             }
             if (d(str)) {
                 BdCacheService.k().f().delete(str);
@@ -154,7 +154,7 @@ public abstract class c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             try {
-                return this.a.f().delete(this.f2724b, "m_key = ?", new String[]{str});
+                return this.a.f().delete(this.f2703b, "m_key = ?", new String[]{str});
             } catch (Throwable th) {
                 this.a.i(th, "deleteCacheItem");
                 return 0;
@@ -190,12 +190,12 @@ public abstract class c<T> {
     public void j() {
         e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (aVar = this.f2726d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (aVar = this.f2705d) == null) {
             return;
         }
-        this.f2727e++;
-        if (this.f2727e >= ((int) Math.min(aVar.getMaxSize() * 0.2d, 5.0d))) {
-            this.f2727e = 0;
+        this.f2706e++;
+        if (this.f2706e >= ((int) Math.min(aVar.getMaxSize() * 0.2d, 5.0d))) {
+            this.f2706e = 0;
             c.a.d.f.m.h.a().b(new a(this));
         }
     }
@@ -207,20 +207,20 @@ public abstract class c<T> {
     public void m() {
         String removeFirst;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f2728f.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f2707f.isEmpty()) {
             return;
         }
         SQLiteDatabase f2 = this.a.f();
         f2.beginTransaction();
         while (true) {
             try {
-                synchronized (this.f2729g) {
-                    if (this.f2728f.isEmpty()) {
+                synchronized (this.f2708g) {
+                    if (this.f2707f.isEmpty()) {
                         break;
                     }
-                    removeFirst = this.f2728f.removeFirst();
+                    removeFirst = this.f2707f.removeFirst();
                 }
-                f2.delete(this.f2724b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
+                f2.delete(this.f2703b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
             } finally {
                 try {
                 } finally {
@@ -228,13 +228,13 @@ public abstract class c<T> {
             }
         }
         f2.setTransactionSuccessful();
-        this.f2727e = 0;
+        this.f2706e = 0;
     }
 
     public void n(String str) {
         e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || (aVar = this.f2726d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || (aVar = this.f2705d) == null) {
             return;
         }
         Cursor cursor = null;
@@ -244,10 +244,10 @@ public abstract class c<T> {
             while (cursor.moveToNext()) {
                 g<?> gVar = new g<>();
                 gVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                gVar.f2736d = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                gVar.f2737e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                gVar.f2738f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                String h2 = this.f2726d.h(gVar);
+                gVar.f2715d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                gVar.f2716e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                gVar.f2717f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String h2 = this.f2705d.h(gVar);
                 if (h2 != null) {
                     a(h2, false);
                 }
@@ -263,7 +263,7 @@ public abstract class c<T> {
     public void o(String str) {
         e.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (bVar = this.f2725c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (bVar = this.f2704c) == null) {
             return;
         }
         Cursor cursor = null;
@@ -273,10 +273,10 @@ public abstract class c<T> {
             while (cursor.moveToNext()) {
                 g<?> gVar = new g<>();
                 gVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                gVar.f2736d = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                gVar.f2737e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                gVar.f2738f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                String g2 = this.f2725c.g(gVar);
+                gVar.f2715d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                gVar.f2716e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                gVar.f2717f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String g2 = this.f2704c.g(gVar);
                 if (g2 != null) {
                     a(g2, false);
                 }
@@ -296,12 +296,12 @@ public abstract class c<T> {
     public void r(e eVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, eVar, str) == null) {
-            this.f2724b = str;
+            this.f2703b = str;
             if (eVar instanceof e.b) {
-                this.f2725c = (e.b) eVar;
+                this.f2704c = (e.b) eVar;
             }
             if (eVar instanceof e.a) {
-                this.f2726d = (e.a) eVar;
+                this.f2705d = (e.a) eVar;
             }
         }
     }

@@ -11,16 +11,16 @@ public final class UShortArrayKt {
     public static final short[] UShortArray(int i2, Function1<? super Integer, UShort> function1) {
         short[] sArr = new short[i2];
         for (int i3 = 0; i3 < i2; i3++) {
-            sArr[i3] = function1.invoke(Integer.valueOf(i3)).m1029unboximpl();
+            sArr[i3] = function1.invoke(Integer.valueOf(i3)).m1041unboximpl();
         }
-        return UShortArray.m1032constructorimpl(sArr);
+        return UShortArray.m1044constructorimpl(sArr);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: ushortArrayOf-rL5Bavg  reason: not valid java name */
-    public static final short[] m1048ushortArrayOfrL5Bavg(short... sArr) {
+    public static final short[] m1060ushortArrayOfrL5Bavg(short... sArr) {
         return sArr;
     }
 }

@@ -18,7 +18,7 @@ public class c implements h {
     public static String a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f61940b = new Handler(Looper.getMainLooper());
+    public Handler f59597b = new Handler(Looper.getMainLooper());
 
     @Override // com.ss.android.socialbase.appdownloader.c.h
     public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) {
@@ -58,7 +58,7 @@ public class c implements h {
             BaseException baseException2 = null;
             if (baseException != null) {
                 if (com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("toast_without_network", 0) == 1 && baseException.getErrorCode() == 1049) {
-                    this.f61940b.post(new Runnable() { // from class: com.ss.android.downloadlib.c.1
+                    this.f59597b.post(new Runnable() { // from class: com.ss.android.downloadlib.c.1
                         @Override // java.lang.Runnable
                         public void run() {
                             j.c().a(5, j.getContext(), null, "无网络，请检查网络设置", null, 0);
@@ -77,7 +77,7 @@ public class c implements h {
                     if ((j.l() == null || !j.l().d()) && (a2 = com.ss.android.downloadlib.addownload.b.f.a().a(a3.b())) != null && a2.isShowToast()) {
                         final com.ss.android.socialbase.downloader.g.a a4 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
                         if (a4.a("show_no_enough_space_toast", 0) == 1) {
-                            this.f61940b.post(new Runnable() { // from class: com.ss.android.downloadlib.c.2
+                            this.f59597b.post(new Runnable() { // from class: com.ss.android.downloadlib.c.2
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     j.c().a(2, j.getContext(), a2, a4.a("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
@@ -106,8 +106,8 @@ public class c implements h {
                 com.ss.android.downloadlib.addownload.d.a(downloadInfo.getId());
             }
         }
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2180a() { // from class: com.ss.android.downloadlib.c.3
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2180a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2197a() { // from class: com.ss.android.downloadlib.c.3
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2197a
             public void b() {
                 if (!l.b(bVar)) {
                     long j2 = a2;
@@ -125,7 +125,7 @@ public class c implements h {
                 com.ss.android.socialbase.downloader.a.a.a().b(this);
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2180a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2197a
             public void c() {
             }
         });

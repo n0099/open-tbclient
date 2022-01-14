@@ -32,7 +32,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             e L = e.L();
-            String v = b.v(L != null ? L.f5660f : null);
+            String v = b.v(L != null ? L.f5537f : null);
             Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
             return v;
         }

@@ -21,15 +21,15 @@ public class b extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f10953d;
+    public static final boolean f10710d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f10954b;
+    public JSONObject f10711b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f10955c;
+    public d f10712c;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -39,17 +39,17 @@ public class b extends ActivityDelegation {
 
     /* renamed from: c.a.r0.i.b.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class RunnableC0708b implements Runnable {
+    public static class RunnableC0717b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f10956e;
+        public String f10713e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f10957f;
+        public String f10714f;
 
-        public /* synthetic */ RunnableC0708b(String str, String str2, a aVar) {
+        public /* synthetic */ RunnableC0717b(String str, String str2, a aVar) {
             this(str, str2);
         }
 
@@ -57,13 +57,13 @@ public class b extends ActivityDelegation {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.i.b.a.n().t(this.f10957f);
-                c.a.r0.i.b.a.n().l(this.f10956e);
+                c.a.r0.i.b.a.n().t(this.f10714f);
+                c.a.r0.i.b.a.n().l(this.f10713e);
                 c.a.r0.i.b.a.n().k();
             }
         }
 
-        public RunnableC0708b(String str, String str2) {
+        public RunnableC0717b(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,8 +78,8 @@ public class b extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10956e = str;
-            this.f10957f = str2;
+            this.f10713e = str;
+            this.f10714f = str2;
         }
     }
 
@@ -89,16 +89,16 @@ public class b extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public JSONObject f10958e;
+        public JSONObject f10715e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONObject f10959f;
+        public JSONObject f10716f;
 
         /* renamed from: g  reason: collision with root package name */
-        public c.a.r0.i.b.f.a f10960g;
+        public c.a.r0.i.b.f.a f10717g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Activity f10961h;
+        public Activity f10718h;
 
         public /* synthetic */ c(JSONObject jSONObject, JSONObject jSONObject2, c.a.r0.i.b.f.a aVar, Activity activity, a aVar2) {
             this(jSONObject, jSONObject2, aVar, activity);
@@ -108,9 +108,9 @@ public class b extends ActivityDelegation {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.i.b.a.n().G(this.f10959f);
-                c.a.r0.i.b.i.c.a(this.f10958e.optString("packageName"), "installApp", null, null, new c.a.r0.i.b.i.a(this.f10959f));
-                b.d(this.f10961h, this.f10958e, this.f10960g);
+                c.a.r0.i.b.a.n().G(this.f10716f);
+                c.a.r0.i.b.i.c.a(this.f10715e.optString("packageName"), "installApp", null, null, new c.a.r0.i.b.i.a(this.f10716f));
+                b.d(this.f10718h, this.f10715e, this.f10717g);
             }
         }
 
@@ -129,10 +129,10 @@ public class b extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10958e = jSONObject;
-            this.f10959f = jSONObject2;
-            this.f10960g = aVar;
-            this.f10961h = activity;
+            this.f10715e = jSONObject;
+            this.f10716f = jSONObject2;
+            this.f10717g = aVar;
+            this.f10718h = activity;
         }
     }
 
@@ -143,10 +143,10 @@ public class b extends ActivityDelegation {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10962b;
+        public String f10719b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f10963c;
+        public final /* synthetic */ b f10720c;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -163,18 +163,18 @@ public class b extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10963c = bVar;
+            this.f10720c = bVar;
         }
 
         @Override // c.a.r0.i.b.f.b
         public void a(c.a.r0.i.b.g.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                if (b.f10953d) {
+                if (b.f10710d) {
                     String str = "onResult mPackageName:" + this.a;
                 }
-                this.f10963c.setResult(bVar);
-                c.a.r0.i.b.c.b.f10931d.execute(new RunnableC0708b(this.f10962b, this.a, null));
+                this.f10720c.setResult(bVar);
+                c.a.r0.i.b.c.b.f10688d.execute(new RunnableC0717b(this.f10719b, this.a, null));
             }
         }
 
@@ -182,7 +182,7 @@ public class b extends ActivityDelegation {
         public void setFilePath(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f10962b = str;
+                this.f10719b = str;
             }
         }
 
@@ -208,7 +208,7 @@ public class b extends ActivityDelegation {
                 return;
             }
         }
-        f10953d = k.a;
+        f10710d = k.a;
     }
 
     public b() {
@@ -224,7 +224,7 @@ public class b extends ActivityDelegation {
                 return;
             }
         }
-        this.f10955c = new d(this);
+        this.f10712c = new d(this);
     }
 
     public static void d(Activity activity, @NonNull JSONObject jSONObject, @NonNull c.a.r0.i.b.f.a aVar) {
@@ -253,7 +253,7 @@ public class b extends ActivityDelegation {
                 this.mResult.putString("resultData", bVar.b());
                 this.mResult.putInt("resultStatus", bVar.c());
                 if (!bVar.d()) {
-                    c.a.r0.i.b.i.c.a(this.a, "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(bVar.c()), new c.a.r0.i.b.i.a(this.f10954b));
+                    c.a.r0.i.b.i.c.a(this.a, "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(bVar.c()), new c.a.r0.i.b.i.a(this.f10711b));
                 }
             }
             e();
@@ -264,11 +264,11 @@ public class b extends ActivityDelegation {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f10955c != null) {
-                c.a.r0.i.b.a.n().B(this.a, this.f10955c);
-                this.f10955c = null;
+            if (this.f10712c != null) {
+                c.a.r0.i.b.a.n().B(this.a, this.f10712c);
+                this.f10712c = null;
             }
-            this.f10955c = null;
+            this.f10712c = null;
         }
     }
 
@@ -276,7 +276,7 @@ public class b extends ActivityDelegation {
     public void onAgentDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (f10953d) {
+            if (f10710d) {
                 String str = "onAgentDestroy mPackageName:" + this.a;
             }
             e();
@@ -288,15 +288,15 @@ public class b extends ActivityDelegation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (f10953d) {
+            if (f10710d) {
                 String str = "onExec mParams" + this.mParams;
             }
-            this.f10954b = w.d(this.mParams.getString("ubc_params", ""));
+            this.f10711b = w.d(this.mParams.getString("ubc_params", ""));
             JSONObject d2 = w.d(this.mParams.getString("data", ""));
             String optString = d2.optString("packageName");
             this.a = optString;
             this.mResult.putString("packageName", optString);
-            c.a.r0.i.b.c.b.f10931d.execute(new c(d2, this.f10954b, this.f10955c, getAgent(), null));
+            c.a.r0.i.b.c.b.f10688d.execute(new c(d2, this.f10711b, this.f10712c, getAgent(), null));
             return false;
         }
         return invokeV.booleanValue;
@@ -306,10 +306,10 @@ public class b extends ActivityDelegation {
     public void onSelfFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (f10953d) {
+            if (f10710d) {
                 String str = "onSelfFinish mPackageName:" + this.a;
             }
-            c.a.r0.i.b.i.c.a(this.a, "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(getAgent() instanceof InstallPluginDelegateActivity ? ((InstallPluginDelegateActivity) getAgent()).getErrorCode() : 31003), new c.a.r0.i.b.i.a(this.f10954b));
+            c.a.r0.i.b.i.c.a(this.a, "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(getAgent() instanceof InstallPluginDelegateActivity ? ((InstallPluginDelegateActivity) getAgent()).getErrorCode() : 31003), new c.a.r0.i.b.i.a(this.f10711b));
             e();
         }
     }

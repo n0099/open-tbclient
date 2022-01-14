@@ -20,13 +20,13 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f25921b;
+    public Rect f25159b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25922c;
+    public String f25160c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f25923d;
+    public Rect f25161d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class a {
             }
         }
         this.a = "";
-        this.f25921b = new Rect(0, 0, 0, 0);
-        this.f25922c = "";
-        this.f25923d = new Rect(0, 0, 0, 0);
+        this.f25159b = new Rect(0, 0, 0, 0);
+        this.f25160c = "";
+        this.f25161d = new Rect(0, 0, 0, 0);
     }
 
     public static a a(String str) {
@@ -67,13 +67,13 @@ public class a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f25922c) || this.f25923d.isEmpty()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f25160c) || this.f25161d.isEmpty()) ? false : true : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.a) || this.f25921b.isEmpty()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.a) || this.f25159b.isEmpty()) ? false : true : invokeV.booleanValue;
     }
 
     public void d(String str) {
@@ -91,8 +91,8 @@ public class a {
                 if (jSONObject == null) {
                     return;
                 }
-                this.f25922c = jSONObject.optString("pic_url");
-                this.f25923d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                this.f25160c = jSONObject.optString("pic_url");
+                this.f25161d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -109,10 +109,10 @@ public class a {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("pic_url", this.a);
-                    jSONObject.put("rect_left", this.f25921b.left);
-                    jSONObject.put("rect_top", this.f25921b.top);
-                    jSONObject.put("rect_right", this.f25921b.right);
-                    jSONObject.put("rect_bottom", this.f25921b.bottom);
+                    jSONObject.put("rect_left", this.f25159b.left);
+                    jSONObject.put("rect_top", this.f25159b.top);
+                    jSONObject.put("rect_right", this.f25159b.right);
+                    jSONObject.put("rect_bottom", this.f25159b.bottom);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -139,6 +139,6 @@ public class a {
             }
         }
         this.a = jSONObject.optString("pic_url");
-        this.f25921b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
+        this.f25159b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
     }
 }

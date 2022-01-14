@@ -16,7 +16,7 @@ public class CanFlingChangeRecyclerView extends RecyclerView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f35993e;
+    public double f34822e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CanFlingChangeRecyclerView(Context context) {
@@ -36,20 +36,20 @@ public class CanFlingChangeRecyclerView extends RecyclerView {
                 return;
             }
         }
-        this.f35993e = 1.0d;
+        this.f34822e = 1.0d;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView
     public boolean fling(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) ? super.fling(i2, (int) (i3 * this.f35993e)) : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) ? super.fling(i2, (int) (i3 * this.f34822e)) : invokeII.booleanValue;
     }
 
     public void setflingScale(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f35993e = d2;
+            this.f34822e = d2;
         }
     }
 
@@ -72,7 +72,7 @@ public class CanFlingChangeRecyclerView extends RecyclerView {
                 return;
             }
         }
-        this.f35993e = 1.0d;
+        this.f34822e = 1.0d;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -94,6 +94,6 @@ public class CanFlingChangeRecyclerView extends RecyclerView {
                 return;
             }
         }
-        this.f35993e = 1.0d;
+        this.f34822e = 1.0d;
     }
 }

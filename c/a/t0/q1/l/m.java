@@ -16,25 +16,23 @@ public class m implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22171e;
+    public boolean f21566e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22172f;
+    public String f21567f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22173g;
+    public String f21568g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22174h;
+    public String f21569h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f22175i;
+    public long f21570i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f22176j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f22177k;
+    public String f21571j;
+    public long k;
     public String l;
     public long m;
     public long n;
@@ -69,13 +67,13 @@ public class m implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f22171e = false;
+        this.f21566e = false;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22171e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21566e : invokeV.booleanValue;
     }
 
     @Override // c.a.d.n.e.n

@@ -29,32 +29,32 @@ public class a implements d {
     public final TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f24103b;
+    public final Context f23430b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ForumSquareModel f24104c;
+    public ForumSquareModel f23431c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f24105d;
+    public b f23432d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f24106e;
+    public c f23433e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24107f;
+    public String f23434f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f24108g;
+    public CustomMessageListener f23435g;
 
     /* renamed from: c.a.t0.s3.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1416a extends CustomMessageListener {
+    public class C1431a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1416a(a aVar, int i2) {
+        public C1431a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -80,11 +80,11 @@ public class a implements d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 a aVar = this.a;
-                if (aVar.f24105d == null || aVar.f24104c == null) {
+                if (aVar.f23432d == null || aVar.f23431c == null) {
                     return;
                 }
-                this.a.f24107f = "";
-                this.a.f24104c.clearData();
+                this.a.f23434f = "";
+                this.a.f23431c.clearData();
                 this.a.o();
             }
         }
@@ -105,13 +105,13 @@ public class a implements d {
                 return;
             }
         }
-        this.f24107f = "";
-        this.f24108g = new C1416a(this, 2921589);
+        this.f23434f = "";
+        this.f23435g = new C1431a(this, 2921589);
         this.a = tbPageContext;
-        this.f24103b = context;
-        this.f24104c = new ForumSquareModel(context, this);
-        this.f24105d = new b(context, this.a);
-        this.a.registerListener(this.f24108g);
+        this.f23430b = context;
+        this.f23431c = new ForumSquareModel(context, this);
+        this.f23432d = new b(context, this.a);
+        this.a.registerListener(this.f23435g);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
@@ -123,25 +123,25 @@ public class a implements d {
     */
     public void a(String str, List<String> list, List<n> list2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, list, list2) == null) || this.f24104c == null || this.f24105d == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, list, list2) == null) || this.f23431c == null || this.f23432d == null) {
             return;
         }
         boolean z = false;
-        if (TextUtils.isEmpty(str) || str.equals(this.f24107f)) {
-            String e2 = this.f24105d.e();
+        if (TextUtils.isEmpty(str) || str.equals(this.f23434f)) {
+            String e2 = this.f23432d.e();
             if (!TextUtils.isEmpty(str)) {
             }
-            this.f24107f = str;
-            this.f24105d.J();
-            this.f24105d.r(str, list, z);
-            this.f24105d.t(list2, this.f24104c.O(list2, 300));
+            this.f23434f = str;
+            this.f23432d.J();
+            this.f23432d.r(str, list, z);
+            this.f23432d.t(list2, this.f23431c.O(list2, 300));
             f(str, list2);
         }
         z = true;
-        this.f24107f = str;
-        this.f24105d.J();
-        this.f24105d.r(str, list, z);
-        this.f24105d.t(list2, this.f24104c.O(list2, 300));
+        this.f23434f = str;
+        this.f23432d.J();
+        this.f23432d.r(str, list, z);
+        this.f23432d.t(list2, this.f23431c.O(list2, 300));
         f(str, list2);
     }
 
@@ -149,7 +149,7 @@ public class a implements d {
     public void b(ErrorData errorData) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorData) == null) || (bVar = this.f24105d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorData) == null) || (bVar = this.f23432d) == null) {
             return;
         }
         bVar.I();
@@ -159,72 +159,72 @@ public class a implements d {
     public void c(String str, ErrorData errorData) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) || (bVar = this.f24105d) == null || this.f24104c == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) || (bVar = this.f23432d) == null || this.f23431c == null) {
             return;
         }
         bVar.J();
-        c.a.t0.s3.f.c I = this.f24104c.I(str);
-        if (I != null && (!I.f24145d || !ListUtils.isEmpty(I.a()))) {
-            this.f24105d.s(I.a());
+        c.a.t0.s3.f.c I = this.f23431c.I(str);
+        if (I != null && (!I.f23470d || !ListUtils.isEmpty(I.a()))) {
+            this.f23432d.s(I.a());
             f(str, I.a());
             return;
         }
-        this.f24105d.f();
-        this.f24105d.u();
+        this.f23432d.f();
+        this.f23432d.u();
     }
 
     public final void f(String str, List<n> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) || this.f24105d == null || this.f24104c == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) || this.f23432d == null || this.f23431c == null) {
             return;
         }
         if (ListUtils.isEmpty(list)) {
-            this.f24105d.f();
+            this.f23432d.f();
         } else if (ListUtils.getCount(list) < 10) {
-            this.f24105d.n();
+            this.f23432d.n();
         } else {
-            this.f24105d.E(this.f24104c.J(str));
+            this.f23432d.E(this.f23431c.J(str));
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f24105d.b();
+            this.f23432d.b();
         }
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24107f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23434f : (String) invokeV.objValue;
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             String h2 = h();
-            ForumSquareModel forumSquareModel = this.f24104c;
-            if (forumSquareModel == null || this.f24105d == null) {
+            ForumSquareModel forumSquareModel = this.f23431c;
+            if (forumSquareModel == null || this.f23432d == null) {
                 return;
             }
             boolean K = forumSquareModel.K();
-            boolean E = this.f24105d.E(this.f24104c.J(h2));
+            boolean E = this.f23432d.E(this.f23431c.J(h2));
             if (K || !E) {
                 return;
             }
-            this.f24104c.L(h2);
+            this.f23431c.L(h2);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            b bVar = this.f24105d;
+            b bVar = this.f23432d;
             if (bVar != null) {
                 bVar.F();
             }
-            ForumSquareModel forumSquareModel = this.f24104c;
+            ForumSquareModel forumSquareModel = this.f23431c;
             if (forumSquareModel != null) {
                 forumSquareModel.L(h());
             }
@@ -234,24 +234,24 @@ public class a implements d {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            m(this.f24107f);
-            this.f24107f = str;
-            ForumSquareModel forumSquareModel = this.f24104c;
-            if (forumSquareModel == null || this.f24105d == null) {
+            m(this.f23434f);
+            this.f23434f = str;
+            ForumSquareModel forumSquareModel = this.f23431c;
+            if (forumSquareModel == null || this.f23432d == null) {
                 return;
             }
             c.a.t0.s3.f.c I = forumSquareModel.I(str);
-            if (I != null && (!I.f24145d || !ListUtils.isEmpty(I.a()))) {
-                this.f24105d.J();
+            if (I != null && (!I.f23470d || !ListUtils.isEmpty(I.a()))) {
+                this.f23432d.J();
                 f(str, I.a());
-                this.f24105d.s(I.a());
-                this.f24105d.q(I.f24147f, I.f24148g);
+                this.f23432d.s(I.a());
+                this.f23432d.q(I.f23472f, I.f23473g);
                 return;
             }
-            this.f24105d.D();
+            this.f23432d.D();
             f(str, null);
-            this.f24104c.L(str);
-            this.f24105d.q(0, 0);
+            this.f23431c.L(str);
+            this.f23432d.q(0, 0);
         }
     }
 
@@ -262,22 +262,22 @@ public class a implements d {
             return;
         }
         String stringExtra = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-        this.f24107f = stringExtra;
+        this.f23434f = stringExtra;
         if (TextUtils.isEmpty(stringExtra) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-            this.f24107f = uri.getQueryParameter("tab_name");
+            this.f23434f = uri.getQueryParameter("tab_name");
         }
-        this.f24105d.C(intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0) == 0);
+        this.f23432d.C(intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0) == 0);
     }
 
     public void m(String str) {
         c.a.t0.s3.f.c I;
         Pair<Integer, Integer> c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || this.f24105d == null || this.f24104c == null || TextUtils.isEmpty(str) || (I = this.f24104c.I(str)) == null || (c2 = this.f24105d.c()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || this.f23432d == null || this.f23431c == null || TextUtils.isEmpty(str) || (I = this.f23431c.I(str)) == null || (c2 = this.f23432d.c()) == null) {
             return;
         }
-        I.f24147f = ((Integer) c2.first).intValue();
-        I.f24148g = ((Integer) c2.second).intValue();
+        I.f23472f = ((Integer) c2.first).intValue();
+        I.f23473g = ((Integer) c2.second).intValue();
     }
 
     public void n(String str) {
@@ -285,15 +285,15 @@ public class a implements d {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24105d.B(str);
+        this.f23432d.B(str);
         k(str);
     }
 
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            c cVar = new c(this.f24103b, this, this.f24105d);
-            this.f24106e = cVar;
+            c cVar = new c(this.f23430b, this, this.f23432d);
+            this.f23433e = cVar;
             cVar.e();
             p();
         }
@@ -302,8 +302,8 @@ public class a implements d {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f24105d.F();
-            this.f24104c.L(this.f24107f);
+            this.f23432d.F();
+            this.f23431c.L(this.f23434f);
         }
     }
 }

@@ -36,7 +36,7 @@ public class c extends a {
         Set<Integer> set;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            boolean z = a.f8049c;
+            boolean z = a.f7872c;
             if (bitmap == null) {
                 return false;
             }
@@ -46,7 +46,7 @@ public class c extends a {
             try {
                 int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
                 boolean z2 = pixel == -1 || pixel == -657931;
-                if (!z2 && (set = this.f8050b) != null) {
+                if (!z2 && (set = this.f7873b) != null) {
                     Iterator<Integer> it = set.iterator();
                     while (true) {
                         if (it.hasNext()) {
@@ -70,14 +70,14 @@ public class c extends a {
                             }
                         }
                     }
-                    if (a.f8049c) {
+                    if (a.f7872c) {
                         String str2 = "白屏, 图片大小 " + rect.width() + " x " + rect.height();
                     }
                     return true;
                 }
                 return false;
             } catch (IllegalArgumentException e2) {
-                if (a.f8049c) {
+                if (a.f7872c) {
                     String str3 = "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight();
                     e2.printStackTrace();
                 }

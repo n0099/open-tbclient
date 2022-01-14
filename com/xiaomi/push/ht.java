@@ -18,10 +18,10 @@ public final class ht {
     public static final /* synthetic */ ht[] f559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ht f63629b;
+    public static final ht f61237b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ht f63630c;
+    public static final ht f61238c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -41,10 +41,10 @@ public final class ht {
             }
         }
         a = new ht("RegIdExpired", 0, 0);
-        f63629b = new ht("PackageUnregistered", 1, 1);
+        f61237b = new ht("PackageUnregistered", 1, 1);
         ht htVar = new ht("Init", 2, 2);
-        f63630c = htVar;
-        f559a = new ht[]{a, f63629b, htVar};
+        f61238c = htVar;
+        f559a = new ht[]{a, f61237b, htVar};
     }
 
     public ht(String str, int i2, int i3) {
@@ -77,9 +77,9 @@ public final class ht {
                     if (i2 != 2) {
                         return null;
                     }
-                    return f63630c;
+                    return f61238c;
                 }
-                return f63629b;
+                return f61237b;
             }
             return a;
         }

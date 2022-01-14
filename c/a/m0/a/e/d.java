@@ -30,7 +30,7 @@ public class d extends c.a.m0.a.e.a {
     public AtomicInteger d0;
     public volatile boolean e0;
     public c.a.m0.a.j.a f0;
-    public a.InterfaceC0202a g0;
+    public a.InterfaceC0211a g0;
     public a.b h0;
 
     /* loaded from: classes.dex */
@@ -107,7 +107,7 @@ public class d extends c.a.m0.a.e.a {
     }
 
     /* loaded from: classes.dex */
-    public class b implements a.InterfaceC0202a {
+    public class b implements a.InterfaceC0211a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
@@ -130,7 +130,7 @@ public class d extends c.a.m0.a.e.a {
             this.a = dVar;
         }
 
-        @Override // c.a.m0.a.j.a.InterfaceC0202a
+        @Override // c.a.m0.a.j.a.InterfaceC0211a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -143,11 +143,11 @@ public class d extends c.a.m0.a.e.a {
                     if (this.a.r != null) {
                         this.a.r.setVisibility(8);
                     }
-                    if (this.a.f4490g != null) {
-                        this.a.f4490g.setVisibility(8);
+                    if (this.a.f4398g != null) {
+                        this.a.f4398g.setVisibility(8);
                     }
-                    if (this.a.f4491h != null) {
-                        this.a.f4491h.setVisibility(8);
+                    if (this.a.f4399h != null) {
+                        this.a.f4399h.setVisibility(8);
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -191,14 +191,14 @@ public class d extends c.a.m0.a.e.a {
 
     /* renamed from: c.a.m0.a.e.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class View$OnClickListenerC0200d implements View.OnClickListener {
+    public class View$OnClickListenerC0209d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f4513e;
+        public final /* synthetic */ d f4420e;
 
-        public View$OnClickListenerC0200d(d dVar) {
+        public View$OnClickListenerC0209d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -213,14 +213,14 @@ public class d extends c.a.m0.a.e.a {
                     return;
                 }
             }
-            this.f4513e = dVar;
+            this.f4420e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f4513e.F();
+                this.f4420e.F();
             }
         }
     }
@@ -231,7 +231,7 @@ public class d extends c.a.m0.a.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f4514e;
+        public final /* synthetic */ d f4421e;
 
         public e(d dVar) {
             Interceptable interceptable = $ic;
@@ -248,14 +248,14 @@ public class d extends c.a.m0.a.e.a {
                     return;
                 }
             }
-            this.f4514e = dVar;
+            this.f4421e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4514e.H();
+                this.f4421e.H();
             }
         }
     }
@@ -301,7 +301,7 @@ public class d extends c.a.m0.a.e.a {
         this.h0 = new c(this);
         this.w = "video";
         try {
-            AdVideoView adVideoView = new AdVideoView(this.f4488e);
+            AdVideoView adVideoView = new AdVideoView(this.f4396e);
             this.c0 = adVideoView;
             if (this.K == 17) {
                 adVideoView.setDisplayMode(7);
@@ -421,7 +421,7 @@ public class d extends c.a.m0.a.e.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.load();
-            this.c0.setOnClickListener(new View$OnClickListenerC0200d(this));
+            this.c0.setOnClickListener(new View$OnClickListenerC0209d(this));
             Q();
         }
     }

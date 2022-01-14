@@ -16,10 +16,10 @@ public class a implements h {
     public c.a.a1.g.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f1189b;
+    public float f1185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f1190c;
+    public boolean f1186c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class a implements h {
                 return;
             }
         }
-        this.f1189b = 1.0f;
-        this.f1190c = true;
+        this.f1185b = 1.0f;
+        this.f1186c = true;
     }
 
     @Override // c.a.a1.i.h
@@ -56,7 +56,7 @@ public class a implements h {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.f1190c && this.f1189b != 1.0f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.f1186c && this.f1185b != 1.0f : invokeV.booleanValue;
     }
 
     @Override // c.a.a1.i.h
@@ -92,7 +92,7 @@ public class a implements h {
     public void b(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            this.f1189b = f2;
+            this.f1185b = f2;
             c.a.a1.g.a aVar = this.a;
             if (aVar != null) {
                 aVar.setSpeed(f2);

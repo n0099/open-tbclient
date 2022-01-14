@@ -14,7 +14,7 @@ public class d0<T> extends z<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.b.b.q.p0.c f28251d;
+    public final c.b.b.q.p0.c f27395d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d0(Class<T> cls, int i2, int i3) {
@@ -36,7 +36,7 @@ public class d0<T> extends z<T> {
             }
         }
         c.b.b.q.p0.c g2 = g(cls);
-        this.f28251d = g2;
+        this.f27395d = g2;
         if (g2 != null) {
             return;
         }
@@ -49,9 +49,9 @@ public class d0<T> extends z<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return (T) this.f28251d.b(null);
+                return (T) this.f27395d.b(null);
             } catch (Exception e2) {
-                throw new GdxRuntimeException("Unable to create new instance: " + this.f28251d.a().getName(), e2);
+                throw new GdxRuntimeException("Unable to create new instance: " + this.f27395d.a().getName(), e2);
             }
         }
         return (T) invokeV.objValue;

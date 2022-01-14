@@ -11,7 +11,7 @@ public class i {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f13365b;
+    public static final int f13056b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,6 +28,6 @@ public class i {
             }
         }
         a = (-100000000) - 2002;
-        f13365b = (-100000000) - 3000;
+        f13056b = (-100000000) - 3000;
     }
 }

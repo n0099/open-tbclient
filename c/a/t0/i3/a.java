@@ -27,24 +27,24 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f18636c;
+    public static a f18172c;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonInfoMoreDialog f18637b;
+    public PersonInfoMoreDialog f18173b;
 
     /* renamed from: c.a.t0.i3.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1121a implements g.InterfaceC1229g {
+    public class C1135a implements g.InterfaceC1243g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f18638b;
+        public final /* synthetic */ a f18174b;
 
-        public C1121a(a aVar, TbPageContext tbPageContext) {
+        public C1135a(a aVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,21 +59,21 @@ public class a {
                     return;
                 }
             }
-            this.f18638b = aVar;
+            this.f18174b = aVar;
             this.a = tbPageContext;
         }
 
-        @Override // c.a.t0.n4.g.InterfaceC1229g
+        @Override // c.a.t0.n4.g.InterfaceC1243g
         public void onClick(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f18638b.f18637b == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f18174b.f18173b == null) {
                 return;
             }
-            this.f18638b.f18637b.dismiss();
-            this.f18638b.f18637b = null;
-            this.f18638b.a = i2;
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_CLICK_STAR).param("obj_type", this.f18638b.a));
-            this.f18638b.o(this.a);
+            this.f18174b.f18173b.dismiss();
+            this.f18174b.f18173b = null;
+            this.f18174b.a = i2;
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_CLICK_STAR).param("obj_type", this.f18174b.a));
+            this.f18174b.o(this.a);
         }
     }
 
@@ -84,7 +84,7 @@ public class a {
         public final /* synthetic */ TbPageContext a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f18639b;
+        public final /* synthetic */ a f18175b;
 
         public b(a aVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -101,24 +101,24 @@ public class a {
                     return;
                 }
             }
-            this.f18639b = aVar;
+            this.f18175b = aVar;
             this.a = tbPageContext;
         }
 
         @Override // c.a.t0.n4.g.e
         public void onClick() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18639b.f18637b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18175b.f18173b == null) {
                 return;
             }
-            this.f18639b.f18637b.dismiss();
-            this.f18639b.f18637b = null;
-            if (this.f18639b.a == 1 || this.f18639b.a == 2) {
-                this.f18639b.h(this.a);
+            this.f18175b.f18173b.dismiss();
+            this.f18175b.f18173b = null;
+            if (this.f18175b.a == 1 || this.f18175b.a == 2) {
+                this.f18175b.h(this.a);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_FEEDBACK));
                 return;
             }
-            this.f18639b.i(this.a);
+            this.f18175b.i(this.a);
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_SCORE));
         }
     }
@@ -150,11 +150,11 @@ public class a {
         @Override // c.a.t0.n4.g.d
         public void onClick() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f18637b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f18173b == null) {
                 return;
             }
-            this.a.f18637b.dismiss();
-            this.a.f18637b = null;
+            this.a.f18173b.dismiss();
+            this.a.f18173b = null;
             if (this.a.a != 1 && this.a.a != 2) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_CANCEL));
             } else {
@@ -183,14 +183,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f18636c == null) {
+            if (f18172c == null) {
                 synchronized (a.class) {
-                    if (f18636c == null) {
-                        f18636c = new a();
+                    if (f18172c == null) {
+                        f18172c = new a();
                     }
                 }
             }
-            return f18636c;
+            return f18172c;
         }
         return (a) invokeV.objValue;
     }
@@ -220,11 +220,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             String version = TbConfig.getVersion();
-            if (version.equals(c.a.s0.s.g0.b.j().p("key_rate_version", ""))) {
+            if (version.equals(c.a.s0.s.h0.b.k().q("key_rate_version", ""))) {
                 return;
             }
-            c.a.s0.s.g0.b.j().x("key_rate_version", version);
-            c.a.s0.s.g0.b.j().w("key_rate_version_time", new Date().getTime());
+            c.a.s0.s.h0.b.k().y("key_rate_version", version);
+            c.a.s0.s.h0.b.k().x("key_rate_version_time", new Date().getTime());
         }
     }
 
@@ -233,17 +233,17 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) || tbPageContext == null || TbConfig.getVersionType() == 2) {
             return;
         }
-        if (Long.valueOf(new Date().getTime()).longValue() - c.a.s0.s.g0.b.j().l("key_rate_version_time", 0L) < 86400000) {
+        if (Long.valueOf(new Date().getTime()).longValue() - c.a.s0.s.h0.b.k().m("key_rate_version_time", 0L) < 86400000) {
             return;
         }
         String version = TbConfig.getVersion();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-        if (j2.g("key_rate_same_version_is_score" + version + currentAccount, false)) {
+        c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+        if (k.h("key_rate_same_version_is_score" + version + currentAccount, false)) {
             return;
         }
-        c.a.s0.s.g0.b j3 = c.a.s0.s.g0.b.j();
-        j3.t("key_rate_same_version_is_score" + version + currentAccount, true);
+        c.a.s0.s.h0.b k2 = c.a.s0.s.h0.b.k();
+        k2.u("key_rate_same_version_is_score" + version + currentAccount, true);
         n(tbPageContext);
     }
 
@@ -253,30 +253,30 @@ public class a {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-        int k2 = j2.k("key_rate_like_count" + currentAccount, 0) + 1;
-        if (k2 < 3) {
-            if (k2 == 1) {
+        c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+        int l = k.l("key_rate_like_count" + currentAccount, 0) + 1;
+        if (l < 3) {
+            if (l == 1) {
                 Long valueOf = Long.valueOf(new Date().getTime());
-                c.a.s0.s.g0.b j3 = c.a.s0.s.g0.b.j();
-                j3.w("key_rate_first_like_time" + currentAccount, valueOf.longValue());
-                c.a.s0.s.g0.b j4 = c.a.s0.s.g0.b.j();
-                j4.v("key_rate_like_count" + currentAccount, k2);
+                c.a.s0.s.h0.b k2 = c.a.s0.s.h0.b.k();
+                k2.x("key_rate_first_like_time" + currentAccount, valueOf.longValue());
+                c.a.s0.s.h0.b k3 = c.a.s0.s.h0.b.k();
+                k3.w("key_rate_like_count" + currentAccount, l);
                 return;
             }
-            c.a.s0.s.g0.b j5 = c.a.s0.s.g0.b.j();
-            j5.v("key_rate_like_count" + currentAccount, k2);
+            c.a.s0.s.h0.b k4 = c.a.s0.s.h0.b.k();
+            k4.w("key_rate_like_count" + currentAccount, l);
             return;
         }
-        c.a.s0.s.g0.b j6 = c.a.s0.s.g0.b.j();
-        if (Long.valueOf(new Date().getTime()).longValue() - j6.l("key_rate_first_like_time" + currentAccount, 0L) < 86400000) {
-            c.a.s0.s.g0.b j7 = c.a.s0.s.g0.b.j();
-            j7.v("key_rate_like_count" + currentAccount, 0);
+        c.a.s0.s.h0.b k5 = c.a.s0.s.h0.b.k();
+        if (Long.valueOf(new Date().getTime()).longValue() - k5.m("key_rate_first_like_time" + currentAccount, 0L) < 86400000) {
+            c.a.s0.s.h0.b k6 = c.a.s0.s.h0.b.k();
+            k6.w("key_rate_like_count" + currentAccount, 0);
             k(tbPageContext);
             return;
         }
-        c.a.s0.s.g0.b j8 = c.a.s0.s.g0.b.j();
-        j8.v("key_rate_like_count" + currentAccount, 0);
+        c.a.s0.s.h0.b k7 = c.a.s0.s.h0.b.k();
+        k7.w("key_rate_like_count" + currentAccount, 0);
     }
 
     public void m(TbPageContext tbPageContext) {
@@ -303,11 +303,11 @@ public class a {
         gVar.v(0, f2, 0, f4);
         gVar.p(0, 0, 0, f3);
         gVar.o(true);
-        gVar.u(new C1121a(this, tbPageContext));
+        gVar.u(new C1135a(this, tbPageContext));
         PersonInfoMoreDialog personInfoMoreDialog = new PersonInfoMoreDialog(tbPageContext.getContext(), gVar.j());
-        this.f18637b = personInfoMoreDialog;
+        this.f18173b = personInfoMoreDialog;
         personInfoMoreDialog.setWindowDimAmount(0.7f);
-        c.a.d.f.m.g.j(this.f18637b, tbPageContext);
+        c.a.d.f.m.g.j(this.f18173b, tbPageContext);
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_DIALOG_SHOW));
     }
 
@@ -341,9 +341,9 @@ public class a {
         gVar.t(new c(this));
         gVar.s(arrayList);
         PersonInfoMoreDialog personInfoMoreDialog = new PersonInfoMoreDialog(tbPageContext.getContext(), gVar.j());
-        this.f18637b = personInfoMoreDialog;
+        this.f18173b = personInfoMoreDialog;
         personInfoMoreDialog.setWindowDimAmount(0.7f);
-        c.a.d.f.m.g.j(this.f18637b, tbPageContext);
+        c.a.d.f.m.g.j(this.f18173b, tbPageContext);
         int i3 = this.a;
         if (i3 != 1 && i3 != 2) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_DIALOG_SHOW));

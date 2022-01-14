@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import c.a.d.f.p.m;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import c.a.s0.s.s.a;
 import c.a.t0.j3.z;
 import com.baidu.adp.framework.MessageManager;
@@ -118,11 +118,11 @@ public class c {
 
     /* renamed from: c.a.s0.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0848c implements UrlManager.UrlDealListener {
+    public static class C0858c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0848c() {
+        public C0858c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,7 +156,7 @@ public class c {
                 if (str2.startsWith("tel:")) {
                     UtilHelper.callPhone(tbPageContext.getPageActivity(), str2.substring(4));
                     return 0;
-                } else if (w0.h(str2) && str2.toLowerCase().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
+                } else if (v0.h(str2) && str2.toLowerCase().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
                     c.m(tbPageContext.getPageActivity(), str2);
                     return 0;
                 } else {
@@ -177,7 +177,7 @@ public class c {
                     } else if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
                         String substring = str2.substring(4);
                         if (str2.contains("body=")) {
-                            str = w0.c(str2, "body=");
+                            str = v0.c(str2, "body=");
                             int indexOf = substring.indexOf("?");
                             if (indexOf >= 1 && indexOf <= substring.length()) {
                                 str5 = substring.substring(0, indexOf);
@@ -217,10 +217,10 @@ public class c {
                             tbPageContext.getPageActivity().finish();
                             return 1;
                         } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.GOTO_TDOU_PAY_BUNDING_PHONE)) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, w0.c(str2, "bindid=")));
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, v0.c(str2, "bindid=")));
                             tbPageContext.getPageActivity().finish();
                             return 1;
-                        } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (i2 = w0.i(str2)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(i2.getString("path"))) {
+                        } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (i2 = v0.i(str2)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(i2.getString("path"))) {
                             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                             return 0;
                         } else if (str2.startsWith(UrlSchemaHelper.SCHEME_TYPE_ACCOUNT_SAFE) && tbPageContext.getPageActivity() != null) {
@@ -275,16 +275,16 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f13203e;
+        public final /* synthetic */ TbPageContext f12881e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f13204f;
+        public final /* synthetic */ String f12882f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f13205g;
+        public final /* synthetic */ String f12883g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Bundle f13206h;
+        public final /* synthetic */ Bundle f12884h;
 
         public d(TbPageContext tbPageContext, String str, String str2, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -301,10 +301,10 @@ public class c {
                     return;
                 }
             }
-            this.f13203e = tbPageContext;
-            this.f13204f = str;
-            this.f13205g = str2;
-            this.f13206h = bundle;
+            this.f12881e = tbPageContext;
+            this.f12882f = str;
+            this.f12883g = str2;
+            this.f12884h = bundle;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -312,7 +312,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                c.a.s0.m.a.o(this.f13203e.getPageActivity(), this.f13204f, this.f13205g, this.f13206h);
+                c.a.s0.m.a.o(this.f12881e.getPageActivity(), this.f12882f, this.f12883g, this.f12884h);
             }
         }
     }
@@ -626,7 +626,7 @@ public class c {
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            UrlManager.getInstance().addListener(new C0848c());
+            UrlManager.getInstance().addListener(new C0858c());
         }
     }
 

@@ -52,7 +52,7 @@ public class gz {
                 return;
             }
         }
-        a = ew.f63433c.a();
+        a = ew.f61051c.a();
     }
 
     public static void a() {
@@ -65,10 +65,10 @@ public class gz {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            ex m417a = gx.m415a().m417a();
-            m417a.a(ew.f63441k.a());
-            m417a.c(i2);
-            gx.m415a().a(m417a);
+            ex m429a = gx.m427a().m429a();
+            m429a.a(ew.k.a());
+            m429a.c(i2);
+            gx.m427a().a(m429a);
         }
     }
 
@@ -88,13 +88,13 @@ public class gz {
     public static void a(int i2, int i3, int i4, String str, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5)}) == null) {
-            ex m417a = gx.m415a().m417a();
-            m417a.a((byte) i2);
-            m417a.a(i3);
-            m417a.b(i4);
-            m417a.b(str);
-            m417a.c(i5);
-            gx.m415a().a(m417a);
+            ex m429a = gx.m427a().m429a();
+            m429a.a((byte) i2);
+            m429a.a(i3);
+            m429a.b(i4);
+            m429a.b(str);
+            m429a.c(i5);
+            gx.m427a().a(m429a);
         }
     }
 
@@ -105,14 +105,14 @@ public class gz {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i5 = (i2 << 24) | i3;
                 if (a.a.containsKey(Integer.valueOf(i5))) {
-                    ex m417a = gx.m415a().m417a();
-                    m417a.a(i3);
-                    m417a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i5)).longValue()));
-                    m417a.b(str);
+                    ex m429a = gx.m427a().m429a();
+                    m429a.a(i3);
+                    m429a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i5)).longValue()));
+                    m429a.b(str);
                     if (i4 > -1) {
-                        m417a.c(i4);
+                        m429a.c(i4);
                     }
-                    gx.m415a().a(m417a);
+                    gx.m427a().a(m429a);
                     a.a.remove(Integer.valueOf(i3));
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
@@ -131,20 +131,20 @@ public class gz {
     public static void a(String str, int i2, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65543, null, str, i2, exc) == null) {
-            ex m417a = gx.m415a().m417a();
+            ex m429a = gx.m427a().m429a();
             if (i2 > 0) {
-                m417a.a(ew.l.a());
-                m417a.b(str);
-                m417a.b(i2);
-                gx.m415a().a(m417a);
+                m429a.a(ew.l.a());
+                m429a.b(str);
+                m429a.b(i2);
+                gx.m427a().a(m429a);
                 return;
             }
             try {
                 gv.a a2 = gv.a(exc);
-                m417a.a(a2.a.a());
-                m417a.c(a2.f460a);
-                m417a.b(str);
-                gx.m415a().a(m417a);
+                m429a.a(a2.a.a());
+                m429a.c(a2.f460a);
+                m429a.b(str);
+                gx.m427a().a(m429a);
             } catch (NullPointerException unused) {
             }
         }
@@ -155,24 +155,24 @@ public class gz {
         if (interceptable == null || interceptable.invokeLL(65544, null, str, exc) == null) {
             try {
                 gv.a b2 = gv.b(exc);
-                ex m417a = gx.m415a().m417a();
-                m417a.a(b2.a.a());
-                m417a.c(b2.f460a);
-                m417a.b(str);
-                gx.m415a().a(m417a);
+                ex m429a = gx.m427a().m429a();
+                m429a.a(b2.a.a());
+                m429a.c(b2.f460a);
+                m429a.b(str);
+                gx.m427a().a(m429a);
             } catch (NullPointerException unused) {
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m421a() {
+    public static byte[] m433a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            ey m418a = gx.m415a().m418a();
-            if (m418a != null) {
-                return ip.a(m418a);
+            ey m430a = gx.m427a().m430a();
+            if (m430a != null) {
+                return ip.a(m430a);
             }
             return null;
         }
@@ -191,11 +191,11 @@ public class gz {
         if (interceptable == null || interceptable.invokeLL(65547, null, str, exc) == null) {
             try {
                 gv.a d2 = gv.d(exc);
-                ex m417a = gx.m415a().m417a();
-                m417a.a(d2.a.a());
-                m417a.c(d2.f460a);
-                m417a.b(str);
-                gx.m415a().a(m417a);
+                ex m429a = gx.m427a().m429a();
+                m429a.a(d2.a.a());
+                m429a.c(d2.f460a);
+                m429a.b(str);
+                gx.m427a().a(m429a);
             } catch (NullPointerException unused) {
             }
         }

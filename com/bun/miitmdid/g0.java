@@ -19,19 +19,19 @@ public class g0 {
     public static int a = 2;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f54982b = 6000;
+    public static int f52893b = 6000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f54983c = 5;
+    public static int f52894c = 5;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BlockingQueue<Runnable> f54984d;
+    public static BlockingQueue<Runnable> f52895d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ThreadFactory f54985e;
+    public static ThreadFactory f52896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static ThreadPoolExecutor f54986f;
+    public static ThreadPoolExecutor f52897f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -80,15 +80,15 @@ public class g0 {
                 return;
             }
         }
-        f54984d = new ArrayBlockingQueue(3);
-        f54985e = new a();
-        f54986f = new ThreadPoolExecutor(a, f54983c, f54982b, TimeUnit.SECONDS, f54984d, f54985e);
+        f52895d = new ArrayBlockingQueue(3);
+        f52896e = new a();
+        f52897f = new ThreadPoolExecutor(a, f52894c, f52893b, TimeUnit.SECONDS, f52895d, f52896e);
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            f54986f.execute(runnable);
+            f52897f.execute(runnable);
         }
     }
 }

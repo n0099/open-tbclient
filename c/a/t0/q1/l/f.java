@@ -19,25 +19,23 @@ public class f implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22146e;
+    public String f21543e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22147f;
+    public String f21544f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22148g;
+    public String f21545g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f22149h;
+    public long f21546h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f22150i;
+    public String f21547i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f22151j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f22152k;
+    public String f21548j;
+    public String k;
     public String l;
     public long m;
     public String n;
@@ -83,13 +81,13 @@ public class f implements c.a.d.n.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, topicInfo) == null) || topicInfo == null) {
             return;
         }
-        this.f22146e = String.valueOf(topicInfo.topic_id);
-        this.f22147f = topicInfo.topic_name;
-        this.f22148g = topicInfo.desc;
-        this.f22149h = topicInfo.total_post_num.longValue();
-        this.f22150i = topicInfo.head_photo_url;
-        this.f22151j = topicInfo.head_background_url;
-        this.f22152k = StringUtils.isNull(topicInfo.share_title) ? "" : topicInfo.share_title;
+        this.f21543e = String.valueOf(topicInfo.topic_id);
+        this.f21544f = topicInfo.topic_name;
+        this.f21545g = topicInfo.desc;
+        this.f21546h = topicInfo.total_post_num.longValue();
+        this.f21547i = topicInfo.head_photo_url;
+        this.f21548j = topicInfo.head_background_url;
+        this.k = StringUtils.isNull(topicInfo.share_title) ? "" : topicInfo.share_title;
         this.l = topicInfo.share_pic;
         this.m = topicInfo.idx_num.longValue();
         this.p = topicInfo.pmy_topic_id;

@@ -22,7 +22,6 @@ import com.baidu.searchbox.floating.utils.FloatingViewClickUtilKt;
 import com.baidu.searchbox.floating.utils.TouchHelper;
 import com.baidu.searchbox.floating.utils.UtilsKt;
 import com.baidu.searchbox.floating.widget.FloatContainer;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.searchbox.videoplayer.floating.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -404,7 +403,7 @@ public final class ViewManager {
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             this.mWindowManager = UtilsKt.getWindowManager(this.context);
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = Build.VERSION.SDK_INT >= 26 ? SpeedStatsStampTable.INIT_MSG_SIX_STAMP_KEY : 2002;
+            layoutParams.type = Build.VERSION.SDK_INT >= 26 ? 2038 : 2002;
             layoutParams.format = 1;
             layoutParams.gravity = BadgeDrawable.TOP_START;
             layoutParams.flags = 40;

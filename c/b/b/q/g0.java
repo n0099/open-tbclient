@@ -14,13 +14,11 @@ public class g0<T> extends a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public T[] f28268i;
+    public T[] f27412i;
 
     /* renamed from: j  reason: collision with root package name */
-    public T[] f28269j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f28270k;
+    public T[] f27413j;
+    public int k;
 
     public g0() {
         Interceptable interceptable = $ic;
@@ -99,9 +97,9 @@ public class g0<T> extends a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             q();
-            T[] tArr = this.f28216e;
-            this.f28268i = tArr;
-            this.f28270k++;
+            T[] tArr = this.f27360e;
+            this.f27412i = tArr;
+            this.k++;
             return tArr;
         }
         return (T[]) ((Object[]) invokeV.objValue);
@@ -110,20 +108,20 @@ public class g0<T> extends a<T> {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int max = Math.max(0, this.f28270k - 1);
-            this.f28270k = max;
-            T[] tArr = this.f28268i;
+            int max = Math.max(0, this.k - 1);
+            this.k = max;
+            T[] tArr = this.f27412i;
             if (tArr == null) {
                 return;
             }
-            if (tArr != this.f28216e && max == 0) {
-                this.f28269j = tArr;
+            if (tArr != this.f27360e && max == 0) {
+                this.f27413j = tArr;
                 int length = tArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
-                    this.f28269j[i2] = null;
+                    this.f27413j[i2] = null;
                 }
             }
-            this.f28268i = null;
+            this.f27412i = null;
         }
     }
 
@@ -142,19 +140,19 @@ public class g0<T> extends a<T> {
         T[] tArr;
         T[] tArr2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tArr = this.f28268i) != null && tArr == (tArr2 = this.f28216e)) {
-            T[] tArr3 = this.f28269j;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tArr = this.f27412i) != null && tArr == (tArr2 = this.f27360e)) {
+            T[] tArr3 = this.f27413j;
             if (tArr3 != null) {
                 int length = tArr3.length;
-                int i2 = this.f28217f;
+                int i2 = this.f27361f;
                 if (length >= i2) {
                     System.arraycopy(tArr2, 0, tArr3, 0, i2);
-                    this.f28216e = this.f28269j;
-                    this.f28269j = null;
+                    this.f27360e = this.f27413j;
+                    this.f27413j = null;
                     return;
                 }
             }
-            j(this.f28216e.length);
+            j(this.f27360e.length);
         }
     }
 

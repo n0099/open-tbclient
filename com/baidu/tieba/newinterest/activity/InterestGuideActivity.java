@@ -2,7 +2,7 @@ package com.baidu.tieba.newinterest.activity;
 
 import android.os.Bundle;
 import c.a.s0.b.d;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import c.a.t0.o2.h.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -49,13 +49,13 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
-            String p = b.j().p("key_interest_guide_show", "");
+            String q = b.k().q("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
-            sb.append(p);
-            sb.append(StringUtils.isNull(p) ? "" : ",");
+            sb.append(q);
+            sb.append(StringUtils.isNull(q) ? "" : ",");
             String sb2 = sb.toString();
-            b j2 = b.j();
-            j2.x("key_interest_guide_show", sb2 + System.currentTimeMillis());
+            b k = b.k();
+            k.y("key_interest_guide_show", sb2 + System.currentTimeMillis());
         }
     }
 
@@ -72,7 +72,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (d.F()) {
+            if (d.C()) {
                 UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0206));
             } else {
                 UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0201));

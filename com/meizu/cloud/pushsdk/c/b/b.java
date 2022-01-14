@@ -7,11 +7,11 @@ public class b {
     public final ArrayList<com.meizu.cloud.pushsdk.c.a.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<Long> f60980b;
+    public final LinkedList<Long> f58673b;
 
     public b(ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList, LinkedList<Long> linkedList) {
         this.a = arrayList;
-        this.f60980b = linkedList;
+        this.f58673b = linkedList;
     }
 
     public ArrayList<com.meizu.cloud.pushsdk.c.a.a> a() {
@@ -19,6 +19,6 @@ public class b {
     }
 
     public LinkedList<Long> b() {
-        return this.f60980b;
+        return this.f58673b;
     }
 }

@@ -205,7 +205,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchFriendActivity f43355e;
+        public final /* synthetic */ SearchFriendActivity f41802e;
 
         public d(SearchFriendActivity searchFriendActivity) {
             Interceptable interceptable = $ic;
@@ -222,14 +222,14 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                     return;
                 }
             }
-            this.f43355e = searchFriendActivity;
+            this.f41802e = searchFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f43355e.searchBar.g();
+                this.f41802e.searchBar.g();
             }
         }
     }
@@ -240,7 +240,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchFriendActivity f43356e;
+        public final /* synthetic */ SearchFriendActivity f41803e;
 
         public e(SearchFriendActivity searchFriendActivity) {
             Interceptable interceptable = $ic;
@@ -257,14 +257,14 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                     return;
                 }
             }
-            this.f43356e = searchFriendActivity;
+            this.f41803e = searchFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f43356e.finish();
+                this.f41803e.finish();
             }
         }
     }

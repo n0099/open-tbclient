@@ -25,7 +25,7 @@ public abstract class d<E> extends AbstractCollection<E> implements s0<E> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f31011e;
+        public final /* synthetic */ d f30040e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -42,21 +42,21 @@ public abstract class d<E> extends AbstractCollection<E> implements s0<E> {
                     return;
                 }
             }
-            this.f31011e = dVar;
+            this.f30040e = dVar;
         }
 
         @Override // com.google.common.collect.Multisets.c
         public s0<E> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31011e : (s0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30040e : (s0) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<E> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31011e.elementIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30040e.elementIterator() : (Iterator) invokeV.objValue;
         }
     }
 
@@ -66,7 +66,7 @@ public abstract class d<E> extends AbstractCollection<E> implements s0<E> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f31012e;
+        public final /* synthetic */ d f30041e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -83,28 +83,28 @@ public abstract class d<E> extends AbstractCollection<E> implements s0<E> {
                     return;
                 }
             }
-            this.f31012e = dVar;
+            this.f30041e = dVar;
         }
 
         @Override // com.google.common.collect.Multisets.d
         public s0<E> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31012e : (s0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30041e : (s0) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<s0.a<E>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31012e.entryIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30041e.entryIterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31012e.distinctElements() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30041e.distinctElements() : invokeV.intValue;
         }
     }
 

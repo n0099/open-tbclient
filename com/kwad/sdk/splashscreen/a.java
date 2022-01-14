@@ -6,18 +6,18 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public abstract class a extends com.kwad.sdk.core.download.a.c {
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f60037b;
+    public AdTemplate f57760b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f60038c;
+    public AdInfo f57761c;
 
     public a(AdTemplate adTemplate) {
-        this.f60037b = adTemplate;
-        this.f60038c = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.f57760b = adTemplate;
+        this.f57761c = com.kwad.sdk.core.response.a.d.j(adTemplate);
     }
 
     private void b(int i2) {
-        a(e.a(this.f60037b, this.f60038c, i2));
+        a(e.a(this.f57760b, this.f57761c, i2));
     }
 
     @Override // com.kwad.sdk.core.download.a.c
@@ -26,7 +26,7 @@ public abstract class a extends com.kwad.sdk.core.download.a.c {
     }
 
     public void a(AdTemplate adTemplate) {
-        this.f60037b = adTemplate;
+        this.f57760b = adTemplate;
     }
 
     public abstract void a(String str);

@@ -13,16 +13,16 @@ public class ClipImageView extends ImageView {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f62031b;
+    public Path f59688b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RectF f62032c;
+    public RectF f59689c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f62033d;
+    public Paint f59690d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float[] f62034e;
+    public float[] f59691e;
 
     public ClipImageView(Context context) {
         super(context);
@@ -31,24 +31,24 @@ public class ClipImageView extends ImageView {
     }
 
     public void a(Context context) {
-        this.f62031b = new Path();
-        this.f62032c = new RectF();
+        this.f59688b = new Path();
+        this.f59689c = new RectF();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         if (this.a) {
-            this.f62031b.reset();
-            this.f62032c.set(0.0f, 0.0f, getWidth(), getHeight());
-            float[] fArr = this.f62034e;
+            this.f59688b.reset();
+            this.f59689c.set(0.0f, 0.0f, getWidth(), getHeight());
+            float[] fArr = this.f59691e;
             if (fArr != null) {
-                this.f62031b.addRoundRect(this.f62032c, fArr, Path.Direction.CW);
+                this.f59688b.addRoundRect(this.f59689c, fArr, Path.Direction.CW);
             }
             canvas.setDrawFilter(new PaintFlagsDrawFilter(0, 3));
-            canvas.clipPath(this.f62031b);
-            Paint paint = this.f62033d;
+            canvas.clipPath(this.f59688b);
+            Paint paint = this.f59690d;
             if (paint != null) {
-                canvas.drawPath(this.f62031b, paint);
+                canvas.drawPath(this.f59688b, paint);
             }
         }
         super.onDraw(canvas);
@@ -57,9 +57,9 @@ public class ClipImageView extends ImageView {
     @Override // android.view.View
     public void setBackgroundColor(int i2) {
         Paint paint = new Paint(1);
-        this.f62033d = paint;
+        this.f59690d = paint;
         paint.setStyle(Paint.Style.FILL);
-        this.f62033d.setColor(i2);
+        this.f59690d.setColor(i2);
     }
 
     public void setClip(boolean z) {
@@ -70,7 +70,7 @@ public class ClipImageView extends ImageView {
         if (fArr == null || fArr.length != 8) {
             return;
         }
-        this.f62034e = fArr;
+        this.f59691e = fArr;
     }
 
     public void setRoundRadius(int i2) {

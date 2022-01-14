@@ -31,41 +31,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21440b;
+    public String f20872b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f21441c;
+    public View f20873c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f21442d;
+    public int f20874d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21443e;
+    public int f20875e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21444f;
+    public int f20876f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21445g;
+    public String f20877g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21446h;
+    public String f20878h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f21447i;
+    public String f20879i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f21448j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c f21449k;
+    public String f20880j;
+    public c k;
     public c l;
     public c m;
     public DialogInterface.OnCancelListener n;
@@ -77,13 +75,13 @@ public class a {
     public boolean t;
 
     /* renamed from: c.a.t0.o3.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1292a implements ViewHelper.ViewCallback {
+    /* loaded from: classes8.dex */
+    public class C1306a implements ViewHelper.ViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AtomicBoolean a;
 
-        public C1292a(a aVar, AtomicBoolean atomicBoolean) {
+        public C1306a(a aVar, AtomicBoolean atomicBoolean) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,16 +114,16 @@ public class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final a f21450e;
+        public final a f20881e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final c f21451f;
+        public final c f20882f;
 
         public b(a aVar, a aVar2, c cVar) {
             Interceptable interceptable = $ic;
@@ -142,22 +140,22 @@ public class a {
                     return;
                 }
             }
-            this.f21450e = aVar2;
-            this.f21451f = cVar;
+            this.f20881e = aVar2;
+            this.f20882f = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             c cVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (cVar = this.f21451f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (cVar = this.f20882f) == null) {
                 return;
             }
-            cVar.a(this.f21450e);
+            cVar.a(this.f20881e);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a(a aVar);
     }
@@ -178,9 +176,9 @@ public class a {
             }
         }
         this.a = -1;
-        this.f21442d = -1;
-        this.f21443e = R.drawable.btn_blue_bg;
-        this.f21444f = R.color.CAM_X0111;
+        this.f20874d = -1;
+        this.f20875e = R.drawable.btn_blue_bg;
+        this.f20876f = R.color.CAM_X0111;
         this.s = false;
         this.t = true;
         this.q = activity;
@@ -216,53 +214,53 @@ public class a {
             ImageView imageView = (ImageView) this.r.findViewById(R.id.bdalert_icon);
             TextView textView2 = (TextView) this.r.findViewById(R.id.message);
             Button button = (Button) this.r.findViewById(R.id.yes);
-            SkinManager.setBackgroundResource(button, this.f21443e);
-            SkinManager.setViewTextColor(button, this.f21444f, 3);
+            SkinManager.setBackgroundResource(button, this.f20875e);
+            SkinManager.setViewTextColor(button, this.f20876f, 3);
             Button button2 = (Button) this.r.findViewById(R.id.no);
             Button button3 = (Button) this.r.findViewById(R.id.cancel);
-            if (!TextUtils.isEmpty(this.f21440b)) {
-                textView.setText(this.f21440b);
+            if (!TextUtils.isEmpty(this.f20872b)) {
+                textView.setText(this.f20872b);
             } else {
                 textView.setVisibility(8);
             }
-            if (this.f21441c != null) {
+            if (this.f20873c != null) {
                 linearLayout.removeAllViews();
-                linearLayout.addView(this.f21441c);
+                linearLayout.addView(this.f20873c);
             }
-            int i2 = this.f21442d;
+            int i2 = this.f20874d;
             if (i2 != -1) {
                 SkinManager.setImageResource(imageView, i2);
                 imageView.setVisibility(0);
             } else {
                 imageView.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(this.f21445g)) {
-                textView2.setText(this.f21445g);
+            if (!TextUtils.isEmpty(this.f20877g)) {
+                textView2.setText(this.f20877g);
             }
-            if (TextUtils.isEmpty(this.f21446h)) {
+            if (TextUtils.isEmpty(this.f20878h)) {
                 z = false;
             } else {
-                button.setText(this.f21446h);
-                c cVar = this.f21449k;
+                button.setText(this.f20878h);
+                c cVar = this.k;
                 if (cVar != null) {
                     button.setOnClickListener(new b(this, this, cVar));
                 }
                 z = true;
             }
-            if (TextUtils.isEmpty(this.f21447i)) {
+            if (TextUtils.isEmpty(this.f20879i)) {
                 z2 = false;
             } else {
-                button2.setText(this.f21447i);
+                button2.setText(this.f20879i);
                 c cVar2 = this.l;
                 if (cVar2 != null) {
                     button2.setOnClickListener(new b(this, this, cVar2));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.f21448j)) {
+            if (TextUtils.isEmpty(this.f20880j)) {
                 z3 = false;
             } else {
-                button3.setText(this.f21448j);
+                button3.setText(this.f20880j);
                 c cVar3 = this.m;
                 if (cVar3 != null) {
                     button3.setOnClickListener(new b(this, this, cVar3));
@@ -349,7 +347,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.f21442d = i2;
+            this.f20874d = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -361,7 +359,7 @@ public class a {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
             Activity activity = this.q;
             if (activity != null) {
-                this.f21445g = activity.getResources().getString(i2);
+                this.f20877g = activity.getResources().getString(i2);
             }
             return this;
         }
@@ -374,7 +372,7 @@ public class a {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i2, cVar)) == null) {
             Activity activity = this.q;
             if (activity != null) {
-                this.f21447i = activity.getResources().getString(i2);
+                this.f20879i = activity.getResources().getString(i2);
                 this.l = cVar;
             }
             return this;
@@ -398,8 +396,8 @@ public class a {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i2, cVar)) == null) {
             Activity activity = this.q;
             if (activity != null) {
-                this.f21446h = activity.getResources().getString(i2);
-                this.f21449k = cVar;
+                this.f20878h = activity.getResources().getString(i2);
+                this.k = cVar;
             }
             return this;
         }
@@ -410,7 +408,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            this.f21443e = i2;
+            this.f20875e = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -420,7 +418,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            this.f21444f = i2;
+            this.f20876f = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -478,7 +476,7 @@ public class a {
                 window.setLayout(-2, -2);
                 window.setContentView(this.r);
                 AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                ViewHelper.processAllViewsIn(this.r, false, new C1292a(this, atomicBoolean));
+                ViewHelper.processAllViewsIn(this.r, false, new C1306a(this, atomicBoolean));
                 if (atomicBoolean.get()) {
                     window.clearFlags(131080);
                 }

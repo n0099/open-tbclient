@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LogPipelineSingleton {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CRASH_PAD_DIR = "crashpad";

@@ -14,10 +14,10 @@ public class h {
     public static int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3065b = 3;
+    public static int f3032b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f3066c;
+    public static final String[] f3033c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class h {
                 return;
             }
         }
-        f3066c = new String[]{"meizu"};
+        f3033c = new String[]{"meizu"};
     }
 
     public static String a(int i2) {
@@ -59,7 +59,7 @@ public class h {
         String lowerCase = str.toLowerCase();
         int i2 = 0;
         while (true) {
-            String[] strArr = f3066c;
+            String[] strArr = f3033c;
             if (i2 >= strArr.length) {
                 return false;
             }

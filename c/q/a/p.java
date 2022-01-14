@@ -42,17 +42,17 @@ public class p extends Handler {
             if (message.what != 1101) {
                 return;
             }
-            this.a.f31424e.removeMessages(1101);
+            this.a.f30437e.removeMessages(1101);
             s0 s0Var = this.a;
-            if (!s0Var.f31421b && s0Var.b(s0Var.a)) {
-                p0 p0Var = this.a.f31422c;
+            if (!s0Var.f30434b && s0Var.b(s0Var.a)) {
+                p0 p0Var = this.a.f30435c;
                 if (p0Var != null) {
                     p0Var.a();
                 }
-                this.a.f31421b = true;
+                this.a.f30434b = true;
                 return;
             }
-            this.a.f31424e.sendEmptyMessageDelayed(1101, 300L);
+            this.a.f30437e.sendEmptyMessageDelayed(1101, 300L);
         }
     }
 }

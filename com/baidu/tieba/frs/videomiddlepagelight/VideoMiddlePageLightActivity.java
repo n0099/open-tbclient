@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import c.a.d.f.p.l;
 import c.a.s0.g0.g;
-import c.a.t0.d1.b3.p;
+import c.a.t0.d1.c3.p;
 import c.a.t0.i4.d;
 import c.a.t0.k4.h;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -78,7 +78,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightActivity f45431e;
+        public final /* synthetic */ VideoMiddlePageLightActivity f43778e;
 
         public a(VideoMiddlePageLightActivity videoMiddlePageLightActivity) {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f45431e = videoMiddlePageLightActivity;
+            this.f43778e = videoMiddlePageLightActivity;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -104,12 +104,12 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
                 if (Math.abs(f3) > 1000.0f && f3 < 0.0f) {
-                    this.f45431e.getViewModel().playNextVideo();
+                    this.f43778e.getViewModel().playNextVideo();
                     return true;
                 } else if (Math.abs(f3) <= 1000.0f || f3 <= 0.0f) {
                     return true;
                 } else {
-                    this.f45431e.getViewModel().playLastVideo();
+                    this.f43778e.getViewModel().playLastVideo();
                     return true;
                 }
             }
@@ -352,7 +352,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.g().i("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -470,7 +470,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                 this.adapterManager = new p(pageContext, bdTypeRecyclerView5, viewModel6);
                 getViewModel().loadData();
                 showLoadingView();
-                getViewModel().getVideoDataList().observe(this, new Observer() { // from class: c.a.t0.d1.b3.n
+                getViewModel().getVideoDataList().observe(this, new Observer() { // from class: c.a.t0.d1.c3.n
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -488,7 +488,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
                     bdTypeRecyclerView6 = null;
                 }
-                bdTypeRecyclerView6.setOnTouchListener(new View.OnTouchListener() { // from class: c.a.t0.d1.b3.h
+                bdTypeRecyclerView6.setOnTouchListener(new View.OnTouchListener() { // from class: c.a.t0.d1.c3.h
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -506,7 +506,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     bdTypeRecyclerView = bdTypeRecyclerView7;
                 }
                 bdTypeRecyclerView.addOnScrollListener(this.scrollListener);
-                getViewModel().getCurPlayingVideoPos().observe(this, new Observer() { // from class: c.a.t0.d1.b3.g
+                getViewModel().getCurPlayingVideoPos().observe(this, new Observer() { // from class: c.a.t0.d1.c3.g
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -518,7 +518,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                         }
                     }
                 });
-                getViewModel().getLoadErrorMsg().observe(this, new Observer() { // from class: c.a.t0.d1.b3.d
+                getViewModel().getLoadErrorMsg().observe(this, new Observer() { // from class: c.a.t0.d1.c3.d
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

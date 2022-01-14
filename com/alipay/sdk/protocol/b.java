@@ -18,10 +18,10 @@ public class b {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31893b;
+    public String f30893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f31894c;
+    public String[] f30894c;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class b {
                 return;
             }
         }
-        this.f31893b = str;
+        this.f30893b = str;
     }
 
     public static void a(b bVar) {
@@ -76,7 +76,7 @@ public class b {
     public String[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31894c : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30894c : (String[]) invokeV.objValue;
     }
 
     public b(String str, a aVar) {
@@ -94,7 +94,7 @@ public class b {
                 return;
             }
         }
-        this.f31893b = str;
+        this.f30893b = str;
         this.a = aVar;
     }
 
@@ -109,9 +109,9 @@ public class b {
             String[] a = a(jSONObject.optString("name", ""));
             for (int i2 = 0; i2 < a.length; i2++) {
                 a a2 = a.a(a[i2]);
-                if (a2 != a.f31886b) {
+                if (a2 != a.f30886b) {
                     b bVar = new b(a[i2], a2);
-                    bVar.f31894c = b(a[i2]);
+                    bVar.f30894c = b(a[i2]);
                     arrayList.add(bVar);
                 }
             }
@@ -123,7 +123,7 @@ public class b {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31893b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30893b : (String) invokeV.objValue;
     }
 
     public static String[] a(String str) {

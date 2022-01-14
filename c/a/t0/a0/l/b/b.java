@@ -29,7 +29,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.a0.l.d.e, CardViewHolder<c.a.t0.a0.l.h
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15268e;
+        public final /* synthetic */ b f14890e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -46,21 +46,21 @@ public class b extends c.a.d.n.e.a<c.a.t0.a0.l.d.e, CardViewHolder<c.a.t0.a0.l.h
                     return;
                 }
             }
-            this.f15268e = bVar;
+            this.f14890e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f15268e.b0();
+                this.f14890e.b0();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.e.f15311f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.e.f14932f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.a0.l.d.e, CardViewHolder<c.a.t0.a0.l.h
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, eVar, aVar) == null) {
             aVar.v(8);
-            aVar.w(this.f3299e.getResources().getString(R.string.ala_person_live_forbidden));
+            aVar.w(this.f3258e.getResources().getString(R.string.ala_person_live_forbidden));
             aVar.l(this.m, TbadkCoreApplication.getInst().getSkinType());
         }
     }

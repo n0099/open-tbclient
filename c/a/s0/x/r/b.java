@@ -32,7 +32,7 @@ public class b extends m {
         }
         this.m = true;
         this.l = 6;
-        this.f14538k = c.a(context, i2);
+        this.k = c.a(context, i2);
         this.n = new int[]{12, 13, 9};
     }
 }

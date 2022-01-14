@@ -3,7 +3,6 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.t0.w3.s0.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
@@ -18,6 +17,7 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
+import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishStatData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public class WriteData extends OrmObject implements Serializable {
     public static final int VIDEO_REVIEW_TYPE_NEED = 1;
     public static final int VIDEO_REVIEW_TYPE_NOT_NEED = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public transient c asyncPublishStatData;
+    public AsyncPublishStatData asyncPublishStatData;
     public String callFrom;
     public boolean canNoForum;
     public String comment_head;
@@ -174,7 +174,7 @@ public class WriteData extends OrmObject implements Serializable {
     public String postPrefix;
     public int proZone;
     public String sourceFrom;
-    public transient long startPublishTime;
+    public long startPublishTime;
     public int statisticFrom;
     public String transmitForumData;
     public String vForumId;
@@ -415,10 +415,10 @@ public class WriteData extends OrmObject implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public c getAsyncPublishStatData() {
+    public AsyncPublishStatData getAsyncPublishStatData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.asyncPublishStatData : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.asyncPublishStatData : (AsyncPublishStatData) invokeV.objValue;
     }
 
     public String getAtUidListString() {
@@ -1210,10 +1210,10 @@ public class WriteData extends OrmObject implements Serializable {
         this.itemDataIds.remove(Long.valueOf(itemData.itemId));
     }
 
-    public void setAsyncPublishStatData(c cVar) {
+    public void setAsyncPublishStatData(AsyncPublishStatData asyncPublishStatData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048701, this, cVar) == null) {
-            this.asyncPublishStatData = cVar;
+        if (interceptable == null || interceptable.invokeL(1048701, this, asyncPublishStatData) == null) {
+            this.asyncPublishStatData = asyncPublishStatData;
         }
     }
 

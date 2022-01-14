@@ -21,7 +21,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class f extends d {
             try {
                 try {
                     eVar.a((int) s);
-                    if (s != h.f33362f.b() && s != h.f33363g.b()) {
+                    if (s != h.f32303f.b() && s != h.f32304g.b()) {
                         eVar.a((int) com.baidu.android.pushservice.a.a());
                         eVar.b(0);
                         eVar.a(a(m.d(this.a, this.a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
@@ -180,7 +180,7 @@ public class f extends d {
             com.baidu.android.pushservice.i.d dVar = new com.baidu.android.pushservice.i.d(byteArrayInputStream);
             short c2 = dVar.c();
             e eVar = new e(c2);
-            if (c2 != h.f33363g.b() && c2 != h.f33362f.b()) {
+            if (c2 != h.f32304g.b() && c2 != h.f32303f.b()) {
                 dVar.c();
                 dVar.b();
                 dVar.a(new byte[16]);
@@ -195,7 +195,7 @@ public class f extends d {
                     bArr2 = new byte[b2];
                     dVar.a(bArr2);
                 }
-                eVar.f33352b = bArr2;
+                eVar.f32293b = bArr2;
             }
             byteArrayInputStream.close();
             dVar.a();
@@ -204,8 +204,8 @@ public class f extends d {
         return (e) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:46:0x01b5 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x01b6  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x01b8 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x01b9  */
     @Override // com.baidu.android.pushservice.message.d
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -285,10 +285,10 @@ public class f extends d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            byte[] a3 = a(h.f33358b.b(), str.getBytes());
-            e eVar = new e(h.f33358b.b());
-            eVar.f33352b = a3;
-            eVar.f33353c = true;
+            byte[] a3 = a(h.f32299b.b(), str.getBytes());
+            e eVar = new e(h.f32299b.b());
+            eVar.f32293b = a3;
+            eVar.f32294c = true;
             eVar.a(false);
             a(eVar);
         }
@@ -303,9 +303,9 @@ public class f extends d {
             if (bArr != null) {
                 gVar.a(bArr);
             }
-            e eVar = new e(h.f33361e.b());
+            e eVar = new e(h.f32302e.b());
             try {
-                eVar.f33352b = a(h.f33361e.b(), a(Long.parseLong(str), gVar));
+                eVar.f32293b = a(h.f32302e.b(), a(Long.parseLong(str), gVar));
                 a(eVar);
             } catch (NumberFormatException e2) {
                 new b.c(this.a).a(Log.getStackTraceString(e2)).a();
@@ -330,14 +330,14 @@ public class f extends d {
         a aVar = new a(this.a);
         h a2 = h.a(eVar.a);
         c a3 = aVar.a(a2);
-        if (a3 == null || (a = a3.a(eVar)) == null || !eVar.f33354d) {
+        if (a3 == null || (a = a3.a(eVar)) == null || !eVar.f32295d) {
             return;
         }
         e eVar2 = new e(eVar.a);
-        if (a2 == h.f33361e) {
-            eVar2.f33352b = a(h.f33361e.b(), a(eVar.e().g(), a));
-        } else if (a2 == h.f33363g || a2 == h.f33359c) {
-            eVar2.f33352b = a(eVar.a, (byte[]) null);
+        if (a2 == h.f32302e) {
+            eVar2.f32293b = a(h.f32302e.b(), a(eVar.e().g(), a));
+        } else if (a2 == h.f32304g || a2 == h.f32300c) {
+            eVar2.f32293b = a(eVar.a, (byte[]) null);
         }
         a(eVar2);
     }
@@ -346,10 +346,10 @@ public class f extends d {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            byte[] a = a(h.f33362f.b(), (byte[]) null);
-            e eVar = new e(h.f33362f.b());
-            eVar.f33352b = a;
-            eVar.f33353c = true;
+            byte[] a = a(h.f32303f.b(), (byte[]) null);
+            e eVar = new e(h.f32303f.b());
+            eVar.f32293b = a;
+            eVar.f32294c = true;
             eVar.a(true);
             a(eVar);
         }

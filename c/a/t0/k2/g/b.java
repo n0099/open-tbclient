@@ -90,10 +90,10 @@ public class b extends c.a.s0.i.a {
     }
 
     @Override // c.a.s0.i.a
-    public void j(a.InterfaceC0841a interfaceC0841a) {
+    public void j(a.InterfaceC0851a interfaceC0851a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0841a) == null) {
-            this.a.G(interfaceC0841a);
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0851a) == null) {
+            this.a.G(interfaceC0851a);
         }
     }
 

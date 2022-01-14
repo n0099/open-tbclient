@@ -25,13 +25,13 @@ public class d extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8381e;
+        public final /* synthetic */ CallbackHandler f8198e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8382f;
+        public final /* synthetic */ String f8199f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8383g;
+        public final /* synthetic */ String f8200g;
 
         public a(d dVar, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class d extends z {
                     return;
                 }
             }
-            this.f8381e = callbackHandler;
-            this.f8382f = str;
-            this.f8383g = str2;
+            this.f8198e = callbackHandler;
+            this.f8199f = str;
+            this.f8200g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,9 +60,9 @@ public class d extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f8381e, this.f8382f);
+                    c.a.r0.a.h2.c.d.q(iVar, this.f8198e, this.f8199f);
                 } else {
-                    c.a.r0.a.p0.f.c.h(this.f8383g, this.f8381e, this.f8382f);
+                    c.a.r0.a.p0.f.c.h(this.f8200g, this.f8198e, this.f8199f);
                 }
             }
         }

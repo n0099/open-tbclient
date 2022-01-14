@@ -18,21 +18,21 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f27078c;
+    public static a f26275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f27079d;
+    public static final int f26276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f27080e;
+    public static final int f26277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f27081f;
+    public static final int f26278f;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f27082b;
+    public Context f26279b;
 
     static {
         InterceptResult invokeClinit;
@@ -48,9 +48,9 @@ public class a {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f27079d = availableProcessors;
-        f27080e = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f27081f = (f27079d * 2) + 1;
+        f26276d = availableProcessors;
+        f26277e = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f26278f = (f26276d * 2) + 1;
     }
 
     public a(Context context) {
@@ -69,8 +69,8 @@ public class a {
             }
         }
         this.a = null;
-        this.f27082b = context;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f27080e, f27081f, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.f26279b = context;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f26277e, f26278f, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         this.a = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
         Executors.newSingleThreadExecutor();
@@ -83,14 +83,14 @@ public class a {
             if (context == null) {
                 return null;
             }
-            if (f27078c == null) {
+            if (f26275c == null) {
                 synchronized (a.class) {
-                    if (f27078c == null) {
-                        f27078c = new a(context);
+                    if (f26275c == null) {
+                        f26275c = new a(context);
                     }
                 }
             }
-            return f27078c;
+            return f26275c;
         }
         return (a) invokeL.objValue;
     }

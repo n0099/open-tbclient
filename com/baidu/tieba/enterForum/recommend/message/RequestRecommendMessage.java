@@ -18,7 +18,7 @@ public class RequestRecommendMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f44251common;
+    public CommonReq f42631common;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestRecommendMessage() {
@@ -45,7 +45,7 @@ public class RequestRecommendMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f65293common = this.f44251common;
+            builder.f62853common = this.f42631common;
             if (z) {
                 b0.a(builder, true);
             }
@@ -59,7 +59,7 @@ public class RequestRecommendMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f44251common = commonReq;
+            this.f42631common = commonReq;
         }
     }
 }

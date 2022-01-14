@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseCardInfo implements q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f21143g;
+    public static final BdUniqueId f20586g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f21144e;
+    public long f20587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21145f;
+    public boolean f20588f;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class b extends BaseCardInfo implements q {
                 return;
             }
         }
-        f21143g = BdUniqueId.gen();
+        f20586g = BdUniqueId.gen();
     }
 
     public b() {
@@ -54,7 +54,7 @@ public class b extends BaseCardInfo implements q {
                 return;
             }
         }
-        this.f21145f = false;
+        this.f20588f = false;
     }
 
     @Override // c.a.t0.g0.f0.q
@@ -78,7 +78,7 @@ public class b extends BaseCardInfo implements q {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f21143g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f20586g : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // c.a.t0.g0.f0.q

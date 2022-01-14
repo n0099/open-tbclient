@@ -20,7 +20,7 @@ public final class c {
     public static volatile d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final i.n.b f10807b;
+    public static final i.n.b f10569b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -83,18 +83,18 @@ public final class c {
         public i.d<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? i.h.g(pair).h(Schedulers.io()).f(c.f10807b).l() : (i.d) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? i.h.g(pair).h(Schedulers.io()).f(c.f10569b).l() : (i.d) invokeL.objValue;
         }
     }
 
     /* renamed from: c.a.r0.h.i.s.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceExecutorC0696c extends Executor {
+    public interface InterfaceExecutorC0705c extends Executor {
         void execute(@NonNull Runnable runnable, @NonNull String str);
     }
 
     /* loaded from: classes6.dex */
-    public static class d extends i.t.c<Pair<Runnable, String>, Pair<Runnable, String>> implements InterfaceExecutorC0696c {
+    public static class d extends i.t.c<Pair<Runnable, String>, Pair<Runnable, String>> implements InterfaceExecutorC0705c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -126,7 +126,7 @@ public final class c {
             }
         }
 
-        @Override // c.a.r0.h.i.s.c.InterfaceExecutorC0696c
+        @Override // c.a.r0.h.i.s.c.InterfaceExecutorC0705c
         public void execute(@NonNull Runnable runnable, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
@@ -148,7 +148,7 @@ public final class c {
                 return;
             }
         }
-        f10807b = new a();
+        f10569b = new a();
     }
 
     public c() {
@@ -165,7 +165,7 @@ public final class c {
         }
     }
 
-    public static InterfaceExecutorC0696c b() {
+    public static InterfaceExecutorC0705c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
@@ -179,7 +179,7 @@ public final class c {
             }
             return a;
         }
-        return (InterfaceExecutorC0696c) invokeV.objValue;
+        return (InterfaceExecutorC0705c) invokeV.objValue;
     }
 
     public static String c(String str) {

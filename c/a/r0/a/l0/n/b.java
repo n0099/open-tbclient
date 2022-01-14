@@ -21,24 +21,24 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f7780f;
+    public static final boolean f7610f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile b f7781g;
+    public static volatile b f7611g;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, ArrayList<ValueCallback<String>>> f7782b;
+    public HashMap<String, ArrayList<ValueCallback<String>>> f7612b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7783c;
+    public String f7613c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpManager f7784d;
+    public HttpManager f7614d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f7785e;
+    public final Object f7615e;
 
     static {
         InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public class b implements a {
                 return;
             }
         }
-        f7780f = k.a;
+        f7610f = k.a;
     }
 
     public b() {
@@ -70,24 +70,24 @@ public class b implements a {
             }
         }
         this.a = new HashMap<>();
-        this.f7782b = new HashMap<>();
-        this.f7785e = new Object();
-        this.f7784d = c.a.r0.a.c1.b.l().a();
-        this.f7783c = c.a.r0.a.c1.b.f().a();
+        this.f7612b = new HashMap<>();
+        this.f7615e = new Object();
+        this.f7614d = c.a.r0.a.c1.b.l().a();
+        this.f7613c = c.a.r0.a.c1.b.f().a();
     }
 
     public static b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f7781g == null) {
+            if (f7611g == null) {
                 synchronized (b.class) {
-                    if (f7781g == null) {
-                        f7781g = new b();
+                    if (f7611g == null) {
+                        f7611g = new b();
                     }
                 }
             }
-            return f7781g;
+            return f7611g;
         }
         return (b) invokeV.objValue;
     }
@@ -97,12 +97,12 @@ public class b implements a {
         ArrayList<ValueCallback<String>> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.f7785e) {
-                if (f(str) && (arrayList = this.f7782b.get(str)) != null) {
+            synchronized (this.f7615e) {
+                if (f(str) && (arrayList = this.f7612b.get(str)) != null) {
                     int size = arrayList.size();
                     for (int i2 = 0; i2 < size; i2++) {
                         arrayList.get(i2).onReceiveValue(str2);
-                        if (f7780f) {
+                        if (f7610f) {
                             String str3 = i2 + " load success url = " + str + " path = " + str2;
                         }
                     }
@@ -115,23 +115,23 @@ public class b implements a {
     public final void b(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            if (this.f7782b.containsKey(str)) {
-                this.f7782b.get(str).add(valueCallback);
+            if (this.f7612b.containsKey(str)) {
+                this.f7612b.get(str).add(valueCallback);
                 return;
             }
             ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
             arrayList.add(valueCallback);
-            this.f7782b.put(str, arrayList);
+            this.f7612b.put(str, arrayList);
         }
     }
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f7780f) {
+            if (f7610f) {
                 String str2 = "ImageDownloadManager SwanGamePreloadManager url:" + str;
             }
-            c cVar = new c(this.f7784d, this.f7783c, str, this);
+            c cVar = new c(this.f7614d, this.f7613c, str, this);
             this.a.put(str, cVar);
             cVar.e();
         }
@@ -141,7 +141,7 @@ public class b implements a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.f7783c + c.a.r0.a.c1.b.f().c(str);
+            return this.f7613c + c.a.r0.a.c1.b.f().c(str);
         }
         return (String) invokeL.objValue;
     }
@@ -157,8 +157,8 @@ public class b implements a {
         ArrayList<ValueCallback<String>> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
-            synchronized (this.f7785e) {
-                if (f(str) && (arrayList = this.f7782b.get(str)) != null) {
+            synchronized (this.f7615e) {
+                if (f(str) && (arrayList = this.f7612b.get(str)) != null) {
                     int size = arrayList.size();
                     for (int i3 = 0; i3 < size; i3++) {
                         arrayList.get(i3).onReceiveValue("");
@@ -189,14 +189,14 @@ public class b implements a {
                     }
                     return;
                 }
-                synchronized (this.f7785e) {
+                synchronized (this.f7615e) {
                     if (!f(str)) {
                         c(str);
                     }
                     b(str, valueCallback);
                 }
             } catch (Exception e2) {
-                if (f7780f) {
+                if (f7610f) {
                     e2.printStackTrace();
                 }
             }

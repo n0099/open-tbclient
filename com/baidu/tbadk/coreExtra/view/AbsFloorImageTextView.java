@@ -35,7 +35,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a f42243e;
+    public c.a f40771e;
     public ImageUrlData mAssistUrlData;
     public c mTbGestureDetector;
     public String mUserId;
@@ -102,7 +102,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AbsFloorImageTextView f42244h;
+        public final /* synthetic */ AbsFloorImageTextView f40772h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(AbsFloorImageTextView absFloorImageTextView, c.a aVar) {
@@ -122,7 +122,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f42244h = absFloorImageTextView;
+            this.f40772h = absFloorImageTextView;
         }
 
         @Override // c.a.t0.s2.s.c, android.view.GestureDetector.OnGestureListener
@@ -186,7 +186,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             }
         }
         a aVar = new a(this);
-        this.f42243e = aVar;
+        this.f40771e = aVar;
         this.mTbGestureDetector = new b(this, aVar);
     }
 

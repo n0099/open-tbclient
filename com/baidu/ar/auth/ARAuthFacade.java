@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ARAuthFacade implements j {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTH_TYPE_AIP = 1;

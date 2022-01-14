@@ -9,34 +9,34 @@ import com.kwad.sdk.f.a;
 /* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.core.e.b {
     @NonNull
-    public a.InterfaceC2108a a;
+    public a.InterfaceC2125a a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f59082b;
+    public KsNativeAd.VideoPlayListener f56857b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBasePvFrameLayout f59083c;
+    public AdBasePvFrameLayout f56858c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f59084d;
+    public AdTemplate f56859d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f59085e;
+    public com.kwad.sdk.core.download.a.b f56860e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.f.b.a f59086f;
+    public com.kwad.sdk.f.b.a f56861f;
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        com.kwad.sdk.core.download.a.b bVar = this.f59085e;
+        com.kwad.sdk.core.download.a.b bVar = this.f56860e;
         if (bVar != null) {
             bVar.i();
         }
-        this.f59086f.e();
+        this.f56861f.e();
     }
 }

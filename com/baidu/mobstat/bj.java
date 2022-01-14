@@ -246,12 +246,12 @@ public class bj {
                 int childCount = viewGroup.getChildCount();
                 boolean z = false;
                 for (int i2 = 0; i2 < childCount && sb.length() < 128; i2++) {
-                    String k2 = k(viewGroup.getChildAt(i2));
-                    if (k2 != null && k2.length() > 0) {
+                    String k = k(viewGroup.getChildAt(i2));
+                    if (k != null && k.length() > 0) {
                         if (z) {
                             sb.append("| ");
                         }
-                        sb.append(k2);
+                        sb.append(k);
                         z = true;
                     }
                 }
@@ -1232,7 +1232,7 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            String a = au.a().a(str, au.a.f37701b);
+            String a = au.a().a(str, au.a.f36463b);
             return a == null ? "" : a;
         }
         return (String) invokeL.objValue;

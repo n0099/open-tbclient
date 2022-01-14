@@ -22,10 +22,10 @@ public class HomeInformationLayout extends BaseItemLayout {
     public HomeLayoutOneTipView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f53179b;
+    public LinearLayout f51133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f53180c;
+    public List<BaseItemView> f51134c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomeInformationLayout(Context context) {
@@ -45,14 +45,14 @@ public class HomeInformationLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f53180c = new ArrayList();
+        this.f51134c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53180c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51134c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -61,7 +61,7 @@ public class HomeInformationLayout extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_information_layout"), this);
             this.a = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "home_information_layout_title"));
-            this.f53179b = (LinearLayout) findViewById(ResUtils.id(getContext(), "home_information_layout_content"));
+            this.f51133b = (LinearLayout) findViewById(ResUtils.id(getContext(), "home_information_layout_content"));
         }
     }
 
@@ -92,8 +92,8 @@ public class HomeInformationLayout extends BaseItemLayout {
             for (HomeCfgResponse.DataItem dataItem : dataItemArr) {
                 homeInformationItemView = new HomeInformationItemView(getContext());
                 homeInformationItemView.setData(dataItem, getWalletInterface());
-                this.f53179b.addView(homeInformationItemView);
-                this.f53180c.add(homeInformationItemView);
+                this.f51133b.addView(homeInformationItemView);
+                this.f51134c.add(homeInformationItemView);
             }
             if (homeInformationItemView != null) {
                 homeInformationItemView.setLineVisibility(false);
@@ -120,6 +120,6 @@ public class HomeInformationLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f53180c = new ArrayList();
+        this.f51134c = new ArrayList();
     }
 }

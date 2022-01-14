@@ -21,7 +21,7 @@ public abstract class q<A> extends ReporterPidLoader<A> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public TTAdNative f29107h;
+    public TTAdNative f28217h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public q(Ssp.Pid pid) {
@@ -99,7 +99,7 @@ public abstract class q<A> extends ReporterPidLoader<A> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 super.destroy();
-                this.f29107h = null;
+                this.f28217h = null;
             }
         }
     }
@@ -107,12 +107,12 @@ public abstract class q<A> extends ReporterPidLoader<A> {
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) && this.f29107h == null) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) && this.f28217h == null) {
             TTAdManager adManager = TTAdSdk.getAdManager();
             if (Flavors.CACHING_AWARE.isCachingAware()) {
                 context = context.getApplicationContext();
             }
-            this.f29107h = adManager.createAdNative(context);
+            this.f28217h = adManager.createAdNative(context);
         }
     }
 }

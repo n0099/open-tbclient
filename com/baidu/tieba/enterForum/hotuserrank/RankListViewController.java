@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.f.p.n;
 import c.a.s0.e1.o0;
-import c.a.s0.s.i0.t.c;
+import c.a.s0.s.j0.t.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -50,25 +50,25 @@ public class RankListViewController {
     public BdRecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c.a.t0.u0.i.c.b> f44211b;
+    public List<c.a.t0.u0.i.c.b> f42593b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.u0.i.a f44212c;
+    public c.a.t0.u0.i.a f42594c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PbListView f44213d;
+    public PbListView f42595d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f44214e;
+    public String f42596e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f44215f;
+    public long f42597f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdRecyclerView.i f44216g;
+    public BdRecyclerView.i f42598g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView.Adapter f44217h;
+    public RecyclerView.Adapter f42599h;
 
     /* loaded from: classes12.dex */
     public static class RankListViewHolder extends RecyclerView.ViewHolder {
@@ -79,34 +79,32 @@ public class RankListViewController {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f44218b;
+        public HeadImageView f42600b;
 
         /* renamed from: c  reason: collision with root package name */
-        public UserHeadCoverView f44219c;
+        public UserHeadCoverView f42601c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f44220d;
+        public TextView f42602d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f44221e;
+        public TextView f42603e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView f44222f;
+        public ImageView f42604f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f44223g;
+        public TextView f42605g;
 
         /* renamed from: h  reason: collision with root package name */
-        public HotUserRankLikeButton f44224h;
+        public HotUserRankLikeButton f42606h;
 
         /* renamed from: i  reason: collision with root package name */
-        public c f44225i;
+        public c f42607i;
 
         /* renamed from: j  reason: collision with root package name */
-        public TbPageContext f44226j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public int f44227k;
+        public TbPageContext f42608j;
+        public int k;
         public String l;
         public long m;
         public int n;
@@ -119,7 +117,7 @@ public class RankListViewController {
             public final /* synthetic */ c.a.t0.u0.i.c.b a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ RankListViewHolder f44228b;
+            public final /* synthetic */ RankListViewHolder f42609b;
 
             public a(RankListViewHolder rankListViewHolder, c.a.t0.u0.i.c.b bVar) {
                 Interceptable interceptable = $ic;
@@ -136,7 +134,7 @@ public class RankListViewController {
                         return;
                     }
                 }
-                this.f44228b = rankListViewHolder;
+                this.f42609b = rankListViewHolder;
                 this.a = bVar;
             }
 
@@ -144,22 +142,22 @@ public class RankListViewController {
             public void a(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (!TextUtils.isEmpty(this.f44228b.l)) {
+                    if (!TextUtils.isEmpty(this.f42609b.l)) {
                         StatisticItem statisticItem = new StatisticItem("c13661");
                         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f44228b.l);
+                        statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f42609b.l);
                         statisticItem.param(TiebaStatic.Params.FRIEND_UID, this.a.a);
-                        statisticItem.param("obj_type", this.a.f24749f.getIsLike() ? 2 : 1);
+                        statisticItem.param("obj_type", this.a.f24062f.getIsLike() ? 2 : 1);
                         TiebaStatic.log(statisticItem);
                         return;
                     }
                     StatisticItem statisticItem2 = new StatisticItem("c13672");
-                    statisticItem2.param("obj_id", this.a.f24749f.getUserId());
+                    statisticItem2.param("obj_id", this.a.f24062f.getUserId());
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem2.param(TiebaStatic.Params.RESOURCE_ID, this.f44228b.l);
-                    statisticItem2.param("fid", this.f44228b.m);
+                    statisticItem2.param(TiebaStatic.Params.RESOURCE_ID, this.f42609b.l);
+                    statisticItem2.param("fid", this.f42609b.m);
                     statisticItem2.param(TiebaStatic.Params.FRIEND_UID, this.a.a);
-                    statisticItem2.param("obj_type", this.a.f24749f.getIsLike() ? 2 : 1);
+                    statisticItem2.param("obj_type", this.a.f24062f.getIsLike() ? 2 : 1);
                     TiebaStatic.log(statisticItem2);
                 }
             }
@@ -183,24 +181,24 @@ public class RankListViewController {
                     return;
                 }
             }
-            this.f44227k = 3;
+            this.k = 3;
             this.l = "";
             this.n = 0;
-            this.f44226j = c(view.getContext());
+            this.f42608j = c(view.getContext());
             TextView textView = (TextView) view.findViewById(R.id.rank_num);
             this.a = textView;
             textView.getPaint().setFakeBoldText(true);
             HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.head_icon);
-            this.f44218b = headImageView;
+            this.f42600b = headImageView;
             headImageView.setIsRound(true);
-            this.f44218b.setPlaceHolder(1);
-            this.f44218b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f44219c = (UserHeadCoverView) view.findViewById(R.id.head_cover);
-            this.f44220d = (TextView) view.findViewById(R.id.user_name);
-            this.f44221e = (TextView) view.findViewById(R.id.user_intro);
-            this.f44222f = (ImageView) view.findViewById(R.id.grade);
-            this.f44223g = (TextView) view.findViewById(R.id.user_influence);
-            this.f44224h = (HotUserRankLikeButton) view.findViewById(R.id.like_button);
+            this.f42600b.setPlaceHolder(1);
+            this.f42600b.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f42601c = (UserHeadCoverView) view.findViewById(R.id.head_cover);
+            this.f42602d = (TextView) view.findViewById(R.id.user_name);
+            this.f42603e = (TextView) view.findViewById(R.id.user_intro);
+            this.f42604f = (ImageView) view.findViewById(R.id.grade);
+            this.f42605g = (TextView) view.findViewById(R.id.user_influence);
+            this.f42606h = (HotUserRankLikeButton) view.findViewById(R.id.like_button);
         }
 
         public void bindData(c.a.t0.u0.i.c.b bVar) {
@@ -212,11 +210,11 @@ public class RankListViewController {
             }
             if (!TextUtils.isEmpty(bVar.a)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.getLayoutParams();
-                int dimension = (int) this.f44226j.getResources().getDimension(R.dimen.tbds44);
+                int dimension = (int) this.f42608j.getResources().getDimension(R.dimen.tbds44);
                 this.a.setText(bVar.a);
                 if (this.n == 1) {
-                    dimension = (int) this.f44226j.getResources().getDimension(R.dimen.tbds26);
-                    layoutParams.width = (int) this.f44226j.getResources().getDimension(R.dimen.tbds129);
+                    dimension = (int) this.f42608j.getResources().getDimension(R.dimen.tbds26);
+                    layoutParams.width = (int) this.f42608j.getResources().getDimension(R.dimen.tbds129);
                 }
                 layoutParams.setMargins(dimension, 0, 0, 0);
                 this.a.setLayoutParams(layoutParams);
@@ -231,48 +229,48 @@ public class RankListViewController {
                 i2 = R.color.CAM_X0105;
             }
             SkinManager.setViewTextColor(this.a, i2);
-            this.f44218b.startLoad(bVar.f24745b, 10, false);
-            this.f44219c.setData(bVar);
-            String str = bVar.f24746c;
+            this.f42600b.startLoad(bVar.f24058b, 10, false);
+            this.f42601c.setData(bVar);
+            String str = bVar.f24059c;
             if (o0.d(str) > 12) {
                 str = o0.m(str, 10) + "...";
             }
-            this.f44220d.setText(str);
-            boolean z = bVar.f24751h;
+            this.f42602d.setText(str);
+            boolean z = bVar.f24064h;
             this.o = z;
             if (z) {
-                SkinManager.setViewTextColor(this.f44220d, R.color.CAM_X0301);
+                SkinManager.setViewTextColor(this.f42602d, R.color.CAM_X0301);
             }
-            if (TextUtils.isEmpty(bVar.f24747d)) {
-                this.f44221e.setVisibility(8);
+            if (TextUtils.isEmpty(bVar.f24060d)) {
+                this.f42603e.setVisibility(8);
             } else {
-                this.f44221e.setVisibility(0);
-                this.f44221e.setText(StringHelper.cutStringWithEllipsisStrict(bVar.f24747d, 26));
+                this.f42603e.setVisibility(0);
+                this.f42603e.setText(StringHelper.cutStringWithEllipsisStrict(bVar.f24060d, 26));
             }
-            if (bVar.f24749f.getLevel_id() == 0) {
-                this.f44222f.setVisibility(8);
+            if (bVar.f24062f.getLevel_id() == 0) {
+                this.f42604f.setVisibility(8);
             } else {
-                this.f44222f.setVisibility(0);
-                SkinManager.setImageResource(this.f44222f, BitmapHelper.getGradeResourceIdInEnterForum(bVar.f24749f.getLevel_id()));
+                this.f42604f.setVisibility(0);
+                SkinManager.setImageResource(this.f42604f, BitmapHelper.getGradeResourceIdInEnterForum(bVar.f24062f.getLevel_id()));
             }
-            if (TextUtils.isEmpty(bVar.f24748e)) {
-                this.f44223g.setVisibility(8);
+            if (TextUtils.isEmpty(bVar.f24061e)) {
+                this.f42605g.setVisibility(8);
             } else {
-                this.f44223g.setVisibility(0);
-                this.f44223g.setText(bVar.f24748e);
+                this.f42605g.setVisibility(0);
+                this.f42605g.setText(bVar.f24061e);
             }
-            if (this.f44225i == null && (tbPageContext = this.f44226j) != null) {
-                c cVar = new c(tbPageContext, this.f44224h);
-                this.f44225i = cVar;
-                cVar.l(this.f44226j.getUniqueId());
+            if (this.f42607i == null && (tbPageContext = this.f42608j) != null) {
+                c cVar = new c(tbPageContext, this.f42606h);
+                this.f42607i = cVar;
+                cVar.l(this.f42608j.getUniqueId());
             }
-            this.f44225i.n(bVar.f24749f);
-            this.f44224h.setOnClickEvent(new a(this, bVar));
-            MetaData metaData = bVar.f24749f;
-            if (metaData != null && metaData.getUserId() != null && bVar.f24749f.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.f44224h.setVisibility(8);
+            this.f42607i.n(bVar.f24062f);
+            this.f42606h.setOnClickEvent(new a(this, bVar));
+            MetaData metaData = bVar.f24062f;
+            if (metaData != null && metaData.getUserId() != null && bVar.f24062f.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                this.f42606h.setVisibility(8);
             } else {
-                this.f44224h.setVisibility(0);
+                this.f42606h.setVisibility(0);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -295,25 +293,25 @@ public class RankListViewController {
         public void hideIntroAndLikeButton() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f44221e.setVisibility(8);
-                this.f44224h.setVisibility(8);
+                this.f42603e.setVisibility(8);
+                this.f42606h.setVisibility(8);
             }
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f44227k == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.k == i2) {
                 return;
             }
-            this.f44227k = i2;
+            this.k = i2;
             if (!this.o) {
-                SkinManager.setViewTextColor(this.f44220d, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f42602d, R.color.CAM_X0105);
             } else {
-                SkinManager.setViewTextColor(this.f44220d, R.color.CAM_X0301);
+                SkinManager.setViewTextColor(this.f42602d, R.color.CAM_X0301);
             }
-            SkinManager.setViewTextColor(this.f44221e, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f44223g, R.color.CAM_X0109);
-            this.f44224h.onChangeSkinType(this.f44227k);
+            SkinManager.setViewTextColor(this.f42603e, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f42605g, R.color.CAM_X0109);
+            this.f42606h.onChangeSkinType(this.k);
         }
 
         public void setCategory(String str) {
@@ -344,7 +342,7 @@ public class RankListViewController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankListViewController f44229e;
+        public final /* synthetic */ RankListViewController f42610e;
 
         public a(RankListViewController rankListViewController) {
             Interceptable interceptable = $ic;
@@ -361,28 +359,28 @@ public class RankListViewController {
                     return;
                 }
             }
-            this.f44229e = rankListViewController;
+            this.f42610e = rankListViewController;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
         public void b(ViewGroup viewGroup, View view, Object obj, int i2, long j2) {
             c.a.t0.u0.i.c.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (bVar = (c.a.t0.u0.i.c.b) this.f44229e.f44211b.get(i2)) == null || bVar.f24749f == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (bVar = (c.a.t0.u0.i.c.b) this.f42610e.f42593b.get(i2)) == null || bVar.f24062f == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f44229e.a.getContext(), bVar.f24749f.getUserId(), bVar.f24749f.getName_show())));
-            if (!TextUtils.isEmpty(this.f44229e.f44214e)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f42610e.a.getContext(), bVar.f24062f.getUserId(), bVar.f24062f.getName_show())));
+            if (!TextUtils.isEmpty(this.f42610e.f42596e)) {
                 StatisticItem statisticItem = new StatisticItem("c13660");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f44229e.f44214e);
+                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f42610e.f42596e);
                 statisticItem.param(TiebaStatic.Params.FRIEND_UID, bVar.a);
                 TiebaStatic.log(statisticItem);
                 return;
             }
             StatisticItem statisticItem2 = new StatisticItem("c13668");
-            statisticItem2.param("uid", bVar.f24749f.getUserId());
-            statisticItem2.param("fid", this.f44229e.f44215f);
+            statisticItem2.param("uid", bVar.f24062f.getUserId());
+            statisticItem2.param("fid", this.f42610e.f42597f);
             TiebaStatic.log(statisticItem2);
         }
     }
@@ -417,7 +415,7 @@ public class RankListViewController {
         public void onBindViewHolder(RankListViewHolder rankListViewHolder, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, rankListViewHolder, i2) == null) {
-                rankListViewHolder.bindData((c.a.t0.u0.i.c.b) this.a.f44211b.get(i2));
+                rankListViewHolder.bindData((c.a.t0.u0.i.c.b) this.a.f42593b.get(i2));
             }
         }
 
@@ -430,8 +428,8 @@ public class RankListViewController {
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) {
                 RankListViewHolder rankListViewHolder = new RankListViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hot_user_rank_item_view, (ViewGroup) null));
                 rankListViewHolder.setViewHolderType(0);
-                rankListViewHolder.setCategory(this.a.f44214e);
-                rankListViewHolder.setForumId(this.a.f44215f);
+                rankListViewHolder.setCategory(this.a.f42596e);
+                rankListViewHolder.setForumId(this.a.f42597f);
                 return rankListViewHolder;
             }
             return (RankListViewHolder) invokeLI.objValue;
@@ -441,7 +439,7 @@ public class RankListViewController {
         public int getItemCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.f44211b.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.f42593b.size() : invokeV.intValue;
         }
     }
 
@@ -460,40 +458,40 @@ public class RankListViewController {
                 return;
             }
         }
-        this.f44211b = new ArrayList();
-        this.f44216g = new a(this);
-        this.f44217h = new b(this);
-        this.f44214e = str;
-        this.f44215f = j2;
+        this.f42593b = new ArrayList();
+        this.f42598g = new a(this);
+        this.f42599h = new b(this);
+        this.f42596e = str;
+        this.f42597f = j2;
         BdRecyclerView bdRecyclerView = (BdRecyclerView) view;
         this.a = bdRecyclerView;
         bdRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        this.a.setAdapter(this.f44217h);
+        this.a.setAdapter(this.f42599h);
         View inflate = LayoutInflater.from(view.getContext()).inflate(R.layout.hot_user_rank_top_user, (ViewGroup) null);
-        this.f44212c = new c.a.t0.u0.i.a(inflate, this.f44214e, this.f44215f);
+        this.f42594c = new c.a.t0.u0.i.a(inflate, this.f42596e, this.f42597f);
         inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         this.a.addHeaderView(inflate);
         PbListView pbListView = new PbListView(view.getContext());
-        this.f44213d = pbListView;
+        this.f42595d = pbListView;
         pbListView.a();
-        this.f44213d.p(R.color.CAM_X0205);
-        this.f44213d.y();
-        this.f44213d.F(SkinManager.getColor(R.color.CAM_X0107));
-        this.f44213d.H(R.dimen.tbfontsize33);
-        this.f44213d.B(R.color.CAM_X0110);
-        this.a.setNextPage(this.f44213d);
-        this.a.setOnItemClickListener(this.f44216g);
+        this.f42595d.p(R.color.CAM_X0205);
+        this.f42595d.y();
+        this.f42595d.F(SkinManager.getColor(R.color.CAM_X0107));
+        this.f42595d.H(R.dimen.tbfontsize33);
+        this.f42595d.B(R.color.CAM_X0110);
+        this.a.setNextPage(this.f42595d);
+        this.a.setOnItemClickListener(this.f42598g);
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f44212c.j(i2);
-            this.f44217h.notifyDataSetChanged();
-            PbListView pbListView = this.f44213d;
+            this.f42594c.j(i2);
+            this.f42599h.notifyDataSetChanged();
+            PbListView pbListView = this.f42595d;
             if (pbListView != null) {
                 pbListView.F(SkinManager.getColor(R.color.CAM_X0109));
-                this.f44213d.d(i2);
+                this.f42595d.d(i2);
             }
         }
     }
@@ -501,7 +499,7 @@ public class RankListViewController {
     public void f(c.a.t0.u0.i.c.a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, z) == null) {
-            this.f44212c.k(aVar, z);
+            this.f42594c.k(aVar, z);
         }
     }
 
@@ -517,18 +515,18 @@ public class RankListViewController {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || list == null) {
             return;
         }
-        this.f44211b.clear();
-        this.f44211b.addAll(list);
-        this.f44217h.notifyDataSetChanged();
+        this.f42593b.clear();
+        this.f42593b.addAll(list);
+        this.f42599h.notifyDataSetChanged();
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f44213d.K();
-            this.f44213d.R();
-            this.f44213d.D(this.a.getContext().getString(R.string.list_loading));
-            this.f44213d.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.f42595d.K();
+            this.f42595d.R();
+            this.f42595d.D(this.a.getContext().getString(R.string.list_loading));
+            this.f42595d.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
     }
 
@@ -536,15 +534,15 @@ public class RankListViewController {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f44213d.Q(n.f(this.a.getContext(), R.dimen.tbds96));
+            this.f42595d.Q(n.f(this.a.getContext(), R.dimen.tbds96));
             if (!TextUtils.isEmpty(str)) {
                 string = String.format(this.a.getContext().getString(R.string.hot_user_rank_list_no_more), str);
             } else {
                 string = this.a.getContext().getString(R.string.forum_hot_user_rank_list_no_more);
             }
-            this.f44213d.E(string, n.f(this.a.getContext(), R.dimen.tbds156));
-            this.f44213d.f();
-            this.f44213d.M(n.f(this.a.getContext(), R.dimen.tbds44));
+            this.f42595d.E(string, n.f(this.a.getContext(), R.dimen.tbds156));
+            this.f42595d.f();
+            this.f42595d.M(n.f(this.a.getContext(), R.dimen.tbds44));
         }
     }
 }

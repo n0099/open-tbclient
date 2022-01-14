@@ -291,7 +291,7 @@ public class a {
                 if (arrayList != null) {
                     arrayList.add(dVar);
                 }
-                a.C0816a c2 = TbFaceManager.e().c(str);
+                a.C0826a c2 = TbFaceManager.e().c(str);
                 if (c2 != null) {
                     int a2 = (int) (c2.a() * 0.5d);
                     dVar.setBounds(new Rect(0, 0, a2, a2));

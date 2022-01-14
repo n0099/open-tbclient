@@ -45,16 +45,16 @@ public final class n {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ExecutorService f8087b;
+    public static final ExecutorService f7910b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f8088c;
+    public static Object f7911c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f8089d;
+    public static final Set<String> f7912d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CopyOnWriteArrayList<String> f8090e;
+    public static final CopyOnWriteArrayList<String> f7913e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -63,7 +63,7 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.e f8091e;
+        public final /* synthetic */ c.a.r0.a.n2.s.e f7914e;
 
         public a(c.a.r0.a.n2.s.e eVar) {
             Interceptable interceptable = $ic;
@@ -80,15 +80,15 @@ public final class n {
                     return;
                 }
             }
-            this.f8091e = eVar;
+            this.f7914e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8091e.b(n.Z());
-                c.a.r0.a.n2.b.k("778", this.f8091e.f());
+                this.f7914e.b(n.Z());
+                c.a.r0.a.n2.b.k("778", this.f7914e.f());
             }
         }
     }
@@ -99,25 +99,23 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8092e;
+        public final /* synthetic */ String f7915e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f8093f;
+        public final /* synthetic */ long f7916f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f8094g;
+        public final /* synthetic */ long f7917g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f8095h;
+        public final /* synthetic */ int f7918h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f8096i;
+        public final /* synthetic */ int f7919i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f8097j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ String f8098k;
+        public final /* synthetic */ String f7920j;
+        public final /* synthetic */ String k;
         public final /* synthetic */ String l;
         public final /* synthetic */ String m;
         public final /* synthetic */ String n;
@@ -138,13 +136,13 @@ public final class n {
                     return;
                 }
             }
-            this.f8092e = str;
-            this.f8093f = j2;
-            this.f8094g = j3;
-            this.f8095h = i2;
-            this.f8096i = i3;
-            this.f8097j = str2;
-            this.f8098k = str3;
+            this.f7915e = str;
+            this.f7916f = j2;
+            this.f7917g = j3;
+            this.f7918h = i2;
+            this.f7919i = i3;
+            this.f7920j = str2;
+            this.k = str3;
             this.l = str4;
             this.m = str5;
             this.n = str6;
@@ -155,34 +153,34 @@ public final class n {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && SwanAppNetworkUtils.i(null)) {
-                if (n.o(this.f8092e)) {
+                if (n.o(this.f7915e)) {
                     if (n.a) {
-                        String str = "onRequest: ignore " + this.f8092e;
+                        String str = "onRequest: ignore " + this.f7915e;
                         return;
                     }
                     return;
                 }
-                long j2 = this.f8093f - this.f8094g;
-                boolean z = this.f8095h == 200;
-                if (this.f8096i == 0) {
-                    if (TextUtils.equals(this.f8097j, "1")) {
+                long j2 = this.f7916f - this.f7917g;
+                boolean z = this.f7918h == 200;
+                if (this.f7919i == 0) {
+                    if (TextUtils.equals(this.f7920j, "1")) {
                         if (z) {
-                            c.a.r0.a.h0.i.g.d.b.d().e(c.a.r0.a.h0.i.g.d.a.c(this.f8092e, this.f8094g, this.f8093f, this.f8095h, this.f8098k));
+                            c.a.r0.a.h0.i.g.d.b.d().e(c.a.r0.a.h0.i.g.d.a.c(this.f7915e, this.f7917g, this.f7916f, this.f7918h, this.k));
                         } else {
-                            c.a.r0.a.h0.i.g.d.b.d().e(c.a.r0.a.h0.i.g.d.a.a(this.f8092e, this.f8094g, this.f8093f, this.f8095h, this.f8098k));
+                            c.a.r0.a.h0.i.g.d.b.d().e(c.a.r0.a.h0.i.g.d.a.a(this.f7915e, this.f7917g, this.f7916f, this.f7918h, this.k));
                         }
-                    } else if (TextUtils.equals(this.f8097j, "0")) {
-                        c.a.r0.a.h0.i.g.d.b.d().e(c.a.r0.a.h0.i.g.d.a.b(this.f8092e, this.f8094g, this.f8098k));
+                    } else if (TextUtils.equals(this.f7920j, "0")) {
+                        c.a.r0.a.h0.i.g.d.b.d().e(c.a.r0.a.h0.i.g.d.a.b(this.f7915e, this.f7917g, this.k));
                     }
                 }
                 if (z && j2 < 5000) {
                     if (n.a) {
-                        String str2 = "code 200 & cost(" + (this.f8093f - this.f8094g) + ") is ok, don't report";
+                        String str2 = "code 200 & cost(" + (this.f7916f - this.f7917g) + ") is ok, don't report";
                         return;
                     }
                     return;
                 }
-                n.j(this.f8095h, this.f8092e, this.f8096i, this.l, this.m, this.n, this.f8097j, this.f8094g, this.f8093f, this.o);
+                n.j(this.f7918h, this.f7915e, this.f7919i, this.l, this.m, this.n, this.f7920j, this.f7917g, this.f7916f, this.o);
             }
         }
     }
@@ -193,25 +191,23 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8099e;
+        public final /* synthetic */ String f7921e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8100f;
+        public final /* synthetic */ int f7922f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8101g;
+        public final /* synthetic */ String f7923g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f8102h;
+        public final /* synthetic */ String f7924h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f8103i;
+        public final /* synthetic */ String f7925i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f8104j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ int f8105k;
+        public final /* synthetic */ String f7926j;
+        public final /* synthetic */ int k;
 
         public c(String str, int i2, String str2, String str3, String str4, String str5, int i3) {
             Interceptable interceptable = $ic;
@@ -228,13 +224,13 @@ public final class n {
                     return;
                 }
             }
-            this.f8099e = str;
-            this.f8100f = i2;
-            this.f8101g = str2;
-            this.f8102h = str3;
-            this.f8103i = str4;
-            this.f8104j = str5;
-            this.f8105k = i3;
+            this.f7921e = str;
+            this.f7922f = i2;
+            this.f7923g = str2;
+            this.f7924h = str3;
+            this.f7925i = str4;
+            this.f7926j = str5;
+            this.k = i3;
         }
 
         @Override // java.lang.Runnable
@@ -247,24 +243,24 @@ public final class n {
                 if (n.a) {
                     String str = "get NetworkQuality: " + a;
                 }
-                if (TextUtils.equals(this.f8099e, "1")) {
-                    cVar = new c.a.r0.a.n2.s.c(this.f8100f, this.f8101g, this.f8102h, a);
+                if (TextUtils.equals(this.f7921e, "1")) {
+                    cVar = new c.a.r0.a.n2.s.c(this.f7922f, this.f7923g, this.f7924h, a);
                 } else {
-                    cVar = new c.a.r0.a.n2.s.c(this.f8101g, a, 0L, 0L);
+                    cVar = new c.a.r0.a.n2.s.c(this.f7923g, a, 0L, 0L);
                 }
                 new q.a(cVar, "downloadFile");
-                if (!TextUtils.isEmpty(this.f8103i)) {
-                    cVar.r(this.f8103i);
+                if (!TextUtils.isEmpty(this.f7925i)) {
+                    cVar.r(this.f7925i);
                 }
-                if (!TextUtils.isEmpty(this.f8104j)) {
-                    cVar.q(this.f8104j);
+                if (!TextUtils.isEmpty(this.f7926j)) {
+                    cVar.q(this.f7926j);
                 }
-                cVar.f8157b = "downloadFile";
+                cVar.f7977b = "downloadFile";
                 if (c.a.r0.a.d2.e.L() != null && c.a.r0.a.d2.e.L().X() != null) {
-                    cVar.f8158c = c.a.r0.a.d2.e.L().X().T();
+                    cVar.f7978c = c.a.r0.a.d2.e.L().X().T();
                 }
-                cVar.f8161f = c.a.r0.a.d2.e.f0();
-                cVar.a = n.n(this.f8105k);
+                cVar.f7981f = c.a.r0.a.d2.e.f0();
+                cVar.a = n.n(this.k);
                 c.a.r0.a.n2.b.k("834", cVar.f());
                 c.a.r0.a.e0.d.k("SwanAppUBCStatistic", "834-downloadFile event=" + f2.toString());
             }
@@ -277,7 +273,7 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.e f8106e;
+        public final /* synthetic */ c.a.r0.a.n2.s.e f7927e;
 
         public d(c.a.r0.a.n2.s.e eVar) {
             Interceptable interceptable = $ic;
@@ -294,14 +290,14 @@ public final class n {
                     return;
                 }
             }
-            this.f8106e = eVar;
+            this.f7927e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.n2.b.k("894", this.f8106e.f());
+                c.a.r0.a.n2.b.k("894", this.f7927e.f());
             }
         }
     }
@@ -312,7 +308,7 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.b f8107e;
+        public final /* synthetic */ c.a.r0.a.n2.s.b f7928e;
 
         public e(c.a.r0.a.n2.s.b bVar) {
             Interceptable interceptable = $ic;
@@ -329,14 +325,14 @@ public final class n {
                     return;
                 }
             }
-            this.f8107e = bVar;
+            this.f7928e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.n2.b.k("751", this.f8107e.f());
+                c.a.r0.a.n2.b.k("751", this.f7928e.f());
             }
         }
     }
@@ -347,10 +343,10 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8108e;
+        public final /* synthetic */ String f7929e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForbiddenInfo f8109f;
+        public final /* synthetic */ ForbiddenInfo f7930f;
 
         public f(String str, ForbiddenInfo forbiddenInfo) {
             Interceptable interceptable = $ic;
@@ -367,8 +363,8 @@ public final class n {
                     return;
                 }
             }
-            this.f8108e = str;
-            this.f8109f = forbiddenInfo;
+            this.f7929e = str;
+            this.f7930f = forbiddenInfo;
         }
 
         @Override // java.lang.Runnable
@@ -376,13 +372,13 @@ public final class n {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.n2.s.d dVar = new c.a.r0.a.n2.s.d();
-                dVar.f8160e = this.f8108e;
-                dVar.f8157b = "show";
+                dVar.f7980e = this.f7929e;
+                dVar.f7977b = "show";
                 dVar.a = "swan";
-                ForbiddenInfo forbiddenInfo = this.f8109f;
-                dVar.f8158c = forbiddenInfo.launchSource;
+                ForbiddenInfo forbiddenInfo = this.f7930f;
+                dVar.f7978c = forbiddenInfo.launchSource;
                 dVar.a("path", forbiddenInfo.launchPath);
-                dVar.a("appkey", this.f8109f.appId);
+                dVar.a("appkey", this.f7930f.appId);
                 c.a.r0.a.n2.b.m("1400", dVar.f());
             }
         }
@@ -394,16 +390,16 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8110e;
+        public final /* synthetic */ String f7931e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8111f;
+        public final /* synthetic */ String f7932f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f8112g;
+        public final /* synthetic */ int f7933g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Exception f8113h;
+        public final /* synthetic */ Exception f7934h;
 
         public g(String str, String str2, int i2, Exception exc) {
             Interceptable interceptable = $ic;
@@ -420,10 +416,10 @@ public final class n {
                     return;
                 }
             }
-            this.f8110e = str;
-            this.f8111f = str2;
-            this.f8112g = i2;
-            this.f8113h = exc;
+            this.f7931e = str;
+            this.f7932f = str2;
+            this.f7933g = i2;
+            this.f7934h = exc;
         }
 
         @Override // java.lang.Runnable
@@ -437,22 +433,22 @@ public final class n {
             String Y = a0.Y();
             String appId = a0.getAppId();
             c.a.r0.a.n2.s.d dVar = new c.a.r0.a.n2.s.d();
-            dVar.f8157b = "login";
+            dVar.f7977b = "login";
             dVar.a = n.n(V.G());
-            dVar.f8161f = appId;
-            dVar.f8160e = this.f8110e;
+            dVar.f7981f = appId;
+            dVar.f7980e = this.f7931e;
             dVar.a("appName", Y);
-            dVar.a("invokeFrom", this.f8111f);
-            dVar.a("scene", Integer.valueOf(this.f8112g));
+            dVar.a("invokeFrom", this.f7932f);
+            dVar.a("scene", Integer.valueOf(this.f7933g));
             JSONObject f2 = dVar.f();
-            if (TextUtils.equals(this.f8110e, "show")) {
+            if (TextUtils.equals(this.f7931e, "show")) {
                 c.a.r0.a.e0.d.j("SwanAppUBCStatistic", "1936", "登录展示 event=" + f2, false);
                 c.a.r0.a.n2.b.i("1936", "80", f2);
-            } else if (TextUtils.equals(this.f8110e, "success")) {
+            } else if (TextUtils.equals(this.f7931e, "success")) {
                 c.a.r0.a.e0.d.j("SwanAppUBCStatistic", "1936", "登录成功 event=" + f2, false);
                 c.a.r0.a.n2.b.i("1936", "81", f2);
-            } else if (TextUtils.equals(this.f8110e, com.baidu.pass.biometrics.face.liveness.b.a.g0) || TextUtils.equals(this.f8110e, "check_fail")) {
-                c.a.r0.a.e0.d.e("SwanAppUBCStatistic", "1936", "登录失败 event=" + f2, this.f8113h, false);
+            } else if (TextUtils.equals(this.f7931e, com.baidu.pass.biometrics.face.liveness.b.a.g0) || TextUtils.equals(this.f7931e, "check_fail")) {
+                c.a.r0.a.e0.d.e("SwanAppUBCStatistic", "1936", "登录失败 event=" + f2, this.f7934h, false);
                 c.a.r0.a.n2.b.i("1936", "82", f2);
             }
         }
@@ -464,22 +460,22 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8114e;
+        public final /* synthetic */ String f7935e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8115f;
+        public final /* synthetic */ String f7936f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8116g;
+        public final /* synthetic */ String f7937g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f8117h;
+        public final /* synthetic */ boolean f7938h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Exception f8118i;
+        public final /* synthetic */ Exception f7939i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ boolean f8119j;
+        public final /* synthetic */ boolean f7940j;
 
         public h(String str, String str2, String str3, boolean z, Exception exc, boolean z2) {
             Interceptable interceptable = $ic;
@@ -496,12 +492,12 @@ public final class n {
                     return;
                 }
             }
-            this.f8114e = str;
-            this.f8115f = str2;
-            this.f8116g = str3;
-            this.f8117h = z;
-            this.f8118i = exc;
-            this.f8119j = z2;
+            this.f7935e = str;
+            this.f7936f = str2;
+            this.f7937g = str3;
+            this.f7938h = z;
+            this.f7939i = exc;
+            this.f7940j = z2;
         }
 
         @Override // java.lang.Runnable
@@ -513,21 +509,21 @@ public final class n {
                 String Y = r.Y();
                 String appId = r.getAppId();
                 c.a.r0.a.n2.s.d dVar = new c.a.r0.a.n2.s.d();
-                dVar.f8157b = "swanLogin";
+                dVar.f7977b = "swanLogin";
                 dVar.a = n.n(V.G());
-                dVar.f8161f = appId;
-                dVar.f8160e = this.f8114e;
+                dVar.f7981f = appId;
+                dVar.f7980e = this.f7935e;
                 dVar.a("appName", Y);
-                dVar.a("loginScene", this.f8115f);
-                String str = this.f8116g;
+                dVar.a("loginScene", this.f7936f);
+                String str = this.f7937g;
                 if (str != null) {
                     dVar.a("errorInfo", str);
                 }
                 JSONObject f2 = dVar.f();
-                if (this.f8117h) {
-                    c.a.r0.a.e0.d.p("SwanAppUBCStatistic", "1936", "登录取消打点 event=" + f2, this.f8118i, false);
-                } else if (this.f8119j) {
-                    c.a.r0.a.e0.d.e("SwanAppUBCStatistic", "1936", "登录失败打点 event=" + f2, this.f8118i, false);
+                if (this.f7938h) {
+                    c.a.r0.a.e0.d.p("SwanAppUBCStatistic", "1936", "登录取消打点 event=" + f2, this.f7939i, false);
+                } else if (this.f7940j) {
+                    c.a.r0.a.e0.d.e("SwanAppUBCStatistic", "1936", "登录失败打点 event=" + f2, this.f7939i, false);
                 } else {
                     c.a.r0.a.e0.d.j("SwanAppUBCStatistic", "1936", "登录数据打点 event=" + f2, false);
                 }
@@ -542,13 +538,13 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8120e;
+        public final /* synthetic */ String f7941e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8121f;
+        public final /* synthetic */ String f7942f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8122g;
+        public final /* synthetic */ String f7943g;
 
         public i(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -565,9 +561,9 @@ public final class n {
                     return;
                 }
             }
-            this.f8120e = str;
-            this.f8121f = str2;
-            this.f8122g = str3;
+            this.f7941e = str;
+            this.f7942f = str2;
+            this.f7943g = str3;
         }
 
         @Override // java.lang.Runnable
@@ -576,13 +572,13 @@ public final class n {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
                 eVar.a = n.n(c.a.r0.a.d2.d.J().r().l());
-                String str = this.f8120e;
-                eVar.f8157b = str;
-                eVar.f8162g = this.f8121f;
+                String str = this.f7941e;
+                eVar.f7977b = str;
+                eVar.f7982g = this.f7942f;
                 if (TextUtils.equals(str, "click")) {
-                    eVar.f8160e = this.f8122g;
+                    eVar.f7980e = this.f7943g;
                 }
-                eVar.f8161f = c.a.r0.a.d2.d.J().getAppId();
+                eVar.f7981f = c.a.r0.a.d2.d.J().getAppId();
                 eVar.a("source", c.a.r0.a.d2.d.J().r().V().T());
                 eVar.a("mode", "normal");
                 eVar.a("from", "login");
@@ -601,7 +597,7 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f8123e;
+        public final /* synthetic */ int f7944e;
 
         public j(int i2) {
             Interceptable interceptable = $ic;
@@ -618,16 +614,16 @@ public final class n {
                     return;
                 }
             }
-            this.f8123e = i2;
+            this.f7944e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (n.f8088c) {
+                synchronized (n.f7911c) {
                     try {
-                        n.f8088c.wait(this.f8123e);
+                        n.f7911c.wait(this.f7944e);
                     }
                 }
             }
@@ -640,10 +636,10 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.e f8124e;
+        public final /* synthetic */ c.a.r0.a.n2.s.e f7945e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.a f8125f;
+        public final /* synthetic */ c.a.r0.a.n2.a f7946f;
 
         public k(c.a.r0.a.n2.s.e eVar, c.a.r0.a.n2.a aVar) {
             Interceptable interceptable = $ic;
@@ -660,19 +656,19 @@ public final class n {
                     return;
                 }
             }
-            this.f8124e = eVar;
-            this.f8125f = aVar;
+            this.f7945e = eVar;
+            this.f7946f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.n2.s.e eVar = this.f8124e;
+                c.a.r0.a.n2.s.e eVar = this.f7945e;
                 if (eVar != null) {
-                    c.a.r0.a.n2.b.f(this.f8125f, eVar.f().toString());
+                    c.a.r0.a.n2.b.f(this.f7946f, eVar.f().toString());
                 }
-                c.a.r0.a.n2.b.c(this.f8125f);
+                c.a.r0.a.n2.b.c(this.f7946f);
             }
         }
     }
@@ -683,10 +679,10 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f8126e;
+        public final /* synthetic */ boolean f7947e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8127f;
+        public final /* synthetic */ String f7948f;
 
         public l(boolean z, String str) {
             Interceptable interceptable = $ic;
@@ -703,8 +699,8 @@ public final class n {
                     return;
                 }
             }
-            this.f8126e = z;
-            this.f8127f = str;
+            this.f7947e = z;
+            this.f7948f = str;
         }
 
         @Override // java.lang.Runnable
@@ -713,15 +709,15 @@ public final class n {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.n2.s.d dVar = new c.a.r0.a.n2.s.d();
                 dVar.a = n.n(c.a.r0.a.d2.d.J().r().l());
-                dVar.f8161f = c.a.r0.a.d2.d.J().getAppId();
-                dVar.a("type", Integer.valueOf(this.f8126e ? 1 : 2));
+                dVar.f7981f = c.a.r0.a.d2.d.J().getAppId();
+                dVar.a("type", Integer.valueOf(this.f7947e ? 1 : 2));
                 dVar.a("errorCode", Long.valueOf(c.a.r0.a.b3.b.c().g()));
-                dVar.a("degradeUrl", this.f8127f);
+                dVar.a("degradeUrl", this.f7948f);
                 dVar.a("appid", c.a.r0.a.d2.d.J().getAppId());
                 dVar.a("hostname", c.a.r0.a.c1.a.n().a());
                 dVar.a("_swebfr", c.a.r0.a.b3.c.e());
                 c.a.r0.a.n2.b.i("3863", "3863", dVar.f());
-                if (this.f8126e) {
+                if (this.f7947e) {
                     c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
                     aVar.k(1L);
                     aVar.i(2108L);
@@ -743,13 +739,13 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.d f8128e;
+        public final /* synthetic */ c.a.r0.a.n2.s.d f7949e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f8129f;
+        public final /* synthetic */ long f7950f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Exception f8130g;
+        public final /* synthetic */ Exception f7951g;
 
         public m(c.a.r0.a.n2.s.d dVar, long j2, Exception exc) {
             Interceptable interceptable = $ic;
@@ -766,20 +762,20 @@ public final class n {
                     return;
                 }
             }
-            this.f8128e = dVar;
-            this.f8129f = j2;
-            this.f8130g = exc;
+            this.f7949e = dVar;
+            this.f7950f = j2;
+            this.f7951g = exc;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (TextUtils.isEmpty(this.f8128e.g())) {
-                    this.f8128e.k(c.a.r0.a.d2.d.J().r().V().V());
+                if (TextUtils.isEmpty(this.f7949e.g())) {
+                    this.f7949e.k(c.a.r0.a.d2.d.J().r().V().V());
                 }
-                JSONObject f2 = this.f8128e.f();
-                c.a.r0.a.e0.d.e("SwanAppUBCStatistic", "671", "稳定性打点 since=" + c.a.r0.a.z2.k.e(new Date(this.f8129f), "yyyy-MM-dd HH:mm:ss.SSS") + " event=" + f2, this.f8130g, false);
+                JSONObject f2 = this.f7949e.f();
+                c.a.r0.a.e0.d.e("SwanAppUBCStatistic", "671", "稳定性打点 since=" + c.a.r0.a.z2.k.e(new Date(this.f7950f), "yyyy-MM-dd HH:mm:ss.SSS") + " event=" + f2, this.f7951g, false);
                 c.a.r0.a.n2.b.k("671", f2);
             }
         }
@@ -787,17 +783,17 @@ public final class n {
 
     /* renamed from: c.a.r0.a.n2.n$n  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0471n implements Runnable {
+    public static class RunnableC0480n implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.e f8131e;
+        public final /* synthetic */ c.a.r0.a.n2.s.e f7952e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8132f;
+        public final /* synthetic */ String f7953f;
 
-        public RunnableC0471n(c.a.r0.a.n2.s.e eVar, String str) {
+        public RunnableC0480n(c.a.r0.a.n2.s.e eVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -812,17 +808,17 @@ public final class n {
                     return;
                 }
             }
-            this.f8131e = eVar;
-            this.f8132f = str;
+            this.f7952e = eVar;
+            this.f7953f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject f2 = this.f8131e.f();
-                c.a.r0.a.n2.b.k(this.f8132f, f2);
-                if ("606".equals(this.f8132f)) {
+                JSONObject f2 = this.f7952e.f();
+                c.a.r0.a.n2.b.k(this.f7953f, f2);
+                if ("606".equals(this.f7953f)) {
                     c.a.r0.a.n2.l.a().b(f2.toString());
                 }
             }
@@ -835,13 +831,13 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8133e;
+        public final /* synthetic */ String f7954e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8134f;
+        public final /* synthetic */ String f7955f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.e f8135g;
+        public final /* synthetic */ c.a.r0.a.n2.s.e f7956g;
 
         public o(String str, String str2, c.a.r0.a.n2.s.e eVar) {
             Interceptable interceptable = $ic;
@@ -858,16 +854,16 @@ public final class n {
                     return;
                 }
             }
-            this.f8133e = str;
-            this.f8134f = str2;
-            this.f8135g = eVar;
+            this.f7954e = str;
+            this.f7955f = str2;
+            this.f7956g = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.n2.b.i(this.f8133e, this.f8134f, this.f8135g.f());
+                c.a.r0.a.n2.b.i(this.f7954e, this.f7955f, this.f7956g.f());
             }
         }
     }
@@ -878,7 +874,7 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.b f8136e;
+        public final /* synthetic */ c.a.r0.a.n2.s.b f7957e;
 
         public p(c.a.r0.a.n2.s.b bVar) {
             Interceptable interceptable = $ic;
@@ -895,14 +891,14 @@ public final class n {
                     return;
                 }
             }
-            this.f8136e = bVar;
+            this.f7957e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.n2.b.k("751", this.f8136e.f());
+                c.a.r0.a.n2.b.k("751", this.f7957e.f());
             }
         }
     }
@@ -913,7 +909,7 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.b f8137e;
+        public final /* synthetic */ c.a.r0.a.n2.s.b f7958e;
 
         public q(c.a.r0.a.n2.s.b bVar) {
             Interceptable interceptable = $ic;
@@ -930,14 +926,14 @@ public final class n {
                     return;
                 }
             }
-            this.f8137e = bVar;
+            this.f7958e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.n2.b.k("751", this.f8137e.f());
+                c.a.r0.a.n2.b.k("751", this.f7958e.f());
             }
         }
     }
@@ -948,7 +944,7 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.b f8138e;
+        public final /* synthetic */ c.a.r0.a.n2.s.b f7959e;
 
         public r(c.a.r0.a.n2.s.b bVar) {
             Interceptable interceptable = $ic;
@@ -965,14 +961,14 @@ public final class n {
                     return;
                 }
             }
-            this.f8138e = bVar;
+            this.f7959e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.n2.b.k("751", this.f8138e.f());
+                c.a.r0.a.n2.b.k("751", this.f7959e.f());
             }
         }
     }
@@ -983,7 +979,7 @@ public final class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.b f8139e;
+        public final /* synthetic */ c.a.r0.a.n2.s.b f7960e;
 
         public s(c.a.r0.a.n2.s.b bVar) {
             Interceptable interceptable = $ic;
@@ -1000,14 +996,14 @@ public final class n {
                     return;
                 }
             }
-            this.f8139e = bVar;
+            this.f7960e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.n2.b.k("751", this.f8139e.f());
+                c.a.r0.a.n2.b.k("751", this.f7960e.f());
             }
         }
     }
@@ -1026,16 +1022,16 @@ public final class n {
             }
         }
         a = c.a.r0.a.k.a;
-        f8087b = Executors.newSingleThreadExecutor();
-        f8088c = new Object();
-        f8089d = Sets.newHashSet("hmma.baidu.com");
+        f7910b = Executors.newSingleThreadExecutor();
+        f7911c = new Object();
+        f7912d = Sets.newHashSet("hmma.baidu.com");
         CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-        f8090e = copyOnWriteArrayList;
+        f7913e = copyOnWriteArrayList;
         copyOnWriteArrayList.add("https://hmma.baidu.com/mini.gif");
-        f8090e.add("https://dxp.baidu.com/mini");
-        CopyOnWriteArrayList<String> copyOnWriteArrayList2 = f8090e;
+        f7913e.add("https://dxp.baidu.com/mini");
+        CopyOnWriteArrayList<String> copyOnWriteArrayList2 = f7913e;
         copyOnWriteArrayList2.add(c.a.r0.a.d0.a.c() + "/smtapp/recordhandler/getrecordinfo");
-        CopyOnWriteArrayList<String> copyOnWriteArrayList3 = f8090e;
+        CopyOnWriteArrayList<String> copyOnWriteArrayList3 = f7913e;
         copyOnWriteArrayList3.add(c.a.r0.a.d0.a.b() + "/smtapp/recordhandler/getrecordinfo");
     }
 
@@ -1078,16 +1074,16 @@ public final class n {
         long currentTimeMillis = System.currentTimeMillis();
         c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
         fVar.a = n(c.a.r0.a.d2.d.J().l());
-        fVar.f8161f = V.H();
+        fVar.f7981f = V.H();
         if (c.a.r0.a.x1.a.a.F(V.g0())) {
-            fVar.f8158c = "remote-debug";
+            fVar.f7978c = "remote-debug";
         } else if (c.a.r0.a.x1.a.a.D()) {
-            fVar.f8158c = "local-debug";
+            fVar.f7978c = "local-debug";
         } else {
-            fVar.f8158c = V.T();
+            fVar.f7978c = V.T();
         }
-        fVar.f8157b = "launch";
-        fVar.f8160e = "success";
+        fVar.f7977b = "launch";
+        fVar.f7980e = "success";
         fVar.r = String.valueOf(currentTimeMillis - l2);
         fVar.a("status", "0");
         c.a.r0.a.n2.e.n(fVar, V.W(), V.s0().getString(UBCCloudControlProcessor.UBC_KEY));
@@ -1108,10 +1104,10 @@ public final class n {
             if (c.a.r0.a.d2.d.J().r().H()) {
                 eVar.d(c.a.r0.a.d2.d.J().r().V().s0().getString(UBCCloudControlProcessor.UBC_KEY));
             }
-            eVar.f8157b = "show";
-            eVar.f8158c = str;
-            eVar.f8160e = z ? "success" : com.baidu.pass.biometrics.face.liveness.b.a.g0;
-            eVar.f8161f = c.a.r0.a.d2.e.f0();
+            eVar.f7977b = "show";
+            eVar.f7978c = str;
+            eVar.f7980e = z ? "success" : com.baidu.pass.biometrics.face.liveness.b.a.g0;
+            eVar.f7981f = c.a.r0.a.d2.e.f0();
             c.a.r0.a.u1.k.i.c.e().d(new a(eVar), "SwanAppUBCOnPagesRoute", true);
         }
     }
@@ -1130,9 +1126,9 @@ public final class n {
                 str3 = "";
             }
             c.a.r0.a.n2.s.b bVar = new c.a.r0.a.n2.s.b();
-            bVar.f8157b = "pay";
-            bVar.f8158c = str;
-            bVar.f8161f = c.a.r0.a.d2.e.f0();
+            bVar.f7977b = "pay";
+            bVar.f7978c = str;
+            bVar.f7981f = c.a.r0.a.d2.e.f0();
             bVar.a = n(i2);
             try {
                 JSONObject jSONObject = new JSONObject(str3);
@@ -1161,10 +1157,10 @@ public final class n {
             if (c.a.r0.a.d2.d.J().r().H()) {
                 bVar.d(V.s0().getString(UBCCloudControlProcessor.UBC_KEY));
             }
-            bVar.f8157b = "pay";
-            bVar.f8160e = z ? "success" : com.baidu.pass.biometrics.face.liveness.b.a.g0;
-            bVar.f8158c = str;
-            bVar.f8161f = c.a.r0.a.d2.e.f0();
+            bVar.f7977b = "pay";
+            bVar.f7980e = z ? "success" : com.baidu.pass.biometrics.face.liveness.b.a.g0;
+            bVar.f7978c = str;
+            bVar.f7981f = c.a.r0.a.d2.e.f0();
             bVar.a = n(V.G());
             bVar.a("money", str2);
             bVar.b(Z());
@@ -1178,10 +1174,10 @@ public final class n {
             b.a V = c.a.r0.a.d2.d.J().r().V();
             int G = V.G();
             c.a.r0.a.n2.s.b bVar = new c.a.r0.a.n2.s.b();
-            bVar.f8157b = "paykey";
+            bVar.f7977b = "paykey";
             bVar.a = n(G);
-            bVar.f8158c = str;
-            bVar.f8160e = str4;
+            bVar.f7978c = str;
+            bVar.f7980e = str4;
             bVar.a("appid", V.H());
             bVar.a("money", str2);
             bVar.a("source", V.T());
@@ -1198,11 +1194,11 @@ public final class n {
             if (c.a.r0.a.d2.d.J().r().H()) {
                 bVar.d(V.s0().getString(UBCCloudControlProcessor.UBC_KEY));
             }
-            bVar.f8157b = "paylogin";
-            bVar.f8158c = str;
-            bVar.f8161f = V.I();
+            bVar.f7977b = "paylogin";
+            bVar.f7978c = str;
+            bVar.f7981f = V.I();
             bVar.a = n(V.G());
-            bVar.f8160e = z ? "success" : com.baidu.pass.biometrics.face.liveness.b.a.g0;
+            bVar.f7980e = z ? "success" : com.baidu.pass.biometrics.face.liveness.b.a.g0;
             bVar.a("nativeAppId", c.a.r0.a.c1.a.n().a());
             bVar.a("paylogin", z2 ? "1" : "0");
             c.a.r0.a.h0.g.f H = c.a.r0.a.g1.f.U().H();
@@ -1221,9 +1217,9 @@ public final class n {
             b.a V = c.a.r0.a.d2.d.J().r().V();
             int G = V.G();
             c.a.r0.a.n2.s.b bVar = new c.a.r0.a.n2.s.b();
-            bVar.f8157b = "payProcess";
+            bVar.f7977b = "payProcess";
             bVar.a = n(G);
-            bVar.f8158c = str;
+            bVar.f7978c = str;
             bVar.a("paymentProcess", str2);
             bVar.a("appid", V.H());
             bVar.a("source", V.T());
@@ -1248,13 +1244,13 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) {
             c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-            fVar.f8157b = "launch";
-            fVar.f8160e = str;
+            fVar.f7977b = "launch";
+            fVar.f7980e = str;
             if (c.a.r0.a.d2.e.a0() != null) {
                 b.a V = c.a.r0.a.d2.e.a0().V();
                 fVar.a = n(V.G());
-                fVar.f8161f = V.H();
-                fVar.f8158c = V.T();
+                fVar.f7981f = V.H();
+                fVar.f7978c = V.T();
             }
             fVar.t = str2;
             onEvent(fVar);
@@ -1264,7 +1260,7 @@ public final class n {
     public static void M(int i2, String str, int i3, String str2, @Nullable String str3, @Nullable String str4, String str5, long j2, long j3, @Nullable NetworkStatRecord networkStatRecord, @NonNull String str6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), str2, str3, str4, str5, Long.valueOf(j2), Long.valueOf(j3), networkStatRecord, str6}) == null) {
-            f8087b.execute(new b(str, j3, j2, i2, i3, str5, str6, str2, str3, str4, networkStatRecord));
+            f7910b.execute(new b(str, j3, j2, i2, i3, str5, str6, str2, str3, str4, networkStatRecord));
         }
     }
 
@@ -1291,7 +1287,7 @@ public final class n {
                     if (a) {
                         String str5 = "RequestForAvatar: onRequestForAvatar: miss. host is empty, url=" + str2;
                     }
-                } else if (f8089d.contains(host)) {
+                } else if (f7912d.contains(host)) {
                     if (a) {
                         String str6 = "RequestForAvatar: onRequestForAvatar: miss. host is ignored, host=" + host + " ,url=" + str2;
                     }
@@ -1337,7 +1333,7 @@ public final class n {
     public static void S(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65555, null, str, i2, str2) == null) {
-            f8087b.execute(new g(str, str2, i2, TextUtils.equals(str, com.baidu.pass.biometrics.face.liveness.b.a.g0) ? new Exception("stack") : null));
+            f7910b.execute(new g(str, str2, i2, TextUtils.equals(str, com.baidu.pass.biometrics.face.liveness.b.a.g0) ? new Exception("stack") : null));
         }
     }
 
@@ -1353,14 +1349,14 @@ public final class n {
         if (interceptable == null || interceptable.invokeLLL(65557, null, str, str2, str3) == null) {
             boolean equals = TextUtils.equals(str2, QueryResponse.Options.CANCEL);
             boolean equals2 = TextUtils.equals(str2, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-            f8087b.execute(new h(str2, str, str3, equals, (equals || equals2) ? new Exception("stack") : null, equals2));
+            f7910b.execute(new h(str2, str, str3, equals, (equals || equals2) ? new Exception("stack") : null, equals2));
         }
     }
 
     public static void V(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(65558, null, z, str) == null) {
-            f8087b.execute(new l(z, str));
+            f7910b.execute(new l(z, str));
         }
     }
 
@@ -1381,8 +1377,8 @@ public final class n {
                 str4 = str3;
             }
             eVar.a = str5;
-            eVar.f8157b = AlbumActivityConfig.FROM_WEB_VIEW;
-            eVar.f8158c = str3;
+            eVar.f7977b = AlbumActivityConfig.FROM_WEB_VIEW;
+            eVar.f7978c = str3;
             eVar.a("appkey", str4);
             eVar.a("url", str);
             eVar.a("browser", str2);
@@ -1438,8 +1434,8 @@ public final class n {
                     String valueOf = String.valueOf(System.currentTimeMillis() - r2.V().u1());
                     c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
                     fVar.a = n(V.G());
-                    fVar.f8157b = "launch";
-                    fVar.f8160e = QueryResponse.Options.CANCEL;
+                    fVar.f7977b = "launch";
+                    fVar.f7980e = QueryResponse.Options.CANCEL;
                     fVar.q = valueOf;
                     fVar.j(V);
                     fVar.d(s0.getString(UBCCloudControlProcessor.UBC_KEY));
@@ -1447,8 +1443,8 @@ public final class n {
                     onEvent(fVar);
                     c.a.r0.a.n2.s.f fVar2 = new c.a.r0.a.n2.s.f();
                     fVar2.a = n(V.G());
-                    fVar2.f8157b = "launch";
-                    fVar2.f8160e = "realcancel";
+                    fVar2.f7977b = "launch";
+                    fVar2.f7980e = "realcancel";
                     fVar2.q = valueOf;
                     fVar2.j(V);
                     fVar2.b(k(V.W()));
@@ -1482,7 +1478,7 @@ public final class n {
     public static void a0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65564, null, i2) == null) {
-            f8087b.execute(new j(i2));
+            f7910b.execute(new j(i2));
         }
     }
 
@@ -1505,7 +1501,7 @@ public final class n {
         }
         b.a X = c.a.r0.a.d2.e.L().X();
         fVar.a = n(X.G());
-        fVar.f8161f = X.H();
+        fVar.f7981f = X.H();
         fVar.a("appkey", X.I());
         x("1032", fVar);
     }
@@ -1515,7 +1511,7 @@ public final class n {
         if (interceptable == null || interceptable.invokeL(65568, null, str) == null) {
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
             eVar.a = n(0);
-            eVar.f8157b = str;
+            eVar.f7977b = str;
             x("956", eVar);
         }
     }
@@ -1527,10 +1523,10 @@ public final class n {
             if (c.a.r0.a.d2.e.L() != null && c.a.r0.a.d2.e.L().X() != null) {
                 b.a X = c.a.r0.a.d2.e.L().X();
                 eVar.a = n(X.G());
-                eVar.f8161f = X.H();
-                eVar.f8157b = str;
-                eVar.f8158c = str2;
-                eVar.f8160e = str3;
+                eVar.f7981f = X.H();
+                eVar.f7977b = str;
+                eVar.f7978c = str2;
+                eVar.f7980e = str3;
                 eVar.a("appkey", X.I());
             }
             x("923", eVar);
@@ -1543,8 +1539,8 @@ public final class n {
             if (c.a.r0.a.d2.e.L() != null && c.a.r0.a.d2.e.L().X() != null) {
                 b.a X = c.a.r0.a.d2.e.L().X();
                 eVar.a = n(X.G());
-                eVar.f8161f = X.H();
-                eVar.f8158c = X.T();
+                eVar.f7981f = X.H();
+                eVar.f7978c = X.T();
             }
             x("936", eVar);
         }
@@ -1556,8 +1552,8 @@ public final class n {
             if (c.a.r0.a.d2.e.L() != null && c.a.r0.a.d2.e.L().X() != null) {
                 b.a X = c.a.r0.a.d2.e.L().X();
                 eVar.a = n(X.G());
-                eVar.f8161f = X.H();
-                eVar.f8158c = X.T();
+                eVar.f7981f = X.H();
+                eVar.f7978c = X.T();
             }
             x("914", eVar);
         }
@@ -1592,16 +1588,16 @@ public final class n {
             if (!TextUtils.isEmpty(str4)) {
                 cVar.q(str4);
             }
-            cVar.f8157b = "request";
+            cVar.f7977b = "request";
             c.a.r0.a.d2.e r2 = c.a.r0.a.d2.d.J().r();
             if (r2 != null && r2.H()) {
-                cVar.f8158c = r2.V().T();
-                cVar.f8159d = r2.V().V();
+                cVar.f7978c = r2.V().T();
+                cVar.f7979d = r2.V().V();
             }
-            cVar.f8161f = c.a.r0.a.d2.e.f0();
+            cVar.f7981f = c.a.r0.a.d2.e.f0();
             cVar.a = n(i3);
             JSONObject X = X(networkStatRecord);
-            aVar.f8146b = X;
+            aVar.f7967b = X;
             if (X != null) {
                 cVar.e(X);
             }
@@ -1687,9 +1683,9 @@ public final class n {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int size = f8090e.size();
+            int size = f7913e.size();
             for (int i2 = 0; i2 < size; i2++) {
-                String str3 = f8090e.get(i2);
+                String str3 = f7913e.get(i2);
                 if (!TextUtils.isEmpty(str3) && str.startsWith(str3)) {
                     if (a) {
                         String str4 = "isIgnoreRequest: ignore " + str;
@@ -1721,9 +1717,9 @@ public final class n {
     public static void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65580, null) == null) {
-            synchronized (f8088c) {
+            synchronized (f7911c) {
                 try {
-                    f8088c.notifyAll();
+                    f7911c.notifyAll();
                 }
             }
         }
@@ -1733,12 +1729,12 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65581, null, str, str2, z) == null) {
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f8157b = str;
-            eVar.f8160e = str2;
-            eVar.f8161f = c.a.r0.a.d2.e.f0();
+            eVar.f7977b = str;
+            eVar.f7980e = str2;
+            eVar.f7981f = c.a.r0.a.d2.e.f0();
             if (c.a.r0.a.d2.e.L() != null && c.a.r0.a.d2.e.L().X() != null) {
                 b.a X = c.a.r0.a.d2.e.L().X();
-                eVar.f8158c = X.T();
+                eVar.f7978c = X.T();
                 eVar.a = n(X.G());
             }
             if (TextUtils.equals("click", str)) {
@@ -1767,7 +1763,7 @@ public final class n {
                 jSONObject.put("msg", c.a.r0.a.h2.c.d.f(i2));
                 jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, a0.d0().q("cur_request_id", ""));
                 if (fVar != null) {
-                    jSONObject.put("scope", fVar.f7279b);
+                    jSONObject.put("scope", fVar.f7123b);
                     jSONObject.put("scopeData", fVar.a);
                 }
             } catch (JSONException e2) {
@@ -1783,7 +1779,7 @@ public final class n {
     public static void s(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65583, null, str, str2, str3) == null) {
-            f8087b.execute(new i(str, str2, str3));
+            f7910b.execute(new i(str, str2, str3));
         }
     }
 
@@ -1793,7 +1789,7 @@ public final class n {
         if (!(interceptable == null || interceptable.invokeCommon(65584, null, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), str2, str3, str4, str5}) == null) || i2 == 200) {
             return;
         }
-        f8087b.execute(new c(str5, i2, str, str2, str3, str4, i3));
+        f7910b.execute(new c(str5, i2, str, str2, str3, str4, i3));
     }
 
     public static void u(int i2, String str, int i3, String str2) {
@@ -1815,7 +1811,7 @@ public final class n {
         if (!(interceptable == null || interceptable.invokeLL(65587, null, forbiddenInfo, str) == null) || forbiddenInfo == null || TextUtils.isEmpty(str)) {
             return;
         }
-        f8087b.execute(new f(str, forbiddenInfo));
+        f7910b.execute(new f(str, forbiddenInfo));
     }
 
     public static void x(String str, c.a.r0.a.n2.s.e eVar) {
@@ -1823,7 +1819,7 @@ public final class n {
         if (!(interceptable == null || interceptable.invokeLL(65588, null, str, eVar) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        c.a.r0.a.u1.k.i.c.e().d(new RunnableC0471n(eVar, str), "SwanAppUBCOnEvent", true);
+        c.a.r0.a.u1.k.i.c.e().d(new RunnableC0480n(eVar, str), "SwanAppUBCOnEvent", true);
     }
 
     public static void y(String str, String str2, c.a.r0.a.n2.s.e eVar) {

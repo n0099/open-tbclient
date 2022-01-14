@@ -18,18 +18,18 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f5977e;
+    public static final boolean f5846e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.z2.g1.c<b> f5978b;
+    public c.a.r0.a.z2.g1.c<b> f5847b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<C0311b> f5979c;
+    public final List<C0320b> f5848c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5980d;
+    public String f5849d;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -39,28 +39,28 @@ public final class b {
 
     /* renamed from: c.a.r0.a.f1.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0311b {
+    public class C0320b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final List<String> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<String> f5981b;
+        public final List<String> f5850b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5982c;
+        public String f5851c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final List<StackTraceElement> f5983d;
+        public final List<StackTraceElement> f5852d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f5984e;
+        public final /* synthetic */ b f5853e;
 
-        public /* synthetic */ C0311b(b bVar, a aVar) {
+        public /* synthetic */ C0320b(b bVar, a aVar) {
             this(bVar);
         }
 
-        public synchronized C0311b a(String str) {
+        public synchronized C0320b a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -73,32 +73,32 @@ public final class b {
                 }
                 return this;
             }
-            return (C0311b) invokeL.objValue;
+            return (C0320b) invokeL.objValue;
         }
 
-        public C0311b b(String str) {
+        public C0320b b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f5982c = str;
+                this.f5851c = str;
                 return this;
             }
-            return (C0311b) invokeL.objValue;
+            return (C0320b) invokeL.objValue;
         }
 
-        public synchronized C0311b c() {
+        public synchronized C0320b c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 synchronized (this) {
-                    d(this.f5983d.size());
+                    d(this.f5852d.size());
                 }
                 return this;
             }
-            return (C0311b) invokeV.objValue;
+            return (C0320b) invokeV.objValue;
         }
 
-        public synchronized C0311b d(int i2) {
+        public synchronized C0320b d(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
@@ -106,20 +106,20 @@ public final class b {
                     if (i2 < 1) {
                         i2 = 1;
                     }
-                    if (i2 > this.f5983d.size()) {
-                        i2 = this.f5983d.size();
+                    if (i2 > this.f5852d.size()) {
+                        i2 = this.f5852d.size();
                     }
                     for (int i3 = 0; i3 < i2; i3++) {
-                        b bVar = this.f5984e;
-                        bVar.e("[Trace]==> " + this.f5983d.get(i3).toString());
+                        b bVar = this.f5853e;
+                        bVar.e("[Trace]==> " + this.f5852d.get(i3).toString());
                     }
                 }
                 return this;
             }
-            return (C0311b) invokeI.objValue;
+            return (C0320b) invokeI.objValue;
         }
 
-        public synchronized C0311b e() {
+        public synchronized C0320b e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -128,10 +128,10 @@ public final class b {
                 }
                 return this;
             }
-            return (C0311b) invokeV.objValue;
+            return (C0320b) invokeV.objValue;
         }
 
-        public C0311b(b bVar) {
+        public C0320b(b bVar) {
             StackTraceElement[] stackTrace;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -147,15 +147,15 @@ public final class b {
                     return;
                 }
             }
-            this.f5984e = bVar;
+            this.f5853e = bVar;
             this.a = new ArrayList();
-            this.f5981b = new ArrayList();
-            this.f5983d = new ArrayList();
+            this.f5850b = new ArrayList();
+            this.f5852d = new ArrayList();
             int i4 = 0;
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 i4++;
-                if (i4 > 2 && !stackTraceElement.getClassName().startsWith(bVar.f5980d)) {
-                    this.f5983d.add(stackTraceElement);
+                if (i4 > 2 && !stackTraceElement.getClassName().startsWith(bVar.f5849d)) {
+                    this.f5852d.add(stackTraceElement);
                 }
             }
         }
@@ -185,7 +185,7 @@ public final class b {
         public final void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                boolean unused = b.f5977e;
+                boolean unused = b.f5846e;
             }
         }
 
@@ -194,11 +194,11 @@ public final class b {
         /* renamed from: b */
         public void onCallback(b bVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && b.f5977e) {
-                for (C0311b c0311b : bVar.f5979c) {
-                    for (String str : c0311b.a) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && b.f5846e) {
+                for (C0320b c0320b : bVar.f5848c) {
+                    for (String str : c0320b.a) {
                         String h2 = bVar.h();
-                        String str2 = TextUtils.isEmpty(c0311b.f5982c) ? h2 : c0311b.f5982c;
+                        String str2 = TextUtils.isEmpty(c0320b.f5851c) ? h2 : c0320b.f5851c;
                         a(str2, h2 + " >>> " + str);
                     }
                 }
@@ -223,7 +223,7 @@ public final class b {
                 return;
             }
         }
-        f5977e = k.a;
+        f5846e = k.a;
     }
 
     public b() {
@@ -239,27 +239,27 @@ public final class b {
                 return;
             }
         }
-        this.f5979c = new ArrayList();
-        this.f5980d = b.class.getPackage().getName();
+        this.f5848c = new ArrayList();
+        this.f5849d = b.class.getPackage().getName();
     }
 
-    public synchronized C0311b d() {
+    public synchronized C0320b d() {
         InterceptResult invokeV;
-        C0311b c0311b;
+        C0320b c0320b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                c0311b = new C0311b(this, null);
-                this.f5979c.add(c0311b);
+                c0320b = new C0320b(this, null);
+                this.f5848c.add(c0320b);
             }
-            return c0311b;
+            return c0320b;
         }
-        return (C0311b) invokeV.objValue;
+        return (C0320b) invokeV.objValue;
     }
 
-    public synchronized C0311b e(String str) {
+    public synchronized C0320b e(String str) {
         InterceptResult invokeL;
-        C0311b d2;
+        C0320b d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             synchronized (this) {
@@ -268,12 +268,12 @@ public final class b {
             }
             return d2;
         }
-        return (C0311b) invokeL.objValue;
+        return (C0320b) invokeL.objValue;
     }
 
-    public synchronized C0311b f(String str, String str2) {
+    public synchronized C0320b f(String str, String str2) {
         InterceptResult invokeLL;
-        C0311b e2;
+        C0320b e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             synchronized (this) {
@@ -282,7 +282,7 @@ public final class b {
             }
             return e2;
         }
-        return (C0311b) invokeLL.objValue;
+        return (C0320b) invokeLL.objValue;
     }
 
     public b g(String str) {
@@ -301,13 +301,13 @@ public final class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public synchronized List<C0311b> i() {
+    public synchronized List<C0320b> i() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                arrayList = new ArrayList(this.f5979c);
+                arrayList = new ArrayList(this.f5848c);
             }
             return arrayList;
         }
@@ -319,7 +319,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                k(this.f5978b);
+                k(this.f5847b);
             }
             return this;
         }
@@ -349,7 +349,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar)) == null) {
-            this.f5978b = cVar;
+            this.f5847b = cVar;
             return this;
         }
         return (b) invokeL.objValue;

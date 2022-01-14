@@ -8,41 +8,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import tbclient.VideoTemplateContent;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f20415b;
+    public int f19869b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20416c;
+    public int f19870c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20417d;
+    public int f19871d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f20418e;
+    public long f19872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f20419f;
+    public long f19873f;
 
     /* renamed from: g  reason: collision with root package name */
-    public double f20420g;
+    public double f19874g;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f20421h;
+    public double f19875h;
 
     /* renamed from: i  reason: collision with root package name */
-    public double f20422i;
+    public double f19876i;
 
     /* renamed from: j  reason: collision with root package name */
-    public double f20423j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f20424k;
+    public double f19877j;
+    public String k;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -62,16 +60,16 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoTemplateContent) == null) {
             this.a = videoTemplateContent.content;
-            this.f20415b = videoTemplateContent.type.intValue();
-            this.f20416c = videoTemplateContent.pic_width.intValue();
-            this.f20417d = videoTemplateContent.pic_height.intValue();
-            this.f20418e = videoTemplateContent.start_time.longValue();
-            this.f20419f = videoTemplateContent.end_time.longValue();
-            this.f20420g = videoTemplateContent.position_x.doubleValue();
-            this.f20421h = videoTemplateContent.position_y.doubleValue();
-            this.f20422i = videoTemplateContent.position_type.doubleValue();
-            this.f20423j = videoTemplateContent.text_size.doubleValue();
-            this.f20424k = videoTemplateContent.text_color;
+            this.f19869b = videoTemplateContent.type.intValue();
+            this.f19870c = videoTemplateContent.pic_width.intValue();
+            this.f19871d = videoTemplateContent.pic_height.intValue();
+            this.f19872e = videoTemplateContent.start_time.longValue();
+            this.f19873f = videoTemplateContent.end_time.longValue();
+            this.f19874g = videoTemplateContent.position_x.doubleValue();
+            this.f19875h = videoTemplateContent.position_y.doubleValue();
+            this.f19876i = videoTemplateContent.position_type.doubleValue();
+            this.f19877j = videoTemplateContent.text_size.doubleValue();
+            this.k = videoTemplateContent.text_color;
         }
     }
 
@@ -79,7 +77,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "AnniversaryContentData{content='" + this.a + ExtendedMessageFormat.QUOTE + ", type=" + this.f20415b + ", picWidth=" + this.f20416c + ", picHeight=" + this.f20417d + ", startTime=" + this.f20418e + ", endTime=" + this.f20419f + ", x=" + this.f20420g + ", y=" + this.f20421h + ", positionType=" + this.f20422i + ", textSize=" + this.f20423j + ", textColor='" + this.f20424k + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "AnniversaryContentData{content='" + this.a + ExtendedMessageFormat.QUOTE + ", type=" + this.f19869b + ", picWidth=" + this.f19870c + ", picHeight=" + this.f19871d + ", startTime=" + this.f19872e + ", endTime=" + this.f19873f + ", x=" + this.f19874g + ", y=" + this.f19875h + ", positionType=" + this.f19876i + ", textSize=" + this.f19877j + ", textColor='" + this.k + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

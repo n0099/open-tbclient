@@ -15,16 +15,16 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24657b;
+    public String f23974b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f24658c;
+    public long f23975c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f24659d;
+    public long f23976d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f24660e;
+    public List<String> f23977e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,13 +43,13 @@ public class a {
     public List<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24660e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23977e : (List) invokeV.objValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24658c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23975c : invokeV.longValue;
     }
 
     public int c() {
@@ -61,13 +61,13 @@ public class a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24657b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23974b : (String) invokeV.objValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24659d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23976d : invokeV.longValue;
     }
 
     public void f(ForumPopupInfo forumPopupInfo) {
@@ -76,9 +76,9 @@ public class a {
             return;
         }
         this.a = forumPopupInfo.forum_id.intValue();
-        this.f24658c = forumPopupInfo.mem_count_static.intValue();
-        this.f24659d = forumPopupInfo.thread_count_static.intValue();
-        this.f24660e = forumPopupInfo.forum_names;
-        this.f24657b = forumPopupInfo.forum_name;
+        this.f23975c = forumPopupInfo.mem_count_static.intValue();
+        this.f23976d = forumPopupInfo.thread_count_static.intValue();
+        this.f23977e = forumPopupInfo.forum_names;
+        this.f23974b = forumPopupInfo.forum_name;
     }
 }

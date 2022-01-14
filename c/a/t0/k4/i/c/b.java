@@ -24,10 +24,10 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.t0.k4.i.e.a> f19327e;
+    public List<c.a.t0.k4.i.e.a> f18831e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.k4.i.e.a f19328f;
+    public c.a.t0.k4.i.e.a f18832f;
 
     /* loaded from: classes7.dex */
     public class a {
@@ -36,7 +36,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
         public TbImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f19329b;
+        public TextView f18833b;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -68,25 +68,25 @@ public class b extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        this.f19327e = new ArrayList();
+        this.f18831e = new ArrayList();
     }
 
     public List<c.a.t0.k4.i.e.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19327e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18831e : (List) invokeV.objValue;
     }
 
     public void b(c.a.t0.k4.i.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (aVar == null) {
-                List<c.a.t0.k4.i.e.a> list = this.f19327e;
+                List<c.a.t0.k4.i.e.a> list = this.f18831e;
                 if (list != null) {
-                    this.f19328f = list.get(0);
+                    this.f18832f = list.get(0);
                 }
             } else {
-                this.f19328f = aVar;
+                this.f18832f = aVar;
             }
             notifyDataSetChanged();
         }
@@ -97,9 +97,9 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null) {
             return;
         }
-        this.f19327e = list;
+        this.f18831e = list;
         if (list.size() > 0) {
-            this.f19328f = this.f19327e.get(0);
+            this.f18832f = this.f18831e.get(0);
         }
     }
 
@@ -107,7 +107,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19327e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18831e.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -115,10 +115,10 @@ public class b extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (i2 < 0 || i2 >= this.f19327e.size()) {
+            if (i2 < 0 || i2 >= this.f18831e.size()) {
                 return null;
             }
-            return this.f19327e.get(i2);
+            return this.f18831e.get(i2);
         }
         return invokeI.objValue;
     }
@@ -153,23 +153,23 @@ public class b extends BaseAdapter implements View.OnClickListener {
                 aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
                 aVar.a.setConrers(15);
                 TextView textView = (TextView) view2.findViewById(R.id.tv_name);
-                aVar.f19329b = textView;
+                aVar.f18833b = textView;
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107);
-                aVar.f19329b = (TextView) view2.findViewById(R.id.tv_name);
+                aVar.f18833b = (TextView) view2.findViewById(R.id.tv_name);
                 view2.setTag(aVar);
             } else {
                 view2 = view;
                 aVar = (a) view.getTag();
             }
-            if (i2 >= 0 && i2 < this.f19327e.size()) {
-                c.a.t0.k4.i.e.a aVar3 = this.f19327e.get(i2);
+            if (i2 >= 0 && i2 < this.f18831e.size()) {
+                c.a.t0.k4.i.e.a aVar3 = this.f18831e.get(i2);
                 if (aVar3 != null) {
                     aVar.a.setTag(aVar3);
                     aVar.a.setOnClickListener(this);
-                    aVar.a.startLoad(String.valueOf(aVar3.f19379b), 24, false);
-                    aVar.f19329b.setText(aVar3.a);
+                    aVar.a.startLoad(String.valueOf(aVar3.f18881b), 24, false);
+                    aVar.f18833b.setText(aVar3.a);
                 }
-                if (!TextUtils.isEmpty(aVar3.a) && (aVar2 = this.f19328f) != null && TextUtils.equals(aVar3.a, aVar2.a)) {
+                if (!TextUtils.isEmpty(aVar3.a) && (aVar2 = this.f18832f) != null && TextUtils.equals(aVar3.a, aVar2.a)) {
                     aVar.a.setDrawBorder(true);
                 } else {
                     aVar.a.setDrawBorder(false);
@@ -184,7 +184,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, view) == null) && view.getId() == R.id.iv_effect && (view.getTag() instanceof c.a.t0.k4.i.e.a)) {
-            this.f19328f = (c.a.t0.k4.i.e.a) view.getTag();
+            this.f18832f = (c.a.t0.k4.i.e.a) view.getTag();
             notifyDataSetChanged();
         }
     }

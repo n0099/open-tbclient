@@ -7,26 +7,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f20563b;
+    public int f20014b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20564c;
+    public int f20015c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20565d;
+    public int f20016d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<MediaSegment> f20566e;
+    public List<MediaSegment> f20017e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<MultiMediaData> f20567f;
+    public List<MultiMediaData> f20018f;
 
     public o() {
         Interceptable interceptable = $ic;

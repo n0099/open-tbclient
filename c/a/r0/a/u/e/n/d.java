@@ -27,7 +27,7 @@ public class d extends c.a.r0.a.u.e.n.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f9442e;
+        public final /* synthetic */ Context f9236e;
 
         public a(d dVar, Context context) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class d extends c.a.r0.a.u.e.n.a {
                     return;
                 }
             }
-            this.f9442e = context;
+            this.f9236e = context;
         }
 
         @Override // java.lang.Runnable
@@ -53,7 +53,7 @@ public class d extends c.a.r0.a.u.e.n.a {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c.a.r0.a.c2.b.f.e.d()) {
                 return;
             }
-            c.a.r0.a.c2.b.f.e.f(this.f9442e, c.a.r0.a.h.clipboardapi_tip_content).G();
+            c.a.r0.a.c2.b.f.e.f(this.f9236e, c.a.r0.a.h.clipboardapi_tip_content).G();
         }
     }
 

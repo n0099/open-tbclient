@@ -19,12 +19,12 @@ public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static p f12712c;
+    public static p f12413c;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f12713b;
+    public b f12414b;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -77,10 +77,10 @@ public class p {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) || this.a.f12713b == null || bool == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) || this.a.f12414b == null || bool == null) {
                 return;
             }
-            this.a.f12713b.onResult(bool.booleanValue());
+            this.a.f12414b.onResult(bool.booleanValue());
         }
     }
 
@@ -97,7 +97,7 @@ public class p {
                 return;
             }
         }
-        f12712c = new p();
+        f12413c = new p();
     }
 
     public p() {
@@ -117,13 +117,13 @@ public class p {
     public static p e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f12712c : (p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f12413c : (p) invokeV.objValue;
     }
 
     public void c(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f12713b = bVar;
+            this.f12414b = bVar;
             c cVar = this.a;
             if (cVar != null) {
                 cVar.cancel();

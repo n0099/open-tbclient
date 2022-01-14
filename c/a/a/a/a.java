@@ -49,9 +49,7 @@ public class a {
 
     /* renamed from: j  reason: collision with root package name */
     public volatile float f1051j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.a.d.a f1052k;
+    public c.a.a.d.a k;
 
     /* renamed from: c.a.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -60,7 +58,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1053e;
+        public final /* synthetic */ a f1052e;
 
         public RunnableC0005a(a aVar) {
             Interceptable interceptable = $ic;
@@ -77,14 +75,14 @@ public class a {
                     return;
                 }
             }
-            this.f1053e = aVar;
+            this.f1052e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1053e.a();
+                this.f1052e.a();
             }
         }
     }
@@ -96,7 +94,7 @@ public class a {
         public MediaCodec.BufferInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ByteBuffer f1054b;
+        public ByteBuffer f1053b;
 
         public b(a aVar, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
             Interceptable interceptable = $ic;
@@ -114,7 +112,7 @@ public class a {
                 }
             }
             this.a = bufferInfo;
-            this.f1054b = byteBuffer;
+            this.f1053b = byteBuffer;
         }
     }
 
@@ -152,9 +150,9 @@ public class a {
                     try {
                         b take = this.f1047f.take();
                         byte[] bArr2 = null;
-                        if (take.f1054b == null) {
-                            if (this.f1052k != null) {
-                                this.f1052k.onFilteredFrameUpdate(null, take.a);
+                        if (take.f1053b == null) {
+                            if (this.k != null) {
+                                this.k.onFilteredFrameUpdate(null, take.a);
                                 return;
                             }
                             return;
@@ -165,7 +163,7 @@ public class a {
                         for (int i5 = 0; i5 < this.f1049h; i5++) {
                             i4 = Math.min(this.f1048g.get(i5).f1002b, i4);
                         }
-                        ByteBuffer byteBuffer = take.f1054b;
+                        ByteBuffer byteBuffer = take.f1053b;
                         byte[] bArr3 = new byte[bufferInfo.size];
                         byteBuffer.get(bArr3);
                         int min = Math.min(i3, i4);
@@ -209,9 +207,9 @@ public class a {
                         if (bArr2 != null && bArr2.length > 0 && this.f1044c) {
                             this.a.write(bArr2, 0, min);
                         }
-                        if (this.f1052k != null) {
+                        if (this.k != null) {
                             bufferInfo.offset = 0;
-                            this.f1052k.onFilteredFrameUpdate(bArr3, take.a);
+                            this.k.onFilteredFrameUpdate(bArr3, take.a);
                         }
                     } catch (InterruptedException unused) {
                         return;
@@ -332,7 +330,7 @@ public class a {
     public void k(c.a.a.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.f1052k = aVar;
+            this.k = aVar;
         }
     }
 

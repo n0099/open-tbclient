@@ -34,10 +34,10 @@ public class m extends a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.a == null) {
             return;
         }
-        int alpha = bVar.f5179f.getAlpha();
-        bVar.c(bVar.f5179f);
-        canvas.drawRect(this.a, bVar.f5179f);
-        bVar.f5179f.setAlpha(alpha);
+        int alpha = bVar.f5071f.getAlpha();
+        bVar.c(bVar.f5071f);
+        canvas.drawRect(this.a, bVar.f5071f);
+        bVar.f5071f.setAlpha(alpha);
     }
 
     @Override // c.a.r0.a.a0.a.j.a

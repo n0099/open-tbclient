@@ -32,36 +32,34 @@ public class i0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f12680g;
+    public static final String[] f12382g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f12681h;
+    public static final String[] f12383h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String[] f12682i;
+    public static final String[] f12384i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static Point f12683j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final List<String> f12684k;
+    public static Point f12385j;
+    public static final List<String> k;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f12685b;
+    public b f12386b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f12686c;
+    public long f12387c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f12687d;
+    public a f12388d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f12688e;
+    public a f12389e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Handler f12689f;
+    public final Handler f12390f;
 
     /* loaded from: classes6.dex */
     public class a extends ContentObserver {
@@ -70,7 +68,7 @@ public class i0 {
         public Uri a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ i0 f12690b;
+        public final /* synthetic */ i0 f12391b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i0 i0Var, Uri uri, Handler handler) {
@@ -90,7 +88,7 @@ public class i0 {
                     return;
                 }
             }
-            this.f12690b = i0Var;
+            this.f12391b = i0Var;
             this.a = uri;
         }
 
@@ -99,7 +97,7 @@ public class i0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.onChange(z);
-                this.f12690b.f(this.a);
+                this.f12391b.f(this.a);
             }
         }
     }
@@ -122,10 +120,10 @@ public class i0 {
                 return;
             }
         }
-        f12680g = new String[]{"_data", "datetaken"};
-        f12681h = new String[]{"_data", "datetaken", "width", "height"};
-        f12682i = new String[]{StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
-        f12684k = new ArrayList();
+        f12382g = new String[]{"_data", "datetaken"};
+        f12383h = new String[]{"_data", "datetaken", "width", "height"};
+        f12384i = new String[]{StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
+        k = new ArrayList();
     }
 
     public i0(Context context) {
@@ -143,13 +141,13 @@ public class i0 {
                 return;
             }
         }
-        this.f12689f = new Handler(Looper.getMainLooper());
+        this.f12390f = new Handler(Looper.getMainLooper());
         this.a = context;
-        if (f12683j == null) {
+        if (f12385j == null) {
             Point e2 = e();
-            f12683j = e2;
+            f12385j = e2;
             if (e2 != null) {
-                BdLog.d("ScreenShotListenManager: Screen Real Size: " + f12683j.x + " * " + f12683j.y);
+                BdLog.d("ScreenShotListenManager: Screen Real Size: " + f12385j.x + " * " + f12385j.y);
                 return;
             }
             BdLog.d("ScreenShotListenManager: Get screen real size failed.");
@@ -166,16 +164,16 @@ public class i0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (f12684k.contains(str)) {
+            if (k.contains(str)) {
                 BdLog.d("ScreenShotListenManager: ScreenShot: imgPath has done; imagePath = " + str);
                 return true;
             }
-            if (f12684k.size() >= 20) {
+            if (k.size() >= 20) {
                 for (int i2 = 0; i2 < 5; i2++) {
-                    f12684k.remove(0);
+                    k.remove(0);
                 }
             }
-            f12684k.add(str);
+            k.add(str);
             return false;
         }
         return invokeL.booleanValue;
@@ -185,10 +183,10 @@ public class i0 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (j2 >= this.f12686c && System.currentTimeMillis() - j2 <= 10000) {
-                Point point = f12683j;
+            if (j2 >= this.f12387c && System.currentTimeMillis() - j2 <= 10000) {
+                Point point = f12385j;
                 if (point != null && (i2 > point.x || i3 > point.y)) {
-                    Point point2 = f12683j;
+                    Point point2 = f12385j;
                     if (i3 > point2.x || i2 > point2.y) {
                         return false;
                     }
@@ -197,7 +195,7 @@ public class i0 {
                     return false;
                 }
                 String lowerCase = str.toLowerCase();
-                for (String str2 : f12682i) {
+                for (String str2 : f12384i) {
                     if (lowerCase.contains(str2)) {
                         return true;
                     }
@@ -267,7 +265,7 @@ public class i0 {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = this.a.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? f12680g : f12681h, null, null, "date_added desc limit 1");
+                    cursor = this.a.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? f12382g : f12383h, null, null, "date_added desc limit 1");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     if (0 == 0 || cursor.isClosed()) {
@@ -325,10 +323,10 @@ public class i0 {
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             if (c(str, j2, i2, i3)) {
                 BdLog.d("ScreenShotListenManager: ScreenShot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
-                if (this.f12685b == null || b(str)) {
+                if (this.f12386b == null || b(str)) {
                     return;
                 }
-                this.f12685b.onShot(str);
+                this.f12386b.onShot(str);
                 return;
             }
             BdLog.d("ScreenShotListenManager: Media content changed, but not screenshot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
@@ -338,47 +336,47 @@ public class i0 {
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f12685b = bVar;
+            this.f12386b = bVar;
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && h() && PermissionUtil.isAgreePrivacyPolicy()) {
-            this.f12686c = System.currentTimeMillis();
-            this.f12687d = new a(this, MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.f12689f);
-            this.f12688e = new a(this, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.f12689f);
+            this.f12387c = System.currentTimeMillis();
+            this.f12388d = new a(this, MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.f12390f);
+            this.f12389e = new a(this, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.f12390f);
             if (Build.VERSION.SDK_INT >= 29) {
-                this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.f12687d);
-                this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f12688e);
+                this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.f12388d);
+                this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f12389e);
                 return;
             }
-            this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.f12687d);
-            this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f12688e);
+            this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.f12388d);
+            this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f12389e);
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && h()) {
-            if (this.f12687d != null) {
+            if (this.f12388d != null) {
                 try {
-                    this.a.getContentResolver().unregisterContentObserver(this.f12687d);
+                    this.a.getContentResolver().unregisterContentObserver(this.f12388d);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                this.f12687d = null;
+                this.f12388d = null;
             }
-            if (this.f12688e != null) {
+            if (this.f12389e != null) {
                 try {
-                    this.a.getContentResolver().unregisterContentObserver(this.f12688e);
+                    this.a.getContentResolver().unregisterContentObserver(this.f12389e);
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
-                this.f12688e = null;
+                this.f12389e = null;
             }
-            this.f12686c = 0L;
-            this.f12685b = null;
+            this.f12387c = 0L;
+            this.f12386b = null;
         }
     }
 }

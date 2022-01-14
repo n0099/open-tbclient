@@ -19,7 +19,7 @@ public class AnniversaryReqMsg extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f51216common;
+    public CommonReq f49254common;
     public int mSource;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,7 +54,7 @@ public class AnniversaryReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f65361common = this.f51216common;
+                builder.f62921common = this.f49254common;
                 builder.source = Integer.valueOf(this.mSource);
                 if (z) {
                     b0.a(builder, true);
@@ -73,7 +73,7 @@ public class AnniversaryReqMsg extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f51216common = commonReq;
+            this.f49254common = commonReq;
         }
     }
 

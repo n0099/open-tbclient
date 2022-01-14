@@ -22,18 +22,18 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f26880b;
+    public boolean f26082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, Integer> f26881c;
+    public HashMap<String, Integer> f26083c;
 
     /* renamed from: c.a.t0.z2.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class RunnableC1558a implements Runnable {
+    public class RunnableC1574a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC1558a(a aVar) {
+        public RunnableC1574a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            HashMap<String, Integer> hashMap = this.f26881c;
+            HashMap<String, Integer> hashMap = this.f26083c;
             if (hashMap == null || uri == null) {
                 return false;
             }
@@ -88,7 +88,7 @@ public class a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26880b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26082b : invokeV.booleanValue;
     }
 
     public boolean c() {
@@ -110,14 +110,14 @@ public class a {
         }
         boolean z = this.a;
         this.a = jSONObject.optInt("switch", 0) == 1;
-        this.f26880b = jSONObject.optInt("p2p_config", 0) == 1;
+        this.f26082b = jSONObject.optInt("p2p_config", 0) == 1;
         JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
         if (optJSONArray != null) {
-            this.f26881c = new HashMap<>();
+            this.f26083c = new HashMap<>();
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 String optString = optJSONArray.optString(i2);
                 if (!StringUtils.isNull(optString)) {
-                    this.f26881c.put(optString, 0);
+                    this.f26083c.put(optString, 0);
                 }
             }
         }
@@ -129,7 +129,7 @@ public class a {
             Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
             intent.putExtra("pcdn", true);
             TbadkCoreApplication.getInst().getContext().startService(intent);
-            e.a().postDelayed(new RunnableC1558a(this), 3000L);
+            e.a().postDelayed(new RunnableC1574a(this), 3000L);
         }
     }
 }

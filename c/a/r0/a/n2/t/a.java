@@ -24,26 +24,26 @@ public class a {
 
     /* renamed from: c.a.r0.a.n2.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0472a implements Runnable {
+    public static class RunnableC0481a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f8166e;
+        public final /* synthetic */ int f7985e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8167f;
+        public final /* synthetic */ String f7986f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8168g;
+        public final /* synthetic */ String f7987g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f8169h;
+        public final /* synthetic */ String f7988h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ SwanInterfaceType f8170i;
+        public final /* synthetic */ SwanInterfaceType f7989i;
 
-        public RunnableC0472a(int i2, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
+        public RunnableC0481a(int i2, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,18 +58,18 @@ public class a {
                     return;
                 }
             }
-            this.f8166e = i2;
-            this.f8167f = str;
-            this.f8168g = str2;
-            this.f8169h = str3;
-            this.f8170i = swanInterfaceType;
+            this.f7985e = i2;
+            this.f7986f = str;
+            this.f7987g = str2;
+            this.f7988h = str3;
+            this.f7989i = swanInterfaceType;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f8166e;
+                int i2 = this.f7985e;
                 boolean z = (i2 == 2000 || i2 == 0) ? false : true;
                 String n = n.n(d.J().l());
                 JSONObject jSONObject = new JSONObject();
@@ -78,11 +78,11 @@ public class a {
                 w.f(jSONObject, "network", c.a.r0.w.a.e());
                 w.f(jSONObject, "launchid", d.J().r().V().V());
                 if (z) {
-                    w.f(jSONObject, "response", this.f8167f);
-                    w.f(jSONObject, EnterDxmPayServiceAction.SERVICE_STATUS_CODE, this.f8168g);
-                    w.f(jSONObject, "request_url", this.f8169h);
+                    w.f(jSONObject, "response", this.f7986f);
+                    w.f(jSONObject, EnterDxmPayServiceAction.SERVICE_STATUS_CODE, this.f7987g);
+                    w.f(jSONObject, "request_url", this.f7988h);
                 }
-                a.d(n, this.f8170i.getClassify(), this.f8170i.getInterfaceName(), this.f8166e, jSONObject, z);
+                a.d(n, this.f7989i.getClassify(), this.f7989i.getInterfaceName(), this.f7985e, jSONObject, z);
             }
         }
     }
@@ -97,7 +97,7 @@ public class a {
     public static void b(SwanInterfaceType swanInterfaceType, int i2, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{swanInterfaceType, Integer.valueOf(i2), str, str2, str3}) == null) {
-            q.j(new RunnableC0472a(i2, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
+            q.j(new RunnableC0481a(i2, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
         }
     }
 

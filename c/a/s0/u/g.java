@@ -15,7 +15,7 @@ public class g {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14468b;
+    public String f14131b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class g {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14468b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14131b : (String) invokeV.objValue;
     }
 
     public String b() {
@@ -54,7 +54,7 @@ public class g {
             this.a = lbs.name;
             String str = lbs.lat;
             String str2 = lbs.lng;
-            this.f14468b = lbs.distance;
+            this.f14131b = lbs.distance;
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

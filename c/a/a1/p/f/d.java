@@ -19,13 +19,13 @@ public class d {
     public final MediaMuxer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1454b;
+    public int f1443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1455c;
+    public int f1444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f1456d;
+    public boolean f1445d;
 
     public d(String str) throws IOException {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class d {
                 return;
             }
         }
-        this.f1454b = 2;
-        this.f1455c = 0;
-        this.f1456d = false;
+        this.f1443b = 2;
+        this.f1444c = 0;
+        this.f1445d = false;
         this.a = new MediaMuxer(str, 0);
     }
 
@@ -54,11 +54,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
             synchronized (this) {
-                if (this.f1456d) {
+                if (this.f1445d) {
                     throw new IllegalStateException("muxer already started");
                 }
                 addTrack = this.a.addTrack(mediaFormat);
-                c.a.a1.t.c.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.f1454b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+                c.a.a1.t.c.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.f1443b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
             }
             return addTrack;
         }
@@ -69,7 +69,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, byteBuffer, bufferInfo) == null) {
             synchronized (this) {
-                if (this.f1455c > 0) {
+                if (this.f1444c > 0) {
                     this.a.writeSampleData(i2, byteBuffer, bufferInfo);
                 }
             }
@@ -83,15 +83,15 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 c.a.a1.t.c.k(MediaMuxerWrapper.TAG, "start:");
-                int i2 = this.f1455c + 1;
-                this.f1455c = i2;
-                if (this.f1454b > 0 && i2 == this.f1454b) {
+                int i2 = this.f1444c + 1;
+                this.f1444c = i2;
+                if (this.f1443b > 0 && i2 == this.f1443b) {
                     this.a.start();
-                    this.f1456d = true;
+                    this.f1445d = true;
                     notifyAll();
                     c.a.a1.t.c.k(MediaMuxerWrapper.TAG, "MediaMuxer started:");
                 }
-                z = this.f1456d;
+                z = this.f1445d;
             }
             return z;
         }
@@ -102,15 +102,15 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                c.a.a1.t.c.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.f1455c);
-                int i2 = this.f1455c + (-1);
-                this.f1455c = i2;
-                if (this.f1454b > 0 && i2 <= 0) {
-                    if (this.f1456d) {
+                c.a.a1.t.c.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.f1444c);
+                int i2 = this.f1444c + (-1);
+                this.f1444c = i2;
+                if (this.f1443b > 0 && i2 <= 0) {
+                    if (this.f1445d) {
                         this.a.stop();
                     }
                     this.a.release();
-                    this.f1456d = false;
+                    this.f1445d = false;
                     c.a.a1.t.c.k(MediaMuxerWrapper.TAG, "MediaMuxer stopped:");
                 }
             }
@@ -123,7 +123,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                z = this.f1456d;
+                z = this.f1445d;
             }
             return z;
         }

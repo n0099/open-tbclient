@@ -15,7 +15,7 @@ public class a extends c<byte[]> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2723h;
+    public String f2702h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(c.a.d.a.k.b bVar, String str) {
@@ -35,7 +35,7 @@ public class a extends c<byte[]> {
                 return;
             }
         }
-        this.f2723h = str;
+        this.f2702h = str;
     }
 
     @Override // c.a.d.f.d.c
@@ -44,7 +44,7 @@ public class a extends c<byte[]> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                this.a.f().delete(this.f2724b, "m_ns = ?", new String[]{str});
+                this.a.f().delete(this.f2703b, "m_ns = ?", new String[]{str});
                 return true;
             } catch (Throwable th) {
                 c.a.d.a.k.b bVar = this.a;
@@ -75,7 +75,7 @@ public class a extends c<byte[]> {
         }
         Cursor cursor = null;
         try {
-            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f2724b + " where m_key = ?", new String[]{str});
+            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f2703b + " where m_key = ?", new String[]{str});
             try {
                 if (!rawQuery.moveToNext()) {
                     c.a.d.f.m.a.a(rawQuery);
@@ -83,11 +83,11 @@ public class a extends c<byte[]> {
                 }
                 g<byte[]> gVar = new g<>();
                 gVar.a = rawQuery.getString(0);
-                gVar.f2735c = rawQuery.getString(1);
-                gVar.f2736d = rawQuery.getLong(2);
-                gVar.f2737e = rawQuery.getLong(3);
-                gVar.f2738f = rawQuery.getLong(4);
-                gVar.f2734b = rawQuery.getBlob(5);
+                gVar.f2714c = rawQuery.getString(1);
+                gVar.f2715d = rawQuery.getLong(2);
+                gVar.f2716e = rawQuery.getLong(3);
+                gVar.f2717f = rawQuery.getLong(4);
+                gVar.f2713b = rawQuery.getBlob(5);
                 c.a.d.f.m.a.a(rawQuery);
                 return gVar;
             } catch (Throwable th) {
@@ -113,9 +113,9 @@ public class a extends c<byte[]> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.a.d("CREATE TABLE IF NOT EXISTS " + this.f2723h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
-            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.f2723h + "(m_ns)");
-            return this.f2723h;
+            this.a.d("CREATE TABLE IF NOT EXISTS " + this.f2702h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.f2702h + "(m_ns)");
+            return this.f2702h;
         }
         return (String) invokeL.objValue;
     }
@@ -127,11 +127,11 @@ public class a extends c<byte[]> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, gVar)) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("m_key", gVar.a);
-            contentValues.put("m_ns", gVar.f2735c);
-            contentValues.put("m_value", gVar.f2734b);
-            contentValues.put("saveTime", Long.valueOf(gVar.f2736d));
-            contentValues.put("lastHitTime", Long.valueOf(gVar.f2737e));
-            contentValues.put("timeToExpire", Long.valueOf(gVar.f2738f));
+            contentValues.put("m_ns", gVar.f2714c);
+            contentValues.put("m_value", gVar.f2713b);
+            contentValues.put("saveTime", Long.valueOf(gVar.f2715d));
+            contentValues.put("lastHitTime", Long.valueOf(gVar.f2716e));
+            contentValues.put("timeToExpire", Long.valueOf(gVar.f2717f));
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -142,7 +142,7 @@ public class a extends c<byte[]> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.f2724b + " where m_ns = ?", new String[]{str});
+            return sQLiteDatabase.rawQuery("select * from " + this.f2703b + " where m_ns = ?", new String[]{str});
         }
         return (Cursor) invokeLL.objValue;
     }

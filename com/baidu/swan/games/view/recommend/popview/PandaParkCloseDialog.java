@@ -26,7 +26,7 @@ public final class PandaParkCloseDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f41247e;
+    public a f39853e;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -42,7 +42,7 @@ public final class PandaParkCloseDialog extends Dialog {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f41248e;
+        public static final b f39854e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,7 +58,7 @@ public final class PandaParkCloseDialog extends Dialog {
                     return;
                 }
             }
-            f41248e = new b();
+            f39854e = new b();
         }
 
         public b() {
@@ -104,7 +104,7 @@ public final class PandaParkCloseDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PandaParkCloseDialog f41249e;
+        public final /* synthetic */ PandaParkCloseDialog f39855e;
 
         public c(PandaParkCloseDialog pandaParkCloseDialog) {
             Interceptable interceptable = $ic;
@@ -121,14 +121,14 @@ public final class PandaParkCloseDialog extends Dialog {
                     return;
                 }
             }
-            this.f41249e = pandaParkCloseDialog;
+            this.f39855e = pandaParkCloseDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f41249e.f41247e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f39855e.f39853e) == null) {
                 return;
             }
             aVar.c();
@@ -141,7 +141,7 @@ public final class PandaParkCloseDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PandaParkCloseDialog f41250e;
+        public final /* synthetic */ PandaParkCloseDialog f39856e;
 
         public d(PandaParkCloseDialog pandaParkCloseDialog) {
             Interceptable interceptable = $ic;
@@ -158,14 +158,14 @@ public final class PandaParkCloseDialog extends Dialog {
                     return;
                 }
             }
-            this.f41250e = pandaParkCloseDialog;
+            this.f39856e = pandaParkCloseDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f41250e.f41247e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f39856e.f39853e) == null) {
                 return;
             }
             aVar.b();
@@ -178,7 +178,7 @@ public final class PandaParkCloseDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PandaParkCloseDialog f41251e;
+        public final /* synthetic */ PandaParkCloseDialog f39857e;
 
         public e(PandaParkCloseDialog pandaParkCloseDialog) {
             Interceptable interceptable = $ic;
@@ -195,14 +195,14 @@ public final class PandaParkCloseDialog extends Dialog {
                     return;
                 }
             }
-            this.f41251e = pandaParkCloseDialog;
+            this.f39857e = pandaParkCloseDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f41251e.f41247e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f39857e.f39853e) == null) {
                 return;
             }
             aVar.a();
@@ -236,7 +236,7 @@ public final class PandaParkCloseDialog extends Dialog {
     public final View.OnTouchListener a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f41248e : (View.OnTouchListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f39854e : (View.OnTouchListener) invokeV.objValue;
     }
 
     public final void b() {
@@ -265,7 +265,7 @@ public final class PandaParkCloseDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             Intrinsics.checkNotNullParameter(onClickListener, "onClickListener");
-            this.f41247e = onClickListener;
+            this.f39853e = onClickListener;
         }
     }
 }

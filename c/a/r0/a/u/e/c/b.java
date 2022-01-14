@@ -26,16 +26,16 @@ public class b extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f9145e;
+        public final /* synthetic */ e f8945e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9146f;
+        public final /* synthetic */ JSONObject f8946f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f9147g;
+        public final /* synthetic */ String f8947g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f9148h;
+        public final /* synthetic */ b f8948h;
 
         public a(b bVar, e eVar, JSONObject jSONObject, String str) {
             Interceptable interceptable = $ic;
@@ -52,10 +52,10 @@ public class b extends d {
                     return;
                 }
             }
-            this.f9148h = bVar;
-            this.f9145e = eVar;
-            this.f9146f = jSONObject;
-            this.f9147g = str;
+            this.f8948h = bVar;
+            this.f8945e = eVar;
+            this.f8946f = jSONObject;
+            this.f8947g = str;
         }
 
         @Override // java.lang.Runnable
@@ -63,11 +63,11 @@ public class b extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f9146f.put("isFavor", c.a.r0.a.j0.b.a.n(this.f9145e.N()) ? "1" : "0");
+                    this.f8946f.put("isFavor", c.a.r0.a.j0.b.a.n(this.f8945e.N()) ? "1" : "0");
                 } catch (JSONException unused) {
                     c.a.r0.a.e0.d.c("FollowStatusApi", "json put data fail");
                 }
-                this.f9148h.d(this.f9147g, new c.a.r0.a.u.h.b(0, this.f9146f));
+                this.f8948h.d(this.f8947g, new c.a.r0.a.u.h.b(0, this.f8946f));
             }
         }
     }

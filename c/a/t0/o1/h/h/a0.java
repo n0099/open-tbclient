@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a0 extends c.a.d.n.e.a<c.a.t0.g0.f0.m, ThreadCardViewHolder<c.a.t0.g0.f0.m>> implements c.a.t0.t.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,13 +26,13 @@ public class a0 extends c.a.d.n.e.a<c.a.t0.g0.f0.m, ThreadCardViewHolder<c.a.t0.
     public String o;
     public c.a.d.n.e.s p;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements c.a.d.n.e.w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a0 f21033e;
+        public final /* synthetic */ a0 f20469e;
 
         public a(a0 a0Var) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class a0 extends c.a.d.n.e.a<c.a.t0.g0.f0.m, ThreadCardViewHolder<c.a.t0.
                     return;
                 }
             }
-            this.f21033e = a0Var;
+            this.f20469e = a0Var;
         }
 
         @Override // c.a.d.n.e.w
@@ -58,7 +58,7 @@ public class a0 extends c.a.d.n.e.a<c.a.t0.g0.f0.m, ThreadCardViewHolder<c.a.t0.
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 c.a.t0.g0.f0.m mVar = nVar instanceof c.a.t0.g0.f0.m ? (c.a.t0.g0.f0.m) nVar : null;
                 if (mVar != null) {
-                    ((c.a.s0.j0.c.a) ServiceManager.getService(c.a.s0.j0.c.a.a.a())).a(this.f21033e.n, mVar.d0());
+                    ((c.a.s0.j0.c.a) ServiceManager.getService(c.a.s0.j0.c.a.a.a())).a(this.f20469e.n, mVar.d0());
                 }
             }
         }

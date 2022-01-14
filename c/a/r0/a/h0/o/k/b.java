@@ -66,8 +66,8 @@ public class b {
                             if (a) {
                                 String str2 = "isInDependentPkg=true, pagePath=" + g2;
                             }
-                            aVar.f6966b = true;
-                            aVar.f6967c = g2;
+                            aVar.f6816b = true;
+                            aVar.f6817c = g2;
                             aVar.a = new File(i2, g2);
                             return aVar;
                         }

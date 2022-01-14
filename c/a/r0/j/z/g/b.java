@@ -39,10 +39,10 @@ public class b extends c.a.r0.j.z.a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.j.z.b f11576b;
+        public final /* synthetic */ c.a.r0.j.z.b f11316b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f11577c;
+        public final /* synthetic */ b f11317c;
 
         public a(b bVar, String str, c.a.r0.j.z.b bVar2) {
             Interceptable interceptable = $ic;
@@ -59,17 +59,17 @@ public class b extends c.a.r0.j.z.a {
                     return;
                 }
             }
-            this.f11577c = bVar;
+            this.f11317c = bVar;
             this.a = str;
-            this.f11576b = bVar2;
+            this.f11316b = bVar2;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                this.f11576b.cancelTag(this.f11577c.f11550g);
-                this.f11577c.W(this.a, 0, iOException.getMessage());
+                this.f11316b.cancelTag(this.f11317c.f11290g);
+                this.f11317c.W(this.a, 0, iOException.getMessage());
             }
         }
 
@@ -84,34 +84,34 @@ public class b extends c.a.r0.j.z.a {
                 try {
                     try {
                         JSEvent jSEvent = new JSEvent("headersReceived");
-                        jSEvent.data = new e(this.f11577c.I(response.headers()));
-                        this.f11577c.dispatchEvent(jSEvent);
+                        jSEvent.data = new e(this.f11317c.I(response.headers()));
+                        this.f11317c.dispatchEvent(jSEvent);
                     } catch (JSONException e2) {
                         try {
-                            if (c.a.r0.j.z.a.f11545i) {
+                            if (c.a.r0.j.z.a.f11286i) {
                                 e2.printStackTrace();
                             }
                         } catch (JSONException e3) {
                             e = e3;
-                            if (c.a.r0.j.z.a.f11545i) {
+                            if (c.a.r0.j.z.a.f11286i) {
                             }
-                            this.f11577c.C(this.a, -1, e.getMessage());
+                            this.f11317c.C(this.a, -1, e.getMessage());
                         }
                     }
                     c.a.r0.j.z.g.a aVar = new c.a.r0.j.z.g.a();
                     aVar.statusCode = response.code();
-                    aVar.header = this.f11577c.I(response.headers());
-                    aVar.data = this.f11577c.X(response.body());
-                    if (c.a.r0.j.z.a.f11545i) {
+                    aVar.header = this.f11317c.I(response.headers());
+                    aVar.data = this.f11317c.X(response.body());
+                    if (c.a.r0.j.z.a.f11286i) {
                         String str = "onResponse = " + aVar.data;
                     }
-                    this.f11577c.D(aVar);
+                    this.f11317c.D(aVar);
                 } catch (IOException e4) {
                     e = e4;
-                    if (c.a.r0.j.z.a.f11545i) {
+                    if (c.a.r0.j.z.a.f11286i) {
                         Log.getStackTraceString(e);
                     }
-                    this.f11577c.C(this.a, -1, e.getMessage());
+                    this.f11317c.C(this.a, -1, e.getMessage());
                 }
             }
         }
@@ -119,18 +119,18 @@ public class b extends c.a.r0.j.z.a {
 
     /* renamed from: c.a.r0.j.z.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0773b implements c.a.r0.a.p1.p.a {
+    public class C0782b implements c.a.r0.a.p1.p.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f11578b;
+        public final /* synthetic */ String f11318b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f11579c;
+        public final /* synthetic */ b f11319c;
 
-        public C0773b(b bVar, long j2, String str) {
+        public C0782b(b bVar, long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,16 +145,16 @@ public class b extends c.a.r0.j.z.a {
                     return;
                 }
             }
-            this.f11579c = bVar;
+            this.f11319c = bVar;
             this.a = j2;
-            this.f11578b = str;
+            this.f11318b = str;
         }
 
         @Override // c.a.r0.a.p1.p.a
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.f11579c.V(this.a, j2, this.f11578b);
+                this.f11319c.V(this.a, j2, this.f11318b);
             }
         }
     }
@@ -179,7 +179,7 @@ public class b extends c.a.r0.j.z.a {
             }
         }
         this.l = 0L;
-        this.f11548e = 3;
+        this.f11288e = 3;
     }
 
     public static void Y(MultipartBody.Builder builder, c.a.r0.a.y.b.a aVar) {
@@ -212,28 +212,28 @@ public class b extends c.a.r0.j.z.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String z = z();
             if (!TextUtils.isEmpty(z)) {
-                String B = this.f11549f.B("filePath");
+                String B = this.f11289f.B("filePath");
                 if (TextUtils.isEmpty(B)) {
                     C(z, -1, "uploadFile:filePath is empty or invalid");
                     return null;
                 } else if (d.x(B)) {
                     C(z, -1, "uploadFile:filePath is empty or invalid");
                     return null;
-                } else if (this.f11549f.b("header") && this.f11549f.getType("header") != 9) {
+                } else if (this.f11289f.b("header") && this.f11289f.getType("header") != 9) {
                     C(z, -1, "uploadFile:header is invalid");
                     return null;
                 } else {
                     File U = U(z, B);
                     if (U != null) {
-                        c.a.r0.a.y.b.a w = this.f11549f.w("formData");
+                        c.a.r0.a.y.b.a w = this.f11289f.w("formData");
                         Request.Builder builder = new Request.Builder();
-                        c.a.r0.a.p1.c cVar = new c.a.r0.a.p1.c(U, IMAudioTransRequest.CONTENT_TYPE, new C0773b(this, U.length(), z));
+                        c.a.r0.a.p1.c cVar = new c.a.r0.a.p1.c(U, IMAudioTransRequest.CONTENT_TYPE, new C0782b(this, U.length(), z));
                         MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
                         Y(type, w);
-                        type.addFormDataPart(this.f11549f.B("name"), U.getName(), cVar);
+                        type.addFormDataPart(this.f11289f.B("name"), U.getName(), cVar);
                         MultipartBody build = type.build();
-                        G(builder, this.f11549f.w("header"), new HashMap(), false);
-                        return builder.url(z).tag(this.f11550g).post(build).build();
+                        G(builder, this.f11289f.w("header"), new HashMap(), false);
+                        return builder.url(z).tag(this.f11290g).post(build).build();
                     }
                 }
             }
@@ -253,10 +253,10 @@ public class b extends c.a.r0.j.z.a {
                     if (file.length() > 26214400) {
                         C(str, -1, "request:file size > 25 MB");
                         return null;
-                    } else if (TextUtils.isEmpty(this.f11549f.B("name"))) {
+                    } else if (TextUtils.isEmpty(this.f11289f.B("name"))) {
                         C(str, -1, "uploadFile:name is invalid");
                         return null;
-                    } else if (!this.f11549f.b("formData") || this.f11549f.getType("formData") == 9) {
+                    } else if (!this.f11289f.b("formData") || this.f11289f.getType("formData") == 9) {
                         return file;
                     } else {
                         C(str, -1, "uploadFile:formData is invalid");
@@ -289,7 +289,7 @@ public class b extends c.a.r0.j.z.a {
     public final void W(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i2, str2) == null) {
-            if (c.a.r0.j.z.a.f11545i) {
+            if (c.a.r0.j.z.a.f11286i) {
                 String str3 = "onFailure: " + str2;
             }
             C(str, i2, ("Socket is closed".equalsIgnoreCase(str2) || ResponseException.CANCELED.equalsIgnoreCase(str2)) ? "uploadFile:fail abort" : "uploadFile:fail abort");
@@ -319,7 +319,7 @@ public class b extends c.a.r0.j.z.a {
     public void start() {
         Request T;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f11549f == null || (T = T()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f11289f == null || (T = T()) == null) {
             return;
         }
         if (c.a.r0.a.d2.e.L() == null) {

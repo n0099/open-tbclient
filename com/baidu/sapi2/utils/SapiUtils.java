@@ -48,6 +48,7 @@ import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.share.ShareUtils;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.Enums;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
@@ -821,7 +822,7 @@ public class SapiUtils implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) {
             try {
-                FileReader fileReader = new FileReader("/proc/meminfo");
+                FileReader fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
                 String readLine = new BufferedReader(fileReader).readLine();
                 fileReader.close();
                 if (!TextUtils.isEmpty(readLine)) {
@@ -902,7 +903,7 @@ public class SapiUtils implements NoProguard {
                         str2 = str;
                         i2 = 0;
                     }
-                    List<ScanResult> scanResults = checkRequestPermission(s.f57423g, context) ? wifiManager.getScanResults() : null;
+                    List<ScanResult> scanResults = checkRequestPermission(s.f55246g, context) ? wifiManager.getScanResults() : null;
                     if (scanResults != null) {
                         for (ScanResult scanResult : scanResults) {
                             String str4 = scanResult.BSSID;
@@ -1008,7 +1009,7 @@ public class SapiUtils implements NoProguard {
         }
         if (!SapiDeviceUtils.isForbidDangerousPermissionApp(context) && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
             if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
-                if (checkRequestPermission(s.f57419c, context)) {
+                if (checkRequestPermission(s.f55242c, context)) {
                     try {
                         str = Build.getSerial();
                     } catch (Throwable unused) {

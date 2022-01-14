@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.f;
 import c.a.t0.s2.g;
 import c.a.t0.s2.i;
@@ -45,7 +45,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
         @NonNull
 
         /* renamed from: b  reason: collision with root package name */
-        public f f48435b;
+        public f f46630b;
         public View mBottomDividerLine;
         public PbThreadCommentAndPraiseInfoLayout mCommentAndPraiseLayout;
 
@@ -67,17 +67,17 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
                     return;
                 }
             }
-            this.f48435b = new f();
+            this.f46630b = new f();
             if (view == null) {
                 return;
             }
             this.mCommentAndPraiseLayout = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(i.card_bottom_func_layout);
-            f fVar = this.f48435b;
-            fVar.f13685b = 4;
-            fVar.f13691h = 7;
-            fVar.f13686c = this.a;
-            fVar.f13689f = PbFirstFloorCommentAndPraiseAdapter.x;
-            this.mCommentAndPraiseLayout.setAgreeStatisticData(this.f48435b);
+            f fVar = this.f46630b;
+            fVar.f13371b = 4;
+            fVar.f13377h = 7;
+            fVar.f13372c = this.a;
+            fVar.f13375f = PbFirstFloorCommentAndPraiseAdapter.x;
+            this.mCommentAndPraiseLayout.setAgreeStatisticData(this.f46630b);
             View findViewById = view.findViewById(i.bottom_divider_line);
             this.mBottomDividerLine = findViewById;
             findViewById.setVisibility(0);
@@ -87,7 +87,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, rVar) == null) {
                 if (rVar != null && rVar.e() != null) {
-                    d2 e2 = rVar.e();
+                    e2 e2 = rVar.e();
                     if (e2.B() != null) {
                         e2.B().postId = e2.X();
                     }
@@ -98,7 +98,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
                     } else {
                         this.a = 1;
                     }
-                    if (rVar.f23081f) {
+                    if (rVar.f22445f) {
                         getView().setPadding(0, 0, 0, c.a.d.f.p.n.f(getView().getContext(), g.tbds32));
                     }
                     this.mCommentAndPraiseLayout.showOperationMaskView(rVar.i());
@@ -118,7 +118,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
         public void setFromForumId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f48435b.f13693j = str;
+                this.f46630b.f13379j = str;
             }
         }
 
@@ -202,7 +202,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m.getPbModel() != null ? this.m.getPbModel().getFromForumId() : "" : (String) invokeV.objValue;
     }
 
-    public final d2 f0() {
+    public final e2 f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -211,14 +211,14 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
             }
             return this.m.getPbModel().R0().O();
         }
-        return (d2) invokeV.objValue;
+        return (e2) invokeV.objValue;
     }
 
     public final String g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            d2 f0 = f0();
+            e2 f0 = f0();
             return f0 != null ? f0.X() : "";
         }
         return (String) invokeV.objValue;
@@ -251,7 +251,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, viewGroup)) == null) {
-            PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.f3299e).inflate(j.layout_pb_thread_praise_item, viewGroup, false));
+            PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.f3258e).inflate(j.layout_pb_thread_praise_item, viewGroup, false));
             pbFirstFloorCommentAndPraiseViewHolder.setTopicId(h0());
             pbFirstFloorCommentAndPraiseViewHolder.setTopicSubjectName(i0());
             this.u.add(pbFirstFloorCommentAndPraiseViewHolder);
@@ -280,7 +280,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), view, viewGroup, rVar, pbFirstFloorCommentAndPraiseViewHolder})) == null) {
             super.S(i2, view, viewGroup, rVar, pbFirstFloorCommentAndPraiseViewHolder);
             if (rVar != null && pbFirstFloorCommentAndPraiseViewHolder != null) {
-                rVar.e().U1 = C(i2) + 1;
+                rVar.e().T1 = C(i2) + 1;
                 pbFirstFloorCommentAndPraiseViewHolder.mCommentAndPraiseLayout.setOnClickOutListener(this.s);
                 pbFirstFloorCommentAndPraiseViewHolder.mCommentAndPraiseLayout.setPostId(g0());
                 pbFirstFloorCommentAndPraiseViewHolder.mCommentAndPraiseLayout.setForumId(d0());

@@ -28,11 +28,11 @@ public interface y extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof y)) {
                 return (y) queryLocalInterface;
             }
-            return new C2198a(iBinder);
+            return new C2215a(iBinder);
         }
 
         public static y b() {
-            return C2198a.a;
+            return C2215a.a;
         }
 
         @Override // android.os.IInterface
@@ -70,14 +70,14 @@ public interface y extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.y$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C2198a implements y {
+        public static class C2215a implements y {
             public static y a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f62287b;
+            public IBinder f59941b;
 
-            public C2198a(IBinder iBinder) {
-                this.f62287b = iBinder;
+            public C2215a(IBinder iBinder) {
+                this.f59941b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.y
@@ -95,7 +95,7 @@ public interface y extends IInterface {
                     }
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f62287b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f59941b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                         a.b().a(i2, downloadInfo, str, str2);
                     } else {
                         obtain2.readException();
@@ -108,7 +108,7 @@ public interface y extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f62287b;
+                return this.f59941b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.y
@@ -118,7 +118,7 @@ public interface y extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
                     obtain.writeInt(z ? 1 : 0);
-                    if (!this.f62287b.transact(2, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f59941b.transact(2, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a(z);
                     }
                     obtain2.readException();
@@ -135,7 +135,7 @@ public interface y extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
-                    if (!this.f62287b.transact(3, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f59941b.transact(3, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a();
                     }
                     obtain2.readException();

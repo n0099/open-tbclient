@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.n.e.n;
 import c.a.s0.a.r;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.o0;
 import c.a.s0.s.q.p0;
 import c.a.t0.g0.f0.k;
@@ -46,43 +46,41 @@ import tbclient.Personalized.DataRes;
 import tbclient.Personalized.ThreadPersonalized;
 import tbclient.Personalized.UserFollowLive;
 import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f21119b;
+    public final int f20555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f21120c;
+    public int f20556c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.o1.h.l.c f21121d;
+    public c.a.t0.o1.h.l.c f20557d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21122e;
+    public int f20558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21123f;
+    public int f20559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21124g;
+    public int f20560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<ThreadInfo> f21125h;
+    public ArrayList<ThreadInfo> f20561h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<App> f21126i;
+    public ArrayList<App> f20562i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Long f21127j;
+    public Long f20563j;
+    public List<n> k;
 
-    /* renamed from: k  reason: collision with root package name */
-    public List<n> f21128k;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Comparator<q> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,14 +123,14 @@ public class b {
     }
 
     /* renamed from: c.a.t0.o1.h.k.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1272b extends c.a.s0.g1.n.f {
+    /* loaded from: classes8.dex */
+    public class C1286b extends c.a.s0.g1.n.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.t0.g0.f0.b l;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1272b(b bVar, int i2, String str, c.a.t0.g0.f0.b bVar2) {
+        public C1286b(b bVar, int i2, String str, c.a.t0.g0.f0.b bVar2) {
             super(i2, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -183,15 +181,15 @@ public class b {
                 return;
             }
         }
-        this.f21120c = 0;
-        this.f21121d = new c.a.t0.o1.h.l.c();
-        this.f21122e = 0;
-        this.f21127j = 0L;
+        this.f20556c = 0;
+        this.f20557d = new c.a.t0.o1.h.l.c();
+        this.f20558e = 0;
+        this.f20563j = 0L;
         this.a = new d();
-        this.f21119b = c.a.s0.s.g0.b.j().k("home_page_max_thread_count", 300);
-        this.f21125h = new ArrayList<>();
-        this.f21126i = new ArrayList<>();
-        this.f21128k = new ArrayList();
+        this.f20555b = c.a.s0.s.h0.b.k().l("home_page_max_thread_count", 300);
+        this.f20561h = new ArrayList<>();
+        this.f20562i = new ArrayList<>();
+        this.k = new ArrayList();
     }
 
     public final c.a.t0.o1.h.j.f a() {
@@ -242,17 +240,17 @@ public class b {
                 e.c(builder);
                 e.c(builder2);
                 n(z, builder, builder2, i2);
-                List<ThreadInfo> o = o(builder, i2, this.f21119b);
+                List<ThreadInfo> o = o(builder, i2, this.f20555b);
                 e.n(builder);
                 List<q> d2 = e.d(builder);
                 p(d2);
                 List<n> f2 = f(builder.thread_list, d2, builder2.user_follow_live, i2, 0, builder2);
                 List<n> f3 = f(o, new ArrayList(), builder2.user_follow_live, i2, 1, null);
-                this.f21121d.a(f2);
+                this.f20557d.a(f2);
                 c.c(builder, f2);
                 d dVar = this.a;
                 dVar.a = f2;
-                dVar.f21130c = f3 == null ? 0 : f3.size();
+                dVar.f20565c = f3 == null ? 0 : f3.size();
                 return this.a;
             }
             return null;
@@ -263,13 +261,13 @@ public class b {
     public List<ThreadInfo> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21125h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20561h : (List) invokeV.objValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21119b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20555b : invokeV.intValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:115:0x0234  */
@@ -307,16 +305,16 @@ public class b {
             if (builder != null && !ListUtils.isEmpty(builder.thread_list) && builder.active_center != null) {
                 ThreadInfo threadInfo = builder.thread_list.get(builder.thread_list.size() - 1);
                 if (threadInfo.id.longValue() > 0 && r.g().o()) {
-                    this.f21127j = threadInfo.id;
+                    this.f20563j = threadInfo.id;
                 }
             }
             List<n> arrayList = new ArrayList<>(ListUtils.getCount(list));
             for (ThreadInfo threadInfo2 : list) {
-                d2 d2Var = new d2();
-                c.a.s0.b.f.a.e(d2Var);
-                d2Var.b2 = true;
-                d2Var.c3(threadInfo2);
-                arrayList.add(d2Var);
+                e2 e2Var = new e2();
+                c.a.s0.b.f.a.e(e2Var);
+                e2Var.a2 = true;
+                e2Var.c3(threadInfo2);
+                arrayList.add(e2Var);
             }
             if (builder != null && c.a.t0.o1.c.f.c.p(builder.hot_recomforum, -1)) {
                 c.a.t0.o1.c.f.c cVar = new c.a.t0.o1.c.f.c();
@@ -325,47 +323,47 @@ public class b {
                     g(cVar, cVar.floorPosition, arrayList);
                 }
             }
-            if (i3 == 0 && c.a.s0.b.d.R()) {
+            if (i3 == 0 && c.a.s0.b.d.S()) {
                 int f2 = c.a.s0.t.c.e.f();
                 int e3 = c.a.s0.t.c.e.e();
                 if (i2 == 0) {
                     e3 = c.a.s0.t.c.e.a();
-                    this.f21128k.clear();
+                    this.k.clear();
                 }
                 h(e3, f2, arrayList);
             }
             LinkedList<n> linkedList = new LinkedList();
             int i4 = 0;
             for (n nVar : arrayList) {
-                boolean z2 = nVar instanceof d2;
-                if (z2 && ((d2) nVar).b2()) {
+                boolean z2 = nVar instanceof e2;
+                if (z2 && ((e2) nVar).b2()) {
                     linkedList.add(nVar);
                 } else if (z2) {
-                    d2 d2Var2 = (d2) nVar;
-                    if (!TextUtils.isEmpty(d2Var2.z0())) {
+                    e2 e2Var2 = (e2) nVar;
+                    if (!TextUtils.isEmpty(e2Var2.z0())) {
                         p0 p0Var = new p0();
-                        p0Var.k(d2Var2.z0());
+                        p0Var.k(e2Var2.z0());
                         p0Var.position = i4;
                         linkedList.add(p0Var);
-                    } else if (c.a.t0.o1.k.c.c.a.P(d2Var2)) {
-                        if (!StringUtils.isNull(d2Var2.A1().topic_name)) {
+                    } else if (c.a.t0.o1.k.c.c.a.P(e2Var2)) {
+                        if (!StringUtils.isNull(e2Var2.A1().topic_name)) {
                             c.a.t0.o1.k.c.c.a aVar = new c.a.t0.o1.k.c.c.a();
-                            aVar.R(d2Var2.A1());
+                            aVar.R(e2Var2.A1());
                             aVar.e0 = 1;
                             aVar.position = i4;
-                            aVar.S(d2Var2);
+                            aVar.S(e2Var2);
                             aVar.setSupportType(BaseCardInfo.SupportType.FULL);
                             linkedList.add(aVar);
                         }
-                    } else if (!k.Y(d2Var2) && !l.T(d2Var2) && !m.Y(d2Var2)) {
-                        if (c.a.t0.g0.f0.e.Y(d2Var2) && d2Var2.P1()) {
-                            c.a.t0.g0.f0.e eVar = new c.a.t0.g0.f0.e(d2Var2);
+                    } else if (!k.Y(e2Var2) && !l.T(e2Var2) && !m.Y(e2Var2)) {
+                        if (c.a.t0.g0.f0.e.Y(e2Var2) && e2Var2.P1()) {
+                            c.a.t0.g0.f0.e eVar = new c.a.t0.g0.f0.e(e2Var2);
                             eVar.position = i4;
                             linkedList.add(eVar);
                         } else {
-                            c.a.t0.g0.f0.b e4 = e.e(d2Var2);
+                            c.a.t0.g0.f0.b e4 = e.e(e2Var2);
                             if (e4 != null) {
-                                e4.l = d2Var2.v1();
+                                e4.l = e2Var2.v1();
                                 e4.position = i4;
                             }
                             if (e4 != null && e4.isValid()) {
@@ -373,36 +371,36 @@ public class b {
                             }
                         }
                     } else {
-                        k g7 = e.g(d2Var2);
+                        k g7 = e.g(e2Var2);
                         if (g7 != null) {
-                            if (d2Var2.showCardEnterFourm()) {
+                            if (e2Var2.showCardEnterFourm()) {
                                 if (g7.isValid()) {
-                                    g7.l = d2Var2.v1();
+                                    g7.l = e2Var2.v1();
                                     g7.position = i4;
                                     e.t(g7);
                                     linkedList.add(g7);
                                 }
                             } else {
-                                d2 d2Var3 = g7.f18222e;
-                                if (d2Var3 != null && d2Var3.Z() != null && !StringUtils.isNull(d2Var3.Z().f13864b)) {
-                                    g7.l = d2Var2.v1();
+                                e2 e2Var3 = g7.f17778e;
+                                if (e2Var3 != null && e2Var3.Z() != null && !StringUtils.isNull(e2Var3.Z().f13273b)) {
+                                    g7.l = e2Var2.v1();
                                     g7.position = i4;
                                     e.r(g7);
                                     linkedList.add(g7);
                                     z = true;
-                                    e2 = e.e(d2Var2);
+                                    e2 = e.e(e2Var2);
                                     if (e2 != null) {
-                                        e2.l = d2Var2.v1();
+                                        e2.l = e2Var2.v1();
                                         e2.position = i4;
                                         if (e2 instanceof k) {
-                                            if (d2Var2.Q1()) {
+                                            if (e2Var2.Q1()) {
                                                 e.u(e2);
-                                            } else if (d2Var2.h3() == 1) {
+                                            } else if (e2Var2.h3() == 1) {
                                                 e.w(e2);
-                                                int[] h0 = d2Var2.h0();
+                                                int[] h0 = e2Var2.h0();
                                                 e2.o = h0[0];
                                                 e2.p = h0[1];
-                                            } else if (d2Var2.h3() >= 2) {
+                                            } else if (e2Var2.h3() >= 2) {
                                                 e.v(e2);
                                             } else {
                                                 e.x(e2);
@@ -415,64 +413,64 @@ public class b {
                                         e.z(e2);
                                     }
                                     if (e2 != null && e2.isValid()) {
-                                        e2.f18222e.J1();
-                                        if (!d2Var2.G2() && d2Var2.J() != null && z) {
-                                            String format = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), d2Var2.J().getName_show());
+                                        e2.f17778e.J1();
+                                        if (!e2Var2.G2() && e2Var2.J() != null && z) {
+                                            String format = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), e2Var2.J().getName_show());
                                             SpannableString spannableString = new SpannableString(format);
-                                            spannableString.setSpan(new C1272b(this, 16, d2Var2.J().getUserId(), e2), 0, format.length() - 1, 33);
-                                            e2.f18222e.K1(spannableString);
+                                            spannableString.setSpan(new C1286b(this, 16, e2Var2.J().getUserId(), e2), 0, format.length() - 1, 33);
+                                            e2.f17778e.K1(spannableString);
                                         }
                                         linkedList.add(e2);
                                     }
-                                    if (d2Var2.t0() != null && (g6 = e.g(d2Var2)) != null) {
-                                        g6.l = d2Var2.v1();
+                                    if (e2Var2.t0() != null && (g6 = e.g(e2Var2)) != null) {
+                                        g6.l = e2Var2.v1();
                                         g6.position = i4;
                                         e.A(g6);
-                                        if (!k.Y(d2Var2)) {
+                                        if (!k.Y(e2Var2)) {
                                             g6.N("1");
-                                        } else if (l.T(d2Var2)) {
+                                        } else if (l.T(e2Var2)) {
                                             g6.N("2");
                                         }
                                         linkedList.add(g6);
                                     }
-                                    if ((ListUtils.isEmpty(d2Var2.B0()) || !ListUtils.isEmpty(d2Var2.d0())) && (g2 = e.g(d2Var2)) != null) {
-                                        g2.l = d2Var2.v1();
+                                    if ((ListUtils.isEmpty(e2Var2.B0()) || !ListUtils.isEmpty(e2Var2.d0())) && (g2 = e.g(e2Var2)) != null) {
+                                        g2.l = e2Var2.v1();
                                         g2.position = i4;
-                                        if (ListUtils.getCount(d2Var2.B0()) + ListUtils.getCount(d2Var2.d0()) != 1) {
+                                        if (ListUtils.getCount(e2Var2.B0()) + ListUtils.getCount(e2Var2.d0()) != 1) {
                                             e.D(g2);
                                         } else {
                                             e.B(g2);
                                         }
                                         linkedList.add(g2);
                                     }
-                                    threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(d2Var2.q1(), 0);
-                                    if (threadRecommendInfoData != null && !TextUtils.isEmpty(threadRecommendInfoData.recommendReason) && (g5 = e.g(d2Var2)) != null) {
-                                        g5.l = d2Var2.v1();
+                                    threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(e2Var2.q1(), 0);
+                                    if (threadRecommendInfoData != null && !TextUtils.isEmpty(threadRecommendInfoData.recommendReason) && (g5 = e.g(e2Var2)) != null) {
+                                        g5.l = e2Var2.v1();
                                         g5.position = i4;
                                         e.C(g5);
                                         if (g5.isValid()) {
                                             linkedList.add(g5);
                                         }
                                     }
-                                    if (d2Var2.showCardEnterFourm() && (g4 = e.g(d2Var2)) != null) {
-                                        g4.l = d2Var2.v1();
+                                    if (e2Var2.showCardEnterFourm() && (g4 = e.g(e2Var2)) != null) {
+                                        g4.l = e2Var2.v1();
                                         g4.position = i4;
                                         e.q(g4);
-                                        if (!k.Y(d2Var2)) {
+                                        if (!k.Y(e2Var2)) {
                                             g4.N("1");
-                                        } else if (l.T(d2Var2)) {
+                                        } else if (l.T(e2Var2)) {
                                             g4.N("2");
                                         }
-                                        if (!d2Var2.showCardEnterFourm() && !StringUtils.isNull(d2Var2.a0())) {
+                                        if (!e2Var2.showCardEnterFourm() && !StringUtils.isNull(e2Var2.a0())) {
                                             linkedList.add(g4);
-                                        } else if (!StringUtils.isNull(d2Var2.a0())) {
+                                        } else if (!StringUtils.isNull(e2Var2.a0())) {
                                             linkedList.add(g4);
                                         }
                                     }
-                                    if (d2Var2.y1() != null) {
-                                        k g8 = e.g(d2Var2);
+                                    if (e2Var2.y1() != null) {
+                                        k g8 = e.g(e2Var2);
                                         if (g8 != null) {
-                                            g8.l = d2Var2.v1();
+                                            g8.l = e2Var2.v1();
                                             g8.position = i4;
                                             e.s(g8);
                                         }
@@ -480,9 +478,9 @@ public class b {
                                             linkedList.add(g8);
                                         }
                                     }
-                                    g3 = e.g(d2Var2);
+                                    g3 = e.g(e2Var2);
                                     if (g3 != null) {
-                                        g3.l = d2Var2.v1();
+                                        g3.l = e2Var2.v1();
                                         g3.position = i4;
                                         e.p(g3);
                                     }
@@ -490,7 +488,7 @@ public class b {
                                         linkedList.add(g3);
                                     }
                                 } else if (g7.isValid()) {
-                                    g7.l = d2Var2.v1();
+                                    g7.l = e2Var2.v1();
                                     g7.position = i4;
                                     e.t(g7);
                                     linkedList.add(g7);
@@ -498,66 +496,66 @@ public class b {
                             }
                         }
                         z = false;
-                        e2 = e.e(d2Var2);
+                        e2 = e.e(e2Var2);
                         if (e2 != null) {
                         }
                         if (e2 instanceof m) {
                         }
                         if (e2 != null) {
-                            e2.f18222e.J1();
-                            if (!d2Var2.G2()) {
-                                String format2 = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), d2Var2.J().getName_show());
+                            e2.f17778e.J1();
+                            if (!e2Var2.G2()) {
+                                String format2 = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), e2Var2.J().getName_show());
                                 SpannableString spannableString2 = new SpannableString(format2);
-                                spannableString2.setSpan(new C1272b(this, 16, d2Var2.J().getUserId(), e2), 0, format2.length() - 1, 33);
-                                e2.f18222e.K1(spannableString2);
+                                spannableString2.setSpan(new C1286b(this, 16, e2Var2.J().getUserId(), e2), 0, format2.length() - 1, 33);
+                                e2.f17778e.K1(spannableString2);
                             }
                             linkedList.add(e2);
                         }
-                        if (d2Var2.t0() != null) {
-                            g6.l = d2Var2.v1();
+                        if (e2Var2.t0() != null) {
+                            g6.l = e2Var2.v1();
                             g6.position = i4;
                             e.A(g6);
-                            if (!k.Y(d2Var2)) {
+                            if (!k.Y(e2Var2)) {
                             }
                             linkedList.add(g6);
                         }
-                        if (ListUtils.isEmpty(d2Var2.B0())) {
+                        if (ListUtils.isEmpty(e2Var2.B0())) {
                         }
-                        g2.l = d2Var2.v1();
+                        g2.l = e2Var2.v1();
                         g2.position = i4;
-                        if (ListUtils.getCount(d2Var2.B0()) + ListUtils.getCount(d2Var2.d0()) != 1) {
+                        if (ListUtils.getCount(e2Var2.B0()) + ListUtils.getCount(e2Var2.d0()) != 1) {
                         }
                         linkedList.add(g2);
-                        threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(d2Var2.q1(), 0);
+                        threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(e2Var2.q1(), 0);
                         if (threadRecommendInfoData != null) {
-                            g5.l = d2Var2.v1();
+                            g5.l = e2Var2.v1();
                             g5.position = i4;
                             e.C(g5);
                             if (g5.isValid()) {
                             }
                         }
-                        if (d2Var2.showCardEnterFourm()) {
-                            g4.l = d2Var2.v1();
+                        if (e2Var2.showCardEnterFourm()) {
+                            g4.l = e2Var2.v1();
                             g4.position = i4;
                             e.q(g4);
-                            if (!k.Y(d2Var2)) {
+                            if (!k.Y(e2Var2)) {
                             }
-                            if (!d2Var2.showCardEnterFourm()) {
+                            if (!e2Var2.showCardEnterFourm()) {
                             }
-                            if (!StringUtils.isNull(d2Var2.a0())) {
+                            if (!StringUtils.isNull(e2Var2.a0())) {
                             }
                         }
-                        if (d2Var2.y1() != null) {
+                        if (e2Var2.y1() != null) {
                         }
-                        g3 = e.g(d2Var2);
+                        g3 = e.g(e2Var2);
                         if (g3 != null) {
                         }
                         if (g3 != null) {
                             linkedList.add(g3);
                         }
                     }
-                    long g9 = c.a.d.f.m.b.g(d2Var2.g0(), 0L);
-                    if (g9 != 0 && g9 == this.f21127j.longValue()) {
+                    long g9 = c.a.d.f.m.b.g(e2Var2.g0(), 0L);
+                    if (g9 != 0 && g9 == this.f20563j.longValue()) {
                         if (builder.active_center != null) {
                             gVar = new c.a.t0.o1.h.j.g();
                             gVar.P(builder.active_center);
@@ -581,7 +579,7 @@ public class b {
                 }
                 i4++;
             }
-            if (!c.a.s0.b.d.R()) {
+            if (!c.a.s0.b.d.S()) {
                 int i5 = 0;
                 int i6 = 0;
                 for (int i7 = 0; i7 < ListUtils.getCount(list2); i7++) {
@@ -634,7 +632,7 @@ public class b {
         int size = list.size();
         int i3 = 0;
         for (int i4 = 0; i4 < size; i4++) {
-            if (list.get(i4) instanceof d2) {
+            if (list.get(i4) instanceof e2) {
                 if (i2 == i3) {
                     aVar.floorPosition = i2;
                     ListUtils.add(list, i4, aVar);
@@ -655,15 +653,15 @@ public class b {
         int i5 = 0;
         while (listIterator.hasNext()) {
             if (i4 == i2 || (i4 > i2 && (i4 - i2) % i3 == 0)) {
-                if (i5 < this.f21128k.size()) {
-                    listIterator.add(this.f21128k.get(i5));
+                if (i5 < this.k.size()) {
+                    listIterator.add(this.k.get(i5));
                 } else {
-                    d2 d2Var = new d2();
+                    e2 e2Var = new e2();
                     o oVar = new o();
                     oVar.k(true);
-                    d2Var.N2 = oVar;
-                    listIterator.add(d2Var);
-                    this.f21128k.add(d2Var);
+                    e2Var.M2 = oVar;
+                    listIterator.add(e2Var);
+                    this.k.add(e2Var);
                 }
                 i5++;
             }
@@ -676,7 +674,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ArrayList<ThreadInfo> arrayList = this.f21125h;
+            ArrayList<ThreadInfo> arrayList = this.f20561h;
             return (arrayList == null || ListUtils.isEmpty(arrayList)) ? false : true;
         }
         return invokeV.booleanValue;
@@ -685,13 +683,13 @@ public class b {
     public final boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f21122e > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f20558e > 0 : invokeV.booleanValue;
     }
 
     public final void k(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), builder, builder2, Integer.valueOf(i2)}) == null) {
-            e.k(z, builder, builder2, i2, this.f21120c, this.f21123f, this.f21124g);
+            e.k(z, builder, builder2, i2, this.f20556c, this.f20559f, this.f20560g);
         }
     }
 
@@ -707,14 +705,14 @@ public class b {
         if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), builder, builder2, Integer.valueOf(i2)}) == null) || builder == null || builder2 == null || (list = builder.thread_list) == null || (list2 = builder2.thread_list) == null) {
             return;
         }
-        this.f21123f = ListUtils.getCount(list);
+        this.f20559f = ListUtils.getCount(list);
         BannerList bannerList = builder.banner_list;
         if (bannerList != null) {
-            this.f21124g = ListUtils.getCount(bannerList.app);
+            this.f20560g = ListUtils.getCount(bannerList.app);
         } else {
-            this.f21124g = 0;
+            this.f20560g = 0;
         }
-        int count = ListUtils.getCount(list) + ListUtils.getCount(this.f21125h);
+        int count = ListUtils.getCount(list) + ListUtils.getCount(this.f20561h);
         HashSet hashSet = new HashSet();
         HashSet hashSet2 = new HashSet();
         ArrayList arrayList = new ArrayList();
@@ -727,7 +725,7 @@ public class b {
         }
         HashSet hashSet3 = new HashSet();
         HashSet hashSet4 = new HashSet();
-        Iterator<ThreadInfo> it = this.f21125h.iterator();
+        Iterator<ThreadInfo> it = this.f20561h.iterator();
         while (it.hasNext()) {
             ThreadInfo next = it.next();
             if (next != null && !TextUtils.isEmpty(next.lego_card)) {
@@ -738,7 +736,7 @@ public class b {
         }
         if (i2 == 1) {
             if (!ListUtils.isEmpty(list2)) {
-                this.f21121d.b((ThreadInfo) ListUtils.getItem(list2, 0));
+                this.f20557d.b((ThreadInfo) ListUtils.getItem(list2, 0));
             }
             for (ThreadInfo threadInfo2 : list2) {
                 if (threadInfo2 != null && !TextUtils.isEmpty(threadInfo2.lego_card)) {
@@ -754,27 +752,27 @@ public class b {
                 }
             }
         } else {
-            this.f21121d.c(z, list);
+            this.f20557d.c(z, list);
             if (j()) {
                 BannerList bannerList2 = builder.banner_list;
                 if (bannerList2 != null && !ListUtils.isEmpty(bannerList2.app)) {
-                    this.f21126i.addAll(0, builder.banner_list.app);
+                    this.f20562i.addAll(0, builder.banner_list.app);
                     BannerList.Builder builder3 = new BannerList.Builder(builder.banner_list);
                     builder3.app = new LinkedList();
                     builder.banner_list = builder3.build(false);
                 }
-                this.f21125h.addAll(0, list);
+                this.f20561h.addAll(0, list);
                 list.clear();
                 hashSet.clear();
                 hashSet2.clear();
-                if (ListUtils.getCount(this.f21125h) > this.f21119b) {
-                    for (int size = this.f21125h.size() - 1; size >= this.f21119b; size--) {
-                        this.f21125h.remove(size);
+                if (ListUtils.getCount(this.f20561h) > this.f20555b) {
+                    for (int size = this.f20561h.size() - 1; size >= this.f20555b; size--) {
+                        this.f20561h.remove(size);
                     }
                 }
                 hashSet3.clear();
                 hashSet4.clear();
-                Iterator<ThreadInfo> it2 = this.f21125h.iterator();
+                Iterator<ThreadInfo> it2 = this.f20561h.iterator();
                 while (it2.hasNext()) {
                     ThreadInfo next2 = it2.next();
                     if (next2 != null && !TextUtils.isEmpty(next2.lego_card)) {
@@ -800,34 +798,34 @@ public class b {
             }
         }
         if (j()) {
-            if (!ListUtils.isEmpty(this.f21126i) && builder2.banner_list != null) {
+            if (!ListUtils.isEmpty(this.f20562i) && builder2.banner_list != null) {
                 int count3 = ListUtils.getCount(list2) + ListUtils.getCount(builder2.banner_list.app);
-                for (int i3 = 0; i3 < this.f21126i.size(); i3++) {
-                    App app = this.f21126i.get(i3);
+                for (int i3 = 0; i3 < this.f20562i.size(); i3++) {
+                    App app = this.f20562i.get(i3);
                     if (app != null) {
                         App.Builder builder4 = new App.Builder(app);
                         c.a.t0.j3.c.c(builder4, count3);
                         App build = builder4.build(false);
-                        this.f21126i.remove(i3);
-                        this.f21126i.add(i3, build);
+                        this.f20562i.remove(i3);
+                        this.f20562i.add(i3, build);
                     }
                 }
             }
-            if (ListUtils.getCount(list) >= this.f21122e) {
-                list.addAll(this.f21125h);
-                this.f21125h.clear();
+            if (ListUtils.getCount(list) >= this.f20558e) {
+                list.addAll(this.f20561h);
+                this.f20561h.clear();
                 BannerList.Builder builder5 = new BannerList.Builder(builder.banner_list);
                 if (builder5.app == null) {
                     builder5.app = new LinkedList();
                 }
-                builder5.app.addAll(this.f21126i);
+                builder5.app.addAll(this.f20562i);
                 builder.banner_list = builder5.build(false);
-                this.f21126i.clear();
+                this.f20562i.clear();
             }
         }
-        int count4 = (ListUtils.getCount(list) + ListUtils.getCount(this.f21125h)) - count;
-        this.a.f21129b = count4;
-        this.f21120c = count4;
+        int count4 = (ListUtils.getCount(list) + ListUtils.getCount(this.f20561h)) - count;
+        this.a.f20564b = count4;
+        this.f20556c = count4;
         c.a.t0.j3.l0.b.f().h("NEWINDEX", arrayList);
     }
 
@@ -846,12 +844,12 @@ public class b {
         }
         Integer num = builder2.fresh_ctrl_num;
         int intValue = (num == null || num.intValue() <= 0) ? 0 : builder2.fresh_ctrl_num.intValue();
-        this.f21122e = intValue;
-        int i3 = this.f21119b;
+        this.f20558e = intValue;
+        int i3 = this.f20555b;
         if (intValue > i3) {
             intValue = i3;
         }
-        this.f21122e = intValue;
+        this.f20558e = intValue;
         l(z, builder, builder2, i2);
         k(z, builder, builder2, i2);
         m(builder.thread_personalized, builder2.thread_personalized);

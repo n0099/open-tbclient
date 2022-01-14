@@ -10,26 +10,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f20797f;
+    public static b f20239f;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<Long> f20798b;
+    public SparseArray<Long> f20240b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SparseArray<Long> f20799c;
+    public SparseArray<Long> f20241c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SparseArray<Long> f20800d;
+    public SparseArray<Long> f20242d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SparseArray<Long> f20801e;
+    public SparseArray<Long> f20243e;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class b {
                 return;
             }
         }
-        f20797f = new b();
+        f20239f = new b();
     }
 
     public b() {
@@ -61,23 +61,23 @@ public class b {
             }
         }
         this.a = 0L;
-        this.f20798b = new SparseArray<>();
-        this.f20799c = new SparseArray<>();
-        this.f20800d = new SparseArray<>();
-        this.f20801e = new SparseArray<>();
+        this.f20240b = new SparseArray<>();
+        this.f20241c = new SparseArray<>();
+        this.f20242d = new SparseArray<>();
+        this.f20243e = new SparseArray<>();
     }
 
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f20797f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f20239f : (b) invokeV.objValue;
     }
 
     public long a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            Long l = this.f20799c.get(i2);
+            Long l = this.f20241c.get(i2);
             if (l == null) {
                 return -1L;
             }
@@ -96,7 +96,7 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            Long l = this.f20798b.get(i2);
+            Long l = this.f20240b.get(i2);
             if (l == null) {
                 return -1L;
             }
@@ -109,7 +109,7 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            Long l = this.f20801e.get(i2);
+            Long l = this.f20243e.get(i2);
             if (l == null) {
                 return -1L;
             }
@@ -122,7 +122,7 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            Long l = this.f20800d.get(i2);
+            Long l = this.f20242d.get(i2);
             if (l == null) {
                 return -1L;
             }
@@ -134,7 +134,7 @@ public class b {
     public void g(long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f20799c.put(i2, Long.valueOf(j2));
+            this.f20241c.put(i2, Long.valueOf(j2));
         }
     }
 
@@ -148,21 +148,21 @@ public class b {
     public void i(long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f20798b.put(i2, Long.valueOf(j2));
+            this.f20240b.put(i2, Long.valueOf(j2));
         }
     }
 
     public void j(long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f20801e.put(i2, Long.valueOf(j2));
+            this.f20243e.put(i2, Long.valueOf(j2));
         }
     }
 
     public void k(long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f20800d.put(i2, Long.valueOf(j2));
+            this.f20242d.put(i2, Long.valueOf(j2));
         }
     }
 }

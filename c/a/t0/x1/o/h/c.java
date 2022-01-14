@@ -110,8 +110,8 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(65541, null, bVar) == null) || bVar == null || bVar.getParallelCharge() == null) {
             return;
         }
-        f(bVar.getParallelCharge().f25924b);
-        Iterator<String> it = bVar.getParallelCharge().f25925c.iterator();
+        f(bVar.getParallelCharge().f25162b);
+        Iterator<String> it = bVar.getParallelCharge().f25163c.iterator();
         while (it.hasNext()) {
             f(it.next());
         }
@@ -127,7 +127,7 @@ public class c {
             String str = bVar.getParallelCharge().a;
             f(str);
             boolean z = !TextUtils.isEmpty(str);
-            Iterator<String> it = bVar.getParallelCharge().f25926d.iterator();
+            Iterator<String> it = bVar.getParallelCharge().f25164d.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 z = z || !TextUtils.isEmpty(next);

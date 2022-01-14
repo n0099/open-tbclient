@@ -33,10 +33,10 @@ public class b extends c.a.d.n.e.a<c, a> {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f19822b;
+        public TextView f19308b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f19823c;
+        public View f19309c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(View view, TextView textView, View view2) {
@@ -57,8 +57,8 @@ public class b extends c.a.d.n.e.a<c, a> {
                 }
             }
             this.a = 3;
-            this.f19822b = textView;
-            this.f19823c = view2;
+            this.f19308b = textView;
+            this.f19309c = view2;
         }
 
         public void a(c cVar) {
@@ -66,8 +66,8 @@ public class b extends c.a.d.n.e.a<c, a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null) {
                 return;
             }
-            this.f19822b.setText(cVar.f19867e);
-            this.f19823c.setVisibility(cVar.f19868f ? 0 : 8);
+            this.f19308b.setText(cVar.f19351e);
+            this.f19309c.setVisibility(cVar.f19352f ? 0 : 8);
         }
 
         public void onChangeSkinType(int i2) {
@@ -75,15 +75,15 @@ public class b extends c.a.d.n.e.a<c, a> {
             if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.a == i2) {
                 return;
             }
-            SkinManager.setViewTextColor(this.f19822b, c.a.t0.q1.b.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f19823c, c.a.t0.q1.b.CAM_X0204);
+            SkinManager.setViewTextColor(this.f19308b, c.a.t0.q1.b.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f19309c, c.a.t0.q1.b.CAM_X0204);
             this.a = i2;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.m2.e.a.f19859b);
+        super(tbPageContext.getPageActivity(), c.a.t0.m2.e.a.f19344b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

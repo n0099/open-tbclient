@@ -16,13 +16,13 @@ public class i {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f8082b;
+    public static volatile boolean f7905b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f8083c;
+    public static volatile boolean f7906c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f8084d;
+    public static final boolean f7907d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,10 +39,10 @@ public class i {
             }
         }
         a = c.a.r0.a.k.a;
-        f8082b = false;
-        f8083c = false;
+        f7905b = false;
+        f7906c = false;
         c.a.r0.a.c1.a.g0().getSwitch("swan_app_use_route_statistic", false);
-        f8084d = false;
+        f7907d = false;
     }
 
     public static boolean a() {
@@ -50,9 +50,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (a) {
-                String str = "mIsStartByApi = " + f8083c;
+                String str = "mIsStartByApi = " + f7906c;
             }
-            boolean z = f8083c;
+            boolean z = f7906c;
             k(false);
             return z;
         }
@@ -64,9 +64,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (a) {
-                String str = "mIsStartFirstPage = " + f8082b;
+                String str = "mIsStartFirstPage = " + f7905b;
             }
-            boolean z = f8082b;
+            boolean z = f7905b;
             l(false);
             return z;
         }
@@ -76,7 +76,7 @@ public class i {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f8082b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f7905b : invokeV.booleanValue;
     }
 
     public static void d(c.a.r0.a.m1.b bVar, String str, c.a.r0.a.p.e.j.d dVar) {
@@ -89,32 +89,32 @@ public class i {
     public static void e(c.a.r0.a.m1.b bVar, String str, c.a.r0.a.p.e.j.d dVar, String str2) {
         c.a.r0.a.d2.e a0;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65541, null, bVar, str, dVar, str2) == null) && f8084d && (a0 = c.a.r0.a.d2.e.a0()) != null) {
+        if ((interceptable == null || interceptable.invokeLLLL(65541, null, bVar, str, dVar, str2) == null) && f7907d && (a0 = c.a.r0.a.d2.e.a0()) != null) {
             b.a V = a0.V();
             c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
             fVar.a = n.n(V.G());
-            fVar.f8161f = V.H();
+            fVar.f7981f = V.H();
             if (c.a.r0.a.e0.f.e.e.d()) {
-                fVar.f8158c = "remote-debug";
+                fVar.f7978c = "remote-debug";
             } else if (c.a.r0.a.x1.a.a.D()) {
-                fVar.f8158c = "local-debug";
+                fVar.f7978c = "local-debug";
             } else {
-                fVar.f8158c = V.T();
+                fVar.f7978c = V.T();
             }
-            fVar.f8157b = "pageshow";
+            fVar.f7977b = "pageshow";
             if (!TextUtils.isEmpty(str)) {
-                fVar.f8160e = str;
+                fVar.f7980e = str;
             }
             if (bVar != null) {
-                fVar.a("path", bVar.f7843e);
-                fVar.a("routeType", bVar.f7847i);
-                fVar.a("routeid", bVar.f7848j);
+                fVar.a("path", bVar.f7672e);
+                fVar.a("routeType", bVar.f7676i);
+                fVar.a("routeid", bVar.f7677j);
             }
             if (!TextUtils.isEmpty(str2)) {
                 fVar.a("errcode", str2);
             }
-            if (dVar != null && dVar.f8343c > 0) {
-                fVar.a("valuetype", dVar.f8347g);
+            if (dVar != null && dVar.f8160c > 0) {
+                fVar.a("valuetype", dVar.f8164g);
             }
             Bundle P = V.P();
             if (P != null) {
@@ -140,8 +140,8 @@ public class i {
             c.a.r0.a.h0.g.d j2 = V.j((V.k() - i2) - 1);
             if (j2 instanceof c.a.r0.a.h0.g.f) {
                 bVar = ((c.a.r0.a.h0.g.f) j2).g3();
-                bVar.f7847i = "1";
-                bVar.f7848j = str;
+                bVar.f7676i = "1";
+                bVar.f7677j = str;
             }
             g(bVar);
             return bVar;
@@ -182,7 +182,7 @@ public class i {
             if (a) {
                 String str = "recordRouteFailByApi - pageParam=" + bVar + " errCode=" + aVar;
             }
-            if (f8083c) {
+            if (f7906c) {
                 if (aVar == null) {
                     aVar = new c.a.r0.a.u2.a();
                     aVar.k(5L);
@@ -198,7 +198,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
             synchronized (i.class) {
-                f8083c = z;
+                f7906c = z;
             }
         }
     }
@@ -207,7 +207,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
             synchronized (i.class) {
-                f8082b = z;
+                f7905b = z;
             }
         }
     }

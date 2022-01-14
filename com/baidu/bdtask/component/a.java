@@ -35,12 +35,12 @@ public final class a {
     public static final Lazy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final C1758a f34019b;
+    public static final C1774a f32933b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.bdtask.component.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C1758a {
+    public static final class C1774a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ KProperty[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,10 +58,10 @@ public final class a {
                     return;
                 }
             }
-            a = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(C1758a.class), "INSTANCE", "getINSTANCE()Lcom/baidu/bdtask/component/GuideViewManager;"))};
+            a = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(C1774a.class), "INSTANCE", "getINSTANCE()Lcom/baidu/bdtask/component/GuideViewManager;"))};
         }
 
-        public C1758a() {
+        public C1774a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,7 +86,7 @@ public final class a {
             return (a) invokeV.objValue;
         }
 
-        public /* synthetic */ C1758a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1774a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -104,7 +104,7 @@ public final class a {
                 return;
             }
         }
-        f34019b = new C1758a(null);
+        f32933b = new C1774a(null);
         a = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) GuideViewManager$Companion$INSTANCE$2.INSTANCE);
     }
 
@@ -154,7 +154,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskUIData, taskInfo, taskStatus) == null) {
             com.baidu.bdtask.utils.b bVar = com.baidu.bdtask.utils.b.a;
-            c.a.j.h.b.i.a a2 = c.a.j.h.b.b.f3958c.e().a();
+            c.a.j.h.b.i.a a2 = c.a.j.h.b.b.f3896c.e().a();
             c.a.j.h.c.b.a<?> aVar = null;
             Class<? extends b<? extends c.a.j.h.c.b.a<?>>> a3 = a2 != null ? a2.a() : null;
             if (a3 != null) {
@@ -166,7 +166,7 @@ public final class a {
             newInstance = null;
             b<? extends c.a.j.h.c.b.a<?>> bVar2 = newInstance;
             com.baidu.bdtask.utils.b bVar3 = com.baidu.bdtask.utils.b.a;
-            c.a.j.h.b.i.a a4 = c.a.j.h.b.b.f3958c.e().a();
+            c.a.j.h.b.i.a a4 = c.a.j.h.b.b.f3896c.e().a();
             Class<? extends c.a.j.h.c.b.a<?>> b2 = a4 != null ? a4.b() : null;
             if (b2 != null) {
                 try {
@@ -198,7 +198,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, taskUIData, taskInfo, taskStatus, cVar) == null) {
             com.baidu.bdtask.utils.b bVar = com.baidu.bdtask.utils.b.a;
-            c.a.j.h.b.i.b b2 = c.a.j.h.b.b.f3958c.e().b();
+            c.a.j.h.b.i.b b2 = c.a.j.h.b.b.f3896c.e().b();
             c.a.j.h.c.d.a<?> aVar = null;
             Class<? extends c.a.j.h.c.d.b<? extends c.a.j.h.c.d.a<?>>> b3 = b2 != null ? b2.b() : null;
             if (b3 != null) {
@@ -210,7 +210,7 @@ public final class a {
             newInstance = null;
             c.a.j.h.c.d.b<? extends c.a.j.h.c.d.a<?>> bVar2 = newInstance;
             com.baidu.bdtask.utils.b bVar3 = com.baidu.bdtask.utils.b.a;
-            c.a.j.h.b.i.b b4 = c.a.j.h.b.b.f3958c.e().b();
+            c.a.j.h.b.i.b b4 = c.a.j.h.b.b.f3896c.e().b();
             Class<? extends c.a.j.h.c.d.a<?>> c2 = b4 != null ? b4.c() : null;
             if (c2 != null) {
                 try {
@@ -225,7 +225,7 @@ public final class a {
             if (bVar2 == null || aVar2 == null) {
                 return;
             }
-            c.a.j.h.b.i.b b5 = c.a.j.h.b.b.f3958c.e().b();
+            c.a.j.h.b.i.b b5 = c.a.j.h.b.b.f3896c.e().b();
             c.a.j.m.c.h(b5 != null ? b5.a() : false);
             TaskUIBtn backBtn = taskUIData.getBackBtn();
             new c.a.j.e.d.b(bVar2, aVar2, new TaskToastViewData(taskInfo, taskStatus, backBtn.isEmpty() ? 1 : 2, taskUIData.getBackColor(), taskUIData.getBgUrl(), taskUIData.getMessage(), taskUIData.getDuration(), taskUIData.getTxtColor(), backBtn.getColor(), backBtn.getTxt(), backBtn.getBgUrl(), backBtn.getTxtColor(), backBtn.getScheme(), cVar)).a();

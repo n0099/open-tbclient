@@ -24,10 +24,10 @@ public class r extends c.a.r0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8149e;
+        public final /* synthetic */ String f7970e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ r f8150f;
+        public final /* synthetic */ r f7971f;
 
         public a(r rVar, String str) {
             Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public class r extends c.a.r0.a.u.c.d {
                     return;
                 }
             }
-            this.f8150f = rVar;
-            this.f8149e = str;
+            this.f7971f = rVar;
+            this.f7970e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8150f.z(this.f8149e);
+                this.f7971f.z(this.f7970e);
             }
         }
     }
@@ -63,10 +63,10 @@ public class r extends c.a.r0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8151e;
+        public final /* synthetic */ String f7972e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8152f;
+        public final /* synthetic */ String f7973f;
 
         public b(r rVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -83,19 +83,19 @@ public class r extends c.a.r0.a.u.c.d {
                     return;
                 }
             }
-            this.f8151e = str;
-            this.f8152f = str2;
+            this.f7972e = str;
+            this.f7973f = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (TextUtils.equals(this.f8151e, "671")) {
-                    c.a.r0.a.e0.d.k("ubcAndCeresStatisticEvent", "671 event=" + this.f8152f);
+                if (TextUtils.equals(this.f7972e, "671")) {
+                    c.a.r0.a.e0.d.k("ubcAndCeresStatisticEvent", "671 event=" + this.f7973f);
                 }
                 try {
-                    c.a.r0.a.n2.b.m(this.f8151e, new JSONObject(this.f8152f));
+                    c.a.r0.a.n2.b.m(this.f7972e, new JSONObject(this.f7973f));
                 } catch (JSONException e2) {
                     c.a.r0.a.e0.d.k("ubcAndCeresStatisticEvent", e2.toString());
                 }
@@ -109,10 +109,10 @@ public class r extends c.a.r0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8153e;
+        public final /* synthetic */ String f7974e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8154f;
+        public final /* synthetic */ JSONObject f7975f;
 
         public c(r rVar, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -129,15 +129,15 @@ public class r extends c.a.r0.a.u.c.d {
                     return;
                 }
             }
-            this.f8153e = str;
-            this.f8154f = jSONObject;
+            this.f7974e = str;
+            this.f7975f = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.u.e.l(this.f8153e, this.f8154f);
+                c.a.r0.u.e.l(this.f7974e, this.f7975f);
             }
         }
     }

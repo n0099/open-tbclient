@@ -17,7 +17,7 @@ public final class h {
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f30508b;
+    public static final Pattern f29552b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,29 +34,29 @@ public final class h {
             }
         }
         a = Pattern.compile("^NOTE(( |\t).*)?$");
-        f30508b = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
+        f29552b = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
     }
 
     public static Matcher a(l lVar) {
-        String k2;
+        String k;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, lVar)) != null) {
             return (Matcher) invokeL.objValue;
         }
         while (true) {
-            String k3 = lVar.k();
-            if (k3 == null) {
+            String k2 = lVar.k();
+            if (k2 == null) {
                 return null;
             }
-            if (a.matcher(k3).matches()) {
+            if (a.matcher(k2).matches()) {
                 do {
-                    k2 = lVar.k();
-                    if (k2 != null) {
+                    k = lVar.k();
+                    if (k != null) {
                     }
-                } while (!k2.isEmpty());
+                } while (!k.isEmpty());
             } else {
-                Matcher matcher = f.f30500b.matcher(k3);
+                Matcher matcher = f.f29544b.matcher(k2);
                 if (matcher.matches()) {
                     return matcher;
                 }
@@ -97,9 +97,9 @@ public final class h {
     public static void d(l lVar) throws SubtitleDecoderException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar) == null) {
-            String k2 = lVar.k();
-            if (k2 == null || !f30508b.matcher(k2).matches()) {
-                throw new SubtitleDecoderException("Expected WEBVTT. Got " + k2);
+            String k = lVar.k();
+            if (k == null || !f29552b.matcher(k).matches()) {
+                throw new SubtitleDecoderException("Expected WEBVTT. Got " + k);
             }
         }
     }

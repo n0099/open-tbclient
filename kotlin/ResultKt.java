@@ -20,11 +20,11 @@ public final class ResultKt {
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <R, T> R fold(Object obj, Function1<? super T, ? extends R> function1, Function1<? super Throwable, ? extends R> function12) {
-        Throwable m705exceptionOrNullimpl = Result.m705exceptionOrNullimpl(obj);
-        if (m705exceptionOrNullimpl == null) {
+        Throwable m717exceptionOrNullimpl = Result.m717exceptionOrNullimpl(obj);
+        if (m717exceptionOrNullimpl == null) {
             return function1.invoke(obj);
         }
-        return function12.invoke(m705exceptionOrNullimpl);
+        return function12.invoke(m717exceptionOrNullimpl);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -32,7 +32,7 @@ public final class ResultKt {
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <R, T extends R> R getOrDefault(Object obj, R r) {
-        return Result.m708isFailureimpl(obj) ? r : obj;
+        return Result.m720isFailureimpl(obj) ? r : obj;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -40,8 +40,8 @@ public final class ResultKt {
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <R, T extends R> R getOrElse(Object obj, Function1<? super Throwable, ? extends R> function1) {
-        Throwable m705exceptionOrNullimpl = Result.m705exceptionOrNullimpl(obj);
-        return m705exceptionOrNullimpl == null ? obj : function1.invoke(m705exceptionOrNullimpl);
+        Throwable m717exceptionOrNullimpl = Result.m717exceptionOrNullimpl(obj);
+        return m717exceptionOrNullimpl == null ? obj : function1.invoke(m717exceptionOrNullimpl);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.lang.Object */
@@ -56,34 +56,34 @@ public final class ResultKt {
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <R, T> Object map(Object obj, Function1<? super T, ? extends R> function1) {
-        if (Result.m709isSuccessimpl(obj)) {
+        if (Result.m721isSuccessimpl(obj)) {
             Result.Companion companion = Result.Companion;
-            return Result.m702constructorimpl(function1.invoke(obj));
+            return Result.m714constructorimpl(function1.invoke(obj));
         }
-        return Result.m702constructorimpl(obj);
+        return Result.m714constructorimpl(obj);
     }
 
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <R, T> Object mapCatching(Object obj, Function1<? super T, ? extends R> function1) {
-        if (Result.m709isSuccessimpl(obj)) {
+        if (Result.m721isSuccessimpl(obj)) {
             try {
                 Result.Companion companion = Result.Companion;
-                return Result.m702constructorimpl(function1.invoke(obj));
+                return Result.m714constructorimpl(function1.invoke(obj));
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                return Result.m702constructorimpl(createFailure(th));
+                return Result.m714constructorimpl(createFailure(th));
             }
         }
-        return Result.m702constructorimpl(obj);
+        return Result.m714constructorimpl(obj);
     }
 
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <T> Object onFailure(Object obj, Function1<? super Throwable, Unit> function1) {
-        Throwable m705exceptionOrNullimpl = Result.m705exceptionOrNullimpl(obj);
-        if (m705exceptionOrNullimpl != null) {
-            function1.invoke(m705exceptionOrNullimpl);
+        Throwable m717exceptionOrNullimpl = Result.m717exceptionOrNullimpl(obj);
+        if (m717exceptionOrNullimpl != null) {
+            function1.invoke(m717exceptionOrNullimpl);
         }
         return obj;
     }
@@ -91,7 +91,7 @@ public final class ResultKt {
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <T> Object onSuccess(Object obj, Function1<? super T, Unit> function1) {
-        if (Result.m709isSuccessimpl(obj)) {
+        if (Result.m721isSuccessimpl(obj)) {
             function1.invoke(obj);
         }
         return obj;
@@ -100,27 +100,27 @@ public final class ResultKt {
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <R, T extends R> Object recover(Object obj, Function1<? super Throwable, ? extends R> function1) {
-        Throwable m705exceptionOrNullimpl = Result.m705exceptionOrNullimpl(obj);
-        if (m705exceptionOrNullimpl == null) {
+        Throwable m717exceptionOrNullimpl = Result.m717exceptionOrNullimpl(obj);
+        if (m717exceptionOrNullimpl == null) {
             return obj;
         }
         Result.Companion companion = Result.Companion;
-        return Result.m702constructorimpl(function1.invoke(m705exceptionOrNullimpl));
+        return Result.m714constructorimpl(function1.invoke(m717exceptionOrNullimpl));
     }
 
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <R, T extends R> Object recoverCatching(Object obj, Function1<? super Throwable, ? extends R> function1) {
-        Throwable m705exceptionOrNullimpl = Result.m705exceptionOrNullimpl(obj);
-        if (m705exceptionOrNullimpl == null) {
+        Throwable m717exceptionOrNullimpl = Result.m717exceptionOrNullimpl(obj);
+        if (m717exceptionOrNullimpl == null) {
             return obj;
         }
         try {
             Result.Companion companion = Result.Companion;
-            return Result.m702constructorimpl(function1.invoke(m705exceptionOrNullimpl));
+            return Result.m714constructorimpl(function1.invoke(m717exceptionOrNullimpl));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            return Result.m702constructorimpl(createFailure(th));
+            return Result.m714constructorimpl(createFailure(th));
         }
     }
 
@@ -129,10 +129,10 @@ public final class ResultKt {
     public static final <R> Object runCatching(Function0<? extends R> function0) {
         try {
             Result.Companion companion = Result.Companion;
-            return Result.m702constructorimpl(function0.invoke());
+            return Result.m714constructorimpl(function0.invoke());
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            return Result.m702constructorimpl(createFailure(th));
+            return Result.m714constructorimpl(createFailure(th));
         }
     }
 
@@ -149,10 +149,10 @@ public final class ResultKt {
     public static final <T, R> Object runCatching(T t, Function1<? super T, ? extends R> function1) {
         try {
             Result.Companion companion = Result.Companion;
-            return Result.m702constructorimpl(function1.invoke(t));
+            return Result.m714constructorimpl(function1.invoke(t));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            return Result.m702constructorimpl(createFailure(th));
+            return Result.m714constructorimpl(createFailure(th));
         }
     }
 }

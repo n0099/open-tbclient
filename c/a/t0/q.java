@@ -36,25 +36,23 @@ public class q implements c.a.t0.f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f22018e;
+    public TbPageContext f21419e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f22019f;
+    public LinearLayout f21420f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NavigationBar f22020g;
+    public NavigationBar f21421g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f22021h;
+    public RelativeLayout f21422h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f22022i;
+    public TextView f21423i;
 
     /* renamed from: j  reason: collision with root package name */
-    public EMTextView f22023j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public AttentionView f22024k;
+    public EMTextView f21424j;
+    public AttentionView k;
     public h l;
     @Nullable
     public f m;
@@ -66,7 +64,7 @@ public class q implements c.a.t0.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ q f22025e;
+        public final /* synthetic */ q f21425e;
 
         public a(q qVar) {
             Interceptable interceptable = $ic;
@@ -83,16 +81,16 @@ public class q implements c.a.t0.f {
                     return;
                 }
             }
-            this.f22025e = qVar;
+            this.f21425e = qVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22025e.m == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21425e.m == null) {
                 return;
             }
-            this.f22025e.m.a(this.f22025e.n);
+            this.f21425e.m.a(this.f21425e.n);
         }
     }
 
@@ -102,7 +100,7 @@ public class q implements c.a.t0.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ q f22026e;
+        public final /* synthetic */ q f21426e;
 
         public b(q qVar) {
             Interceptable interceptable = $ic;
@@ -119,17 +117,17 @@ public class q implements c.a.t0.f {
                     return;
                 }
             }
-            this.f22026e = qVar;
+            this.f21426e = qVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22026e.f22024k == null || this.f22026e.f22018e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21426e.k == null || this.f21426e.f21419e == null) {
                 return;
             }
-            this.f22026e.j();
-            new ForumSquareActivityConfig(this.f22026e.f22018e.getPageActivity()).start();
+            this.f21426e.j();
+            new ForumSquareActivityConfig(this.f21426e.f21419e.getPageActivity()).start();
         }
     }
 
@@ -197,7 +195,7 @@ public class q implements c.a.t0.f {
                 return;
             }
             if (this.a.n.size() == 2 && !selectForumData.isInterestForumSelected) {
-                c.a.d.f.p.n.M(this.a.f22018e.getPageActivity(), this.a.f22018e.getString(R.string.activity_select_interest_forum_limit));
+                c.a.d.f.p.n.N(this.a.f21419e.getPageActivity(), this.a.f21419e.getString(R.string.activity_select_interest_forum_limit));
                 return;
             }
             boolean z = !selectForumData.isInterestForumSelected;
@@ -207,8 +205,8 @@ public class q implements c.a.t0.f {
             } else {
                 this.a.q(selectForumData);
             }
-            if (this.a.f22024k != null) {
-                this.a.f22024k.notifyItemChanged(selectForumData.index);
+            if (this.a.k != null) {
+                this.a.k.notifyItemChanged(selectForumData.index);
             }
             this.a.p();
         }
@@ -241,9 +239,9 @@ public class q implements c.a.t0.f {
         }
         ArrayList<SelectForumData> arrayList2 = new ArrayList<>();
         this.n = arrayList2;
-        this.f22018e = tbPageContext;
-        this.f22019f = linearLayout;
-        this.f22020g = navigationBar;
+        this.f21419e = tbPageContext;
+        this.f21420f = linearLayout;
+        this.f21421g = navigationBar;
         this.m = fVar;
         if (arrayList != null) {
             arrayList2.addAll(arrayList);
@@ -306,11 +304,11 @@ public class q implements c.a.t0.f {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            EMTextView eMTextView = this.f22023j;
+            EMTextView eMTextView = this.f21424j;
             if (eMTextView != null) {
                 eMTextView.setVisibility(0);
             }
-            AttentionView attentionView = this.f22024k;
+            AttentionView attentionView = this.k;
             if (attentionView != null) {
                 attentionView.setVisibility(0);
             }
@@ -318,23 +316,23 @@ public class q implements c.a.t0.f {
             if (hVar == null || !hVar.isViewAttached()) {
                 return;
             }
-            this.l.dettachView(this.f22021h);
+            this.l.dettachView(this.f21422h);
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            LayoutInflater.from(this.f22018e.getPageActivity()).inflate(R.layout.layout_select_interest_forum, (ViewGroup) this.f22019f, true);
-            this.f22021h = (RelativeLayout) this.f22019f.findViewById(R.id.select_interest_forum_root);
-            this.f22023j = (EMTextView) this.f22019f.findViewById(R.id.select_interest_forum_title_hint);
-            AttentionView attentionView = (AttentionView) this.f22019f.findViewById(R.id.select_interest_forum_attention_page);
-            this.f22024k = attentionView;
+            LayoutInflater.from(this.f21419e.getPageActivity()).inflate(R.layout.layout_select_interest_forum, (ViewGroup) this.f21420f, true);
+            this.f21422h = (RelativeLayout) this.f21420f.findViewById(R.id.select_interest_forum_root);
+            this.f21424j = (EMTextView) this.f21420f.findViewById(R.id.select_interest_forum_title_hint);
+            AttentionView attentionView = (AttentionView) this.f21420f.findViewById(R.id.select_interest_forum_attention_page);
+            this.k = attentionView;
             if (attentionView != null) {
                 attentionView.setForumSelectStateChangedListener(k());
-                this.f22024k.setResultEmptyListener(l());
-                this.f22024k.initSelectedForums(this.n);
-                this.f22024k.request((String) null);
+                this.k.setResultEmptyListener(l());
+                this.k.initSelectedForums(this.n);
+                this.k.request((String) null);
             }
         }
     }
@@ -342,9 +340,9 @@ public class q implements c.a.t0.f {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f22020g.setCenterTextTitle(this.f22018e.getString(R.string.activity_select_interest_forum_title));
-            TextView addTextButton = this.f22020g.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f22018e.getString(R.string.activity_select_interest_forum_save));
-            this.f22022i = addTextButton;
+            this.f21421g.setCenterTextTitle(this.f21419e.getString(R.string.activity_select_interest_forum_title));
+            TextView addTextButton = this.f21421g.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f21419e.getString(R.string.activity_select_interest_forum_save));
+            this.f21423i = addTextButton;
             if (addTextButton != null) {
                 addTextButton.setOnClickListener(new a(this));
             }
@@ -356,7 +354,7 @@ public class q implements c.a.t0.f {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            AttentionView attentionView = this.f22024k;
+            AttentionView attentionView = this.k;
             if (attentionView != null) {
                 attentionView.onDestroy();
             }
@@ -370,7 +368,7 @@ public class q implements c.a.t0.f {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (hVar = this.l) != null && hVar.isViewAttached()) {
             m();
-            AttentionView attentionView = this.f22024k;
+            AttentionView attentionView = this.k;
             if (attentionView != null) {
                 attentionView.request((String) null);
             }
@@ -381,15 +379,15 @@ public class q implements c.a.t0.f {
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            EMTextView eMTextView = this.f22023j;
+            EMTextView eMTextView = this.f21424j;
             if (eMTextView != null) {
                 SkinManager.setViewTextColor(eMTextView, R.color.CAM_X0108);
             }
-            TextView textView = this.f22022i;
+            TextView textView = this.f21423i;
             if (textView != null) {
                 textView.setTextColor(SkinManager.getColorStateListWithClickAndDisableState(R.color.CAM_X0302, i2));
             }
-            AttentionView attentionView = this.f22024k;
+            AttentionView attentionView = this.k;
             if (attentionView != null) {
                 attentionView.onChangeSkinType();
             }
@@ -403,7 +401,7 @@ public class q implements c.a.t0.f {
     public final void p() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (textView = this.f22022i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (textView = this.f21423i) == null) {
             return;
         }
         textView.setEnabled(!this.n.isEmpty());
@@ -436,25 +434,25 @@ public class q implements c.a.t0.f {
 
     public final void s() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f22018e == null || this.f22021h == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f21419e == null || this.f21422h == null) {
             return;
         }
         h hVar = this.l;
         if (hVar == null || !hVar.isViewAttached()) {
-            h hVar2 = new h(this.f22018e.getPageActivity(), new b(this));
+            h hVar2 = new h(this.f21419e.getPageActivity(), new b(this));
             this.l = hVar2;
             hVar2.j(true);
-            this.l.m(this.f22018e.getString(R.string.activity_select_interest_forum_empty_forum_subtitle));
-            this.l.o(this.f22018e.getString(R.string.activity_select_interest_forum_empty_forum_title));
-            this.l.g(this.f22018e.getString(R.string.activity_select_interest_forum_empty_btn));
+            this.l.m(this.f21419e.getString(R.string.activity_select_interest_forum_empty_forum_subtitle));
+            this.l.o(this.f21419e.getString(R.string.activity_select_interest_forum_empty_forum_title));
+            this.l.g(this.f21419e.getString(R.string.activity_select_interest_forum_empty_btn));
             this.l.i(R.drawable.new_pic_emotion_07);
             this.l.p();
-            this.l.attachView(this.f22021h);
-            EMTextView eMTextView = this.f22023j;
+            this.l.attachView(this.f21422h);
+            EMTextView eMTextView = this.f21424j;
             if (eMTextView != null) {
                 eMTextView.setVisibility(8);
             }
-            AttentionView attentionView = this.f22024k;
+            AttentionView attentionView = this.k;
             if (attentionView != null) {
                 attentionView.setVisibility(8);
             }

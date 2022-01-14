@@ -16,16 +16,16 @@ public class CustomerAdScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39942e;
+    public boolean f38620e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f39943f;
+    public boolean f38621f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f39944g;
+    public float f38622g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f39945h;
+    public a f38623h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomerAdScrollView(Context context) {
@@ -45,9 +45,9 @@ public class CustomerAdScrollView extends ScrollView {
                 return;
             }
         }
-        this.f39942e = false;
-        this.f39943f = false;
-        this.f39945h = null;
+        this.f38620e = false;
+        this.f38621f = false;
+        this.f38623h = null;
         setVerticalScrollBarEnabled(false);
     }
 
@@ -59,13 +59,13 @@ public class CustomerAdScrollView extends ScrollView {
             float y = motionEvent.getY();
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f39944g = y;
+                this.f38622g = y;
             } else if (action == 2) {
-                if (y - this.f39944g < 0.0f) {
-                    if (!this.f39942e || this.f39943f) {
+                if (y - this.f38622g < 0.0f) {
+                    if (!this.f38620e || this.f38621f) {
                         return false;
                     }
-                } else if (!this.f39943f) {
+                } else if (!this.f38621f) {
                     return false;
                 }
             }
@@ -79,7 +79,7 @@ public class CustomerAdScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            a aVar = this.f39945h;
+            a aVar = this.f38623h;
             if (aVar != null) {
                 aVar.onScrollChanged(i2, i3, i4, i5);
             }
@@ -89,21 +89,21 @@ public class CustomerAdScrollView extends ScrollView {
     public void setIsFooterLayoutShow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f39943f = z;
+            this.f38621f = z;
         }
     }
 
     public void setIsWebViewOnBottom(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f39942e = z;
+            this.f38620e = z;
         }
     }
 
     public void setScrollViewListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f39945h = aVar;
+            this.f38623h = aVar;
         }
     }
 }

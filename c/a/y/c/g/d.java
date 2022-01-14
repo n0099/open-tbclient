@@ -15,34 +15,32 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27616b;
+    public int f26786b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f27617c;
+    public long f26787c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f27618d;
+    public boolean f26788d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27619e;
+    public int f26789e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27620f;
+    public int f26790f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27621g;
+    public String f26791g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27622h;
+    public int f26792h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27623i;
+    public int f26793i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27624j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f27625k;
+    public int f26794j;
+    public boolean k;
     public String l;
     public int m;
     public int n;
@@ -63,16 +61,16 @@ public class d {
             }
         }
         this.a = "/sdcard/AR/video/arvideo.mp4";
-        this.f27616b = 0;
-        this.f27617c = 0L;
-        this.f27618d = true;
-        this.f27619e = 720;
-        this.f27620f = 1280;
-        this.f27621g = "video/avc";
-        this.f27622h = 8294400;
-        this.f27623i = 30;
-        this.f27624j = 1;
-        this.f27625k = false;
+        this.f26786b = 0;
+        this.f26787c = 0L;
+        this.f26788d = true;
+        this.f26789e = 720;
+        this.f26790f = 1280;
+        this.f26791g = "video/avc";
+        this.f26792h = 8294400;
+        this.f26793i = 30;
+        this.f26794j = 1;
+        this.k = false;
         this.l = "audio/mp4a-latm";
         this.m = 1;
         this.n = EncoderParams.AUDIO_BIT_RATE;
@@ -119,61 +117,61 @@ public class d {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27616b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26786b : invokeV.intValue;
     }
 
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27617c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26787c : invokeV.longValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27622h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26792h : invokeV.intValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27621g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f26791g : (String) invokeV.objValue;
     }
 
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27623i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f26793i : invokeV.intValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f27620f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f26790f : invokeV.intValue;
     }
 
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f27624j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f26794j : invokeV.intValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f27619e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f26789e : invokeV.intValue;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f27625k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f27618d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f26788d : invokeV.booleanValue;
     }
 
     public void q(int i2) {
@@ -193,7 +191,7 @@ public class d {
     public void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f27625k = z;
+            this.k = z;
         }
     }
 
@@ -215,21 +213,21 @@ public class d {
     public void v(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.f27617c = j2;
+            this.f26787c = j2;
         }
     }
 
     public void w(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f27620f = i2;
+            this.f26790f = i2;
         }
     }
 
     public void x(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f27619e = i2;
+            this.f26789e = i2;
         }
     }
 }

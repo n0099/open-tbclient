@@ -20,7 +20,7 @@ public class PassBiometricConfiguration {
     public final String appSignKey;
 
     /* renamed from: b  reason: collision with root package name */
-    public Application f38730b;
+    public Application f37454b;
     public final String licenseFileName;
     public final String licenseID;
     public String passDomain;
@@ -44,34 +44,32 @@ public class PassBiometricConfiguration {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f38731b;
+        public String f37455b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f38732c;
+        public String f37456c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f38733d;
+        public String f37457d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f38734e;
+        public String f37458e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f38735f;
+        public String f37459f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f38736g;
+        public String f37460g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f38737h;
+        public String f37461h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f38738i;
+        public int f37462i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f38739j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public boolean f38740k;
+        public boolean f37463j;
+        public boolean k;
         public Application l;
         public boolean m;
 
@@ -90,8 +88,8 @@ public class PassBiometricConfiguration {
                     return;
                 }
             }
-            this.f38739j = false;
-            this.f38740k = false;
+            this.f37463j = false;
+            this.k = false;
             this.m = true;
             this.l = application;
         }
@@ -100,9 +98,9 @@ public class PassBiometricConfiguration {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.f38731b) && !TextUtils.isEmpty(this.f38732c)) {
-                    if (this.f38735f == null) {
-                        this.f38735f = PassBioEnv.PASSPORT_DOMAIN;
+                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.f37455b) && !TextUtils.isEmpty(this.f37456c)) {
+                    if (this.f37459f == null) {
+                        this.f37459f = PassBioEnv.PASSPORT_DOMAIN;
                     }
                     return new PassBiometricConfiguration(this, null);
                 }
@@ -115,7 +113,7 @@ public class PassBiometricConfiguration {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.f38740k = z;
+                this.k = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -135,8 +133,8 @@ public class PassBiometricConfiguration {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-                this.f38733d = str;
-                this.f38734e = str2;
+                this.f37457d = str;
+                this.f37458e = str2;
                 return this;
             }
             return (Builder) invokeLL.objValue;
@@ -147,8 +145,8 @@ public class PassBiometricConfiguration {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, str3)) == null) {
                 this.a = str;
-                this.f38731b = str2;
-                this.f38732c = str3;
+                this.f37455b = str2;
+                this.f37456c = str3;
                 return this;
             }
             return (Builder) invokeLLL.objValue;
@@ -158,7 +156,7 @@ public class PassBiometricConfiguration {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f38735f = str;
+                this.f37459f = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -168,7 +166,7 @@ public class PassBiometricConfiguration {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.f38739j = z;
+                this.f37463j = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -178,9 +176,9 @@ public class PassBiometricConfiguration {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, str, str2, i2)) == null) {
-                this.f38736g = str;
-                this.f38737h = str2;
-                this.f38738i = i2;
+                this.f37460g = str;
+                this.f37461h = str2;
+                this.f37462i = i2;
                 return this;
             }
             return (Builder) invokeLLI.objValue;
@@ -201,7 +199,7 @@ public class PassBiometricConfiguration {
     public Application getApplication() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38730b : (Application) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37454b : (Application) invokeV.objValue;
     }
 
     public boolean isAgreeDangerousProtocol() {
@@ -234,17 +232,17 @@ public class PassBiometricConfiguration {
         }
         this.a = true;
         this.tpl = builder.a;
-        this.appId = builder.f38731b;
-        this.appSignKey = builder.f38732c;
-        this.passDomain = builder.f38735f;
-        this.licenseID = builder.f38733d;
-        this.licenseFileName = builder.f38734e;
-        this.sofireAppKey = builder.f38736g;
-        this.sofireSecKey = builder.f38737h;
-        this.sofireHostID = builder.f38738i;
+        this.appId = builder.f37455b;
+        this.appSignKey = builder.f37456c;
+        this.passDomain = builder.f37459f;
+        this.licenseID = builder.f37457d;
+        this.licenseFileName = builder.f37458e;
+        this.sofireAppKey = builder.f37460g;
+        this.sofireSecKey = builder.f37461h;
+        this.sofireHostID = builder.f37462i;
         this.a = builder.m;
-        debug(builder.f38740k);
-        this.showPmnRationaleDialog = builder.f38739j;
-        this.f38730b = builder.l;
+        debug(builder.k);
+        this.showPmnRationaleDialog = builder.f37463j;
+        this.f37454b = builder.l;
     }
 }

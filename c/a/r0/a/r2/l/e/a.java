@@ -29,24 +29,24 @@ public class a {
             if (f(aVar.a)) {
                 WifiConfiguration wifiConfiguration = new WifiConfiguration();
                 wifiConfiguration.SSID = "\"" + aVar.a + "\"";
-                if (!TextUtils.isEmpty(aVar.f8916b)) {
-                    wifiConfiguration.BSSID = aVar.f8916b;
+                if (!TextUtils.isEmpty(aVar.f8721b)) {
+                    wifiConfiguration.BSSID = aVar.f8721b;
                 }
                 if (b2 == 0) {
                     b.d(wifiConfiguration, 0);
                 } else if (b2 == 1) {
                     b.d(wifiConfiguration, 1);
                     String[] strArr = wifiConfiguration.wepKeys;
-                    strArr[0] = "\"" + aVar.f8918d + "\"";
+                    strArr[0] = "\"" + aVar.f8723d + "\"";
                 } else if (b2 == 2) {
                     b.d(wifiConfiguration, 2);
-                    wifiConfiguration.preSharedKey = "\"" + aVar.f8918d + "\"";
+                    wifiConfiguration.preSharedKey = "\"" + aVar.f8723d + "\"";
                 } else if (b2 == 3) {
                     b.d(wifiConfiguration, 3);
                     WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
                     wifiEnterpriseConfig.setEapMethod(0);
-                    wifiEnterpriseConfig.setIdentity(aVar.f8917c);
-                    wifiEnterpriseConfig.setPassword(aVar.f8918d);
+                    wifiEnterpriseConfig.setIdentity(aVar.f8722c);
+                    wifiEnterpriseConfig.setPassword(aVar.f8723d);
                     wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
                 }
                 return wifiConfiguration;
@@ -98,7 +98,7 @@ public class a {
                 return null;
             }
             try {
-                if (ContextCompat.checkSelfPermission(context, s.f57423g) != 0) {
+                if (ContextCompat.checkSelfPermission(context, s.f55246g) != 0) {
                     return null;
                 }
                 return wifiManager.getConfiguredNetworks();

@@ -67,7 +67,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailManagementActivity f47745e;
+        public final /* synthetic */ TailManagementActivity f45969e;
 
         public b(TailManagementActivity tailManagementActivity) {
             Interceptable interceptable = $ic;
@@ -84,21 +84,21 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     return;
                 }
             }
-            this.f47745e = tailManagementActivity;
+            this.f45969e = tailManagementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f47745e.mView.a()) {
-                    this.f47745e.finish();
-                } else if (view == this.f47745e.mView.b()) {
-                    boolean z = !this.f47745e.mModel.g();
-                    this.f47745e.mModel.l(z);
-                    TailManagementActivity tailManagementActivity = this.f47745e;
+                if (view == this.f45969e.mView.a()) {
+                    this.f45969e.finish();
+                } else if (view == this.f45969e.mView.b()) {
+                    boolean z = !this.f45969e.mModel.g();
+                    this.f45969e.mModel.l(z);
+                    TailManagementActivity tailManagementActivity = this.f45969e;
                     tailManagementActivity.mView.e(z, tailManagementActivity.mModel.h().size() == 0);
-                    this.f47745e.mAdapter.j();
+                    this.f45969e.mAdapter.j();
                 }
             }
         }

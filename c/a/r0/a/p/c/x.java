@@ -24,41 +24,41 @@ public class x implements c.a.r0.a.p.d.o0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f8300e;
+        public final /* synthetic */ Context f8117e;
 
         /* renamed from: c.a.r0.a.p.c.x$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0484a implements c.a.r0.a.z2.g1.c<String> {
+        public class C0493a implements c.a.r0.a.z2.g1.c<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ File f8301e;
+            public final /* synthetic */ File f8118e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f8302f;
+            public final /* synthetic */ String f8119f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f8303g;
+            public final /* synthetic */ a f8120g;
 
             /* renamed from: c.a.r0.a.p.c.x$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class RunnableC0485a implements Runnable {
+            public class RunnableC0494a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ File f8304e;
+                public final /* synthetic */ File f8121e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ C0484a f8305f;
+                public final /* synthetic */ C0493a f8122f;
 
-                public RunnableC0485a(C0484a c0484a, File file) {
+                public RunnableC0494a(C0493a c0493a, File file) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0484a, file};
+                        Object[] objArr = {c0493a, file};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -68,20 +68,20 @@ public class x implements c.a.r0.a.p.d.o0 {
                             return;
                         }
                     }
-                    this.f8305f = c0484a;
-                    this.f8304e = file;
+                    this.f8122f = c0493a;
+                    this.f8121e = file;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        c.a.r0.a.z2.i0.a(this.f8305f.f8303g.f8300e, this.f8304e);
+                        c.a.r0.a.z2.i0.a(this.f8122f.f8120g.f8117e, this.f8121e);
                     }
                 }
             }
 
-            public C0484a(a aVar, File file, String str) {
+            public C0493a(a aVar, File file, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,9 +96,9 @@ public class x implements c.a.r0.a.p.d.o0 {
                         return;
                     }
                 }
-                this.f8303g = aVar;
-                this.f8301e = file;
-                this.f8302f = str;
+                this.f8120g = aVar;
+                this.f8118e = file;
+                this.f8119f = str;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -108,18 +108,18 @@ public class x implements c.a.r0.a.p.d.o0 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                     try {
-                        File file = new File(this.f8301e, "report");
+                        File file = new File(this.f8118e, "report");
                         c.a.r0.w.d.l(file);
-                        x.e(file, this.f8302f, str);
+                        x.e(file, this.f8119f, str);
                         x.d(file);
-                        File file2 = new File(this.f8301e, "report.zip");
+                        File file2 = new File(this.f8118e, "report.zip");
                         c.a.r0.w.d.j(file2);
                         c.a.r0.w.d.X(file.getAbsolutePath(), file2.getAbsolutePath());
                         c.a.r0.w.d.L(file);
-                        c.a.r0.a.z2.q0.a0(new RunnableC0485a(this, file2));
+                        c.a.r0.a.z2.q0.a0(new RunnableC0494a(this, file2));
                     } catch (Exception e2) {
                         c.a.r0.a.e0.d.b("DefaultSwanAppLogManager", Log.getStackTraceString(e2));
-                        c.a.r0.a.c2.b.f.e.g(AppRuntime.getAppContext(), this.f8303g.f8300e.getString(c.a.r0.a.h.swan_app_system_error)).G();
+                        c.a.r0.a.c2.b.f.e.g(AppRuntime.getAppContext(), this.f8120g.f8117e.getString(c.a.r0.a.h.swan_app_system_error)).G();
                     }
                 }
             }
@@ -140,7 +140,7 @@ public class x implements c.a.r0.a.p.d.o0 {
                     return;
                 }
             }
-            this.f8300e = context;
+            this.f8117e = context;
         }
 
         @Override // java.lang.Runnable
@@ -153,7 +153,7 @@ public class x implements c.a.r0.a.p.d.o0 {
                 } else if (!R2.exists() && !R2.mkdirs()) {
                     c.a.r0.a.e0.d.k("DefaultSwanAppLogManager", "cacheDir 为不存在且创建目录失败：" + R2.getAbsolutePath());
                 } else {
-                    c.a.r0.a.z2.p.i(this.f8300e, new C0484a(this, R2, c.a.r0.a.z2.p.l(this.f8300e) + "===== 启动信息 =====\n"));
+                    c.a.r0.a.z2.p.i(this.f8117e, new C0493a(this, R2, c.a.r0.a.z2.p.l(this.f8117e) + "===== 启动信息 =====\n"));
                 }
             }
         }

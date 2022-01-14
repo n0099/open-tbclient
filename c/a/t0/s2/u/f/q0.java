@@ -1,7 +1,7 @@
 package c.a.t0.s2.u.f;
 
 import android.view.View;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class q0 extends c.a.s0.s.i0.t.c {
+public class q0 extends c.a.s0.s.j0.t.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean t;
@@ -24,10 +24,10 @@ public class q0 extends c.a.s0.s.i0.t.c {
     public TbPageContext w;
     public String x;
     public int y;
-    public d2 z;
+    public e2 z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q0(TbPageContext tbPageContext, c.a.s0.s.i0.t.b bVar, int i2) {
+    public q0(TbPageContext tbPageContext, c.a.s0.s.j0.t.b bVar, int i2) {
         super(tbPageContext, bVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,7 +39,7 @@ public class q0 extends c.a.s0.s.i0.t.c {
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (c.a.s0.s.i0.t.b) objArr2[1]);
+                super((TbPageContext) objArr2[0], (c.a.s0.s.j0.t.b) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,13 +61,13 @@ public class q0 extends c.a.s0.s.i0.t.c {
         }
     }
 
-    @Override // c.a.s0.s.i0.t.c, android.view.View.OnClickListener
+    @Override // c.a.s0.s.j0.t.c, android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || view.getAlpha() < 0.4d) {
             return;
         }
-        c.a.s0.s.i0.t.a aVar = this.f13472e;
+        c.a.s0.s.j0.t.a aVar = this.f13161e;
         String userId = aVar != null ? aVar.getUserId() : "";
         TiebaStatic.log(new StatisticItem("c12408").param("obj_source", u()).param("obj_id", userId).param("tid", this.x));
         int i2 = this.v;
@@ -101,9 +101,9 @@ public class q0 extends c.a.s0.s.i0.t.c {
         statisticItem2.param("obj_id", userId);
         statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem2.param("tid", this.x);
-        d2 d2Var = this.z;
-        if (d2Var != null) {
-            statisticItem2.param("nid", d2Var.G0());
+        e2 e2Var = this.z;
+        if (e2Var != null) {
+            statisticItem2.param("nid", e2Var.G0());
             if (this.z.L() != null && !c.a.d.f.p.m.isEmpty(this.z.L().oriUgcVid)) {
                 statisticItem2.param(TiebaStatic.Params.OBJ_PARAM6, this.z.L().oriUgcVid);
             }
@@ -118,10 +118,10 @@ public class q0 extends c.a.s0.s.i0.t.c {
         }
         TiebaStatic.log(statisticItem2);
         super.onClick(view);
-        if (this.t && this.f13472e != null) {
-            TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f13472e.getUserId()));
+        if (this.t && this.f13161e != null) {
+            TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f13161e.getUserId()));
         }
-        if (!this.u || this.f13472e == null) {
+        if (!this.u || this.f13161e == null) {
             return;
         }
         int i5 = this.v;
@@ -130,7 +130,7 @@ public class q0 extends c.a.s0.s.i0.t.c {
         } else if (i5 == 2) {
             i4 = 2;
         }
-        TiebaStatic.log(new StatisticItem("c12150").param("obj_locate", i4).param("obj_id", this.f13472e.getUserId()));
+        TiebaStatic.log(new StatisticItem("c12150").param("obj_locate", i4).param("obj_id", this.f13161e.getUserId()));
     }
 
     public final int u() {
@@ -161,10 +161,10 @@ public class q0 extends c.a.s0.s.i0.t.c {
         return invokeV.intValue;
     }
 
-    public void v(d2 d2Var) {
+    public void v(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) {
-            this.z = d2Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var) == null) {
+            this.z = e2Var;
         }
     }
 

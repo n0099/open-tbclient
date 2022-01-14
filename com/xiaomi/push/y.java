@@ -111,12 +111,12 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m694a(File file) {
+    public static void m706a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
             if (file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
-                    m694a(file2);
+                    m706a(file2);
                 }
             } else if (!file.exists()) {
                 return;
@@ -150,7 +150,7 @@ public class y {
             } catch (IOException e3) {
                 e = e3;
                 zipOutputStream2 = zipOutputStream;
-                com.xiaomi.channel.commonutils.logger.b.m122a("zip file failure + " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m134a("zip file failure + " + e.getMessage());
                 a(zipOutputStream2);
             } catch (Throwable th2) {
                 th = th2;
@@ -264,7 +264,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m695a(File file) {
+    public static boolean m707a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {

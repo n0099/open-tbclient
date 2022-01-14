@@ -17,12 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import androidx.annotation.StringRes;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.s0.c0.d;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.a2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.m0;
-import c.a.s0.s.q.z1;
 import c.a.s0.s.s.a;
 import c.a.s0.s.s.c;
 import c.a.s0.s.s.j;
@@ -105,45 +106,43 @@ public class a {
     public final View.OnLongClickListener M;
     public j.e N;
     public boolean O;
-    public final c.InterfaceC0871c P;
+    public final c.InterfaceC0884c P;
     public AbsVideoPbFragment a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PopupDialog f23981b;
+    public PopupDialog f23313b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.s0.s.s.j f23982c;
+    public c.a.s0.s.s.j f23314c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PopupDialog f23983d;
+    public PopupDialog f23315d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.s.s.a f23984e;
+    public c.a.s0.s.s.a f23316e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Dialog f23985f;
+    public Dialog f23317f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Dialog f23986g;
+    public Dialog f23318g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.s0.s.s.d f23987h;
+    public c.a.s0.s.s.d f23319h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f23988i;
+    public View f23320i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f23989j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f23990k;
+    public LinearLayout f23321j;
+    public TextView k;
     public TextView l;
     public List<CustomBlueCheckRadioButton> m;
     public String n;
     public ScrollView o;
     public CompoundButton.OnCheckedChangeListener p;
     public PopupDialog q;
-    public c.a.s0.s.i0.a r;
+    public c.a.s0.s.j0.a r;
     public c.a.s0.s.s.c s;
     public AlertDialog t;
     public e0 u;
@@ -155,12 +154,12 @@ public class a {
 
     /* renamed from: c.a.t0.s2.y.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1409a implements c.InterfaceC0871c {
+    public class C1424a implements c.InterfaceC0884c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1409a(a aVar) {
+        public C1424a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,7 +177,7 @@ public class a {
             this.a = aVar;
         }
 
-        @Override // c.a.s0.s.s.c.InterfaceC0871c
+        @Override // c.a.s0.s.s.c.InterfaceC0884c
         public void a(c.a.s0.s.s.c cVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, cVar, i2, view) == null) {
@@ -198,7 +197,7 @@ public class a {
                         if (this.a.C.memeInfo.pck_id.intValue() >= 0) {
                             str = "" + this.a.C.memeInfo.pck_id;
                         }
-                        aVar.f12569b = str;
+                        aVar.f12275b = str;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, aVar));
                     }
                 } else if (i2 == 1) {
@@ -228,19 +227,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f23991e;
+        public final /* synthetic */ SparseArray f23322e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f23992f;
+        public final /* synthetic */ boolean f23323f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f23993g;
+        public final /* synthetic */ String f23324g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f23994h;
+        public final /* synthetic */ String f23325h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f23995i;
+        public final /* synthetic */ a f23326i;
 
         public a0(a aVar, SparseArray sparseArray, boolean z, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -257,30 +256,30 @@ public class a {
                     return;
                 }
             }
-            this.f23995i = aVar;
-            this.f23991e = sparseArray;
-            this.f23992f = z;
-            this.f23993g = str;
-            this.f23994h = str2;
+            this.f23326i = aVar;
+            this.f23322e = sparseArray;
+            this.f23323f = z;
+            this.f23324g = str;
+            this.f23325h = str2;
         }
 
         @Override // c.a.s0.s.s.j.e
         public void onItemClick(c.a.s0.s.s.j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                if (this.f23995i.f23981b != null) {
-                    this.f23995i.f23981b.dismiss();
+                if (this.f23326i.f23313b != null) {
+                    this.f23326i.f23313b.dismiss();
                 }
                 if (i2 == 0) {
-                    this.f23995i.g0(((Integer) this.f23991e.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) this.f23991e.get(c.a.t0.s2.i.tag_del_post_id), ((Integer) this.f23991e.get(c.a.t0.s2.i.tag_manage_user_identity)).intValue(), ((Boolean) this.f23991e.get(c.a.t0.s2.i.tag_del_post_is_self)).booleanValue());
+                    this.f23326i.g0(((Integer) this.f23322e.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) this.f23322e.get(c.a.t0.s2.i.tag_del_post_id), ((Integer) this.f23322e.get(c.a.t0.s2.i.tag_manage_user_identity)).intValue(), ((Boolean) this.f23322e.get(c.a.t0.s2.i.tag_del_post_is_self)).booleanValue());
                 } else if (i2 == 1) {
-                    String str = (String) this.f23991e.get(c.a.t0.s2.i.tag_user_mute_mute_username);
-                    String str2 = (String) this.f23991e.get(c.a.t0.s2.i.tag_user_mute_thread_id);
-                    String str3 = (String) this.f23991e.get(c.a.t0.s2.i.tag_user_mute_post_id);
+                    String str = (String) this.f23322e.get(c.a.t0.s2.i.tag_user_mute_mute_username);
+                    String str2 = (String) this.f23322e.get(c.a.t0.s2.i.tag_user_mute_thread_id);
+                    String str3 = (String) this.f23322e.get(c.a.t0.s2.i.tag_user_mute_post_id);
                     UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
-                    userMuteAddAndDelCustomMessage.setData(this.f23992f, this.f23993g, str, str2, str3, 1, this.f23994h, this.f23995i.D);
-                    userMuteAddAndDelCustomMessage.setTag(this.f23995i.D);
-                    this.f23995i.L0(this.f23992f, userMuteAddAndDelCustomMessage, this.f23994h, str, (String) this.f23991e.get(c.a.t0.s2.i.tag_user_mute_mute_nameshow));
+                    userMuteAddAndDelCustomMessage.setData(this.f23323f, this.f23324g, str, str2, str3, 1, this.f23325h, this.f23326i.D);
+                    userMuteAddAndDelCustomMessage.setTag(this.f23326i.D);
+                    this.f23326i.L0(this.f23323f, userMuteAddAndDelCustomMessage, this.f23325h, str, (String) this.f23322e.get(c.a.t0.s2.i.tag_user_mute_mute_nameshow));
                 }
             }
         }
@@ -292,7 +291,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23996e;
+        public final /* synthetic */ a f23327e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -309,14 +308,14 @@ public class a {
                     return;
                 }
             }
-            this.f23996e = aVar;
+            this.f23327e = aVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f23996e.a.deleteThread(aVar, (JSONArray) null);
+                this.f23327e.a.deleteThread(aVar, (JSONArray) null);
             }
         }
     }
@@ -327,7 +326,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23997e;
+        public final /* synthetic */ a f23328e;
 
         public b0(a aVar) {
             Interceptable interceptable = $ic;
@@ -344,7 +343,7 @@ public class a {
                     return;
                 }
             }
-            this.f23997e = aVar;
+            this.f23328e = aVar;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -353,7 +352,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 TiebaStatic.log("c10025");
                 aVar.dismiss();
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f23997e.a.getFragmentActivity(), 2, true, 4);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f23328e.a.getFragmentActivity(), 2, true, 4);
                 if (!StringUtils.isNULL("4010001001")) {
                     memberPayActivityConfig.setSceneId("4010001001");
                 }
@@ -428,13 +427,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ androidx.appcompat.app.AlertDialog f23998e;
+        public final /* synthetic */ androidx.appcompat.app.AlertDialog f23329e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f23999f;
+        public final /* synthetic */ SparseArray f23330f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f24000g;
+        public final /* synthetic */ a f23331g;
 
         public d(a aVar, androidx.appcompat.app.AlertDialog alertDialog, SparseArray sparseArray) {
             Interceptable interceptable = $ic;
@@ -451,23 +450,23 @@ public class a {
                     return;
                 }
             }
-            this.f24000g = aVar;
-            this.f23998e = alertDialog;
-            this.f23999f = sparseArray;
+            this.f23331g = aVar;
+            this.f23329e = alertDialog;
+            this.f23330f = sparseArray;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                androidx.appcompat.app.AlertDialog alertDialog = this.f23998e;
+                androidx.appcompat.app.AlertDialog alertDialog = this.f23329e;
                 if (alertDialog != null) {
                     alertDialog.dismiss();
                 }
                 if (!c.a.d.f.p.l.A()) {
-                    c.a.d.f.p.n.L(this.f24000g.a.getPbActivity(), c.a.t0.s2.l.neterror);
+                    c.a.d.f.p.n.M(this.f23331g.a.getPbActivity(), c.a.t0.s2.l.neterror);
                 } else {
-                    this.f24000g.a.deleteThread(this.f23999f, (JSONArray) null);
+                    this.f23331g.a.deleteThread(this.f23330f, (JSONArray) null);
                 }
             }
         }
@@ -479,7 +478,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ androidx.appcompat.app.AlertDialog f24001e;
+        public final /* synthetic */ androidx.appcompat.app.AlertDialog f23332e;
 
         public e(a aVar, androidx.appcompat.app.AlertDialog alertDialog) {
             Interceptable interceptable = $ic;
@@ -496,14 +495,14 @@ public class a {
                     return;
                 }
             }
-            this.f24001e = alertDialog;
+            this.f23332e = alertDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             androidx.appcompat.app.AlertDialog alertDialog;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (alertDialog = this.f24001e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (alertDialog = this.f23332e) == null) {
                 return;
             }
             alertDialog.dismiss();
@@ -516,13 +515,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ androidx.appcompat.app.AlertDialog f24002e;
+        public final /* synthetic */ androidx.appcompat.app.AlertDialog f23333e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f24003f;
+        public final /* synthetic */ SparseArray f23334f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f24004g;
+        public final /* synthetic */ a f23335g;
 
         public f(a aVar, androidx.appcompat.app.AlertDialog alertDialog, SparseArray sparseArray) {
             Interceptable interceptable = $ic;
@@ -539,23 +538,23 @@ public class a {
                     return;
                 }
             }
-            this.f24004g = aVar;
-            this.f24002e = alertDialog;
-            this.f24003f = sparseArray;
+            this.f23335g = aVar;
+            this.f23333e = alertDialog;
+            this.f23334f = sparseArray;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                androidx.appcompat.app.AlertDialog alertDialog = this.f24002e;
+                androidx.appcompat.app.AlertDialog alertDialog = this.f23333e;
                 if (alertDialog != null) {
                     alertDialog.dismiss();
                 }
                 if (!c.a.d.f.p.l.A()) {
-                    c.a.d.f.p.n.L(this.f24004g.a.getPbActivity(), c.a.t0.s2.l.neterror);
+                    c.a.d.f.p.n.M(this.f23335g.a.getPbActivity(), c.a.t0.s2.l.neterror);
                 } else {
-                    this.f24004g.a.deleteThread(this.f24003f, (JSONArray) null);
+                    this.f23335g.a.deleteThread(this.f23334f, (JSONArray) null);
                 }
             }
         }
@@ -567,7 +566,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ androidx.appcompat.app.AlertDialog f24005e;
+        public final /* synthetic */ androidx.appcompat.app.AlertDialog f23336e;
 
         public g(a aVar, androidx.appcompat.app.AlertDialog alertDialog) {
             Interceptable interceptable = $ic;
@@ -584,14 +583,14 @@ public class a {
                     return;
                 }
             }
-            this.f24005e = alertDialog;
+            this.f23336e = alertDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             androidx.appcompat.app.AlertDialog alertDialog;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (alertDialog = this.f24005e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (alertDialog = this.f23336e) == null) {
                 return;
             }
             alertDialog.dismiss();
@@ -599,13 +598,13 @@ public class a {
     }
 
     /* loaded from: classes8.dex */
-    public class h implements g.InterfaceC1145g {
+    public class h implements g.InterfaceC1159g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.s0.s.s.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f24006b;
+        public final /* synthetic */ a f23337b;
 
         public h(a aVar, c.a.s0.s.s.a aVar2) {
             Interceptable interceptable = $ic;
@@ -622,15 +621,15 @@ public class a {
                     return;
                 }
             }
-            this.f24006b = aVar;
+            this.f23337b = aVar;
             this.a = aVar2;
         }
 
-        @Override // c.a.t0.k.g.InterfaceC1145g
+        @Override // c.a.t0.k.g.InterfaceC1159g
         public void a(JSONArray jSONArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                this.f24006b.a.deleteThread(this.a, jSONArray);
+                this.f23337b.a.deleteThread(this.a, jSONArray);
             }
         }
     }
@@ -642,7 +641,7 @@ public class a {
         public final /* synthetic */ SparseArray a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f24007b;
+        public final /* synthetic */ a f23338b;
 
         public i(a aVar, SparseArray sparseArray) {
             Interceptable interceptable = $ic;
@@ -659,7 +658,7 @@ public class a {
                     return;
                 }
             }
-            this.f24007b = aVar;
+            this.f23338b = aVar;
             this.a = sparseArray;
         }
 
@@ -667,7 +666,7 @@ public class a {
         public void a(JSONArray jSONArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                this.f24007b.a.deleteThread(this.a, jSONArray);
+                this.f23338b.a.deleteThread(this.a, jSONArray);
             }
         }
     }
@@ -678,10 +677,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f24008e;
+        public final /* synthetic */ boolean f23339e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f24009f;
+        public final /* synthetic */ a f23340f;
 
         public j(a aVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -698,31 +697,31 @@ public class a {
                     return;
                 }
             }
-            this.f24009f = aVar;
-            this.f24008e = z;
+            this.f23340f = aVar;
+            this.f23339e = z;
         }
 
         @Override // c.a.s0.s.s.j.e
         public void onItemClick(c.a.s0.s.s.j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                this.f24009f.q.dismiss();
+                this.f23340f.q.dismiss();
                 SparseArray<Object> sparseArray = (SparseArray) view.getTag();
                 if (sparseArray == null) {
                     return;
                 }
                 switch (i2) {
                     case 10:
-                        this.f24009f.g0(((Integer) sparseArray.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) sparseArray.get(c.a.t0.s2.i.tag_del_post_id), ((Integer) sparseArray.get(c.a.t0.s2.i.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(c.a.t0.s2.i.tag_del_post_is_self)).booleanValue());
+                        this.f23340f.g0(((Integer) sparseArray.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) sparseArray.get(c.a.t0.s2.i.tag_del_post_id), ((Integer) sparseArray.get(c.a.t0.s2.i.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(c.a.t0.s2.i.tag_del_post_is_self)).booleanValue());
                         return;
                     case 11:
-                        if (this.f24009f.y != null) {
-                            this.f24009f.y.a(new Object[]{sparseArray.get(c.a.t0.s2.i.tag_manage_user_identity), sparseArray.get(c.a.t0.s2.i.tag_forbid_user_name), sparseArray.get(c.a.t0.s2.i.tag_forbid_user_post_id), sparseArray.get(c.a.t0.s2.i.tag_forbid_user_name_show), sparseArray.get(c.a.t0.s2.i.tag_forbid_user_portrait)});
+                        if (this.f23340f.y != null) {
+                            this.f23340f.y.a(new Object[]{sparseArray.get(c.a.t0.s2.i.tag_manage_user_identity), sparseArray.get(c.a.t0.s2.i.tag_forbid_user_name), sparseArray.get(c.a.t0.s2.i.tag_forbid_user_post_id), sparseArray.get(c.a.t0.s2.i.tag_forbid_user_name_show), sparseArray.get(c.a.t0.s2.i.tag_forbid_user_portrait)});
                             return;
                         }
                         return;
                     case 12:
-                        this.f24009f.T(this.f24008e, (String) sparseArray.get(c.a.t0.s2.i.tag_user_mute_mute_userid), sparseArray);
+                        this.f23340f.T(this.f23339e, (String) sparseArray.get(c.a.t0.s2.i.tag_user_mute_mute_userid), sparseArray);
                         return;
                     default:
                         return;
@@ -737,7 +736,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24010e;
+        public final /* synthetic */ a f23341e;
 
         public k(a aVar) {
             Interceptable interceptable = $ic;
@@ -754,21 +753,21 @@ public class a {
                     return;
                 }
             }
-            this.f24010e = aVar;
+            this.f23341e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24010e.t == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f23341e.t == null) {
                 return;
             }
-            c.a.d.f.m.g.a(this.f24010e.t, this.f24010e.a.getPageContext().getPageActivity());
+            c.a.d.f.m.g.a(this.f23341e.t, this.f23341e.a.getPageContext().getPageActivity());
         }
     }
 
     /* loaded from: classes8.dex */
-    public class l implements c.InterfaceC0871c {
+    public class l implements c.InterfaceC0884c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
@@ -791,7 +790,7 @@ public class a {
             this.a = aVar;
         }
 
-        @Override // c.a.s0.s.s.c.InterfaceC0871c
+        @Override // c.a.s0.s.s.c.InterfaceC0884c
         public void a(c.a.s0.s.s.c cVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, cVar, i2, view) == null) {
@@ -825,13 +824,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f24011e;
+        public final /* synthetic */ PopupDialog f23342e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f24012f;
+        public final /* synthetic */ View f23343f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f24013g;
+        public final /* synthetic */ a f23344g;
 
         public m(a aVar, PopupDialog popupDialog, View view) {
             Interceptable interceptable = $ic;
@@ -848,13 +847,13 @@ public class a {
                     return;
                 }
             }
-            this.f24013g = aVar;
-            this.f24011e = popupDialog;
-            this.f24012f = view;
+            this.f23344g = aVar;
+            this.f23342e = popupDialog;
+            this.f23343f = view;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:18:0x0051, code lost:
-            if (r4.f24013g.a.getPbModel().e1() != 3) goto L7;
+            if (r4.f23344g.a.getPbModel().e1() != 3) goto L7;
          */
         /* JADX WARN: Removed duplicated region for block: B:22:0x0068  */
         /* JADX WARN: Removed duplicated region for block: B:30:0x00d9  */
@@ -869,36 +868,36 @@ public class a {
             if (interceptable != null && interceptable.invokeLIL(1048576, this, jVar, i2, view) != null) {
                 return;
             }
-            this.f24011e.dismiss();
+            this.f23342e.dismiss();
             int i3 = 3;
-            if (this.f24013g.a.getPbModel().e1() != 1 || i2 != 1) {
-                if (this.f24013g.a.getPbModel().e1() == 2 && i2 == 0) {
+            if (this.f23344g.a.getPbModel().e1() != 1 || i2 != 1) {
+                if (this.f23344g.a.getPbModel().e1() == 2 && i2 == 0) {
                     i3 = 1;
-                } else if (this.f24013g.a.getPbModel().e1() == 3 && i2 != 2) {
+                } else if (this.f23344g.a.getPbModel().e1() == 3 && i2 != 2) {
                     i3 = 2;
                 } else if (i2 == 2) {
                 }
                 TiebaStatic.log("c12097");
-                TiebaStatic.log(new StatisticItem("c12097").param("obj_source", this.f24012f.getId() != c.a.t0.s2.i.pb_sort ? 1 : 0).param("obj_type", i3));
-                if (this.f24013g.a.getPbModel().R0().f23038f != null && this.f24013g.a.getPbModel().R0().f23038f.size() > i2) {
-                    i2 = this.f24013g.a.getPbModel().R0().f23038f.get(i2).sort_type.intValue();
+                TiebaStatic.log(new StatisticItem("c12097").param("obj_source", this.f23343f.getId() != c.a.t0.s2.i.pb_sort ? 1 : 0).param("obj_type", i3));
+                if (this.f23344g.a.getPbModel().R0().f22405f != null && this.f23344g.a.getPbModel().R0().f22405f.size() > i2) {
+                    i2 = this.f23344g.a.getPbModel().R0().f22405f.get(i2).sort_type.intValue();
                 }
-                B2 = this.f24013g.a.getPbModel().B2(i2);
-                this.f24012f.setTag(Integer.valueOf(this.f24013g.a.getPbModel().d1()));
+                B2 = this.f23344g.a.getPbModel().B2(i2);
+                this.f23343f.setTag(Integer.valueOf(this.f23344g.a.getPbModel().d1()));
                 if (B2) {
                     return;
                 }
-                this.f24013g.a.setIsLoading(true);
+                this.f23344g.a.setIsLoading(true);
                 return;
             }
             i3 = 0;
             TiebaStatic.log("c12097");
-            TiebaStatic.log(new StatisticItem("c12097").param("obj_source", this.f24012f.getId() != c.a.t0.s2.i.pb_sort ? 1 : 0).param("obj_type", i3));
-            if (this.f24013g.a.getPbModel().R0().f23038f != null) {
-                i2 = this.f24013g.a.getPbModel().R0().f23038f.get(i2).sort_type.intValue();
+            TiebaStatic.log(new StatisticItem("c12097").param("obj_source", this.f23343f.getId() != c.a.t0.s2.i.pb_sort ? 1 : 0).param("obj_type", i3));
+            if (this.f23344g.a.getPbModel().R0().f22405f != null) {
+                i2 = this.f23344g.a.getPbModel().R0().f22405f.get(i2).sort_type.intValue();
             }
-            B2 = this.f24013g.a.getPbModel().B2(i2);
-            this.f24012f.setTag(Integer.valueOf(this.f24013g.a.getPbModel().d1()));
+            B2 = this.f23344g.a.getPbModel().B2(i2);
+            this.f23343f.setTag(Integer.valueOf(this.f23344g.a.getPbModel().d1()));
             if (B2) {
             }
         }
@@ -910,7 +909,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MetaData f24014e;
+        public final /* synthetic */ MetaData f23345e;
 
         public n(a aVar, MetaData metaData) {
             Interceptable interceptable = $ic;
@@ -927,14 +926,14 @@ public class a {
                     return;
                 }
             }
-            this.f24014e = metaData;
+            this.f23345e = metaData;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                TiebaStatic.log(new StatisticItem("c12528").param("obj_id", this.f24014e.getUserId()).param("obj_locate", 2));
+                TiebaStatic.log(new StatisticItem("c12528").param("obj_id", this.f23345e.getUserId()).param("obj_locate", 2));
                 aVar.dismiss();
             }
         }
@@ -946,10 +945,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MetaData f24015e;
+        public final /* synthetic */ MetaData f23346e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f24016f;
+        public final /* synthetic */ a f23347f;
 
         public o(a aVar, MetaData metaData) {
             Interceptable interceptable = $ic;
@@ -966,18 +965,18 @@ public class a {
                     return;
                 }
             }
-            this.f24016f = aVar;
-            this.f24015e = metaData;
+            this.f23347f = aVar;
+            this.f23346e = metaData;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                TiebaStatic.log(new StatisticItem("c12528").param("obj_id", this.f24015e.getUserId()).param("obj_locate", 1));
+                TiebaStatic.log(new StatisticItem("c12528").param("obj_id", this.f23346e.getUserId()).param("obj_locate", 1));
                 aVar.dismiss();
-                if (this.f24016f.a.getAttentionModel() != null) {
-                    this.f24016f.a.getAttentionModel().l(!this.f24015e.hadConcerned(), this.f24015e.getPortrait(), this.f24015e.getUserId(), this.f24015e.isGod(), "6", this.f24016f.a.getPageContext().getUniqueId(), this.f24016f.a.getPbModel().getForumId(), "0");
+                if (this.f23347f.a.getAttentionModel() != null) {
+                    this.f23347f.a.getAttentionModel().l(!this.f23346e.hadConcerned(), this.f23346e.getPortrait(), this.f23346e.getUserId(), this.f23346e.isGod(), "6", this.f23347f.a.getPageContext().getUniqueId(), this.f23347f.a.getPbModel().getForumId(), "0");
                 }
             }
         }
@@ -1019,10 +1018,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteAddAndDelCustomMessage f24017e;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage f23348e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f24018f;
+        public final /* synthetic */ a f23349f;
 
         public q(a aVar, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
             Interceptable interceptable = $ic;
@@ -1039,16 +1038,16 @@ public class a {
                     return;
                 }
             }
-            this.f24018f = aVar;
-            this.f24017e = userMuteAddAndDelCustomMessage;
+            this.f23349f = aVar;
+            this.f23348e = userMuteAddAndDelCustomMessage;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f24018f.B0();
-                MessageManager.getInstance().sendMessage(this.f24017e);
+                this.f23349f.B0();
+                MessageManager.getInstance().sendMessage(this.f23348e);
                 aVar.dismiss();
             }
         }
@@ -1090,17 +1089,17 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.InterfaceC0871c f24019e;
+        public final /* synthetic */ c.InterfaceC0884c f23350e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f24020f;
+        public final /* synthetic */ a f23351f;
 
-        public s(a aVar, c.InterfaceC0871c interfaceC0871c) {
+        public s(a aVar, c.InterfaceC0884c interfaceC0884c) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, interfaceC0871c};
+                Object[] objArr = {aVar, interfaceC0884c};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -1110,16 +1109,16 @@ public class a {
                     return;
                 }
             }
-            this.f24020f = aVar;
-            this.f24019e = interfaceC0871c;
+            this.f23351f = aVar;
+            this.f23350e = interfaceC0884c;
         }
 
         @Override // c.a.s0.s.s.j.e
         public void onItemClick(c.a.s0.s.s.j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                this.f24020f.f23983d.dismiss();
-                this.f24019e.a(null, i2, view);
+                this.f23351f.f23315d.dismiss();
+                this.f23350e.a(null, i2, view);
             }
         }
     }
@@ -1130,7 +1129,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24021e;
+        public final /* synthetic */ a f23352e;
 
         public t(a aVar) {
             Interceptable interceptable = $ic;
@@ -1147,18 +1146,18 @@ public class a {
                     return;
                 }
             }
-            this.f24021e = aVar;
+            this.f23352e = aVar;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) && z) {
-                this.f24021e.n = (String) compoundButton.getTag();
-                if (this.f24021e.m != null) {
-                    for (CustomBlueCheckRadioButton customBlueCheckRadioButton : this.f24021e.m) {
+                this.f23352e.n = (String) compoundButton.getTag();
+                if (this.f23352e.m != null) {
+                    for (CustomBlueCheckRadioButton customBlueCheckRadioButton : this.f23352e.m) {
                         String str = (String) customBlueCheckRadioButton.getTag();
-                        if (str != null && this.f24021e.n != null && !str.equals(this.f24021e.n)) {
+                        if (str != null && this.f23352e.n != null && !str.equals(this.f23352e.n)) {
                             customBlueCheckRadioButton.setChecked(false);
                         }
                     }
@@ -1173,7 +1172,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24022e;
+        public final /* synthetic */ a f23353e;
 
         public u(a aVar) {
             Interceptable interceptable = $ic;
@@ -1190,14 +1189,14 @@ public class a {
                     return;
                 }
             }
-            this.f24022e = aVar;
+            this.f23353e = aVar;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f24022e.E(view) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f23353e.E(view) : invokeL.booleanValue;
         }
     }
 
@@ -1207,7 +1206,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24023e;
+        public final /* synthetic */ a f23354e;
 
         public v(a aVar) {
             Interceptable interceptable = $ic;
@@ -1224,14 +1223,14 @@ public class a {
                     return;
                 }
             }
-            this.f24023e = aVar;
+            this.f23354e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f24023e.f23986g instanceof Dialog)) {
-                c.a.d.f.m.g.b(this.f24023e.f23986g, this.f24023e.a.getPageContext());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f23354e.f23318g instanceof Dialog)) {
+                c.a.d.f.m.g.b(this.f23354e.f23318g, this.f23354e.a.getPageContext());
             }
         }
     }
@@ -1280,7 +1279,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24024e;
+        public final /* synthetic */ a f23355e;
 
         public x(a aVar) {
             Interceptable interceptable = $ic;
@@ -1297,7 +1296,7 @@ public class a {
                     return;
                 }
             }
-            this.f24024e = aVar;
+            this.f23355e = aVar;
         }
 
         @Override // c.a.s0.s.s.j.e
@@ -1305,15 +1304,15 @@ public class a {
             SparseArray sparseArray;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                if (this.f24024e.f23981b != null) {
-                    this.f24024e.f23981b.dismiss();
+                if (this.f23355e.f23313b != null) {
+                    this.f23355e.f23313b.dismiss();
                 }
-                this.f24024e.M0(i2);
+                this.f23355e.M0(i2);
                 int i3 = 4;
                 switch (i2) {
                     case -4:
                         View view2 = (View) ((SparseArray) view.getTag()).get(c.a.t0.s2.i.pb_dialog_item_share);
-                        this.f24024e.n0(view2);
+                        this.f23355e.n0(view2);
                         if (view2 != null) {
                             view2.performClick();
                             return;
@@ -1321,7 +1320,7 @@ public class a {
                         return;
                     case -3:
                         View view3 = (View) ((SparseArray) view.getTag()).get(c.a.t0.s2.i.pb_dialog_item_reply);
-                        this.f24024e.n0(view3);
+                        this.f23355e.n0(view3);
                         if (view3 != null) {
                             view3.performClick();
                             return;
@@ -1330,7 +1329,7 @@ public class a {
                     case -2:
                         View view4 = (View) ((SparseArray) view.getTag()).get(c.a.t0.s2.i.pb_dialog_item_zan_2);
                         AgreeView agreeView = (AgreeView) view4;
-                        this.f24024e.n0(view4);
+                        this.f23355e.n0(view4);
                         if (agreeView == null || agreeView.getImgDisagree() == null) {
                             return;
                         }
@@ -1338,7 +1337,7 @@ public class a {
                         return;
                     case -1:
                         View view5 = (View) ((SparseArray) view.getTag()).get(c.a.t0.s2.i.pb_dialog_item_zan_2);
-                        this.f24024e.n0(view5);
+                        this.f23355e.n0(view5);
                         AgreeView agreeView2 = (AgreeView) view5;
                         if (agreeView2 == null || agreeView2.getImgAgree() == null) {
                             return;
@@ -1349,62 +1348,62 @@ public class a {
                     default:
                         return;
                     case 1:
-                        if (this.f24024e.A == null || TextUtils.isEmpty(this.f24024e.B)) {
+                        if (this.f23355e.A == null || TextUtils.isEmpty(this.f23355e.B)) {
                             return;
                         }
-                        if (this.f24024e.C == null) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, this.f24024e.B));
+                        if (this.f23355e.C == null) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, this.f23355e.B));
                         } else {
                             d.a aVar = new d.a();
-                            aVar.a = this.f24024e.B;
+                            aVar.a = this.f23355e.B;
                             String str = "";
-                            if (this.f24024e.C.memeInfo.pck_id.intValue() >= 0) {
-                                str = "" + this.f24024e.C.memeInfo.pck_id;
+                            if (this.f23355e.C.memeInfo.pck_id.intValue() >= 0) {
+                                str = "" + this.f23355e.C.memeInfo.pck_id;
                             }
-                            aVar.f12569b = str;
+                            aVar.f12275b = str;
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, aVar));
                         }
-                        this.f24024e.A = null;
-                        this.f24024e.B = null;
+                        this.f23355e.A = null;
+                        this.f23355e.B = null;
                         return;
                     case 2:
-                        if (this.f24024e.A == null || TextUtils.isEmpty(this.f24024e.B)) {
+                        if (this.f23355e.A == null || TextUtils.isEmpty(this.f23355e.B)) {
                             return;
                         }
-                        if (this.f24024e.F == null) {
-                            this.f24024e.F = new PermissionJudgePolicy();
+                        if (this.f23355e.F == null) {
+                            this.f23355e.F = new PermissionJudgePolicy();
                         }
-                        this.f24024e.F.clearRequestPermissionList();
-                        this.f24024e.F.appendRequestPermission(this.f24024e.a.getPageContext().getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-                        if (this.f24024e.F.startRequestPermission(this.f24024e.a.getPageContext().getPageActivity())) {
+                        this.f23355e.F.clearRequestPermissionList();
+                        this.f23355e.F.appendRequestPermission(this.f23355e.a.getPageContext().getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+                        if (this.f23355e.F.startRequestPermission(this.f23355e.a.getPageContext().getPageActivity())) {
                             return;
                         }
-                        if (this.f24024e.z == null) {
-                            a aVar2 = this.f24024e;
+                        if (this.f23355e.z == null) {
+                            a aVar2 = this.f23355e;
                             aVar2.z = new x0(aVar2.a.getPageContext());
                         }
-                        this.f24024e.z.b(this.f24024e.B, this.f24024e.A.n());
-                        this.f24024e.A = null;
-                        this.f24024e.B = null;
+                        this.f23355e.z.b(this.f23355e.B, this.f23355e.A.n());
+                        this.f23355e.A = null;
+                        this.f23355e.B = null;
                         return;
                     case 3:
-                        PostData postData = this.f24024e.G;
+                        PostData postData = this.f23355e.G;
                         if (postData != null) {
                             postData.m0();
-                            this.f24024e.G = null;
+                            this.f23355e.G = null;
                             return;
                         }
                         return;
                     case 4:
                         TiebaStatic.log(new StatisticItem("c11739").param("obj_locate", 2));
-                        if (this.f24024e.a.checkUpIsLogin()) {
-                            this.f24024e.d0(view);
-                            if (this.f24024e.a.getPbModel().R0().O() == null || this.f24024e.a.getPbModel().R0().O().J() == null || this.f24024e.a.getPbModel().R0().O().J().getUserId() == null || this.f24024e.a.getMarkModel() == null) {
+                        if (this.f23355e.a.checkUpIsLogin()) {
+                            this.f23355e.d0(view);
+                            if (this.f23355e.a.getPbModel().R0().O() == null || this.f23355e.a.getPbModel().R0().O().J() == null || this.f23355e.a.getPbModel().R0().O().J().getUserId() == null || this.f23355e.a.getMarkModel() == null) {
                                 return;
                             }
-                            a aVar3 = this.f24024e;
+                            a aVar3 = this.f23355e;
                             int S = aVar3.S(aVar3.a.getPbModel().R0());
-                            d2 O = this.f24024e.a.getPbModel().R0().O();
+                            e2 O = this.f23355e.a.getPbModel().R0().O();
                             if (O.P1()) {
                                 i3 = 2;
                             } else if (O.S1()) {
@@ -1412,19 +1411,19 @@ public class a {
                             } else if (!O.Q1()) {
                                 i3 = O.R1() ? 5 : 1;
                             }
-                            TiebaStatic.log(new StatisticItem("c12526").param("tid", this.f24024e.a.getPbModel().h1()).param("obj_locate", 2).param("obj_id", this.f24024e.a.getPbModel().R0().O().J().getUserId()).param("obj_type", !this.f24024e.a.getMarkModel().e()).param("obj_source", S).param("obj_param1", i3));
+                            TiebaStatic.log(new StatisticItem("c12526").param("tid", this.f23355e.a.getPbModel().h1()).param("obj_locate", 2).param("obj_id", this.f23355e.a.getPbModel().R0().O().J().getUserId()).param("obj_type", !this.f23355e.a.getMarkModel().e()).param("obj_source", S).param("obj_param1", i3));
                             return;
                         }
                         return;
                     case 5:
                         if (!c.a.d.f.p.l.z()) {
-                            this.f24024e.a.showToast(c.a.t0.s2.l.network_not_available);
+                            this.f23355e.a.showToast(c.a.t0.s2.l.network_not_available);
                             return;
                         }
                         Object tag = view.getTag();
                         if (tag instanceof String) {
                             TiebaStatic.log(new StatisticItem("c13079"));
-                            this.f24024e.U((String) tag);
+                            this.f23355e.U((String) tag);
                             return;
                         } else if (tag instanceof SparseArray) {
                             TiebaStatic.log(new StatisticItem("c11739").param("obj_locate", 4));
@@ -1432,7 +1431,7 @@ public class a {
                             if ((sparseArray2.get(c.a.t0.s2.i.tag_user_mute_visible) instanceof Boolean) && ((Boolean) sparseArray2.get(c.a.t0.s2.i.tag_user_mute_visible)).booleanValue()) {
                                 sparseArray2.put(c.a.t0.s2.i.tag_from, 0);
                                 sparseArray2.put(c.a.t0.s2.i.tag_check_mute_from, 2);
-                                this.f24024e.B(sparseArray2);
+                                this.f23355e.B(sparseArray2);
                                 return;
                             }
                             return;
@@ -1445,31 +1444,31 @@ public class a {
                             boolean booleanValue = ((Boolean) sparseArray3.get(c.a.t0.s2.i.tag_del_post_is_self)).booleanValue();
                             int intValue = ((Integer) sparseArray3.get(c.a.t0.s2.i.tag_manage_user_identity)).intValue();
                             boolean booleanValue2 = ((Boolean) sparseArray3.get(c.a.t0.s2.i.tag_has_sub_post)).booleanValue();
-                            AbsVideoPbFragment absVideoPbFragment = this.f24024e.a;
+                            AbsVideoPbFragment absVideoPbFragment = this.f23355e.a;
                             if (absVideoPbFragment == null || absVideoPbFragment.getPbActivity() == null) {
                                 return;
                             }
-                            boolean isHost = this.f24024e.a.getPbActivity().isHost(TbadkCoreApplication.getCurrentAccount());
+                            boolean isHost = this.f23355e.a.getPbActivity().isHost(TbadkCoreApplication.getCurrentAccount());
                             if (isHost) {
                                 if (!booleanValue2) {
-                                    this.f24024e.t0(sparseArray3, intValue, booleanValue);
+                                    this.f23355e.t0(sparseArray3, intValue, booleanValue);
                                     return;
                                 } else {
-                                    this.f24024e.i0(((Integer) sparseArray3.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(c.a.t0.s2.i.tag_del_post_id), intValue, booleanValue, null, isHost);
+                                    this.f23355e.i0(((Integer) sparseArray3.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(c.a.t0.s2.i.tag_del_post_id), intValue, booleanValue, null, isHost);
                                     return;
                                 }
                             } else if (booleanValue && !booleanValue2) {
-                                this.f24024e.t0(sparseArray3, intValue, booleanValue);
+                                this.f23355e.t0(sparseArray3, intValue, booleanValue);
                                 return;
                             } else {
-                                this.f24024e.g0(((Integer) sparseArray3.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(c.a.t0.s2.i.tag_del_post_id), intValue, booleanValue);
+                                this.f23355e.g0(((Integer) sparseArray3.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(c.a.t0.s2.i.tag_del_post_id), intValue, booleanValue);
                                 return;
                             }
                         }
                         return;
                     case 7:
                         if (!c.a.d.f.p.l.z()) {
-                            this.f24024e.a.showToast(c.a.t0.s2.l.network_not_available);
+                            this.f23355e.a.showToast(c.a.t0.s2.l.network_not_available);
                             return;
                         }
                         SparseArray<Object> sparseArray4 = (SparseArray) view.getTag();
@@ -1482,24 +1481,24 @@ public class a {
                         boolean booleanValue6 = sparseArray4.get(c.a.t0.s2.i.tag_is_self_post) instanceof Boolean ? ((Boolean) sparseArray4.get(c.a.t0.s2.i.tag_is_self_post)).booleanValue() : false;
                         if (!booleanValue3) {
                             if (booleanValue4) {
-                                this.f24024e.g0(((Integer) sparseArray4.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) sparseArray4.get(c.a.t0.s2.i.tag_del_post_id), ((Integer) sparseArray4.get(c.a.t0.s2.i.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray4.get(c.a.t0.s2.i.tag_del_post_is_self)).booleanValue());
+                                this.f23355e.g0(((Integer) sparseArray4.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) sparseArray4.get(c.a.t0.s2.i.tag_del_post_id), ((Integer) sparseArray4.get(c.a.t0.s2.i.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray4.get(c.a.t0.s2.i.tag_del_post_is_self)).booleanValue());
                                 return;
                             }
                             return;
                         } else if (booleanValue5) {
                             sparseArray4.put(c.a.t0.s2.i.tag_from, 1);
                             sparseArray4.put(c.a.t0.s2.i.tag_check_mute_from, 2);
-                            this.f24024e.B(sparseArray4);
+                            this.f23355e.B(sparseArray4);
                             return;
                         } else {
                             if (booleanValue6) {
                                 sparseArray4.put(c.a.t0.s2.i.tag_check_mute_from, 2);
                             }
-                            this.f24024e.l0(view);
+                            this.f23355e.l0(view);
                             return;
                         }
                     case 8:
-                        if (ViewHelper.checkUpIsLogin(this.f24024e.a.getContext()) && (sparseArray = (SparseArray) view.getTag()) != null) {
+                        if (ViewHelper.checkUpIsLogin(this.f23355e.a.getContext()) && (sparseArray = (SparseArray) view.getTag()) != null) {
                             PostData postData2 = (PostData) sparseArray.get(c.a.t0.s2.i.tag_clip_board);
                             if (postData2.q() == null) {
                                 return;
@@ -1508,16 +1507,16 @@ public class a {
                             if (f2 != null) {
                                 postData2.q().objSource = f2.a();
                             }
-                            this.f24024e.C(postData2.q());
+                            this.f23355e.C(postData2.q());
                             return;
                         }
                         return;
                     case 9:
-                        AbsVideoPbFragment absVideoPbFragment2 = this.f24024e.a;
-                        if (absVideoPbFragment2 == null || absVideoPbFragment2.getPbModel() == null || this.f24024e.a.getPbModel().R0() == null || !ViewHelper.checkUpIsLogin(this.f24024e.a.getContext()) || this.f24024e.a.getPbActivity() == null) {
+                        AbsVideoPbFragment absVideoPbFragment2 = this.f23355e.a;
+                        if (absVideoPbFragment2 == null || absVideoPbFragment2.getPbModel() == null || this.f23355e.a.getPbModel().R0() == null || !ViewHelper.checkUpIsLogin(this.f23355e.a.getContext()) || this.f23355e.a.getPbActivity() == null) {
                             return;
                         }
-                        this.f24024e.a.getPbActivity().showBlockDialog(c.a.t0.g4.a.b(view));
+                        this.f23355e.a.getPbActivity().showBlockDialog(c.a.t0.g4.a.b(view));
                         return;
                 }
             }
@@ -1530,16 +1529,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f24025e;
+        public final /* synthetic */ SparseArray f23356e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f24026f;
+        public final /* synthetic */ int f23357f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f24027g;
+        public final /* synthetic */ boolean f23358g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f24028h;
+        public final /* synthetic */ a f23359h;
 
         public y(a aVar, SparseArray sparseArray, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -1556,10 +1555,10 @@ public class a {
                     return;
                 }
             }
-            this.f24028h = aVar;
-            this.f24025e = sparseArray;
-            this.f24026f = i2;
-            this.f24027g = z;
+            this.f23359h = aVar;
+            this.f23356e = sparseArray;
+            this.f23357f = i2;
+            this.f23358g = z;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -1569,7 +1568,7 @@ public class a {
                 if (aVar != null) {
                     aVar.dismiss();
                 }
-                this.f24028h.a.deleteThreadDirect(((Integer) this.f24025e.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) this.f24025e.get(c.a.t0.s2.i.tag_del_post_id), this.f24026f, this.f24027g);
+                this.f23359h.a.deleteThreadDirect(((Integer) this.f23356e.get(c.a.t0.s2.i.tag_del_post_type)).intValue(), (String) this.f23356e.get(c.a.t0.s2.i.tag_del_post_id), this.f23357f, this.f23358g);
             }
         }
     }
@@ -1634,14 +1633,14 @@ public class a {
                 return;
             }
         }
-        this.f23983d = null;
-        this.f23984e = null;
-        this.f23985f = null;
-        this.f23986g = null;
-        this.f23987h = null;
-        this.f23988i = null;
-        this.f23989j = null;
-        this.f23990k = null;
+        this.f23315d = null;
+        this.f23316e = null;
+        this.f23317f = null;
+        this.f23318g = null;
+        this.f23319h = null;
+        this.f23320i = null;
+        this.f23321j = null;
+        this.k = null;
         this.l = null;
         this.n = null;
         this.o = null;
@@ -1652,10 +1651,10 @@ public class a {
         this.t = null;
         this.u = null;
         this.G = null;
-        this.L = c.a.s0.b.d.x0();
+        this.L = c.a.s0.b.d.v0();
         this.M = new u(this);
         this.N = new x(this);
-        this.P = new C1409a(this);
+        this.P = new C1424a(this);
         this.a = absVideoPbFragment;
         this.D = absVideoPbFragment.getUniqueId();
         c.a.t0.s2.u.g.a aVar = new c.a.t0.s2.u.g.a(this.a.getContext());
@@ -1701,7 +1700,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.r == null) {
-                this.r = new c.a.s0.s.i0.a(this.a.getPageContext());
+                this.r = new c.a.s0.s.j0.a(this.a.getPageContext());
             }
             this.r.h(true);
         }
@@ -1722,12 +1721,12 @@ public class a {
             eVar.a = this.a.getUniqueId();
         }
         c.a.s0.s.q.f fVar = new c.a.s0.s.q.f();
-        fVar.f13685b = 5;
-        fVar.f13691h = 8;
-        fVar.f13690g = 2;
+        fVar.f13371b = 5;
+        fVar.f13377h = 8;
+        fVar.f13376g = 2;
         AbsVideoPbFragment absVideoPbFragment2 = this.a;
         if (absVideoPbFragment2 != null && absVideoPbFragment2.getPbModel() != null) {
-            fVar.f13689f = this.a.getPbModel().Q0();
+            fVar.f13375f = this.a.getPbModel().Q0();
         }
         fVar.a = 2;
         int i2 = 1;
@@ -1735,7 +1734,7 @@ public class a {
             if (agreeData.agreeType == 5) {
                 agreeData.agreeType = 5;
                 agreeData.hasAgree = false;
-                fVar.f13692i = 0;
+                fVar.f13378i = 0;
                 this.J.c(agreeData, i2, this.a.getUniqueId(), false);
                 this.J.d(agreeData, this.K);
                 absVideoPbFragment = this.a;
@@ -1748,11 +1747,11 @@ public class a {
             agreeData.agreeType = 5;
             agreeData.hasAgree = true;
             agreeData.agreeNum--;
-            fVar.f13692i = 1;
+            fVar.f13378i = 1;
         } else {
             agreeData.agreeType = 5;
             agreeData.hasAgree = true;
-            fVar.f13692i = 1;
+            fVar.f13378i = 1;
         }
         i2 = 0;
         this.J.c(agreeData, i2, this.a.getUniqueId(), false);
@@ -1913,10 +1912,10 @@ public class a {
             }
             boolean z5 = this.a.getMarkModel().e() && this.G.G() != null && this.G.G().equals(this.a.getPbModel().M0());
             boolean z6 = this.a.getPbModel().R0() != null && this.a.getPbModel().R0().g0();
-            if (this.f23982c == null) {
+            if (this.f23314c == null) {
                 c.a.s0.s.s.j jVar = new c.a.s0.s.s.j(this.a.getContext());
-                this.f23982c = jVar;
-                jVar.m(this.N);
+                this.f23314c = jVar;
+                jVar.n(this.N);
             }
             ArrayList arrayList = new ArrayList();
             if (view == null || sparseArray == null) {
@@ -1936,37 +1935,37 @@ public class a {
                 z2 = booleanValue7;
                 z4 = booleanValue6;
                 z3 = booleanValue5;
-                arrayList.add(new c.a.s0.s.s.g(1, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.save_to_emotion), this.f23982c));
+                arrayList.add(new c.a.s0.s.s.g(1, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.save_to_emotion), this.f23314c));
             } else {
                 z2 = booleanValue7;
                 z3 = booleanValue5;
                 z4 = booleanValue6;
             }
             if (z8) {
-                arrayList.add(new c.a.s0.s.s.g(2, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.save_to_local), this.f23982c));
+                arrayList.add(new c.a.s0.s.s.g(2, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.save_to_local), this.f23314c));
             }
             if (!z7 && !z8) {
-                c.a.s0.s.s.g gVar5 = new c.a.s0.s.s.g(3, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.copy), this.f23982c);
+                c.a.s0.s.s.g gVar5 = new c.a.s0.s.s.g(3, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.copy), this.f23314c);
                 SparseArray sparseArray3 = new SparseArray();
                 sparseArray3.put(c.a.t0.s2.i.tag_clip_board, this.G);
-                gVar5.f13917d.setTag(sparseArray3);
+                gVar5.f13596d.setTag(sparseArray3);
                 arrayList.add(gVar5);
             }
             if (!booleanValue && !z6) {
                 if (z5) {
-                    gVar4 = new c.a.s0.s.s.g(4, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.remove_mark), this.f23982c);
+                    gVar4 = new c.a.s0.s.s.g(4, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.remove_mark), this.f23314c);
                 } else {
-                    gVar4 = new c.a.s0.s.s.g(4, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.mark), this.f23982c);
+                    gVar4 = new c.a.s0.s.s.g(4, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.mark), this.f23314c);
                 }
                 SparseArray sparseArray4 = new SparseArray();
                 sparseArray4.put(c.a.t0.s2.i.tag_clip_board, this.G);
                 sparseArray4.put(c.a.t0.s2.i.tag_is_subpb, Boolean.FALSE);
-                gVar4.f13917d.setTag(sparseArray4);
+                gVar4.f13596d.setTag(sparseArray4);
                 arrayList.add(gVar4);
             }
             if (TbadkCoreApplication.isLogin() && !this.L) {
                 if (!X() && !booleanValue4 && booleanValue3) {
-                    c.a.s0.s.s.g gVar6 = new c.a.s0.s.s.g(5, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.mute_option), this.f23982c);
+                    c.a.s0.s.s.g gVar6 = new c.a.s0.s.s.g(5, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.mute_option), this.f23314c);
                     SparseArray sparseArray5 = new SparseArray();
                     sparseArray5.put(c.a.t0.s2.i.tag_user_mute_visible, Boolean.TRUE);
                     int i2 = c.a.t0.s2.i.tag_is_mem;
@@ -1989,12 +1988,12 @@ public class a {
                     sparseArray5.put(i10, sparseArray.get(i10));
                     int i11 = c.a.t0.s2.i.tag_manage_user_identity;
                     sparseArray5.put(i11, sparseArray.get(i11));
-                    gVar6.f13917d.setTag(sparseArray5);
+                    gVar6.f13596d.setTag(sparseArray5);
                     arrayList.add(gVar6);
                 } else {
                     if ((b0(booleanValue2) && TbadkCoreApplication.isLogin()) && !z6) {
-                        c.a.s0.s.s.g gVar7 = new c.a.s0.s.s.g(5, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.report_text), this.f23982c);
-                        gVar7.f13917d.setTag(str);
+                        c.a.s0.s.s.g gVar7 = new c.a.s0.s.s.g(5, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.report_text), this.f23314c);
+                        gVar7.f13596d.setTag(str);
                         arrayList.add(gVar7);
                     }
                 }
@@ -2037,18 +2036,18 @@ public class a {
                         int i24 = c.a.t0.s2.i.tag_has_sub_post;
                         sparseArray6.put(i24, sparseArray.get(i24));
                         if (z2) {
-                            c.a.s0.s.s.g gVar8 = new c.a.s0.s.s.g(6, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.delete), this.f23982c);
-                            gVar8.f13917d.setTag(sparseArray6);
+                            c.a.s0.s.s.g gVar8 = new c.a.s0.s.s.g(6, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.delete), this.f23314c);
+                            gVar8.f13596d.setTag(sparseArray6);
                             gVar2 = gVar8;
-                            gVar = new c.a.s0.s.s.g(7, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.bar_manager), this.f23982c);
-                            gVar.f13917d.setTag(sparseArray6);
+                            gVar = new c.a.s0.s.s.g(7, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.bar_manager), this.f23314c);
+                            gVar.f13596d.setTag(sparseArray6);
                         }
                     } else {
                         sparseArray6.put(c.a.t0.s2.i.tag_should_delete_visible, Boolean.FALSE);
                     }
                     gVar2 = null;
-                    gVar = new c.a.s0.s.s.g(7, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.bar_manager), this.f23982c);
-                    gVar.f13917d.setTag(sparseArray6);
+                    gVar = new c.a.s0.s.s.g(7, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.bar_manager), this.f23314c);
+                    gVar.f13596d.setTag(sparseArray6);
                 } else if (z4) {
                     SparseArray sparseArray7 = new SparseArray();
                     sparseArray7.put(c.a.t0.s2.i.tag_should_manage_visible, Boolean.FALSE);
@@ -2064,11 +2063,11 @@ public class a {
                     int i28 = c.a.t0.s2.i.tag_has_sub_post;
                     sparseArray7.put(i28, sparseArray.get(i28));
                     if (this.a.getPbModel().R0().V() == 1002 && !booleanValue2) {
-                        gVar3 = new c.a.s0.s.s.g(6, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.report_text), this.f23982c);
+                        gVar3 = new c.a.s0.s.s.g(6, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.report_text), this.f23314c);
                     } else {
-                        gVar3 = new c.a.s0.s.s.g(6, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.delete), this.f23982c);
+                        gVar3 = new c.a.s0.s.s.g(6, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.delete), this.f23314c);
                     }
-                    gVar3.f13917d.setTag(sparseArray7);
+                    gVar3.f13596d.setTag(sparseArray7);
                     gVar2 = gVar3;
                     gVar = null;
                 } else {
@@ -2081,23 +2080,23 @@ public class a {
                 if (gVar != null) {
                     arrayList.add(gVar);
                 }
-                c.a.t0.s2.u.f.g1.a.a(arrayList, this.f23982c, this.G, this.a.getPbModel());
+                c.a.t0.s2.u.f.g1.a.a(arrayList, this.f23314c, this.G, this.a.getPbModel());
             }
-            if (c.a.s0.b.d.N()) {
-                b2 = c.a.t0.s2.u.f.g1.a.c(arrayList, this.G.q(), sparseArray, this.f23982c);
+            if (c.a.s0.b.d.O()) {
+                b2 = c.a.t0.s2.u.f.g1.a.c(arrayList, this.G.q(), sparseArray, this.f23314c);
             } else {
-                b2 = c.a.t0.s2.u.f.g1.a.b(arrayList, this.G.q(), sparseArray, this.f23982c);
+                b2 = c.a.t0.s2.u.f.g1.a.b(arrayList, this.G.q(), sparseArray, this.f23314c);
             }
             c.a.t0.s2.u.f.g1.a.k(b2, this.O);
             c.a.t0.s2.u.f.g1.a.e(b2);
-            this.f23982c.n(c.a.t0.s2.u.f.g1.a.f(this.G));
-            if (c.a.s0.b.d.N()) {
-                this.f23982c.k(b2, false);
+            this.f23314c.o(c.a.t0.s2.u.f.g1.a.f(this.G));
+            if (c.a.s0.b.d.O()) {
+                this.f23314c.k(b2, false);
             } else {
-                this.f23982c.k(b2, true);
+                this.f23314c.k(b2, true);
             }
-            PopupDialog popupDialog = new PopupDialog(this.a.getPageContext(), this.f23982c);
-            this.f23981b = popupDialog;
+            PopupDialog popupDialog = new PopupDialog(this.a.getPageContext(), this.f23314c);
+            this.f23313b = popupDialog;
             popupDialog.showDialog();
             TiebaStatic.log(new StatisticItem("c13272").param("tid", this.a.getPbModel().h1()).param("fid", this.a.getPbModel().getForumId()).param("uid", this.a.getPbModel().R0().O().J().getUserId()).param("post_id", this.a.getPbModel().y()).param("obj_source", booleanValue ? 2 : 1));
             return true;
@@ -2108,16 +2107,16 @@ public class a {
     public void E0(boolean z2, SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z2, sparseArray) == null) && (sparseArray.get(c.a.t0.s2.i.tag_user_mute_mute_userid) instanceof String) && (sparseArray.get(c.a.t0.s2.i.tag_user_mute_visible) instanceof Boolean) && (sparseArray.get(c.a.t0.s2.i.tag_check_mute_from) instanceof Integer)) {
-            PopupDialog popupDialog = this.f23981b;
+            PopupDialog popupDialog = this.f23313b;
             if (popupDialog != null && popupDialog.isShowing()) {
-                this.f23981b.dismiss();
-                this.f23981b = null;
+                this.f23313b.dismiss();
+                this.f23313b = null;
             }
             String str = (String) sparseArray.get(c.a.t0.s2.i.tag_user_mute_msg);
             String str2 = (String) sparseArray.get(c.a.t0.s2.i.tag_user_mute_mute_userid);
             if (((Boolean) sparseArray.get(c.a.t0.s2.i.tag_user_mute_visible)).booleanValue()) {
                 c.a.s0.s.s.j jVar = new c.a.s0.s.s.j(this.a.getBaseFragmentActivity());
-                jVar.m(new a0(this, sparseArray, z2, str2, str));
+                jVar.n(new a0(this, sparseArray, z2, str2, str));
                 ArrayList arrayList = new ArrayList();
                 if ((sparseArray.get(c.a.t0.s2.i.tag_check_mute_from) instanceof Integer ? ((Integer) sparseArray.get(c.a.t0.s2.i.tag_check_mute_from)).intValue() : -1) == 1) {
                     arrayList.add(new c.a.s0.s.s.g(0, TbadkCoreApplication.getInst().getResources().getString(c.a.t0.s2.l.delete), jVar));
@@ -2129,7 +2128,7 @@ public class a {
                 }
                 jVar.j(arrayList);
                 PopupDialog popupDialog2 = new PopupDialog(this.a.getPageContext(), jVar);
-                this.f23981b = popupDialog2;
+                this.f23313b = popupDialog2;
                 popupDialog2.showDialog();
             }
         }
@@ -2140,7 +2139,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             I();
             this.a.hideEditTool();
-            PopupDialog popupDialog = this.f23981b;
+            PopupDialog popupDialog = this.f23313b;
             if (popupDialog != null) {
                 popupDialog.dismiss();
             }
@@ -2149,13 +2148,13 @@ public class a {
         }
     }
 
-    public void F0(c.InterfaceC0871c interfaceC0871c, boolean z2) {
+    public void F0(c.InterfaceC0884c interfaceC0884c, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, interfaceC0871c, z2) == null) {
-            PopupDialog popupDialog = this.f23983d;
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, interfaceC0884c, z2) == null) {
+            PopupDialog popupDialog = this.f23315d;
             if (popupDialog != null) {
                 popupDialog.dismiss();
-                this.f23983d = null;
+                this.f23315d = null;
             }
             c.a.s0.s.s.j jVar = new c.a.s0.s.s.j(this.a.getContext());
             ArrayList arrayList = new ArrayList();
@@ -2166,9 +2165,9 @@ public class a {
                 arrayList.add(new c.a.s0.s.s.g(1, this.a.getPageContext().getString(c.a.t0.s2.l.save_to_local), jVar));
             }
             jVar.j(arrayList);
-            jVar.m(new s(this, interfaceC0871c));
+            jVar.n(new s(this, interfaceC0884c));
             PopupDialog popupDialog2 = new PopupDialog(this.a.getPageContext(), jVar);
-            this.f23983d = popupDialog2;
+            this.f23315d = popupDialog2;
             popupDialog2.showDialog();
         }
     }
@@ -2178,7 +2177,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             I();
             this.a.hideEditTool();
-            PopupDialog popupDialog = this.f23981b;
+            PopupDialog popupDialog = this.f23313b;
             if (popupDialog != null) {
                 popupDialog.dismiss();
             }
@@ -2189,10 +2188,10 @@ public class a {
     public void G0(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onItemClickListener) == null) {
-            c.a.s0.s.s.d dVar = this.f23987h;
+            c.a.s0.s.s.d dVar = this.f23319h;
             if (dVar != null) {
                 dVar.d();
-                this.f23987h = null;
+                this.f23319h = null;
             }
             if (this.a.getPbModel() == null) {
                 return;
@@ -2204,17 +2203,17 @@ public class a {
             arrayList.add(new c.a.s0.s.s.l(this.a.getContext().getString(c.a.t0.s2.l.myself_only), "", this.a.getPbModel().a1() == 4, Integer.toString(7)));
             c.a.s0.s.s.d dVar2 = new c.a.s0.s.s.d(this.a.getPageContext());
             dVar2.l(c.a.t0.s2.l.pb_privacy_setting_thread_reply_decs);
-            this.f23987h = dVar2;
+            this.f23319h = dVar2;
             dVar2.k(arrayList, onItemClickListener);
             dVar2.c();
-            this.f23987h.n();
+            this.f23319h.n();
         }
     }
 
     public void H() {
         PopupDialog popupDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (popupDialog = this.f23981b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (popupDialog = this.f23313b) == null) {
             return;
         }
         popupDialog.dismiss();
@@ -2242,25 +2241,25 @@ public class a {
         window.setContentView(this.u.r());
         this.u.H(f0Var == null ? false : f0Var.a);
         this.u.v(f0Var == null ? false : f0Var.n);
-        this.u.x(f0Var == null ? false : f0Var.f23504e);
-        this.u.C(f0Var == null ? false : f0Var.f23508i);
-        this.u.y(f0Var == null ? false : f0Var.f23505f);
-        this.u.J(f0Var != null ? f0Var.f23502c : true);
-        this.u.G(f0Var == null ? false : f0Var.f23510k);
+        this.u.x(f0Var == null ? false : f0Var.f22853e);
+        this.u.C(f0Var == null ? false : f0Var.f22857i);
+        this.u.y(f0Var == null ? false : f0Var.f22854f);
+        this.u.J(f0Var != null ? f0Var.f22851c : true);
+        this.u.G(f0Var == null ? false : f0Var.k);
         this.u.z(f0Var == null ? false : f0Var.l, f0Var.t);
         if (f0Var == null) {
             this.u.E(false, false);
             this.u.D(false, false);
         } else {
-            this.u.E(f0Var.f23506g, f0Var.s);
-            this.u.D(f0Var.f23507h, f0Var.r);
+            this.u.E(f0Var.f22855g, f0Var.s);
+            this.u.D(f0Var.f22856h, f0Var.r);
         }
         boolean z2 = f0Var == null ? false : f0Var.q;
         boolean z3 = f0Var == null ? false : f0Var.o;
-        boolean z4 = f0Var == null ? false : f0Var.f23503d;
-        boolean z5 = f0Var == null ? false : f0Var.f23501b;
+        boolean z4 = f0Var == null ? false : f0Var.f22852d;
+        boolean z5 = f0Var == null ? false : f0Var.f22850b;
         boolean z6 = f0Var == null ? false : f0Var.p;
-        boolean z7 = f0Var == null ? false : f0Var.f23509j;
+        boolean z7 = f0Var == null ? false : f0Var.f22858j;
         boolean z8 = f0Var == null ? false : f0Var.m;
         this.u.A(z4, z3);
         this.u.I(z5, z2);
@@ -2336,12 +2335,12 @@ public class a {
             return;
         }
         PopupDialog popupDialog = new PopupDialog(this.a.getPageContext());
-        if (this.a.getPbModel().R0().f23038f == null || this.a.getPbModel().R0().f23038f.size() <= 0) {
+        if (this.a.getPbModel().R0().f22405f == null || this.a.getPbModel().R0().f22405f.size() <= 0) {
             strArr = new String[]{TbadkCoreApplication.getInst().getResources().getString(c.a.t0.s2.l.sort_type_new), TbadkCoreApplication.getInst().getResources().getString(c.a.t0.s2.l.sort_type_old)};
         } else {
-            strArr = new String[this.a.getPbModel().R0().f23038f.size()];
-            for (int i2 = 0; i2 < this.a.getPbModel().R0().f23038f.size(); i2++) {
-                strArr[i2] = this.a.getPbModel().R0().f23038f.get(i2).sort_name + TbadkCoreApplication.getInst().getResources().getString(c.a.t0.s2.l.sort_static);
+            strArr = new String[this.a.getPbModel().R0().f22405f.size()];
+            for (int i2 = 0; i2 < this.a.getPbModel().R0().f22405f.size(); i2++) {
+                strArr[i2] = this.a.getPbModel().R0().f22405f.get(i2).sort_name + TbadkCoreApplication.getInst().getResources().getString(c.a.t0.s2.l.sort_static);
             }
         }
         popupDialog.setDefaultContentView(null, strArr, new m(this, popupDialog, view));
@@ -2351,15 +2350,15 @@ public class a {
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            c.a.s0.s.s.a aVar = this.f23984e;
+            c.a.s0.s.s.a aVar = this.f23316e;
             if (aVar != null) {
                 aVar.dismiss();
             }
-            Dialog dialog = this.f23985f;
+            Dialog dialog = this.f23317f;
             if (dialog != null) {
                 c.a.d.f.m.g.b(dialog, this.a.getPageContext());
             }
-            Dialog dialog2 = this.f23986g;
+            Dialog dialog2 = this.f23318g;
             if (dialog2 != null) {
                 c.a.d.f.m.g.b(dialog2, this.a.getPageContext());
             }
@@ -2423,7 +2422,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            View view = this.f23988i;
+            View view = this.f23320i;
             if (view != null) {
                 return view.findViewById(c.a.t0.s2.i.dialog_button_ok);
             }
@@ -2516,7 +2515,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
             if (this.a.getPbModel() != null && this.a.getPbModel().R0() != null && this.a.getPbModel().R0().g0()) {
                 String format = String.format(TbConfig.URL_BJH_REPORT, this.a.getPbModel().h1(), str);
-                d2 O = this.a.getPbModel().R0().O();
+                e2 O = this.a.getPbModel().R0().O();
                 if (O.P1()) {
                     format = format + "&channelid=33833";
                 } else if (O.U1()) {
@@ -2532,7 +2531,7 @@ public class a {
     }
 
     public void V() {
-        c.a.s0.s.i0.a aVar;
+        c.a.s0.s.j0.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048610, this) == null) || (aVar = this.r) == null) {
             return;
@@ -2665,35 +2664,35 @@ public class a {
     public void f0(ArrayList<m0> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, arrayList) == null) {
-            if (this.f23988i == null) {
-                this.f23988i = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(c.a.t0.s2.j.commit_good, (ViewGroup) null);
+            if (this.f23320i == null) {
+                this.f23320i = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(c.a.t0.s2.j.commit_good, (ViewGroup) null);
             }
-            this.a.getBaseFragmentActivity().getLayoutMode().j(this.f23988i);
-            if (this.f23986g == null) {
+            this.a.getBaseFragmentActivity().getLayoutMode().j(this.f23320i);
+            if (this.f23318g == null) {
                 Dialog dialog = new Dialog(this.a.getPageContext().getPageActivity(), c.a.t0.s2.m.common_alert_dialog);
-                this.f23986g = dialog;
+                this.f23318g = dialog;
                 dialog.setCanceledOnTouchOutside(true);
-                this.f23986g.setCancelable(true);
-                this.o = (ScrollView) this.f23988i.findViewById(c.a.t0.s2.i.good_scroll);
-                this.f23986g.setContentView(this.f23988i);
-                WindowManager.LayoutParams attributes = this.f23986g.getWindow().getAttributes();
+                this.f23318g.setCancelable(true);
+                this.o = (ScrollView) this.f23320i.findViewById(c.a.t0.s2.i.good_scroll);
+                this.f23318g.setContentView(this.f23320i);
+                WindowManager.LayoutParams attributes = this.f23318g.getWindow().getAttributes();
                 attributes.width = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.ds540);
-                this.f23986g.getWindow().setAttributes(attributes);
+                this.f23318g.getWindow().setAttributes(attributes);
                 this.p = new t(this);
-                this.f23989j = (LinearLayout) this.f23988i.findViewById(c.a.t0.s2.i.good_class_group);
-                TextView textView = (TextView) this.f23988i.findViewById(c.a.t0.s2.i.dialog_button_cancel);
+                this.f23321j = (LinearLayout) this.f23320i.findViewById(c.a.t0.s2.i.good_class_group);
+                TextView textView = (TextView) this.f23320i.findViewById(c.a.t0.s2.i.dialog_button_cancel);
                 this.l = textView;
                 textView.setOnClickListener(new v(this));
-                TextView textView2 = (TextView) this.f23988i.findViewById(c.a.t0.s2.i.dialog_button_ok);
-                this.f23990k = textView2;
+                TextView textView2 = (TextView) this.f23320i.findViewById(c.a.t0.s2.i.dialog_button_ok);
+                this.k = textView2;
                 textView2.setOnClickListener(this.a.getListener());
             }
-            this.f23989j.removeAllViews();
+            this.f23321j.removeAllViews();
             this.m = new ArrayList();
             CustomBlueCheckRadioButton D = D("0", this.a.getPageContext().getString(c.a.t0.s2.l.thread_good_class));
             this.m.add(D);
             D.setChecked(true);
-            this.f23989j.addView(D);
+            this.f23321j.addView(D);
             if (arrayList != null) {
                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
                     m0 m0Var = arrayList.get(i2);
@@ -2704,8 +2703,8 @@ public class a {
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.ds1));
                         SkinManager.setBackgroundColor(view, c.a.t0.s2.f.CAM_X0204);
                         view.setLayoutParams(layoutParams);
-                        this.f23989j.addView(view);
-                        this.f23989j.addView(D2);
+                        this.f23321j.addView(view);
+                        this.f23321j.addView(D2);
                     }
                 }
                 ViewGroup.LayoutParams layoutParams2 = this.o.getLayoutParams();
@@ -2719,12 +2718,12 @@ public class a {
                 }
                 this.o.setLayoutParams(layoutParams2);
                 this.o.removeAllViews();
-                LinearLayout linearLayout = this.f23989j;
+                LinearLayout linearLayout = this.f23321j;
                 if (linearLayout != null && linearLayout.getParent() == null) {
-                    this.o.addView(this.f23989j);
+                    this.o.addView(this.f23321j);
                 }
             }
-            c.a.d.f.m.g.j(this.f23986g, this.a.getPageContext());
+            c.a.d.f.m.g.j(this.f23318g, this.a.getPageContext());
         }
     }
 
@@ -2751,33 +2750,35 @@ public class a {
             sparseArray.put(c.a.t0.s2.i.tag_manage_user_identity, Integer.valueOf(i3));
             sparseArray.put(c.a.t0.s2.i.tag_del_post_is_self, Boolean.valueOf(z2));
             sparseArray.put(Q, Integer.valueOf(R));
-            int i4 = c.a.t0.s2.l.del_all_post_confirm;
+            int i4 = c.a.t0.s2.l.confirm_title;
+            int i5 = c.a.t0.s2.l.del_all_post_confirm;
             if (i3 == 1002 && !z2) {
-                i4 = c.a.t0.s2.l.report_post_confirm;
+                i5 = c.a.t0.s2.l.report_post_confirm;
             }
             if (i2 == 0) {
                 if (i3 == 1002 && !z2) {
-                    i4 = c.a.t0.s2.l.report_thread_confirm;
+                    i5 = c.a.t0.s2.l.report_thread_confirm;
                 } else {
-                    i4 = c.a.t0.s2.l.del_thread_confirm;
+                    i4 = c.a.t0.s2.l.del_my_thread_confirm;
+                    i5 = c.a.t0.s2.l.del_my_thread_confirm_subtitle;
                 }
             }
-            this.f23984e = new c.a.s0.s.s.a(this.a.getActivity());
+            this.f23316e = new c.a.s0.s.s.a(this.a.getActivity());
             if (StringUtils.isNull(str2)) {
-                this.f23984e.setMessageId(i4);
+                this.f23316e.setMessageId(i5);
             } else {
-                this.f23984e.setOnlyMessageShowCenter(false);
-                this.f23984e.setMessage(str2);
+                this.f23316e.setOnlyMessageShowCenter(false);
+                this.f23316e.setMessage(str2);
             }
-            this.f23984e.setYesButtonTag(sparseArray);
-            this.f23984e.setPositiveButton(c.a.t0.s2.l.dialog_ok, new b(this));
-            this.f23984e.setNegativeButton(c.a.t0.s2.l.dialog_cancel, new c(this));
-            this.f23984e.setCancelable(true);
-            this.f23984e.create(this.a.getPageContext());
+            this.f23316e.setYesButtonTag(sparseArray);
+            this.f23316e.setPositiveButton(c.a.t0.s2.l.dialog_ok, new b(this));
+            this.f23316e.setNegativeButton(c.a.t0.s2.l.dialog_cancel, new c(this));
+            this.f23316e.setCancelable(true);
+            this.f23316e.create(this.a.getPageContext());
             if (z3) {
-                v0(sparseArray);
+                v0(sparseArray, i4, i5);
             } else if (z2) {
-                v0(sparseArray);
+                v0(sparseArray, i4, i5);
             } else if (q0()) {
                 c.a.t0.k.i iVar = new c.a.t0.k.i(this.a.getPbModel().R0().l().getDeletedReasonInfo().is_grays_cale_forum.intValue(), this.a.getPbModel().R0().l().getDeletedReasonInfo().is_boomgrow.intValue(), this.a.getPbModel().R0().o().has_forum_rule.intValue());
                 iVar.i(this.a.getPbModel().R0().l().getId(), this.a.getPbModel().R0().l().getName());
@@ -2785,7 +2786,7 @@ public class a {
                 iVar.j(this.a.getPbModel().R0().l().getUser_level());
                 C0(sparseArray, i2, iVar, this.a.getPbModel().R0().U(), false);
             } else {
-                I0(this.f23984e, i2);
+                I0(this.f23316e, i2);
             }
         }
     }
@@ -2813,8 +2814,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048625, this, sparseArray, z2) == null) {
             c.a.s0.s.s.j jVar = new c.a.s0.s.s.j(this.a.getContext());
-            jVar.p(this.a.getString(c.a.t0.s2.l.bar_manager));
-            jVar.m(new j(this, z2));
+            jVar.q(this.a.getString(c.a.t0.s2.l.bar_manager));
+            jVar.n(new j(this, z2));
             ArrayList arrayList = new ArrayList();
             int intValue = sparseArray.get(c.a.t0.s2.i.tag_check_mute_from) instanceof Integer ? ((Integer) sparseArray.get(c.a.t0.s2.i.tag_check_mute_from)).intValue() : -1;
             if (!"".equals(sparseArray.get(c.a.t0.s2.i.tag_del_post_id)) && intValue != 2) {
@@ -2832,7 +2833,7 @@ public class a {
                 sparseArray2.put(i4, sparseArray.get(i4));
                 int i5 = c.a.t0.s2.i.tag_manage_user_identity;
                 sparseArray2.put(i5, sparseArray.get(i5));
-                gVar2.f13917d.setTag(sparseArray2);
+                gVar2.f13596d.setTag(sparseArray2);
                 arrayList.add(gVar2);
             }
             if (!"".equals(sparseArray.get(c.a.t0.s2.i.tag_forbid_user_name)) || !"".equals(sparseArray.get(c.a.t0.s2.i.tag_forbid_user_name_show))) {
@@ -2848,7 +2849,7 @@ public class a {
                 int i10 = c.a.t0.s2.i.tag_forbid_user_post_id;
                 sparseArray3.put(i10, sparseArray.get(i10));
                 c.a.s0.s.s.g gVar3 = new c.a.s0.s.s.g(11, this.a.getString(c.a.t0.s2.l.forbidden_person), jVar);
-                gVar3.f13917d.setTag(sparseArray3);
+                gVar3.f13596d.setTag(sparseArray3);
                 arrayList.add(gVar3);
             }
             if ((sparseArray.get(c.a.t0.s2.i.tag_user_mute_visible) instanceof Boolean) && ((Boolean) sparseArray.get(c.a.t0.s2.i.tag_user_mute_visible)).booleanValue()) {
@@ -2872,7 +2873,7 @@ public class a {
                 } else {
                     gVar = new c.a.s0.s.s.g(12, this.a.getString(c.a.t0.s2.l.mute), jVar);
                 }
-                gVar.f13917d.setTag(sparseArray4);
+                gVar.f13596d.setTag(sparseArray4);
                 arrayList.add(gVar);
             }
             jVar.j(arrayList);
@@ -2898,7 +2899,7 @@ public class a {
     public void m0() {
         AbsVideoPbFragment absVideoPbFragment;
         c.a.t0.s2.r.f R0;
-        d2 O;
+        e2 O;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048627, this) == null) || (absVideoPbFragment = this.a) == null || absVideoPbFragment.getPbModel() == null || this.a.getPbModel().R0() == null || (O = (R0 = this.a.getPbModel().R0()).O()) == null || O.J() == null) {
             return;
@@ -2909,47 +2910,47 @@ public class a {
         int V = this.a.getPbModel().R0().V();
         boolean z2 = true;
         if (V != 1 && V != 3) {
-            f0Var.f23506g = false;
+            f0Var.f22855g = false;
         } else {
-            f0Var.f23506g = true;
+            f0Var.f22855g = true;
             f0Var.s = O.s0() == 1;
         }
         if (Z(V)) {
-            f0Var.f23507h = true;
+            f0Var.f22856h = true;
             f0Var.r = O.r0() == 1;
         } else {
-            f0Var.f23507h = false;
+            f0Var.f22856h = false;
         }
         if (V == 1002 && !equals) {
             f0Var.u = true;
         }
         f0Var.n = y0(O.V1(), R0.i0(), equals, V, O.M2(), O.v2());
-        f0Var.f23504e = u0(equals, R0.i0());
-        f0Var.f23508i = z0();
-        f0Var.f23505f = x0(equals);
-        f0Var.f23510k = equals && R0.U() != null && R0.U().showPbPrivate();
+        f0Var.f22853e = u0(equals, R0.i0());
+        f0Var.f22857i = z0();
+        f0Var.f22854f = x0(equals);
+        f0Var.k = equals && R0.U() != null && R0.U().showPbPrivate();
         if (TbSingleton.getInstance().getTiebaPlusConfigData() != null) {
             f0Var.l = TbSingleton.getInstance().getTiebaPlusConfigData().f();
         }
         f0Var.t = equals;
         f0Var.q = this.a.getPbModel().f1();
-        f0Var.f23501b = true;
+        f0Var.f22850b = true;
         f0Var.a = b0(equals);
         f0Var.p = TbadkCoreApplication.getInst().getSkinType() == 1;
-        f0Var.f23509j = true;
+        f0Var.f22858j = true;
         f0Var.o = this.a.getPbModel().v0();
-        f0Var.f23503d = true;
+        f0Var.f22852d = true;
         if (O.t1() == null) {
-            f0Var.f23502c = true;
+            f0Var.f22851c = true;
         } else {
-            f0Var.f23502c = false;
+            f0Var.f22851c = false;
         }
         if (R0.g0()) {
-            f0Var.f23501b = false;
-            f0Var.f23503d = false;
-            f0Var.f23502c = false;
-            f0Var.f23506g = false;
-            f0Var.f23507h = false;
+            f0Var.f22850b = false;
+            f0Var.f22852d = false;
+            f0Var.f22851c = false;
+            f0Var.f22855g = false;
+            f0Var.f22856h = false;
         }
         f0Var.v = (TbSingleton.getInstance().mShowCallFans && equals && !R0.g0()) ? false : false;
         AbsVideoPbFragment absVideoPbFragment2 = this.a;
@@ -2958,14 +2959,14 @@ public class a {
             f0Var.w = absVideoPbFragment3.getFirstPostData(absVideoPbFragment3.getPbModel().R0()).U;
         }
         if (c.a.s0.h1.b.c.d()) {
-            f0Var.f23503d = false;
-            f0Var.f23501b = false;
-            f0Var.f23502c = false;
+            f0Var.f22852d = false;
+            f0Var.f22850b = false;
+            f0Var.f22851c = false;
         }
         if (O.V1()) {
             f0Var.n = false;
-            f0Var.f23506g = false;
-            f0Var.f23507h = false;
+            f0Var.f22855g = false;
+            f0Var.f22856h = false;
         }
         H0(f0Var);
     }
@@ -3061,7 +3062,7 @@ public class a {
                 return false;
             }
             c.a.t0.s2.r.f R0 = this.a.getPbModel().R0();
-            d2 O = R0.O();
+            e2 O = R0.O();
             if (O != null) {
                 if (O.P1() || O.S1()) {
                     return false;
@@ -3081,10 +3082,10 @@ public class a {
                     if (R0.V() != 0) {
                         return R0.V() != 3;
                     }
-                    List<z1> p2 = R0.p();
+                    List<a2> p2 = R0.p();
                     if (ListUtils.getCount(p2) > 0) {
-                        for (z1 z1Var : p2) {
-                            if (z1Var != null && (e0Var = z1Var.f13869g) != null && e0Var.a && !e0Var.f13674c && ((i2 = e0Var.f13673b) == 1 || i2 == 2)) {
+                        for (a2 a2Var : p2) {
+                            if (a2Var != null && (e0Var = a2Var.f13278g) != null && e0Var.a && !e0Var.f13359c && ((i2 = e0Var.f13358b) == 1 || i2 == 2)) {
                                 return true;
                             }
                         }
@@ -3099,16 +3100,16 @@ public class a {
         return invokeCommon.booleanValue;
     }
 
-    public final void v0(SparseArray<Object> sparseArray) {
+    public final void v0(SparseArray<Object> sparseArray, @StringRes int i2, @StringRes int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048636, this, sparseArray) == null) || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048636, this, sparseArray, i2, i3) == null) || this.a == null) {
             return;
         }
         TBAlertConfig.a aVar = new TBAlertConfig.a(c.a.t0.s2.l.delete, TBAlertConfig.OperateBtnStyle.MAIN);
         TBAlertConfig.a aVar2 = new TBAlertConfig.a(c.a.t0.s2.l.cancel, TBAlertConfig.OperateBtnStyle.SECONDARY);
         c.a.s0.s.s.m mVar = new c.a.s0.s.s.m(this.a.getPbActivity());
-        mVar.r(c.a.t0.s2.l.del_my_thread_confirm);
-        mVar.j(c.a.t0.s2.l.del_my_thread_confirm_subtitle);
+        mVar.r(i2);
+        mVar.j(i3);
         mVar.l(true);
         mVar.p(aVar2, aVar);
         mVar.g(false);
@@ -3129,10 +3130,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048637, this, sparseArray) == null) || (absVideoPbFragment = this.a) == null || absVideoPbFragment.getPbModel() == null || sparseArray == null || (postData = (PostData) sparseArray.get(c.a.t0.s2.i.tag_clip_board)) == null) {
             return;
         }
-        if (this.f23982c == null) {
+        if (this.f23314c == null) {
             c.a.s0.s.s.j jVar = new c.a.s0.s.s.j(this.a.getContext());
-            this.f23982c = jVar;
-            jVar.m(this.N);
+            this.f23314c = jVar;
+            jVar.n(this.N);
         }
         ArrayList arrayList = new ArrayList();
         boolean z2 = this.a.getPbModel().R0() != null && this.a.getPbModel().R0().g0();
@@ -3153,15 +3154,15 @@ public class a {
                     absVideoPbFragment2 = this.a;
                     i2 = c.a.t0.s2.l.action_dislike;
                 }
-                c.a.s0.s.s.g gVar4 = new c.a.s0.s.s.g(8, absVideoPbFragment2.getString(i2), this.f23982c);
+                c.a.s0.s.s.g gVar4 = new c.a.s0.s.s.g(8, absVideoPbFragment2.getString(i2), this.f23314c);
                 SparseArray sparseArray2 = new SparseArray();
                 sparseArray2.put(c.a.t0.s2.i.tag_clip_board, postData);
-                gVar4.f13917d.setTag(sparseArray2);
+                gVar4.f13596d.setTag(sparseArray2);
                 arrayList.add(gVar4);
             }
             if (TbadkCoreApplication.isLogin()) {
                 if (!booleanValue3 && booleanValue2) {
-                    c.a.s0.s.s.g gVar5 = new c.a.s0.s.s.g(5, this.a.getString(c.a.t0.s2.l.mute_option), this.f23982c);
+                    c.a.s0.s.s.g gVar5 = new c.a.s0.s.s.g(5, this.a.getString(c.a.t0.s2.l.mute_option), this.f23314c);
                     SparseArray sparseArray3 = new SparseArray();
                     sparseArray3.put(c.a.t0.s2.i.tag_user_mute_visible, Boolean.TRUE);
                     int i3 = c.a.t0.s2.i.tag_is_mem;
@@ -3184,12 +3185,12 @@ public class a {
                     sparseArray3.put(i11, sparseArray.get(i11));
                     int i12 = c.a.t0.s2.i.tag_manage_user_identity;
                     sparseArray3.put(i12, sparseArray.get(i12));
-                    gVar5.f13917d.setTag(sparseArray3);
+                    gVar5.f13596d.setTag(sparseArray3);
                     arrayList.add(gVar5);
                 } else {
                     if ((b0(booleanValue) && TbadkCoreApplication.isLogin()) && !z2) {
-                        c.a.s0.s.s.g gVar6 = new c.a.s0.s.s.g(5, this.a.getString(c.a.t0.s2.l.report_text), this.f23982c);
-                        gVar6.f13917d.setTag(str);
+                        c.a.s0.s.s.g gVar6 = new c.a.s0.s.s.g(5, this.a.getString(c.a.t0.s2.l.report_text), this.f23314c);
+                        gVar6.f13596d.setTag(str);
                         arrayList.add(gVar6);
                     }
                 }
@@ -3231,14 +3232,14 @@ public class a {
                         sparseArray4.put(i24, sparseArray.get(i24));
                         int i25 = c.a.t0.s2.i.tag_has_sub_post;
                         sparseArray4.put(i25, sparseArray.get(i25));
-                        gVar2 = new c.a.s0.s.s.g(6, this.a.getString(c.a.t0.s2.l.delete), this.f23982c);
-                        gVar2.f13917d.setTag(sparseArray4);
+                        gVar2 = new c.a.s0.s.s.g(6, this.a.getString(c.a.t0.s2.l.delete), this.f23314c);
+                        gVar2.f13596d.setTag(sparseArray4);
                     } else {
                         sparseArray4.put(c.a.t0.s2.i.tag_should_delete_visible, Boolean.FALSE);
                         gVar2 = null;
                     }
-                    gVar = new c.a.s0.s.s.g(7, this.a.getString(c.a.t0.s2.l.bar_manager), this.f23982c);
-                    gVar.f13917d.setTag(sparseArray4);
+                    gVar = new c.a.s0.s.s.g(7, this.a.getString(c.a.t0.s2.l.bar_manager), this.f23314c);
+                    gVar.f13596d.setTag(sparseArray4);
                 } else if (booleanValue5) {
                     SparseArray sparseArray5 = new SparseArray();
                     sparseArray5.put(c.a.t0.s2.i.tag_should_manage_visible, Boolean.FALSE);
@@ -3254,11 +3255,11 @@ public class a {
                     int i29 = c.a.t0.s2.i.tag_has_sub_post;
                     sparseArray5.put(i29, sparseArray.get(i29));
                     if (this.a.getPbModel().R0().V() == 1002 && !booleanValue) {
-                        gVar3 = new c.a.s0.s.s.g(6, this.a.getString(c.a.t0.s2.l.report_text), this.f23982c);
+                        gVar3 = new c.a.s0.s.s.g(6, this.a.getString(c.a.t0.s2.l.report_text), this.f23314c);
                     } else {
-                        gVar3 = new c.a.s0.s.s.g(6, this.a.getString(c.a.t0.s2.l.delete), this.f23982c);
+                        gVar3 = new c.a.s0.s.s.g(6, this.a.getString(c.a.t0.s2.l.delete), this.f23314c);
                     }
-                    gVar3.f13917d.setTag(sparseArray5);
+                    gVar3.f13596d.setTag(sparseArray5);
                     gVar2 = gVar3;
                     gVar = null;
                 } else {
@@ -3272,12 +3273,12 @@ public class a {
                     arrayList.add(gVar);
                 }
                 if (!booleanValue) {
-                    arrayList.add(new c.a.s0.s.s.g(9, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.block_user), this.f23982c));
+                    arrayList.add(new c.a.s0.s.s.g(9, TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.block_user), this.f23314c));
                 }
             }
-            this.f23982c.j(arrayList);
-            PopupDialog popupDialog = new PopupDialog(this.a.getPageContext(), this.f23982c);
-            this.f23981b = popupDialog;
+            this.f23314c.j(arrayList);
+            PopupDialog popupDialog = new PopupDialog(this.a.getPageContext(), this.f23314c);
+            this.f23313b = popupDialog;
             popupDialog.showDialog();
         }
     }

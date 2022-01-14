@@ -47,10 +47,10 @@ public final class u {
         public final /* synthetic */ Bitmap a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Bitmap.CompressFormat f10265b;
+        public final /* synthetic */ Bitmap.CompressFormat f10041b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f10266c;
+        public final /* synthetic */ int f10042c;
 
         public a(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i2) {
             Interceptable interceptable = $ic;
@@ -68,8 +68,8 @@ public final class u {
                 }
             }
             this.a = bitmap;
-            this.f10265b = compressFormat;
-            this.f10266c = i2;
+            this.f10041b = compressFormat;
+            this.f10042c = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,11 +82,11 @@ public final class u {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream)) == null) {
                 Bitmap bitmap = this.a;
                 if (bitmap != null) {
-                    Bitmap.CompressFormat compressFormat = this.f10265b;
+                    Bitmap.CompressFormat compressFormat = this.f10041b;
                     if (compressFormat == null) {
                         compressFormat = Bitmap.CompressFormat.JPEG;
                     }
-                    if (bitmap.compress(compressFormat, this.f10266c, outputStream)) {
+                    if (bitmap.compress(compressFormat, this.f10042c, outputStream)) {
                         z = true;
                         return Boolean.valueOf(z);
                     }

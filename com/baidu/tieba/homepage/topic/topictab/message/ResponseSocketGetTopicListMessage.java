@@ -72,13 +72,13 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                 aVar.Q(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f21295e = R.dimen.tbds1;
-                cVar.f21296f = R.color.CAM_X0203;
+                cVar.f20732e = R.dimen.tbds1;
+                cVar.f20733f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i3++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f21295e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f20732e = 0;
     }
 }

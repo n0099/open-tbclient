@@ -27,38 +27,36 @@ public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Pattern f28847j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final Pattern f28848k;
+    public static final Pattern f27963j;
+    public static final Pattern k;
     public static final Pattern l;
     public static final Pattern m;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f28849b;
+    public final String f27964b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f28850c;
+    public final long f27965c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f28851d;
+    public final String f27966d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f28852e;
+    public final String f27967e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f28853f;
+    public final boolean f27968f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f28854g;
+    public final boolean f27969g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f28855h;
+    public final boolean f27970h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f28856i;
+    public final boolean f27971i;
 
     /* loaded from: classes9.dex */
     public static final class a {
@@ -69,29 +67,29 @@ public final class l {
         @Nullable
 
         /* renamed from: b  reason: collision with root package name */
-        public String f28857b;
+        public String f27972b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f28858c;
+        public long f27973c;
         @Nullable
 
         /* renamed from: d  reason: collision with root package name */
-        public String f28859d;
+        public String f27974d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f28860e;
+        public String f27975e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f28861f;
+        public boolean f27976f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f28862g;
+        public boolean f27977g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f28863h;
+        public boolean f27978h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f28864i;
+        public boolean f27979i;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -106,8 +104,8 @@ public final class l {
                     return;
                 }
             }
-            this.f28858c = HttpDate.MAX_DATE;
-            this.f28860e = "/";
+            this.f27973c = HttpDate.MAX_DATE;
+            this.f27975e = "/";
         }
 
         public l a() {
@@ -133,8 +131,8 @@ public final class l {
                 if (str != null) {
                     String c2 = c.d.b.e0.e.c(str);
                     if (c2 != null) {
-                        this.f28859d = c2;
-                        this.f28864i = z;
+                        this.f27974d = c2;
+                        this.f27979i = z;
                         return this;
                     }
                     throw new IllegalArgumentException("unexpected domain: " + str);
@@ -166,7 +164,7 @@ public final class l {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
                 if (str != null) {
                     if (str.trim().equals(str)) {
-                        this.f28857b = str;
+                        this.f27972b = str;
                         return this;
                     }
                     throw new IllegalArgumentException("value is not trimmed");
@@ -190,8 +188,8 @@ public final class l {
                 return;
             }
         }
-        f28847j = Pattern.compile("(\\d{2,4})[^\\d]*");
-        f28848k = Pattern.compile("(?i)(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec).*");
+        f27963j = Pattern.compile("(\\d{2,4})[^\\d]*");
+        k = Pattern.compile("(?i)(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec).*");
         l = Pattern.compile("(\\d{1,2})[^\\d]*");
         m = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
     }
@@ -212,14 +210,14 @@ public final class l {
             }
         }
         this.a = str;
-        this.f28849b = str2;
-        this.f28850c = j2;
-        this.f28851d = str3;
-        this.f28852e = str4;
-        this.f28853f = z;
-        this.f28854g = z2;
-        this.f28856i = z3;
-        this.f28855h = z4;
+        this.f27964b = str2;
+        this.f27965c = j2;
+        this.f27966d = str3;
+        this.f27967e = str4;
+        this.f27968f = z;
+        this.f27969g = z2;
+        this.f27971i = z3;
+        this.f27970h = z4;
     }
 
     public static int a(String str, int i2, int i3, boolean z) {
@@ -269,8 +267,8 @@ public final class l {
             int length = str.length();
             char c2 = ';';
             int m2 = c.d.b.e0.e.m(str, 0, length, ';');
-            char c3 = com.alipay.sdk.encrypt.a.f31864h;
-            int m3 = c.d.b.e0.e.m(str, 0, m2, com.alipay.sdk.encrypt.a.f31864h);
+            char c3 = com.alipay.sdk.encrypt.a.f30865h;
+            int m3 = c.d.b.e0.e.m(str, 0, m2, com.alipay.sdk.encrypt.a.f30865h);
             if (m3 == m2) {
                 return null;
             }
@@ -316,12 +314,12 @@ public final class l {
                     }
                     i2 = m4 + 1;
                     c2 = ';';
-                    c3 = com.alipay.sdk.encrypt.a.f31864h;
+                    c3 = com.alipay.sdk.encrypt.a.f30865h;
                 }
                 z4 = true;
                 i2 = m4 + 1;
                 c2 = ';';
-                c3 = com.alipay.sdk.encrypt.a.f31864h;
+                c3 = com.alipay.sdk.encrypt.a.f30865h;
             }
             long j6 = Long.MIN_VALUE;
             if (j4 != Long.MIN_VALUE) {
@@ -442,9 +440,9 @@ public final class l {
                     i9 = Integer.parseInt(matcher.group(3));
                 } else if (i6 == -1 && matcher.usePattern(l).matches()) {
                     i6 = Integer.parseInt(matcher.group(1));
-                } else if (i7 == -1 && matcher.usePattern(f28848k).matches()) {
-                    i7 = f28848k.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
-                } else if (i4 == -1 && matcher.usePattern(f28847j).matches()) {
+                } else if (i7 == -1 && matcher.usePattern(k).matches()) {
+                    i7 = k.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
+                } else if (i4 == -1 && matcher.usePattern(f27963j).matches()) {
                     i4 = Integer.parseInt(matcher.group(1));
                 }
                 a2 = a(str, a3 + 1, i3, false);
@@ -467,7 +465,7 @@ public final class l {
                         throw new IllegalArgumentException();
                     }
                     if (i9 >= 0 && i9 <= 59) {
-                        GregorianCalendar gregorianCalendar = new GregorianCalendar(c.d.b.e0.e.f28542f);
+                        GregorianCalendar gregorianCalendar = new GregorianCalendar(c.d.b.e0.e.f27669f);
                         gregorianCalendar.setLenient(false);
                         gregorianCalendar.set(1, i4);
                         gregorianCalendar.set(2, i7 - 1);
@@ -519,7 +517,7 @@ public final class l {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (obj instanceof l) {
                 l lVar = (l) obj;
-                return lVar.a.equals(this.a) && lVar.f28849b.equals(this.f28849b) && lVar.f28851d.equals(this.f28851d) && lVar.f28852e.equals(this.f28852e) && lVar.f28850c == this.f28850c && lVar.f28853f == this.f28853f && lVar.f28854g == this.f28854g && lVar.f28855h == this.f28855h && lVar.f28856i == this.f28856i;
+                return lVar.a.equals(this.a) && lVar.f27964b.equals(this.f27964b) && lVar.f27966d.equals(this.f27966d) && lVar.f27967e.equals(this.f27967e) && lVar.f27965c == this.f27965c && lVar.f27968f == this.f27968f && lVar.f27969g == this.f27969g && lVar.f27970h == this.f27970h && lVar.f27971i == this.f27971i;
             }
             return false;
         }
@@ -530,8 +528,8 @@ public final class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = this.f28850c;
-            return ((((((((((((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f28849b.hashCode()) * 31) + this.f28851d.hashCode()) * 31) + this.f28852e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f28853f ? 1 : 0)) * 31) + (!this.f28854g ? 1 : 0)) * 31) + (!this.f28855h ? 1 : 0)) * 31) + (!this.f28856i ? 1 : 0);
+            long j2 = this.f27965c;
+            return ((((((((((((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f27964b.hashCode()) * 31) + this.f27966d.hashCode()) * 31) + this.f27967e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f27968f ? 1 : 0)) * 31) + (!this.f27969g ? 1 : 0)) * 31) + (!this.f27970h ? 1 : 0)) * 31) + (!this.f27971i ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -542,29 +540,29 @@ public final class l {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a);
-            sb.append(com.alipay.sdk.encrypt.a.f31864h);
-            sb.append(this.f28849b);
-            if (this.f28855h) {
-                if (this.f28850c == Long.MIN_VALUE) {
+            sb.append(com.alipay.sdk.encrypt.a.f30865h);
+            sb.append(this.f27964b);
+            if (this.f27970h) {
+                if (this.f27965c == Long.MIN_VALUE) {
                     sb.append("; max-age=0");
                 } else {
                     sb.append("; expires=");
-                    sb.append(c.d.b.e0.i.d.a(new Date(this.f28850c)));
+                    sb.append(c.d.b.e0.i.d.a(new Date(this.f27965c)));
                 }
             }
-            if (!this.f28856i) {
+            if (!this.f27971i) {
                 sb.append("; domain=");
                 if (z) {
                     sb.append(".");
                 }
-                sb.append(this.f28851d);
+                sb.append(this.f27966d);
             }
             sb.append("; path=");
-            sb.append(this.f28852e);
-            if (this.f28853f) {
+            sb.append(this.f27967e);
+            if (this.f27968f) {
                 sb.append("; secure");
             }
-            if (this.f28854g) {
+            if (this.f27969g) {
                 sb.append("; httponly");
             }
             return sb.toString();
@@ -575,7 +573,7 @@ public final class l {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28849b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27964b : (String) invokeV.objValue;
     }
 
     public String toString() {
@@ -601,19 +599,19 @@ public final class l {
         }
         String str = aVar.a;
         if (str != null) {
-            String str2 = aVar.f28857b;
+            String str2 = aVar.f27972b;
             if (str2 != null) {
-                String str3 = aVar.f28859d;
+                String str3 = aVar.f27974d;
                 if (str3 != null) {
                     this.a = str;
-                    this.f28849b = str2;
-                    this.f28850c = aVar.f28858c;
-                    this.f28851d = str3;
-                    this.f28852e = aVar.f28860e;
-                    this.f28853f = aVar.f28861f;
-                    this.f28854g = aVar.f28862g;
-                    this.f28855h = aVar.f28863h;
-                    this.f28856i = aVar.f28864i;
+                    this.f27964b = str2;
+                    this.f27965c = aVar.f27973c;
+                    this.f27966d = str3;
+                    this.f27967e = aVar.f27975e;
+                    this.f27968f = aVar.f27976f;
+                    this.f27969g = aVar.f27977g;
+                    this.f27970h = aVar.f27978h;
+                    this.f27971i = aVar.f27979i;
                     return;
                 }
                 throw new NullPointerException("builder.domain == null");

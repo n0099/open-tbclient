@@ -105,7 +105,7 @@ public class SelectForumActivity extends SuspendedActivity {
                 if (TextUtils.isEmpty(str)) {
                     str = this.a.getString(R.string.activity_select_forum_error);
                 }
-                n.M(this.a, str);
+                n.N(this.a, str);
             }
         }
     }

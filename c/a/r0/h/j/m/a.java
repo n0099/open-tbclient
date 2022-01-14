@@ -30,12 +30,12 @@ public class a implements c.a.r0.j.u.c.c {
 
     /* renamed from: c.a.r0.h.j.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0699a {
+    public static /* synthetic */ class C0708a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f10838b;
+        public static final /* synthetic */ int[] f10598b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,29 +52,29 @@ public class a implements c.a.r0.j.u.c.c {
                 }
             }
             int[] iArr = new int[Download.DownloadState.values().length];
-            f10838b = iArr;
+            f10598b = iArr;
             try {
                 iArr[Download.DownloadState.WAITING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f10838b[Download.DownloadState.DOWNLOADING.ordinal()] = 2;
+                f10598b[Download.DownloadState.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f10838b[Download.DownloadState.PAUSE.ordinal()] = 3;
+                f10598b[Download.DownloadState.PAUSE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f10838b[Download.DownloadState.FAILED.ordinal()] = 4;
+                f10598b[Download.DownloadState.FAILED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f10838b[Download.DownloadState.CANCEL.ordinal()] = 5;
+                f10598b[Download.DownloadState.CANCEL.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f10838b[Download.DownloadState.FINISH.ordinal()] = 6;
+                f10598b[Download.DownloadState.FINISH.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             int[] iArr2 = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
@@ -116,7 +116,7 @@ public class a implements c.a.r0.j.u.c.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a.r0.h.i.k.f.a f10839c;
+        public c.a.r0.h.i.k.f.a f10599c;
 
         public b(c.a.r0.h.i.k.f.a aVar) {
             Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class a implements c.a.r0.j.u.c.c {
                     return;
                 }
             }
-            this.f10839c = aVar;
+            this.f10599c = aVar;
         }
 
         @Override // c.a.r0.a.y1.a.b.c.a
@@ -164,7 +164,7 @@ public class a implements c.a.r0.j.u.c.c {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (a = bVar.a()) == null) {
                 return;
             }
-            a.g(a, this.f10839c);
+            a.g(a, this.f10599c);
         }
     }
 
@@ -219,7 +219,7 @@ public class a implements c.a.r0.j.u.c.c {
             if (optJSONObject == null) {
                 return;
             }
-            switch (C0699a.f10838b[Download.DownloadState.getState(optJSONObject.optInt("status", -1)).ordinal()]) {
+            switch (C0708a.f10598b[Download.DownloadState.getState(optJSONObject.optInt("status", -1)).ordinal()]) {
                 case 1:
                     aVar.c(DownloadState.WAIT, optInt);
                     return;
@@ -284,9 +284,9 @@ public class a implements c.a.r0.j.u.c.c {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(c.f10840b, str2);
+                jSONObject.put(c.f10600b, str2);
                 jSONObject.put("key_download_url", str);
-                jSONObject.put(c.f10841c, str3);
+                jSONObject.put(c.f10601c, str3);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -318,7 +318,7 @@ public class a implements c.a.r0.j.u.c.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, swanAppDownloadType)) == null) {
-            switch (C0699a.a[swanAppDownloadType.ordinal()]) {
+            switch (C0708a.a[swanAppDownloadType.ordinal()]) {
                 case 1:
                     return "queryStatus";
                 case 2:

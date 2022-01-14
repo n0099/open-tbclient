@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.provider.Settings;
 import android.text.TextUtils;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +41,7 @@ public final class g {
                     if (string != null) {
                         uuid = UUID.fromString(string);
                     } else {
-                        String string2 = Settings.Secure.getString(context.getContentResolver(), "android_id");
+                        String string2 = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                         try {
                             if (!"9774d56d682e549c".equals(string2) && !TextUtils.isEmpty(string2)) {
                                 uuid = UUID.nameUUIDFromBytes(string2.getBytes("utf8"));

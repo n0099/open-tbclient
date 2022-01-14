@@ -25,13 +25,13 @@ public class RestHttpDNSEnabler {
     public static final String a = "RestHttpDNSEnabler";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Pattern f55687b;
+    public static Pattern f53574b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ConcurrentHashMap<String, b> f55688c;
+    public static ConcurrentHashMap<String, b> f53575c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f55689d;
+    public static long f53576d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -40,10 +40,10 @@ public class RestHttpDNSEnabler {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f55690e;
+        public final /* synthetic */ Context f53577e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f55691f;
+        public final /* synthetic */ String f53578f;
 
         public a(Context context, String str) {
             Interceptable interceptable = $ic;
@@ -60,18 +60,18 @@ public class RestHttpDNSEnabler {
                     return;
                 }
             }
-            this.f55690e = context;
-            this.f55691f = str;
+            this.f53577e = context;
+            this.f53578f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RestTemplate restTemplate = new RestTemplate(this.f55690e.getApplicationContext());
+                RestTemplate restTemplate = new RestTemplate(this.f53577e.getApplicationContext());
                 restTemplate.setMessageConverter(new c.f.a.g.b.b());
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("dn", this.f55691f));
+                arrayList.add(new RestNameValuePair("dn", this.f53578f));
                 try {
                     String str = (String) restTemplate.d("http://180.76.76.112/", arrayList, "utf-8", String.class);
                     if (str instanceof String) {
@@ -84,8 +84,8 @@ public class RestHttpDNSEnabler {
                         if (TextUtils.isEmpty(trim) || !RestHttpDNSEnabler.c(trim)) {
                             return;
                         }
-                        synchronized (RestHttpDNSEnabler.f55688c) {
-                            RestHttpDNSEnabler.f55688c.put(this.f55691f, new b(trim));
+                        synchronized (RestHttpDNSEnabler.f53575c) {
+                            RestHttpDNSEnabler.f53575c.put(this.f53578f, new b(trim));
                         }
                     }
                 } catch (Exception e2) {
@@ -103,7 +103,7 @@ public class RestHttpDNSEnabler {
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b(String str) {
-            this(str, System.currentTimeMillis(), RestHttpDNSEnabler.f55689d);
+            this(str, System.currentTimeMillis(), RestHttpDNSEnabler.f53576d);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,9 +154,9 @@ public class RestHttpDNSEnabler {
                 return;
             }
         }
-        f55687b = Pattern.compile(com.baidu.apollon.restnet.RestHttpDNSEnabler.f33578b);
-        f55688c = new ConcurrentHashMap<>();
-        f55689d = 86400L;
+        f53574b = Pattern.compile(com.baidu.apollon.restnet.RestHttpDNSEnabler.f32513b);
+        f53575c = new ConcurrentHashMap<>();
+        f53576d = 86400L;
     }
 
     public RestHttpDNSEnabler() {
@@ -180,11 +180,11 @@ public class RestHttpDNSEnabler {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, url)) == null) {
             String host = url.getHost();
             String url2 = url.toString();
-            for (Map.Entry<String, b> entry : f55688c.entrySet()) {
+            for (Map.Entry<String, b> entry : f53575c.entrySet()) {
                 String key = entry.getKey();
                 if (key.equals(host) || (ApollonConstants.WALLET_SPECIFIC && key.endsWith("baifubao.com") && host.endsWith("baifubao.com"))) {
-                    synchronized (f55688c) {
-                        replaceFirst = url2.replaceFirst(host, f55688c.get(key).a);
+                    synchronized (f53575c) {
+                        replaceFirst = url2.replaceFirst(host, f53575c.get(key).a);
                     }
                     return replaceFirst;
                 }
@@ -197,13 +197,13 @@ public class RestHttpDNSEnabler {
     public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f55687b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f53574b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && c(str)) {
-            Iterator<Map.Entry<String, b>> it = f55688c.entrySet().iterator();
+            Iterator<Map.Entry<String, b>> it = f53575c.entrySet().iterator();
             while (it.hasNext()) {
                 if (it.next().getValue().a.equals(str)) {
                     it.remove();
@@ -217,7 +217,7 @@ public class RestHttpDNSEnabler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
-                if (f55688c.containsKey(str)) {
+                if (f53575c.containsKey(str)) {
                     return;
                 }
                 new Thread(new a(context, str)).start();

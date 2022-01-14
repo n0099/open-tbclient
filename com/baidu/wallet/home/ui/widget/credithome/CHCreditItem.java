@@ -22,16 +22,16 @@ public class CHCreditItem extends BaseItemView {
     public MaskTextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f53230b;
+    public MaskTextView f51183b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f53231c;
+    public MaskTextView f51184c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f53232d;
+    public MaskTextView f51185d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f53233e;
+    public MaskTextView f51186e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHCreditItem(Context context) {
@@ -68,10 +68,10 @@ public class CHCreditItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_item"), this);
             this.a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines"));
-            this.f53230b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_tip"));
-            this.f53231c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title"));
-            this.f53233e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_lable"));
-            this.f53232d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title_desc"));
+            this.f51183b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_tip"));
+            this.f51184c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title"));
+            this.f51186e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_lable"));
+            this.f51185d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title_desc"));
         }
     }
 
@@ -88,21 +88,21 @@ public class CHCreditItem extends BaseItemView {
         if (!TextUtils.isEmpty(getData().value1) && (maskTextView5 = this.a) != null) {
             maskTextView5.setMaskText(getData().value1);
         }
-        if (!TextUtils.isEmpty(getData().value2) && (maskTextView4 = this.f53230b) != null) {
+        if (!TextUtils.isEmpty(getData().value2) && (maskTextView4 = this.f51183b) != null) {
             maskTextView4.setMaskText(getData().value2);
         }
-        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f53231c) != null) {
+        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f51184c) != null) {
             maskTextView3.setMaskText(getData().name);
         }
-        if (!TextUtils.isEmpty(getData().label) && (maskTextView2 = this.f53233e) != null) {
+        if (!TextUtils.isEmpty(getData().label) && (maskTextView2 = this.f51186e) != null) {
             maskTextView2.setMaskText(getData().label);
         } else {
-            MaskTextView maskTextView6 = this.f53233e;
+            MaskTextView maskTextView6 = this.f51186e;
             if (maskTextView6 != null) {
                 maskTextView6.setVisibility(8);
             }
         }
-        if (TextUtils.isEmpty(getData().value3) || (maskTextView = this.f53232d) == null) {
+        if (TextUtils.isEmpty(getData().value3) || (maskTextView = this.f51185d) == null) {
             return;
         }
         maskTextView.setMaskText(getData().value3);

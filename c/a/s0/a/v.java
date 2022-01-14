@@ -17,13 +17,13 @@ public class v {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12472b;
+    public long f12178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<z> f12473c;
+    public ArrayList<z> f12179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12474d;
+    public String f12180d;
 
     public v() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class v {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12472b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12178b : invokeV.longValue;
     }
 
     public long b() {
@@ -54,13 +54,13 @@ public class v {
     public ArrayList<z> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12473c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12179c : (ArrayList) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12474d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12180d : (String) invokeV.objValue;
     }
 
     public void e(String str) {
@@ -71,9 +71,9 @@ public class v {
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.a = jSONObject.optLong("start_date", 0L) * 1000;
-            this.f12472b = jSONObject.optLong("end_date", 0L) * 1000;
-            this.f12474d = jSONObject.optString("ahead_url", "");
-            this.f12473c = new ArrayList<>();
+            this.f12178b = jSONObject.optLong("end_date", 0L) * 1000;
+            this.f12180d = jSONObject.optString("ahead_url", "");
+            this.f12179c = new ArrayList<>();
             JSONArray optJSONArray = jSONObject.optJSONArray("time");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return;
@@ -82,7 +82,7 @@ public class v {
                 JSONArray optJSONArray2 = optJSONArray.optJSONArray(i2);
                 z zVar = new z();
                 zVar.c(optJSONArray2);
-                this.f12473c.add(zVar);
+                this.f12179c.add(zVar);
             }
         } catch (Exception e2) {
             BdLog.e(e2);

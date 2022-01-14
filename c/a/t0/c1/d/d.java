@@ -103,9 +103,9 @@ public class d extends c.a.t0.g0.b<c.a.t0.c1.c.b> {
         this.r = bVar;
         this.m.startLoad(bVar.g(), 10, false);
         this.n.setText(q(bVar.o(), bVar.t()));
-        this.o.setText(String.format(this.f18210f.getString(R.string.concern), bVar.i()));
-        this.p.setText(String.format(this.f18210f.getString(R.string.search_bar_thread), bVar.q()));
-        l(this.f18210f, TbadkCoreApplication.getInst().getSkinType());
+        this.o.setText(String.format(this.f17767f.getString(R.string.concern), bVar.i()));
+        this.p.setText(String.format(this.f17767f.getString(R.string.search_bar_thread), bVar.q()));
+        l(this.f17767f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SpannableStringBuilder q(String str, String str2) {

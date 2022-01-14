@@ -12,13 +12,13 @@ public class c extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f23355e;
+    public final String f22710e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f23356f;
+    public final String f22711f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f23357g;
+    public final String f22712g;
 
     public c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -35,9 +35,9 @@ public class c extends Thread {
                 return;
             }
         }
-        this.f23355e = str;
-        this.f23356f = str2;
-        this.f23357g = str3;
+        this.f22710e = str;
+        this.f22711f = str2;
+        this.f22712g = str3;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -46,9 +46,9 @@ public class c extends Thread {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.run();
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/clientcall");
-            netWork.addPostData("tid", this.f23355e);
-            netWork.addPostData("phonenum", this.f23356f);
-            netWork.addPostData("optype", this.f23357g);
+            netWork.addPostData("tid", this.f22710e);
+            netWork.addPostData("phonenum", this.f22711f);
+            netWork.addPostData("optype", this.f22712g);
             netWork.postNetData();
         }
     }

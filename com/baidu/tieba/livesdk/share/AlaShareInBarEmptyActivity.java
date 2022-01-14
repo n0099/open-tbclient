@@ -36,7 +36,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaShareInBarEmptyActivity f47464e;
+        public final /* synthetic */ AlaShareInBarEmptyActivity f45702e;
 
         public a(AlaShareInBarEmptyActivity alaShareInBarEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                     return;
                 }
             }
-            this.f47464e = alaShareInBarEmptyActivity;
+            this.f45702e = alaShareInBarEmptyActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f47464e.mPostModel.cancelLoadData();
+                this.f45702e.mPostModel.cancelLoadData();
             }
         }
     }

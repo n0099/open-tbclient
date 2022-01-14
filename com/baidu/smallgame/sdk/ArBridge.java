@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ArBridge {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -54,13 +54,13 @@ public class ArBridge {
     public b mVideoCallback;
 
     @NotProguard
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface FirstFrameListener {
         void onFirstFrameFinished();
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class TouchOrientation {
         public static final /* synthetic */ TouchOrientation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -125,12 +125,12 @@ public class ArBridge {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void a(String str, int i2, String str2);
     }

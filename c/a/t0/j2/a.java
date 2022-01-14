@@ -14,16 +14,16 @@ public class a extends Animation {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f18680e;
+    public View f18216e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18681f;
+    public int f18217f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18682g;
+    public int f18218g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout.LayoutParams f18683h;
+    public FrameLayout.LayoutParams f18219h;
 
     public a(View view, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -43,17 +43,17 @@ public class a extends Animation {
         if (view == null) {
             return;
         }
-        this.f18680e = view;
+        this.f18216e = view;
         if (view.getVisibility() == 8 && i3 > 0) {
-            this.f18681f = i3;
+            this.f18217f = i3;
         } else {
-            this.f18681f = this.f18680e.getMeasuredHeight();
+            this.f18217f = this.f18216e.getMeasuredHeight();
         }
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
-        this.f18683h = layoutParams;
-        this.f18682g = i2;
+        this.f18219h = layoutParams;
+        this.f18218g = i2;
         if (i2 == 0) {
-            layoutParams.bottomMargin = -this.f18681f;
+            layoutParams.bottomMargin = -this.f18217f;
         } else {
             layoutParams.bottomMargin = 0;
         }
@@ -65,22 +65,22 @@ public class a extends Animation {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
             super.applyTransformation(f2, transformation);
             if (f2 < 1.0f) {
-                if (this.f18682g == 0) {
-                    FrameLayout.LayoutParams layoutParams = this.f18683h;
-                    int i2 = this.f18681f;
+                if (this.f18218g == 0) {
+                    FrameLayout.LayoutParams layoutParams = this.f18219h;
+                    int i2 = this.f18217f;
                     layoutParams.bottomMargin = (-i2) + ((int) (i2 * f2));
                 } else {
-                    this.f18683h.bottomMargin = -((int) (this.f18681f * f2));
+                    this.f18219h.bottomMargin = -((int) (this.f18217f * f2));
                 }
-                this.f18680e.requestLayout();
-            } else if (this.f18682g == 0) {
-                this.f18683h.bottomMargin = 0;
-                this.f18680e.requestLayout();
-                this.f18681f = this.f18680e.getMeasuredHeight();
+                this.f18216e.requestLayout();
+            } else if (this.f18218g == 0) {
+                this.f18219h.bottomMargin = 0;
+                this.f18216e.requestLayout();
+                this.f18217f = this.f18216e.getMeasuredHeight();
             } else {
-                this.f18683h.bottomMargin = -this.f18681f;
-                this.f18680e.setVisibility(8);
-                this.f18680e.requestLayout();
+                this.f18219h.bottomMargin = -this.f18217f;
+                this.f18216e.setVisibility(8);
+                this.f18216e.requestLayout();
             }
         }
     }

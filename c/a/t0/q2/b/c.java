@@ -13,13 +13,13 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22295b;
+    public String f21683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22296c;
+    public String f21684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f22297d;
+    public String f21685d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class c {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f22295b;
+            String str = this.f21683b;
             int hashCode = str.hashCode();
             if (hashCode == 2154) {
                 if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {

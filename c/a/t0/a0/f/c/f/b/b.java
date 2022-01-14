@@ -15,28 +15,26 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final BdUniqueId f14804k;
+    public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14805e;
+    public String f14452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14806f;
+    public String f14453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14807g;
+    public String f14454g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14808h;
+    public String f14455h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f14809i;
+    public String f14456i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f14810j;
+    public String f14457j;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +49,7 @@ public class b extends BaseCardInfo {
                 return;
             }
         }
-        f14804k = BdUniqueId.gen();
+        k = BdUniqueId.gen();
     }
 
     public b() {
@@ -73,19 +71,19 @@ public class b extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f14805e = jSONObject.optString("user_id");
-        this.f14806f = jSONObject.optString("user_name");
-        this.f14807g = jSONObject.optString("user_nickname");
-        this.f14808h = jSONObject.optString("portrait");
-        this.f14809i = jSONObject.optString("user_brief");
+        this.f14452e = jSONObject.optString("user_id");
+        this.f14453f = jSONObject.optString("user_name");
+        this.f14454g = jSONObject.optString("user_nickname");
+        this.f14455h = jSONObject.optString("portrait");
+        this.f14456i = jSONObject.optString("user_brief");
         jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
-        this.f14810j = jSONObject.optString("remark");
+        this.f14457j = jSONObject.optString("remark");
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14804k : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? k : (BdUniqueId) invokeV.objValue;
     }
 }

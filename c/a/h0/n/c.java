@@ -18,12 +18,12 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f3648c;
+    public static c f3594c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f3649b;
+    public b f3595b;
 
     /* loaded from: classes.dex */
     public class a extends c.a.h0.l.a<JSONObject> {
@@ -94,7 +94,7 @@ public class c {
                 return;
             }
         }
-        f3648c = new c();
+        f3594c = new c();
     }
 
     public c() {
@@ -114,7 +114,7 @@ public class c {
     public static c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3648c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3594c : (c) invokeV.objValue;
     }
 
     public void a(c.a.h0.s.g.a aVar) {
@@ -139,7 +139,7 @@ public class c {
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3649b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3595b : (b) invokeV.objValue;
     }
 
     public void d(String str) {
@@ -152,7 +152,7 @@ public class c {
     public void e(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f3649b = bVar;
+            this.f3595b = bVar;
         }
     }
 }

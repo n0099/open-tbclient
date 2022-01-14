@@ -35,20 +35,20 @@ public final class a extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f9880i;
+    public static final boolean f9666i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final a.InterfaceC0622a f9881h;
+    public final a.InterfaceC0631a f9667h;
 
     /* renamed from: c.a.r0.a.y0.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0620a implements a.InterfaceC0622a {
+    public class C0629a implements a.InterfaceC0631a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0620a(a aVar) {
+        public C0629a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,30 +66,30 @@ public final class a extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
             this.a = aVar;
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void a(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onStateChange", Integer.valueOf(i2));
+            this.a.f9586b.onCallback(this.a, "onStateChange", Integer.valueOf(i2));
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void b(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onInfo", Integer.valueOf(i2));
+            this.a.f9586b.onCallback(this.a, "onInfo", Integer.valueOf(i2));
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                if (this.a.f9800b != null) {
-                    this.a.f9800b.onCallback(this.a, "onPaused", null);
+                if (this.a.f9586b != null) {
+                    this.a.f9586b.onCallback(this.a, "onPaused", null);
                 }
                 if (TextUtils.isEmpty(str)) {
                     return;
@@ -98,63 +98,63 @@ public final class a extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
             }
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void d(@NonNull String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onNetStatus", str);
+            this.a.f9586b.onCallback(this.a, "onNetStatus", str);
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                if (this.a.f9800b != null) {
-                    this.a.f9800b.onCallback(this.a, "onPlayed", null);
+                if (this.a.f9586b != null) {
+                    this.a.f9586b.onCallback(this.a, "onPlayed", null);
                 }
                 l.e().l(str, true);
             }
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void f() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onVideoSizeChanged", null);
+            this.a.f9586b.onCallback(this.a, "onVideoSizeChanged", null);
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void onEnded() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onEnded", null);
+            this.a.f9586b.onCallback(this.a, "onEnded", null);
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void onError(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onError", Integer.valueOf(i2));
+            this.a.f9586b.onCallback(this.a, "onError", Integer.valueOf(i2));
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void onPrepared() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onPrepared", null);
+            this.a.f9586b.onCallback(this.a, "onPrepared", null);
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void onRelease(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
@@ -176,7 +176,7 @@ public final class a extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
                 return;
             }
         }
-        f9880i = k.a;
+        f9666i = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -197,9 +197,9 @@ public final class a extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
                 return;
             }
         }
-        C0620a c0620a = new C0620a(this);
-        this.f9881h = c0620a;
-        aVar.h0(c0620a);
+        C0629a c0629a = new C0629a(this);
+        this.f9667h = c0629a;
+        aVar.h0(c0629a);
         l.e().b(aVar);
         this.a.a(new c.a.r0.a.y0.k.e.a());
         this.a.a(new c.a.r0.a.y0.k.e.b());
@@ -229,7 +229,7 @@ public final class a extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, command) == null) {
             if (w(command)) {
-                if (f9880i) {
+                if (f9666i) {
                     String str = "reject command => " + command.what;
                     return;
                 }
@@ -243,13 +243,13 @@ public final class a extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command)) == null) {
-            if (command != null && TextUtils.equals(command.what, m.f9884b)) {
-                boolean z = f9880i;
+            if (command != null && TextUtils.equals(command.what, m.f9670b)) {
+                boolean z = f9666i;
                 return false;
             }
-            int a = ((c.a.r0.a.y0.k.g.a) this.f9801c).a();
-            if (f9880i && a != 1) {
-                String str = "isRejectCommand: authorize type => " + ((c.a.r0.a.y0.k.g.a) this.f9801c).a() + " command=> " + (command == null ? "" : command.what);
+            int a = ((c.a.r0.a.y0.k.g.a) this.f9587c).a();
+            if (f9666i && a != 1) {
+                String str = "isRejectCommand: authorize type => " + ((c.a.r0.a.y0.k.g.a) this.f9587c).a() + " command=> " + (command == null ? "" : command.what);
             }
             return a == 2;
         }

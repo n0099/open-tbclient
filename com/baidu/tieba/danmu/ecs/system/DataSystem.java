@@ -344,8 +344,8 @@ public final class DataSystem extends d implements c.a {
             for (Object obj : list) {
                 long j2 = this.t;
                 long j3 = this.u;
-                long k2 = ((a) obj).e().k();
-                if (j2 <= k2 && k2 < j3) {
+                long k = ((a) obj).e().k();
+                if (j2 <= k && k < j3) {
                     arrayList.add(obj);
                 }
             }
@@ -357,8 +357,8 @@ public final class DataSystem extends d implements c.a {
             for (Object obj2 : list2) {
                 long j4 = this.t;
                 long j5 = this.u;
-                long k3 = ((a) obj2).e().k();
-                if (j4 <= k3 && k3 < j5) {
+                long k2 = ((a) obj2).e().k();
+                if (j4 <= k2 && k2 < j5) {
                     arrayList2.add(obj2);
                 }
             }

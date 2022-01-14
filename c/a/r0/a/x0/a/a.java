@@ -30,15 +30,15 @@ public class a {
 
     /* renamed from: c.a.r0.a.x0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0605a implements e0.a {
+    public class C0614a implements e0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ File a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f9776b;
+        public final /* synthetic */ a f9563b;
 
-        public C0605a(a aVar, File file) {
+        public C0614a(a aVar, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public class a {
                     return;
                 }
             }
-            this.f9776b = aVar;
+            this.f9563b = aVar;
             this.a = file;
         }
 
@@ -64,7 +64,7 @@ public class a {
                 if (!k.a) {
                     d.L(this.a);
                 }
-                a aVar = this.f9776b;
+                a aVar = this.f9563b;
                 aVar.p("upload file: done. feedback data = " + str);
             }
         }
@@ -109,7 +109,7 @@ public class a {
         a = k.a;
     }
 
-    public /* synthetic */ a(C0605a c0605a) {
+    public /* synthetic */ a(C0614a c0614a) {
         this();
     }
 
@@ -132,7 +132,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            File q = q(str, file, c.a.r0.a.x0.a.d.a.f9784h);
+            File q = q(str, file, c.a.r0.a.x0.a.d.a.f9571h);
             if (q == null) {
                 return false;
             }
@@ -152,7 +152,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, file)) == null) {
-            File q = q(str, file, c.a.r0.a.x0.a.d.a.f9787k);
+            File q = q(str, file, c.a.r0.a.x0.a.d.a.k);
             if (q == null) {
                 return false;
             }
@@ -167,7 +167,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
-            File q = q(str, new File(file, c.a.r0.a.x0.a.d.a.f9785i), "swan_plugin_workspace");
+            File q = q(str, new File(file, c.a.r0.a.x0.a.d.a.f9572i), "swan_plugin_workspace");
             if (q == null) {
                 return false;
             }
@@ -185,7 +185,7 @@ public class a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, file)) == null) {
-            File q = q(str, file, c.a.r0.a.x0.a.d.a.f9786j);
+            File q = q(str, file, c.a.r0.a.x0.a.d.a.f9573j);
             if (context == null || q == null) {
                 return false;
             }
@@ -207,8 +207,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, context, str, file) == null) {
             boolean i2 = i(str, file);
-            boolean b2 = b(c.a.r0.a.x0.a.d.a.f9778b, file);
-            boolean b3 = b(c.a.r0.a.x0.a.d.a.f9779c, file);
+            boolean b2 = b(c.a.r0.a.x0.a.d.a.f9565b, file);
+            boolean b3 = b(c.a.r0.a.x0.a.d.a.f9566c, file);
             boolean e2 = e(context, str, file);
             boolean c2 = c(str, file);
             boolean a2 = a(str);
@@ -226,7 +226,7 @@ public class a {
                 return null;
             }
             p("cloneFilesAndMakeZip start, appKey = " + str);
-            File file = new File(c.a.r0.a.x0.a.d.a.f9782f + str);
+            File file = new File(c.a.r0.a.x0.a.d.a.f9569f + str);
             if (!l(file)) {
                 p("delete old tmp dir failed");
                 return null;
@@ -253,7 +253,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, file)) == null) {
-            File q = q(str, file, c.a.r0.a.x0.a.d.a.f9783g);
+            File q = q(str, file, c.a.r0.a.x0.a.d.a.f9570g);
             if (q == null) {
                 return false;
             }
@@ -369,7 +369,7 @@ public class a {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("aiappid", str);
                 hashMap.put("aiappversion", str2);
-                u.c(hashMap, file, new C0605a(this, file));
+                u.c(hashMap, file, new C0614a(this, file));
                 return true;
             }
             p("no zip file");

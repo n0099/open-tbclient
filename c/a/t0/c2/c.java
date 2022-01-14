@@ -14,10 +14,10 @@ public class c {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15760b;
+    public String f15362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f15761c;
+    public int f15363c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15760b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15362b : (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15761c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15363c : invokeV.intValue;
     }
 
     public void d(HotTopicList hotTopicList) {
@@ -57,7 +57,7 @@ public class c {
             return;
         }
         this.a = hotTopicList.topic_id.longValue();
-        this.f15760b = hotTopicList.topic_name;
-        this.f15761c = hotTopicList.tag.intValue();
+        this.f15362b = hotTopicList.topic_name;
+        this.f15363c = hotTopicList.tag.intValue();
     }
 }

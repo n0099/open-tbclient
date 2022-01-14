@@ -9,7 +9,7 @@ public class b implements a {
     public final String a = b.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Object> f60971b = new HashMap<>();
+    public final HashMap<String, Object> f58664b = new HashMap<>();
 
     public b(String str, Object obj) {
         a(str);
@@ -20,20 +20,20 @@ public class b implements a {
         if (obj == null) {
             return this;
         }
-        this.f60971b.put("dt", obj);
+        this.f58664b.put("dt", obj);
         return this;
     }
 
     public b a(String str) {
         d.a(str, "schema cannot be null");
         d.a(!str.isEmpty(), "schema cannot be empty.");
-        this.f60971b.put("sa", str);
+        this.f58664b.put("sa", str);
         return this;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public Map<String, Object> a() {
-        return this.f60971b;
+        return this.f58664b;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
@@ -49,6 +49,6 @@ public class b implements a {
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public String toString() {
-        return e.a((Map) this.f60971b).toString();
+        return e.a((Map) this.f58664b).toString();
     }
 }

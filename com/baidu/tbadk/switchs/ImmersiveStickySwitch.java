@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import c.a.d.f.f.a;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,9 +35,9 @@ public class ImmersiveStickySwitch extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 1) {
-                b.j().t("switch_immersive_sticky_status", true);
+                b.k().u("switch_immersive_sticky_status", true);
             } else {
-                b.j().t("switch_immersive_sticky_status", false);
+                b.k().u("switch_immersive_sticky_status", false);
             }
         }
     }

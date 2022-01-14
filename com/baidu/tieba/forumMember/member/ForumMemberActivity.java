@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.member;
 import android.os.Bundle;
 import c.a.d.f.p.l;
 import c.a.d.n.e.n;
-import c.a.s0.s.i0.f;
+import c.a.s0.s.j0.f;
 import c.a.t0.b1.c.d;
 import c.a.t0.d1.m1;
 import c.a.t0.d1.t0;
@@ -76,7 +76,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     this.a.mView.f(this.a.mListViewData);
                 } else if (!ListUtils.isEmpty(this.a.mListViewData) || m1Var == null) {
                 } else {
-                    this.a.mView.l(m1Var.f16567f);
+                    this.a.mView.l(m1Var.f16252f);
                 }
             }
         }
@@ -88,7 +88,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumMemberActivity f44663e;
+        public final /* synthetic */ ForumMemberActivity f43020e;
 
         public b(ForumMemberActivity forumMemberActivity) {
             Interceptable interceptable = $ic;
@@ -105,19 +105,19 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     return;
                 }
             }
-            this.f44663e = forumMemberActivity;
+            this.f43020e = forumMemberActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f44663e.mView.b(z);
+                this.f43020e.mView.b(z);
                 if (z) {
-                    if (ListUtils.isEmpty(this.f44663e.mListViewData)) {
-                        this.f44663e.startFirstTimeLoad();
+                    if (ListUtils.isEmpty(this.f43020e.mListViewData)) {
+                        this.f43020e.startFirstTimeLoad();
                     } else {
-                        this.f44663e.mView.m();
+                        this.f43020e.mView.m();
                     }
                 }
             }
@@ -157,7 +157,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             }
             z0 z0Var = new z0();
             this.mPageInfo = z0Var;
-            z0Var.f17321b = this.mForumId;
+            z0Var.f16898b = this.mForumId;
             z0Var.a = this.mForumName;
         }
     }
@@ -211,7 +211,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         }
     }
 
-    @Override // c.a.s0.s.i0.f.g
+    @Override // c.a.s0.s.j0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {

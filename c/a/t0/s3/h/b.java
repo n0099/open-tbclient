@@ -32,25 +32,23 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f24158e;
+    public TbPageContext f23483e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24159f;
+    public int f23484f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LikeModel f24160g;
+    public LikeModel f23485g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f24161h;
+    public int f23486h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f24162i;
+    public int f23487i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f24163j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ForumDetailActivityConfig.FromType f24164k;
+    public boolean f23488j;
+    public ForumDetailActivityConfig.FromType k;
     public ForumInfoData[] l;
 
     /* loaded from: classes8.dex */
@@ -60,25 +58,25 @@ public class b extends BaseAdapter implements View.OnClickListener {
         public BarImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f24165b;
+        public TextView f23489b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f24166c;
+        public TextView f23490c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f24167d;
+        public TextView f23491d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f24168e;
+        public TextView f23492e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f24169f;
+        public TextView f23493f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f24170g;
+        public TextView f23494g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f24171h;
+        public TextView f23495h;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -112,13 +110,13 @@ public class b extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        this.f24159f = -1;
-        this.f24161h = 0;
-        this.f24162i = 0;
-        this.f24163j = true;
-        this.f24164k = ForumDetailActivityConfig.FromType.BAR_DIR;
-        this.f24158e = tbPageContext;
-        this.f24162i = i2;
+        this.f23484f = -1;
+        this.f23486h = 0;
+        this.f23487i = 0;
+        this.f23488j = true;
+        this.k = ForumDetailActivityConfig.FromType.BAR_DIR;
+        this.f23483e = tbPageContext;
+        this.f23487i = i2;
         this.l = new ForumInfoData[0];
     }
 
@@ -133,7 +131,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             if (i2 >= 100000) {
-                return String.valueOf(i2 / 10000) + this.f24158e.getString(R.string.member_count_unit);
+                return String.valueOf(i2 / 10000) + this.f23483e.getString(R.string.member_count_unit);
             }
             return String.valueOf(i2);
         }
@@ -144,7 +142,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LikeModel likeModel = this.f24160g;
+            LikeModel likeModel = this.f23485g;
             if (likeModel == null) {
                 return false;
             }
@@ -163,7 +161,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f24161h = i2;
+            this.f23486h = i2;
             notifyDataSetChanged();
         }
     }
@@ -181,7 +179,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public void g(ForumDetailActivityConfig.FromType fromType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fromType) == null) {
-            this.f24164k = fromType;
+            this.k = fromType;
         }
     }
 
@@ -194,7 +192,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
             if (forumInfoDataArr == null) {
                 return 0;
             }
-            int i2 = this.f24161h;
+            int i2 = this.f23486h;
             return i2 <= forumInfoDataArr.length ? i2 : forumInfoDataArr.length;
         }
         return invokeV.intValue;
@@ -205,7 +203,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            if (i2 > this.f24161h) {
+            if (i2 > this.f23486h) {
                 return null;
             }
             return this.l[i2];
@@ -226,18 +224,18 @@ public class b extends BaseAdapter implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i2, view, viewGroup)) == null) {
             if (view == null || view.getTag() == null) {
-                view = View.inflate(this.f24158e.getContext(), R.layout.forum_list_forum_item, null);
+                view = View.inflate(this.f23483e.getContext(), R.layout.forum_list_forum_item, null);
                 a aVar = new a(this);
                 BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
                 aVar.a = barImageView;
                 barImageView.setGifIconSupport(false);
-                aVar.f24167d = (TextView) view.findViewById(R.id.name);
-                aVar.f24168e = (TextView) view.findViewById(R.id.member_count);
-                aVar.f24169f = (TextView) view.findViewById(R.id.thread_count);
-                aVar.f24170g = (TextView) view.findViewById(R.id.slogan);
-                aVar.f24171h = (TextView) view.findViewById(R.id.like);
-                aVar.f24165b = (TextView) view.findViewById(R.id.rank_badge);
-                aVar.f24166c = (TextView) view.findViewById(R.id.rise_no);
+                aVar.f23491d = (TextView) view.findViewById(R.id.name);
+                aVar.f23492e = (TextView) view.findViewById(R.id.member_count);
+                aVar.f23493f = (TextView) view.findViewById(R.id.thread_count);
+                aVar.f23494g = (TextView) view.findViewById(R.id.slogan);
+                aVar.f23495h = (TextView) view.findViewById(R.id.like);
+                aVar.f23489b = (TextView) view.findViewById(R.id.rank_badge);
+                aVar.f23490c = (TextView) view.findViewById(R.id.rise_no);
                 view.setTag(aVar);
             }
             View findViewById = view.findViewById(R.id.bd_list_top_divider);
@@ -250,49 +248,49 @@ public class b extends BaseAdapter implements View.OnClickListener {
                 findViewById.setVisibility(8);
             }
             a aVar2 = (a) view.getTag();
-            this.f24158e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f24158e.getLayoutMode().j(view);
+            this.f23483e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.f23483e.getLayoutMode().j(view);
             ForumInfoData[] forumInfoDataArr = this.l;
             ForumInfoData forumInfoData = forumInfoDataArr[i2];
             String str = forumInfoDataArr[i2].avatar;
             aVar2.a.setTag(str);
             aVar2.a.invalidate();
             aVar2.a.startLoad(str, 10, false);
-            aVar2.f24167d.setText(forumInfoData.forum_name);
-            aVar2.f24167d.setTag(Integer.valueOf(forumInfoData.forum_id));
-            aVar2.f24171h.setTag(forumInfoData.forum_name);
-            TextView textView = aVar2.f24168e;
-            textView.setText(this.f24158e.getString(R.string.attention) + " " + b(forumInfoData.member_count));
-            TextView textView2 = aVar2.f24169f;
-            textView2.setText(this.f24158e.getString(R.string.text_post) + " " + b(forumInfoData.thread_count));
-            aVar2.f24170g.setText(forumInfoData.slogan);
-            if (this.f24162i == 0) {
-                aVar2.f24166c.setVisibility(8);
-                if (!this.f24163j) {
-                    aVar2.f24165b.setVisibility(8);
+            aVar2.f23491d.setText(forumInfoData.forum_name);
+            aVar2.f23491d.setTag(Integer.valueOf(forumInfoData.forum_id));
+            aVar2.f23495h.setTag(forumInfoData.forum_name);
+            TextView textView = aVar2.f23492e;
+            textView.setText(this.f23483e.getString(R.string.attention) + " " + b(forumInfoData.member_count));
+            TextView textView2 = aVar2.f23493f;
+            textView2.setText(this.f23483e.getString(R.string.text_post) + " " + b(forumInfoData.thread_count));
+            aVar2.f23494g.setText(forumInfoData.slogan);
+            if (this.f23487i == 0) {
+                aVar2.f23490c.setVisibility(8);
+                if (!this.f23488j) {
+                    aVar2.f23489b.setVisibility(8);
                 } else {
-                    aVar2.f24165b.setVisibility(0);
-                    aVar2.f24165b.setText((CharSequence) null);
-                    aVar2.f24165b.setBackgroundDrawable(null);
+                    aVar2.f23489b.setVisibility(0);
+                    aVar2.f23489b.setText((CharSequence) null);
+                    aVar2.f23489b.setBackgroundDrawable(null);
                     if (i2 == 0) {
-                        SkinManager.setBackgroundResource(aVar2.f24165b, R.drawable.icon_brief_grade_orange);
+                        SkinManager.setBackgroundResource(aVar2.f23489b, R.drawable.icon_brief_grade_orange);
                     } else if (i2 == 1) {
-                        SkinManager.setBackgroundResource(aVar2.f24165b, R.drawable.icon_brief_grade_blue);
+                        SkinManager.setBackgroundResource(aVar2.f23489b, R.drawable.icon_brief_grade_blue);
                     } else if (i2 != 2) {
-                        aVar2.f24165b.setText(String.format("%02d", Integer.valueOf(i2 + 1)));
+                        aVar2.f23489b.setText(String.format("%02d", Integer.valueOf(i2 + 1)));
                     } else {
-                        SkinManager.setBackgroundResource(aVar2.f24165b, R.drawable.icon_brief_grade_green);
+                        SkinManager.setBackgroundResource(aVar2.f23489b, R.drawable.icon_brief_grade_green);
                     }
                 }
             } else {
-                aVar2.f24165b.setVisibility(8);
-                aVar2.f24166c.setVisibility(0);
-                aVar2.f24166c.setText((CharSequence) null);
-                aVar2.f24166c.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_rise), (Drawable) null, (Drawable) null, (Drawable) null);
-                TextView textView3 = aVar2.f24166c;
-                textView3.setText(this.f24158e.getString(R.string.rise) + String.valueOf(forumInfoData.mbr_inter_rank) + this.f24158e.getString(R.string.number));
+                aVar2.f23489b.setVisibility(8);
+                aVar2.f23490c.setVisibility(0);
+                aVar2.f23490c.setText((CharSequence) null);
+                aVar2.f23490c.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_rise), (Drawable) null, (Drawable) null, (Drawable) null);
+                TextView textView3 = aVar2.f23490c;
+                textView3.setText(this.f23483e.getString(R.string.rise) + String.valueOf(forumInfoData.mbr_inter_rank) + this.f23483e.getString(R.string.number));
             }
-            aVar2.f24171h.setOnClickListener(this);
+            aVar2.f23495h.setOnClickListener(this);
             view.setOnClickListener(this);
             return view;
         }
@@ -302,7 +300,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public void h(Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bool) == null) {
-            this.f24163j = bool.booleanValue();
+            this.f23488j = bool.booleanValue();
         }
     }
 
@@ -317,14 +315,14 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public void j(LikeModel likeModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, likeModel) == null) {
-            this.f24160g = likeModel;
+            this.f23485g = likeModel;
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            for (int i2 = 0; i2 < this.f24161h; i2++) {
+            for (int i2 = 0; i2 < this.f23486h; i2++) {
                 int hasLikeForum = TbadkCoreApplication.getInst().hasLikeForum(this.l[i2].forum_name);
                 if (hasLikeForum == 1) {
                     this.l[i2].is_like = 1;
@@ -340,17 +338,17 @@ public class b extends BaseAdapter implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, view) == null) {
             if (view.getId() == R.id.like) {
-                TiebaStatic.eventStat(this.f24158e.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
-                this.f24158e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f24158e.getPageActivity()).createNormalCfg((String) view.getTag(), null).setCallFrom(5)));
+                TiebaStatic.eventStat(this.f23483e.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
+                this.f23483e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f23483e.getPageActivity()).createNormalCfg((String) view.getTag(), null).setCallFrom(5)));
                 return;
             }
             a aVar = (a) view.getTag();
             if (TbadkCoreApplication.getInst().isRegistedIntent(ForumDetailActivityConfig.class) && SwitchManager.getInstance().findType(BarDetailForDirSwitch.BAR_DETAIL_DIR) == 0) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.f24158e.getPageActivity(), String.valueOf(aVar.f24167d.getTag()), this.f24164k)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.f23483e.getPageActivity(), String.valueOf(aVar.f23491d.getTag()), this.k)));
                 return;
             }
-            TiebaStatic.eventStat(this.f24158e.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
-            this.f24158e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f24158e.getPageActivity()).createNormalCfg(aVar.f24167d.getText().toString(), null)));
+            TiebaStatic.eventStat(this.f23483e.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
+            this.f23483e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f23483e.getPageActivity()).createNormalCfg(aVar.f23491d.getText().toString(), null)));
         }
     }
 }

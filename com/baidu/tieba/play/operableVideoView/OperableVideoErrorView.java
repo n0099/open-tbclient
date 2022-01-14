@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import c.a.s0.s.i0.n.a;
+import c.a.s0.s.j0.n.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
@@ -19,7 +19,7 @@ public class OperableVideoErrorView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f49195e;
+    public TBSpecificationBtn f47346e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OperableVideoErrorView(Context context) {
@@ -47,17 +47,17 @@ public class OperableVideoErrorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LinearLayout.inflate(context, R.layout.operable_video_error, this);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.retry);
-            this.f49195e = tBSpecificationBtn;
+            this.f47346e = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds36);
-            this.f49195e.setText(getResources().getString(R.string.click_retry));
-            this.f49195e.setConfig(new a());
+            this.f47346e.setText(getResources().getString(R.string.click_retry));
+            this.f47346e.setConfig(new a());
         }
     }
 
     public void setOutOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f49195e.setOnClickListener(onClickListener);
+            this.f47346e.setOnClickListener(onClickListener);
         }
     }
 

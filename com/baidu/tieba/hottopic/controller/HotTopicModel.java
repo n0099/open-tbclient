@@ -27,13 +27,13 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f46361e;
+    public BaseActivity<?> f44652e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f46362f;
+    public b f44653f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f46363g;
+    public c.a.d.c.g.a f44654g;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -75,9 +75,9 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                     return;
                 }
                 if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                    this.a.f46361e.showToast(responsedMessage.getErrorString());
+                    this.a.f44652e.showToast(responsedMessage.getErrorString());
                 }
-                this.a.f46362f.hotTopicDataCallback(false, null);
+                this.a.f44653f.hotTopicDataCallback(false, null);
             }
         }
     }
@@ -105,10 +105,10 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                 return;
             }
         }
-        this.f46362f = null;
+        this.f44653f = null;
         a aVar = new a(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
-        this.f46363g = aVar;
-        this.f46361e = baseActivity;
+        this.f44654g = aVar;
+        this.f44652e = baseActivity;
         registerListener(aVar);
     }
 
@@ -133,21 +133,21 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
             eVar.s = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
         }
-        this.f46362f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
+        this.f44653f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
     }
 
     public final void B(long j2, String str, int i2, long j3, String str2, String str3, String str4, long j4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), str, Integer.valueOf(i2), Long.valueOf(j3), str2, str3, str4, Long.valueOf(j4)}) == null) {
             RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
-            int k2 = n.k(TbadkCoreApplication.getInst().getApp());
+            int k = n.k(TbadkCoreApplication.getInst().getApp());
             int i3 = n.i(TbadkCoreApplication.getInst().getApp());
             requestHotTopicMessage.setTopicId(Long.valueOf(j2));
             requestHotTopicMessage.setCall_from(D(str4));
             requestHotTopicMessage.setTopicName(str);
             requestHotTopicMessage.setScrH(Integer.valueOf(i3));
             requestHotTopicMessage.setTopic_tid(j4);
-            requestHotTopicMessage.setScrW(Integer.valueOf(k2));
+            requestHotTopicMessage.setScrW(Integer.valueOf(k));
             requestHotTopicMessage.setSrcDip(Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
             requestHotTopicMessage.setFid(Long.valueOf(j3));
             requestHotTopicMessage.setFirst_dir(str2);
@@ -169,7 +169,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public void C(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f46362f = bVar;
+            this.f44653f = bVar;
         }
     }
 

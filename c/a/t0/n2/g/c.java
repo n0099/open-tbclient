@@ -19,7 +19,7 @@ public class c {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f20150b;
+    public static final String f19620b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,14 +35,14 @@ public class c {
                 return;
             }
         }
-        a = c.a.t0.n2.c.f20117c + "draft/";
-        f20150b = a + "upload_draft";
+        a = c.a.t0.n2.c.f19587c + "draft/";
+        f19620b = a + "upload_draft";
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(f20150b);
+            File file = new File(f19620b);
             if (file.exists()) {
                 file.delete();
             }
@@ -61,7 +61,7 @@ public class c {
         if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
             return (FaceGroupDraft) invokeV.objValue;
         }
-        File file = new File(f20150b);
+        File file = new File(f19620b);
         ?? r2 = 0;
         r2 = null;
         r2 = null;
@@ -141,7 +141,7 @@ public class c {
                         file.mkdirs();
                     }
                     a();
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(f20150b));
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(f19620b));
                 } finally {
                     c.a.d.f.m.a.d(objectOutputStream2);
                 }

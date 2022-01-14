@@ -10,34 +10,32 @@ import java.util.List;
 public class b extends c {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59428b;
+    public int f57182b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f59429c;
+    public AdTemplate f57183c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f59430d;
+    public int f57184d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59431e;
+    public String f57185e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f59432f;
+    public String f57186f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f59433g;
+    public String f57187g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f59434h;
+    public String f57188h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f59435i;
+    public String f57189i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f59436j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f59437k = false;
+    public String f57190j;
+    public boolean k = false;
     public int l = -1;
     public com.kwad.sdk.core.download.a.b m;
     public int n;
@@ -54,27 +52,27 @@ public class b extends c {
         AdInfo j2 = d.j(adTemplate);
         b bVar = new b();
         bVar.b(0);
-        bVar.f59437k = com.kwad.sdk.core.response.a.a.B(j2);
-        bVar.f59430d = adTemplate.type;
-        bVar.f59429c = adTemplate;
-        bVar.f59431e = com.kwad.sdk.core.response.a.a.s(j2);
+        bVar.k = com.kwad.sdk.core.response.a.a.B(j2);
+        bVar.f57184d = adTemplate.type;
+        bVar.f57183c = adTemplate;
+        bVar.f57185e = com.kwad.sdk.core.response.a.a.s(j2);
         List<String> O = com.kwad.sdk.core.response.a.a.O(j2);
         if (O.size() <= 0) {
             if (com.kwad.sdk.core.response.a.a.P(j2)) {
                 h2 = com.kwad.sdk.core.response.a.a.h(j2);
             }
-            bVar.f59436j = com.kwad.sdk.core.response.a.a.A(j2);
-            bVar.f59435i = com.kwad.sdk.core.response.a.a.s(j2);
-            bVar.f59434h = com.kwad.sdk.core.response.a.a.at(j2);
-            bVar.f59432f = com.kwad.sdk.core.response.a.a.au(j2);
+            bVar.f57190j = com.kwad.sdk.core.response.a.a.A(j2);
+            bVar.f57189i = com.kwad.sdk.core.response.a.a.s(j2);
+            bVar.f57188h = com.kwad.sdk.core.response.a.a.at(j2);
+            bVar.f57186f = com.kwad.sdk.core.response.a.a.au(j2);
             return bVar;
         }
         h2 = O.get(0);
-        bVar.f59433g = h2;
-        bVar.f59436j = com.kwad.sdk.core.response.a.a.A(j2);
-        bVar.f59435i = com.kwad.sdk.core.response.a.a.s(j2);
-        bVar.f59434h = com.kwad.sdk.core.response.a.a.at(j2);
-        bVar.f59432f = com.kwad.sdk.core.response.a.a.au(j2);
+        bVar.f57187g = h2;
+        bVar.f57190j = com.kwad.sdk.core.response.a.a.A(j2);
+        bVar.f57189i = com.kwad.sdk.core.response.a.a.s(j2);
+        bVar.f57188h = com.kwad.sdk.core.response.a.a.at(j2);
+        bVar.f57186f = com.kwad.sdk.core.response.a.a.au(j2);
         return bVar;
     }
 
@@ -121,35 +119,35 @@ public class b extends c {
     }
 
     public void b(int i2) {
-        this.f59428b = i2;
+        this.f57182b = i2;
     }
 
     public AdTemplate c() {
-        return this.f59429c;
+        return this.f57183c;
     }
 
     public String d() {
-        return this.f59431e;
+        return this.f57185e;
     }
 
     public String e() {
-        return this.f59432f;
+        return this.f57186f;
     }
 
     public String f() {
-        return this.f59434h;
+        return this.f57188h;
     }
 
     public String g() {
-        return this.f59435i;
+        return this.f57189i;
     }
 
     public String h() {
-        return this.f59433g;
+        return this.f57187g;
     }
 
     public boolean i() {
-        return this.f59437k;
+        return this.k;
     }
 
     public int j() {
@@ -157,8 +155,8 @@ public class b extends c {
     }
 
     public int k() {
-        int i2 = this.f59428b;
-        return i2 == 0 ? this.f59430d : i2;
+        int i2 = this.f57182b;
+        return i2 == 0 ? this.f57184d : i2;
     }
 
     public int l() {

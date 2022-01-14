@@ -729,6 +729,11 @@ public final class j1 {
     public static final int[] EntelechyPullUpRefreshView;
     public static final int EntelechyPullUpRefreshView_tb_pull_show_top_line = 0;
     public static final int EntelechyPullUpRefreshView_tb_pull_up_icon = 1;
+    public static final int[] ExpandIconView;
+    public static final int ExpandIconView_animationDuration = 0;
+    public static final int ExpandIconView_color = 1;
+    public static final int ExpandIconView_length = 2;
+    public static final int ExpandIconView_thick = 3;
     public static final int[] ExpandListView;
     public static final int ExpandListView_beforeExpandHeight = 0;
     public static final int ExpandListView_expandDistance = 1;
@@ -1050,6 +1055,10 @@ public final class j1 {
     public static final int[] MaxHeightFrameLayout;
     public static final int MaxHeightFrameLayout_mhf_HeightDimen = 0;
     public static final int MaxHeightFrameLayout_mhf_HeightRatio = 1;
+    public static final int[] MaxHeightScrollView;
+    public static final int MaxHeightScrollView_maxHeight = 0;
+    public static final int MaxHeightScrollView_maxHeightRatio = 1;
+    public static final int MaxHeightScrollView_minHeightRatio = 2;
     public static final int[] MenuGroup;
     public static final int MenuGroup_android_checkableBehavior = 5;
     public static final int MenuGroup_android_enabled = 0;
@@ -1188,6 +1197,14 @@ public final class j1 {
     public static final int PopupWindow_overlapAnchor = 2;
     public static final int PopupWindow_popupAnimationStyle = 3;
     public static final int PopupWindow_popupBackground = 4;
+    public static final int[] ProgressCircle;
+    public static final int ProgressCircle_indeterminate = 0;
+    public static final int ProgressCircle_indeterminateArcSize = 1;
+    public static final int ProgressCircle_indeterminatePeriod = 2;
+    public static final int ProgressCircle_indeterminateProgressAccentColor = 3;
+    public static final int ProgressCircle_progressAccentColor = 4;
+    public static final int ProgressCircle_progressBackgroundColor = 5;
+    public static final int ProgressCircle_progressStrokeWidth = 6;
     public static final int[] PullToRefresh;
     public static final int PullToRefresh_ptrAdapterViewBackground = 0;
     public static final int PullToRefresh_ptrAnimationStyle = 1;
@@ -1949,6 +1966,7 @@ public final class j1 {
         EllipsizeTagTitleView = new int[]{R.attr.tag_title_ellipsize_text, R.attr.tag_title_line_space, R.attr.tag_title_max_line, R.attr.tag_title_tag_color, R.attr.tag_title_tag_corner_radius, R.attr.tag_title_tag_margin, R.attr.tag_title_tag_padding_horizontal, R.attr.tag_title_tag_padding_vertical, R.attr.tag_title_tag_stroke_width, R.attr.tag_title_text_color, R.attr.tag_title_text_size, R.attr.tag_title_text_style};
         EmotionButton = new int[]{R.attr.ebTextSize, R.attr.text};
         EntelechyPullUpRefreshView = new int[]{R.attr.tb_pull_show_top_line, R.attr.tb_pull_up_icon};
+        ExpandIconView = new int[]{R.attr.animationDuration, R.attr.color, R.attr.length, R.attr.thick};
         ExpandListView = new int[]{R.attr.beforeExpandHeight, R.attr.expandDistance};
         ExpandableHListView = new int[]{R.attr.hlv_childDivider, R.attr.hlv_childIndicator, R.attr.hlv_childIndicatorGravity, R.attr.hlv_childIndicatorPaddingLeft, R.attr.hlv_childIndicatorPaddingTop, R.attr.hlv_groupIndicator, R.attr.hlv_indicatorGravity, R.attr.hlv_indicatorPaddingLeft, R.attr.hlv_indicatorPaddingTop};
         ExtendedFloatingActionButton = new int[]{R.attr.elevation, R.attr.extendMotionSpec, R.attr.hideMotionSpec, R.attr.showMotionSpec, R.attr.shrinkMotionSpec};
@@ -1998,6 +2016,7 @@ public final class j1 {
         MaterialTextAppearance = new int[]{16844159, R.attr.lineHeight};
         MaterialTextView = new int[]{16842804, 16844159, R.attr.lineHeight};
         MaxHeightFrameLayout = new int[]{R.attr.mhf_HeightDimen, R.attr.mhf_HeightRatio};
+        MaxHeightScrollView = new int[]{R.attr.maxHeight, R.attr.maxHeightRatio, R.attr.minHeightRatio};
         MenuGroup = new int[]{16842766, 16842960, 16843156, 16843230, 16843231, 16843232};
         MenuItem = new int[]{16842754, 16842766, 16842960, 16843014, 16843156, 16843230, 16843231, 16843233, 16843234, 16843235, 16843236, 16843237, 16843375, R.attr.actionLayout, R.attr.actionProviderClass, R.attr.actionViewClass, R.attr.alphabeticModifiers, R.attr.contentDescription, R.attr.iconTint, R.attr.iconTintMode, R.attr.numericModifiers, R.attr.showAsAction, R.attr.tooltipText};
         MenuView = new int[]{16842926, 16843052, 16843053, 16843054, 16843055, 16843056, 16843057, R.attr.preserveIconSpacing, R.attr.subMenuArrow};
@@ -2013,6 +2032,7 @@ public final class j1 {
         PlaybackControlView = new int[]{R.attr.controller_layout_id, R.attr.fastforward_increment, R.attr.repeat_toggle_modes, R.attr.rewind_increment, R.attr.show_shuffle_button, R.attr.show_timeout};
         PopupWindow = new int[]{16843126, 16843465, R.attr.overlapAnchor, R.attr.popupAnimationStyle, R.attr.popupBackground};
         PopupWindowBackgroundState = new int[]{R.attr.state_above_anchor};
+        ProgressCircle = new int[]{R.attr.indeterminate, R.attr.indeterminateArcSize, R.attr.indeterminatePeriod, R.attr.indeterminateProgressAccentColor, R.attr.progressAccentColor, R.attr.progressBackgroundColor, R.attr.progressStrokeWidth};
         PullToRefresh = new int[]{R.attr.ptrAdapterViewBackground, R.attr.ptrAnimationStyle, R.attr.ptrDrawable, R.attr.ptrDrawableBottom, R.attr.ptrDrawableEnd, R.attr.ptrDrawableStart, R.attr.ptrDrawableTop, R.attr.ptrHeaderBackground, R.attr.ptrHeaderSubTextColor, R.attr.ptrHeaderTextAppearance, R.attr.ptrHeaderTextColor, R.attr.ptrListViewExtrasEnabled, R.attr.ptrLoadingDimension, R.attr.ptrOverScroll, R.attr.ptrRefreshableViewBackground, R.attr.ptrRotateDrawableWhilePulling, R.attr.ptrScrollingWhileRefreshingEnabled, R.attr.ptrShowIndicator, R.attr.ptrSubHeaderTextAppearance, R.attr.tb_ptrAdapterViewBackground, R.attr.tb_ptrAnimationStyle, R.attr.tb_ptrDrawable, R.attr.tb_ptrDrawableBottom, R.attr.tb_ptrDrawableEnd, R.attr.tb_ptrDrawableStart, R.attr.tb_ptrDrawableTop, R.attr.tb_ptrHeaderBackground, R.attr.tb_ptrHeaderSubTextColor, R.attr.tb_ptrHeaderTextAppearance, R.attr.tb_ptrHeaderTextColor, R.attr.tb_ptrListViewExtrasEnabled, R.attr.tb_ptrMode, R.attr.tb_ptrOverScroll, R.attr.tb_ptrRefreshableViewBackground, R.attr.tb_ptrRotateDrawableWhilePulling, R.attr.tb_ptrScrollingWhileRefreshingEnabled, R.attr.tb_ptrShowIndicator, R.attr.tb_ptrSubHeaderTextAppearance};
         RangeSlider = new int[]{R.attr.leftThumbDrawable, R.attr.leftThumbPadding, R.attr.lineColor, R.attr.lineHeight, R.attr.maskColor, R.attr.maskCoverColor, R.attr.rightThumbDrawable, R.attr.rightThumbPadding, R.attr.sliderType, R.attr.thumbHeight, R.attr.thumbWidth, R.attr.values, R.attr.verticalLineBeyond, R.attr.verticalLineWidth};
         RawLayout = new int[]{R.attr.layout_raw, R.attr.rawOrientation, R.attr.spacingBottom, R.attr.spacingTop};

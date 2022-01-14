@@ -73,8 +73,8 @@ public class StatService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            String k2 = w.k(context);
-            return !TextUtils.isEmpty(k2) && k2.contains("helios");
+            String k = w.k(context);
+            return !TextUtils.isEmpty(k) && k.contains("helios");
         }
         return invokeL.booleanValue;
     }

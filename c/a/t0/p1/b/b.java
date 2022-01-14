@@ -23,22 +23,22 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LayoutInflater f21978e;
+    public LayoutInflater f20949e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21979f;
+    public int f20950f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemViewHolder f21980g;
+    public ItemViewHolder f20951g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<c> f21981h;
+    public List<c> f20952h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ArrayList<ItemViewHolder> f21982i;
+    public final ArrayList<ItemViewHolder> f20953i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f21983j;
+    public View.OnClickListener f20954j;
 
     public b(Context context, int i2, ItemViewHolder itemViewHolder) {
         Interceptable interceptable = $ic;
@@ -55,10 +55,10 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f21982i = new ArrayList<>();
-        this.f21978e = LayoutInflater.from(context);
-        this.f21979f = i2;
-        this.f21980g = itemViewHolder;
+        this.f20953i = new ArrayList<>();
+        this.f20949e = LayoutInflater.from(context);
+        this.f20950f = i2;
+        this.f20951g = itemViewHolder;
     }
 
     public final void a(ItemViewHolder itemViewHolder, c cVar) {
@@ -71,10 +71,10 @@ public class b extends BaseAdapter {
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || ListUtils.getCount(this.f21982i) <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || ListUtils.getCount(this.f20953i) <= 0) {
             return;
         }
-        Iterator<ItemViewHolder> it = this.f21982i.iterator();
+        Iterator<ItemViewHolder> it = this.f20953i.iterator();
         while (it.hasNext()) {
             it.next().onChangeSkinType(i2);
         }
@@ -83,14 +83,14 @@ public class b extends BaseAdapter {
     public void c(List<c> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f21981h = list;
+            this.f20952h = list;
         }
     }
 
     public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f21983j = onClickListener;
+            this.f20954j = onClickListener;
         }
     }
 
@@ -98,14 +98,14 @@ public class b extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f21981h) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f20952h) : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? ListUtils.getItem(this.f21981h, i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? ListUtils.getItem(this.f20952h, i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -113,10 +113,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (ListUtils.getItem(this.f21981h, i2) == null) {
+            if (ListUtils.getItem(this.f20952h, i2) == null) {
                 return -1L;
             }
-            return ((c) ListUtils.getItem(this.f21981h, i2)).hashCode();
+            return ((c) ListUtils.getItem(this.f20952h, i2)).hashCode();
         }
         return invokeI.longValue;
     }
@@ -127,15 +127,15 @@ public class b extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = this.f21978e.inflate(this.f21979f, viewGroup, false);
-                ItemViewHolder createItemViewHolder = this.f21980g.createItemViewHolder(view);
-                createItemViewHolder.setOnClickListener(this.f21983j);
+                view = this.f20949e.inflate(this.f20950f, viewGroup, false);
+                ItemViewHolder createItemViewHolder = this.f20951g.createItemViewHolder(view);
+                createItemViewHolder.setOnClickListener(this.f20954j);
                 view.setTag(createItemViewHolder);
-                this.f21982i.add(createItemViewHolder);
+                this.f20953i.add(createItemViewHolder);
             }
             ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
-            if (ListUtils.getItem(this.f21981h, i2) != null) {
-                a(itemViewHolder, this.f21981h.get(i2));
+            if (ListUtils.getItem(this.f20952h, i2) != null) {
+                a(itemViewHolder, this.f20952h.get(i2));
             }
             return itemViewHolder.getView();
         }

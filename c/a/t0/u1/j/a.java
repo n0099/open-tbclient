@@ -35,14 +35,14 @@ public class a extends e {
 
     /* renamed from: c.a.t0.u1.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1463a implements c.a.s0.x.b {
+    public class C1478a implements c.a.s0.x.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25058e;
+        public final /* synthetic */ a f24358e;
 
-        public C1463a(a aVar) {
+        public C1478a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,26 +57,26 @@ public class a extends e {
                     return;
                 }
             }
-            this.f25058e = aVar;
+            this.f24358e = aVar;
         }
 
         @Override // c.a.s0.x.b
         public void onAction(c.a.s0.x.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                Object obj = aVar.f14519c;
+                Object obj = aVar.f14180c;
                 if (obj instanceof w) {
-                    if (((w) obj).getType() == EmotionGroupType.BIG_EMOTION || ((w) aVar.f14519c).getType() == EmotionGroupType.USER_COLLECT) {
-                        if (this.f25058e.R == null) {
-                            this.f25058e.R = new PermissionJudgePolicy();
+                    if (((w) obj).getType() == EmotionGroupType.BIG_EMOTION || ((w) aVar.f14180c).getType() == EmotionGroupType.USER_COLLECT) {
+                        if (this.f24358e.R == null) {
+                            this.f24358e.R = new PermissionJudgePolicy();
                         }
-                        this.f25058e.R.clearRequestPermissionList();
-                        this.f25058e.R.appendRequestPermission(this.f25058e.r.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-                        if (this.f25058e.R.startRequestPermission(this.f25058e.r.getPageActivity())) {
+                        this.f24358e.R.clearRequestPermissionList();
+                        this.f24358e.R.appendRequestPermission(this.f24358e.r.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+                        if (this.f24358e.R.startRequestPermission(this.f24358e.r.getPageActivity())) {
                             return;
                         }
-                        this.f25058e.h((w) aVar.f14519c);
-                        this.f25058e.z(false, null);
+                        this.f24358e.h((w) aVar.f14180c);
+                        this.f24358e.z(false, null);
                     }
                 }
             }
@@ -101,7 +101,7 @@ public class a extends e {
                 return;
             }
         }
-        editorTools.setActionListener(24, new C1463a(this));
+        editorTools.setActionListener(24, new C1478a(this));
     }
 
     public WriteData A0() {
@@ -149,22 +149,22 @@ public class a extends e {
             if (this.l.Z() == null) {
                 return;
             }
-            this.l.setSpanGroupManager(this.f14585h);
+            this.l.setSpanGroupManager(this.f14243h);
             this.l.Z().setIsBJHPost(this.z);
-            this.l.Z().setWriteImagesInfo(this.f14583f);
+            this.l.Z().setWriteImagesInfo(this.f14241f);
             boolean z = true;
-            this.l.g0(this.f14583f.size() > 0);
+            this.l.g0(this.f14241f.size() > 0);
             WriteData Z = this.l.Z();
-            LocationModel locationModel = this.f14588k;
+            LocationModel locationModel = this.k;
             Z.setHasLocationData((locationModel == null || !locationModel.z()) ? false : false);
             if (str == null) {
-                this.l.Z().setContent(this.f14584g);
+                this.l.Z().setContent(this.f14242g);
             }
-            VoiceData$VoiceModel voiceData$VoiceModel = this.f14586i;
+            VoiceData$VoiceModel voiceData$VoiceModel = this.f14244i;
             if (voiceData$VoiceModel != null) {
                 if (voiceData$VoiceModel.getId() != null) {
-                    this.l.Z().setVoice(this.f14586i.getId());
-                    this.l.Z().setVoiceDuringTime(this.f14586i.duration);
+                    this.l.Z().setVoice(this.f14244i.getId());
+                    this.l.Z().setVoiceDuringTime(this.f14244i.duration);
                 } else {
                     this.l.Z().setVoice(null);
                     this.l.Z().setVoiceDuringTime(-1);
@@ -191,20 +191,20 @@ public class a extends e {
             if (Z == null) {
                 Z = new WriteData(this.N ? 2 : 1);
                 Z.setThreadId(str);
-                Z.setWriteImagesInfo(this.f14583f);
+                Z.setWriteImagesInfo(this.f14241f);
             }
             if (!m.isEmpty(this.Q)) {
                 Z.setFromForumId(this.Q);
             }
-            Z.setContent(this.f14584g);
-            Z.setVoiceModel(this.f14586i);
+            Z.setContent(this.f14242g);
+            Z.setVoiceModel(this.f14244i);
             if (this.N) {
                 Z.setReplyId(this.P);
                 Z.setThreadId(this.O);
-                a0.w(this.O, Z);
+                a0.z(this.O, Z);
                 return;
             }
-            a0.v(str, Z);
+            a0.y(str, Z);
         }
     }
 
@@ -213,9 +213,9 @@ public class a extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (this.N) {
-                a0.n(this.O, this);
+                a0.p(this.O, this);
             } else {
-                a0.m(str, this);
+                a0.o(str, this);
             }
         }
     }
@@ -226,9 +226,9 @@ public class a extends e {
         if (interceptable == null || interceptable.invokeZL(1048580, this, z, postWriteCallBackData) == null) {
             PbEditorData pbEditorData = new PbEditorData();
             pbEditorData.setEditorType(this.N ? 1 : 0);
-            pbEditorData.setContent(this.f14584g);
-            pbEditorData.setWriteImagesInfo(this.f14583f);
-            pbEditorData.setVoiceModel(this.f14586i);
+            pbEditorData.setContent(this.f14242g);
+            pbEditorData.setWriteImagesInfo(this.f14241f);
+            pbEditorData.setVoiceModel(this.f14244i);
             PbEditorData.ThreadData threadData = new PbEditorData.ThreadData();
             ForumData forumData = this.o;
             if (forumData != null) {

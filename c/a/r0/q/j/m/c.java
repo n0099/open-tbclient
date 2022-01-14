@@ -24,7 +24,7 @@ public class c extends h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Set<a> f11836d;
+    public Set<a> f11567d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(List<? extends a> list, @Nullable c.a.r0.q.p.b bVar) {
@@ -47,13 +47,13 @@ public class c extends h {
         if (list == null || list.isEmpty()) {
             return;
         }
-        this.f11836d = new LinkedHashSet();
+        this.f11567d = new LinkedHashSet();
         Map<String, PMSAppInfo> v = c.a.r0.q.g.a.i().v();
         Map<String, c.a.r0.q.i.g> p = c.a.r0.q.g.a.i().p();
         for (a aVar : list) {
             if (aVar != null && !TextUtils.isEmpty(aVar.b())) {
                 g(v, p, aVar, bVar);
-                this.f11836d.add(aVar);
+                this.f11567d.add(aVar);
             }
         }
     }
@@ -62,7 +62,7 @@ public class c extends h {
     public Set<a> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11836d : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11567d : (Set) invokeV.objValue;
     }
 
     public void g(@NonNull Map<String, PMSAppInfo> map, @NonNull Map<String, c.a.r0.q.i.g> map2, @NonNull a aVar, @Nullable c.a.r0.q.p.b bVar) {
@@ -79,7 +79,7 @@ public class c extends h {
             } else {
                 c.a.r0.q.i.g gVar = map2.get(aVar.b());
                 if (gVar != null) {
-                    aVar.h(gVar.f11763i);
+                    aVar.h(gVar.f11496i);
                 } else {
                     aVar.h(0L);
                 }
@@ -99,13 +99,13 @@ public class c extends h {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f11837b;
+        public int f11568b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f11838c;
+        public long f11569c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f11839d;
+        public long f11570d;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -122,16 +122,16 @@ public class c extends h {
                     return;
                 }
             }
-            this.f11837b = -1;
-            this.f11838c = 0L;
-            this.f11839d = 0L;
+            this.f11568b = -1;
+            this.f11569c = 0L;
+            this.f11570d = 0L;
             this.a = str;
         }
 
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11839d : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11570d : invokeV.longValue;
         }
 
         public String b() {
@@ -143,19 +143,19 @@ public class c extends h {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11837b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11568b : invokeV.intValue;
         }
 
         public long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11838c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11569c : invokeV.longValue;
         }
 
         public void e(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.f11839d = j2;
+                this.f11570d = j2;
             }
         }
 
@@ -168,7 +168,7 @@ public class c extends h {
                 }
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    return TextUtils.equals(aVar.b(), this.a) && aVar.c() == this.f11837b;
+                    return TextUtils.equals(aVar.b(), this.a) && aVar.c() == this.f11568b;
                 }
                 return false;
             }
@@ -185,21 +185,21 @@ public class c extends h {
         public void g(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                this.f11837b = i2;
+                this.f11568b = i2;
             }
         }
 
         public void h(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-                this.f11838c = j2;
+                this.f11569c = j2;
             }
         }
 
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Objects.hash(this.a, Integer.valueOf(this.f11837b)) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Objects.hash(this.a, Integer.valueOf(this.f11568b)) : invokeV.intValue;
         }
 
         public a(String str, int i2) {
@@ -217,11 +217,11 @@ public class c extends h {
                     return;
                 }
             }
-            this.f11837b = -1;
-            this.f11838c = 0L;
-            this.f11839d = 0L;
+            this.f11568b = -1;
+            this.f11569c = 0L;
+            this.f11570d = 0L;
             this.a = str;
-            this.f11837b = i2;
+            this.f11568b = i2;
         }
     }
 
@@ -246,14 +246,14 @@ public class c extends h {
         if (collection == null || collection.isEmpty()) {
             return;
         }
-        this.f11836d = new LinkedHashSet();
+        this.f11567d = new LinkedHashSet();
         Map<String, PMSAppInfo> v = c.a.r0.q.g.a.i().v();
         Map<String, c.a.r0.q.i.g> p = c.a.r0.q.g.a.i().p();
         for (String str : collection) {
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a(str);
                 g(v, p, aVar, bVar);
-                this.f11836d.add(aVar);
+                this.f11567d.add(aVar);
             }
         }
     }

@@ -17,7 +17,7 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29034e;
+    public int f28145e;
 
     static {
         InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f29034e = i2;
+        this.f28145e = i2;
     }
 
     @Override // c.f.b.a.b.a, c.f.b.a.b.b
@@ -61,7 +61,7 @@ public class c extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            super.b(((Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis() / 1000) - OtpTokenUtils.getmSyncWithServerTime(context)) / this.f29034e);
+            super.b(((Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis() / 1000) - OtpTokenUtils.getmSyncWithServerTime(context)) / this.f28145e);
             return super.a(context);
         }
         return (String) invokeL.objValue;

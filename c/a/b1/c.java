@@ -17,13 +17,13 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1713b = "UnionIDHelper";
+    public static String f1693b = "UnionIDHelper";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f1714c;
+    public static boolean f1694c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f1715d;
+    public static c f1695d;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -55,10 +55,10 @@ public class c {
         public void a(c.a.b1.e.f.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                if (c.f1714c) {
-                    String unused = c.f1713b;
+                if (c.f1694c) {
+                    String unused = c.f1693b;
                     String str = "异步回调 结果:" + cVar;
-                    String unused2 = c.f1713b;
+                    String unused2 = c.f1693b;
                     StringBuilder sb = new StringBuilder();
                     sb.append("异步回调 (listener != null):");
                     sb.append(this.a != null);
@@ -109,15 +109,15 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f1715d == null) {
+            if (f1695d == null) {
                 synchronized (c.class) {
-                    if (f1715d == null) {
-                        f1715d = new c(context);
+                    if (f1695d == null) {
+                        f1695d = new c(context);
                         c.a.b1.e.a.c(context);
                     }
                 }
             }
-            return f1715d;
+            return f1695d;
         }
         return (c) invokeL.objValue;
     }

@@ -11,24 +11,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f10138e;
+        public final /* synthetic */ View f9915e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f10139f;
+        public final /* synthetic */ View f9916f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f10140g;
+        public final /* synthetic */ c f9917g;
 
         public a(View view, View view2, c cVar) {
             Interceptable interceptable = $ic;
@@ -45,17 +45,17 @@ public class b {
                     return;
                 }
             }
-            this.f10138e = view;
-            this.f10139f = view2;
-            this.f10140g = cVar;
+            this.f9915e = view;
+            this.f9916f = view2;
+            this.f9917g = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && c.a.r0.a.z1.h.b.c().e()) {
-                boolean c2 = b.c(this.f10138e, this.f10139f);
-                c cVar = this.f10140g;
+                boolean c2 = b.c(this.f9915e, this.f9916f);
+                c cVar = this.f9917g;
                 if (cVar != null) {
                     cVar.onClickSwitch(view, c2);
                 }
@@ -64,15 +64,15 @@ public class b {
     }
 
     /* renamed from: c.a.r0.a.z1.j.b$b  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class View$OnTouchListenerC0642b implements View.OnTouchListener {
+    /* loaded from: classes6.dex */
+    public static class View$OnTouchListenerC0651b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f10141e;
+        public final /* synthetic */ View f9918e;
 
-        public View$OnTouchListenerC0642b(View view) {
+        public View$OnTouchListenerC0651b(View view) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public class b {
                     return;
                 }
             }
-            this.f10141e = view;
+            this.f9918e = view;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -96,7 +96,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.f10141e.setVisibility(4);
+                    this.f9918e.setVisibility(4);
                     return false;
                 }
                 return false;
@@ -105,7 +105,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void onClickSwitch(View view, boolean z);
     }
@@ -118,7 +118,7 @@ public class b {
                 view2.setOnClickListener(new a(view, view3, cVar));
             }
             if (e(view.getContext())) {
-                view3.setOnTouchListener(new View$OnTouchListenerC0642b(view));
+                view3.setOnTouchListener(new View$OnTouchListenerC0651b(view));
             }
         }
     }

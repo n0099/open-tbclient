@@ -1,7 +1,7 @@
 package c.a.t0.x2;
 
 import android.view.View;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
@@ -20,7 +20,7 @@ public class a {
         }
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
         statisticItem.param("obj_source", 3);
-        d2 threadData = aVar.getThreadData();
+        e2 threadData = aVar.getThreadData();
         if (threadData.P1()) {
             statisticItem.param("obj_type", 1);
         } else if (threadData.S1()) {
@@ -50,7 +50,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_SHOW);
-            d2 threadData = aVar.getThreadData();
+            e2 threadData = aVar.getThreadData();
             if (threadData.P1()) {
                 statisticItem.param("obj_type", 1);
             } else if (threadData.S1()) {

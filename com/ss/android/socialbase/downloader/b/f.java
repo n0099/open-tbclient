@@ -26,41 +26,41 @@ import java.util.concurrent.TimeUnit;
 public class f implements ServiceConnection, t {
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f62211b;
+    public static boolean f59865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f62212c;
+    public static int f59866c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f62213d;
+    public static long f59867d;
     @Nullable
     public c a;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.InterfaceC2199a f62216g;
+    public c.a.InterfaceC2216a f59870g;
 
     /* renamed from: i  reason: collision with root package name */
-    public Future<?> f62218i;
+    public Future<?> f59872i;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f62214e = new Handler(Looper.getMainLooper());
+    public Handler f59868e = new Handler(Looper.getMainLooper());
 
     /* renamed from: f  reason: collision with root package name */
-    public b f62215f = null;
+    public b f59869f = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f62217h = new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.1
+    public Runnable f59871h = new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.1
         @Override // java.lang.Runnable
         public void run() {
-            if (f.f62211b || f.this.f62216g == null) {
+            if (f.f59865b || f.this.f59870g == null) {
                 return;
             }
-            f.this.f62216g.a();
+            f.this.f59870g.a();
         }
     };
 
     /* renamed from: j  reason: collision with root package name */
-    public CountDownLatch f62219j = new CountDownLatch(1);
+    public CountDownLatch f59873j = new CountDownLatch(1);
 
     public f() {
         SqlDownloadCacheService.a(com.ss.android.socialbase.downloader.downloader.c.N(), this);
@@ -68,8 +68,8 @@ public class f implements ServiceConnection, t {
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.ss.android.socialbase.downloader.b.f.2.run():void] */
-    public static /* synthetic */ c.a.InterfaceC2199a a(f fVar) {
-        return fVar.f62216g;
+    public static /* synthetic */ c.a.InterfaceC2216a a(f fVar) {
+        return fVar.f59870g;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -121,30 +121,30 @@ public class f implements ServiceConnection, t {
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
-        f62211b = true;
-        this.f62214e.removeCallbacks(this.f62217h);
+        f59865b = true;
+        this.f59868e.removeCallbacks(this.f59871h);
         try {
             this.a = c.a.a(iBinder);
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        this.f62218i = com.ss.android.socialbase.downloader.downloader.c.l().submit(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.2
+        this.f59872i = com.ss.android.socialbase.downloader.downloader.c.l().submit(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.2
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (this) {
                     try {
-                        if (f.this.f62215f != null && f.this.a != null) {
-                            f.this.a.a(f.this.f62215f);
+                        if (f.this.f59869f != null && f.this.a != null) {
+                            f.this.a.a(f.this.f59869f);
                         }
-                        f.this.f62219j.countDown();
+                        f.this.f59873j.countDown();
                         iBinder.linkToDeath(new IBinder.DeathRecipient() { // from class: com.ss.android.socialbase.downloader.b.f.2.1
                             @Override // android.os.IBinder.DeathRecipient
                             public void binderDied() {
-                                boolean unused = f.f62211b = false;
-                                if (f.this.g() || f.this.f62216g == null) {
+                                boolean unused = f.f59865b = false;
+                                if (f.this.g() || f.this.f59870g == null) {
                                     return;
                                 }
-                                f.this.f62214e.postDelayed(f.this.f62217h, 2000L);
+                                f.this.f59868e.postDelayed(f.this.f59871h, 2000L);
                             }
                         }, 0);
                     } catch (Throwable unused) {
@@ -157,24 +157,24 @@ public class f implements ServiceConnection, t {
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
         this.a = null;
-        f62211b = false;
+        f59865b = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean g() {
-        if (Build.VERSION.SDK_INT < 26 && !f62211b) {
-            if (f62212c > 5) {
+        if (Build.VERSION.SDK_INT < 26 && !f59865b) {
+            if (f59866c > 5) {
                 com.ss.android.socialbase.downloader.c.a.d("SqlDownloadCacheAidlWra", "bindMainProcess: bind too many times!!! ");
                 return false;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - f62213d < 15000) {
+            if (currentTimeMillis - f59867d < 15000) {
                 com.ss.android.socialbase.downloader.c.a.d("SqlDownloadCacheAidlWra", "bindMainProcess: time too short since last bind!!! ");
                 return false;
             }
-            f62212c++;
-            f62213d = currentTimeMillis;
-            this.f62214e.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.3
+            f59866c++;
+            f59867d = currentTimeMillis;
+            this.f59868e.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.3
                 @Override // java.lang.Runnable
                 public void run() {
                     SqlDownloadCacheService.a(com.ss.android.socialbase.downloader.downloader.c.N(), f.this);
@@ -250,8 +250,8 @@ public class f implements ServiceConnection, t {
         }
     }
 
-    public void a(c.a.InterfaceC2199a interfaceC2199a) {
-        this.f62216g = interfaceC2199a;
+    public void a(c.a.InterfaceC2216a interfaceC2216a) {
+        this.f59870g = interfaceC2216a;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -285,12 +285,12 @@ public class f implements ServiceConnection, t {
                     }
                 });
                 try {
-                    z = !f.this.f62219j.await(5000L, TimeUnit.MILLISECONDS);
+                    z = !f.this.f59873j.await(5000L, TimeUnit.MILLISECONDS);
                 } catch (Throwable th) {
                     th.printStackTrace();
                     z = false;
                 }
-                if (z && (future = f.this.f62218i) != null) {
+                if (z && (future = f.this.f59872i) != null) {
                     future.cancel(true);
                 }
                 f.this.a();
@@ -311,7 +311,7 @@ public class f implements ServiceConnection, t {
                     e2.printStackTrace();
                 }
             } else {
-                this.f62215f = bVar;
+                this.f59869f = bVar;
             }
         }
     }

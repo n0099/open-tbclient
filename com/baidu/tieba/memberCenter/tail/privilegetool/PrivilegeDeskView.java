@@ -129,7 +129,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PrivilegeDeskView f47746e;
+        public final /* synthetic */ PrivilegeDeskView f45970e;
 
         public c(PrivilegeDeskView privilegeDeskView) {
             Interceptable interceptable = $ic;
@@ -146,15 +146,15 @@ public class PrivilegeDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f47746e = privilegeDeskView;
+            this.f45970e = privilegeDeskView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47746e.hide();
-                this.f47746e.sendAction(new c.a.s0.x.a(1, 16, null));
+                this.f45970e.hide();
+                this.f45970e.sendAction(new c.a.s0.x.a(1, 16, null));
             }
         }
     }
@@ -165,7 +165,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PrivilegeDeskView f47747e;
+        public final /* synthetic */ PrivilegeDeskView f45971e;
 
         public d(PrivilegeDeskView privilegeDeskView) {
             Interceptable interceptable = $ic;
@@ -182,15 +182,15 @@ public class PrivilegeDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f47747e = privilegeDeskView;
+            this.f45971e = privilegeDeskView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47747e.hide();
-                this.f47747e.sendAction(new c.a.s0.x.a(1, 12, null));
+                this.f45971e.hide();
+                this.f45971e.sendAction(new c.a.s0.x.a(1, 12, null));
             }
         }
     }
@@ -267,7 +267,7 @@ public class PrivilegeDeskView extends CommonTabHost {
                 return;
             }
             if (aVar.a == 2) {
-                Object obj = aVar.f14519c;
+                Object obj = aVar.f14180c;
                 if (obj == null) {
                     this.r--;
                 } else if (obj instanceof String) {

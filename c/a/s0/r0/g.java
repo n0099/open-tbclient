@@ -12,22 +12,22 @@ public class g {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13292b;
+    public int f12972b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13293c;
+    public String f12973c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Long f13294d;
+    public Long f12974d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f13295e;
+    public c f12975e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13296f;
+    public int f12976f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13297g;
+    public boolean f12977g;
 
     public g(Context context, int i2, String str, Long l, c cVar) {
         Interceptable interceptable = $ic;
@@ -44,11 +44,11 @@ public class g {
                 return;
             }
         }
-        this.f13297g = false;
+        this.f12977g = false;
         this.a = context;
-        this.f13292b = i2;
-        this.f13293c = str;
-        this.f13294d = l;
-        this.f13295e = cVar;
+        this.f12972b = i2;
+        this.f12973c = str;
+        this.f12974d = l;
+        this.f12975e = cVar;
     }
 }

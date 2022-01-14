@@ -27,19 +27,19 @@ public class PushStatic {
     public static CustomMessageListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f52066b;
+    public static CustomMessageListener f50053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static CustomMessageListener f52067c;
+    public static CustomMessageListener f50054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c.a.d.c.g.c f52068d;
+    public static c.a.d.c.g.c f50055d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static CustomMessageListener f52069e;
+    public static CustomMessageListener f50056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static CustomMessageListener f52070f;
+    public static CustomMessageListener f50057f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes13.dex */
@@ -49,11 +49,11 @@ public class PushStatic {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes13.dex */
-        public class RunnableC1952a implements Runnable {
+        public class RunnableC1969a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC1952a(a aVar) {
+            public RunnableC1969a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class PushStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-                new Thread(new RunnableC1952a(this)).start();
+                new Thread(new RunnableC1969a(this)).start();
             }
         }
     }
@@ -353,18 +353,18 @@ public class PushStatic {
             }
         }
         a = new a(0);
-        f52066b = new b(2921613);
-        f52067c = new c(2005016);
-        f52068d = new d(1001);
-        f52069e = new e(2921631);
-        f52070f = new f(2921659);
+        f50053b = new b(2921613);
+        f50054c = new c(2005016);
+        f50055d = new d(1001);
+        f50056e = new e(2921631);
+        f50057f = new f(2921660);
         MessageManager.getInstance().registerListener(2007015, a);
         MessageManager.getInstance().registerListener(2921644, a);
-        MessageManager.getInstance().registerListener(f52066b);
-        MessageManager.getInstance().registerListener(f52067c);
-        MessageManager.getInstance().registerListener(f52069e);
-        MessageManager.getInstance().registerListener(f52070f);
-        MessageManager.getInstance().registerListener(f52068d);
+        MessageManager.getInstance().registerListener(f50053b);
+        MessageManager.getInstance().registerListener(f50054c);
+        MessageManager.getInstance().registerListener(f50056e);
+        MessageManager.getInstance().registerListener(f50057f);
+        MessageManager.getInstance().registerListener(f50055d);
     }
 
     public PushStatic() {
@@ -385,8 +385,8 @@ public class PushStatic {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65542, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
-            boolean k2 = TbadkCoreApplication.isLogin() ? c.a.s0.t.d.d.d().k() : false;
-            if (areNotificationsEnabled && k2) {
+            boolean k = TbadkCoreApplication.isLogin() ? c.a.s0.t.d.d.d().k() : false;
+            if (areNotificationsEnabled && k) {
                 k(true);
             } else {
                 k(false);
@@ -429,7 +429,7 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, c.a.t0.p4.a.a(context, Constants.API_KEY));
+            PushManager.startWork(context, 0, c.a.t0.q4.a.a(context, Constants.API_KEY));
             e();
         }
     }
@@ -437,8 +437,8 @@ public class PushStatic {
     public static void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-            if (j2.g(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
+            c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+            if (k.h(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
                 PushManager.stopWork(context);
             }
         }

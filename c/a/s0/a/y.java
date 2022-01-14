@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.s0.a.e;
-import c.a.s0.e1.t0;
+import c.a.s0.e1.s0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -40,7 +40,7 @@ public class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile y f12483b;
+    public static volatile y f12188b;
     public transient /* synthetic */ FieldHolder $fh;
     public CardDialog a;
 
@@ -50,13 +50,13 @@ public class y {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserData f12484e;
+        public final /* synthetic */ UserData f12189e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f12485f;
+        public final /* synthetic */ TbPageContext f12190f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ y f12486g;
+        public final /* synthetic */ y f12191g;
 
         public a(y yVar, UserData userData, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -73,28 +73,28 @@ public class y {
                     return;
                 }
             }
-            this.f12486g = yVar;
-            this.f12484e = userData;
-            this.f12485f = tbPageContext;
+            this.f12191g = yVar;
+            this.f12189e = userData;
+            this.f12190f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f12486g.a != null) {
-                    this.f12486g.a.dismissDialog();
+                if (this.f12191g.a != null) {
+                    this.f12191g.a.dismissDialog();
                 }
-                if (TextUtils.isEmpty(this.f12484e.getName_show()) || TextUtils.isEmpty(this.f12484e.getUserId())) {
+                if (TextUtils.isEmpty(this.f12189e.getName_show()) || TextUtils.isEmpty(this.f12189e.getUserId())) {
                     return;
                 }
-                String name_show = this.f12484e.getName_show();
-                String userId = this.f12484e.getUserId();
+                String name_show = this.f12189e.getName_show();
+                String userId = this.f12189e.getUserId();
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TIEBA_UID_SHARE_DIALOG_CLICK);
                 statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.addParam("obj_param1", userId);
                 TiebaStatic.log(statisticItem);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12485f.getPageActivity(), userId, name_show)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12190f.getPageActivity(), userId, name_show)));
             }
         }
     }
@@ -134,14 +134,14 @@ public class y {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f12483b == null) {
+            if (f12188b == null) {
                 synchronized (y.class) {
-                    if (f12483b == null) {
-                        f12483b = new y();
+                    if (f12188b == null) {
+                        f12188b = new y();
                     }
                 }
             }
-            return f12483b;
+            return f12188b;
         }
         return (y) invokeV.objValue;
     }
@@ -201,7 +201,7 @@ public class y {
             if (userData.isNewGod()) {
                 TextView textView4 = new TextView(pageActivity);
                 textView4.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                textView4.setText(userData.getNewGodData().getFieldName() + t0.a(userData.getNewGodData()));
+                textView4.setText(userData.getNewGodData().getFieldName() + s0.a(userData.getNewGodData()));
                 textView4.setTextSize(0, (float) UtilHelper.getDimenPixelSize(R.dimen.T_X09));
                 linearLayout.addView(textView4);
                 textView4.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
@@ -255,7 +255,7 @@ public class y {
         }
         textView6.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) viewGroup.findViewById(R.id.jump_user_detail_btn);
-        c.a.s0.s.i0.n.b bVar = new c.a.s0.s.i0.n.b();
+        c.a.s0.s.j0.n.b bVar = new c.a.s0.s.j0.n.b();
         bVar.p(R.color.CAM_X0302, R.color.CAM_X0101);
         tBSpecificationBtn.setTextSize(R.dimen.T_X05);
         tBSpecificationBtn.setConfig(bVar);

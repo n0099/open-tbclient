@@ -1,6 +1,8 @@
 package c.a.s0.e1;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,6 +23,8 @@ public class i {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(TiebaStatic.Params.WISE_SAMPLE_ID, c());
+                jSONObject.put(DI.YY.YY_HDID, TbadkCoreApplication.getInst().getHdid());
+                jSONObject.put("yy_version", "");
             } catch (JSONException e2) {
                 BdLog.e(e2);
             }
@@ -35,6 +39,8 @@ public class i {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             AppTransmitData.Builder builder = new AppTransmitData.Builder();
             builder.wise_sample_id = c();
+            builder.yy_hdid = TbadkCoreApplication.getInst().getHdid();
+            builder.yy_version = "";
             return builder.build(false);
         }
         return (AppTransmitData) invokeV.objValue;

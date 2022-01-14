@@ -2,7 +2,7 @@ package c.a.s0.a;
 
 import android.os.Build;
 import android.webkit.CookieManager;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -51,7 +51,7 @@ public class t {
             httpMessage.addParam("client_version", TbConfig.getVersion());
             httpMessage.addParam("client_type", "Android");
             httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            httpMessage.addParam("ua", w0.e());
+            httpMessage.addParam("ua", v0.e());
             httpMessage.addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

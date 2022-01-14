@@ -1,6 +1,7 @@
 package c.a.d.e;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.taskmanager.IdleTaskRegister;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,24 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: d  reason: collision with root package name */
-    public static a f2681d;
+    /* renamed from: c  reason: collision with root package name */
+    public static a f2662c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public final IdleTaskRegister a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC0098a f2682b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f2683c;
-
-    /* renamed from: c.a.d.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0098a {
-        void registerIdleTask(String str, Runnable runnable);
-
-        void scheduleIdleTask(boolean z);
-    }
+    public boolean f2663b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,78 +32,46 @@ public class a {
                 return;
             }
         }
-        this.a = false;
-        this.f2683c = false;
+        this.a = new IdleTaskRegister();
+        this.f2663b = false;
     }
 
-    public static a c() {
+    public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f2681d == null) {
-                f2681d = new a();
+            if (f2662c == null) {
+                f2662c = new a();
             }
-            return f2681d;
+            return f2662c;
         }
         return (a) invokeV.objValue;
     }
 
     public void a(String str, Runnable runnable) {
-        InterfaceC0098a interfaceC0098a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, runnable) == null) {
-            if (this.a && !this.f2683c && (interfaceC0098a = this.f2682b) != null) {
-                interfaceC0098a.registerIdleTask(str, runnable);
+            if (!this.f2663b) {
+                this.a.registerIdleTask(str, runnable);
             } else {
                 runnable.run();
             }
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f2663b = true;
+            this.a.scheduleIdleTask(true);
+        }
     }
 
     public void d() {
-        InterfaceC0098a interfaceC0098a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interfaceC0098a = this.f2682b) == null) {
-            return;
-        }
-        interfaceC0098a.scheduleIdleTask(true);
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f2683c = true;
-            InterfaceC0098a interfaceC0098a = this.f2682b;
-            if (interfaceC0098a != null) {
-                interfaceC0098a.scheduleIdleTask(false);
-            }
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f2683c = z;
-        }
-    }
-
-    public void h(InterfaceC0098a interfaceC0098a) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0098a) == null) {
-            this.f2682b = interfaceC0098a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f2663b = true;
+            this.a.scheduleIdleTask(false);
         }
     }
 }

@@ -65,16 +65,16 @@ public class k extends f {
                 v.a aVar = (v.a) this.a;
                 aVar.getClass();
                 LogPrinter.d();
-                aVar.f29210d.onAdShow(aVar.f29209c, aVar.a);
+                aVar.f28318d.onAdShow(aVar.f28317c, aVar.a);
                 aVar.a = true;
-                synchronized (aVar.f29210d.f29207h) {
-                    v.b bVar = aVar.f29210d.f29207h.get(aVar.f29209c);
+                synchronized (aVar.f28318d.f28315h) {
+                    v.b bVar = aVar.f28318d.f28315h.get(aVar.f28317c);
                     if (bVar != null) {
-                        FunAdInteractionListener funAdInteractionListener = bVar.f29212c;
+                        FunAdInteractionListener funAdInteractionListener = bVar.f28320c;
                         String str = bVar.a;
-                        pid = aVar.f29210d.mPid;
+                        pid = aVar.f28318d.mPid;
                         String str2 = pid.ssp.type;
-                        pid2 = aVar.f29210d.mPid;
+                        pid2 = aVar.f28318d.mPid;
                         funAdInteractionListener.onAdShow(str, str2, pid2.pid);
                     }
                 }

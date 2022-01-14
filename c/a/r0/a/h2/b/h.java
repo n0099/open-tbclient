@@ -48,7 +48,7 @@ public class h extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (eVar != null && eVar.m0()) {
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
                 return false;
             } else if (eVar == null) {

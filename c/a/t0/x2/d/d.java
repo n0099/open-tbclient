@@ -29,19 +29,19 @@ public class d implements c.a.t0.x2.h.a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26107b;
+    public String f25337b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext f26108c;
+    public TbPageContext f25338c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.s0.s.i0.a f26109d;
+    public c.a.s0.s.j0.a f25339d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.s.i0.c f26110e;
+    public c.a.s0.s.j0.c f25340e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f26111f;
+    public BdUniqueId f25341f;
 
     /* loaded from: classes8.dex */
     public class a implements DialogInterface.OnCancelListener {
@@ -49,7 +49,7 @@ public class d implements c.a.t0.x2.h.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f26112e;
+        public final /* synthetic */ d f25342e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -66,14 +66,14 @@ public class d implements c.a.t0.x2.h.a {
                     return;
                 }
             }
-            this.f26112e = dVar;
+            this.f25342e = dVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().removeMessage(this.f26112e.f26111f);
+                MessageManager.getInstance().removeMessage(this.f25342e.f25341f);
             }
         }
     }
@@ -114,7 +114,7 @@ public class d implements c.a.t0.x2.h.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f26113e;
+        public final /* synthetic */ d f25343e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class d implements c.a.t0.x2.h.a {
                     return;
                 }
             }
-            this.f26113e = dVar;
+            this.f25343e = dVar;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -140,12 +140,12 @@ public class d implements c.a.t0.x2.h.a {
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (Build.VERSION.SDK_INT < 11) {
                     aVar.dismiss();
-                    this.f26113e.f26108c.showToast(c.a.t0.y2.g.frs_header_games_unavailable);
+                    this.f25343e.f25338c.showToast(c.a.t0.y2.g.frs_header_games_unavailable);
                     return;
                 }
                 TiebaStatic.log("c10038");
                 aVar.dismiss();
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f26113e.f26108c.getPageActivity(), 2, true, 5);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f25343e.f25338c.getPageActivity(), 2, true, 5);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
                 if (!StringUtils.isNULL("4010001002")) {
                     memberPayActivityConfig.setSceneId("4010001002");
@@ -157,11 +157,11 @@ public class d implements c.a.t0.x2.h.a {
 
     /* renamed from: c.a.t0.x2.d.d$d  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1512d implements a.e {
+    public class C1528d implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1512d(d dVar) {
+        public C1528d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -192,10 +192,10 @@ public class d implements c.a.t0.x2.h.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteAddAndDelCustomMessage f26114e;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage f25344e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f26115f;
+        public final /* synthetic */ d f25345f;
 
         public e(d dVar, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
             Interceptable interceptable = $ic;
@@ -212,16 +212,16 @@ public class d implements c.a.t0.x2.h.a {
                     return;
                 }
             }
-            this.f26115f = dVar;
-            this.f26114e = userMuteAddAndDelCustomMessage;
+            this.f25345f = dVar;
+            this.f25344e = userMuteAddAndDelCustomMessage;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f26115f.g();
-                MessageManager.getInstance().sendMessage(this.f26114e);
+                this.f25345f.g();
+                MessageManager.getInstance().sendMessage(this.f25344e);
                 aVar.dismiss();
             }
         }
@@ -273,20 +273,20 @@ public class d implements c.a.t0.x2.h.a {
             }
         }
         this.a = -1;
-        this.f26107b = "";
-        this.f26108c = tbPageContext;
-        c.a.s0.s.i0.c cVar = new c.a.s0.s.i0.c();
-        this.f26110e = cVar;
+        this.f25337b = "";
+        this.f25338c = tbPageContext;
+        c.a.s0.s.j0.c cVar = new c.a.s0.s.j0.c();
+        this.f25340e = cVar;
         cVar.a = 1000L;
-        this.f26111f = bdUniqueId;
+        this.f25341f = bdUniqueId;
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001431);
-        BdUniqueId bdUniqueId2 = this.f26111f;
+        BdUniqueId bdUniqueId2 = this.f25341f;
         userMuteAddAndDelCustomMessage.mId = bdUniqueId2;
         userMuteAddAndDelCustomMessage.from = 0;
         userMuteAddAndDelCustomMessage.setTag(bdUniqueId2);
         MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
         UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(2001432);
-        BdUniqueId bdUniqueId3 = this.f26111f;
+        BdUniqueId bdUniqueId3 = this.f25341f;
         userMuteCheckCustomMessage.mId = bdUniqueId3;
         userMuteCheckCustomMessage.setTag(bdUniqueId3);
         MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
@@ -296,21 +296,21 @@ public class d implements c.a.t0.x2.h.a {
     public void a(int i2, int i3, String str, int i4, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), str2}) == null) {
-            c.a.s0.s.i0.a aVar = this.f26109d;
+            c.a.s0.s.j0.a aVar = this.f25339d;
             if (aVar != null) {
                 aVar.h(false);
             }
             this.a = i3;
-            this.f26107b = str;
+            this.f25337b = str;
             if (i4 == 0) {
                 if (i2 == 1) {
-                    this.f26110e.c(this.f26108c.getString(c.a.t0.y2.g.mute_success));
+                    this.f25340e.c(this.f25338c.getString(c.a.t0.y2.g.mute_success));
                 } else if (i2 == 2) {
-                    this.f26110e.c(this.f26108c.getResources().getString(c.a.t0.y2.g.un_mute_success));
+                    this.f25340e.c(this.f25338c.getResources().getString(c.a.t0.y2.g.un_mute_success));
                 }
             } else if (i4 == 220017) {
                 if (TextUtils.isEmpty(str2)) {
-                    str2 = this.f26108c.getString(c.a.t0.y2.g.mute_error_beyond_limit);
+                    str2 = this.f25338c.getString(c.a.t0.y2.g.mute_error_beyond_limit);
                 }
                 i(str2);
             } else if (i4 == 1990043) {
@@ -318,12 +318,12 @@ public class d implements c.a.t0.x2.h.a {
             } else {
                 if (m.isEmpty(str2)) {
                     if (i2 == 1) {
-                        str2 = this.f26108c.getResources().getString(c.a.t0.y2.g.mute_fail);
+                        str2 = this.f25338c.getResources().getString(c.a.t0.y2.g.mute_fail);
                     } else if (i2 == 2) {
-                        str2 = this.f26108c.getResources().getString(c.a.t0.y2.g.un_mute_fail);
+                        str2 = this.f25338c.getResources().getString(c.a.t0.y2.g.un_mute_fail);
                     }
                 }
-                this.f26110e.b(str2);
+                this.f25340e.b(str2);
             }
         }
     }
@@ -331,7 +331,7 @@ public class d implements c.a.t0.x2.h.a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26107b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25337b : (String) invokeV.objValue;
     }
 
     public int e() {
@@ -343,29 +343,29 @@ public class d implements c.a.t0.x2.h.a {
     public BdUniqueId f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26111f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25341f : (BdUniqueId) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f26109d == null) {
-                c.a.s0.s.i0.a aVar = new c.a.s0.s.i0.a(this.f26108c);
-                this.f26109d = aVar;
+            if (this.f25339d == null) {
+                c.a.s0.s.j0.a aVar = new c.a.s0.s.j0.a(this.f25338c);
+                this.f25339d = aVar;
                 aVar.e(new a(this));
             }
-            this.f26109d.h(true);
+            this.f25339d.h(true);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f26108c.getPageActivity());
-            aVar.setMessage(this.f26108c.getString(c.a.t0.y2.g.mute_is_super_member_function));
+            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f25338c.getPageActivity());
+            aVar.setMessage(this.f25338c.getString(c.a.t0.y2.g.mute_is_super_member_function));
             aVar.setPositiveButton(c.a.t0.y2.g.open_now, new c(this));
-            aVar.setNegativeButton(c.a.t0.y2.g.cancel, new C1512d(this));
-            aVar.create(this.f26108c).show();
+            aVar.setNegativeButton(c.a.t0.y2.g.cancel, new C1528d(this));
+            aVar.create(this.f25338c).show();
         }
     }
 
@@ -375,10 +375,10 @@ public class d implements c.a.t0.x2.h.a {
             if (str == null) {
                 str = "";
             }
-            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f26108c.getPageActivity());
+            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f25338c.getPageActivity());
             aVar.setMessage(str);
             aVar.setNegativeButton(c.a.t0.y2.g.know, new b(this));
-            aVar.create(this.f26108c).show();
+            aVar.create(this.f25338c).show();
         }
     }
 
@@ -390,15 +390,15 @@ public class d implements c.a.t0.x2.h.a {
                 MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
                 return;
             }
-            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f26108c.getPageActivity());
+            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f25338c.getPageActivity());
             if (m.isEmpty(str)) {
-                aVar.setMessage(this.f26108c.getResources().getString(c.a.t0.y2.g.block_mute_message_alert, str2));
+                aVar.setMessage(this.f25338c.getResources().getString(c.a.t0.y2.g.block_mute_message_alert, str2));
             } else {
                 aVar.setMessage(str);
             }
             aVar.setPositiveButton(c.a.t0.y2.g.confirm, new e(this, userMuteAddAndDelCustomMessage));
             aVar.setNegativeButton(c.a.t0.y2.g.cancel, new f(this));
-            aVar.create(this.f26108c).show();
+            aVar.create(this.f25338c).show();
         }
     }
 }

@@ -14,31 +14,31 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9703b;
+    public String f9493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9704c;
+    public String f9494c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9705d;
+    public String f9495d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f9706e;
+    public long f9496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9707f;
+    public int f9497f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9708g;
+    public String f9498g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f9709h;
+    public int f9499h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f9710i;
+    public String f9500i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f9711j;
+    public String f9501j;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -61,15 +61,15 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
             c cVar = new c();
             cVar.a = bVar.H();
-            cVar.f9704c = bVar.K();
-            cVar.f9705d = bVar.Q();
-            cVar.f9707f = bVar.G();
-            cVar.f9710i = bVar.T();
-            cVar.f9709h = bVar.p1();
-            cVar.f9706e = System.currentTimeMillis();
-            cVar.f9708g = String.valueOf(bVar.getType());
-            cVar.f9703b = bVar.I();
-            cVar.f9711j = bVar.v1();
+            cVar.f9494c = bVar.K();
+            cVar.f9495d = bVar.Q();
+            cVar.f9497f = bVar.G();
+            cVar.f9500i = bVar.T();
+            cVar.f9499h = bVar.p1();
+            cVar.f9496e = System.currentTimeMillis();
+            cVar.f9498g = String.valueOf(bVar.getType());
+            cVar.f9493b = bVar.I();
+            cVar.f9501j = bVar.v1();
             return cVar;
         }
         return (c) invokeL.objValue;
@@ -84,16 +84,16 @@ public class c {
             }
             c cVar = new c();
             cVar.a = jSONObject.optString("bundle_id");
-            cVar.f9706e = jSONObject.optLong("time");
+            cVar.f9496e = jSONObject.optLong("time");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                cVar.f9703b = optJSONObject.optString("appkey");
-                cVar.f9708g = optJSONObject.optString("pkg_type");
-                cVar.f9704c = optJSONObject.optString("app_name");
-                cVar.f9705d = optJSONObject.optString("app_icon");
-                cVar.f9711j = optJSONObject.optString("version_code");
-                cVar.f9707f = optJSONObject.optInt("frame_type");
-                cVar.f9709h = optJSONObject.optInt("pay_protected");
+                cVar.f9493b = optJSONObject.optString("appkey");
+                cVar.f9498g = optJSONObject.optString("pkg_type");
+                cVar.f9494c = optJSONObject.optString("app_name");
+                cVar.f9495d = optJSONObject.optString("app_icon");
+                cVar.f9501j = optJSONObject.optString("version_code");
+                cVar.f9497f = optJSONObject.optInt("frame_type");
+                cVar.f9499h = optJSONObject.optInt("pay_protected");
             }
             return cVar;
         }

@@ -60,7 +60,7 @@ public class u {
         public boolean f101a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63283b;
+        public String f60902b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f102b;
@@ -83,7 +83,7 @@ public class u {
             this.a = str;
             this.f101a = z;
             this.f102b = z2;
-            this.f63283b = str2;
+            this.f60902b = str2;
         }
     }
 
@@ -244,7 +244,7 @@ public class u {
         if (interceptable == null || interceptable.invokeLL(65546, null, context, packageInfo) == null) {
             HashSet hashSet = new HashSet();
             String str = context.getPackageName() + ".permission.MIPUSH_RECEIVE";
-            hashSet.addAll(Arrays.asList(com.kuaishou.weapon.un.s.a, "android.permission.ACCESS_NETWORK_STATE", str, com.kuaishou.weapon.un.s.f57420d, "android.permission.VIBRATE"));
+            hashSet.addAll(Arrays.asList(com.kuaishou.weapon.un.s.a, "android.permission.ACCESS_NETWORK_STATE", str, com.kuaishou.weapon.un.s.f55243d, "android.permission.VIBRATE"));
             PermissionInfo[] permissionInfoArr = packageInfo.permissions;
             if (permissionInfoArr != null) {
                 for (PermissionInfo permissionInfo : permissionInfoArr) {
@@ -300,7 +300,7 @@ public class u {
                         b bVar = (b) hashMap2.remove(serviceInfo.name);
                         boolean z = bVar.f101a;
                         boolean z2 = bVar.f102b;
-                        String str = bVar.f63283b;
+                        String str = bVar.f60902b;
                         if (z != serviceInfo.enabled) {
                             throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));
                         }

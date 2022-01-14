@@ -38,12 +38,12 @@ public class Functions$FunctionForMapNoDefault<K, V> implements g<K, V>, Seriali
     }
 
     @Override // c.i.d.a.g
-    public V apply(K k2) {
+    public V apply(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
-            V v = this.map.get(k2);
-            n.k(v != null || this.map.containsKey(k2), "Key '%s' not present in map", k2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            V v = this.map.get(k);
+            n.k(v != null || this.map.containsKey(k), "Key '%s' not present in map", k);
             return v;
         }
         return (V) invokeL.objValue;

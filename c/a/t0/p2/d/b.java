@@ -16,25 +16,23 @@ public class b implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f22008e;
+    public long f20978e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22009f;
+    public int f20979f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22010g;
+    public String f20980g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22011h;
+    public String f20981h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f22012i;
+    public long f20982i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f22013j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f22014k;
+    public String f20983j;
+    public int k;
     public int l;
 
     public b(@NonNull NewTopicList newTopicList, int i2) {
@@ -52,13 +50,13 @@ public class b implements n {
                 return;
             }
         }
-        this.f22009f = i2 + 1;
-        this.f22010g = newTopicList.topic_name;
-        this.f22011h = newTopicList.topic_desc;
-        this.f22012i = newTopicList.discuss_num.longValue();
-        this.f22013j = newTopicList.topic_image;
-        this.f22014k = newTopicList.topic_tag.intValue();
-        this.f22008e = newTopicList.topic_id.longValue();
+        this.f20979f = i2 + 1;
+        this.f20980g = newTopicList.topic_name;
+        this.f20981h = newTopicList.topic_desc;
+        this.f20982i = newTopicList.discuss_num.longValue();
+        this.f20983j = newTopicList.topic_image;
+        this.k = newTopicList.topic_tag.intValue();
+        this.f20978e = newTopicList.topic_id.longValue();
         this.l = newTopicList.is_video_topic.intValue();
     }
 

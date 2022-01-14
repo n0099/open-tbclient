@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends d {
     public static /* synthetic */ Interceptable $ic;
     public static final int Q;
@@ -45,13 +45,11 @@ public class b extends d {
     public j.d O;
     public View.OnClickListener P;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends ShareDialogItemView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: k  reason: collision with root package name */
-        public Context f20319k;
+        public Context k;
         public EMTextView l;
         public LinearLayout.LayoutParams m;
 
@@ -73,13 +71,13 @@ public class b extends d {
                     return;
                 }
             }
-            this.f20319k = context;
+            this.k = context;
         }
 
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.itemIcon = new ImageView(this.f20319k);
+                this.itemIcon = new ImageView(this.k);
                 setTag(Integer.valueOf(i2));
                 this.itemIcon.setScaleType(ImageView.ScaleType.FIT_XY);
                 WebPManager.setMaskDrawable(this.itemIcon, i2, null);
@@ -90,7 +88,7 @@ public class b extends d {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                EMTextView eMTextView = new EMTextView(this.f20319k);
+                EMTextView eMTextView = new EMTextView(this.k);
                 this.l = eMTextView;
                 eMTextView.setTextSize(0, ShareDialogItemView.ITEM_NAME_TEXT_SIZE);
                 this.l.setText(i2);
@@ -161,8 +159,8 @@ public class b extends d {
         this.N = dVar4;
         this.O = dVar5;
         this.P = onClickListener;
-        this.D = (LinearLayout) this.f20321f.findViewById(R.id.first_line);
-        this.E = (LinearLayout) this.f20321f.findViewById(R.id.second_line);
+        this.D = (LinearLayout) this.f19780f.findViewById(R.id.first_line);
+        this.E = (LinearLayout) this.f19780f.findViewById(R.id.second_line);
         X();
     }
 
@@ -176,15 +174,15 @@ public class b extends d {
             this.E.removeAllViews();
             int i3 = 0;
             while (true) {
-                if (i3 >= Math.min(6, this.f20326k.size())) {
+                if (i3 >= Math.min(6, this.k.size())) {
                     break;
                 }
-                this.D.addView(this.f20326k.get(i3), new ViewGroup.LayoutParams(Q, R));
+                this.D.addView(this.k.get(i3), new ViewGroup.LayoutParams(Q, R));
                 i3++;
             }
             this.D.addView(this.F, new ViewGroup.LayoutParams(S, -1));
-            for (i2 = 6; i2 < this.f20326k.size(); i2++) {
-                this.E.addView(this.f20326k.get(i2), new ViewGroup.LayoutParams(Q, R));
+            for (i2 = 6; i2 < this.k.size(); i2++) {
+                this.E.addView(this.k.get(i2), new ViewGroup.LayoutParams(Q, R));
             }
             this.E.addView(this.G, new ViewGroup.LayoutParams(S, -1));
             return true;
@@ -195,7 +193,7 @@ public class b extends d {
     public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f20326k.clear();
+            this.k.clear();
             h(R.string.share_qq_friends, new SvgMaskType(R.drawable.icon_mask_share_qq40_svg));
             h(R.string.share_qzone, new SvgMaskType(R.drawable.icon_mask_share_qqzone40_svg));
             h(R.string.share_weixin, new SvgMaskType(R.drawable.icon_mask_share_wechat40_svg));
@@ -204,7 +202,7 @@ public class b extends d {
             aVar.setItemName(R.string.share_weixin_emotion_1);
             aVar.b(R.string.share_weixin_emotion_2);
             aVar.setOnClickListener(this);
-            List<View> list = this.f20326k;
+            List<View> list = this.k;
             aVar.create();
             list.add(aVar);
             h(R.string.share_weixin_timeline, new SvgMaskType(R.drawable.icon_mask_share_circle40_svg));
@@ -215,7 +213,7 @@ public class b extends d {
             LinearLayout t = t(R.string.save_to_local, R.drawable.icon_pure_share_download40);
             t.setOnClickListener(this);
             t.setTag(Integer.valueOf(R.drawable.icon_pure_share_download40 + R.string.save_to_local));
-            this.f20326k.add(t);
+            this.k.add(t);
             if (this.I) {
                 g(R.string.save_to_emotion, R.drawable.icon_share_homepage_expression40);
             }

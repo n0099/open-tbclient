@@ -21,28 +21,26 @@ import javax.net.ssl.SSLSocketFactory;
 public abstract class c {
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f60983d;
+    public Context f58676d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Uri.Builder f60984e;
+    public Uri.Builder f58677e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f60985f;
+    public f f58678f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f60986g;
+    public d f58679g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.c.b.a f60987h;
+    public com.meizu.cloud.pushsdk.c.b.a f58680h;
 
     /* renamed from: i  reason: collision with root package name */
-    public h f60988i;
+    public h f58681i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SSLSocketFactory f60989j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public HostnameVerifier f60990k;
+    public SSLSocketFactory f58682j;
+    public HostnameVerifier k;
     public String l;
     public int m;
     public int n;
@@ -54,11 +52,11 @@ public abstract class c {
     public int a = 88;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60981b = 22;
+    public int f58674b = 22;
     public final String u = c.class.getSimpleName();
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.meizu.cloud.pushsdk.b.c.g f60982c = com.meizu.cloud.pushsdk.b.c.g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
+    public final com.meizu.cloud.pushsdk.b.c.g f58675c = com.meizu.cloud.pushsdk.b.c.g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
     public AtomicBoolean t = new AtomicBoolean(false);
 
     /* loaded from: classes3.dex */
@@ -66,48 +64,46 @@ public abstract class c {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Context f60991b;
+        public final Context f58683b;
         public SSLSocketFactory m;
         public HostnameVerifier n;
         public Class<? extends c> p;
 
         /* renamed from: c  reason: collision with root package name */
-        public f f60992c = null;
+        public f f58684c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public d f60993d = d.POST;
+        public d f58685d = d.POST;
 
         /* renamed from: e  reason: collision with root package name */
-        public com.meizu.cloud.pushsdk.c.b.a f60994e = com.meizu.cloud.pushsdk.c.b.a.Single;
+        public com.meizu.cloud.pushsdk.c.b.a f58686e = com.meizu.cloud.pushsdk.c.b.a.Single;
 
         /* renamed from: f  reason: collision with root package name */
-        public h f60995f = h.HTTPS;
+        public h f58687f = h.HTTPS;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f60996g = 5;
+        public int f58688g = 5;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f60997h = 250;
+        public int f58689h = 250;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f60998i = 5;
+        public int f58690i = 5;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f60999j = 40000;
-
-        /* renamed from: k  reason: collision with root package name */
-        public long f61000k = 40000;
+        public long f58691j = 40000;
+        public long k = 40000;
         public TimeUnit l = TimeUnit.SECONDS;
         public com.meizu.cloud.pushsdk.b.c.a o = new com.meizu.cloud.pushsdk.b.c.e();
 
         public a(String str, Context context, Class<? extends c> cls) {
             this.a = str;
-            this.f60991b = context;
+            this.f58683b = context;
             this.p = cls;
         }
 
         public a a(int i2) {
-            this.f60996g = i2;
+            this.f58688g = i2;
             return this;
         }
 
@@ -121,39 +117,39 @@ public abstract class c {
         }
 
         public a a(com.meizu.cloud.pushsdk.c.b.a aVar) {
-            this.f60994e = aVar;
+            this.f58686e = aVar;
             return this;
         }
 
         public a a(f fVar) {
-            this.f60992c = fVar;
+            this.f58684c = fVar;
             return this;
         }
 
         public a b(int i2) {
-            this.f60997h = i2;
+            this.f58689h = i2;
             return this;
         }
 
         public a c(int i2) {
-            this.f60998i = i2;
+            this.f58690i = i2;
             return this;
         }
     }
 
     public c(a aVar) {
-        this.f60986g = aVar.f60993d;
-        this.f60985f = aVar.f60992c;
-        this.f60983d = aVar.f60991b;
-        this.f60987h = aVar.f60994e;
-        this.f60988i = aVar.f60995f;
-        this.f60989j = aVar.m;
-        this.f60990k = aVar.n;
-        this.m = aVar.f60996g;
-        this.n = aVar.f60998i;
-        this.o = aVar.f60997h;
-        this.p = aVar.f60999j;
-        this.q = aVar.f61000k;
+        this.f58679g = aVar.f58685d;
+        this.f58678f = aVar.f58684c;
+        this.f58676d = aVar.f58683b;
+        this.f58680h = aVar.f58686e;
+        this.f58681i = aVar.f58687f;
+        this.f58682j = aVar.m;
+        this.k = aVar.n;
+        this.m = aVar.f58688g;
+        this.n = aVar.f58690i;
+        this.o = aVar.f58689h;
+        this.p = aVar.f58691j;
+        this.q = aVar.k;
         this.l = aVar.a;
         this.r = aVar.l;
         this.s = aVar.o;
@@ -163,12 +159,12 @@ public abstract class c {
 
     private i a(com.meizu.cloud.pushsdk.c.a.a aVar) {
         a(aVar, "");
-        this.f60984e.clearQuery();
+        this.f58677e.clearQuery();
         HashMap hashMap = (HashMap) aVar.a();
         for (String str : hashMap.keySet()) {
-            this.f60984e.appendQueryParameter(str, (String) hashMap.get(str));
+            this.f58677e.appendQueryParameter(str, (String) hashMap.get(str));
         }
-        return new i.a().a(this.f60984e.build().toString()).a().c();
+        return new i.a().a(this.f58677e.build().toString()).a().c();
     }
 
     private i a(ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList) {
@@ -183,8 +179,8 @@ public abstract class c {
         com.meizu.cloud.pushsdk.c.a.b bVar = new com.meizu.cloud.pushsdk.c.a.b("push_group_data", arrayList2);
         String str = this.u;
         com.meizu.cloud.pushsdk.c.f.c.b(str, "final SelfDescribingJson " + bVar, new Object[0]);
-        String uri = this.f60984e.build().toString();
-        return new i.a().a(uri).a(j.a(this.f60982c, bVar.toString())).c();
+        String uri = this.f58677e.build().toString();
+        return new i.a().a(uri).a(j.a(this.f58675c, bVar.toString())).c();
     }
 
     private void a(com.meizu.cloud.pushsdk.c.a.a aVar, String str) {
@@ -198,8 +194,8 @@ public abstract class c {
         StringBuilder sb;
         String str;
         String str2 = this.u;
-        com.meizu.cloud.pushsdk.c.f.c.a(str2, "security " + this.f60988i, new Object[0]);
-        if (this.f60988i == h.HTTP) {
+        com.meizu.cloud.pushsdk.c.f.c.a(str2, "security " + this.f58681i, new Object[0]);
+        if (this.f58681i == h.HTTP) {
             sb = new StringBuilder();
             str = "http://";
         } else {
@@ -208,11 +204,11 @@ public abstract class c {
         }
         sb.append(str);
         sb.append(this.l);
-        this.f60984e = Uri.parse(sb.toString()).buildUpon();
-        if (this.f60986g == d.GET) {
-            this.f60984e.appendPath("i");
+        this.f58677e = Uri.parse(sb.toString()).buildUpon();
+        if (this.f58679g == d.GET) {
+            this.f58677e.appendPath("i");
         } else {
-            this.f60984e.appendEncodedPath("push_data_report/mobile");
+            this.f58677e.appendEncodedPath("push_data_report/mobile");
         }
     }
 
@@ -235,12 +231,12 @@ public abstract class c {
         int size = bVar.a().size();
         LinkedList<Long> b2 = bVar.b();
         LinkedList<e> linkedList = new LinkedList<>();
-        if (this.f60986g == d.GET) {
+        if (this.f58679g == d.GET) {
             for (int i3 = 0; i3 < size; i3++) {
                 LinkedList linkedList2 = new LinkedList();
                 linkedList2.add(b2.get(i3));
                 com.meizu.cloud.pushsdk.c.a.a aVar = bVar.a().get(i3);
-                linkedList.add(new e(aVar.b() + ((long) this.f60981b) > this.p, a(aVar), linkedList2));
+                linkedList.add(new e(aVar.b() + ((long) this.f58674b) > this.p, a(aVar), linkedList2));
             }
         } else {
             int i4 = 0;
@@ -249,10 +245,10 @@ public abstract class c {
                 ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList = new ArrayList<>();
                 long j2 = 0;
                 int i5 = i4;
-                while (i5 < this.f60987h.a() + i4 && i5 < size) {
+                while (i5 < this.f58680h.a() + i4 && i5 < size) {
                     com.meizu.cloud.pushsdk.c.a.a aVar2 = bVar.a().get(i5);
                     ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList2 = arrayList;
-                    long b3 = aVar2.b() + this.f60981b;
+                    long b3 = aVar2.b() + this.f58674b;
                     int i6 = this.a;
                     int i7 = i4;
                     LinkedList linkedList4 = linkedList3;
@@ -291,7 +287,7 @@ public abstract class c {
                 if (!arrayList.isEmpty()) {
                     linkedList.add(new e(false, a(arrayList), linkedList6));
                 }
-                i4 = i8 + this.f60987h.a();
+                i4 = i8 + this.f58680h.a();
             }
         }
         return linkedList;
@@ -318,6 +314,6 @@ public abstract class c {
     }
 
     public String b() {
-        return this.f60984e.clearQuery().build().toString();
+        return this.f58677e.clearQuery().build().toString();
     }
 }

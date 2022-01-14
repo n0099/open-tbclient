@@ -20,7 +20,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f4431b;
+    public static final int[] f4339b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -37,7 +37,7 @@ public class b {
                 return;
             }
         }
-        f4431b = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+        f4339b = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     }
 
     public b(int i2) {
@@ -97,9 +97,9 @@ public class b {
     public static void h(int[] iArr, int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, iArr, iArr2) == null) {
-            int[] iArr3 = f4431b;
+            int[] iArr3 = f4339b;
             System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
-            System.arraycopy(iArr2, 0, iArr, f4431b.length, 8);
+            System.arraycopy(iArr2, 0, iArr, f4339b.length, 8);
         }
     }
 

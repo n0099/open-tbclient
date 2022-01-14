@@ -13,18 +13,18 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile d f9017e;
+    public static volatile d f8820e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9018b;
+    public String f8821b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9019c;
+    public String f8822c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.f0.f.b f9020d;
+    public c.a.f0.f.b f8823d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -56,14 +56,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f9017e == null) {
+            if (f8820e == null) {
                 synchronized (d.class) {
-                    if (f9017e == null) {
-                        f9017e = new d();
+                    if (f8820e == null) {
+                        f8820e = new d();
                     }
                 }
             }
-            return f9017e;
+            return f8820e;
         }
         return (d) invokeV.objValue;
     }

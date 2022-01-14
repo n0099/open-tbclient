@@ -3,7 +3,7 @@ package c.a.t0.o1.h.k;
 import android.util.LongSparseArray;
 import android.util.SparseArray;
 import c.a.d.n.e.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.f0.q;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,14 +12,14 @@ import java.util.List;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.DislikeReason;
 import tbclient.Personalized.ThreadPersonalized;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(DataRes.Builder builder, List<n> list) {
         c.a.t0.g0.f0.b bVar;
-        d2 threadData;
+        e2 threadData;
         ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65536, null, builder, list) == null) || builder == null || list == null) {

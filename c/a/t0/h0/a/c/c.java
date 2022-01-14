@@ -28,9 +28,7 @@ import tbclient.HotThread.tinfo;
 public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f18444k;
+    public TextView k;
     public TextView l;
     public TextView m;
     public TextView n;
@@ -46,7 +44,7 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18445e;
+        public final /* synthetic */ c f17988e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +61,7 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
                     return;
                 }
             }
-            this.f18445e = cVar;
+            this.f17988e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -72,9 +70,9 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Object tag = view.getTag();
                 if (tag instanceof Integer) {
-                    c.a.s0.l0.c.b bVar = new c.a.s0.l0.c.b(4096, new d(((Integer) tag).intValue(), this.f18445e.a()), null, null);
-                    bVar.i(this.f18445e.g());
-                    this.f18445e.b().dispatchMvcEvent(bVar);
+                    c.a.s0.l0.c.b bVar = new c.a.s0.l0.c.b(4096, new d(((Integer) tag).intValue(), this.f17988e.a()), null, null);
+                    bVar.i(this.f17988e.g());
+                    this.f17988e.b().dispatchMvcEvent(bVar);
                 }
             }
         }
@@ -86,10 +84,10 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f18446e;
+        public final /* synthetic */ tinfo f17989e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f18447f;
+        public final /* synthetic */ c f17990f;
 
         public b(c cVar, tinfo tinfoVar) {
             Interceptable interceptable = $ic;
@@ -106,18 +104,18 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
                     return;
                 }
             }
-            this.f18447f = cVar;
-            this.f18446e = tinfoVar;
+            this.f17990f = cVar;
+            this.f17989e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String str = this.f18446e.forum_name;
+                String str = this.f17989e.forum_name;
                 if (m.isForumName(str)) {
-                    TiebaStatic.eventStat(this.f18447f.getActivity(), "kantie_6", null, 1, new Object[0]);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18447f.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                    TiebaStatic.eventStat(this.f17990f.getActivity(), "kantie_6", null, 1, new Object[0]);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17990f.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                 }
             }
         }
@@ -143,7 +141,7 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
             }
         }
         this.s = new a(this);
-        this.f18444k = (TextView) view.findViewById(R.id.chosen_picture_title);
+        this.k = (TextView) view.findViewById(R.id.chosen_picture_title);
         this.l = (TextView) view.findViewById(R.id.chosen_picture_praise);
         this.m = (TextView) view.findViewById(R.id.chosen_picture_comment);
         this.n = (TextView) view.findViewById(R.id.chosen_picture_head);
@@ -200,11 +198,11 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
                 return;
             }
             if (StringUtils.isNull(tinfoVar.forum_name)) {
-                this.f18444k.setVisibility(8);
+                this.k.setVisibility(8);
             } else {
-                this.f18444k.setVisibility(0);
-                this.f18444k.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-                this.f18444k.setOnClickListener(new b(this, tinfoVar));
+                this.k.setVisibility(0);
+                this.k.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+                this.k.setOnClickListener(new b(this, tinfoVar));
             }
             if (StringUtils.isNull(tinfoVar.title)) {
                 this.n.setVisibility(8);

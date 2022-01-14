@@ -70,12 +70,12 @@ public class LoadMoreRequestMessage extends NetMessage {
             builder.user_id = Long.valueOf(b.g(TbadkCoreApplication.getCurrentAccount(), 0L));
             builder.forum_name = this.forumName;
             builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-            int k2 = n.k(TbadkCoreApplication.getInst());
+            int k = n.k(TbadkCoreApplication.getInst());
             int i2 = n.i(TbadkCoreApplication.getInst());
             builder.pn = Integer.valueOf(this.pn);
             builder.st_type = Integer.valueOf(this.st_type);
             builder.scr_h = Integer.valueOf(i2);
-            builder.scr_w = Integer.valueOf(k2);
+            builder.scr_w = Integer.valueOf(k);
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.last_click_tid = Long.valueOf(this.mLastClickTid);
             builder.sort_type = Integer.valueOf(this.mSortType);

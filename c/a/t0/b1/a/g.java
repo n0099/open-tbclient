@@ -30,31 +30,31 @@ public class g {
     public BawuTeamInfoActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdListView f15492b;
+    public BdListView f15106b;
 
     /* renamed from: c  reason: collision with root package name */
-    public h f15493c;
+    public h f15107c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f15494d;
+    public NavigationBar f15108d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15495e;
+    public View f15109e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoNetworkView f15496f;
+    public NoNetworkView f15110f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f15497g;
+    public boolean f15111g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f15498h;
+    public View f15112h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.s0.t.i.b f15499i;
+    public c.a.s0.t.i.b f15113i;
 
     /* renamed from: j  reason: collision with root package name */
-    public h.d f15500j;
+    public h.d f15114j;
 
     /* loaded from: classes6.dex */
     public class a implements h.d {
@@ -108,62 +108,62 @@ public class g {
                 return;
             }
         }
-        this.f15497g = false;
+        this.f15111g = false;
         this.a = bawuTeamInfoActivity;
         View inflate = LayoutInflater.from(bawuTeamInfoActivity.getPageContext().getPageActivity()).inflate(R.layout.bawu_team_info_activity_layout, (ViewGroup) null);
-        this.f15495e = inflate;
+        this.f15109e = inflate;
         this.a.setContentView(inflate);
-        this.f15498h = this.f15495e.findViewById(R.id.root_bawu_team_info);
-        NavigationBar navigationBar = (NavigationBar) this.f15495e.findViewById(R.id.view_navigation_bar);
-        this.f15494d = navigationBar;
+        this.f15112h = this.f15109e.findViewById(R.id.root_bawu_team_info);
+        NavigationBar navigationBar = (NavigationBar) this.f15109e.findViewById(R.id.view_navigation_bar);
+        this.f15108d = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getString(R.string.bawu_manager_team));
-        this.f15494d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f15494d.showBottomLine();
-        this.f15496f = (NoNetworkView) this.f15495e.findViewById(R.id.view_no_network);
-        this.f15492b = (BdListView) this.f15495e.findViewById(R.id.listview_bawu_team_info);
+        this.f15108d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f15108d.showBottomLine();
+        this.f15110f = (NoNetworkView) this.f15109e.findViewById(R.id.view_no_network);
+        this.f15106b = (BdListView) this.f15109e.findViewById(R.id.listview_bawu_team_info);
         h hVar = new h(this.a.getPageContext());
-        this.f15493c = hVar;
-        this.f15492b.setAdapter((ListAdapter) hVar);
+        this.f15107c = hVar;
+        this.f15106b.setAdapter((ListAdapter) hVar);
         a aVar = new a(this);
-        this.f15500j = aVar;
-        this.f15493c.f(aVar);
+        this.f15114j = aVar;
+        this.f15107c.f(aVar);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.hideNetRefreshView(this.f15495e);
-            this.f15492b.setVisibility(0);
+            this.a.hideNetRefreshView(this.f15109e);
+            this.f15106b.setVisibility(0);
         }
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15498h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15112h : (View) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15497g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15111g : invokeV.booleanValue;
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             this.a.getLayoutMode().k(i2 == 1);
-            this.a.getLayoutMode().j(this.f15495e);
-            this.f15494d.onChangeSkinType(this.a.getPageContext(), i2);
-            this.f15496f.onChangeSkinType(this.a.getPageContext(), i2);
-            this.f15493c.notifyDataSetChanged();
+            this.a.getLayoutMode().j(this.f15109e);
+            this.f15108d.onChangeSkinType(this.a.getPageContext(), i2);
+            this.f15110f.onChangeSkinType(this.a.getPageContext(), i2);
+            this.f15107c.notifyDataSetChanged();
         }
     }
 
     public void g() {
         c.a.s0.t.i.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bVar = this.f15499i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bVar = this.f15113i) == null) {
             return;
         }
         bVar.s();
@@ -172,27 +172,27 @@ public class g {
     public void h(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f15496f.addNetworkChangeListener(bVar);
+            this.f15110f.addNetworkChangeListener(bVar);
         }
     }
 
     public final void i(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, accountData) == null) {
-            if (this.f15499i == null) {
-                this.f15499i = new c.a.s0.t.i.b(this.a);
+            if (this.f15113i == null) {
+                this.f15113i = new c.a.s0.t.i.b(this.a);
             }
-            this.f15499i.p();
-            this.f15499i.u(accountData);
-            this.f15499i.z(1);
+            this.f15113i.p();
+            this.f15113i.u(accountData);
+            this.f15113i.z(1);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f15492b.setVisibility(8);
-            this.a.showNetRefreshView(this.f15495e, this.a.getPageContext().getResources().getString(R.string.no_data_text), true);
+            this.f15106b.setVisibility(8);
+            this.a.showNetRefreshView(this.f15109e, this.a.getPageContext().getResources().getString(R.string.no_data_text), true);
         }
     }
 
@@ -200,18 +200,18 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList, lVar, z) == null) {
             if (arrayList != null && arrayList.size() > 0) {
-                this.f15497g = false;
+                this.f15111g = false;
             } else {
-                this.f15497g = true;
+                this.f15111g = true;
             }
-            if (z && this.f15497g) {
+            if (z && this.f15111g) {
                 j();
                 return;
             }
             c();
-            this.f15493c.d(arrayList);
-            this.f15493c.e(lVar);
-            this.f15493c.notifyDataSetChanged();
+            this.f15107c.d(arrayList);
+            this.f15107c.e(lVar);
+            this.f15107c.notifyDataSetChanged();
         }
     }
 }

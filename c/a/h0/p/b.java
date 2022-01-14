@@ -18,7 +18,7 @@ public final class b {
     public static long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f3652b;
+    public static JSONObject f3598b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,17 +34,17 @@ public final class b {
                 return;
             }
         }
-        f3652b = new JSONObject();
+        f3598b = new JSONObject();
     }
 
     public static final void a(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65537, null, str, j2) == null) {
             try {
-                if (f3652b == null) {
-                    f3652b = new JSONObject();
+                if (f3598b == null) {
+                    f3598b = new JSONObject();
                 }
-                JSONObject jSONObject = f3652b;
+                JSONObject jSONObject = f3598b;
                 if (jSONObject != null) {
                     jSONObject.put(str, j2);
                 }
@@ -111,15 +111,15 @@ public final class b {
     public static final void e() {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (jSONObject = f3652b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (jSONObject = f3598b) == null) {
             return;
         }
         if ((jSONObject != null ? jSONObject.length() : 0) > 0) {
             a("2", System.currentTimeMillis());
             c cVar = new c(Constants.DEFAULT_UIN);
-            cVar.c(f3652b);
+            cVar.c(f3598b);
             f.e(cVar);
-            f3652b = null;
+            f3598b = null;
         }
     }
 

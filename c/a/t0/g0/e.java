@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -69,7 +69,7 @@ public class e extends b<c.a.t0.n0.b> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f18209e != i2) {
+            if (this.f17766e != i2) {
                 SkinManager.setBackgroundResource(j(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.v, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(this.q, R.color.CAM_X0101, 1);
@@ -82,7 +82,7 @@ public class e extends b<c.a.t0.n0.b> {
                 SkinManager.setViewTextColor(this.t, R.color.CAM_X0109, 1);
                 SkinManager.setViewTextColor(this.u, R.color.CAM_X0109, 1);
             }
-            this.f18209e = i2;
+            this.f17766e = i2;
         }
     }
 
@@ -109,7 +109,7 @@ public class e extends b<c.a.t0.n0.b> {
             this.u = (TextView) view.findViewById(R.id.card_frs_game_publish_time);
             this.v = view.findViewById(R.id.card_frs_game_bottom_divider);
             this.o.setDefaultBgResource(R.drawable.icon_morenpic);
-            int dimensionPixelSize = this.f18211g.getResources().getDimensionPixelSize(R.dimen.tbds326);
+            int dimensionPixelSize = this.f17768g.getResources().getDimensionPixelSize(R.dimen.tbds326);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
             layoutParams.width = dimensionPixelSize;
             layoutParams.height = (dimensionPixelSize * 9) / 16;
@@ -119,7 +119,7 @@ public class e extends b<c.a.t0.n0.b> {
             this.s.setIsRound(true);
             this.s.setDrawBorder(true);
             this.s.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.s.setBorderWidth(this.f18211g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.s.setBorderWidth(this.f17768g.getResources().getDimensionPixelSize(R.dimen.tbds1));
             j().setOnClickListener(this);
         }
     }
@@ -160,7 +160,7 @@ public class e extends b<c.a.t0.n0.b> {
         this.u.setText(StringHelper.getFormatTimeShort(bVar.getThreadData().I()));
         if ("news".equals(bVar.getThreadData().c0())) {
             this.s.setVisibility(8);
-            this.t.setText(this.f18210f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.getThreadData().E1())));
+            this.t.setText(this.f17767f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.getThreadData().E1())));
             return;
         }
         this.s.setVisibility(0);
@@ -198,16 +198,16 @@ public class e extends b<c.a.t0.n0.b> {
         }
     }
 
-    public final void w(d2 d2Var) {
+    public final void w(e2 e2Var) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, d2Var) == null) || (textView = this.t) == null || d2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, e2Var) == null) || (textView = this.t) == null || e2Var == null) {
             return;
         }
         textView.setVisibility(0);
-        if (StringUtils.isNull(d2Var.J().getName_show())) {
+        if (StringUtils.isNull(e2Var.J().getName_show())) {
             return;
         }
-        this.t.setText(s(d2Var.J().getName_show()));
+        this.t.setText(s(e2Var.J().getName_show()));
     }
 }

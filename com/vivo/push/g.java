@@ -12,7 +12,7 @@ public final class g implements IPushActionListener {
     public final /* synthetic */ e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f63083b;
+    public final /* synthetic */ e f60705b;
 
     public g(e eVar, e.a aVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class g implements IPushActionListener {
                 return;
             }
         }
-        this.f63083b = eVar;
+        this.f60705b = eVar;
         this.a = aVar;
     }
 
@@ -41,15 +41,15 @@ public final class g implements IPushActionListener {
             if (i2 == 0) {
                 Object[] b2 = this.a.b();
                 if (b2 != null && b2.length != 0) {
-                    this.f63083b.a((String) this.a.b()[0]);
+                    this.f60705b.a((String) this.a.b()[0]);
                     return;
                 } else {
                     com.vivo.push.util.p.a("PushClientManager", "bind app result is null");
                     return;
                 }
             }
-            this.f63083b.f63077k = null;
-            bVar = this.f63083b.f63076j;
+            this.f60705b.k = null;
+            bVar = this.f60705b.f60699j;
             bVar.b("APP_TOKEN");
         }
     }

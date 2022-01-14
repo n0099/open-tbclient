@@ -31,13 +31,13 @@ public class e extends c.a.r0.m.l.a<c.a.r0.a.i1.c.c> {
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.m.o.c f11612b;
+        public final /* synthetic */ c.a.r0.m.o.c f11351b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.m.b f11613c;
+        public final /* synthetic */ c.a.r0.m.b f11352c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e f11614d;
+        public final /* synthetic */ e f11353d;
 
         public a(e eVar, Context context, c.a.r0.m.o.c cVar, c.a.r0.m.b bVar) {
             Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class e extends c.a.r0.m.l.a<c.a.r0.a.i1.c.c> {
                     return;
                 }
             }
-            this.f11614d = eVar;
+            this.f11353d = eVar;
             this.a = context;
-            this.f11612b = cVar;
-            this.f11613c = bVar;
+            this.f11351b = cVar;
+            this.f11352c = bVar;
         }
 
         @Override // c.a.r0.m.l.f.d.c
@@ -73,7 +73,7 @@ public class e extends c.a.r0.m.l.a<c.a.r0.a.i1.c.c> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 c.a.r0.a.e0.d.o("map", "location permission success");
-                this.f11614d.e(this.a, this.f11612b, this.f11613c);
+                this.f11353d.e(this.a, this.f11351b, this.f11352c);
             }
         }
     }
@@ -85,7 +85,7 @@ public class e extends c.a.r0.m.l.a<c.a.r0.a.i1.c.c> {
         public final /* synthetic */ c.a.r0.m.o.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.m.b f11615b;
+        public final /* synthetic */ c.a.r0.m.b f11354b;
 
         public b(e eVar, c.a.r0.m.o.c cVar, c.a.r0.m.b bVar) {
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class e extends c.a.r0.m.l.a<c.a.r0.a.i1.c.c> {
                 }
             }
             this.a = cVar;
-            this.f11615b = bVar;
+            this.f11354b = bVar;
         }
 
         @Override // c.a.r0.a.c1.d.e.a
@@ -112,11 +112,11 @@ public class e extends c.a.r0.m.l.a<c.a.r0.a.i1.c.c> {
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 c.a.r0.a.e0.d.i("map", "get location " + bVar.a().toString());
                 BaiduMap map = this.a.l.getMap();
-                map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bVar.f6174c, bVar.f6173b)));
+                map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bVar.f6037c, bVar.f6036b)));
                 map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
                 map.setMyLocationEnabled(true);
-                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) bVar.f6176e).latitude(bVar.f6174c).longitude(bVar.f6173b).build());
-                this.f11615b.p(true);
+                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) bVar.f6039e).latitude(bVar.f6037c).longitude(bVar.f6036b).build());
+                this.f11354b.p(true);
             }
         }
 
@@ -184,17 +184,17 @@ public class e extends c.a.r0.m.l.a<c.a.r0.a.i1.c.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, cVar, bVar, eVar)) == null) {
             c.a.r0.a.e0.d.i("map", "MoveToLocationAction start");
-            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(cVar.f5422g);
+            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(cVar.f5309g);
             if (!(A instanceof c.a.r0.a.p.e.b)) {
                 c.a.r0.a.e0.d.c("map", "WebViewManager is null");
                 return false;
             }
             c.a.r0.m.b c2 = c.a.r0.m.c.b().c((c.a.r0.a.p.e.b) A);
-            c.a.r0.m.o.c d2 = c2.d(cVar.f5421f);
+            c.a.r0.m.o.c d2 = c2.d(cVar.f5308f);
             if (d2 == null) {
-                c.a.r0.a.e0.d.c("map", "can not find map by id " + cVar.f5421f);
+                c.a.r0.a.e0.d.c("map", "can not find map by id " + cVar.f5308f);
                 return false;
-            } else if (!d2.f11650k) {
+            } else if (!d2.k) {
                 c.a.r0.a.e0.d.o("map", "can not move to location because showLocation is not set");
                 return false;
             } else {

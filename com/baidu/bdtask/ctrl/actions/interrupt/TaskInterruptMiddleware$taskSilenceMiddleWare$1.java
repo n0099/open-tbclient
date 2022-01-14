@@ -36,14 +36,14 @@ public final class TaskInterruptMiddleware$taskSilenceMiddleWare$1 extends Lambd
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "", "action", "Lcom/baidu/bdtask/framework/redux/Action;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.ctrl.actions.interrupt.TaskInterruptMiddleware$taskSilenceMiddleWare$1$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static final class C17641 extends Lambda implements Function1<a, Unit> {
+        public static final class C17801 extends Lambda implements Function1<a, Unit> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Function1 $next;
             public final /* synthetic */ AnonymousClass1 this$0;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C17641(AnonymousClass1 anonymousClass1, Function1 function1) {
+            public C17801(AnonymousClass1 anonymousClass1, Function1 function1) {
                 super(1);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -80,9 +80,9 @@ public final class TaskInterruptMiddleware$taskSilenceMiddleWare$1 extends Lambd
                         com.baidu.bdtask.ctrl.b bVar = (com.baidu.bdtask.ctrl.b) this.this$0.$getState.invoke();
                         if (bVar != null) {
                             c.a.j.f.c.g.a aVar2 = (c.a.j.f.c.g.a) aVar;
-                            SubTaskState k2 = bVar.k(aVar2.f());
-                            if (k2 != null) {
-                                if (!k2.getTaskStatus().isEnable()) {
+                            SubTaskState k = bVar.k(aVar2.f());
+                            if (k != null) {
+                                if (!k.getTaskStatus().isEnable()) {
                                     DebugTrace.d(DebugTrace.a, "will be in silence but task is not enable", "state", null, 4, null);
                                     Function1 function1 = this.$next;
                                     aVar2.b(305);
@@ -134,7 +134,7 @@ public final class TaskInterruptMiddleware$taskSilenceMiddleWare$1 extends Lambd
         public final Function1<a, Unit> invoke2(Function1<? super a, Unit> function1) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function1)) == null) ? new C17641(this, function1) : (Function1) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function1)) == null) ? new C17801(this, function1) : (Function1) invokeL.objValue;
         }
     }
 

@@ -49,10 +49,10 @@ public class c extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6129e;
+        public final /* synthetic */ CallbackHandler f5996e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6130f;
+        public final /* synthetic */ UnitedSchemeEntity f5997f;
 
         public a(c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -69,15 +69,15 @@ public class c extends z {
                     return;
                 }
             }
-            this.f6129e = callbackHandler;
-            this.f6130f = unitedSchemeEntity;
+            this.f5996e = callbackHandler;
+            this.f5997f = unitedSchemeEntity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                UnitedSchemeUtility.callCallback(this.f6129e, this.f6130f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
+                UnitedSchemeUtility.callCallback(this.f5996e, this.f5997f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
             }
         }
     }
@@ -88,10 +88,10 @@ public class c extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6131e;
+        public final /* synthetic */ CallbackHandler f5998e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6132f;
+        public final /* synthetic */ UnitedSchemeEntity f5999f;
 
         public b(c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -108,35 +108,35 @@ public class c extends z {
                     return;
                 }
             }
-            this.f6131e = callbackHandler;
-            this.f6132f = unitedSchemeEntity;
+            this.f5998e = callbackHandler;
+            this.f5999f = unitedSchemeEntity;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                UnitedSchemeUtility.callCallback(this.f6131e, this.f6132f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
+                UnitedSchemeUtility.callCallback(this.f5998e, this.f5999f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
             }
         }
     }
 
     /* renamed from: c.a.r0.a.f2.f.i0.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0318c extends BaseAdapter {
+    public class C0327c extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f6133e;
+        public final /* synthetic */ List f6000e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f6134f;
+        public final /* synthetic */ Context f6001f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f6135g;
+        public final /* synthetic */ int f6002g;
 
-        public C0318c(c cVar, List list, Context context, int i2) {
+        public C0327c(c cVar, List list, Context context, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,9 +151,9 @@ public class c extends z {
                     return;
                 }
             }
-            this.f6133e = list;
-            this.f6134f = context;
-            this.f6135g = i2;
+            this.f6000e = list;
+            this.f6001f = context;
+            this.f6002g = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -162,16 +162,16 @@ public class c extends z {
         public String getItem(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (String) this.f6133e.get(i2) : (String) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (String) this.f6000e.get(i2) : (String) invokeI.objValue;
         }
 
         public final void b(@NonNull View view, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
                 if (i2 == 0) {
-                    view.setBackground(this.f6134f.getResources().getDrawable(c.a.r0.a.e.swan_image_menu_item_rounded_bg));
+                    view.setBackground(this.f6001f.getResources().getDrawable(c.a.r0.a.e.swan_image_menu_item_rounded_bg));
                 } else {
-                    view.setBackground(this.f6134f.getResources().getDrawable(c.a.r0.a.e.swan_image_menu_item_bg));
+                    view.setBackground(this.f6001f.getResources().getDrawable(c.a.r0.a.e.swan_image_menu_item_bg));
                 }
             }
         }
@@ -180,7 +180,7 @@ public class c extends z {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6133e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6000e.size() : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -196,10 +196,10 @@ public class c extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
                 if (view == null) {
-                    view = View.inflate(this.f6134f, g.aiapps_scheme_utils_show_action_sheet_item, null);
+                    view = View.inflate(this.f6001f, g.aiapps_scheme_utils_show_action_sheet_item, null);
                 }
                 TextView textView = (TextView) view.findViewById(f.text);
-                textView.setTextColor(this.f6135g);
+                textView.setTextColor(this.f6002g);
                 textView.setText(getItem(i2));
                 b(view, i2);
                 return view;
@@ -214,13 +214,13 @@ public class c extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6136e;
+        public final /* synthetic */ CallbackHandler f6003e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6137f;
+        public final /* synthetic */ UnitedSchemeEntity f6004f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAlertDialog f6138g;
+        public final /* synthetic */ SwanAppAlertDialog f6005g;
 
         public d(c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, SwanAppAlertDialog swanAppAlertDialog) {
             Interceptable interceptable = $ic;
@@ -237,9 +237,9 @@ public class c extends z {
                     return;
                 }
             }
-            this.f6136e = callbackHandler;
-            this.f6137f = unitedSchemeEntity;
-            this.f6138g = swanAppAlertDialog;
+            this.f6003e = callbackHandler;
+            this.f6004f = unitedSchemeEntity;
+            this.f6005g = swanAppAlertDialog;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -249,13 +249,13 @@ public class c extends z {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("tapIndex", i2);
-                    UnitedSchemeUtility.callCallback(this.f6136e, this.f6137f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    this.f6138g.dismiss();
+                    UnitedSchemeUtility.callCallback(this.f6003e, this.f6004f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    this.f6005g.dismiss();
                 } catch (JSONException e2) {
-                    if (z.f6340b) {
+                    if (z.f6201b) {
                         e2.printStackTrace();
                     }
-                    UnitedSchemeUtility.callCallback(this.f6136e, this.f6137f, UnitedSchemeUtility.wrapCallbackParams(201));
+                    UnitedSchemeUtility.callCallback(this.f6003e, this.f6004f, UnitedSchemeUtility.wrapCallbackParams(201));
                 }
             }
         }
@@ -288,7 +288,7 @@ public class c extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (eVar != null && eVar.m0()) {
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
                 return false;
             } else if (context != null && eVar != null) {
@@ -345,7 +345,7 @@ public class c extends z {
             }
             optString = optParamsAsJo.optString("itemColor");
         } catch (IllegalArgumentException | JSONException e2) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 e2.printStackTrace();
             }
         }
@@ -376,7 +376,7 @@ public class c extends z {
             View inflate = View.inflate(context, g.aiapps_scheme_utils_show_action_sheet, null);
             ListView listView = (ListView) inflate.findViewById(f.list);
             listView.setSelector(new ColorDrawable(0));
-            listView.setAdapter((ListAdapter) new C0318c(this, arrayList, context, i2));
+            listView.setAdapter((ListAdapter) new C0327c(this, arrayList, context, i2));
             bVar.W(inflate);
             bVar.j();
             bVar.q(k(context, arrayList.size()));

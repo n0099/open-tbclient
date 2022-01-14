@@ -29,31 +29,29 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d extends c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final boolean f10499k;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Callback f10500d;
+    public Callback f10273d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f10501e;
+    public JSONObject f10274e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10502f;
+    public String f10275f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10503g;
+    public String f10276g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f10504h;
+    public String f10277h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f10505i;
+    public String f10278i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f10506j;
+    public int f10279j;
 
     /* loaded from: classes6.dex */
     public class a extends ResponseCallback {
@@ -86,11 +84,11 @@ public class d extends c {
                 if (c.a.r0.c.a.a.a) {
                     String str = "Bdtls Request API onFailure = " + exc.getMessage();
                 }
-                if (this.a.f10500d != null) {
+                if (this.a.f10273d != null) {
                     if (exc instanceof IOException) {
-                        this.a.f10500d.onFailure(null, (IOException) exc);
+                        this.a.f10273d.onFailure(null, (IOException) exc);
                     } else {
-                        this.a.f10500d.onFailure(null, new IOException(exc));
+                        this.a.f10273d.onFailure(null, new IOException(exc));
                     }
                 }
             }
@@ -128,7 +126,7 @@ public class d extends c {
                 return;
             }
         }
-        f10499k = k.a;
+        k = k.a;
     }
 
     public d(c.a.r0.a.d2.e eVar, JSONObject jSONObject, String str, Callback callback) {
@@ -146,17 +144,17 @@ public class d extends c {
                 return;
             }
         }
-        this.f10500d = callback;
-        this.f10502f = str;
+        this.f10273d = callback;
+        this.f10275f = str;
         m(jSONObject);
-        d(this.f10501e.optString("method"));
+        d(this.f10274e.optString("method"));
     }
 
     @Override // c.a.r0.c.a.k.c
     public void e(IOException iOException) {
         Callback callback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, iOException) == null) || (callback = this.f10500d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, iOException) == null) || (callback = this.f10273d) == null) {
             return;
         }
         callback.onFailure(null, iOException);
@@ -169,7 +167,7 @@ public class d extends c {
             if (c.a.r0.c.a.a.a) {
                 String str = "onRequestError=" + i2;
             }
-            Callback callback = this.f10500d;
+            Callback callback = this.f10273d;
             if (callback != null) {
                 callback.onFailure(null, new IOException("request error  code : " + i2));
             }
@@ -187,17 +185,17 @@ public class d extends c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject = new JSONObject(this.f10501e.toString());
+                jSONObject = new JSONObject(this.f10274e.toString());
                 try {
-                    Uri parse = Uri.parse(this.f10504h);
+                    Uri parse = Uri.parse(this.f10277h);
                     String path = parse.getPath();
                     String query = parse.getQuery();
-                    if (TextUtils.isEmpty(this.f10505i)) {
-                        str = c.a.r0.c.a.b.f10453b;
+                    if (TextUtils.isEmpty(this.f10278i)) {
+                        str = c.a.r0.c.a.b.f10227b;
                     } else {
-                        str = this.f10505i + "/bdtls";
+                        str = this.f10278i + "/bdtls";
                     }
-                    StringBuilder sb = new StringBuilder(str + "/" + this.f10503g);
+                    StringBuilder sb = new StringBuilder(str + "/" + this.f10276g);
                     String str3 = "";
                     if (TextUtils.isEmpty(path)) {
                         path = "";
@@ -207,7 +205,7 @@ public class d extends c {
                         str3 = "?" + query;
                     }
                     sb.append(str3);
-                    if (f10499k) {
+                    if (k) {
                         String str4 = "bdtls url is : " + sb.toString();
                     }
                     JSONObject optJSONObject = jSONObject.optJSONObject("header");
@@ -224,9 +222,9 @@ public class d extends c {
                     jSONObject.putOpt("url", sb.toString());
                 } catch (JSONException unused) {
                     jSONObject2 = jSONObject;
-                    boolean z = f10499k;
+                    boolean z = k;
                     jSONObject = jSONObject2;
-                    httpRequest = (HttpRequest) i.C(jSONObject, this.f10502f).first;
+                    httpRequest = (HttpRequest) i.C(jSONObject, this.f10275f).first;
                     if (httpRequest == null) {
                         callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
                     }
@@ -234,8 +232,8 @@ public class d extends c {
                 }
             } catch (JSONException unused2) {
             }
-            httpRequest = (HttpRequest) i.C(jSONObject, this.f10502f).first;
-            if (httpRequest == null && (callback = this.f10500d) != null) {
+            httpRequest = (HttpRequest) i.C(jSONObject, this.f10275f).first;
+            if (httpRequest == null && (callback = this.f10273d) != null) {
                 callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
             }
             l(httpRequest);
@@ -253,11 +251,11 @@ public class d extends c {
     public final void m(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            this.f10501e = jSONObject;
-            this.f10504h = jSONObject.optString("url");
-            JSONObject optJSONObject = this.f10501e.optJSONObject("ext");
+            this.f10274e = jSONObject;
+            this.f10277h = jSONObject.optString("url");
+            JSONObject optJSONObject = this.f10274e.optJSONObject("ext");
             if (optJSONObject != null) {
-                this.f10505i = optJSONObject.optString("customHost");
+                this.f10278i = optJSONObject.optString("customHost");
             }
         }
     }
@@ -274,7 +272,7 @@ public class d extends c {
                     p();
                     return;
                 }
-                this.f10500d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
+                this.f10273d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
                 return;
             }
             g.l().m().k();
@@ -284,26 +282,26 @@ public class d extends c {
                 if (c.a.r0.c.a.a.a) {
                     String str = "BdtlsPostRequest parseResponse=" + g2;
                 }
-                if (this.f10497b == 1) {
+                if (this.f10271b == 1) {
                     Buffer buffer = new Buffer();
                     buffer.writeString(g2, Charset.forName("utf-8"));
                     Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                    Callback callback = this.f10500d;
+                    Callback callback = this.f10273d;
                     if (callback != null) {
                         callback.onResponse(call, build);
                     }
-                    this.f10506j = 0;
+                    this.f10279j = 0;
                     return;
-                } else if (this.f10506j < 3) {
+                } else if (this.f10279j < 3) {
                     p();
                     return;
                 } else {
-                    this.f10500d.onFailure(call, new IOException("Url or serviceId is invalid"));
-                    this.f10506j = 0;
+                    this.f10273d.onFailure(call, new IOException("Url or serviceId is invalid"));
+                    this.f10279j = 0;
                     return;
                 }
             }
-            Callback callback2 = this.f10500d;
+            Callback callback2 = this.f10273d;
             if (callback2 != null) {
                 callback2.onResponse(call, response);
             }
@@ -313,8 +311,8 @@ public class d extends c {
     public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f10503g = str;
-            JSONObject jSONObject = this.f10501e;
+            this.f10276g = str;
+            JSONObject jSONObject = this.f10274e;
             a(jSONObject != null ? jSONObject.optString("data") : "");
         }
     }
@@ -322,8 +320,8 @@ public class d extends c {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f10506j++;
-            o(this.f10503g);
+            this.f10279j++;
+            o(this.f10276g);
         }
     }
 }

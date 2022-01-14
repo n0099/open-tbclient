@@ -22,7 +22,7 @@ public class b extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6347b;
+    public static final boolean f6208b;
     public transient /* synthetic */ FieldHolder $fh;
     public CookieManager a;
 
@@ -39,7 +39,7 @@ public class b extends h {
                 return;
             }
         }
-        f6347b = k.a;
+        f6208b = k.a;
     }
 
     public b() {
@@ -83,7 +83,7 @@ public class b extends h {
             g c2 = e.c(a.class, a(str, "", 4));
             if (c2.a()) {
                 String string = c2.a.getString("result");
-                if (f6347b) {
+                if (f6208b) {
                     String str2 = "getCookie cookie : " + string;
                 }
                 return string;
@@ -140,7 +140,7 @@ public class b extends h {
             bundle.putString("param1", str);
             bundle.putStringArrayList("param2", (ArrayList) list);
             e.c(a.class, bundle);
-            if (f6347b) {
+            if (f6208b) {
                 String str2 = "set cookies for " + str;
             }
         }

@@ -15,10 +15,10 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public V8ExceptionInfo f4594b;
+    public V8ExceptionInfo f4497b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4595c;
+    public int f4498c;
 
     public b(int i2, V8ExceptionInfo v8ExceptionInfo, long j2) {
         Interceptable interceptable = $ic;
@@ -36,21 +36,21 @@ public class b {
             }
         }
         this.a = j2;
-        this.f4594b = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-        this.f4595c = i2;
+        this.f4497b = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
+        this.f4498c = i2;
     }
 
     public V8ExceptionInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4594b : (V8ExceptionInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4497b : (V8ExceptionInfo) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "StuckScreenExceptionInfo{mLastOnScreenHappenedTime=" + this.a + ", mV8ExceptionInfo=" + this.f4594b + ", type=" + this.f4595c + ExtendedMessageFormat.END_FE;
+            return "StuckScreenExceptionInfo{mLastOnScreenHappenedTime=" + this.a + ", mV8ExceptionInfo=" + this.f4497b + ", type=" + this.f4498c + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

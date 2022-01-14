@@ -16,7 +16,7 @@ public class EditorInfoView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50009e;
+    public int f48129e;
     public int paddingHor;
     public int paddingVer;
 
@@ -43,11 +43,11 @@ public class EditorInfoView extends TextView {
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == this.f50009e) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == this.f48129e) {
             return;
         }
         SkinManager.setViewTextColor(this, R.color.CAM_X0106);
-        this.f50009e = i2;
+        this.f48129e = i2;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -99,7 +99,7 @@ public class EditorInfoView extends TextView {
                 return;
             }
         }
-        this.f50009e = 3;
+        this.f48129e = 3;
         this.paddingHor = (int) context.getResources().getDimension(R.dimen.ds18);
         int dimension = (int) context.getResources().getDimension(R.dimen.ds6);
         this.paddingVer = dimension;

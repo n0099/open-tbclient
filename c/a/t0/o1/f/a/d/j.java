@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class j extends c.a.t0.o1.f.a.d.a<c.a.t0.o1.f.a.e.e, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class j extends c.a.t0.o1.f.a.d.a<c.a.t0.o1.f.a.e.e, a> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.o1.f.a.e.a.f20925b);
+        super(tbPageContext.getPageActivity(), c.a.t0.o1.f.a.e.a.f20363b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

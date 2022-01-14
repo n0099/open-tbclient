@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.Charset;
 import java.util.HashMap;
@@ -87,7 +88,7 @@ public class FastJsonJsonView extends AbstractView {
         this.updateContentLength = true;
         this.extractValueFromSingleKeyModel = false;
         this.fastJsonConfig = new FastJsonConfig();
-        this.jsonpParameterNames = new String[]{"jsonp", "callback"};
+        this.jsonpParameterNames = new String[]{"jsonp", WebChromeClient.KEY_ARG_CALLBACK};
         setContentType(DEFAULT_CONTENT_TYPE);
         setExposePathVariables(false);
     }

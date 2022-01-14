@@ -5,7 +5,7 @@ import c.a.r0.a.p.c.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.performance.speed.SpeedRuntime;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class a extends n {
     public String A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SpeedRuntime.SPLASH_ACTIVITY_NAME : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME : (String) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.p.d.a0

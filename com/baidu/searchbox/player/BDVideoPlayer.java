@@ -51,7 +51,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BDVideoPlayer";
@@ -85,7 +85,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public int mVideoLoopCount;
     public VideoTask mVideoTask;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class InternalPlayerDispatcher implements InternalEventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

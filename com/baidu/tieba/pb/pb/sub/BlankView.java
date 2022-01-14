@@ -17,10 +17,10 @@ public class BlankView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f48547e;
+    public Scroller f46735e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f48548f;
+    public a f46736f;
 
     /* loaded from: classes12.dex */
     public interface a {
@@ -52,12 +52,12 @@ public class BlankView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.computeScroll();
-            Scroller scroller = this.f48547e;
+            Scroller scroller = this.f46735e;
             if (scroller == null) {
                 return;
             }
             if (scroller.computeScrollOffset()) {
-                int currY = this.f48547e.getCurrY();
+                int currY = this.f46735e.getCurrY();
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.height = currY;
@@ -66,7 +66,7 @@ public class BlankView extends View {
                 }
                 return;
             }
-            a aVar = this.f48548f;
+            a aVar = this.f46736f;
             if (aVar != null) {
                 aVar.a();
             }
@@ -84,19 +84,19 @@ public class BlankView extends View {
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f48548f = aVar;
+            this.f46736f = aVar;
         }
     }
 
     public void startScrollDissmiss() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f48547e == null) {
-                this.f48547e = new Scroller(getContext());
+            if (this.f46735e == null) {
+                this.f46735e = new Scroller(getContext());
             }
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
-                Scroller scroller = this.f48547e;
+                Scroller scroller = this.f46735e;
                 int i2 = layoutParams.height;
                 scroller.startScroll(0, i2, 0, 0 - i2);
                 invalidate();

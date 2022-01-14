@@ -97,7 +97,7 @@ public class InnerImportExportConfigUtil {
             HashMap hashMap2 = new HashMap();
             if (map != null) {
                 for (Map.Entry<String, ShaderConfig> entry : map.entrySet()) {
-                    if (!TextUtils.equals(entry.getKey(), c.f1699b) && !TextUtils.equals(entry.getKey(), c.f1702e) && (!TextUtils.equals(entry.getKey(), c.f1700c) || !h.e(entry.getValue().textures))) {
+                    if (!TextUtils.equals(entry.getKey(), c.f1679b) && !TextUtils.equals(entry.getKey(), c.f1682e) && (!TextUtils.equals(entry.getKey(), c.f1680c) || !h.e(entry.getValue().textures))) {
                         ShaderConfig shaderConfig = (ShaderConfig) entry.getValue().clone();
                         if (!TextUtils.isEmpty(shaderConfig.resourcePath)) {
                             File file = new File(shaderConfig.resourcePath);

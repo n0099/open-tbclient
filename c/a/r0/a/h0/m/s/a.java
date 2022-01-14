@@ -30,28 +30,28 @@ public final class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<Integer> f6869b;
+    public static final Set<Integer> f6721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, Long> f6870c;
+    public static final Map<String, Long> f6722c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6871d;
+    public static int f6723d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final e<String, String> f6872e;
+    public static final e<String, String> f6724e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final e<c.a, String> f6873f;
+    public static final e<c.a, String> f6725f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.h0.m.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0381a implements e<String, String> {
+    public static class C0390a implements e<String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0381a() {
+        public C0390a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,11 +124,11 @@ public final class a {
             }
         }
         a = k.a;
-        f6869b = Sets.newHashSet(0, 1010, 1011, 1012, 1020, 1015);
-        f6870c = new ConcurrentHashMap();
-        f6871d = 1800;
-        f6872e = new C0381a();
-        f6873f = new b();
+        f6721b = Sets.newHashSet(0, 1010, 1011, 1012, 1020, 1015);
+        f6722c = new ConcurrentHashMap();
+        f6723d = 1800;
+        f6724e = new C0390a();
+        f6725f = new b();
     }
 
     public static <T> T a(String str, T t) {
@@ -136,7 +136,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, t)) == null) {
             if (a) {
-                String str2 = "Recorded=" + f6870c.size() + " # " + str + " => " + t;
+                String str2 = "Recorded=" + f6722c.size() + " # " + str + " => " + t;
             }
             return t;
         }
@@ -147,8 +147,8 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Long l = f6870c.get(str);
-            return l == null || System.currentTimeMillis() - l.longValue() > ((long) (f6871d * 1000));
+            Long l = f6722c.get(str);
+            return l == null || System.currentTimeMillis() - l.longValue() > ((long) (f6723d * 1000));
         }
         return invokeL.booleanValue;
     }
@@ -199,10 +199,10 @@ public final class a {
                 return false;
             }
             if (z) {
-                f6870c.put(str, Long.valueOf(System.currentTimeMillis()));
+                f6722c.put(str, Long.valueOf(System.currentTimeMillis()));
                 z2 = true;
             } else {
-                z2 = !f6870c.containsKey(str);
+                z2 = !f6722c.containsKey(str);
             }
             Boolean valueOf = Boolean.valueOf(z2);
             a(str2 + " should", valueOf);
@@ -221,13 +221,13 @@ public final class a {
     public static List<String> h(Collection<String> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, collection)) == null) ? j(f6872e, collection) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, collection)) == null) ? j(f6724e, collection) : (List) invokeL.objValue;
     }
 
     public static List<c.a> i(Collection<c.a> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, collection)) == null) ? j(f6873f, collection) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, collection)) == null) ? j(f6725f, collection) : (List) invokeL.objValue;
     }
 
     public static <SwanItemT> List<SwanItemT> j(@NonNull e<SwanItemT, String> eVar, Collection<SwanItemT> collection) {
@@ -259,7 +259,7 @@ public final class a {
     public static boolean l(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i2)) == null) ? f6869b.contains(Integer.valueOf(i2)) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i2)) == null) ? f6721b.contains(Integer.valueOf(i2)) : invokeI.booleanValue;
     }
 
     public static boolean m(c.a.r0.q.i.b bVar) {
@@ -275,7 +275,7 @@ public final class a {
             if (str == null) {
                 return false;
             }
-            Iterator<Map.Entry<String, Long>> it = f6870c.entrySet().iterator();
+            Iterator<Map.Entry<String, Long>> it = f6722c.entrySet().iterator();
             while (it.hasNext()) {
                 Map.Entry<String, Long> next = it.next();
                 if (next != null && next.getKey() != null && next.getKey().startsWith(str)) {

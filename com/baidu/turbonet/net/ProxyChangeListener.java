@@ -29,24 +29,24 @@ public class ProxyChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f52225g = true;
+    public static boolean f50207g = true;
     public transient /* synthetic */ FieldHolder $fh;
     public final Looper a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f52226b;
+    public final Handler f50208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f52227c;
+    public long f50209c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f52228d;
+    public Context f50210d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f52229e;
+    public c f50211e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Delegate f52230f;
+    public Delegate f50212f;
 
     /* loaded from: classes13.dex */
     public interface Delegate {
@@ -66,13 +66,13 @@ public class ProxyChangeListener {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f52231b;
+        public final int f50213b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f52232c;
+        public final String f50214c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String[] f52233d;
+        public final String[] f50215d;
 
         public b(String str, int i2, String str2, String[] strArr) {
             Interceptable interceptable = $ic;
@@ -90,9 +90,9 @@ public class ProxyChangeListener {
                 }
             }
             this.a = str;
-            this.f52231b = i2;
-            this.f52232c = str2;
-            this.f52233d = strArr;
+            this.f50213b = i2;
+            this.f50214c = str2;
+            this.f50215d = strArr;
         }
     }
 
@@ -108,10 +108,10 @@ public class ProxyChangeListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Intent f52234e;
+            public final /* synthetic */ Intent f50216e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f52235f;
+            public final /* synthetic */ c f50217f;
 
             public a(c cVar, Intent intent) {
                 Interceptable interceptable = $ic;
@@ -128,16 +128,16 @@ public class ProxyChangeListener {
                         return;
                     }
                 }
-                this.f52235f = cVar;
-                this.f52234e = intent;
+                this.f50217f = cVar;
+                this.f50216e = intent;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c cVar = this.f52235f;
-                    cVar.this$0.e(cVar, cVar.extractNewProxy(this.f52234e));
+                    c cVar = this.f50217f;
+                    cVar.this$0.e(cVar, cVar.extractNewProxy(this.f50216e));
                 }
             }
         }
@@ -266,9 +266,9 @@ public class ProxyChangeListener {
                 return;
             }
         }
-        this.f52228d = context;
+        this.f50210d = context;
         this.a = Looper.myLooper();
-        this.f52226b = new Handler(this.a);
+        this.f50208b = new Handler(this.a);
     }
 
     @CalledByNative
@@ -293,22 +293,22 @@ public class ProxyChangeListener {
 
     private void registerReceiver() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65544, this) == null) && this.f52229e == null) {
+        if ((interceptable == null || interceptable.invokeV(65544, this) == null) && this.f50211e == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PROXY_CHANGE");
-            this.f52229e = new c(this, null);
-            this.f52228d.getApplicationContext().registerReceiver(this.f52229e, intentFilter);
+            this.f50211e = new c(this, null);
+            this.f50210d.getApplicationContext().registerReceiver(this.f50211e, intentFilter);
         }
     }
 
     private void unregisterReceiver() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (cVar = this.f52229e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (cVar = this.f50211e) == null) {
             return;
         }
-        this.f52228d.unregisterReceiver(cVar);
-        this.f52229e = null;
+        this.f50210d.unregisterReceiver(cVar);
+        this.f50211e = null;
     }
 
     public final void c() {
@@ -326,17 +326,17 @@ public class ProxyChangeListener {
 
     public final void e(c cVar, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, bVar) == null) && f52225g && cVar == this.f52229e) {
-            Delegate delegate = this.f52230f;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, bVar) == null) && f50207g && cVar == this.f50211e) {
+            Delegate delegate = this.f50212f;
             if (delegate != null) {
                 delegate.a();
             }
-            long j2 = this.f52227c;
+            long j2 = this.f50209c;
             if (j2 == 0) {
                 return;
             }
             if (bVar != null) {
-                nativeProxySettingsChangedTo(j2, bVar.a, bVar.f52231b, bVar.f52232c, bVar.f52233d);
+                nativeProxySettingsChangedTo(j2, bVar.a, bVar.f50213b, bVar.f50214c, bVar.f50215d);
             } else {
                 nativeProxySettingsChanged(j2);
             }
@@ -349,7 +349,7 @@ public class ProxyChangeListener {
             if (d()) {
                 runnable.run();
             } else {
-                this.f52226b.post(runnable);
+                this.f50208b.post(runnable);
             }
         }
     }
@@ -359,7 +359,7 @@ public class ProxyChangeListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
             c();
-            this.f52227c = j2;
+            this.f50209c = j2;
             registerReceiver();
         }
     }
@@ -369,7 +369,7 @@ public class ProxyChangeListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             c();
-            this.f52227c = 0L;
+            this.f50209c = 0L;
             unregisterReceiver();
         }
     }

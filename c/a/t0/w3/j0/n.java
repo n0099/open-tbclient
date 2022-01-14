@@ -15,10 +15,10 @@ public class n {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25572b;
+    public String f24857b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap f25573c;
+    public HashMap f24858c;
 
     public n(Context context, String str, HashMap hashMap) {
         Interceptable interceptable = $ic;
@@ -36,23 +36,23 @@ public class n {
             }
         }
         this.a = null;
-        this.f25572b = null;
-        this.f25573c = null;
+        this.f24857b = null;
+        this.f24858c = null;
         this.a = context;
-        this.f25572b = str;
-        this.f25573c = hashMap;
+        this.f24857b = str;
+        this.f24858c = hashMap;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25572b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24857b : (String) invokeV.objValue;
     }
 
     public HashMap b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25573c : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24858c : (HashMap) invokeV.objValue;
     }
 
     public Context getContext() {

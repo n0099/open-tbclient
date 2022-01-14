@@ -21,28 +21,26 @@ import tbclient.ItemPlot;
 /* loaded from: classes12.dex */
 public class ItemTableView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final int f45532k;
+    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ItemTableRowView f45533e;
+    public ItemTableRowView f43871e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ItemTableRowView f45534f;
+    public ItemTableRowView f43872f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemTableRowView f45535g;
+    public ItemTableRowView f43873g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ItemTableRowView f45536h;
+    public ItemTableRowView f43874h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ItemTableRowView f45537i;
+    public ItemTableRowView f43875i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SparseArray<ItemTableRowView> f45538j;
+    public SparseArray<ItemTableRowView> f43876j;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +55,7 @@ public class ItemTableView extends LinearLayout {
                 return;
             }
         }
-        f45532k = n.f(TbadkCoreApplication.getInst().getContext(), d1.tbds5);
+        k = n.f(TbadkCoreApplication.getInst().getContext(), d1.tbds5);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -85,18 +83,18 @@ public class ItemTableView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            this.f45537i = b(context, 0, 0);
-            this.f45536h = b(context, 1, f45532k);
-            this.f45535g = b(context, 2, f45532k);
-            this.f45534f = b(context, 3, f45532k);
-            this.f45533e = b(context, 4, f45532k);
+            this.f43875i = b(context, 0, 0);
+            this.f43874h = b(context, 1, k);
+            this.f43873g = b(context, 2, k);
+            this.f43872f = b(context, 3, k);
+            this.f43871e = b(context, 4, k);
             SparseArray<ItemTableRowView> sparseArray = new SparseArray<>();
-            this.f45538j = sparseArray;
-            sparseArray.put(5, this.f45537i);
-            this.f45538j.put(4, this.f45536h);
-            this.f45538j.put(3, this.f45535g);
-            this.f45538j.put(2, this.f45534f);
-            this.f45538j.put(1, this.f45533e);
+            this.f43876j = sparseArray;
+            sparseArray.put(5, this.f43875i);
+            this.f43876j.put(4, this.f43874h);
+            this.f43876j.put(3, this.f43873g);
+            this.f43876j.put(2, this.f43872f);
+            this.f43876j.put(1, this.f43871e);
         }
     }
 
@@ -117,22 +115,22 @@ public class ItemTableView extends LinearLayout {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f45533e.clear();
-            this.f45534f.clear();
-            this.f45535g.clear();
-            this.f45536h.clear();
-            this.f45537i.clear();
+            this.f43871e.clear();
+            this.f43872f.clear();
+            this.f43873g.clear();
+            this.f43874h.clear();
+            this.f43875i.clear();
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f45533e.onChangeSkinType();
-            this.f45534f.onChangeSkinType();
-            this.f45535g.onChangeSkinType();
-            this.f45536h.onChangeSkinType();
-            this.f45537i.onChangeSkinType();
+            this.f43871e.onChangeSkinType();
+            this.f43872f.onChangeSkinType();
+            this.f43873g.onChangeSkinType();
+            this.f43874h.onChangeSkinType();
+            this.f43875i.onChangeSkinType();
         }
     }
 
@@ -147,7 +145,7 @@ public class ItemTableView extends LinearLayout {
                 if (itemPlot != null) {
                     int intValue = itemPlot.level.intValue();
                     float intValue2 = (itemPlot.num.intValue() * 1.0f) / i2;
-                    ItemTableRowView itemTableRowView = this.f45538j.get(intValue);
+                    ItemTableRowView itemTableRowView = this.f43876j.get(intValue);
                     if (itemTableRowView != null) {
                         itemTableRowView.setData(intValue2);
                     }

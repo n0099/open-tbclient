@@ -20,10 +20,10 @@ public final class a extends c.a.r0.a.c0.a.c.b<TextView, b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwanAppComponentContainerView f5441i;
+    public SwanAppComponentContainerView f5326i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f5442j;
+    public TextView f5327j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(@NonNull Context context, @NonNull b bVar) {
@@ -45,8 +45,8 @@ public final class a extends c.a.r0.a.c0.a.c.b<TextView, b> {
             }
         }
         g(4);
-        this.f5441i = new SwanAppComponentContainerView(context);
-        this.f5442j = new TextView(context);
+        this.f5326i = new SwanAppComponentContainerView(context);
+        this.f5327j = new TextView(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,14 +57,14 @@ public final class a extends c.a.r0.a.c0.a.c.b<TextView, b> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bVar, bVar2)) == null) {
-            c.a.r0.a.c0.f.b k2 = super.k(bVar, bVar2);
+            c.a.r0.a.c0.f.b k = super.k(bVar, bVar2);
             if (!TextUtils.equals(bVar.I, bVar2.I) && (TextUtils.equals(bVar.I, "scroll") || TextUtils.equals(bVar2.I, "scroll"))) {
-                k2.b(7);
+                k.b(7);
             }
             if (!TextUtils.equals(bVar.I, bVar2.I) || (TextUtils.equals(bVar2.I, "scroll") && bVar.H != bVar2.H)) {
-                k2.b(8);
+                k.b(8);
             }
-            return k2;
+            return k;
         }
         return (c.a.r0.a.c0.f.b) invokeLL.objValue;
     }
@@ -76,7 +76,7 @@ public final class a extends c.a.r0.a.c0.a.c.b<TextView, b> {
     public TextView v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? this.f5442j : (TextView) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? this.f5327j : (TextView) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,7 +85,7 @@ public final class a extends c.a.r0.a.c0.a.c.b<TextView, b> {
     public void P(@NonNull View view, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, view, bVar) == null) {
-            boolean z = c.a.r0.a.c0.b.a.f5409h;
+            boolean z = c.a.r0.a.c0.b.a.f5296h;
             if (bVar.n == null) {
                 return;
             }
@@ -102,7 +102,7 @@ public final class a extends c.a.r0.a.c0.a.c.b<TextView, b> {
     public void Q(@NonNull TextView textView, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, textView, bVar) == null) {
-            boolean z = c.a.r0.a.c0.b.a.f5409h;
+            boolean z = c.a.r0.a.c0.b.a.f5296h;
             if (bVar.n == null) {
                 return;
             }
@@ -126,6 +126,6 @@ public final class a extends c.a.r0.a.c0.a.c.b<TextView, b> {
     public SwanAppComponentContainerView u(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? this.f5441i : (SwanAppComponentContainerView) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? this.f5326i : (SwanAppComponentContainerView) invokeL.objValue;
     }
 }

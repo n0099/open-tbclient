@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.h0.q;
-import c.a.c0.h0.t;
+import c.a.c0.k0.l;
+import c.a.c0.k0.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.videoplayer.ui.BaseVideoPlayEndUI;
 import com.baidu.nadcore.video.videoplayer.widget.ImageTextView;
@@ -20,10 +20,10 @@ public class FullStandardShareView extends BaseVideoPlayEndUI implements View.On
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f38294f;
+    public boolean f37085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageTextView f38295g;
+    public ImageTextView f37086g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FullStandardShareView(Context context) {
@@ -49,7 +49,7 @@ public class FullStandardShareView extends BaseVideoPlayEndUI implements View.On
     public boolean isShowSharePanel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38294f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37085f : invokeV.booleanValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -68,11 +68,11 @@ public class FullStandardShareView extends BaseVideoPlayEndUI implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             ImageTextView imageTextView = new ImageTextView(context);
-            this.f38295g = imageTextView;
-            imageTextView.setIconAndTitle(q.nad_videoplayer_new_player_replay_button_selector, t.nad_player_common_replay);
-            this.f38295g.setTextColor(q.nad_videoplayer_quick_share_item);
-            this.f38295g.setOnClickListener(this);
-            return this.f38295g;
+            this.f37086g = imageTextView;
+            imageTextView.setIconAndTitle(l.nad_videoplayer_new_player_replay_button_selector, o.nad_player_common_replay);
+            this.f37086g.setTextColor(l.nad_videoplayer_quick_share_item);
+            this.f37086g.setOnClickListener(this);
+            return this.f37086g;
         }
         return (View) invokeL.objValue;
     }
@@ -89,7 +89,7 @@ public class FullStandardShareView extends BaseVideoPlayEndUI implements View.On
     public void onPlayBtnVisible(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f38295g.setVisibility(i2);
+            this.f37086g.setVisibility(i2);
         }
     }
 
@@ -121,7 +121,7 @@ public class FullStandardShareView extends BaseVideoPlayEndUI implements View.On
     public void setShowSharePanel(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f38294f = z;
+            this.f37085f = z;
         }
     }
 

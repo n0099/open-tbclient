@@ -49,34 +49,32 @@ public class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f23553b;
+    public View f22899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f23554c;
+    public f f22900c;
 
     /* renamed from: d  reason: collision with root package name */
-    public m f23555d;
+    public m f22901d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23556e;
+    public int f22902e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f23557f;
+    public TextView f22903f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f23558g;
+    public View f22904g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f23559h;
+    public TextView f22905h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f23560i;
+    public TBSpecificationBtn f22906i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f23561j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View f23562k;
+    public TextView f22907j;
+    public View k;
     public TextView l;
     public VoteCountDownView m;
     public View n;
@@ -89,12 +87,12 @@ public class a {
 
     /* renamed from: c.a.t0.s2.u.f.h1.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1395a implements VoteCountDownView.b {
+    public class C1410a implements VoteCountDownView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1395a(a aVar) {
+        public C1410a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,16 +113,16 @@ public class a {
         @Override // com.baidu.tieba.view.VoteCountDownView.b
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f23553b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f22899b == null) {
                 return;
             }
-            if (this.a.f23554c == null || this.a.f23554c.f23040h == null) {
-                this.a.f23553b.setVisibility(8);
+            if (this.a.f22900c == null || this.a.f22900c.f22407h == null) {
+                this.a.f22899b.setVisibility(8);
                 return;
             }
-            this.a.f23554c.f23040h.k(3);
+            this.a.f22900c.f22407h.k(3);
             a aVar = this.a;
-            aVar.j(aVar.f23554c);
+            aVar.j(aVar.f22900c);
         }
     }
 
@@ -134,7 +132,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23563e;
+        public final /* synthetic */ a f22908e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -151,7 +149,7 @@ public class a {
                     return;
                 }
             }
-            this.f23563e = aVar;
+            this.f22908e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -159,28 +157,28 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == i.pb_jump_to_vote_page) {
-                    if (this.f23563e.f23554c == null || this.f23563e.a == null || !ViewHelper.checkUpIsLogin(this.f23563e.a.getPageActivity())) {
+                    if (this.f22908e.f22900c == null || this.f22908e.a == null || !ViewHelper.checkUpIsLogin(this.f22908e.a.getPageActivity())) {
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(this.f23563e.a.getPageActivity()).createNormalConfig(c.a.d.f.m.b.g(this.f23563e.f23554c.m(), 0L), 3)));
-                } else if (view.getId() != i.pb_vote_button || !ViewHelper.checkUpIsLogin(this.f23563e.a.getPageActivity()) || this.f23563e.f23554c == null || this.f23563e.f23555d == null || this.f23563e.f23554c.O() == null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(this.f22908e.a.getPageActivity()).createNormalConfig(c.a.d.f.m.b.g(this.f22908e.f22900c.m(), 0L), 3)));
+                } else if (view.getId() != i.pb_vote_button || !ViewHelper.checkUpIsLogin(this.f22908e.a.getPageActivity()) || this.f22908e.f22900c == null || this.f22908e.f22901d == null || this.f22908e.f22900c.O() == null) {
                 } else {
-                    if (this.f23563e.f23555d.a()) {
-                        new StatisticItem("c13444").param("forum_id", this.f23563e.f23554c.m()).eventStat();
+                    if (this.f22908e.f22901d.a()) {
+                        new StatisticItem("c13444").param("forum_id", this.f22908e.f22900c.m()).eventStat();
                         c.a.t0.s2.d dVar = new c.a.t0.s2.d();
-                        dVar.i(c.a.d.f.m.b.g(this.f23563e.f23554c.Q(), 0L));
-                        dVar.g(c.a.d.f.m.b.g(this.f23563e.f23554c.m(), 0L));
-                        a aVar = this.f23563e;
-                        PostData f2 = aVar.f(aVar.f23554c);
+                        dVar.i(c.a.d.f.m.b.g(this.f22908e.f22900c.Q(), 0L));
+                        dVar.g(c.a.d.f.m.b.g(this.f22908e.f22900c.m(), 0L));
+                        a aVar = this.f22908e;
+                        PostData f2 = aVar.f(aVar.f22900c);
                         dVar.f(c.a.d.f.m.b.g((f2 == null || f2.t() == null) ? "" : f2.t().getUserId(), 0L));
                         dVar.h(2);
-                        dVar.j(this.f23563e.a.getUniqueId());
+                        dVar.j(this.f22908e.a.getUniqueId());
                         CustomMessage customMessage = new CustomMessage(2921411);
                         customMessage.setData(dVar);
                         MessageManager.getInstance().sendMessage(customMessage);
                         return;
                     }
-                    n.L(TbadkCoreApplication.getInst(), l.has_not_other_ticket);
+                    n.M(TbadkCoreApplication.getInst(), l.has_not_other_ticket);
                 }
             }
         }
@@ -221,21 +219,21 @@ public class a {
                 return;
             }
             int error = httpResponsedMessage.getError();
-            if (!(httpResponsedMessage instanceof CommitVoteResMsg) || this.a.f23554c == null || this.a.f23554c.f23040h == null || this.a.a == null || httpResponsedMessage.getOrginalMessage().getTag() != this.a.a.getUniqueId()) {
+            if (!(httpResponsedMessage instanceof CommitVoteResMsg) || this.a.f22900c == null || this.a.f22900c.f22407h == null || this.a.a == null || httpResponsedMessage.getOrginalMessage().getTag() != this.a.a.getUniqueId()) {
                 return;
             }
             if (error == 0) {
-                n.L(TbadkCoreApplication.getInst(), l.bar_manager_vote_success);
-                this.a.f23554c.f23040h.l(this.a.f23554c.f23040h.h() + 1);
-                this.a.f23554c.f23040h.j(false);
+                n.M(TbadkCoreApplication.getInst(), l.bar_manager_vote_success);
+                this.a.f22900c.f22407h.l(this.a.f22900c.f22407h.h() + 1);
+                this.a.f22900c.f22407h.j(false);
                 a aVar = this.a;
-                aVar.j(aVar.f23554c);
+                aVar.j(aVar.f22900c);
             } else if (error == 3250023) {
                 c.a.t0.w3.p0.f.b(error, "", null);
             } else if (error == 3250021) {
                 c.a.t0.w3.p0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
             } else if (error != 3250002 && error != 3250004) {
-                n.M(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
+                n.N(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
             } else {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                 blockPopInfoData.block_info = c.a.d.f.p.m.isEmpty(httpResponsedMessage.getErrorString()) ? this.a.a.getResources().getString(l.block_user_tip) : httpResponsedMessage.getErrorString();
@@ -262,7 +260,7 @@ public class a {
                 return;
             }
         }
-        this.r = new C1395a(this);
+        this.r = new C1410a(this);
         this.s = new b(this);
         this.t = new c(this, CmdConfigHttp.CMD_BAR_VOTE);
         this.a = tbPageContext;
@@ -277,24 +275,24 @@ public class a {
                 return null;
             }
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(j.bar_manager_select_view, (ViewGroup) null);
-            this.f23553b = inflate;
-            this.f23557f = (TextView) inflate.findViewById(i.pb_bar_manager_select_warn);
-            this.f23558g = this.f23553b.findViewById(i.pb_vote_button_container);
-            this.l = (TextView) this.f23553b.findViewById(i.pb_count_down_title);
-            this.f23560i = (TBSpecificationBtn) this.f23553b.findViewById(i.pb_vote_button);
-            c.a.s0.s.i0.n.a aVar = new c.a.s0.s.i0.n.a();
+            this.f22899b = inflate;
+            this.f22903f = (TextView) inflate.findViewById(i.pb_bar_manager_select_warn);
+            this.f22904g = this.f22899b.findViewById(i.pb_vote_button_container);
+            this.l = (TextView) this.f22899b.findViewById(i.pb_count_down_title);
+            this.f22906i = (TBSpecificationBtn) this.f22899b.findViewById(i.pb_vote_button);
+            c.a.s0.s.j0.n.a aVar = new c.a.s0.s.j0.n.a();
             aVar.e(GradientDrawable.Orientation.TL_BR);
-            this.f23560i.setText(TbadkCoreApplication.getInst().getString(l.pb_vote_text));
-            this.f23560i.setTextSize(g.tbfontsize44);
-            this.f23560i.setConfig(aVar);
-            this.f23559h = (TextView) this.f23553b.findViewById(i.pb_vote_num);
-            this.f23561j = (TextView) this.f23553b.findViewById(i.pb_bar_manager_ueg_tip);
-            this.f23562k = this.f23553b.findViewById(i.pb_count_down_container);
-            this.m = (VoteCountDownView) this.f23553b.findViewById(i.pb_vote_count_down_view);
-            this.n = this.f23553b.findViewById(i.pb_vote_rule);
-            this.o = (TextView) this.f23553b.findViewById(i.pb_vote_rule_title);
-            this.p = (SelectRuleView) this.f23553b.findViewById(i.pb_vote_rule_content);
-            this.q = (TextView) this.f23553b.findViewById(i.pb_jump_to_vote_page);
+            this.f22906i.setText(TbadkCoreApplication.getInst().getString(l.pb_vote_text));
+            this.f22906i.setTextSize(g.tbfontsize44);
+            this.f22906i.setConfig(aVar);
+            this.f22905h = (TextView) this.f22899b.findViewById(i.pb_vote_num);
+            this.f22907j = (TextView) this.f22899b.findViewById(i.pb_bar_manager_ueg_tip);
+            this.k = this.f22899b.findViewById(i.pb_count_down_container);
+            this.m = (VoteCountDownView) this.f22899b.findViewById(i.pb_vote_count_down_view);
+            this.n = this.f22899b.findViewById(i.pb_vote_rule);
+            this.o = (TextView) this.f22899b.findViewById(i.pb_vote_rule_title);
+            this.p = (SelectRuleView) this.f22899b.findViewById(i.pb_vote_rule_content);
+            this.q = (TextView) this.f22899b.findViewById(i.pb_jump_to_vote_page);
             if (this.t != null) {
                 if (this.a.getPageActivity() instanceof BaseActivity) {
                     this.t.setTag(((BaseActivity) this.a.getPageActivity()).getUniqueId());
@@ -304,7 +302,7 @@ public class a {
                 MessageManager.getInstance().registerListener(this.t);
             }
             j(fVar);
-            return this.f23553b;
+            return this.f22899b;
         }
         return (View) invokeL.objValue;
     }
@@ -375,19 +373,19 @@ public class a {
     public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23553b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22899b : (View) invokeV.objValue;
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f23559h, c.a.t0.s2.f.CAM_X0304, 1, i2);
-            SkinManager.setViewTextColor(this.f23557f, c.a.t0.s2.f.CAM_X0109, 1, i2);
-            SkinManager.setViewTextColor(this.f23561j, c.a.t0.s2.f.CAM_X0109, 1, i2);
+            SkinManager.setViewTextColor(this.f22905h, c.a.t0.s2.f.CAM_X0304, 1, i2);
+            SkinManager.setViewTextColor(this.f22903f, c.a.t0.s2.f.CAM_X0109, 1, i2);
+            SkinManager.setViewTextColor(this.f22907j, c.a.t0.s2.f.CAM_X0109, 1, i2);
             SkinManager.setViewTextColor(this.o, c.a.t0.s2.f.CAM_X0105, 1, i2);
             SkinManager.setViewTextColor(this.q, c.a.t0.s2.f.CAM_X0304, 1, i2);
             SkinManager.setViewTextColor(this.l, c.a.t0.s2.f.CAM_X0105, 1, i2);
-            TBSpecificationBtn tBSpecificationBtn = this.f23560i;
+            TBSpecificationBtn tBSpecificationBtn = this.f22906i;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.changeSkinType();
             }
@@ -406,57 +404,57 @@ public class a {
     public void j(f fVar) {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || this.f23553b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || this.f22899b == null) {
             return;
         }
-        if (fVar != null && (mVar = fVar.f23040h) != null) {
-            this.f23554c = fVar;
-            this.f23555d = mVar;
+        if (fVar != null && (mVar = fVar.f22407h) != null) {
+            this.f22900c = fVar;
+            this.f22901d = mVar;
             if (mVar.d() != 0) {
-                int d2 = this.f23555d.d();
-                this.f23556e = d2;
+                int d2 = this.f22901d.d();
+                this.f22902e = d2;
                 if (d2 == 2) {
-                    this.f23558g.setVisibility(8);
-                    this.f23562k.setVisibility(0);
+                    this.f22904g.setVisibility(8);
+                    this.k.setVisibility(0);
                     this.m.setOnCountDownFinished(this.r);
-                    this.m.setData(this.f23555d.c() * 1000);
+                    this.m.setData(this.f22901d.c() * 1000);
                     this.q.setVisibility(8);
                 } else if (d2 == 3) {
-                    this.f23558g.setVisibility(0);
-                    this.f23560i.setOnClickListener(this.s);
-                    this.f23562k.setVisibility(8);
+                    this.f22904g.setVisibility(0);
+                    this.f22906i.setOnClickListener(this.s);
+                    this.k.setVisibility(8);
                     this.q.setVisibility(0);
                     this.q.setOnClickListener(this.s);
-                    TextView textView = this.f23559h;
-                    textView.setText(this.f23555d.h() + "票");
+                    TextView textView = this.f22905h;
+                    textView.setText(this.f22901d.h() + "票");
                 } else if (d2 == 4 || d2 == 5) {
-                    this.f23558g.setVisibility(0);
-                    this.f23560i.setEnabled(false);
-                    this.f23562k.setVisibility(8);
+                    this.f22904g.setVisibility(0);
+                    this.f22906i.setEnabled(false);
+                    this.k.setVisibility(8);
                     this.q.setVisibility(0);
                     this.q.setOnClickListener(this.s);
-                    TextView textView2 = this.f23559h;
-                    textView2.setText(this.f23555d.h() + "票");
+                    TextView textView2 = this.f22905h;
+                    textView2.setText(this.f22901d.h() + "票");
                 } else if (d2 == 6) {
-                    this.f23558g.setVisibility(0);
-                    this.f23560i.setEnabled(false);
-                    this.f23562k.setVisibility(8);
-                    TextView textView3 = this.f23559h;
-                    textView3.setText(this.f23555d.h() + "票");
+                    this.f22904g.setVisibility(0);
+                    this.f22906i.setEnabled(false);
+                    this.k.setVisibility(8);
+                    TextView textView3 = this.f22905h;
+                    textView3.setText(this.f22901d.h() + "票");
                     this.q.setVisibility(8);
                 } else {
-                    this.f23553b.setVisibility(8);
+                    this.f22899b.setVisibility(8);
                     return;
                 }
-                if (!ListUtils.isEmpty(this.f23555d.g()) || !ListUtils.isEmpty(this.f23555d.f())) {
+                if (!ListUtils.isEmpty(this.f22901d.g()) || !ListUtils.isEmpty(this.f22901d.f())) {
                     this.p.setColumn(2);
-                    this.p.setData(this.f23555d.g(), this.f23555d.f());
+                    this.p.setData(this.f22901d.g(), this.f22901d.f());
                 }
                 i(TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             return;
         }
-        this.f23553b.setVisibility(8);
+        this.f22899b.setVisibility(8);
     }
 }

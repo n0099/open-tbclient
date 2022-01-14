@@ -15,10 +15,10 @@ public class c {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f22662b;
+    public int f22041b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b> f22663c;
+    public List<b> f22042c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -33,13 +33,13 @@ public class c {
                 return;
             }
         }
-        this.f22663c = new ArrayList();
+        this.f22042c = new ArrayList();
     }
 
     public List<b> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22663c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22042c : (List) invokeV.objValue;
     }
 
     public long b() {
@@ -51,20 +51,20 @@ public class c {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22662b == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22041b == 1 : invokeV.booleanValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f22662b = i2;
+            this.f22041b = i2;
         }
     }
 
     public void e(List<b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f22663c = list;
+            this.f22042c = list;
         }
     }
 

@@ -17,18 +17,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class q extends c.a.s0.x.p.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static q f26525f;
+    public static q f25737f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<c.a.s0.x.p.c> f26526e;
+    public LinkedList<c.a.s0.x.p.c> f25738e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class q extends c.a.s0.x.p.a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements p.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,26 +125,26 @@ public class q extends c.a.s0.x.p.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f26525f == null) {
+            if (f25737f == null) {
                 synchronized (q.class) {
-                    if (f26525f == null) {
-                        f26525f = new q();
+                    if (f25737f == null) {
+                        f25737f = new q();
                     }
                 }
             }
-            return f26525f;
+            return f25737f;
         }
         return (q) invokeV.objValue;
     }
 
     @Override // c.a.s0.x.p.a
-    public void b(a.InterfaceC0894a interfaceC0894a) {
+    public void b(a.InterfaceC0907a interfaceC0907a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, interfaceC0894a) == null) && FileHelper.checkSD() && this.f26526e != null) {
-            for (int i2 = 0; i2 < this.f26526e.size(); i2++) {
-                p pVar = (p) this.f26526e.get(i2);
-                if (pVar.t() && c.a.t0.n2.c.i().g(pVar.f()) == null && interfaceC0894a != null) {
-                    interfaceC0894a.a(pVar);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, interfaceC0907a) == null) && FileHelper.checkSD() && this.f25738e != null) {
+            for (int i2 = 0; i2 < this.f25738e.size(); i2++) {
+                p pVar = (p) this.f25738e.get(i2);
+                if (pVar.t() && c.a.t0.n2.c.i().g(pVar.f()) == null && interfaceC0907a != null) {
+                    interfaceC0907a.a(pVar);
                 }
             }
         }
@@ -174,8 +174,8 @@ public class q extends c.a.s0.x.p.a {
             synchronized (this) {
                 if (list != null) {
                     if (!list.isEmpty()) {
-                        if (this.f26526e != null) {
-                            this.f26526e = null;
+                        if (this.f25738e != null) {
+                            this.f25738e = null;
                         }
                         LinkedList<c.a.s0.x.p.c> linkedList = new LinkedList<>();
                         boolean z = false;
@@ -186,14 +186,14 @@ public class q extends c.a.s0.x.p.a {
                                 z = pVar.u(bVar, new b(this));
                             }
                         }
-                        this.f26526e = linkedList;
+                        this.f25738e = linkedList;
                         if (z) {
                             MessageManager.getInstance().runTask(2004603, (Class) null);
                         }
                     }
                 }
-                if (this.f26526e != null) {
-                    this.f26526e = null;
+                if (this.f25738e != null) {
+                    this.f25738e = null;
                     MessageManager.getInstance().runTask(2004603, (Class) null);
                 }
             }

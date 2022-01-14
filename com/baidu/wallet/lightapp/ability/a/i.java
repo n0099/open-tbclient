@@ -54,7 +54,7 @@ public class i extends com.baidu.wallet.lightapp.ability.b {
             public final /* synthetic */ ILightappInvokerCallback a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ i f53380b;
+            public final /* synthetic */ i f51331b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -71,7 +71,7 @@ public class i extends com.baidu.wallet.lightapp.ability.b {
                         return;
                     }
                 }
-                this.f53380b = this;
+                this.f51331b = this;
                 this.a = iLightappInvokerCallback;
             }
 

@@ -13,7 +13,7 @@ public class s {
         public final Class<? extends T> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f60244b;
+        public final T f57958b;
     }
 
     static {
@@ -176,7 +176,7 @@ public class s {
             if (obj == null || !(obj instanceof a)) {
                 objArr2[i2] = obj;
             } else {
-                objArr2[i2] = ((a) obj).f60244b;
+                objArr2[i2] = ((a) obj).f57958b;
             }
         }
         return objArr2;

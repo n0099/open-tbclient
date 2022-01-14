@@ -15,7 +15,7 @@ public final class b {
     public final f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f4048b;
+    public final String f3986b;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class b {
                 return;
             }
         }
-        this.f4048b = str;
+        this.f3986b = str;
         this.a = new f();
     }
 
@@ -40,7 +40,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a = e.f4150c.a(this.f4048b);
+            String a = e.f4085c.a(this.f3986b);
             DebugTrace debugTrace = DebugTrace.a;
             debugTrace.a("parse taskInfo str:" + a);
             return (TaskInfo) this.a.a("info").a(a);

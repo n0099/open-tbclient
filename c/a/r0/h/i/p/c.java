@@ -23,7 +23,7 @@ public class c implements c.a.r0.h.i.m.h {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f10759b;
+    public Context f10524b;
 
     /* loaded from: classes6.dex */
     public class a extends ResponseCallback<String> {
@@ -93,7 +93,7 @@ public class c implements c.a.r0.h.i.m.h {
                 return;
             }
         }
-        this.f10759b = context;
+        this.f10524b = context;
     }
 
     @Override // c.a.r0.h.i.m.h
@@ -139,9 +139,9 @@ public class c implements c.a.r0.h.i.m.h {
             return;
         }
         c.a.r0.p.d.a aVar = new c.a.r0.p.d.a();
-        aVar.f11714b = "POST";
+        aVar.f11449b = "POST";
         aVar.a = "https://pimlog.baidu.com/mapp/advlog";
-        aVar.f11716d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
+        aVar.f11451d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
         c.a.r0.p.e.a.g().e(aVar);
     }
 

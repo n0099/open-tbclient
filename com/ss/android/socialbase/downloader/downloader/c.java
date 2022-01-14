@@ -54,34 +54,32 @@ public class c {
     public static volatile Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile j f62301b;
+    public static volatile j f59955b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile k f62302c;
+    public static volatile k f59956c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile h f62303d;
+    public static volatile h f59957d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile af f62304e;
+    public static volatile af f59958e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile com.ss.android.socialbase.downloader.impls.a f62305f;
+    public static volatile com.ss.android.socialbase.downloader.impls.a f59959f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile o f62306g;
+    public static volatile o f59960g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile o f62307h;
+    public static volatile o f59961h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile a f62308i;
+    public static volatile a f59962i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static volatile IDownloadHttpService f62309j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static volatile com.ss.android.socialbase.downloader.network.h f62310k;
+    public static volatile IDownloadHttpService f59963j;
+    public static volatile com.ss.android.socialbase.downloader.network.h k;
     public static volatile IDownloadHttpService l;
     public static volatile com.ss.android.socialbase.downloader.network.h m;
     public static volatile l n;
@@ -110,13 +108,13 @@ public class c {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public interface InterfaceC2199a {
+        public interface InterfaceC2216a {
             void a();
         }
 
         o a();
 
-        t a(InterfaceC2199a interfaceC2199a);
+        t a(InterfaceC2216a interfaceC2216a);
 
         m b();
     }
@@ -138,25 +136,25 @@ public class c {
     }
 
     public static k B() {
-        if (f62302c == null) {
+        if (f59956c == null) {
             synchronized (c.class) {
-                if (f62302c == null) {
-                    f62302c = new com.ss.android.socialbase.downloader.impls.i();
+                if (f59956c == null) {
+                    f59956c = new com.ss.android.socialbase.downloader.impls.i();
                 }
             }
         }
-        return f62302c;
+        return f59956c;
     }
 
     public static com.ss.android.socialbase.downloader.impls.a C() {
-        if (f62305f == null) {
+        if (f59959f == null) {
             synchronized (c.class) {
-                if (f62305f == null) {
-                    f62305f = new com.ss.android.socialbase.downloader.impls.e();
+                if (f59959f == null) {
+                    f59959f = new com.ss.android.socialbase.downloader.impls.e();
                 }
             }
         }
-        return f62305f;
+        return f59959f;
     }
 
     public static int D() {
@@ -168,13 +166,13 @@ public class c {
         if (B != null && B.a() != null) {
             return B.a();
         }
-        return com.ss.android.socialbase.downloader.constants.e.f62256i;
+        return com.ss.android.socialbase.downloader.constants.e.f59910i;
     }
 
     public static void F() {
-        if (TextUtils.isEmpty(com.ss.android.socialbase.downloader.constants.e.f62250c)) {
-            com.ss.android.socialbase.downloader.constants.e.f62250c = RomUtils.MANUFACTURER_OPPO;
-            com.ss.android.socialbase.downloader.constants.e.f62249b = com.ss.android.socialbase.downloader.constants.e.f62250c.toUpperCase();
+        if (TextUtils.isEmpty(com.ss.android.socialbase.downloader.constants.e.f59904c)) {
+            com.ss.android.socialbase.downloader.constants.e.f59904c = RomUtils.MANUFACTURER_OPPO;
+            com.ss.android.socialbase.downloader.constants.e.f59903b = com.ss.android.socialbase.downloader.constants.e.f59904c.toUpperCase();
         }
     }
 
@@ -191,18 +189,18 @@ public class c {
     }
 
     public static h I() {
-        if (f62303d == null) {
+        if (f59957d == null) {
             synchronized (c.class) {
-                if (f62303d == null) {
-                    f62303d = new com.ss.android.socialbase.downloader.impls.c();
+                if (f59957d == null) {
+                    f59957d = new com.ss.android.socialbase.downloader.impls.c();
                 }
             }
         }
-        return f62303d;
+        return f59957d;
     }
 
     public static af J() {
-        return f62304e;
+        return f59958e;
     }
 
     public static g K() {
@@ -281,13 +279,13 @@ public class c {
     public static boolean S() {
         StringBuilder sb = new StringBuilder();
         sb.append("supportMultiProc::=");
-        sb.append(f62308i != null);
+        sb.append(f59962i != null);
         com.ss.android.socialbase.downloader.c.a.a("wjd", sb.toString());
-        return f62308i != null;
+        return f59962i != null;
     }
 
     public static a T() {
-        return f62308i;
+        return f59962i;
     }
 
     public static void U() {
@@ -315,23 +313,23 @@ public class c {
             }
             boolean z2 = D;
             c(downloaderBuilder);
-            if (f62301b == null) {
-                f62301b = new com.ss.android.socialbase.downloader.impls.d();
+            if (f59955b == null) {
+                f59955b = new com.ss.android.socialbase.downloader.impls.d();
             }
-            if (f62306g == null) {
-                f62306g = new com.ss.android.socialbase.downloader.impls.h();
+            if (f59960g == null) {
+                f59960g = new com.ss.android.socialbase.downloader.impls.h();
             }
-            if (f62307h == null && f62308i != null) {
-                f62307h = f62308i.a();
+            if (f59961h == null && f59962i != null) {
+                f59961h = f59962i.a();
             }
-            if (f62302c == null) {
-                f62302c = new com.ss.android.socialbase.downloader.impls.i();
+            if (f59956c == null) {
+                f59956c = new com.ss.android.socialbase.downloader.impls.i();
             }
-            if (f62305f == null) {
-                f62305f = new com.ss.android.socialbase.downloader.impls.e();
+            if (f59959f == null) {
+                f59959f = new com.ss.android.socialbase.downloader.impls.e();
             }
-            if (f62303d == null) {
-                f62303d = new com.ss.android.socialbase.downloader.impls.c();
+            if (f59957d == null) {
+                f59957d = new com.ss.android.socialbase.downloader.impls.c();
             }
             if (w == null) {
                 w = new com.ss.android.socialbase.downloader.impls.b();
@@ -473,7 +471,7 @@ public class c {
     }
 
     public static IDownloadHttpService d() {
-        return f62309j;
+        return f59963j;
     }
 
     public static List<ak> e() {
@@ -485,7 +483,7 @@ public class c {
     }
 
     public static com.ss.android.socialbase.downloader.network.h f() {
-        return f62310k;
+        return k;
     }
 
     public static com.ss.android.socialbase.downloader.d.b g() {
@@ -639,36 +637,36 @@ public class c {
     }
 
     public static j x() {
-        if (f62301b == null) {
+        if (f59955b == null) {
             synchronized (c.class) {
-                if (f62301b == null) {
-                    f62301b = new com.ss.android.socialbase.downloader.impls.d();
+                if (f59955b == null) {
+                    f59955b = new com.ss.android.socialbase.downloader.impls.d();
                 }
             }
         }
-        return f62301b;
+        return f59955b;
     }
 
     public static o y() {
-        if (f62306g == null) {
+        if (f59960g == null) {
             synchronized (c.class) {
-                if (f62306g == null) {
-                    f62306g = new com.ss.android.socialbase.downloader.impls.h();
+                if (f59960g == null) {
+                    f59960g = new com.ss.android.socialbase.downloader.impls.h();
                 }
             }
         }
-        return f62306g;
+        return f59960g;
     }
 
     public static o z() {
-        if (f62307h == null) {
+        if (f59961h == null) {
             synchronized (c.class) {
-                if (f62307h == null) {
-                    f62307h = f62308i.a();
+                if (f59961h == null) {
+                    f59961h = f59962i.a();
                 }
             }
         }
-        return f62307h;
+        return f59961h;
     }
 
     public static void d(ExecutorService executorService) {
@@ -1013,8 +1011,8 @@ public class c {
         synchronized (c.class) {
             if (lVar != null) {
                 n = lVar;
-                if (f62301b instanceof com.ss.android.socialbase.downloader.impls.d) {
-                    ((com.ss.android.socialbase.downloader.impls.d) f62301b).h();
+                if (f59955b instanceof com.ss.android.socialbase.downloader.impls.d) {
+                    ((com.ss.android.socialbase.downloader.impls.d) f59955b).h();
                 }
             }
         }
@@ -1055,26 +1053,26 @@ public class c {
 
     public static void a(IDownloadHttpService iDownloadHttpService) {
         if (iDownloadHttpService != null) {
-            f62309j = iDownloadHttpService;
+            f59963j = iDownloadHttpService;
         }
-        Q = f62309j != null;
+        Q = f59963j != null;
     }
 
     public static void a(com.ss.android.socialbase.downloader.network.h hVar) {
         if (hVar != null) {
-            f62310k = hVar;
+            k = hVar;
         }
     }
 
     public static void a(j jVar) {
         if (jVar != null) {
-            f62301b = jVar;
+            f59955b = jVar;
         }
     }
 
     public static void a(k kVar) {
         if (kVar != null) {
-            f62302c = kVar;
+            f59956c = kVar;
         }
     }
 
@@ -1091,13 +1089,13 @@ public class c {
 
     public static void a(h hVar) {
         if (hVar != null) {
-            f62303d = hVar;
+            f59957d = hVar;
         }
     }
 
     public static void a(af afVar) {
         if (afVar != null) {
-            f62304e = afVar;
+            f59958e = afVar;
         }
     }
 
@@ -1139,6 +1137,6 @@ public class c {
 
     public static void a(a aVar) {
         com.ss.android.socialbase.downloader.c.a.a("wjd", "setIndependentServiceCreator::creator=" + aVar);
-        f62308i = aVar;
+        f59962i = aVar;
     }
 }

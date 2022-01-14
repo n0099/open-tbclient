@@ -41,13 +41,13 @@ public class f {
         public final /* synthetic */ a.InterfaceC0029a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.a1.s.a f1302b;
+        public final /* synthetic */ c.a.a1.s.a f1297b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f1303c;
+        public final /* synthetic */ String f1298c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f1304d;
+        public final /* synthetic */ String f1299d;
 
         public a(a.InterfaceC0029a interfaceC0029a, c.a.a1.s.a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -65,22 +65,22 @@ public class f {
                 }
             }
             this.a = interfaceC0029a;
-            this.f1302b = aVar;
-            this.f1303c = str;
-            this.f1304d = str2;
+            this.f1297b = aVar;
+            this.f1298c = str;
+            this.f1299d = str2;
         }
 
         @Override // c.a.a1.s.a.InterfaceC0029a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.a1.t.c.e("FFmpegCmdExecutor-modifyAudioProperty", "onCompletion:src:" + this.f1303c + ",:dest:" + this.f1304d);
+                c.a.a1.t.c.e("FFmpegCmdExecutor-modifyAudioProperty", "onCompletion:src:" + this.f1298c + ",:dest:" + this.f1299d);
                 a.InterfaceC0029a interfaceC0029a = this.a;
                 if (interfaceC0029a != null) {
                     interfaceC0029a.onCompletion();
                 }
                 c.a.a1.t.c.e("FFmpegCmdExecutor-modifyAudioProperty", "release");
-                this.f1302b.release();
+                this.f1297b.release();
             }
         }
 
@@ -102,7 +102,7 @@ public class f {
                     interfaceC0029a.onError(i2, i3, obj);
                 }
                 c.a.a1.t.c.e("FFmpegCmdExecutor-modifyAudioProperty", "release");
-                this.f1302b.release();
+                this.f1297b.release();
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -139,16 +139,16 @@ public class f {
         public final /* synthetic */ a.InterfaceC0029a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.a1.s.a f1305b;
+        public final /* synthetic */ c.a.a1.s.a f1300b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f1306c;
+        public final /* synthetic */ String f1301c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f1307d;
+        public final /* synthetic */ String f1302d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f1308e;
+        public final /* synthetic */ String f1303e;
 
         public b(a.InterfaceC0029a interfaceC0029a, c.a.a1.s.a aVar, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -166,23 +166,23 @@ public class f {
                 }
             }
             this.a = interfaceC0029a;
-            this.f1305b = aVar;
-            this.f1306c = str;
-            this.f1307d = str2;
-            this.f1308e = str3;
+            this.f1300b = aVar;
+            this.f1301c = str;
+            this.f1302d = str2;
+            this.f1303e = str3;
         }
 
         @Override // c.a.a1.s.a.InterfaceC0029a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.a1.t.c.e("FFmpegCmdExecutor-mixAudio", "onCompletion:src:" + this.f1306c + "," + this.f1307d + ",:dest:" + this.f1308e);
+                c.a.a1.t.c.e("FFmpegCmdExecutor-mixAudio", "onCompletion:src:" + this.f1301c + "," + this.f1302d + ",:dest:" + this.f1303e);
                 a.InterfaceC0029a interfaceC0029a = this.a;
                 if (interfaceC0029a != null) {
                     interfaceC0029a.onCompletion();
                 }
                 c.a.a1.t.c.e("FFmpegCmdExecutor-mixAudio", "release");
-                this.f1305b.release();
+                this.f1300b.release();
             }
         }
 
@@ -204,7 +204,7 @@ public class f {
                     interfaceC0029a.onError(i2, i3, obj);
                 }
                 c.a.a1.t.c.e("FFmpegCmdExecutor-mixAudio", "release");
-                this.f1305b.release();
+                this.f1300b.release();
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -241,7 +241,7 @@ public class f {
         public final /* synthetic */ a.InterfaceC0029a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.a1.s.a f1309b;
+        public final /* synthetic */ c.a.a1.s.a f1304b;
 
         public c(a.InterfaceC0029a interfaceC0029a, c.a.a1.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -259,7 +259,7 @@ public class f {
                 }
             }
             this.a = interfaceC0029a;
-            this.f1309b = aVar;
+            this.f1304b = aVar;
         }
 
         @Override // c.a.a1.s.a.InterfaceC0029a
@@ -270,7 +270,7 @@ public class f {
                 if (interfaceC0029a != null) {
                     interfaceC0029a.onCompletion();
                 }
-                this.f1309b.release();
+                this.f1304b.release();
             }
         }
 
@@ -291,7 +291,7 @@ public class f {
                 if (interfaceC0029a != null) {
                     interfaceC0029a.onError(i2, i3, obj);
                 }
-                this.f1309b.release();
+                this.f1304b.release();
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -328,13 +328,13 @@ public class f {
         public final /* synthetic */ a.InterfaceC0029a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.a1.s.a f1310b;
+        public final /* synthetic */ c.a.a1.s.a f1305b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f1311c;
+        public final /* synthetic */ List f1306c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f1312d;
+        public final /* synthetic */ String f1307d;
 
         public d(a.InterfaceC0029a interfaceC0029a, c.a.a1.s.a aVar, List list, String str) {
             Interceptable interceptable = $ic;
@@ -352,21 +352,21 @@ public class f {
                 }
             }
             this.a = interfaceC0029a;
-            this.f1310b = aVar;
-            this.f1311c = list;
-            this.f1312d = str;
+            this.f1305b = aVar;
+            this.f1306c = list;
+            this.f1307d = str;
         }
 
         @Override // c.a.a1.s.a.InterfaceC0029a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.a1.t.c.j("FFmpegCmdExecutor-concat", "onCompletion:inputsize:" + this.f1311c.size() + ",dest:" + this.f1312d);
+                c.a.a1.t.c.j("FFmpegCmdExecutor-concat", "onCompletion:inputsize:" + this.f1306c.size() + ",dest:" + this.f1307d);
                 a.InterfaceC0029a interfaceC0029a = this.a;
                 if (interfaceC0029a != null) {
                     interfaceC0029a.onCompletion();
                 }
-                this.f1310b.release();
+                this.f1305b.release();
             }
         }
 
@@ -387,7 +387,7 @@ public class f {
                 if (interfaceC0029a != null) {
                     interfaceC0029a.onError(i2, i3, obj);
                 }
-                this.f1310b.release();
+                this.f1305b.release();
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -424,16 +424,16 @@ public class f {
         public final /* synthetic */ a.InterfaceC0029a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.a1.s.a f1313b;
+        public final /* synthetic */ c.a.a1.s.a f1308b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f1314c;
+        public final /* synthetic */ String f1309c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f1315d;
+        public final /* synthetic */ String f1310d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f1316e;
+        public final /* synthetic */ String f1311e;
 
         public e(a.InterfaceC0029a interfaceC0029a, c.a.a1.s.a aVar, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -451,23 +451,23 @@ public class f {
                 }
             }
             this.a = interfaceC0029a;
-            this.f1313b = aVar;
-            this.f1314c = str;
-            this.f1315d = str2;
-            this.f1316e = str3;
+            this.f1308b = aVar;
+            this.f1309c = str;
+            this.f1310d = str2;
+            this.f1311e = str3;
         }
 
         @Override // c.a.a1.s.a.InterfaceC0029a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.a1.t.c.e("FFmpegCmdExecutor-muxAudioVideo", "onCompletion:video:" + this.f1314c + ",audio" + this.f1315d + ",:dest:" + this.f1316e);
+                c.a.a1.t.c.e("FFmpegCmdExecutor-muxAudioVideo", "onCompletion:video:" + this.f1309c + ",audio" + this.f1310d + ",:dest:" + this.f1311e);
                 a.InterfaceC0029a interfaceC0029a = this.a;
                 if (interfaceC0029a != null) {
                     interfaceC0029a.onCompletion();
                 }
                 c.a.a1.t.c.e("FFmpegCmdExecutor-muxAudioVideo", "release");
-                this.f1313b.release();
+                this.f1308b.release();
             }
         }
 
@@ -489,7 +489,7 @@ public class f {
                     interfaceC0029a.onError(i2, i3, obj);
                 }
                 c.a.a1.t.c.e("FFmpegCmdExecutor-muxAudioVideo", "release");
-                this.f1313b.release();
+                this.f1308b.release();
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -527,16 +527,16 @@ public class f {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1317b;
+        public int f1312b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f1318c;
+        public int f1313c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f1319d;
+        public String f1314d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f1320e;
+        public int f1315e;
 
         public C0018f() {
             Interceptable interceptable = $ic;
@@ -552,16 +552,16 @@ public class f {
                 }
             }
             this.a = MediaEncodeParams.AUDIO_SAMPLE_RATE;
-            this.f1317b = 1;
-            this.f1318c = 16;
-            this.f1320e = 0;
+            this.f1312b = 1;
+            this.f1313c = 16;
+            this.f1315e = 0;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.f1320e;
+                int i2 = this.f1315e;
                 return i2 == 5 || i2 == 6 || i2 == 8 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -571,7 +571,7 @@ public class f {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.f1320e;
+                int i2 = this.f1315e;
                 return i2 == 3 || i2 == 4 || i2 == 8 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -581,7 +581,7 @@ public class f {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i2 = this.f1320e;
+                int i2 = this.f1315e;
                 return i2 == 1 || i2 == 4 || i2 == 6 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -790,10 +790,10 @@ public class f {
                     return null;
                 }
                 C0018f c0018f = new C0018f();
-                c0018f.f1319d = mediaFormat.getString("mime");
+                c0018f.f1314d = mediaFormat.getString("mime");
                 c0018f.a = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : MediaEncodeParams.AUDIO_SAMPLE_RATE;
-                c0018f.f1317b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-                c0018f.f1318c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+                c0018f.f1312b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
+                c0018f.f1313c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
                 mediaExtractor.release();
                 return c0018f;
             } catch (IOException e2) {
@@ -854,15 +854,15 @@ public class f {
             boolean z = true;
             for (int i2 = 1; i2 < c0018fArr.length; i2++) {
                 if (c0018f.a != c0018fArr[i2].a) {
-                    c0018fArr[i2].f1320e++;
+                    c0018fArr[i2].f1315e++;
                     z = false;
                 }
-                if (c0018f.f1317b != c0018fArr[i2].f1317b) {
-                    c0018fArr[i2].f1320e += 3;
+                if (c0018f.f1312b != c0018fArr[i2].f1312b) {
+                    c0018fArr[i2].f1315e += 3;
                     z = false;
                 }
-                if (c0018f.f1318c != c0018fArr[i2].f1318c) {
-                    c0018fArr[i2].f1320e += 5;
+                if (c0018f.f1313c != c0018fArr[i2].f1313c) {
+                    c0018fArr[i2].f1315e += 5;
                     z = false;
                 }
             }

@@ -152,10 +152,10 @@ public class CompactLinkedHashMap<K, V> extends CompactHashMap<K, V> {
     }
 
     @Override // com.google.common.collect.CompactHashMap
-    public void insertEntry(int i2, K k2, V v, int i3) {
+    public void insertEntry(int i2, K k, V v, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), k2, v, Integer.valueOf(i3)}) == null) {
-            super.insertEntry(i2, k2, v, i3);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), k, v, Integer.valueOf(i3)}) == null) {
+            super.insertEntry(i2, k, v, i3);
             setSucceeds(this.lastEntry, i2);
             setSucceeds(i2, -2);
         }

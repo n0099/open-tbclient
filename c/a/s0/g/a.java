@@ -31,25 +31,25 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f12774d;
+    public static a f12472d;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12775b;
+    public boolean f12473b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f12776c;
+    public HttpMessageListener f12474c;
 
     /* renamed from: c.a.s0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0822a extends CustomMessageListener {
+    public class C0832a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0822a(a aVar, int i2) {
+        public C0832a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -111,10 +111,10 @@ public class a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003392 && (httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
-                this.a.f12775b = false;
+                this.a.f12473b = false;
                 CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
                 if (checkBaiduSimResponseMessage.isSuc) {
-                    c.a.s0.s.g0.b.j().x("key_baidu_sim_card_writting_tip", checkBaiduSimResponseMessage.isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free) : "");
+                    c.a.s0.s.h0.b.k().y("key_baidu_sim_card_writting_tip", checkBaiduSimResponseMessage.isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free) : "");
                     MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
                 }
             }
@@ -149,40 +149,40 @@ public class a {
                 return;
             }
         }
-        this.a = new C0822a(this, 2000994);
-        this.f12775b = false;
-        this.f12776c = new b(this, CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
+        this.a = new C0832a(this, 2000994);
+        this.f12473b = false;
+        this.f12474c = new b(this, CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
     }
 
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f12774d == null) {
-                f12774d = new a();
+            if (f12472d == null) {
+                f12472d = new a();
             }
-            return f12774d;
+            return f12472d;
         }
         return (a) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.f12775b) {
-            this.f12775b = true;
-            if (System.currentTimeMillis() >= c.a.s0.s.g0.b.j().l("key_next_check_baidu_sim_time", 0L)) {
-                c.a.s0.s.g0.b.j().w("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.f12473b) {
+            this.f12473b = true;
+            if (System.currentTimeMillis() >= c.a.s0.s.h0.b.k().m("key_next_check_baidu_sim_time", 0L)) {
+                c.a.s0.s.h0.b.k().x("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
                 tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);
-                MessageManager.getInstance().registerListener(this.f12776c);
+                MessageManager.getInstance().registerListener(this.f12474c);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
                 httpMessage.addParam("localip", UtilHelper.getGprsIpv4Address());
                 httpMessage.addParam("network", e());
                 MessageManager.getInstance().sendMessage(httpMessage);
                 return;
             }
-            this.f12775b = false;
+            this.f12473b = false;
         }
     }
 

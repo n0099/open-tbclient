@@ -13,13 +13,13 @@ public final class j {
     public final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f30210b;
+    public final int[] f29271b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String[] f30211c;
+    public final String[] f29272c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f30212d;
+    public final int f29273d;
 
     public j(String[] strArr, int[] iArr, String[] strArr2, int i2) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public final class j {
             }
         }
         this.a = strArr;
-        this.f30210b = iArr;
-        this.f30211c = strArr2;
-        this.f30212d = i2;
+        this.f29271b = iArr;
+        this.f29272c = strArr2;
+        this.f29273d = i2;
     }
 
     public static j b(String str) {
@@ -133,18 +133,18 @@ public final class j {
         StringBuilder sb = new StringBuilder();
         int i4 = 0;
         while (true) {
-            int i5 = this.f30212d;
+            int i5 = this.f29273d;
             if (i4 < i5) {
                 sb.append(this.a[i4]);
-                int[] iArr = this.f30210b;
+                int[] iArr = this.f29271b;
                 if (iArr[i4] == 1) {
                     sb.append(str);
                 } else if (iArr[i4] == 2) {
-                    sb.append(String.format(Locale.US, this.f30211c[i4], Integer.valueOf(i2)));
+                    sb.append(String.format(Locale.US, this.f29272c[i4], Integer.valueOf(i2)));
                 } else if (iArr[i4] == 3) {
-                    sb.append(String.format(Locale.US, this.f30211c[i4], Integer.valueOf(i3)));
+                    sb.append(String.format(Locale.US, this.f29272c[i4], Integer.valueOf(i3)));
                 } else if (iArr[i4] == 4) {
-                    sb.append(String.format(Locale.US, this.f30211c[i4], Long.valueOf(j2)));
+                    sb.append(String.format(Locale.US, this.f29272c[i4], Long.valueOf(j2)));
                 }
                 i4++;
             } else {

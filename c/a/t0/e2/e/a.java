@@ -32,31 +32,31 @@ public class a implements IBrowserView {
     public HkWebView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f17568b;
+    public FrameLayout f17140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f17569c;
+    public View f17141c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f17570d;
+    public View f17142d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f17571e;
+    public View f17143e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IBrowserView.OnBrowserStatusChangeCallBack f17572f;
+    public IBrowserView.OnBrowserStatusChangeCallBack f17144f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f17573g;
+    public boolean f17145g;
 
     /* renamed from: c.a.t0.e2.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1071a extends WebViewClient {
+    public class C1085a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1071a(a aVar) {
+        public C1085a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,16 +80,16 @@ public class a implements IBrowserView {
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
                 this.a.i();
-                if (this.a.f17572f != null) {
-                    this.a.f17572f.onHideLoading();
+                if (this.a.f17144f != null) {
+                    this.a.f17144f.onHideLoading();
                 }
-                if (this.a.f17573g) {
+                if (this.a.f17145g) {
                     this.a.j();
-                    if (this.a.f17572f != null) {
-                        this.a.f17572f.onLoadFailure();
+                    if (this.a.f17144f != null) {
+                        this.a.f17144f.onLoadFailure();
                     }
-                } else if (this.a.f17572f != null) {
-                    this.a.f17572f.onLoadSuccess();
+                } else if (this.a.f17144f != null) {
+                    this.a.f17144f.onLoadSuccess();
                 }
             }
         }
@@ -99,7 +99,7 @@ public class a implements IBrowserView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
-                this.a.f17573g = false;
+                this.a.f17145g = false;
                 this.a.k();
                 this.a.h();
             }
@@ -110,7 +110,7 @@ public class a implements IBrowserView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, webResourceError) == null) {
                 super.onReceivedError(webView, webResourceRequest, webResourceError);
-                this.a.f17573g = true;
+                this.a.f17145g = true;
             }
         }
 
@@ -119,7 +119,7 @@ public class a implements IBrowserView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, sslErrorHandler, sslError) == null) {
                 super.onReceivedSslError(webView, sslErrorHandler, sslError);
-                this.a.f17573g = true;
+                this.a.f17145g = true;
             }
         }
 
@@ -129,7 +129,7 @@ public class a implements IBrowserView {
             Activity b2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (TextUtils.isEmpty(str) || (b2 = c.a.d.a.b.g().b()) == null) {
+                if (TextUtils.isEmpty(str) || (b2 = c.a.d.a.b.f().b()) == null) {
                     return false;
                 }
                 UrlManager.getInstance().dealOneLink((TbPageContext) j.a(b2), new String[]{str}, true);
@@ -152,7 +152,7 @@ public class a implements IBrowserView {
                 return;
             }
         }
-        this.f17573g = false;
+        this.f17145g = false;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
@@ -185,21 +185,21 @@ public class a implements IBrowserView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.f17568b == null) {
-                this.f17568b = new FrameLayout(context);
+            if (this.f17140b == null) {
+                this.f17140b = new FrameLayout(context);
             }
-            if (this.f17571e == null) {
+            if (this.f17143e == null) {
                 View view = new View(context);
-                this.f17571e = view;
+                this.f17143e = view;
                 view.setBackgroundColor(context.getResources().getColor(17170443));
             }
             if (this.a == null) {
                 HkWebView hkWebView = new HkWebView(context);
                 this.a = hkWebView;
-                hkWebView.setWebViewClient(new C1071a(this));
+                hkWebView.setWebViewClient(new C1085a(this));
             }
-            this.f17568b.addView(this.a);
-            return this.f17568b;
+            this.f17140b.addView(this.a);
+            return this.f17140b;
         }
         return (View) invokeL.objValue;
     }
@@ -217,28 +217,28 @@ public class a implements IBrowserView {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f17570d != null && this.f17571e.getParent() != null) {
-                ((ViewGroup) this.f17571e.getParent()).removeView(this.f17571e);
+            if (this.f17142d != null && this.f17143e.getParent() != null) {
+                ((ViewGroup) this.f17143e.getParent()).removeView(this.f17143e);
             }
-            View view = this.f17569c;
+            View view = this.f17141c;
             if (view == null || view.getParent() == null) {
                 return;
             }
-            ((ViewGroup) this.f17569c.getParent()).removeView(this.f17569c);
+            ((ViewGroup) this.f17141c.getParent()).removeView(this.f17141c);
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f17570d != null && this.f17571e.getParent() != null) {
-                ((ViewGroup) this.f17571e.getParent()).removeView(this.f17571e);
+            if (this.f17142d != null && this.f17143e.getParent() != null) {
+                ((ViewGroup) this.f17143e.getParent()).removeView(this.f17143e);
             }
-            View view = this.f17570d;
+            View view = this.f17142d;
             if (view == null || view.getParent() == null) {
                 return;
             }
-            ((ViewGroup) this.f17570d.getParent()).removeView(this.f17570d);
+            ((ViewGroup) this.f17142d.getParent()).removeView(this.f17142d);
         }
     }
 
@@ -247,13 +247,13 @@ public class a implements IBrowserView {
         View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f17568b != null && (view2 = this.f17571e) != null && view2.getParent() == null) {
-                this.f17568b.addView(this.f17571e, new FrameLayout.LayoutParams(-1, -1));
+            if (this.f17140b != null && (view2 = this.f17143e) != null && view2.getParent() == null) {
+                this.f17140b.addView(this.f17143e, new FrameLayout.LayoutParams(-1, -1));
             }
-            if (this.f17568b == null || (view = this.f17569c) == null || view.getParent() != null) {
+            if (this.f17140b == null || (view = this.f17141c) == null || view.getParent() != null) {
                 return;
             }
-            this.f17568b.addView(this.f17569c, new FrameLayout.LayoutParams(-1, -1));
+            this.f17140b.addView(this.f17141c, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
@@ -262,13 +262,13 @@ public class a implements IBrowserView {
         View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.f17568b != null && (view2 = this.f17571e) != null && view2.getParent() == null) {
-                this.f17568b.addView(this.f17571e, new FrameLayout.LayoutParams(-1, -1));
+            if (this.f17140b != null && (view2 = this.f17143e) != null && view2.getParent() == null) {
+                this.f17140b.addView(this.f17143e, new FrameLayout.LayoutParams(-1, -1));
             }
-            if (this.f17568b == null || (view = this.f17570d) == null || view.getParent() != null) {
+            if (this.f17140b == null || (view = this.f17142d) == null || view.getParent() != null) {
                 return;
             }
-            this.f17568b.addView(this.f17570d, new FrameLayout.LayoutParams(-1, -1));
+            this.f17140b.addView(this.f17142d, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
@@ -318,7 +318,7 @@ public class a implements IBrowserView {
     public void setErrorView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, view) == null) {
-            this.f17569c = view;
+            this.f17141c = view;
         }
     }
 
@@ -326,7 +326,7 @@ public class a implements IBrowserView {
     public void setLoadingView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, view) == null) {
-            this.f17570d = view;
+            this.f17142d = view;
         }
     }
 
@@ -334,7 +334,7 @@ public class a implements IBrowserView {
     public void setOnBrowserStatusChangeCallBack(IBrowserView.OnBrowserStatusChangeCallBack onBrowserStatusChangeCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, onBrowserStatusChangeCallBack) == null) {
-            this.f17572f = onBrowserStatusChangeCallBack;
+            this.f17144f = onBrowserStatusChangeCallBack;
         }
     }
 

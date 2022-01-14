@@ -25,7 +25,7 @@ public class SwanAppPickerDialog extends BaseDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f40672f;
+    public a f39311f;
 
     /* loaded from: classes11.dex */
     public static class a {
@@ -34,27 +34,27 @@ public class SwanAppPickerDialog extends BaseDialog {
         public final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final SwanAppPickerDialog f40673b;
+        public final SwanAppPickerDialog f39312b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f40674c;
+        public Context f39313c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f40675d;
+        public boolean f39314d;
 
         /* renamed from: com.baidu.swan.apps.res.widget.dialog.SwanAppPickerDialog$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public class View$OnClickListenerC1870a implements View.OnClickListener {
+        public class View$OnClickListenerC1886a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f40676e;
+            public final /* synthetic */ DialogInterface.OnClickListener f39315e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f40677f;
+            public final /* synthetic */ a f39316f;
 
-            public View$OnClickListenerC1870a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC1886a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,18 +69,18 @@ public class SwanAppPickerDialog extends BaseDialog {
                         return;
                     }
                 }
-                this.f40677f = aVar;
-                this.f40676e = onClickListener;
+                this.f39316f = aVar;
+                this.f39315e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f40677f.f40673b.dismiss();
-                    DialogInterface.OnClickListener onClickListener = this.f40676e;
+                    this.f39316f.f39312b.dismiss();
+                    DialogInterface.OnClickListener onClickListener = this.f39315e;
                     if (onClickListener != null) {
-                        onClickListener.onClick(this.f40677f.f40673b, -1);
+                        onClickListener.onClick(this.f39316f.f39312b, -1);
                     }
                 }
             }
@@ -92,10 +92,10 @@ public class SwanAppPickerDialog extends BaseDialog {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f40678e;
+            public final /* synthetic */ DialogInterface.OnClickListener f39317e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f40679f;
+            public final /* synthetic */ a f39318f;
 
             public b(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
@@ -112,18 +112,18 @@ public class SwanAppPickerDialog extends BaseDialog {
                         return;
                     }
                 }
-                this.f40679f = aVar;
-                this.f40678e = onClickListener;
+                this.f39318f = aVar;
+                this.f39317e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f40679f.f40673b.dismiss();
-                    DialogInterface.OnClickListener onClickListener = this.f40678e;
+                    this.f39318f.f39312b.dismiss();
+                    DialogInterface.OnClickListener onClickListener = this.f39317e;
                     if (onClickListener != null) {
-                        onClickListener.onClick(this.f40679f.f40673b, -2);
+                        onClickListener.onClick(this.f39318f.f39312b, -2);
                     }
                 }
             }
@@ -144,23 +144,23 @@ public class SwanAppPickerDialog extends BaseDialog {
                     return;
                 }
             }
-            this.f40675d = false;
+            this.f39314d = false;
             SwanAppPickerDialog b2 = b(context);
-            this.f40673b = b2;
+            this.f39312b = b2;
             b2.a(this);
-            this.a = new b((ViewGroup) this.f40673b.getWindow().getDecorView());
-            this.f40674c = context;
+            this.a = new b((ViewGroup) this.f39312b.getWindow().getDecorView());
+            this.f39313c = context;
         }
 
         public SwanAppPickerDialog a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f40673b.setOnCancelListener(this.a.f40684f);
-                this.f40673b.setOnDismissListener(this.a.f40685g);
-                this.f40673b.setOnShowListener(this.a.f40686h);
-                this.f40673b.a(this);
-                return this.f40673b;
+                this.f39312b.setOnCancelListener(this.a.f39323f);
+                this.f39312b.setOnDismissListener(this.a.f39324g);
+                this.f39312b.setOnShowListener(this.a.f39325h);
+                this.f39312b.a(this);
+                return this.f39312b;
             }
             return (SwanAppPickerDialog) invokeV.objValue;
         }
@@ -171,7 +171,7 @@ public class SwanAppPickerDialog extends BaseDialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f40673b.setCanceledOnTouchOutside(z);
+                this.f39312b.setCanceledOnTouchOutside(z);
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -181,7 +181,7 @@ public class SwanAppPickerDialog extends BaseDialog {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, onClickListener)) == null) {
-                e(this.f40674c.getText(i2), onClickListener);
+                e(this.f39313c.getText(i2), onClickListener);
                 return this;
             }
             return (a) invokeIL.objValue;
@@ -191,8 +191,8 @@ public class SwanAppPickerDialog extends BaseDialog {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, charSequence, onClickListener)) == null) {
-                this.a.f40680b.setText(charSequence);
-                this.a.f40680b.setOnClickListener(new b(this, onClickListener));
+                this.a.f39319b.setText(charSequence);
+                this.a.f39319b.setOnClickListener(new b(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -202,7 +202,7 @@ public class SwanAppPickerDialog extends BaseDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, onCancelListener)) == null) {
-                this.a.f40684f = onCancelListener;
+                this.a.f39323f = onCancelListener;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -212,7 +212,7 @@ public class SwanAppPickerDialog extends BaseDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.a.f40681c.setText(str);
+                this.a.f39320c.setText(str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -222,7 +222,7 @@ public class SwanAppPickerDialog extends BaseDialog {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, onClickListener)) == null) {
-                i(this.f40674c.getText(i2), onClickListener);
+                i(this.f39313c.getText(i2), onClickListener);
                 return this;
             }
             return (a) invokeIL.objValue;
@@ -233,7 +233,7 @@ public class SwanAppPickerDialog extends BaseDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, onClickListener)) == null) {
                 this.a.a.setText(charSequence);
-                this.a.a.setOnClickListener(new View$OnClickListenerC1870a(this, onClickListener));
+                this.a.a.setOnClickListener(new View$OnClickListenerC1886a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -243,8 +243,8 @@ public class SwanAppPickerDialog extends BaseDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view)) == null) {
-                this.a.f40683e.removeAllViews();
-                this.a.f40683e.addView(view);
+                this.a.f39322e.removeAllViews();
+                this.a.f39322e.addView(view);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -255,7 +255,7 @@ public class SwanAppPickerDialog extends BaseDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 SwanAppPickerDialog a = a();
-                if (this.f40675d) {
+                if (this.f39314d) {
                     a.getWindow().setType(2003);
                 }
                 try {
@@ -275,34 +275,32 @@ public class SwanAppPickerDialog extends BaseDialog {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f40680b;
+        public TextView f39319b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f40681c;
+        public TextView f39320c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f40682d;
+        public View f39321d;
 
         /* renamed from: e  reason: collision with root package name */
-        public FrameLayout f40683e;
+        public FrameLayout f39322e;
 
         /* renamed from: f  reason: collision with root package name */
-        public DialogInterface.OnCancelListener f40684f;
+        public DialogInterface.OnCancelListener f39323f;
 
         /* renamed from: g  reason: collision with root package name */
-        public DialogInterface.OnDismissListener f40685g;
+        public DialogInterface.OnDismissListener f39324g;
 
         /* renamed from: h  reason: collision with root package name */
-        public DialogInterface.OnShowListener f40686h;
+        public DialogInterface.OnShowListener f39325h;
 
         /* renamed from: i  reason: collision with root package name */
-        public FrameLayout f40687i;
+        public FrameLayout f39326i;
 
         /* renamed from: j  reason: collision with root package name */
-        public FrameLayout f40688j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public View f40689k;
+        public FrameLayout f39327j;
+        public View k;
         public ViewGroup l;
         public RelativeLayout m;
         public LinearLayout n;
@@ -325,17 +323,17 @@ public class SwanAppPickerDialog extends BaseDialog {
                 }
             }
             this.l = viewGroup;
-            this.f40688j = (FrameLayout) viewGroup.findViewById(f.dialog_root);
-            this.f40681c = (TextView) viewGroup.findViewById(f.title_picker);
+            this.f39327j = (FrameLayout) viewGroup.findViewById(f.dialog_root);
+            this.f39320c = (TextView) viewGroup.findViewById(f.title_picker);
             this.a = (TextView) viewGroup.findViewById(f.positive_button);
-            this.f40680b = (TextView) viewGroup.findViewById(f.negative_button);
-            this.f40682d = viewGroup.findViewById(f.dialog_customPanel);
-            this.f40683e = (FrameLayout) viewGroup.findViewById(f.dialog_custom_content);
+            this.f39319b = (TextView) viewGroup.findViewById(f.negative_button);
+            this.f39321d = viewGroup.findViewById(f.dialog_customPanel);
+            this.f39322e = (FrameLayout) viewGroup.findViewById(f.dialog_custom_content);
             this.m = (RelativeLayout) viewGroup.findViewById(f.searchbox_alert_dialog);
             this.n = (LinearLayout) viewGroup.findViewById(f.btn_panel);
             this.o = viewGroup.findViewById(f.dialog_customPanel);
-            this.f40687i = (FrameLayout) viewGroup.findViewById(f.dialog_root);
-            this.f40689k = viewGroup.findViewById(f.nightmode_mask);
+            this.f39326i = (FrameLayout) viewGroup.findViewById(f.dialog_root);
+            this.k = viewGroup.findViewById(f.nightmode_mask);
         }
     }
 
@@ -363,14 +361,14 @@ public class SwanAppPickerDialog extends BaseDialog {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f40672f = aVar;
+            this.f39311f = aVar;
         }
     }
 
     public a getBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40672f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39311f : (a) invokeV.objValue;
     }
 
     public void init() {

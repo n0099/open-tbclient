@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -191,10 +191,10 @@ public class PushServiceReceiver extends BroadcastReceiver {
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Intent f32650b;
+                        public final /* synthetic */ Intent f31613b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ PushServiceReceiver f32651c;
+                        public final /* synthetic */ PushServiceReceiver f31614c;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -215,9 +215,9 @@ public class PushServiceReceiver extends BroadcastReceiver {
                                     return;
                                 }
                             }
-                            this.f32651c = this;
+                            this.f31614c = this;
                             this.a = context;
-                            this.f32650b = intent;
+                            this.f31613b = intent;
                         }
 
                         @Override // com.baidu.android.pushservice.g.c
@@ -226,7 +226,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 if (m.p(this.a) || !l.a(this.a, (Intent) null, 0)) {
                                     try {
-                                        f.a(this.a).a(this.f32650b);
+                                        f.a(this.a).a(this.f31613b);
                                     } catch (Exception unused) {
                                     }
                                 }
@@ -257,34 +257,32 @@ public class PushServiceReceiver extends BroadcastReceiver {
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f32652b;
+                        public final /* synthetic */ String f31615b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ String f32653c;
+                        public final /* synthetic */ String f31616c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ byte[] f32654d;
+                        public final /* synthetic */ byte[] f31617d;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ byte[] f32655e;
+                        public final /* synthetic */ byte[] f31618e;
 
                         /* renamed from: f  reason: collision with root package name */
-                        public final /* synthetic */ String f32656f;
+                        public final /* synthetic */ String f31619f;
 
                         /* renamed from: g  reason: collision with root package name */
-                        public final /* synthetic */ String f32657g;
+                        public final /* synthetic */ String f31620g;
 
                         /* renamed from: h  reason: collision with root package name */
-                        public final /* synthetic */ String f32658h;
+                        public final /* synthetic */ String f31621h;
 
                         /* renamed from: i  reason: collision with root package name */
-                        public final /* synthetic */ int f32659i;
+                        public final /* synthetic */ int f31622i;
 
                         /* renamed from: j  reason: collision with root package name */
-                        public final /* synthetic */ String f32660j;
-
-                        /* renamed from: k  reason: collision with root package name */
-                        public final /* synthetic */ PushServiceReceiver f32661k;
+                        public final /* synthetic */ String f31623j;
+                        public final /* synthetic */ PushServiceReceiver k;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -305,25 +303,25 @@ public class PushServiceReceiver extends BroadcastReceiver {
                                     return;
                                 }
                             }
-                            this.f32661k = this;
+                            this.k = this;
                             this.a = context;
-                            this.f32652b = stringExtra4;
-                            this.f32653c = stringExtra6;
-                            this.f32654d = byteArrayExtra2;
-                            this.f32655e = byteArrayExtra;
-                            this.f32656f = stringExtra3;
-                            this.f32657g = stringExtra;
-                            this.f32658h = stringExtra2;
-                            this.f32659i = intExtra;
-                            this.f32660j = stringExtra5;
+                            this.f31615b = stringExtra4;
+                            this.f31616c = stringExtra6;
+                            this.f31617d = byteArrayExtra2;
+                            this.f31618e = byteArrayExtra;
+                            this.f31619f = stringExtra3;
+                            this.f31620g = stringExtra;
+                            this.f31621h = stringExtra2;
+                            this.f31622i = intExtra;
+                            this.f31623j = stringExtra5;
                         }
 
                         @Override // com.baidu.android.pushservice.g.c
                         public void a() {
                             PublicMsg a;
                             Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (a = com.baidu.android.pushservice.message.a.d.a(this.a, this.f32652b, this.f32653c, this.f32654d, this.f32655e)) != null && com.meizu.cloud.pushsdk.constants.PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE.equals(this.f32656f)) {
-                                PushServiceReceiver.b(this.a, this.f32657g, this.f32658h, a, this.f32654d, this.f32655e, this.f32659i, this.f32660j);
+                            if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (a = com.baidu.android.pushservice.message.a.d.a(this.a, this.f31615b, this.f31616c, this.f31617d, this.f31618e)) != null && com.meizu.cloud.pushsdk.constants.PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE.equals(this.f31619f)) {
+                                PushServiceReceiver.b(this.a, this.f31620g, this.f31621h, a, this.f31617d, this.f31618e, this.f31622i, this.f31623j);
                             }
                         }
                     });

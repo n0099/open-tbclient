@@ -62,7 +62,7 @@ public class i extends z {
             }
             JSONObject jSONObject = null;
             if (c.a.r0.a.o2.b.s(optString) == PathType.BD_FILE) {
-                jSONObject = k(c.a.r0.a.o2.b.M(optString, eVar.f5660f), optString);
+                jSONObject = k(c.a.r0.a.o2.b.M(optString, eVar.f5537f), optString);
             } else if (c.a.r0.a.o2.b.s(optString) == PathType.RELATIVE) {
                 jSONObject = k(c.a.r0.a.o2.b.L(optString, eVar, eVar.j0()), optString);
             }
@@ -131,7 +131,7 @@ public class i extends z {
                 jSONObject.put("type", str3);
             } catch (JSONException e2) {
                 c.a.r0.a.e0.d.c("getImageInfo", "getImgInfo failed by json exception");
-                if (z.f6340b) {
+                if (z.f6201b) {
                     e2.printStackTrace();
                 }
             }

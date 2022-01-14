@@ -36,7 +36,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseUncaughtException";

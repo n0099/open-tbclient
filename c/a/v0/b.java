@@ -26,7 +26,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f27150b;
+    public static final boolean f26343b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -43,7 +43,7 @@ public class b {
                 return;
             }
         }
-        f27150b = b0.m();
+        f26343b = b0.m();
     }
 
     public b(Context context) {
@@ -101,7 +101,7 @@ public class b {
                                         j3 = j4;
                                     }
                                 }
-                                if (f27150b) {
+                                if (f26343b) {
                                     jSONObject.toString();
                                 }
                                 l0Var.b(jSONObject);
@@ -130,7 +130,7 @@ public class b {
                             }
                         }
                         l0Var.J(j2, j3);
-                        if (f27150b) {
+                        if (f26343b) {
                             String str = "line num " + i2 + " delete file ";
                         }
                         try {
@@ -222,11 +222,11 @@ public class b {
                     jSONObject.put("bizInfo", d2);
                 }
             } catch (JSONException e2) {
-                if (f27150b) {
+                if (f26343b) {
                     e2.getMessage();
                 }
             }
-            if (f27150b) {
+            if (f26343b) {
                 String str = "saveEvent:" + jSONObject.toString();
             }
             byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -335,12 +335,12 @@ public class b {
                                 z = true;
                             } catch (Exception unused) {
                                 bufferedReader = bufferedReader2;
-                                boolean z2 = f27150b;
+                                boolean z2 = f26343b;
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
                                     } catch (Exception unused2) {
-                                        boolean z3 = f27150b;
+                                        boolean z3 = f26343b;
                                     }
                                 }
                                 if (z) {
@@ -353,7 +353,7 @@ public class b {
                                     try {
                                         bufferedReader.close();
                                     } catch (Exception unused3) {
-                                        boolean z4 = f27150b;
+                                        boolean z4 = f26343b;
                                     }
                                 }
                                 if (z && file2.exists()) {
@@ -366,7 +366,7 @@ public class b {
                         try {
                             bufferedReader2.close();
                         } catch (Exception unused4) {
-                            boolean z5 = f27150b;
+                            boolean z5 = f26343b;
                         }
                         if (z) {
                         }
@@ -419,7 +419,7 @@ public class b {
                                     a = true;
                                 } catch (Exception unused) {
                                     bufferedReader = bufferedReader2;
-                                    boolean z2 = f27150b;
+                                    boolean z2 = f26343b;
                                     if (bufferedReader != null) {
                                         bufferedReader.close();
                                     }
@@ -431,7 +431,7 @@ public class b {
                                         try {
                                             bufferedReader.close();
                                         } catch (Exception unused2) {
-                                            boolean z3 = f27150b;
+                                            boolean z3 = f26343b;
                                         }
                                     }
                                     throw th;
@@ -445,7 +445,7 @@ public class b {
                         th = th2;
                     }
                 } catch (Exception unused4) {
-                    boolean z4 = f27150b;
+                    boolean z4 = f26343b;
                 }
             }
             return a;
@@ -463,7 +463,7 @@ public class b {
     public void h(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
-            if (f27150b) {
+            if (f26343b) {
                 exc.printStackTrace();
             }
             d0.a().h(Log.getStackTraceString(exc));

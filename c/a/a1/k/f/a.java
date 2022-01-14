@@ -14,13 +14,13 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f1249b;
+    public File f1244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1250c;
+    public long f1245c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1251d;
+    public long f1246d;
 
     public a(String str, String str2, File file) {
         Interceptable interceptable = $ic;
@@ -38,25 +38,25 @@ public class a {
             }
         }
         this.a = str;
-        this.f1249b = file;
+        this.f1244b = file;
     }
 
     public File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1249b : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1244b : (File) invokeV.objValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1251d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1246d : invokeV.longValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1250c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1245c : invokeV.longValue;
     }
 
     public String d() {
@@ -74,14 +74,14 @@ public class a {
     public void f(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.f1251d = j2;
+            this.f1246d = j2;
         }
     }
 
     public void g(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.f1250c = j2;
+            this.f1245c = j2;
         }
     }
 }

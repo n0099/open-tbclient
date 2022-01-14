@@ -14,16 +14,16 @@ public class f {
     public static String a = "aes_key";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f61569b;
+    public static boolean f59236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f61570c;
+    public static boolean f59237c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f61571d;
+    public static boolean f59238d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f61572e;
+    public static boolean f59239e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,10 +40,10 @@ public class f {
             }
         }
         new HashMap();
-        f61569b = false;
-        f61570c = true;
-        f61571d = false;
-        f61572e = false;
+        f59236b = false;
+        f59237c = true;
+        f59238d = false;
+        f59239e = false;
     }
 
     public f() {

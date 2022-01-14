@@ -10,34 +10,32 @@ public class b {
     public static final String a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f34891b = 204800;
+    public static final int f33767b = 204800;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f34892c = 51200;
+    public static final int f33768c = 51200;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f34893d = 200;
+    public static final int f33769d = 200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f34894e = 604800000;
+    public static final long f33770e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f34895f = 86400000;
+    public static final long f33771f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34896g = "publish_data";
+    public static final String f33772g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34897h = "sign";
+    public static final String f33773h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34898i = "mk";
+    public static final String f33774i = "mk";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34899j = "array";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final String f34900k = "exception";
+    public static final String f33775j = "array";
+    public static final String k = "exception";
     public static final String l = "https://www.baifubao.com/chanpin_stat";
     public static final String m = "http://yf-wallet-rd-red-dc00.epc.baidu.com:8090/chanpin_stat";
     public static final String n = "QmFpZHVfRlNHX1JJTV9TREtfQ3Jhc2hfbG9nX1BhdGg=.json";

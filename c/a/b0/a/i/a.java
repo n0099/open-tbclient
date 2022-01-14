@@ -20,34 +20,32 @@ public final class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f1594b;
+        public long f1578b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f1595c;
+        public int f1579c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f1596d;
+        public String f1580d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f1597e;
+        public String f1581e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f1598f;
+        public String f1582f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f1599g;
+        public String f1583g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f1600h;
+        public String f1584h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f1601i;
+        public String f1585i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f1602j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public boolean f1603k;
+        public boolean f1586j;
+        public boolean k;
         public boolean l;
         public int m;
         public int n;

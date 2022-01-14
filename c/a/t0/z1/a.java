@@ -22,26 +22,26 @@ public class a {
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<ForumInfo> f26789b;
+    public List<ForumInfo> f25995b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f26790c;
+    public b f25996c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f26791d;
+    public BdUniqueId f25997d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.c.g.a f26792e;
+    public c.a.d.c.g.a f25998e;
 
     /* renamed from: c.a.t0.z1.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1556a extends c.a.d.c.g.a {
+    public class C1572a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1556a(a aVar, int i2, int i3) {
+        public C1572a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -70,22 +70,22 @@ public class a {
             }
             boolean z = responsedMessage instanceof GetBottleForumListHttpResMessage;
             if (z || (responsedMessage instanceof GetBottleForumListSocketResMessage)) {
-                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetBottleForumListReqMessage) || this.a.f26791d == ((GetBottleForumListReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
+                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetBottleForumListReqMessage) || this.a.f25997d == ((GetBottleForumListReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                     if (responsedMessage.hasError()) {
-                        if (this.a.f26790c != null) {
-                            this.a.f26790c.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                        if (this.a.f25996c != null) {
+                            this.a.f25996c.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
                             return;
                         }
                         return;
                     }
                     if (z) {
-                        this.a.f26789b = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
+                        this.a.f25995b = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
                     }
                     if (responsedMessage instanceof GetBottleForumListSocketResMessage) {
-                        this.a.f26789b = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
+                        this.a.f25995b = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
                     }
-                    if (this.a.f26790c != null) {
-                        this.a.f26790c.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f26789b);
+                    if (this.a.f25996c != null) {
+                        this.a.f25996c.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f25995b);
                     }
                 }
             }
@@ -112,20 +112,20 @@ public class a {
                 return;
             }
         }
-        this.f26790c = null;
-        C1556a c1556a = new C1556a(this, CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440);
-        this.f26792e = c1556a;
+        this.f25996c = null;
+        C1572a c1572a = new C1572a(this, CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440);
+        this.f25998e = c1572a;
         this.a = bdUniqueId;
-        c1556a.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f26792e);
-        this.f26792e.getHttpMessageListener().setSelfListener(true);
-        this.f26792e.getSocketMessageListener().setSelfListener(true);
+        c1572a.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f25998e);
+        this.f25998e.getHttpMessageListener().setSelfListener(true);
+        this.f25998e.getSocketMessageListener().setSelfListener(true);
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f26792e);
+            MessageManager.getInstance().unRegisterListener(this.f25998e);
         }
     }
 
@@ -135,7 +135,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             GetBottleForumListReqMessage getBottleForumListReqMessage = new GetBottleForumListReqMessage();
             getBottleForumListReqMessage.setTag(this.a);
-            getBottleForumListReqMessage.setRequestId(this.f26791d);
+            getBottleForumListReqMessage.setRequestId(this.f25997d);
             MessageManager.getInstance().sendMessage(getBottleForumListReqMessage);
             return false;
         }
@@ -145,7 +145,7 @@ public class a {
     public void g(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f26790c = bVar;
+            this.f25996c = bVar;
         }
     }
 }

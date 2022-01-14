@@ -54,19 +54,17 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f46104g;
+    public String f44411g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f46105h;
+    public String f44412h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f46106i;
+    public String f44413i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f46107j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View f46108k;
+    public int f44414j;
+    public View k;
     public NestedScrollWebView l;
     public FrameLayout m;
     public c.a.t0.w3.n0.a n;
@@ -159,7 +157,7 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TabWebFragment f46109e;
+        public final /* synthetic */ TabWebFragment f44415e;
 
         public c(TabWebFragment tabWebFragment) {
             Interceptable interceptable = $ic;
@@ -176,7 +174,7 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
                     return;
                 }
             }
-            this.f46109e = tabWebFragment;
+            this.f44415e = tabWebFragment;
         }
 
         @Override // android.view.View.OnClickListener
@@ -184,9 +182,9 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (l.z()) {
-                    this.f46109e.forceRefresh();
+                    this.f44415e.forceRefresh();
                 } else {
-                    this.f46109e.showToast(R.string.neterror);
+                    this.f44415e.showToast(R.string.neterror);
                 }
             }
         }
@@ -540,7 +538,7 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            c.a.s0.x0.a.a(getPageContext(), this.f46108k);
+            c.a.s0.x0.a.a(getPageContext(), this.k);
         }
     }
 
@@ -551,17 +549,17 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
             super.onCreate(bundle);
             if (getArguments() != null) {
                 Bundle arguments = getArguments();
-                this.f46107j = arguments.getInt("tab_type");
-                this.f46104g = arguments.getString("tab_name");
-                this.f46105h = arguments.getString("tab_code");
-                this.f46106i = arguments.getString(TAB_URL);
+                this.f44414j = arguments.getInt("tab_type");
+                this.f44411g = arguments.getString("tab_name");
+                this.f44412h = arguments.getString("tab_code");
+                this.f44413i = arguments.getString(TAB_URL);
             } else if (bundle != null) {
-                this.f46107j = bundle.getInt("tab_type");
-                this.f46104g = bundle.getString("tab_name");
-                this.f46105h = bundle.getString("tab_code");
-                this.f46106i = bundle.getString(TAB_URL);
+                this.f44414j = bundle.getInt("tab_type");
+                this.f44411g = bundle.getString("tab_name");
+                this.f44412h = bundle.getString("tab_code");
+                this.f44413i = bundle.getString(TAB_URL);
             }
-            this.mUrl = this.f46106i;
+            this.mUrl = this.f44413i;
             c.a.t0.w3.n0.a aVar = new c.a.t0.w3.n0.a();
             this.n = aVar;
             aVar.a(new XiubaTbJsBridge(getPageContext()));
@@ -577,24 +575,24 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, layoutInflater, viewGroup, bundle)) == null) {
-            View view = this.f46108k;
+            View view = this.k;
             if (view != null && (view.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) this.f46108k.getParent()).removeView(this.f46108k);
+                ((ViewGroup) this.k.getParent()).removeView(this.k);
             }
-            if (this.f46108k == null) {
+            if (this.k == null) {
                 View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.tab_web_fragment, (ViewGroup) null);
-                this.f46108k = inflate;
+                this.k = inflate;
                 this.l = (NestedScrollWebView) inflate.findViewById(R.id.webview);
-                this.m = (FrameLayout) this.f46108k.findViewById(R.id.load_state_container);
+                this.m = (FrameLayout) this.k.findViewById(R.id.load_state_container);
                 initWebView();
             }
             NestedScrollWebView nestedScrollWebView = this.l;
             if (nestedScrollWebView != null) {
                 nestedScrollWebView.setVisibility(0);
             }
-            this.f46108k.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.k.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            return this.f46108k;
+            return this.k;
         }
         return (View) invokeLLL.objValue;
     }
@@ -667,10 +665,10 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
         if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             if (bundle != null) {
-                bundle.putString("tab_name", this.f46104g);
-                bundle.putString("tab_code", this.f46105h);
-                bundle.putString(TAB_URL, this.f46106i);
-                bundle.putInt("tab_type", this.f46107j);
+                bundle.putString("tab_name", this.f44411g);
+                bundle.putString("tab_code", this.f44412h);
+                bundle.putString(TAB_URL, this.f44413i);
+                bundle.putInt("tab_type", this.f44414j);
             }
         }
     }
@@ -735,8 +733,8 @@ public class TabWebFragment extends BaseWebViewFragment implements o0 {
         if ((interceptable == null || interceptable.invokeV(1048605, this) == null) && isPrimary()) {
             StatisticItem statisticItem = new StatisticItem("c13749");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f46104g);
-            statisticItem.param("obj_type", this.f46105h);
+            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f44411g);
+            statisticItem.param("obj_type", this.f44412h);
             TiebaStatic.log(statisticItem);
         }
     }

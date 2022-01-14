@@ -24,7 +24,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f9288b;
+    public static volatile b f9086b;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
@@ -34,10 +34,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.c f9289e;
+        public final /* synthetic */ a.c f9087e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f9290f;
+        public final /* synthetic */ b f9088f;
 
         public a(b bVar, a.c cVar) {
             Interceptable interceptable = $ic;
@@ -54,15 +54,15 @@ public class b {
                     return;
                 }
             }
-            this.f9290f = bVar;
-            this.f9289e = cVar;
+            this.f9088f = bVar;
+            this.f9087e = cVar;
         }
 
         @Override // c.a.r0.a.v1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f9290f.c(this.f9289e);
+                this.f9088f.c(this.f9087e);
             }
         }
 
@@ -72,22 +72,22 @@ public class b {
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 d.c("GetLocationHelper", str);
                 c.a.r0.a.n2.u.a.b("getLocation", 5002, "user no permission", 10005, str);
-                this.f9290f.a.f(this.f9289e, str);
+                this.f9088f.a.f(this.f9087e, str);
             }
         }
     }
 
     /* renamed from: c.a.r0.a.u.e.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0569b implements e.a {
+    public class C0578b implements e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f9291b;
+        public final /* synthetic */ b f9089b;
 
-        public C0569b(b bVar, a.c cVar) {
+        public C0578b(b bVar, a.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public class b {
                     return;
                 }
             }
-            this.f9291b = bVar;
+            this.f9089b = bVar;
             this.a = cVar;
         }
 
@@ -110,7 +110,7 @@ public class b {
         public void a(c.a.r0.a.f2.f.j0.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                this.f9291b.a.g(this.a, bVar);
+                this.f9089b.a.g(this.a, bVar);
             }
         }
 
@@ -119,7 +119,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 c.a.r0.a.n2.u.a.b("getLocation", 4000, "sdk's errCode is " + i2, 1001, String.valueOf(i2));
-                this.f9291b.a.b(this.a, i2);
+                this.f9089b.a.b(this.a, i2);
             }
         }
     }
@@ -167,14 +167,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f9288b == null) {
+            if (f9086b == null) {
                 synchronized (b.class) {
-                    if (f9288b == null) {
-                        f9288b = new b();
+                    if (f9086b == null) {
+                        f9086b = new b();
                     }
                 }
             }
-            return f9288b;
+            return f9086b;
         }
         return (b) invokeV.objValue;
     }
@@ -186,7 +186,7 @@ public class b {
             if (!TextUtils.equals(cVar.a, "gcj02")) {
                 str = TextUtils.equals(cVar.a, "bd09ll") ? "bd09ll" : CoordinateType.WGS84;
             }
-            c.a.r0.a.c1.a.I().b(str, false, cVar.f9286b, new C0569b(this, cVar));
+            c.a.r0.a.c1.a.I().b(str, false, cVar.f9084b, new C0578b(this, cVar));
         }
     }
 
@@ -200,7 +200,7 @@ public class b {
                 c.a.r0.a.n2.u.a.b("getLocation", 1002, "GetLocation does not supported when app is invisible", 10005, "GetLocation does not supported when app is invisible");
                 this.a.f(cVar, "GetLocation does not supported when app is invisible");
             } else {
-                c.a.r0.a.v1.e.g(c.a.r0.a.d2.d.J().x(), new String[]{s.f57423g, s.f57424h}, 0, new a(this, cVar));
+                c.a.r0.a.v1.e.g(c.a.r0.a.d2.d.J().x(), new String[]{s.f55246g, s.f55247h}, 0, new a(this, cVar));
             }
         }
     }

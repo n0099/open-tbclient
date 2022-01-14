@@ -41,31 +41,31 @@ public class v extends BdAsyncTask<String, String, b> {
     public Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12730b;
+    public String f12429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12731c;
+    public int f12430c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f12732d;
+    public a f12431d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12733e;
+    public String f12432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12734f;
+    public String f12433f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f12735g;
+    public File f12434g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12736h;
+    public boolean f12435h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12737i;
+    public boolean f12436i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f12738j;
+    public boolean f12437j;
 
     /* loaded from: classes6.dex */
     public static abstract class a {
@@ -98,7 +98,7 @@ public class v extends BdAsyncTask<String, String, b> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12739b;
+        public String f12438b;
 
         public b(v vVar, boolean z, String str) {
             Interceptable interceptable = $ic;
@@ -116,13 +116,13 @@ public class v extends BdAsyncTask<String, String, b> {
                 }
             }
             this.a = z;
-            this.f12739b = str;
+            this.f12438b = str;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12739b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12438b : (String) invokeV.objValue;
         }
 
         public boolean b() {
@@ -147,12 +147,12 @@ public class v extends BdAsyncTask<String, String, b> {
                 return;
             }
         }
-        this.f12731c = 0;
-        this.f12737i = true;
-        this.f12738j = false;
+        this.f12430c = 0;
+        this.f12436i = true;
+        this.f12437j = false;
         this.a = activity;
-        this.f12730b = str;
-        this.f12732d = aVar;
+        this.f12429b = str;
+        this.f12431d = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -162,13 +162,13 @@ public class v extends BdAsyncTask<String, String, b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            if (TextUtils.isEmpty(this.f12730b)) {
+            if (TextUtils.isEmpty(this.f12429b)) {
                 return new b(this, false, "url is null");
             }
             if (!j()) {
                 return new b(this, false, "make file error");
             }
-            if (!this.f12736h) {
+            if (!this.f12435h) {
                 if (!d()) {
                     return new b(this, false, "download error");
                 }
@@ -203,7 +203,7 @@ public class v extends BdAsyncTask<String, String, b> {
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c(this.f12730b, this.f12734f, 3) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c(this.f12429b, this.f12433f, 3) : invokeV.booleanValue;
     }
 
     public final HttpURLConnection e(URL url, int i2, int i3) throws SocketException, ProtocolException {
@@ -322,7 +322,7 @@ public class v extends BdAsyncTask<String, String, b> {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.f12736h = z;
+            this.f12435h = z;
             return this;
         }
         return (v) invokeZ.objValue;
@@ -362,12 +362,12 @@ public class v extends BdAsyncTask<String, String, b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             try {
-                if (this.f12731c == 1) {
+                if (this.f12430c == 1) {
                     FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/");
                     FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + SevenZipUtils.FILE_NAME_TEMP + "/");
                     FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + SevenZipUtils.FILE_NAME_TEMP + "/.nomedia/");
                     externalStoragePublicDirectory = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + SevenZipUtils.FILE_NAME_TEMP + "/.nomedia/");
-                } else if (this.f12731c == 3) {
+                } else if (this.f12430c == 3) {
                     FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/");
                     FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + SevenZipUtils.FILE_NAME_TEMP + "/");
                     FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + SevenZipUtils.FILE_NAME_TEMP + "/.anniver/");
@@ -377,32 +377,32 @@ public class v extends BdAsyncTask<String, String, b> {
                 }
                 if (externalStoragePublicDirectory != null && externalStoragePublicDirectory.exists()) {
                     String absolutePath = externalStoragePublicDirectory.getAbsolutePath();
-                    this.f12733e = absolutePath;
-                    if (!TextUtils.isEmpty(absolutePath) && !this.f12733e.endsWith("/")) {
-                        this.f12733e += "/";
+                    this.f12432e = absolutePath;
+                    if (!TextUtils.isEmpty(absolutePath) && !this.f12432e.endsWith("/")) {
+                        this.f12432e += "/";
                     }
                 } else {
-                    this.f12733e = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
+                    this.f12432e = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
                 }
-                File file = new File(this.f12733e);
+                File file = new File(this.f12432e);
                 if (!file.exists()) {
                     file.mkdir();
                 }
-                if (this.f12731c == 1) {
+                if (this.f12430c == 1) {
                     lowerCase = "shareDialogTempImg";
                 } else {
-                    lowerCase = this.f12731c == 3 ? "userPortrait" : UUID.randomUUID().toString().replace("-", "").toLowerCase();
+                    lowerCase = this.f12430c == 3 ? "userPortrait" : UUID.randomUUID().toString().replace("-", "").toLowerCase();
                 }
-                this.f12734f = this.f12733e + lowerCase + f(this.f12730b);
-                File file2 = new File(this.f12734f);
-                this.f12735g = file2;
+                this.f12433f = this.f12432e + lowerCase + f(this.f12429b);
+                File file2 = new File(this.f12433f);
+                this.f12434g = file2;
                 if (file2.exists()) {
-                    this.f12735g.delete();
+                    this.f12434g.delete();
                 }
-                if (this.f12735g.exists()) {
+                if (this.f12434g.exists()) {
                     return true;
                 }
-                this.f12735g.createNewFile();
+                this.f12434g.createNewFile();
                 return true;
             } catch (IOException e2) {
                 e2.printStackTrace();
@@ -414,10 +414,10 @@ public class v extends BdAsyncTask<String, String, b> {
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f12735g == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f12434g == null) {
             return;
         }
-        TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.f12735g)));
+        TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.f12434g)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -428,26 +428,26 @@ public class v extends BdAsyncTask<String, String, b> {
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
             super.onPostExecute(bVar);
             if (bVar == null) {
-                a aVar = this.f12732d;
+                a aVar = this.f12431d;
                 if (aVar != null) {
                     aVar.onError(-2, "error");
                 }
             } else if (!bVar.b()) {
-                a aVar2 = this.f12732d;
+                a aVar2 = this.f12431d;
                 if (aVar2 != null) {
                     aVar2.onError(-1, bVar.a());
                 }
             } else {
-                if (this.f12738j && i(new File(this.f12734f))) {
-                    String replace = this.f12734f.replace(f(this.f12734f), ".gif");
-                    this.f12735g.renameTo(new File(replace));
-                    this.f12734f = replace;
-                    this.f12735g = new File(this.f12734f);
+                if (this.f12437j && i(new File(this.f12433f))) {
+                    String replace = this.f12433f.replace(f(this.f12433f), ".gif");
+                    this.f12434g.renameTo(new File(replace));
+                    this.f12433f = replace;
+                    this.f12434g = new File(this.f12433f);
                 }
                 k();
-                a aVar3 = this.f12732d;
+                a aVar3 = this.f12431d;
                 if (aVar3 != null) {
-                    aVar3.onSuccess(this.f12734f);
+                    aVar3.onSuccess(this.f12433f);
                 }
             }
         }
@@ -473,27 +473,27 @@ public class v extends BdAsyncTask<String, String, b> {
                             String headerField = httpURLConnection.getHeaderField("Location");
                             c.a.d.f.m.a.e(httpURLConnection);
                             try {
-                                if (this.f12735g != null) {
-                                    this.f12735g.delete();
+                                if (this.f12434g != null) {
+                                    this.f12434g.delete();
                                 }
                             } catch (Exception unused) {
                             }
-                            if (this.f12731c == 1) {
+                            if (this.f12430c == 1) {
                                 lowerCase = "shareDialogTempImg";
                             } else {
-                                lowerCase = this.f12731c == 3 ? "userPortrait" : UUID.randomUUID().toString().replace("-", "").toLowerCase();
+                                lowerCase = this.f12430c == 3 ? "userPortrait" : UUID.randomUUID().toString().replace("-", "").toLowerCase();
                             }
-                            this.f12734f = this.f12733e + lowerCase + f(headerField);
-                            File file = new File(this.f12734f);
-                            this.f12735g = file;
+                            this.f12433f = this.f12432e + lowerCase + f(headerField);
+                            File file = new File(this.f12433f);
+                            this.f12434g = file;
                             if (file.exists()) {
-                                this.f12735g.delete();
+                                this.f12434g.delete();
                             }
-                            if (!this.f12735g.exists()) {
-                                this.f12735g.createNewFile();
+                            if (!this.f12434g.exists()) {
+                                this.f12434g.createNewFile();
                             }
                             c.a.d.f.m.a.d(fileOutputStream);
-                            FileOutputStream fileOutputStream2 = new FileOutputStream(this.f12735g, true);
+                            FileOutputStream fileOutputStream2 = new FileOutputStream(this.f12434g, true);
                             try {
                                 httpURLConnection = e(new URL(headerField), i2, i3);
                                 httpURLConnection.connect();
@@ -518,7 +518,7 @@ public class v extends BdAsyncTask<String, String, b> {
             }
             if (responseCode == 200) {
                 String headerField2 = httpURLConnection.getHeaderField("Content-Length");
-                if ((headerField2 != null ? c.a.d.f.m.b.e(headerField2, 0) : 0) != 0 || !this.f12737i) {
+                if ((headerField2 != null ? c.a.d.f.m.b.e(headerField2, 0) : 0) != 0 || !this.f12436i) {
                     inputStream = httpURLConnection.getInputStream();
                     byte[] bArr = new byte[1024];
                     while (true) {
@@ -561,8 +561,8 @@ public class v extends BdAsyncTask<String, String, b> {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String str = this.f12730b;
-            byte[] decode = Base64.decode(str.substring(str.indexOf(",") + 1, this.f12730b.length()), 0);
+            String str = this.f12429b;
+            byte[] decode = Base64.decode(str.substring(str.indexOf(",") + 1, this.f12429b.length()), 0);
             for (int i2 = 0; i2 < decode.length; i2++) {
                 if (decode[i2] < 0) {
                     decode[i2] = (byte) (decode[i2] + 256);
@@ -571,7 +571,7 @@ public class v extends BdAsyncTask<String, String, b> {
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {
-                    fileOutputStream = new FileOutputStream(this.f12735g, true);
+                    fileOutputStream = new FileOutputStream(this.f12434g, true);
                 } catch (Exception e2) {
                     e = e2;
                 }
@@ -602,21 +602,21 @@ public class v extends BdAsyncTask<String, String, b> {
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f12737i = z;
+            this.f12436i = z;
         }
     }
 
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f12731c = i2;
+            this.f12430c = i2;
         }
     }
 
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f12738j = z;
+            this.f12437j = z;
         }
     }
 }

@@ -16,16 +16,16 @@ public class i implements b {
     public List<c.a.r0.q.j.i.b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.q.f.f f11802b;
+    public c.a.r0.q.f.f f11533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<c.a.r0.q.i.f> f11803c;
+    public List<c.a.r0.q.i.f> f11534c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c.a.r0.q.i.f> f11804d;
+    public List<c.a.r0.q.i.f> f11535d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.r0.q.i.f> f11805e;
+    public List<c.a.r0.q.i.f> f11536e;
 
     public i(c.a.r0.q.f.f fVar) {
         Interceptable interceptable = $ic;
@@ -42,10 +42,10 @@ public class i implements b {
                 return;
             }
         }
-        this.f11803c = new ArrayList();
-        this.f11804d = new ArrayList();
-        this.f11805e = new ArrayList();
-        this.f11802b = fVar;
+        this.f11534c = new ArrayList();
+        this.f11535d = new ArrayList();
+        this.f11536e = new ArrayList();
+        this.f11533b = fVar;
         this.a = new ArrayList();
         d.b().e(this);
     }
@@ -73,11 +73,11 @@ public class i implements b {
                 int i2 = fVar.i();
                 this.a.remove(next);
                 if (i2 == 2) {
-                    this.f11805e.add(next.a().f11792e.f11790b);
+                    this.f11536e.add(next.a().f11523e.f11522b);
                 } else if (i2 == 3) {
-                    this.f11804d.add(next.a().f11792e.f11790b);
+                    this.f11535d.add(next.a().f11523e.f11522b);
                 } else if (i2 == 10) {
-                    this.f11803c.add(next.a().f11792e.f11790b);
+                    this.f11534c.add(next.a().f11523e.f11522b);
                 }
             }
         }
@@ -97,7 +97,7 @@ public class i implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.a.isEmpty()) {
-                this.f11802b.b();
+                this.f11533b.b();
                 d.b().g(this);
                 return true;
             }

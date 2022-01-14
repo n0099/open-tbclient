@@ -24,13 +24,13 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53971b;
+    public String f51908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53972c;
+    public String f51909c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f53973d;
+    public boolean f51910d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> UnbindCardBean(Context context) {
@@ -50,14 +50,14 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
                 return;
             }
         }
-        this.f53973d = true;
+        this.f51910d = true;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!TextUtils.isEmpty(this.f53972c)) {
+            if (!TextUtils.isEmpty(this.f51909c)) {
                 super.execBean(null);
             } else {
                 this.mRspCallback.onBeanExecFailure(getBeanId(), -10, "");
@@ -71,19 +71,19 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (TextUtils.isEmpty(this.f53972c)) {
+            if (TextUtils.isEmpty(this.f51909c)) {
                 return arrayList;
             }
             arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.a)));
-            if (this.f53973d) {
+            if (this.f51910d) {
                 String seed = PasswordController.getSeed();
-                String handlePwd = PasswordController.handlePwd(this.f53972c, seed);
+                String handlePwd = PasswordController.handlePwd(this.f51909c, seed);
                 String encryptProxy = SecurePay.getInstance().encryptProxy(seed);
                 arrayList.add(new RestNameValuePair("mobile_pass", handlePwd));
                 arrayList.add(new RestNameValuePair("seed", encryptProxy));
             } else {
-                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f53971b)));
-                arrayList.add(new RestNameValuePair("vcode", this.f53972c));
+                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f51908b)));
+                arrayList.add(new RestNameValuePair("vcode", this.f51909c));
             }
             return arrayList;
         }
@@ -120,21 +120,21 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
     public void setPhoneNo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f53971b = str;
+            this.f51908b = str;
         }
     }
 
     public void setUsePass(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f53973d = z;
+            this.f51910d = z;
         }
     }
 
     public void setValue(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f53972c = str;
+            this.f51909c = str;
         }
     }
 }

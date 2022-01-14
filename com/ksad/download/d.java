@@ -27,13 +27,13 @@ public class d {
     public final Map<Integer, DownloadTask> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Integer> f57173b;
+    public final Map<String, Integer> f55011b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f57174c;
+    public c f55012c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f57175d;
+    public boolean f55013d;
 
     /* loaded from: classes3.dex */
     public static final class a {
@@ -72,8 +72,8 @@ public class d {
             }
         }
         this.a = new ConcurrentHashMap();
-        this.f57173b = new ConcurrentHashMap();
-        this.f57175d = false;
+        this.f55011b = new ConcurrentHashMap();
+        this.f55013d = false;
     }
 
     public static d a() {
@@ -131,18 +131,18 @@ public class d {
             DownloadTask downloadTask = new DownloadTask(downloadRequest);
             if (downloadRequest.getDownloadUrl().contains("downali.game.uc.cn")) {
                 b();
-            } else if (this.f57175d) {
+            } else if (this.f55013d) {
                 c();
             }
             if (this.a.get(Integer.valueOf(downloadTask.getId())) != null) {
                 a(downloadTask.getId(), downloadRequest);
                 b(downloadTask.getId());
-                a(downloadTask.getId(), cVar, this.f57174c);
+                a(downloadTask.getId(), cVar, this.f55012c);
             } else {
                 this.a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
-                this.f57173b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
+                this.f55011b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
                 downloadTask.submit();
-                a(downloadTask.getId(), cVar, this.f57174c);
+                a(downloadTask.getId(), cVar, this.f55012c);
             }
             return downloadTask.getId();
         }
@@ -173,14 +173,14 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, downloadTask) == null) {
             this.a.remove(Integer.valueOf(downloadTask.getId()));
-            this.f57173b.remove(downloadTask.getUrl());
+            this.f55011b.remove(downloadTask.getUrl());
         }
     }
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f57174c = cVar;
+            this.f55012c = cVar;
         }
     }
 
@@ -196,7 +196,7 @@ public class d {
             }
             if (aVar != null) {
                 com.kwai.filedownloader.download.b.a().b(new c.a().a(Integer.MAX_VALUE).a(aVar));
-                this.f57175d = true;
+                this.f55013d = true;
             }
         }
     }

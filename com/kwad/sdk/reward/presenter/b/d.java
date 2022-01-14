@@ -8,17 +8,17 @@ import com.kwad.sdk.utils.bb;
 public class d extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.presenter.platdetail.a f59682b;
+    public com.kwad.sdk.reward.presenter.platdetail.a f57426b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59683c;
+    public boolean f57427c;
 
     @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         m().findViewById(R.id.ksad_video_play_bar_h5).setVisibility(8);
         super.a();
-        if (this.f59683c) {
-            this.f59682b.a(((g) this).a);
+        if (this.f57427c) {
+            this.f57426b.a(((g) this).a);
         }
     }
 
@@ -26,14 +26,14 @@ public class d extends a {
     public void a(d.a aVar) {
         float c2 = bb.c(q());
         aVar.a = (int) ((bb.b(q()) / c2) + 0.5f);
-        aVar.f58575b = (int) ((bb.a(q()) / c2) + 0.5f);
+        aVar.f56366b = (int) ((bb.a(q()) / c2) + 0.5f);
     }
 
     @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        if (this.f59683c) {
-            this.f59682b.j();
+        if (this.f57427c) {
+            this.f57426b.j();
         }
     }
 
@@ -41,7 +41,7 @@ public class d extends a {
     public void c_() {
         super.c_();
         com.kwad.sdk.reward.presenter.platdetail.a aVar = new com.kwad.sdk.reward.presenter.platdetail.a();
-        this.f59682b = aVar;
+        this.f57426b = aVar;
         aVar.c(m());
         m().findViewById(i()).setVisibility(0);
     }
@@ -58,7 +58,7 @@ public class d extends a {
 
     @Override // com.kwad.sdk.reward.presenter.b.a
     public void r() {
-        this.f59682b.a(((g) this).a);
-        this.f59683c = true;
+        this.f57426b.a(((g) this).a);
+        this.f57427c = true;
     }
 }

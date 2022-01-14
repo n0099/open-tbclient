@@ -27,22 +27,22 @@ public class f {
     public PostSearchActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f17675b;
+    public View f17245b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FragmentTabHost f17676c;
+    public FragmentTabHost f17246c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewPager.OnPageChangeListener f17677d;
+    public ViewPager.OnPageChangeListener f17247d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PostSearchListFragment f17678e;
+    public PostSearchListFragment f17248e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PostSearchListFragment f17679f;
+    public PostSearchListFragment f17249f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PostSearchListFragment f17680g;
+    public PostSearchListFragment f17250g;
 
     public f(PostSearchActivity postSearchActivity, View view) {
         Interceptable interceptable = $ic;
@@ -60,15 +60,15 @@ public class f {
             }
         }
         this.a = postSearchActivity;
-        this.f17675b = view;
+        this.f17245b = view;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f17678e.clearListData();
-            this.f17679f.clearListData();
-            this.f17680g.clearListData();
+            this.f17248e.clearListData();
+            this.f17249f.clearListData();
+            this.f17250g.clearListData();
         }
     }
 
@@ -77,25 +77,25 @@ public class f {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             FragmentTabHost.b bVar = new FragmentTabHost.b();
             PostSearchListFragment postSearchListFragment = new PostSearchListFragment(1);
-            this.f17678e = postSearchListFragment;
-            bVar.f41700c = postSearchListFragment;
-            bVar.f41699b = c(R.string.searching_time_tab);
+            this.f17248e = postSearchListFragment;
+            bVar.f40268c = postSearchListFragment;
+            bVar.f40267b = c(R.string.searching_time_tab);
             bVar.a = 1;
-            this.f17676c.addTabSpec(bVar);
+            this.f17246c.addTabSpec(bVar);
             FragmentTabHost.b bVar2 = new FragmentTabHost.b();
             PostSearchListFragment postSearchListFragment2 = new PostSearchListFragment(2);
-            this.f17679f = postSearchListFragment2;
-            bVar2.f41700c = postSearchListFragment2;
-            bVar2.f41699b = c(R.string.searching_relative_tab);
+            this.f17249f = postSearchListFragment2;
+            bVar2.f40268c = postSearchListFragment2;
+            bVar2.f40267b = c(R.string.searching_relative_tab);
             bVar2.a = 2;
-            this.f17676c.addTabSpec(bVar2);
+            this.f17246c.addTabSpec(bVar2);
             FragmentTabHost.b bVar3 = new FragmentTabHost.b();
             PostSearchListFragment postSearchListFragment3 = new PostSearchListFragment(3);
-            this.f17680g = postSearchListFragment3;
-            bVar3.f41700c = postSearchListFragment3;
-            bVar3.f41699b = c(R.string.searching_only_thread_tab);
+            this.f17250g = postSearchListFragment3;
+            bVar3.f40268c = postSearchListFragment3;
+            bVar3.f40267b = c(R.string.searching_only_thread_tab);
             bVar3.a = 3;
-            this.f17676c.addTabSpec(bVar3);
+            this.f17246c.addTabSpec(bVar3);
         }
     }
 
@@ -117,7 +117,7 @@ public class f {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17676c.getCurrentTabType() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17246c.getCurrentTabType() : invokeV.intValue;
     }
 
     public final PostSearchListFragment e(int i2) {
@@ -129,11 +129,11 @@ public class f {
                     if (i2 != 3) {
                         return null;
                     }
-                    return this.f17680g;
+                    return this.f17250g;
                 }
-                return this.f17679f;
+                return this.f17249f;
             }
-            return this.f17678e;
+            return this.f17248e;
         }
         return (PostSearchListFragment) invokeI.objValue;
     }
@@ -141,36 +141,36 @@ public class f {
     public final void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            View inflate = ((ViewStub) this.f17675b.findViewById(R.id.search_tab_host_viewstub)).inflate();
+            View inflate = ((ViewStub) this.f17245b.findViewById(R.id.search_tab_host_viewstub)).inflate();
             inflate.setVisibility(0);
             FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.post_search_tab_host);
-            this.f17676c = fragmentTabHost;
+            this.f17246c = fragmentTabHost;
             fragmentTabHost.setup(this.a.getSupportFragmentManager());
-            this.f17676c.setTabWidgetViewHeight((int) this.a.getResources().getDimension(R.dimen.ds80));
-            this.f17676c.setShouldDrawIndicatorLine(true);
+            this.f17246c.setTabWidgetViewHeight((int) this.a.getResources().getDimension(R.dimen.ds80));
+            this.f17246c.setShouldDrawIndicatorLine(true);
             b();
-            this.f17676c.initViewPager(3);
-            this.f17676c.setCurrentTabByType(i2);
-            this.f17676c.setNeedShowThemeStyle(false);
-            this.f17676c.getFragmentTabWidget().setBackGroundDrawableResId(0);
-            this.f17676c.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            SkinManager.setBackgroundColor(this.f17676c.getFragmentTabWidget(), R.color.CAM_X0201);
-            this.f17676c.setOnPageChangeListener(this.f17677d);
+            this.f17246c.initViewPager(3);
+            this.f17246c.setCurrentTabByType(i2);
+            this.f17246c.setNeedShowThemeStyle(false);
+            this.f17246c.getFragmentTabWidget().setBackGroundDrawableResId(0);
+            this.f17246c.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundColor(this.f17246c.getFragmentTabWidget(), R.color.CAM_X0201);
+            this.f17246c.setOnPageChangeListener(this.f17247d);
         }
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            FragmentTabHost fragmentTabHost = this.f17676c;
+            FragmentTabHost fragmentTabHost = this.f17246c;
             if (fragmentTabHost != null) {
                 fragmentTabHost.onChangeSkinType(i2);
             }
-            FragmentTabHost fragmentTabHost2 = this.f17676c;
+            FragmentTabHost fragmentTabHost2 = this.f17246c;
             if (fragmentTabHost2 == null || fragmentTabHost2.getFragmentTabWidget() == null) {
                 return;
             }
-            SkinManager.setBackgroundColor(this.f17676c.getFragmentTabWidget(), R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f17246c.getFragmentTabWidget(), R.color.CAM_X0201);
         }
     }
 
@@ -188,8 +188,8 @@ public class f {
     public void i(ViewPager.OnPageChangeListener onPageChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
-            this.f17677d = onPageChangeListener;
-            FragmentTabHost fragmentTabHost = this.f17676c;
+            this.f17247d = onPageChangeListener;
+            FragmentTabHost fragmentTabHost = this.f17246c;
             if (fragmentTabHost != null) {
                 fragmentTabHost.setOnPageChangeListener(onPageChangeListener);
             }
@@ -199,7 +199,7 @@ public class f {
     public void j(boolean z) {
         FragmentTabHost fragmentTabHost;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (fragmentTabHost = this.f17676c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (fragmentTabHost = this.f17246c) == null) {
             return;
         }
         if (z) {
@@ -212,12 +212,12 @@ public class f {
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            if (this.f17676c == null) {
+            if (this.f17246c == null) {
                 f(1);
                 return;
             }
             a();
-            if (this.f17676c.getCurrentTabType() == i2) {
+            if (this.f17246c.getCurrentTabType() == i2) {
                 PostSearchListFragment e2 = e(i2);
                 if (e2 != null) {
                     e2.requestData(true);
@@ -225,7 +225,7 @@ public class f {
                 }
                 return;
             }
-            this.f17676c.setCurrentTabByType(i2);
+            this.f17246c.setCurrentTabByType(i2);
         }
     }
 }

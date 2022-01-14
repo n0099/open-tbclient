@@ -12,7 +12,7 @@ public class b {
     public static final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object[] f12010b;
+    public static final Object[] f11733b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class b {
             }
         }
         a = new int[0];
-        f12010b = new Object[0];
+        f11733b = new Object[0];
     }
 
     public static int a(int[] iArr, int i2, int i3) {

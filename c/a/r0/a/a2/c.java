@@ -23,10 +23,10 @@ public final class c {
     public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f5289b;
+    public static boolean f5179b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f5290c;
+    public static final c f5180c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -41,7 +41,7 @@ public final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f5291e;
+        public static final b f5181e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -57,7 +57,7 @@ public final class c {
                     return;
                 }
             }
-            f5291e = new b();
+            f5181e = new b();
         }
 
         public b() {
@@ -84,11 +84,11 @@ public final class c {
                 if (it.c()) {
                     JSONObject jSONObject = it.a;
                     JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                    a b2 = c.f5290c.b();
+                    a b2 = c.f5180c.b();
                     if (optJSONObject != null) {
                         String openId = optJSONObject.optString("openid");
                         if (b2 == null || !ProcessUtils.isMainProcess()) {
-                            c.f5290c.d(null, openId);
+                            c.f5180c.d(null, openId);
                             return;
                         }
                         Intrinsics.checkNotNullExpressionValue(openId, "openId");
@@ -106,11 +106,11 @@ public final class c {
 
     /* renamed from: c.a.r0.a.a2.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0254c<MsgType> implements c.a.r0.a.z2.g1.c<i<JSONObject>> {
+    public static final class C0263c<MsgType> implements c.a.r0.a.z2.g1.c<i<JSONObject>> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final C0254c f5292e;
+        public static final C0263c f5182e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -126,10 +126,10 @@ public final class c {
                     return;
                 }
             }
-            f5292e = new C0254c();
+            f5182e = new C0263c();
         }
 
-        public C0254c() {
+        public C0263c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,11 +153,11 @@ public final class c {
                 if (it.c()) {
                     JSONObject jSONObject = it.a;
                     JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                    a b2 = c.f5290c.b();
+                    a b2 = c.f5180c.b();
                     if (optJSONObject != null) {
                         String swanId = optJSONObject.optString("swanid");
                         if (b2 == null || !ProcessUtils.isMainProcess()) {
-                            c.f5290c.d(swanId, null);
+                            c.f5180c.d(swanId, null);
                             return;
                         }
                         Intrinsics.checkNotNullExpressionValue(swanId, "swanId");
@@ -186,7 +186,7 @@ public final class c {
                 return;
             }
         }
-        f5290c = new c();
+        f5180c = new c();
     }
 
     public c() {
@@ -212,7 +212,7 @@ public final class c {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f5289b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f5179b : invokeV.booleanValue;
     }
 
     public final void d(String str, String str2) {
@@ -244,7 +244,7 @@ public final class c {
             c.a.r0.a.p.a y = J.y();
             Intrinsics.checkNotNullExpressionValue(y, "Swan.get().adaptationProducer");
             c.a.r0.a.h2.c.j.d f2 = y.a().b().f(d.J());
-            f2.o(b.f5291e);
+            f2.o(b.f5181e);
             f2.call();
         }
     }
@@ -257,7 +257,7 @@ public final class c {
             c.a.r0.a.p.a y = J.y();
             Intrinsics.checkNotNullExpressionValue(y, "Swan.get().adaptationProducer");
             e e2 = y.a().b().e(d.J());
-            e2.o(C0254c.f5292e);
+            e2.o(C0263c.f5182e);
             e2.call();
         }
     }

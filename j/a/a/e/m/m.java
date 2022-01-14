@@ -20,13 +20,13 @@ public class m implements e {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64676b;
+    public int f62248b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayUIKitConfig f64677c;
+    public PayUIKitConfig f62249c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j.a.a.e.n.b f64678d;
+    public j.a.a.e.n.b f62250d;
 
     public m(int i2, int i3, PayUIKitConfig payUIKitConfig, j.a.a.e.n.b bVar) {
         Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class m implements e {
             }
         }
         this.a = i2;
-        this.f64676b = i3;
-        this.f64677c = payUIKitConfig;
-        this.f64678d = bVar;
+        this.f62248b = i3;
+        this.f62249c = payUIKitConfig;
+        this.f62250d = bVar;
     }
 
     @Override // j.a.a.e.m.e
     public void a(Activity activity, PayFlowType payFlowType, j.a.a.e.n.f fVar, j.a.a.e.n.c cVar, AppCustomExpand appCustomExpand, IPayCallback iPayCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, payFlowType, fVar, cVar, appCustomExpand, iPayCallback, str}) == null) {
-            j.a.a.e.n.b bVar = this.f64678d;
+            j.a.a.e.n.b bVar = this.f62250d;
             if (bVar == null) {
                 RLog.error("PayCoreImpl", "payRequest error modelProvider null", new Object[0]);
                 return;
@@ -68,9 +68,9 @@ public class m implements e {
             b2.v(payFlowType.getTypeId());
             PayType payType = fVar.a;
             if (payType == PayType.DXM_PAY_KJ || payType == PayType.UNION_PAY) {
-                b2.x(j.a.a.e.n.e.b(this.f64677c));
+                b2.x(j.a.a.e.n.e.b(this.f62249c));
             }
-            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.a, this.f64676b);
+            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.a, this.f62248b);
             if (middleRevenue != null && middleRevenue.getMiddlePayService() != null) {
                 middleRevenue.getMiddlePayService().a(b2);
             } else {

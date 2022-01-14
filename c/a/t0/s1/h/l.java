@@ -22,10 +22,10 @@ public class l extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f22687d = null;
+    public static a f22066d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f22688e = "tb_oficial_msg_";
+    public static String f22067e = "tb_oficial_msg_";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -68,10 +68,10 @@ public class l extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (l.class) {
-                if (f22687d == null) {
-                    f22687d = new l();
+                if (f22066d == null) {
+                    f22066d = new l();
                 }
-                lVar = (l) f22687d;
+                lVar = (l) f22066d;
             }
             return lVar;
         }
@@ -192,7 +192,7 @@ public class l extends a {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("read_count", Integer.valueOf(i2));
                 h d2 = h.d();
-                int update = d2.update(f22688e + j2, contentValues, "mid = ?", new String[]{String.valueOf(j3)});
+                int update = d2.update(f22067e + j2, contentValues, "mid = ?", new String[]{String.valueOf(j3)});
                 BdLog.d("updateReadCount result = " + update);
             } catch (Exception e2) {
                 e2.printStackTrace();

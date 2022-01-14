@@ -13,7 +13,7 @@ public class c implements Thread.UncaughtExceptionHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f3253e;
+    public Thread.UncaughtExceptionHandler f3215e;
 
     public c(Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class c implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f3253e = uncaughtExceptionHandler;
+        this.f3215e = uncaughtExceptionHandler;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
@@ -38,7 +38,7 @@ public class c implements Thread.UncaughtExceptionHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
             TitanDownloadService.startServiceIfNeeded(BdBaseApplication.getInst().getContext());
-            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f3253e;
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f3215e;
             if (uncaughtExceptionHandler != null) {
                 uncaughtExceptionHandler.uncaughtException(thread, th);
             }

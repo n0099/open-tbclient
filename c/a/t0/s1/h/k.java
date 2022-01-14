@@ -240,7 +240,7 @@ public class k {
         ImMessageCenterPojo imMessageCenterPojo12 = new ImMessageCenterPojo();
         imMessageCenterPojo12.setGid(TbEnum.CustomGroupId.GROUP_UPDATE);
         imMessageCenterPojo12.setCustomGroupType(-3);
-        imMessageCenterPojo12.setIs_hidden(!c.a.s0.s.g0.b.j().g("is_show_updates", true));
+        imMessageCenterPojo12.setIs_hidden(!c.a.s0.s.h0.b.k().h("is_show_updates", true));
         imMessageCenterPojo12.setUnread_count(d.f().g("group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change", 1));
         LinkedList<GroupNewsPojo> c2 = d.f().c(0L, 1, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
         if (c2 != null && c2.size() > 0) {
@@ -251,7 +251,7 @@ public class k {
         ImMessageCenterPojo imMessageCenterPojo13 = new ImMessageCenterPojo();
         imMessageCenterPojo13.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
         imMessageCenterPojo13.setCustomGroupType(-4);
-        imMessageCenterPojo13.setIs_hidden(!c.a.s0.s.g0.b.j().g("is_show_validate", true));
+        imMessageCenterPojo13.setIs_hidden(!c.a.s0.s.h0.b.k().h("is_show_validate", true));
         imMessageCenterPojo13.setUnread_count(d.f().g("apply_join_group", 1));
         LinkedList<GroupNewsPojo> c3 = d.f().c(0L, 1, 0, "apply_join_group");
         if (c3 != null && c3.size() > 0) {

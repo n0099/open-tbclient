@@ -34,12 +34,12 @@ public class a implements l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8595c;
+    public static final boolean f8409c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f8596b;
+    public Boolean f8410b;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class a implements l {
                 return;
             }
         }
-        f8595c = k.a;
+        f8409c = k.a;
     }
 
     public a() {
@@ -70,7 +70,7 @@ public class a implements l {
                 return;
             }
         }
-        this.f8596b = null;
+        this.f8410b = null;
         this.a = AppRuntime.getAppContext();
     }
 
@@ -149,7 +149,7 @@ public class a implements l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             e D = f.U().D();
-            return D != null ? D.f5660f : "";
+            return D != null ? D.f5537f : "";
         }
         return (String) invokeV.objValue;
     }
@@ -250,11 +250,11 @@ public class a implements l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.f8596b == null) {
+            if (this.f8410b == null) {
                 c.a.r0.a.c1.a.g0().getSwitch("swan_ceres_add_counter", false);
-                this.f8596b = false;
+                this.f8410b = false;
             }
-            return this.f8596b.booleanValue();
+            return this.f8410b.booleanValue();
         }
         return invokeV.booleanValue;
     }
@@ -263,7 +263,7 @@ public class a implements l {
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? c.a.r0.a.x1.a.a.X() && (s() || k.f7722b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? c.a.r0.a.x1.a.a.X() && (s() || k.f7553b) : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.u.l
@@ -271,7 +271,7 @@ public class a implements l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return f8595c && PreferenceManager.getDefaultSharedPreferences(c.a.r0.a.c1.a.c()).getBoolean("KEY_UBC_DEBUG", true);
+            return f8409c && PreferenceManager.getDefaultSharedPreferences(c.a.r0.a.c1.a.c()).getBoolean("KEY_UBC_DEBUG", true);
         }
         return invokeV.booleanValue;
     }

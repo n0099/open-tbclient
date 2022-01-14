@@ -20,12 +20,12 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6670c;
+    public static final boolean f6529c;
     public transient /* synthetic */ FieldHolder $fh;
     public Timer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.r0.a.h0.i.g.b.a f6671b;
+    public final c.a.r0.a.h0.i.g.b.a f6530b;
 
     /* loaded from: classes.dex */
     public class a extends TimerTask {
@@ -33,7 +33,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6672e;
+        public final /* synthetic */ d f6531e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -50,15 +50,15 @@ public class d {
                     return;
                 }
             }
-            this.f6672e = dVar;
+            this.f6531e = dVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = d.f6670c;
-                this.f6672e.d();
+                boolean unused = d.f6529c;
+                this.f6531e.d();
             }
         }
     }
@@ -94,7 +94,7 @@ public class d {
                 c.a.r0.a.h0.i.f.g(SceneType.SCENE_PMS_TIMEOUT.getScene() + networkStatus.getDesc());
                 c.a.r0.a.h0.i.e.c(SceneType.SCENE_PMS_TIMEOUT.getType(), networkStatus.getStatus());
                 this.a.e(networkStatus);
-                if (d.f6670c) {
+                if (d.f6529c) {
                     String str = ">> " + SceneType.SCENE_PMS_TIMEOUT.getScene() + networkStatus.getDesc();
                 }
             }
@@ -146,7 +146,7 @@ public class d {
                 return;
             }
         }
-        f6670c = k.a;
+        f6529c = k.a;
     }
 
     public d() {
@@ -162,13 +162,13 @@ public class d {
                 return;
             }
         }
-        this.f6671b = new c.a.r0.a.h0.i.g.b.a();
+        this.f6530b = new c.a.r0.a.h0.i.g.b.a();
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f6671b.a(new b(this));
+            this.f6530b.a(new b(this));
         }
     }
 
@@ -188,7 +188,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (d.class) {
-                boolean z = f6670c;
+                boolean z = f6529c;
                 Timer timer = new Timer();
                 this.a = timer;
                 timer.schedule(new a(this), 3000L);
@@ -201,7 +201,7 @@ public class d {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (d.class) {
                 if (this.a != null) {
-                    boolean z = f6670c;
+                    boolean z = f6529c;
                     this.a.cancel();
                     this.a = null;
                 }

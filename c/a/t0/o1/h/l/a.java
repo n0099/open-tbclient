@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends c.a.t0.g0.b<c.a.t0.o1.h.l.b> {
     public static /* synthetic */ Interceptable $ic;
     public static final int s;
@@ -38,15 +38,15 @@ public class a extends c.a.t0.g0.b<c.a.t0.o1.h.l.b> {
     public c.a.t0.o1.h.l.b r;
 
     /* renamed from: c.a.t0.o1.h.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class View$OnClickListenerC1273a implements View.OnClickListener {
+    /* loaded from: classes8.dex */
+    public class View$OnClickListenerC1287a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21139e;
+        public final /* synthetic */ a f20582e;
 
-        public View$OnClickListenerC1273a(a aVar) {
+        public View$OnClickListenerC1287a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,29 +61,29 @@ public class a extends c.a.t0.g0.b<c.a.t0.o1.h.l.b> {
                     return;
                 }
             }
-            this.f21139e = aVar;
+            this.f20582e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21139e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20582e.g() == null) {
                 return;
             }
-            this.f21139e.g().a(view, this.f21139e.r);
+            this.f20582e.g().a(view, this.f20582e.r);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f21140e;
+        public final /* synthetic */ ViewGroup.LayoutParams f20583e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f21141f;
+        public final /* synthetic */ a f20584f;
 
         public b(a aVar, ViewGroup.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -100,28 +100,28 @@ public class a extends c.a.t0.g0.b<c.a.t0.o1.h.l.b> {
                     return;
                 }
             }
-            this.f21141f = aVar;
-            this.f21140e = layoutParams;
+            this.f20584f = aVar;
+            this.f20583e = layoutParams;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f21141f.o.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.f21140e.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (a.u - a.v)) + a.v);
-                this.f21141f.n.setLayoutParams(this.f21140e);
+                this.f20584f.o.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f20583e.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (a.u - a.v)) + a.v);
+                this.f20584f.n.setLayoutParams(this.f20583e);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21142e;
+        public final /* synthetic */ a f20585e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -138,14 +138,14 @@ public class a extends c.a.t0.g0.b<c.a.t0.o1.h.l.b> {
                     return;
                 }
             }
-            this.f21142e = aVar;
+            this.f20585e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21142e.x();
+                this.f20585e.x();
             }
         }
     }
@@ -198,7 +198,7 @@ public class a extends c.a.t0.g0.b<c.a.t0.o1.h.l.b> {
         int i4 = t;
         textView.setPadding(0, i4, 0, i4 - s);
         this.q = this.m.getResources().getString(R.string.home_read_here);
-        this.n.setOnClickListener(new View$OnClickListenerC1273a(this));
+        this.n.setOnClickListener(new View$OnClickListenerC1287a(this));
     }
 
     @Override // c.a.t0.g0.b
@@ -237,16 +237,16 @@ public class a extends c.a.t0.g0.b<c.a.t0.o1.h.l.b> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || bVar == null || this.n.getLayoutParams() == null) {
             return;
         }
-        if (!bVar.f21145f) {
+        if (!bVar.f20588f) {
             this.n.getLayoutParams().height = v;
             this.n.requestLayout();
             this.o.setAlpha(0.0f);
         }
         if (this.n.getLayoutParams().height != u) {
-            bVar.f21145f = true;
+            bVar.f20588f = true;
             e.a().postDelayed(new c(this), 1600L);
         }
-        String formatTimeShort = StringHelper.getFormatTimeShort(bVar.f21144e);
+        String formatTimeShort = StringHelper.getFormatTimeShort(bVar.f20587e);
         TextView textView = this.o;
         textView.setText(formatTimeShort + this.q);
         l(this.m, TbadkCoreApplication.getInst().getSkinType());

@@ -63,10 +63,10 @@ public abstract class AbstractListMultimap<K, V> extends AbstractMapBasedMultima
     }
 
     @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
-    public boolean put(K k2, V v) {
+    public boolean put(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2, v)) == null) ? super.put(k2, v) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, v)) == null) ? super.put(k, v) : invokeLL.booleanValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -84,10 +84,10 @@ public abstract class AbstractListMultimap<K, V> extends AbstractMapBasedMultima
     }
 
     @Override // com.google.common.collect.AbstractMapBasedMultimap
-    public Collection<V> wrapCollection(K k2, Collection<V> collection) {
+    public Collection<V> wrapCollection(K k, Collection<V> collection) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k2, collection)) == null) ? wrapList(k2, (List) collection, null) : (Collection) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k, collection)) == null) ? wrapList(k, (List) collection, null) : (Collection) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -99,10 +99,10 @@ public abstract class AbstractListMultimap<K, V> extends AbstractMapBasedMultima
     }
 
     @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
-    public List<V> get(K k2) {
+    public List<V> get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, k2)) == null) ? (List) super.get((AbstractListMultimap<K, V>) k2) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, k)) == null) ? (List) super.get((AbstractListMultimap<K, V>) k) : (List) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -114,9 +114,9 @@ public abstract class AbstractListMultimap<K, V> extends AbstractMapBasedMultima
     }
 
     @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
-    public List<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+    public List<V> replaceValues(K k, Iterable<? extends V> iterable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k2, iterable)) == null) ? (List) super.replaceValues((AbstractListMultimap<K, V>) k2, (Iterable) iterable) : (List) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k, iterable)) == null) ? (List) super.replaceValues((AbstractListMultimap<K, V>) k, (Iterable) iterable) : (List) invokeLL.objValue;
     }
 }

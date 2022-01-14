@@ -74,10 +74,10 @@ public abstract class Striped64 extends Number {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Unsafe f57080b;
+        public static final Unsafe f54919b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final long f57081c;
+        public static final long f54920c;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile long a;
 
@@ -96,8 +96,8 @@ public abstract class Striped64 extends Number {
             }
             try {
                 Unsafe unsafe = Striped64.getUnsafe();
-                f57080b = unsafe;
-                f57081c = unsafe.objectFieldOffset(b.class.getDeclaredField("a"));
+                f54919b = unsafe;
+                f54920c = unsafe.objectFieldOffset(b.class.getDeclaredField("a"));
             } catch (Exception e2) {
                 throw new Error(e2);
             }
@@ -124,7 +124,7 @@ public abstract class Striped64 extends Number {
         public final boolean a(long j2, long j3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? f57080b.compareAndSwapLong(this, f57081c, j2, j3) : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? f54919b.compareAndSwapLong(this, f54920c, j2, j3) : invokeCommon.booleanValue;
         }
     }
 

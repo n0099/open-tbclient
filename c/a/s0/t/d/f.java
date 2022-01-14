@@ -19,12 +19,12 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f14292c;
+    public static f f13963c;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14293b;
+    public String f13964b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f14292c == null) {
+            if (f13963c == null) {
                 synchronized (f.class) {
-                    if (f14292c == null) {
-                        f14292c = new f();
+                    if (f13963c == null) {
+                        f13963c = new f();
                     }
                 }
             }
-            return f14292c;
+            return f13963c;
         }
         return (f) invokeV.objValue;
     }
@@ -109,7 +109,7 @@ public class f {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14293b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13964b : (String) invokeV.objValue;
     }
 
     public boolean g() {
@@ -146,7 +146,7 @@ public class f {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f14293b = str;
+            this.f13964b = str;
         }
     }
 

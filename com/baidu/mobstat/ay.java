@@ -71,7 +71,7 @@ public class ay {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ay f37734b;
+    public static final ay f36494b;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, String> a;
 
@@ -88,7 +88,7 @@ public class ay {
                 return;
             }
         }
-        f37734b = new ay();
+        f36494b = new ay();
     }
 
     public ay() {
@@ -111,7 +111,7 @@ public class ay {
     public static ay a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f37734b : (ay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36494b : (ay) invokeV.objValue;
     }
 
     private void b() {

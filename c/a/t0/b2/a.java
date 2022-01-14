@@ -27,47 +27,45 @@ import java.util.Locale;
 /* loaded from: classes6.dex */
 public class a implements c.a.d.f.i.b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static a f15580k;
+    public static a k;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f15581b;
+    public boolean f15191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f15582c;
+    public String f15192c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.d f15583d;
+    public a.d f15193d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f15584e;
+    public b f15194e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LocationClient f15585f;
+    public LocationClient f15195f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LocationClientOption f15586g;
+    public LocationClientOption f15196g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Address f15587h;
+    public Address f15197h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f15588i;
+    public long f15198i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f15589j;
+    public boolean f15199j;
 
     /* renamed from: c.a.t0.b2.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0961a extends CustomMessageListener {
+    public static class C0974a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0961a(int i2) {
+        public C0974a(int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -134,12 +132,12 @@ public class a implements c.a.d.f.i.b {
                     return;
                 }
                 this.a.c();
-                this.a.f15587h = new Address(Locale.getDefault());
-                this.a.f15587h.setLatitude(bDLocation.getLatitude());
-                this.a.f15587h.setLongitude(bDLocation.getLongitude());
-                c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-                j2.x("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
-                this.a.f15587h.setLocality(bDLocation.getCity());
+                this.a.f15197h = new Address(Locale.getDefault());
+                this.a.f15197h.setLatitude(bDLocation.getLatitude());
+                this.a.f15197h.setLongitude(bDLocation.getLongitude());
+                c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                k.y("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
+                this.a.f15197h.setLocality(bDLocation.getCity());
                 Bundle bundle = new Bundle();
                 bundle.putFloat("radius", bDLocation.getRadius());
                 bundle.putDouble("altitude", bDLocation.getAltitude());
@@ -148,8 +146,8 @@ public class a implements c.a.d.f.i.b {
                 bundle.putString("street", bDLocation.getStreet());
                 bundle.putString("streetNumber", bDLocation.getStreetNumber());
                 bundle.putString("province", bDLocation.getProvince());
-                this.a.f15587h.setExtras(bundle);
-                this.a.f15588i = System.currentTimeMillis();
+                this.a.f15197h.setExtras(bundle);
+                this.a.f15198i = System.currentTimeMillis();
                 StringBuffer stringBuffer = new StringBuffer();
                 if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
                     stringBuffer.append(bDLocation.getCity());
@@ -157,18 +155,18 @@ public class a implements c.a.d.f.i.b {
                 stringBuffer.append(bDLocation.getDistrict());
                 stringBuffer.append(bDLocation.getStreet());
                 if (bDLocation.getAddrStr() != null) {
-                    this.a.f15587h.setAddressLine(0, stringBuffer.toString());
+                    this.a.f15197h.setAddressLine(0, stringBuffer.toString());
                 }
-                if (this.a.f15583d != null) {
-                    this.a.f15583d.a(0, "", this.a.f15587h, this.a.f15588i, this.a.f15589j);
-                    c.a.t0.j3.j0.a.e().i(String.valueOf(this.a.f15587h.getLatitude()));
-                    c.a.t0.j3.j0.a.e().j(String.valueOf(this.a.f15587h.getLongitude()));
+                if (this.a.f15193d != null) {
+                    this.a.f15193d.a(0, "", this.a.f15197h, this.a.f15198i, this.a.f15199j);
+                    c.a.t0.j3.j0.a.e().i(String.valueOf(this.a.f15197h.getLatitude()));
+                    c.a.t0.j3.j0.a.e().j(String.valueOf(this.a.f15197h.getLongitude()));
                     c.a.t0.j3.j0.a.e().k(System.currentTimeMillis());
                 }
             }
         }
 
-        public /* synthetic */ b(a aVar, C0961a c0961a) {
+        public /* synthetic */ b(a aVar, C0974a c0974a) {
             this(aVar);
         }
     }
@@ -186,7 +184,7 @@ public class a implements c.a.d.f.i.b {
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new C0961a(2001330));
+        MessageManager.getInstance().registerListener(new C0974a(2001330));
     }
 
     public a() {
@@ -202,25 +200,25 @@ public class a implements c.a.d.f.i.b {
                 return;
             }
         }
-        this.f15581b = true;
-        this.f15582c = "";
-        this.f15583d = null;
-        this.f15588i = 0L;
-        this.f15589j = false;
+        this.f15191b = true;
+        this.f15192c = "";
+        this.f15193d = null;
+        this.f15198i = 0L;
+        this.f15199j = false;
     }
 
     public static a j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f15580k == null) {
+            if (k == null) {
                 synchronized (a.class) {
-                    if (f15580k == null) {
-                        f15580k = new a();
+                    if (k == null) {
+                        k = new a();
                     }
                 }
             }
-            return f15580k;
+            return k;
         }
         return (a) invokeV.objValue;
     }
@@ -229,23 +227,23 @@ public class a implements c.a.d.f.i.b {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.f15581b && this.f15585f != null) {
+            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.f15191b && this.f15195f != null) {
                 try {
-                    this.f15589j = z;
+                    this.f15199j = z;
                     if (z) {
-                        this.f15586g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                        this.f15196g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
                     }
-                    this.f15585f.setLocOption(this.f15586g);
-                    if (!this.f15585f.isStarted()) {
-                        this.f15585f.start();
+                    this.f15195f.setLocOption(this.f15196g);
+                    if (!this.f15195f.isStarted()) {
+                        this.f15195f.start();
                     }
-                    this.f15585f.requestLocation();
+                    this.f15195f.requestLocation();
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                     c();
-                    a.d dVar = this.f15583d;
+                    a.d dVar = this.f15193d;
                     if (dVar != null) {
-                        dVar.a(5, "", this.f15587h, this.f15588i, this.f15589j);
+                        dVar.a(5, "", this.f15197h, this.f15198i, this.f15199j);
                     }
                 }
             }
@@ -258,21 +256,21 @@ public class a implements c.a.d.f.i.b {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
             this.a = context;
-            this.f15583d = dVar;
-            this.f15582c = "baidu";
-            if (this.f15581b) {
+            this.f15193d = dVar;
+            this.f15192c = "baidu";
+            if (this.f15191b) {
                 try {
-                    this.f15585f = new LocationClient(context);
+                    this.f15195f = new LocationClient(context);
                     LocationClientOption locationClientOption = new LocationClientOption();
-                    this.f15586g = locationClientOption;
+                    this.f15196g = locationClientOption;
                     locationClientOption.setOpenGps(true);
-                    this.f15586g.setIgnoreKillProcess(true);
-                    this.f15586g.setProdName(this.f15582c);
-                    this.f15586g.setAddrType("all");
-                    this.f15586g.setCoorType("bd09ll");
+                    this.f15196g.setIgnoreKillProcess(true);
+                    this.f15196g.setProdName(this.f15192c);
+                    this.f15196g.setAddrType("all");
+                    this.f15196g.setCoorType("bd09ll");
                     b bVar = new b(this, null);
-                    this.f15584e = bVar;
-                    this.f15585f.registerLocationListener(bVar);
+                    this.f15194e = bVar;
+                    this.f15195f.registerLocationListener(bVar);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -284,9 +282,9 @@ public class a implements c.a.d.f.i.b {
     public void c() {
         LocationClient locationClient;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f15585f) != null && locationClient.isStarted()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f15195f) != null && locationClient.isStarted()) {
             try {
-                this.f15585f.stop();
+                this.f15195f.stop();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }

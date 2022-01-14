@@ -17,7 +17,7 @@ public class o0 {
     public PbFragment a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.k0.g f23619b;
+    public c.a.t0.k0.g f22962b;
 
     public o0(PbFragment pbFragment) {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class o0 {
     public void a() {
         c.a.t0.k0.g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f23619b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f22962b) == null) {
             return;
         }
         gVar.I();

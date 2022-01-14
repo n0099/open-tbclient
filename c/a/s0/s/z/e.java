@@ -16,10 +16,10 @@ public class e {
     public static final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f14012b;
+    public static final c f13685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f14013c;
+    public static final boolean f13686c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -118,13 +118,13 @@ public class e {
             }
         }
         a = new b(null);
-        f14012b = new d(null);
-        f14013c = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        f13685b = new d(null);
+        f13686c = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f14013c) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f13686c) {
             a.a(null, null, str);
         }
     }
@@ -139,10 +139,10 @@ public class e {
     public static void c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            if (f14013c) {
+            if (f13686c) {
                 a.a(str, str2, str3);
             }
-            f14012b.a(str, str2, str3);
+            f13685b.a(str, str2, str3);
         }
     }
 }

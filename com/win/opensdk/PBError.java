@@ -1,7 +1,6 @@
 package com.win.opensdk;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +28,7 @@ public class PBError {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63180b;
+    public String f60801b;
 
     static {
         InterceptResult invokeClinit;
@@ -50,12 +49,12 @@ public class PBError {
         SERVER_ERROR = new PBError(2004, "NET ERROR");
         PID_INVALID = new PBError(2005, "PID INVALID");
         PID_TYPE_ERROR = new PBError(2006, "PID ERROR");
-        UNKNOWN = new PBError(SpeedStatsStampTable.INIT_RUKA_STAMP_KEY, "UNKNOWN ERROR");
-        NO_NETWORK = new PBError(SpeedStatsStampTable.INIT_RUKA_STAMP_KEY, "No network available");
-        NO_LOAD = new PBError(SpeedStatsStampTable.INIT_AXE_STAMP_KEY, "No Load");
-        NO_RESUOURCE = new PBError(SpeedStatsStampTable.INIT_AXE_STAMP_KEY, "No Resources");
-        LOAD_TIME_OUT = new PBError(SpeedStatsStampTable.INIT_AXE_STAMP_KEY, "Load Time Out");
-        LOAD_TYPE_ERROR = new PBError(SpeedStatsStampTable.INIT_AXE_STAMP_KEY, "Load Type error");
+        UNKNOWN = new PBError(2030, "UNKNOWN ERROR");
+        NO_NETWORK = new PBError(2030, "No network available");
+        NO_LOAD = new PBError(2031, "No Load");
+        NO_RESUOURCE = new PBError(2031, "No Resources");
+        LOAD_TIME_OUT = new PBError(2031, "Load Time Out");
+        LOAD_TYPE_ERROR = new PBError(2031, "Load Type error");
     }
 
     public PBError(int i2, String str) {
@@ -74,7 +73,7 @@ public class PBError {
             }
         }
         this.a = i2;
-        this.f63180b = str;
+        this.f60801b = str;
     }
 
     public int getCode() {
@@ -86,7 +85,7 @@ public class PBError {
     public String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63180b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60801b : (String) invokeV.objValue;
     }
 
     public void setCode(int i2) {
@@ -99,7 +98,7 @@ public class PBError {
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f63180b = str;
+            this.f60801b = str;
         }
     }
 
@@ -107,7 +106,7 @@ public class PBError {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "PBError{code=" + this.a + ", msg='" + this.f63180b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PBError{code=" + this.a + ", msg='" + this.f60801b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

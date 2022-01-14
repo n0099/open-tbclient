@@ -16,7 +16,7 @@ public class b {
     public TbPageTag a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageTag f13271b;
+    public TbPageTag f12952b;
 
     public b(BdUniqueId bdUniqueId, TbPageTag tbPageTag, Intent intent) {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class b {
                 return;
             }
         }
-        this.f13271b = tbPageTag;
+        this.f12952b = tbPageTag;
         c(intent);
     }
 
     public TbPageTag a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13271b : (TbPageTag) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12952b : (TbPageTag) invokeV.objValue;
     }
 
     public TbPageTag b() {

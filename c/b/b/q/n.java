@@ -15,22 +15,22 @@ public class n {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f28306b;
+    public int[] f27448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28307c;
+    public boolean f27449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final float f28308d;
+    public final float f27450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28309e;
+    public int f27451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28310f;
+    public int f27452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28311g;
+    public int f27453g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public n() {
@@ -56,10 +56,10 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 == 0) {
-                if (this.f28307c) {
+                if (this.f27449c) {
                     return false;
                 }
-                this.f28307c = true;
+                this.f27449c = true;
                 this.a++;
                 return true;
             }
@@ -68,11 +68,11 @@ public class n {
                 return false;
             }
             int i3 = -(d2 + 1);
-            int[] iArr = this.f28306b;
+            int[] iArr = this.f27448b;
             iArr[i3] = i2;
             int i4 = this.a + 1;
             this.a = i4;
-            if (i4 >= this.f28309e) {
+            if (i4 >= this.f27451e) {
                 g(iArr.length << 1);
             }
             return true;
@@ -83,10 +83,10 @@ public class n {
     public final void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            int[] iArr = this.f28306b;
+            int[] iArr = this.f27448b;
             int e2 = e(i2);
             while (iArr[e2] != 0) {
-                e2 = (e2 + 1) & this.f28311g;
+                e2 = (e2 + 1) & this.f27453g;
             }
             iArr[e2] = i2;
         }
@@ -97,7 +97,7 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             if (i2 == 0) {
-                return this.f28307c;
+                return this.f27449c;
             }
             return d(i2) >= 0;
         }
@@ -110,7 +110,7 @@ public class n {
         if (interceptable != null && (invokeI = interceptable.invokeI(1048579, this, i2)) != null) {
             return invokeI.intValue;
         }
-        int[] iArr = this.f28306b;
+        int[] iArr = this.f27448b;
         int e2 = e(i2);
         while (true) {
             int i3 = iArr[e2];
@@ -120,14 +120,14 @@ public class n {
             if (i3 == i2) {
                 return e2;
             }
-            e2 = (e2 + 1) & this.f28311g;
+            e2 = (e2 + 1) & this.f27453g;
         }
     }
 
     public int e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? (int) ((i2 * (-7046029254386353131L)) >>> this.f28310f) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? (int) ((i2 * (-7046029254386353131L)) >>> this.f27452f) : invokeI.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -136,8 +136,8 @@ public class n {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             if (obj instanceof n) {
                 n nVar = (n) obj;
-                if (nVar.a == this.a && nVar.f28307c == this.f28307c) {
-                    int[] iArr = this.f28306b;
+                if (nVar.a == this.a && nVar.f27449c == this.f27449c) {
+                    int[] iArr = this.f27448b;
                     int length = iArr.length;
                     for (int i2 = 0; i2 < length; i2++) {
                         if (iArr[i2] != 0 && !nVar.c(iArr[i2])) {
@@ -160,8 +160,8 @@ public class n {
             return invokeI.booleanValue;
         }
         if (i2 == 0) {
-            if (this.f28307c) {
-                this.f28307c = false;
+            if (this.f27449c) {
+                this.f27449c = false;
                 this.a--;
                 return true;
             }
@@ -171,8 +171,8 @@ public class n {
         if (d2 < 0) {
             return false;
         }
-        int[] iArr = this.f28306b;
-        int i3 = this.f28311g;
+        int[] iArr = this.f27448b;
+        int i3 = this.f27453g;
         int i4 = d2 + 1;
         while (true) {
             int i5 = i4 & i3;
@@ -195,13 +195,13 @@ public class n {
     public final void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            int length = this.f28306b.length;
-            this.f28309e = (int) (i2 * this.f28308d);
+            int length = this.f27448b.length;
+            this.f27451e = (int) (i2 * this.f27450d);
             int i3 = i2 - 1;
-            this.f28311g = i3;
-            this.f28310f = Long.numberOfLeadingZeros(i3);
-            int[] iArr = this.f28306b;
-            this.f28306b = new int[i2];
+            this.f27453g = i3;
+            this.f27452f = Long.numberOfLeadingZeros(i3);
+            int[] iArr = this.f27448b;
+            this.f27448b = new int[i2];
             if (this.a > 0) {
                 for (int i4 = 0; i4 < length; i4++) {
                     int i5 = iArr[i4];
@@ -219,7 +219,7 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             int i2 = this.a;
-            for (int i3 : this.f28306b) {
+            for (int i3 : this.f27448b) {
                 if (i3 != 0) {
                     i2 += i3;
                 }
@@ -247,9 +247,9 @@ public class n {
         }
         StringBuilder sb = new StringBuilder(32);
         sb.append('[');
-        int[] iArr = this.f28306b;
+        int[] iArr = this.f27448b;
         int length = iArr.length;
-        if (this.f28307c) {
+        if (this.f27449c) {
             sb.append("0");
             i2 = length - 1;
             if (length > 0) {
@@ -303,13 +303,13 @@ public class n {
             }
         }
         if (f2 > 0.0f && f2 < 1.0f) {
-            this.f28308d = f2;
+            this.f27450d = f2;
             int h2 = x.h(i2, f2);
-            this.f28309e = (int) (h2 * f2);
+            this.f27451e = (int) (h2 * f2);
             int i5 = h2 - 1;
-            this.f28311g = i5;
-            this.f28310f = Long.numberOfLeadingZeros(i5);
-            this.f28306b = new int[h2];
+            this.f27453g = i5;
+            this.f27452f = Long.numberOfLeadingZeros(i5);
+            this.f27448b = new int[h2];
             return;
         }
         throw new IllegalArgumentException("loadFactor must be > 0 and < 1: " + f2);

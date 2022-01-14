@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
@@ -68,7 +68,7 @@ public class a {
         }
         int i4 = 0;
         for (c.a.t0.o2.c.a aVar : list3) {
-            if (aVar != null && i2 == aVar.f21399b.intValue()) {
+            if (aVar != null && i2 == aVar.f20833b.intValue()) {
                 List<g> list4 = aVar.a;
                 if (list4 == null || list4.size() <= 0) {
                     return;
@@ -89,7 +89,7 @@ public class a {
                             RecommendForumInfo recommendForumInfo = list4.get(i5).a;
                             if (!arrayList.contains(recommendForumInfo.forum_id)) {
                                 d dVar = new d();
-                                dVar.o(aVar.f21399b.intValue());
+                                dVar.o(aVar.f20833b.intValue());
                                 dVar.n(recommendForumInfo.avatar);
                                 dVar.q(recommendForumInfo.forum_id.longValue());
                                 dVar.s(recommendForumInfo.forum_name);
@@ -121,9 +121,9 @@ public class a {
             for (c.a.t0.o2.c.a aVar : list) {
                 if (aVar != null) {
                     f fVar = new f();
-                    fVar.g(aVar.f21399b.intValue());
-                    fVar.e(aVar.f21401d);
-                    fVar.h(aVar.f21400c);
+                    fVar.g(aVar.f20833b.intValue());
+                    fVar.e(aVar.f20835d);
+                    fVar.h(aVar.f20834c);
                     arrayList.add(fVar);
                     List<g> list2 = aVar.a;
                     if (list2 != null && list2.size() > 0) {
@@ -135,8 +135,8 @@ public class a {
                                 }
                                 d dVar = new d();
                                 RecommendForumInfo recommendForumInfo = gVar.a;
-                                dVar.o(aVar.f21399b.intValue());
-                                dVar.p(aVar.f21400c);
+                                dVar.o(aVar.f20833b.intValue());
+                                dVar.p(aVar.f20834c);
                                 dVar.n(recommendForumInfo.avatar);
                                 dVar.q(recommendForumInfo.forum_id.longValue());
                                 dVar.s(recommendForumInfo.forum_name);
@@ -148,8 +148,8 @@ public class a {
                             }
                         }
                         e eVar = new e();
-                        eVar.g(aVar.f21399b.intValue());
-                        eVar.h(aVar.f21400c);
+                        eVar.g(aVar.f20833b.intValue());
+                        eVar.h(aVar.f20834c);
                         arrayList.add(eVar);
                     }
                 }

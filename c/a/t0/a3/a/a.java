@@ -22,9 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a extends c.a.s0.l0.f.a<PluginConfigWrapper, c.a.s0.l0.d.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TbImageView f15434k;
+    public TbImageView k;
     public TextView l;
     public TextView m;
     public TextView n;
@@ -33,14 +31,14 @@ public class a extends c.a.s0.l0.f.a<PluginConfigWrapper, c.a.s0.l0.d.b> {
 
     /* renamed from: c.a.t0.a3.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class View$OnClickListenerC0950a implements View.OnClickListener {
+    public class View$OnClickListenerC0963a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f15435e;
+        public final /* synthetic */ a f15051e;
 
-        public View$OnClickListenerC0950a(a aVar) {
+        public View$OnClickListenerC0963a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,16 +53,16 @@ public class a extends c.a.s0.l0.f.a<PluginConfigWrapper, c.a.s0.l0.d.b> {
                     return;
                 }
             }
-            this.f15435e = aVar;
+            this.f15051e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.s0.l0.c.b bVar = new c.a.s0.l0.c.b(3, this.f15435e.a(), null, null);
-                bVar.i(this.f15435e.g());
-                this.f15435e.b().dispatchMvcEvent(bVar);
+                c.a.s0.l0.c.b bVar = new c.a.s0.l0.c.b(3, this.f15051e.a(), null, null);
+                bVar.i(this.f15051e.g());
+                this.f15051e.b().dispatchMvcEvent(bVar);
             }
         }
     }
@@ -75,7 +73,7 @@ public class a extends c.a.s0.l0.f.a<PluginConfigWrapper, c.a.s0.l0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f15436e;
+        public final /* synthetic */ a f15052e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -92,16 +90,16 @@ public class a extends c.a.s0.l0.f.a<PluginConfigWrapper, c.a.s0.l0.d.b> {
                     return;
                 }
             }
-            this.f15436e = aVar;
+            this.f15052e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.s0.l0.c.b bVar = new c.a.s0.l0.c.b(2, this.f15436e.a(), null, null);
-                bVar.i(this.f15436e.g());
-                this.f15436e.b().dispatchMvcEvent(bVar);
+                c.a.s0.l0.c.b bVar = new c.a.s0.l0.c.b(2, this.f15052e.a(), null, null);
+                bVar.i(this.f15052e.g());
+                this.f15052e.b().dispatchMvcEvent(bVar);
             }
         }
     }
@@ -125,12 +123,12 @@ public class a extends c.a.s0.l0.f.a<PluginConfigWrapper, c.a.s0.l0.d.b> {
                 return;
             }
         }
-        this.f15434k = (TbImageView) view.findViewById(d.icon);
+        this.k = (TbImageView) view.findViewById(d.icon);
         this.l = (TextView) view.findViewById(d.title);
         this.m = (TextView) view.findViewById(d.desc);
         TextView textView = (TextView) view.findViewById(d.status);
         this.n = textView;
-        textView.setOnClickListener(new View$OnClickListenerC0950a(this));
+        textView.setOnClickListener(new View$OnClickListenerC0963a(this));
         TextView textView2 = (TextView) view.findViewById(d.install);
         this.o = textView2;
         textView2.setOnClickListener(new b(this));
@@ -148,7 +146,7 @@ public class a extends c.a.s0.l0.f.a<PluginConfigWrapper, c.a.s0.l0.d.b> {
                 return;
             }
             if (!StringUtils.isNull(pluginConfigWrapper.icon)) {
-                this.f15434k.startLoad(pluginConfigWrapper.icon, 10, false);
+                this.k.startLoad(pluginConfigWrapper.icon, 10, false);
             }
             this.l.setText(pluginConfigWrapper.display_name);
             this.m.setText(pluginConfigWrapper.verbose);

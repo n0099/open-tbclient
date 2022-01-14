@@ -14,7 +14,7 @@ import com.kwad.sdk.utils.z;
 public class AdBaseFrameLayout extends FrameLayout {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final z.a f58517b = new z.a();
+    public static final z.a f56309b = new z.a();
     public View.OnTouchListener a;
 
     public AdBaseFrameLayout(Context context) {
@@ -51,17 +51,17 @@ public class AdBaseFrameLayout extends FrameLayout {
         }
         int action = motionEvent.getAction();
         if (action == 0) {
-            f58517b.a(getWidth(), getHeight());
-            f58517b.a(motionEvent.getX(), motionEvent.getY());
+            f56309b.a(getWidth(), getHeight());
+            f56309b.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            f58517b.b(motionEvent.getX(), motionEvent.getY());
+            f56309b.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
     public z.a getTouchCoords() {
-        return f58517b;
+        return f56309b;
     }
 
     @Override // android.view.View

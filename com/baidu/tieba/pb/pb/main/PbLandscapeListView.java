@@ -42,7 +42,7 @@ public class PbLandscapeListView extends BdTypeListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbLandscapeListView f48359e;
+        public final /* synthetic */ PbLandscapeListView f46558e;
 
         public a(PbLandscapeListView pbLandscapeListView) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class PbLandscapeListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f48359e = pbLandscapeListView;
+            this.f46558e = pbLandscapeListView;
         }
 
         @Override // android.os.Handler.Callback
@@ -73,8 +73,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     if (message.what != 0) {
                         return false;
                     }
-                    if (this.f48359e.S != null) {
-                        this.f48359e.S.a(dVar.a, dVar.f48360b, dVar.f48361c, dVar.f48363e, dVar.f48362d, dVar.f48364f);
+                    if (this.f46558e.S != null) {
+                        this.f46558e.S.a(dVar.a, dVar.f46559b, dVar.f46560c, dVar.f46562e, dVar.f46561d, dVar.f46563f);
                         return true;
                     }
                     return true;
@@ -102,19 +102,19 @@ public class PbLandscapeListView extends BdTypeListView {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f48360b;
+        public int f46559b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f48361c;
+        public float f46560c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f48362d;
+        public float f46561d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f48363e;
+        public float f46562e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f48364f;
+        public float f46563f;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -307,11 +307,11 @@ public class PbLandscapeListView extends BdTypeListView {
             message.what = 0;
             d dVar = new d();
             dVar.a = i2;
-            dVar.f48360b = i3;
-            dVar.f48361c = f2;
-            dVar.f48362d = f3;
-            dVar.f48363e = f4;
-            dVar.f48364f = f5;
+            dVar.f46559b = i3;
+            dVar.f46560c = f2;
+            dVar.f46561d = f3;
+            dVar.f46562e = f4;
+            dVar.f46563f = f5;
             message.obj = dVar;
             this.U.sendMessageDelayed(message, 60L);
         }

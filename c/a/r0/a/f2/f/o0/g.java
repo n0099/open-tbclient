@@ -84,19 +84,19 @@ public class g {
         public final /* synthetic */ boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f6230b;
+        public final /* synthetic */ c.a.r0.a.d2.e f6091b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f6231c;
+        public final /* synthetic */ e f6092c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f6232d;
+        public final /* synthetic */ String f6093d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6233e;
+        public final /* synthetic */ String f6094e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6234f;
+        public final /* synthetic */ String f6095f;
 
         public b(boolean z, c.a.r0.a.d2.e eVar, e eVar2, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -114,19 +114,19 @@ public class g {
                 }
             }
             this.a = z;
-            this.f6230b = eVar;
-            this.f6231c = eVar2;
-            this.f6232d = str;
-            this.f6233e = str2;
-            this.f6234f = str3;
+            this.f6091b = eVar;
+            this.f6092c = eVar2;
+            this.f6093d = str;
+            this.f6094e = str2;
+            this.f6095f = str3;
         }
 
         @Override // c.a.r0.a.h0.m.r.a.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g.h(this.a, this.f6230b.f5660f, "pkg_retry_fail", String.valueOf(2113));
-                this.f6231c.b(2113, null);
+                g.h(this.a, this.f6091b.f5537f, "pkg_retry_fail", String.valueOf(2113));
+                this.f6092c.b(2113, null);
             }
         }
 
@@ -134,19 +134,19 @@ public class g {
         public void b(c.a.r0.a.u2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                boolean o = g.o(this.f6230b.f5660f, aVar);
+                boolean o = g.o(this.f6091b.f5537f, aVar);
                 if (g.a) {
                     String str = "getAppPackage-isNeedGetPkgRetry:" + o + ",isRetry:" + this.a + ",pmsErrorCode:" + aVar;
                 }
                 if (o) {
-                    g.i(this.f6230b.f5660f, aVar);
-                    c.a.r0.a.f1.d.b.a.b().a(this.f6230b.f5660f);
-                    g.k(this.f6230b, this.f6233e, this.f6232d, this.f6231c, this.f6234f, true);
+                    g.i(this.f6091b.f5537f, aVar);
+                    c.a.r0.a.f1.d.b.a.b().a(this.f6091b.f5537f);
+                    g.k(this.f6091b, this.f6094e, this.f6093d, this.f6092c, this.f6095f, true);
                     return;
                 }
                 c.a.r0.a.c2.b.f.e.f(AppRuntime.getAppContext(), c.a.r0.a.h.swanapp_tip_package_unavailable).G();
-                g.h(this.a, this.f6230b.f5660f, "pkg_retry_fail", String.valueOf(aVar == null ? 0L : aVar.a()));
-                this.f6231c.b(2113, aVar);
+                g.h(this.a, this.f6091b.f5537f, "pkg_retry_fail", String.valueOf(aVar == null ? 0L : aVar.a()));
+                this.f6092c.b(2113, aVar);
             }
         }
 
@@ -154,8 +154,8 @@ public class g {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                g.h(this.a, this.f6230b.f5660f, "pkg_retry_success", "");
-                this.f6231c.a(this.f6232d);
+                g.h(this.a, this.f6091b.f5537f, "pkg_retry_success", "");
+                this.f6092c.a(this.f6093d);
             }
         }
     }
@@ -167,10 +167,10 @@ public class g {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f6235b;
+        public final /* synthetic */ e f6096b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f6236c;
+        public final /* synthetic */ String f6097c;
 
         public c(String str, e eVar, String str2) {
             Interceptable interceptable = $ic;
@@ -188,8 +188,8 @@ public class g {
                 }
             }
             this.a = str;
-            this.f6235b = eVar;
-            this.f6236c = str2;
+            this.f6096b = eVar;
+            this.f6097c = str2;
         }
 
         @Override // c.a.r0.a.h0.m.b
@@ -200,7 +200,7 @@ public class g {
                 if (L != null) {
                     L.N0(this.a, true);
                 }
-                this.f6235b.a(this.f6236c);
+                this.f6096b.a(this.f6097c);
             }
         }
 
@@ -208,7 +208,7 @@ public class g {
         public void b(int i2, c.a.r0.a.u2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar) == null) {
-                this.f6235b.b(i2, aVar);
+                this.f6096b.b(i2, aVar);
             }
         }
     }
@@ -220,28 +220,28 @@ public class g {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f6237b;
+        public final /* synthetic */ boolean f6098b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f6238c;
+        public final /* synthetic */ String f6099c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e f6239d;
+        public final /* synthetic */ e f6100d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6240e;
+        public final /* synthetic */ String f6101e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6241f;
+        public final /* synthetic */ String f6102f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f6242g;
+        public final /* synthetic */ String f6103g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f6243h;
+        public final /* synthetic */ String f6104h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f6244i;
+        public final /* synthetic */ String f6105i;
 
         public d(String str, boolean z, String str2, e eVar, String str3, String str4, String str5, String str6, String str7) {
             Interceptable interceptable = $ic;
@@ -259,14 +259,14 @@ public class g {
                 }
             }
             this.a = str;
-            this.f6237b = z;
-            this.f6238c = str2;
-            this.f6239d = eVar;
-            this.f6240e = str3;
-            this.f6241f = str4;
-            this.f6242g = str5;
-            this.f6243h = str6;
-            this.f6244i = str7;
+            this.f6098b = z;
+            this.f6099c = str2;
+            this.f6100d = eVar;
+            this.f6101e = str3;
+            this.f6102f = str4;
+            this.f6103g = str5;
+            this.f6104h = str6;
+            this.f6105i = str7;
         }
 
         @Override // c.a.r0.a.h0.m.b
@@ -274,8 +274,8 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.d2.d.J().r().N0(this.a, true);
-                g.h(this.f6237b, this.f6238c, "sub_pkg_retry_success", "");
-                this.f6239d.a(this.f6240e);
+                g.h(this.f6098b, this.f6099c, "sub_pkg_retry_success", "");
+                this.f6100d.a(this.f6101e);
             }
         }
 
@@ -283,18 +283,18 @@ public class g {
         public void b(int i2, c.a.r0.a.u2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar) == null) {
-                boolean o = g.o(this.f6238c, aVar);
+                boolean o = g.o(this.f6099c, aVar);
                 if (g.a) {
-                    String str = "isNeedGetPkgRetry:" + o + ",isRetry:" + this.f6237b + ",pmsErrorCode:" + aVar;
+                    String str = "isNeedGetPkgRetry:" + o + ",isRetry:" + this.f6098b + ",pmsErrorCode:" + aVar;
                 }
                 if (o) {
-                    g.i(this.f6241f, aVar);
-                    c.a.r0.a.f1.d.b.a.b().a(this.f6238c);
-                    g.n(this.f6241f, this.f6242g, this.f6243h, this.a, this.f6244i, this.f6240e, this.f6239d, true);
+                    g.i(this.f6102f, aVar);
+                    c.a.r0.a.f1.d.b.a.b().a(this.f6099c);
+                    g.n(this.f6102f, this.f6103g, this.f6104h, this.a, this.f6105i, this.f6101e, this.f6100d, true);
                     return;
                 }
-                g.h(this.f6237b, this.f6238c, "sub_pkg_retry_fail", String.valueOf(aVar == null ? 0L : aVar.a()));
-                this.f6239d.b(i2, aVar);
+                g.h(this.f6098b, this.f6099c, "sub_pkg_retry_fail", String.valueOf(aVar == null ? 0L : aVar.a()));
+                this.f6100d.b(i2, aVar);
             }
         }
     }
@@ -313,7 +313,7 @@ public class g {
         public final e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f6245b;
+        public final boolean f6106b;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -321,10 +321,10 @@ public class g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f6246e;
+            public final /* synthetic */ String f6107e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ f f6247f;
+            public final /* synthetic */ f f6108f;
 
             public a(f fVar, String str) {
                 Interceptable interceptable = $ic;
@@ -341,15 +341,15 @@ public class g {
                         return;
                     }
                 }
-                this.f6247f = fVar;
-                this.f6246e = str;
+                this.f6108f = fVar;
+                this.f6107e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f6247f.a.a(this.f6246e);
+                    this.f6108f.a.a(this.f6107e);
                 }
             }
         }
@@ -360,13 +360,13 @@ public class g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f6248e;
+            public final /* synthetic */ int f6109e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.u2.a f6249f;
+            public final /* synthetic */ c.a.r0.a.u2.a f6110f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ f f6250g;
+            public final /* synthetic */ f f6111g;
 
             public b(f fVar, int i2, c.a.r0.a.u2.a aVar) {
                 Interceptable interceptable = $ic;
@@ -383,19 +383,19 @@ public class g {
                         return;
                     }
                 }
-                this.f6250g = fVar;
-                this.f6248e = i2;
-                this.f6249f = aVar;
+                this.f6111g = fVar;
+                this.f6109e = i2;
+                this.f6110f = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f6250g.f6245b) {
+                    if (this.f6111g.f6106b) {
                         c.a.r0.a.c2.b.f.e.f(AppRuntime.getAppContext(), c.a.r0.a.h.swanapp_tip_package_unavailable).G();
                     }
-                    this.f6250g.a.b(this.f6248e, this.f6249f);
+                    this.f6111g.a.b(this.f6109e, this.f6110f);
                 }
             }
         }
@@ -416,7 +416,7 @@ public class g {
                 }
             }
             this.a = eVar;
-            this.f6245b = z;
+            this.f6106b = z;
         }
 
         @Override // c.a.r0.a.f2.f.o0.g.e
@@ -461,25 +461,25 @@ public class g {
             if (eVar2 == null) {
                 return;
             }
-            if (eVar != null && bVar != null && !TextUtils.isEmpty(bVar.f7843e) && !TextUtils.isEmpty(bVar.f7846h)) {
-                String str3 = bVar.f7846h;
-                String b0 = eVar.b0(bVar.f7843e);
+            if (eVar != null && bVar != null && !TextUtils.isEmpty(bVar.f7672e) && !TextUtils.isEmpty(bVar.f7675h)) {
+                String str3 = bVar.f7675h;
+                String b0 = eVar.b0(bVar.f7672e);
                 boolean q0 = eVar.q0(str3);
                 if (!c.a.r0.a.e0.f.e.e.d() && !c.a.r0.a.x1.a.a.H() && !c.a.r0.a.x1.a.a.D()) {
-                    if (c.a.r0.a.w1.c.a.k(bVar.f7843e)) {
+                    if (c.a.r0.a.w1.c.a.k(bVar.f7672e)) {
                         eVar2.a(str);
                         return;
                     }
                     boolean z = true;
                     if (q0) {
-                        boolean A = c.a.r0.a.a1.d.A(eVar.f5660f, eVar.j0());
+                        boolean A = c.a.r0.a.a1.d.A(eVar.f5537f, eVar.j0());
                         boolean n0 = eVar.n0();
                         if (A) {
                             if (!n0) {
                                 eVar2.a(str);
                                 return;
                             }
-                            Set<a.C0787a> i2 = c.a.r0.a.w1.c.a.i(eVar.V().f0());
+                            Set<a.C0796a> i2 = c.a.r0.a.w1.c.a.i(eVar.V().f0());
                             if (i2 != null && !i2.isEmpty()) {
                                 z = false;
                             }
@@ -512,14 +512,14 @@ public class g {
                             return;
                         }
                         boolean p0 = eVar.p0(str3);
-                        if (!c.a.r0.a.a1.d.A(eVar.f5660f, eVar.j0()) && !p0) {
+                        if (!c.a.r0.a.a1.d.A(eVar.f5537f, eVar.j0()) && !p0) {
                             k(eVar, str3, str, eVar2, str2, false);
                             return;
                         }
                         HybridUbcFlow q = c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str2);
                         q.F(new UbcFlowEvent("na_start_sub_package_download"));
                         q.D("sub_state", "1");
-                        m(eVar.f5660f, eVar.j0(), "3", b0, Q, str, new f(eVar2, true));
+                        m(eVar.f5537f, eVar.j0(), "3", b0, Q, str, new f(eVar2, true));
                         return;
                     }
                 } else if (!q0 && TextUtils.isEmpty(b0)) {
@@ -551,7 +551,7 @@ public class g {
         }
     }
 
-    public static void j(Set<a.C0787a> set, e eVar, String str) {
+    public static void j(Set<a.C0796a> set, e eVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, null, set, eVar, str) == null) {
             c.a.r0.q.j.m.a aVar = new c.a.r0.q.j.m.a(set);
@@ -574,10 +574,10 @@ public class g {
         HybridUbcFlow q = c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str3);
         q.F(new UbcFlowEvent("na_start_sub_package_download"));
         q.D("sub_state", "1");
-        c.a.r0.q.j.m.d dVar = new c.a.r0.q.j.m.d(eVar.f5660f, c.a.r0.a.d2.d.J().l());
+        c.a.r0.q.j.m.d dVar = new c.a.r0.q.j.m.d(eVar.f5537f, c.a.r0.a.d2.d.J().l());
         dVar.q(q0.o(eVar.j0()));
         dVar.t(str);
-        c.a.r0.q.b.c(dVar, new c.a.r0.a.h0.m.r.a(eVar.f5660f, new b(z, eVar, eVar2, str2, str, str3)));
+        c.a.r0.q.b.c(dVar, new c.a.r0.a.h0.m.r.a(eVar.f5537f, new b(z, eVar, eVar2, str2, str, str3)));
     }
 
     public static void l(String str, String str2, String str3, String str4, String str5, String str6, e eVar) {
@@ -625,7 +625,7 @@ public class g {
             if (gVar == null) {
                 return false;
             }
-            return q(bVar, gVar.f5251b);
+            return q(bVar, gVar.f5142b);
         }
         return invokeLL.booleanValue;
     }
@@ -639,12 +639,12 @@ public class g {
                 if (!TextUtils.isEmpty(f2) && f2.startsWith(File.separator)) {
                     f2 = f2.substring(1);
                 }
-                if (swanAppConfigData != null && swanAppConfigData.f40703b != null) {
+                if (swanAppConfigData != null && swanAppConfigData.f39340b != null) {
                     String c2 = j.c(f2, swanAppConfigData);
-                    if (swanAppConfigData.f40703b.c(c2)) {
+                    if (swanAppConfigData.f39340b.c(c2)) {
                         return false;
                     }
-                    String str = swanAppConfigData.f40704c.f40738c.get(c2);
+                    String str = swanAppConfigData.f39341c.f39374c.get(c2);
                     if (!TextUtils.isEmpty(str)) {
                         if (c.a.r0.q.g.a.i().n(bVar.H(), bVar.v1(), str)) {
                             return !new File(d.e.i(bVar.H(), bVar.v1()), str).exists();

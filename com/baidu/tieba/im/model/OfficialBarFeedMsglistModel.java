@@ -173,19 +173,19 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
             if (officialFeedHeadResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = officialFeedHeadResponsedMessage.getData().f46799b;
+            List<ChatMessage> list = officialFeedHeadResponsedMessage.getData().f45069b;
             ArrayList arrayList = new ArrayList();
             loop0: for (ChatMessage chatMessage : list) {
-                List<a.C1354a> b2 = c.a.t0.s1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                List<a.C1369a> b2 = c.a.t0.s1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
                 if (b2 != null && b2.size() > 0 && (chatMessage instanceof OfficialChatMessage)) {
                     int i2 = 0;
                     while (i2 < b2.size()) {
                         if (arrayList.size() >= 80) {
                             break loop0;
                         }
-                        a.C1354a c1354a = b2.get(i2);
-                        b a = b.a(chatMessage, c1354a);
-                        a.j(i2 == 0 && !StringUtils.isNull(c1354a.f22780c));
+                        a.C1369a c1369a = b2.get(i2);
+                        b a = b.a(chatMessage, c1369a);
+                        a.j(i2 == 0 && !StringUtils.isNull(c1369a.f22154c));
                         arrayList.add(a);
                         i2++;
                     }
@@ -224,7 +224,7 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
         ArrayList arrayList = new ArrayList(list.size());
         for (b bVar : list) {
             if (bVar.g()) {
-                arrayList.add(Long.valueOf(bVar.d().f22785h));
+                arrayList.add(Long.valueOf(bVar.d().f22159h));
             }
         }
         BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();

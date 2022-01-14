@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class p1 extends d2 {
+public class p1 extends e2 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId g4;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class p1 extends d2 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4 : (ArrayList) invokeV.objValue;
     }
 
-    @Override // c.a.s0.s.q.d2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
+    @Override // c.a.s0.s.q.e2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

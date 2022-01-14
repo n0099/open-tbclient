@@ -31,19 +31,19 @@ public final class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
     public int m;
     public int n;
-    public C1191a o;
+    public C1205a o;
     public final CacheManager p;
     public c q;
 
     /* renamed from: c.a.t0.m0.f.e.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C1191a {
+    public final class C1205a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public C1191a(a this$0) {
+        public C1205a(a this$0) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public final class a extends d {
         Intrinsics.checkNotNullExpressionValue(b3, "all(*Families.layoutComponentTypes).get()");
         this.m = -1;
         this.n = -1;
-        this.o = new C1191a(this);
+        this.o = new C1205a(this);
         this.p = context.b();
         this.q = new c.a.t0.m0.h.d();
     }
@@ -186,9 +186,9 @@ public final class a extends d {
                 this.o.c(CollectionsKt___CollectionsKt.toList(c2.n()));
             }
             long b2 = c.a.t0.m0.g.c.b(this);
-            List<c.b.a.a.d> k2 = k();
+            List<c.b.a.a.d> k = k();
             ArrayList arrayList = new ArrayList();
-            for (Object obj : k2) {
+            for (Object obj : k) {
                 c.a.t0.m0.f.d.a d2 = c.a.t0.m0.g.d.d((c.b.a.a.d) obj);
                 if ((d2 == null || d2.d()) ? false : true) {
                     arrayList.add(obj);

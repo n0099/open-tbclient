@@ -38,7 +38,7 @@ public class a {
             } catch (JSONException e2) {
                 c.a.r0.a.w1.e.a.b(Log.getStackTraceString(e2));
             }
-            hVar.f8225c = jSONObject;
+            hVar.f8043c = jSONObject;
             f.U().m(str, hVar);
         }
     }

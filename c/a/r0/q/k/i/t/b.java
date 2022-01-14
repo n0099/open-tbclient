@@ -16,10 +16,10 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11887b;
+    public int f11617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11888c;
+    public int f11618c;
 
     public b(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class b {
             }
         }
         this.a = i2;
-        this.f11887b = i3;
-        this.f11888c = i4;
+        this.f11617b = i3;
+        this.f11618c = i4;
     }
 
     public static b a() {
@@ -64,7 +64,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PkgDownloadLimitStrategy{maxNum=" + this.a + ", perCallNum=" + this.f11887b + ", callInterval=" + this.f11888c + ExtendedMessageFormat.END_FE;
+            return "PkgDownloadLimitStrategy{maxNum=" + this.a + ", perCallNum=" + this.f11617b + ", callInterval=" + this.f11618c + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

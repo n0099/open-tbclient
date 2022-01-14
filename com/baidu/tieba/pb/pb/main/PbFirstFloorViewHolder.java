@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import c.a.d.f.m.b;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.s2.g;
 import c.a.t0.s2.h;
 import c.a.t0.s2.i;
@@ -45,7 +45,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f48254b;
+    public View f46456b;
     public AppletsCellView mAppletsCellView;
     public View mBottomDivider;
     public View mContentReadMoreMaskView;
@@ -99,15 +99,15 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         Matrix matrix = new Matrix();
         matrix.postTranslate(0.0f, -r0.g());
         this.a.setImageMatrix(matrix);
-        this.f48254b = view.findViewById(i.blank_view_above_rich_text);
+        this.f46456b = view.findViewById(i.blank_view_above_rich_text);
         this.richText = (TbRichTextView) view.findViewById(i.richText);
         this.pbItemViewRoot = view;
-        int k2 = (((n.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight();
+        int k = (((n.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight();
         e eVar = new e(this.richText.getLayoutStrategy());
-        eVar.G = k2;
+        eVar.G = k;
         this.richText.setLayoutStrategy(eVar);
         this.mGameBanner = (TbImageView) view.findViewById(i.game_activity_banner);
-        int min = Math.min(k2 - ((int) TbadkCoreApplication.getInst().getResources().getDimension(g.ds60)), i2);
+        int min = Math.min(k - ((int) TbadkCoreApplication.getInst().getResources().getDimension(g.ds60)), i2);
         this.richText.getLayoutStrategy().q(min);
         this.richText.getLayoutStrategy().p((int) (min * 1.618f));
         this.richText.setIsNeedResizeEmotion(true);
@@ -143,14 +143,14 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showBlankViewAboveRichText(boolean z, int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f48254b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f46456b) == null) {
             return;
         }
         if (z) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             layoutParams.height = i2;
-            this.f48254b.setLayoutParams(layoutParams);
-            this.f48254b.setVisibility(0);
+            this.f46456b.setLayoutParams(layoutParams);
+            this.f46456b.setVisibility(0);
             return;
         }
         view.setVisibility(8);
@@ -169,18 +169,18 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         if (!z) {
             ListUtils.isEmpty(fVar.p());
         }
-        d2 d2Var = new d2();
-        d2Var.S3(fVar.Q());
-        d2Var.I3(b.g(fVar.l().getId(), 0L));
-        d2Var.M3(fVar.l().getName());
-        d2Var.J3(fVar.l().getFirst_class());
-        d2Var.v4(fVar.l().getSecond_class());
+        e2 e2Var = new e2();
+        e2Var.S3(fVar.Q());
+        e2Var.I3(b.g(fVar.l().getId(), 0L));
+        e2Var.M3(fVar.l().getName());
+        e2Var.J3(fVar.l().getFirst_class());
+        e2Var.v4(fVar.l().getSecond_class());
         if (fVar.O() != null) {
-            d2Var.D4(fVar.O().d0);
+            e2Var.D4(fVar.O().d0);
         }
-        if (fVar.f23041i) {
+        if (fVar.f22408i) {
             this.mForumEnterButtonContainer.setVisibility(8);
-            this.mPbBusinessPromotionContainer.bindForumData(d2Var, fVar.h(), fVar.r0());
+            this.mPbBusinessPromotionContainer.bindForumData(e2Var, fVar.h(), fVar.r0());
             return;
         }
         this.mPbBusinessPromotionContainer.setVisibility(8);
@@ -189,7 +189,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showThreadTypeStampBottomPart(f fVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (fVar != null && fVar.f23042j) {
+            if (fVar != null && fVar.f22409j) {
                 this.a.setImageResource(h.pic_frs_headlines_n);
                 this.a.setVisibility(0);
             } else if (z && z2) {

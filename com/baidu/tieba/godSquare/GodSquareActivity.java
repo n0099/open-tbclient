@@ -3,7 +3,7 @@ package com.baidu.tieba.godSquare;
 import android.os.Bundle;
 import c.a.d.f.p.l;
 import c.a.d.n.e.n;
-import c.a.s0.s.i0.f;
+import c.a.s0.s.j0.f;
 import c.a.t0.i1.c.b;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -65,7 +65,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                 this.a.mView.b();
                 if (ListUtils.isEmpty(list)) {
                     this.a.mView.d();
-                    if (ListUtils.isEmpty(this.a.mModel.f18627e)) {
+                    if (ListUtils.isEmpty(this.a.mModel.f18163e)) {
                         this.a.mView.k(str);
                         return;
                     }
@@ -78,10 +78,10 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                 }
                 this.a.mView.c();
                 if (z) {
-                    this.a.mModel.f18627e = list;
-                    this.a.mView.m(this.a.mModel.f18627e);
+                    this.a.mModel.f18163e = list;
+                    this.a.mView.m(this.a.mModel.f18163e);
                 } else {
-                    this.a.mModel.f18627e.addAll(list);
+                    this.a.mModel.f18163e.addAll(list);
                     this.a.mView.g();
                 }
                 if (z2) {
@@ -126,10 +126,10 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f42213c)) {
+                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f40743c)) {
                     return;
                 }
-                if (this.a.mModel.g(c.a.d.f.m.b.g(updateAttentionMessage.getData().f42213c, 0L))) {
+                if (this.a.mModel.g(c.a.d.f.m.b.g(updateAttentionMessage.getData().f40743c, 0L))) {
                     this.a.needRefreshView = true;
                 }
             }
@@ -142,7 +142,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f45723e;
+        public final /* synthetic */ GodSquareActivity f44050e;
 
         public c(GodSquareActivity godSquareActivity) {
             Interceptable interceptable = $ic;
@@ -159,17 +159,17 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f45723e = godSquareActivity;
+            this.f44050e = godSquareActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                if (ListUtils.isEmpty(this.f45723e.mModel.f18627e)) {
-                    this.f45723e.loadFirstTime();
+                if (ListUtils.isEmpty(this.f44050e.mModel.f18163e)) {
+                    this.f44050e.loadFirstTime();
                 } else {
-                    this.f45723e.mView.l();
+                    this.f44050e.mView.l();
                 }
             }
         }
@@ -234,7 +234,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         }
     }
 
-    @Override // c.a.s0.s.i0.f.g
+    @Override // c.a.s0.s.j0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {

@@ -36,7 +36,7 @@ public class b {
     public static void b(@NonNull g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, gVar) == null) {
-            a = gVar.f3841d;
+            a = gVar.f3783d;
         }
     }
 }

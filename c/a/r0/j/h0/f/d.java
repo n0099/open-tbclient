@@ -20,7 +20,7 @@ public class d {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f11280b;
+    public final Object f11030b;
 
     public d(String str, Object obj) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class d {
             }
         }
         this.a = str;
-        this.f11280b = obj;
+        this.f11030b = obj;
     }
 
     public static Object a(c.a.r0.a.l0.c cVar, String str, String str2, d dVar) {
@@ -121,7 +121,7 @@ public class d {
     public Object d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11280b : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11030b : invokeV.objValue;
     }
 
     public String e() {

@@ -19,7 +19,7 @@ public class f {
             if (m.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 return 3;
             }
-            return c.a.s0.s.g0.b.j().k("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
+            return c.a.s0.s.h0.b.k().l("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
         }
         return invokeV.intValue;
     }
@@ -55,6 +55,6 @@ public class f {
         if (!(interceptable == null || interceptable.invokeI(65538, null, i2) == null) || i2 <= 0 || m.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             return;
         }
-        c.a.s0.s.g0.b.j().v("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i2);
+        c.a.s0.s.h0.b.k().w("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i2);
     }
 }

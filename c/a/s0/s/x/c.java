@@ -47,11 +47,10 @@ public class c {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.d.c.f.f
-        /* renamed from: a */
         public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, socketMessage, socketMessageTask)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
                 if (socketMessage == null || socketMessage.getSelf() == null || !(socketMessage.getSelf() instanceof NetMessage) || c.a.s0.t.j.c.a().c(socketMessage.getCmd())) {
                     return socketMessage;
                 }
@@ -111,12 +110,12 @@ public class c {
 
     /* renamed from: c.a.s0.s.x.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0876c extends CustomMessageListener {
+    public static class C0889c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0876c(int i2) {
+        public C0889c(int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -153,9 +152,9 @@ public class c {
             aVar.setPriority(Integer.MIN_VALUE);
             MessageManager.getInstance().addMessageRule(aVar);
             MessageManager.getInstance().addResponsedMessageRule(new b(0));
-            C0876c c0876c = new C0876c(2000999);
-            c0876c.setPriority(Integer.MIN_VALUE);
-            MessageManager.getInstance().registerListener(c0876c);
+            C0889c c0889c = new C0889c(2000999);
+            c0889c.setPriority(Integer.MIN_VALUE);
+            MessageManager.getInstance().registerListener(c0889c);
         }
     }
 }

@@ -14,9 +14,9 @@ public class ba implements com.kwad.sdk.core.d<h.a> {
         if (jSONObject.opt("url") == JSONObject.NULL) {
             aVar.a = "";
         }
-        aVar.f58692b = jSONObject.optString("packageName");
+        aVar.f56481b = jSONObject.optString("packageName");
         if (jSONObject.opt("packageName") == JSONObject.NULL) {
-            aVar.f58692b = "";
+            aVar.f56481b = "";
         }
     }
 
@@ -27,7 +27,7 @@ public class ba implements com.kwad.sdk.core.d<h.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "url", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "packageName", aVar.f58692b);
+        com.kwad.sdk.utils.t.a(jSONObject, "packageName", aVar.f56481b);
         return jSONObject;
     }
 }

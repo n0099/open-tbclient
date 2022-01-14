@@ -13,13 +13,13 @@ public class cq implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.kwai.i>
         if (jSONObject.opt("url") == JSONObject.NULL) {
             iVar.a = "";
         }
-        iVar.f58694b = jSONObject.optString("title");
+        iVar.f56483b = jSONObject.optString("title");
         if (jSONObject.opt("title") == JSONObject.NULL) {
-            iVar.f58694b = "";
+            iVar.f56483b = "";
         }
-        iVar.f58695c = jSONObject.optString("params");
+        iVar.f56484c = jSONObject.optString("params");
         if (jSONObject.opt("params") == JSONObject.NULL) {
-            iVar.f58695c = "";
+            iVar.f56484c = "";
         }
     }
 
@@ -30,8 +30,8 @@ public class cq implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.kwai.i>
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "url", iVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "title", iVar.f58694b);
-        com.kwad.sdk.utils.t.a(jSONObject, "params", iVar.f58695c);
+        com.kwad.sdk.utils.t.a(jSONObject, "title", iVar.f56483b);
+        com.kwad.sdk.utils.t.a(jSONObject, "params", iVar.f56484c);
         return jSONObject;
     }
 }

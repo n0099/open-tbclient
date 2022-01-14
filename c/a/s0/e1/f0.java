@@ -14,13 +14,13 @@ public class f0 extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12660e;
+    public int f12363e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12661f;
+    public int f12364f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12662g;
+    public String f12365g;
 
     public f0(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -37,17 +37,17 @@ public class f0 extends Thread {
                 return;
             }
         }
-        this.f12660e = 0;
-        this.f12661f = 0;
-        this.f12662g = null;
-        this.f12660e = i2;
-        this.f12661f = i3;
+        this.f12363e = 0;
+        this.f12364f = 0;
+        this.f12365g = null;
+        this.f12363e = i2;
+        this.f12364f = i3;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f12662g = str;
+            this.f12365g = str;
         }
     }
 
@@ -60,9 +60,9 @@ public class f0 extends Thread {
                 return;
             }
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            netWork.addPostData("img_num", String.valueOf(this.f12660e));
-            netWork.addPostData("img_total", String.valueOf(this.f12661f));
-            String str = this.f12662g;
+            netWork.addPostData("img_num", String.valueOf(this.f12363e));
+            netWork.addPostData("img_total", String.valueOf(this.f12364f));
+            String str = this.f12365g;
             if (str != null) {
                 netWork.addPostData("img_type", str);
             }

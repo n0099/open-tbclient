@@ -20,25 +20,23 @@ public class c implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22129e;
+    public String f21528e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22130f;
+    public String f21529f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22131g;
+    public String f21530g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22132h;
+    public int f21531h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f22133i;
+    public long f21532i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f22134j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f22135k;
+    public String f21533j;
+    public int k;
     public long l;
 
     static {
@@ -70,7 +68,7 @@ public class c implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f22132h = -1;
+        this.f21531h = -1;
     }
 
     public long a() {
@@ -82,19 +80,19 @@ public class c implements c.a.d.n.e.n {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22133i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21532i : invokeV.longValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22129e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21528e : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22134j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21533j : (String) invokeV.objValue;
     }
 
     @Override // c.a.d.n.e.n
@@ -107,25 +105,25 @@ public class c implements c.a.d.n.e.n {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22131g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21530g : (String) invokeV.objValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22135k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22130f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21529f : (String) invokeV.objValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22132h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f21531h : invokeV.intValue;
     }
 
     public void n(TopicList topicList) {
@@ -133,9 +131,9 @@ public class c implements c.a.d.n.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, topicList) == null) || topicList == null) {
             return;
         }
-        this.f22133i = topicList.topic_id.longValue();
-        this.f22134j = topicList.topic_name;
-        this.f22135k = topicList.tag.intValue();
+        this.f21532i = topicList.topic_id.longValue();
+        this.f21533j = topicList.topic_name;
+        this.k = topicList.tag.intValue();
         this.l = topicList.discuss_num.longValue();
         String str = topicList.topic_desc;
         String str2 = topicList.topic_pic;
@@ -145,9 +143,9 @@ public class c implements c.a.d.n.e.n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, topicListModule) == null) {
             try {
-                this.f22129e = topicListModule.module_title;
-                this.f22130f = topicListModule.tips;
-                this.f22131g = topicListModule.rule_jump_url;
+                this.f21528e = topicListModule.module_title;
+                this.f21529f = topicListModule.tips;
+                this.f21530g = topicListModule.rule_jump_url;
             } catch (Exception e2) {
                 BdLog.e(e2.toString());
             }
@@ -157,7 +155,7 @@ public class c implements c.a.d.n.e.n {
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f22132h = i2;
+            this.f21531h = i2;
         }
     }
 }

@@ -2,6 +2,7 @@ package c.a.s0.b.f;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +11,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+@ModifyClass
 /* loaded from: classes6.dex */
 public class j extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BdUniqueId f12520c;
+    public static final BdUniqueId f12226c;
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.s0.b.e f12521b;
+    public c.a.s0.b.e f12227b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +37,7 @@ public class j extends a {
                 return;
             }
         }
-        f12520c = BdUniqueId.gen();
+        f12226c = BdUniqueId.gen();
     }
 
     public j() {
@@ -53,9 +55,9 @@ public class j extends a {
         }
         ArrayList<String> arrayList = new ArrayList<>(3);
         this.a = arrayList;
-        arrayList.add("12_2_frs_default_tab_a");
-        this.a.add("12_2_frs_default_tab_b");
-        this.a.add("12_2_frs_default_tab_c");
+        arrayList.add("12.7.5_frs_preload_a");
+        this.a.add("12.7.5_frs_preload_b");
+        this.a.add("12.7.5_frs_preload_c");
     }
 
     @Override // c.a.s0.b.f.a
@@ -69,21 +71,21 @@ public class j extends a {
     public c.a.s0.b.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12521b : (c.a.s0.b.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12227b : (c.a.s0.b.e) invokeV.objValue;
     }
 
     @Override // c.a.s0.b.f.a
     public BdUniqueId c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f12520c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f12226c : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // c.a.s0.b.f.a
     public void f(c.a.s0.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f12521b = eVar;
+            this.f12227b = eVar;
         }
     }
 }

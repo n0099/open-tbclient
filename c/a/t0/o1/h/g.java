@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, Integer> f21032b;
+    public static HashMap<String, Integer> f20468b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,20 +30,20 @@ public class g {
                 return;
             }
         }
-        f21032b = new HashMap<>();
+        f20468b = new HashMap<>();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            f21032b.clear();
+            f20468b.clear();
         }
     }
 
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f21032b.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f20468b.size() : invokeV.intValue;
     }
 
     public static void c(String str) {
@@ -51,7 +51,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        f21032b.put(str, 0);
+        f20468b.put(str, 0);
     }
 
     public static boolean d() {
@@ -67,7 +67,7 @@ public class g {
             if (z) {
                 return;
             }
-            f21032b.clear();
+            f20468b.clear();
         }
     }
 }

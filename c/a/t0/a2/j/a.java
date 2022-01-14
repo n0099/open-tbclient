@@ -28,41 +28,41 @@ public class a implements ILoginListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile a f15420h = null;
+    public static volatile a f15037h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f15421i = true;
+    public static boolean f15038i = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f15422e;
+    public boolean f15039e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f15423f;
+    public b f15040f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BroadcastReceiver f15424g;
+    public BroadcastReceiver f15041g;
 
     /* renamed from: c.a.t0.a2.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0946a extends BroadcastReceiver {
+    public class C0959a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a this$0;
 
         /* renamed from: c.a.t0.a2.j.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0947a extends k0<Object> {
+        public class C0960a extends k0<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ C0946a a;
+            public final /* synthetic */ C0959a a;
 
-            public C0947a(C0946a c0946a) {
+            public C0960a(C0959a c0959a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0946a};
+                    Object[] objArr = {c0959a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -72,7 +72,7 @@ public class a implements ILoginListener {
                         return;
                     }
                 }
-                this.a = c0946a;
+                this.a = c0959a;
             }
 
             @Override // c.a.s0.e1.k0
@@ -87,7 +87,7 @@ public class a implements ILoginListener {
             }
         }
 
-        public C0946a(a aVar) {
+        public C0959a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class a implements ILoginListener {
                 String str2 = "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive connect=" + z;
                 String str3 = "registerConnectListener connect ：" + intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1);
                 if (z) {
-                    n0.b(new C0947a(this), null);
+                    n0.b(new C0960a(this), null);
                 }
             }
         }
@@ -156,21 +156,21 @@ public class a implements ILoginListener {
                 return;
             }
         }
-        this.f15424g = new C0946a(this);
+        this.f15041g = new C0959a(this);
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f15420h == null) {
+            if (f15037h == null) {
                 synchronized (a.class) {
-                    if (f15420h == null) {
-                        f15420h = new a();
+                    if (f15037h == null) {
+                        f15037h = new a();
                     }
                 }
             }
-            return f15420h;
+            return f15037h;
         }
         return (a) invokeV.objValue;
     }
@@ -194,11 +194,11 @@ public class a implements ILoginListener {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             String str = "@@ updateImsdk ImSdkManager.init context=" + context;
             int i2 = 0;
-            this.f15422e = false;
+            this.f15039e = false;
             String version = TbConfig.getVersion();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
-            LocalBroadcastManager.getInstance(context).registerReceiver(this.f15424g, intentFilter);
+            LocalBroadcastManager.getInstance(context).registerReceiver(this.f15041g, intentFilter);
             f.y(context, true);
             BIMManager.setProductLine(context, 3, version);
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
@@ -220,7 +220,7 @@ public class a implements ILoginListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             String str = "@@ updateImsdk ImSdkManager.loginToIM listener=" + bVar;
-            this.f15423f = bVar;
+            this.f15040f = bVar;
             String from = TbConfig.getFrom();
             String currentFrom = TbConfig.getCurrentFrom();
             if (TbadkCoreApplication.isLogin()) {
@@ -240,8 +240,8 @@ public class a implements ILoginListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             String str = "@@ updateImsdk ImSdkManager.loginToLCP context=" + context;
-            int i2 = f15421i ? 1 : 2;
-            f15421i = false;
+            int i2 = f15038i ? 1 : 2;
+            f15038i = false;
             c.a.u.a.b.a.a(context, "10773430", TbadkCoreApplication.getInst().getCuidGalaxy2(), i2);
         }
     }
@@ -251,10 +251,10 @@ public class a implements ILoginListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
             String str2 = "@@ updateImsdk ImSdkManager.onLoginResult errno=" + i2 + ", errMsg=" + str;
-            b bVar = this.f15423f;
+            b bVar = this.f15040f;
             if (bVar != null) {
                 bVar.a(i2, str);
-                this.f15423f = null;
+                this.f15040f = null;
             }
         }
     }
@@ -264,7 +264,7 @@ public class a implements ILoginListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
             String str2 = "@@ updateImsdk ImSdkManager.onLogoutResult errno=" + i2 + ", errMsg=" + str + ", type=" + i3;
-            if (this.f15422e) {
+            if (this.f15039e) {
                 return;
             }
             d(null);

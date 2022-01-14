@@ -2,6 +2,8 @@ package c.a.s0.t.h;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import c.a.t0.t3.f;
+import c.a.t0.t3.g;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
@@ -28,10 +30,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRewardDialogView f14385e;
+        public final /* synthetic */ NewUserRewardDialogView f14051e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f14386f;
+        public final /* synthetic */ c.a.s0.s.s.a f14052f;
 
         public a(NewUserRewardDialogView newUserRewardDialogView, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -48,36 +50,36 @@ public class b {
                     return;
                 }
             }
-            this.f14385e = newUserRewardDialogView;
-            this.f14386f = aVar;
+            this.f14051e = newUserRewardDialogView;
+            this.f14052f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14385e.onDestroy();
-                this.f14386f.dismiss();
+                this.f14051e.onDestroy();
+                this.f14052f.dismiss();
             }
         }
     }
 
     /* renamed from: c.a.s0.t.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class View$OnClickListenerC0883b implements View.OnClickListener {
+    public static class View$OnClickListenerC0896b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f14387e;
+        public final /* synthetic */ TbPageContext f14053e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f14388f;
+        public final /* synthetic */ c.a.s0.s.s.a f14054f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f14389g;
+        public final /* synthetic */ int f14055g;
 
-        public View$OnClickListenerC0883b(TbPageContext tbPageContext, c.a.s0.s.s.a aVar, int i2) {
+        public View$OnClickListenerC0896b(TbPageContext tbPageContext, c.a.s0.s.s.a aVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,18 +94,18 @@ public class b {
                     return;
                 }
             }
-            this.f14387e = tbPageContext;
-            this.f14388f = aVar;
-            this.f14389g = i2;
+            this.f14053e = tbPageContext;
+            this.f14054f = aVar;
+            this.f14055g = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f14387e, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?user_id=" + TbadkCoreApplication.getCurrentAccount()});
-                this.f14388f.dismiss();
-                b.d(this.f14389g);
+                UrlManager.getInstance().dealOneLink(this.f14053e, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?user_id=" + TbadkCoreApplication.getCurrentAccount()});
+                this.f14054f.dismiss();
+                b.d(this.f14055g);
             }
         }
     }
@@ -114,10 +116,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostWriteCallBackData f14390e;
+        public final /* synthetic */ PostWriteCallBackData f14056e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f14391f;
+        public final /* synthetic */ TbPageContext f14057f;
 
         public c(PostWriteCallBackData postWriteCallBackData, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -134,22 +136,22 @@ public class b {
                     return;
                 }
             }
-            this.f14390e = postWriteCallBackData;
-            this.f14391f = tbPageContext;
+            this.f14056e = postWriteCallBackData;
+            this.f14057f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.t0.t3.c cVar = new c.a.t0.t3.c();
-                PostWriteCallBackData postWriteCallBackData = this.f14390e;
+                g gVar = new g();
+                PostWriteCallBackData postWriteCallBackData = this.f14056e;
                 if (postWriteCallBackData != null) {
                     IconStampData iconStampData = postWriteCallBackData.getIconStampData();
-                    cVar.f(iconStampData.stampType);
-                    cVar.h(iconStampData.stampTitle);
+                    gVar.f(iconStampData.stampType);
+                    gVar.h(iconStampData.stampTitle);
                 }
-                new c.a.t0.t3.b(this.f14391f.getPageActivity(), cVar).a();
+                new f(this.f14057f.getPageActivity(), gVar).a();
                 b.f();
             }
         }
@@ -167,7 +169,7 @@ public class b {
             aVar.setAnimRes(R.style.picker_view_scale_anim);
             aVar.create(tbPageContext).show();
             newUserRewardDialogView.setCloseListener(new a(newUserRewardDialogView, aVar));
-            newUserRewardDialogView.getNewsUserDialogLookView().setOnClickListener(new View$OnClickListenerC0883b(tbPageContext, aVar, i2));
+            newUserRewardDialogView.getNewsUserDialogLookView().setOnClickListener(new View$OnClickListenerC0896b(tbPageContext, aVar, i2));
             newUserRewardDialogView.getNewUserDialogShareView().setOnClickListener(new c(postWriteCallBackData, tbPageContext));
             e(i2);
         }
@@ -176,14 +178,14 @@ public class b {
     public static void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_locate", i2));
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 2).param("obj_locate", i2));
         }
     }
 
     public static void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_locate", i2));
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 2).param("obj_locate", i2));
         }
     }
 

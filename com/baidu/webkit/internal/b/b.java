@@ -159,7 +159,7 @@ public final class b extends g {
                             public final /* synthetic */ AlertDialog a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ b f54832b;
+                            public final /* synthetic */ b f52747b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -176,7 +176,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f54832b = this;
+                                this.f52747b = this;
                                 this.a = show;
                             }
 

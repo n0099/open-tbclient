@@ -100,7 +100,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
                 super.onProgressUpdate(numArr);
                 int intValue = numArr[0].intValue();
                 ImageProblemActivity imageProblemActivity = this.a;
-                imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f47128d);
+                imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f45384d);
             }
         }
 

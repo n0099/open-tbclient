@@ -11,34 +11,32 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3521b;
+    public String f3470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3522c;
+    public int f3471c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3523d;
+    public String f3472d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3524e;
+    public int f3473e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3525f;
+    public int f3474f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3526g;
+    public int f3475g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f3527h;
+    public int f3476h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f3528i;
+    public int f3477i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f3529j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f3530k;
+    public String f3478j;
+    public int k;
     public int l;
 
     public a() {
@@ -54,6 +52,6 @@ public class a {
                 return;
             }
         }
-        this.f3528i = 3;
+        this.f3477i = 3;
     }
 }

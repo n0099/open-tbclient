@@ -23,34 +23,32 @@ public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Comparator<String> f28820b;
+    public static final Comparator<String> f27937b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, h> f28821c;
+    public static final Map<String, h> f27938c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f28822d;
+    public static final h f27939d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f28823e;
+    public static final h f27940e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f28824f;
+    public static final h f27941f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f28825g;
+    public static final h f27942g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f28826h;
+    public static final h f27943h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h f28827i;
+    public static final h f27944i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final h f28828j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final h f28829k;
+    public static final h f27945j;
+    public static final h k;
     public static final h l;
     public static final h m;
     public static final h n;
@@ -122,8 +120,8 @@ public final class h {
                 return;
             }
         }
-        f28820b = new a();
-        f28821c = new LinkedHashMap();
+        f27937b = new a();
+        f27938c = new LinkedHashMap();
         c("SSL_RSA_WITH_NULL_MD5", 1);
         c("SSL_RSA_WITH_NULL_SHA", 2);
         c("SSL_RSA_EXPORT_WITH_RC4_40_MD5", 3);
@@ -131,7 +129,7 @@ public final class h {
         c("SSL_RSA_WITH_RC4_128_SHA", 5);
         c("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
         c("SSL_RSA_WITH_DES_CBC_SHA", 9);
-        f28822d = c("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
+        f27939d = c("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
         c("SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA", 17);
         c("SSL_DHE_DSS_WITH_DES_CBC_SHA", 18);
         c("SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA", 19);
@@ -153,11 +151,11 @@ public final class h {
         c("TLS_KRB5_EXPORT_WITH_RC4_40_SHA", 40);
         c("TLS_KRB5_EXPORT_WITH_DES_CBC_40_MD5", 41);
         c("TLS_KRB5_EXPORT_WITH_RC4_40_MD5", 43);
-        f28823e = c("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
+        f27940e = c("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
         c("TLS_DHE_DSS_WITH_AES_128_CBC_SHA", 50);
         c("TLS_DHE_RSA_WITH_AES_128_CBC_SHA", 51);
         c("TLS_DH_anon_WITH_AES_128_CBC_SHA", 52);
-        f28824f = c("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
+        f27941f = c("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
         c("TLS_DHE_DSS_WITH_AES_256_CBC_SHA", 56);
         c("TLS_DHE_RSA_WITH_AES_256_CBC_SHA", 57);
         c("TLS_DH_anon_WITH_AES_256_CBC_SHA", 58);
@@ -181,8 +179,8 @@ public final class h {
         c("TLS_PSK_WITH_AES_128_CBC_SHA", PbFullScreenEditorActivity.REPLY_MAX_SIZE);
         c("TLS_PSK_WITH_AES_256_CBC_SHA", 141);
         c("TLS_RSA_WITH_SEED_CBC_SHA", 150);
-        f28825g = c("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);
-        f28826h = c("TLS_RSA_WITH_AES_256_GCM_SHA384", w0.p0);
+        f27942g = c("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);
+        f27943h = c("TLS_RSA_WITH_AES_256_GCM_SHA384", w0.p0);
         c("TLS_DHE_RSA_WITH_AES_128_GCM_SHA256", 158);
         c("TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", 159);
         c("TLS_DHE_DSS_WITH_AES_128_GCM_SHA256", 162);
@@ -209,8 +207,8 @@ public final class h {
         c("TLS_ECDHE_RSA_WITH_NULL_SHA", 49168);
         c("TLS_ECDHE_RSA_WITH_RC4_128_SHA", 49169);
         c("TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA", 49170);
-        f28827i = c("TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA", 49171);
-        f28828j = c("TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA", 49172);
+        f27944i = c("TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA", 49171);
+        f27945j = c("TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA", 49172);
         c("TLS_ECDH_anon_WITH_NULL_SHA", 49173);
         c("TLS_ECDH_anon_WITH_RC4_128_SHA", 49174);
         c("TLS_ECDH_anon_WITH_3DES_EDE_CBC_SHA", 49175);
@@ -224,7 +222,7 @@ public final class h {
         c("TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384", 49192);
         c("TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256", 49193);
         c("TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384", 49194);
-        f28829k = c("TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", 49195);
+        k = c("TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", 49195);
         l = c("TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", 49196);
         c("TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256", 49197);
         c("TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384", 49198);
@@ -273,13 +271,13 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (h.class) {
-                hVar = f28821c.get(str);
+                hVar = f27938c.get(str);
                 if (hVar == null) {
-                    hVar = f28821c.get(e(str));
+                    hVar = f27938c.get(e(str));
                     if (hVar == null) {
                         hVar = new h(str);
                     }
-                    f28821c.put(str, hVar);
+                    f27938c.put(str, hVar);
                 }
             }
             return hVar;
@@ -305,7 +303,7 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
             h hVar = new h(str);
-            f28821c.put(str, hVar);
+            f27938c.put(str, hVar);
             return hVar;
         }
         return (h) invokeLI.objValue;

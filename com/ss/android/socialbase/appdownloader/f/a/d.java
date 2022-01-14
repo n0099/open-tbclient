@@ -8,18 +8,18 @@ public class d {
     public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f62134b;
+    public boolean f59788b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62135c;
+    public int f59789c;
 
     public d() {
     }
 
     public final void a(InputStream inputStream, boolean z) {
         this.a = inputStream;
-        this.f62134b = z;
-        this.f62135c = 0;
+        this.f59788b = z;
+        this.f59789c = 0;
     }
 
     public final int b() throws IOException {
@@ -30,7 +30,7 @@ public class d {
         if (i2 > 0) {
             long j2 = i2;
             long skip = this.a.skip(j2);
-            this.f62135c = (int) (this.f62135c + skip);
+            this.f59789c = (int) (this.f59789c + skip);
             if (skip != j2) {
                 throw new EOFException();
             }
@@ -65,13 +65,13 @@ public class d {
     public final int a(int i2) throws IOException {
         if (i2 >= 0 && i2 <= 4) {
             int i3 = 0;
-            if (this.f62134b) {
+            if (this.f59788b) {
                 for (int i4 = (i2 - 1) * 8; i4 >= 0; i4 -= 8) {
                     int read = this.a.read();
                     if (read == -1) {
                         throw new EOFException();
                     }
-                    this.f62135c++;
+                    this.f59789c++;
                     i3 |= read << i4;
                 }
                 return i3;
@@ -83,7 +83,7 @@ public class d {
                 if (read2 == -1) {
                     throw new EOFException();
                 }
-                this.f62135c++;
+                this.f59789c++;
                 i6 |= read2 << i3;
                 i3 += 8;
             }

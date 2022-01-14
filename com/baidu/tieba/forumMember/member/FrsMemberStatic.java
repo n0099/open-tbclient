@@ -61,12 +61,12 @@ public class FrsMemberStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new g(null, h.f15535h));
-                absDelegateAdapterList.add(new i(null, j.f15540g));
-                absDelegateAdapterList.add(new f(null, n.f16631g));
-                absDelegateAdapterList.add(new c.a.t0.b1.b.a(null, c.a.t0.b1.b.b.f15513f));
-                absDelegateAdapterList.add(new c(null, d.f15516k));
-                absDelegateAdapterList.add(new k(null, l.f15544i));
+                absDelegateAdapterList.add(new g(null, h.f15147h));
+                absDelegateAdapterList.add(new i(null, j.f15152g));
+                absDelegateAdapterList.add(new f(null, n.f16276g));
+                absDelegateAdapterList.add(new c.a.t0.b1.b.a(null, c.a.t0.b1.b.b.f15127f));
+                absDelegateAdapterList.add(new c(null, d.k));
+                absDelegateAdapterList.add(new k(null, l.f15156i));
             }
         }
     }
@@ -103,7 +103,7 @@ public class FrsMemberStatic {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof f0)) {
                 f0 f0Var = (f0) customResponsedMessage.getData();
                 c.a.t0.b1.c.d dVar = new c.a.t0.b1.c.d();
-                dVar.E(f0Var.f16374e);
+                dVar.E(f0Var.f16085e);
                 f0Var.a(3, dVar);
             }
         }

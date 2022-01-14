@@ -28,20 +28,20 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BaseActivity<?> f15751e;
+    public final BaseActivity<?> f15353e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f15752f;
+    public final boolean f15354f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<ForumSuggestModel.Forum> f15753g;
+    public ArrayList<ForumSuggestModel.Forum> f15355g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15754h;
+    public String f15356h;
 
     /* renamed from: c.a.t0.c2.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class C0975a {
+    public static /* synthetic */ class C0988a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -53,19 +53,19 @@ public class a extends BaseAdapter {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f15755b;
+        public TextView f15357b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BarImageView f15756c;
+        public BarImageView f15358c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f15757d;
+        public TextView f15359d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f15758e;
+        public TextView f15360e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f15759f;
+        public TextView f15361f;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, C0975a c0975a) {
+        public /* synthetic */ b(a aVar, C0988a c0988a) {
             this(aVar);
         }
     }
@@ -103,9 +103,9 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f15751e = baseActivity;
-        this.f15752f = true;
-        this.f15753g = arrayList;
+        this.f15353e = baseActivity;
+        this.f15354f = true;
+        this.f15355g = arrayList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -119,7 +119,7 @@ public class a extends BaseAdapter {
             if (count <= 0 || i2 >= count) {
                 return null;
             }
-            return this.f15753g.get(i2);
+            return this.f15355g.get(i2);
         }
         return (ForumSuggestModel.Forum) invokeI.objValue;
     }
@@ -129,7 +129,7 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             if (i2 >= 100000) {
-                return String.valueOf(i2 / 10000) + this.f15751e.getPageContext().getString(R.string.member_count_unit);
+                return String.valueOf(i2 / 10000) + this.f15353e.getPageContext().getString(R.string.member_count_unit);
             }
             return String.valueOf(i2);
         }
@@ -138,11 +138,11 @@ public class a extends BaseAdapter {
 
     public void c(TextView textView, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f15754h)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f15356h)) {
             return;
         }
         String lowerCase = str.toLowerCase();
-        String lowerCase2 = this.f15754h.toLowerCase();
+        String lowerCase2 = this.f15356h.toLowerCase();
         if (!lowerCase.contains(lowerCase2)) {
             textView.setText(str);
             return;
@@ -150,14 +150,14 @@ public class a extends BaseAdapter {
         int indexOf = lowerCase.indexOf(lowerCase2);
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f15754h.length() + indexOf, 33);
+        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f15356h.length() + indexOf, 33);
         textView.setText(spannableStringBuilder);
     }
 
     public void d(ArrayList<ForumSuggestModel.Forum> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.f15753g = arrayList;
+            this.f15355g = arrayList;
             if (arrayList != null) {
                 notifyDataSetChanged();
             }
@@ -167,7 +167,7 @@ public class a extends BaseAdapter {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f15754h = str;
+            this.f15356h = str;
         }
     }
 
@@ -176,7 +176,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<ForumSuggestModel.Forum> arrayList = this.f15753g;
+            ArrayList<ForumSuggestModel.Forum> arrayList = this.f15355g;
             if (arrayList == null) {
                 return 0;
             }
@@ -200,15 +200,15 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f15751e.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f15353e.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
                 bVar = new b(this, null);
                 BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-                bVar.f15756c = barImageView;
+                bVar.f15358c = barImageView;
                 barImageView.setGifIconSupport(false);
-                bVar.f15755b = (TextView) view.findViewById(R.id.name);
-                bVar.f15757d = (TextView) view.findViewById(R.id.forum_member_count);
-                bVar.f15758e = (TextView) view.findViewById(R.id.forum_thread_count);
-                bVar.f15759f = (TextView) view.findViewById(R.id.slogan);
+                bVar.f15357b = (TextView) view.findViewById(R.id.name);
+                bVar.f15359d = (TextView) view.findViewById(R.id.forum_member_count);
+                bVar.f15360e = (TextView) view.findViewById(R.id.forum_thread_count);
+                bVar.f15361f = (TextView) view.findViewById(R.id.slogan);
                 bVar.a = view.findViewById(R.id.offical_icon);
                 view.setTag(bVar);
             } else {
@@ -220,25 +220,25 @@ public class a extends BaseAdapter {
             }
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             String str2 = item.avatar;
-            bVar.f15756c.setTag(str2);
-            bVar.f15756c.startLoad(str2, 10, false);
-            bVar.f15756c.invalidate();
-            if (this.f15752f) {
-                str = this.f15751e.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
+            bVar.f15358c.setTag(str2);
+            bVar.f15358c.startLoad(str2, 10, false);
+            bVar.f15358c.invalidate();
+            if (this.f15354f) {
+                str = this.f15353e.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
             } else {
                 str = item.forum_name;
             }
-            c(bVar.f15755b, str);
-            bVar.f15756c.setTag(item.avatar);
-            TextView textView = bVar.f15757d;
-            textView.setText(this.f15751e.getPageContext().getString(R.string.attention) + " " + b(item.member_num));
-            TextView textView2 = bVar.f15758e;
-            textView2.setText(this.f15751e.getPageContext().getString(R.string.text_post) + " " + b(item.thread_num));
-            if (!this.f15752f && TextUtils.isEmpty(item.slogan)) {
-                bVar.f15759f.setVisibility(8);
+            c(bVar.f15357b, str);
+            bVar.f15358c.setTag(item.avatar);
+            TextView textView = bVar.f15359d;
+            textView.setText(this.f15353e.getPageContext().getString(R.string.attention) + " " + b(item.member_num));
+            TextView textView2 = bVar.f15360e;
+            textView2.setText(this.f15353e.getPageContext().getString(R.string.text_post) + " " + b(item.thread_num));
+            if (!this.f15354f && TextUtils.isEmpty(item.slogan)) {
+                bVar.f15361f.setVisibility(8);
             } else {
-                bVar.f15759f.setVisibility(0);
-                bVar.f15759f.setText(item.slogan);
+                bVar.f15361f.setVisibility(0);
+                bVar.f15361f.setText(item.slogan);
             }
             if (item.is_offical == 1) {
                 bVar.a.setVisibility(0);
@@ -246,8 +246,8 @@ public class a extends BaseAdapter {
             } else {
                 bVar.a.setVisibility(8);
             }
-            this.f15751e.getLayoutMode().k(skinType == 1);
-            this.f15751e.getLayoutMode().j(view);
+            this.f15353e.getLayoutMode().k(skinType == 1);
+            this.f15353e.getLayoutMode().j(view);
             return view;
         }
         return (View) invokeILL.objValue;

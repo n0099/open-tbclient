@@ -16,34 +16,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<BaseFragmentActivity> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BdUniqueId f20802b;
+    public final BdUniqueId f20244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RecPersonalizePageModel f20803c;
+    public RecPersonalizePageModel f20245c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcernNetModel f20804d;
+    public ConcernNetModel f20246d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InterfaceC1256d f20805e;
+    public InterfaceC1270d f20247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecPersonalizePageModel.c f20806f;
+    public RecPersonalizePageModel.c f20248f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ConcernNetModel.d f20807g;
+    public ConcernNetModel.d f20249g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ConcernNetModel.c f20808h;
+    public ConcernNetModel.c f20250h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements RecPersonalizePageModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,8 +71,8 @@ public class d {
         public void a(DataRes dataRes, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (this.a.f20805e != null) {
-                    this.a.f20805e.b(dataRes, z, z2);
+                if (this.a.f20247e != null) {
+                    this.a.f20247e.b(dataRes, z, z2);
                 }
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_NET_CACHE_KEY);
             }
@@ -81,14 +81,14 @@ public class d {
         @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.c
         public void onLoadError(int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.a.f20805e == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.a.f20247e == null) {
                 return;
             }
-            this.a.f20805e.c("", str, i2, false, 1);
+            this.a.f20247e.c("", str, i2, false, 1);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements ConcernNetModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,23 +115,23 @@ public class d {
         @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.d
         public void a(tbclient.Userlike.DataRes dataRes, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, dataRes, z) == null) || this.a.f20805e == null) {
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, dataRes, z) == null) || this.a.f20247e == null) {
                 return;
             }
-            this.a.f20805e.d(dataRes, z);
+            this.a.f20247e.d(dataRes, z);
         }
 
         @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.d
         public void onLoadError(int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.a.f20805e == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.a.f20247e == null) {
                 return;
             }
-            this.a.f20805e.c("", str, i2, false, 0);
+            this.a.f20247e.c("", str, i2, false, 0);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements ConcernNetModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,16 +158,16 @@ public class d {
         @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.c
         public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.f20805e == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.f20247e == null) {
                 return;
             }
-            this.a.f20805e.a(z);
+            this.a.f20247e.a(z);
         }
     }
 
     /* renamed from: c.a.t0.o1.d.d$d  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1256d {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC1270d {
         void a(boolean z);
 
         void b(DataRes dataRes, boolean z, boolean z2);
@@ -194,23 +194,22 @@ public class d {
                 return;
             }
         }
-        this.f20803c = RecPersonalizePageModel.g();
-        this.f20806f = new a(this);
-        this.f20807g = new b(this);
-        this.f20808h = new c(this);
+        this.f20245c = RecPersonalizePageModel.g();
+        this.f20248f = new a(this);
+        this.f20249g = new b(this);
+        this.f20250h = new c(this);
         this.a = tbPageContext;
-        this.f20802b = bdUniqueId;
-        this.f20803c.q(this.f20806f);
+        this.f20244b = bdUniqueId;
         ConcernNetModel concernNetModel = new ConcernNetModel(tbPageContext, bdUniqueId);
-        this.f20804d = concernNetModel;
-        concernNetModel.E(this.f20807g);
-        this.f20804d.D(this.f20808h);
+        this.f20246d = concernNetModel;
+        concernNetModel.E(this.f20249g);
+        this.f20246d.D(this.f20250h);
     }
 
     public void b(boolean z) {
         ConcernNetModel concernNetModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (concernNetModel = this.f20804d) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (concernNetModel = this.f20246d) == null) {
             return;
         }
         concernNetModel.z(z);
@@ -231,46 +230,52 @@ public class d {
         return (c.a.t0.x1.s.a) invokeV.objValue;
     }
 
-    public InterfaceC1256d e() {
+    public RecPersonalizePageModel.c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20805e : (InterfaceC1256d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20248f : (RecPersonalizePageModel.c) invokeV.objValue;
     }
 
-    public BdUniqueId f() {
+    public InterfaceC1270d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20802b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20247e : (InterfaceC1270d) invokeV.objValue;
     }
 
-    public void g(String str, g gVar) {
+    public BdUniqueId g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20244b : (BdUniqueId) invokeV.objValue;
+    }
+
+    public void h(String str, g gVar) {
         ConcernNetModel concernNetModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, gVar) == null) || (concernNetModel = this.f20804d) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, gVar) == null) || (concernNetModel = this.f20246d) == null) {
             return;
         }
         concernNetModel.A(str, gVar);
     }
 
-    public void h(int i2, int i3, g gVar, int i4, int i5) {
+    public void i(int i2, int i3, g gVar, int i4, int i5) {
         RecPersonalizePageModel recPersonalizePageModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), gVar, Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (recPersonalizePageModel = this.f20803c) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), gVar, Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (recPersonalizePageModel = this.f20245c) == null) {
             return;
         }
         recPersonalizePageModel.i(i2, i3, gVar, i4, i5);
     }
 
-    public void i(c.a.t0.x1.s.a aVar) {
+    public void j(c.a.t0.x1.s.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
         }
     }
 
-    public void j(InterfaceC1256d interfaceC1256d) {
+    public void k(InterfaceC1270d interfaceC1270d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, interfaceC1256d) == null) {
-            this.f20805e = interfaceC1256d;
+        if (interceptable == null || interceptable.invokeL(1048585, this, interfaceC1270d) == null) {
+            this.f20247e = interfaceC1270d;
         }
     }
 }

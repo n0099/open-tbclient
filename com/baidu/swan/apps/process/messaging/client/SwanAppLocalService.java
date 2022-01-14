@@ -66,7 +66,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLocalService f40334e;
+        public final /* synthetic */ SwanAppLocalService f39000e;
 
         public a(SwanAppLocalService swanAppLocalService) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                     return;
                 }
             }
-            this.f40334e = swanAppLocalService;
+            this.f39000e = swanAppLocalService;
         }
 
         @Override // java.lang.Runnable
@@ -100,9 +100,9 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                 e.y(c.a.r0.a.c1.a.c());
                 c.a.r0.a.u1.n.a.a().c(g.aiapps_fragment, g.aiapps_pull_to_load_footer, g.aiapps_loading_layout);
                 c.a.r0.a.c1.a.V().a(c.a.r0.a.c1.a.u0().a());
-                boolean z = c.a.r0.a.a3.d.b.f5309i;
+                boolean z = c.a.r0.a.a3.d.b.f5199i;
                 c.a.r0.a.f1.c.b.c().d("screenSize", g0.b());
-                this.f40334e.preloadActivityClass();
+                this.f39000e.preloadActivityClass();
             }
         }
     }
@@ -113,7 +113,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLocalService f40335e;
+        public final /* synthetic */ SwanAppLocalService f39001e;
 
         public b(SwanAppLocalService swanAppLocalService) {
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                     return;
                 }
             }
-            this.f40335e = swanAppLocalService;
+            this.f39001e = swanAppLocalService;
         }
 
         @Override // java.lang.Runnable
@@ -138,7 +138,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    ClassLoader classLoader = this.f40335e.getClassLoader();
+                    ClassLoader classLoader = this.f39001e.getClassLoader();
                     Class.forName(SwanAppProcessInfo.current().activity.getName(), true, classLoader);
                     Class.forName(f.class.getName(), true, classLoader);
                     Class.forName(g.b.class.getName(), true, classLoader);

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SharedPreferencesUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CARD_REMIND_GUIDANCE_SHARED_PREFERENCE = "card_remind_guidance_preference";

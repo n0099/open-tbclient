@@ -16,19 +16,19 @@ public class LoadAdParams {
     public LoginType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61380b;
+    public String f59054b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61381c;
+    public String f59055c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61382d;
+    public String f59056d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, String> f61383e;
+    public Map<String, String> f59057e;
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONObject f61384f;
+    public JSONObject f59058f;
 
     public LoadAdParams() {
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class LoadAdParams {
     public Map getDevExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61383e : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59057e : (Map) invokeV.objValue;
     }
 
     public String getDevExtraJsonString() {
@@ -55,7 +55,7 @@ public class LoadAdParams {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return (this.f61383e == null || this.f61383e.size() <= 0) ? "" : new JSONObject(this.f61383e).toString();
+                return (this.f59057e == null || this.f59057e.size() <= 0) ? "" : new JSONObject(this.f59057e).toString();
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return "";
@@ -67,19 +67,19 @@ public class LoadAdParams {
     public JSONObject getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61384f : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59058f : (JSONObject) invokeV.objValue;
     }
 
     public String getLoginAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61380b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59054b : (String) invokeV.objValue;
     }
 
     public String getLoginOpenid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f61381c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59055c : (String) invokeV.objValue;
     }
 
     public LoginType getLoginType() {
@@ -91,34 +91,34 @@ public class LoadAdParams {
     public String getUin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f61382d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59056d : (String) invokeV.objValue;
     }
 
     public void setDevExtra(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            this.f61383e = map;
+            this.f59057e = map;
         }
     }
 
     public void setExtraInfo(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
-            this.f61384f = jSONObject;
+            this.f59058f = jSONObject;
         }
     }
 
     public void setLoginAppId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f61380b = str;
+            this.f59054b = str;
         }
     }
 
     public void setLoginOpenid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f61381c = str;
+            this.f59055c = str;
         }
     }
 
@@ -132,7 +132,7 @@ public class LoadAdParams {
     public void setUin(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f61382d = str;
+            this.f59056d = str;
         }
     }
 
@@ -140,7 +140,7 @@ public class LoadAdParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "LoadAdParams{, loginType=" + this.a + ", loginAppId=" + this.f61380b + ", loginOpenid=" + this.f61381c + ", uin=" + this.f61382d + ", passThroughInfo=" + this.f61383e + ", extraInfo=" + this.f61384f + ExtendedMessageFormat.END_FE;
+            return "LoadAdParams{, loginType=" + this.a + ", loginAppId=" + this.f59054b + ", loginOpenid=" + this.f59055c + ", uin=" + this.f59056d + ", passThroughInfo=" + this.f59057e + ", extraInfo=" + this.f59058f + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -13,10 +13,10 @@ public final class l<T> {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f61553b;
+    public T f59220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f61554c;
+    public final boolean f59221c;
 
     public l(int i2, T t, boolean z) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class l<T> {
             }
         }
         this.a = i2;
-        this.f61553b = t;
-        this.f61554c = z;
+        this.f59220b = t;
+        this.f59221c = z;
     }
 
     public final int a() {
@@ -47,14 +47,14 @@ public final class l<T> {
     public final T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61553b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59220b : (T) invokeV.objValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{code:" + this.a + ", response:" + this.f61553b + ", resultFormCache:" + this.f61554c + "}";
+            return "{code:" + this.a + ", response:" + this.f59220b + ", resultFormCache:" + this.f59221c + "}";
         }
         return (String) invokeV.objValue;
     }

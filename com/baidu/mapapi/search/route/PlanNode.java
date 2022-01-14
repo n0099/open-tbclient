@@ -20,10 +20,10 @@ public class PlanNode implements Parcelable {
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36840b;
+    public String f35627b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36841c;
+    public String f35628c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,11 +57,11 @@ public class PlanNode implements Parcelable {
             }
         }
         this.a = null;
-        this.f36840b = null;
-        this.f36841c = null;
+        this.f35627b = null;
+        this.f35628c = null;
         this.a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f36840b = parcel.readString();
-        this.f36841c = parcel.readString();
+        this.f35627b = parcel.readString();
+        this.f35628c = parcel.readString();
     }
 
     public PlanNode(LatLng latLng, String str, String str2) {
@@ -80,11 +80,11 @@ public class PlanNode implements Parcelable {
             }
         }
         this.a = null;
-        this.f36840b = null;
-        this.f36841c = null;
+        this.f35627b = null;
+        this.f35628c = null;
         this.a = latLng;
-        this.f36840b = str;
-        this.f36841c = str2;
+        this.f35627b = str;
+        this.f35628c = str2;
     }
 
     public static PlanNode withCityCodeAndPlaceName(int i2, String str) {
@@ -118,7 +118,7 @@ public class PlanNode implements Parcelable {
     public String getCity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36840b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35627b : (String) invokeV.objValue;
     }
 
     public LatLng getLocation() {
@@ -130,7 +130,7 @@ public class PlanNode implements Parcelable {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36841c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35628c : (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -138,8 +138,8 @@ public class PlanNode implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
             parcel.writeValue(this.a);
-            parcel.writeString(this.f36840b);
-            parcel.writeString(this.f36841c);
+            parcel.writeString(this.f35627b);
+            parcel.writeString(this.f35628c);
         }
     }
 }

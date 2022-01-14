@@ -16,15 +16,15 @@ public class b implements c.a.t0.r3.b.a {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f22506b;
+    public f f21889b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.t0.r3.b.b f22507c;
+    public final c.a.t0.r3.b.b f21890c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.t0.r3.b.c f22508d;
+    public final c.a.t0.r3.b.c f21891d;
 
     public b(@NonNull c.a.t0.r3.b.b bVar, @NonNull c.a.t0.r3.b.c cVar) {
         Interceptable interceptable = $ic;
@@ -41,15 +41,15 @@ public class b implements c.a.t0.r3.b.a {
                 return;
             }
         }
-        this.f22507c = bVar;
-        this.f22508d = cVar;
+        this.f21890c = bVar;
+        this.f21891d = cVar;
     }
 
     @Override // c.a.t0.r3.b.a
     public void a() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f22506b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f21889b) == null) {
             return;
         }
         fVar.n();
@@ -60,21 +60,21 @@ public class b implements c.a.t0.r3.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            e eVar = new e(this.f22507c, this.f22508d, this);
-            if (this.f22507c.i()) {
+            e eVar = new e(this.f21890c, this.f21891d, this);
+            if (this.f21890c.i()) {
                 return false;
             }
-            if (this.f22506b == null) {
-                this.f22506b = new f(this.f22507c.getActivity());
+            if (this.f21889b == null) {
+                this.f21889b = new f(this.f21890c.getActivity());
             }
-            if (this.f22506b.h()) {
-                this.a = this.f22506b.k(0.8125d);
-                this.f22507c.getRootView().addView(this.a);
-                this.f22506b.r(eVar);
-                this.f22506b.t();
+            if (this.f21889b.h()) {
+                this.a = this.f21889b.k(0.8125d);
+                this.f21890c.getRootView().addView(this.a);
+                this.f21889b.r(eVar);
+                this.f21889b.t();
                 return true;
             }
-            this.f22506b.i();
+            this.f21889b.i();
             return false;
         }
         return invokeV.booleanValue;
@@ -104,7 +104,7 @@ public class b implements c.a.t0.r3.b.a {
     public void onPause() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (fVar = this.f22506b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (fVar = this.f21889b) == null) {
             return;
         }
         fVar.o();
@@ -114,7 +114,7 @@ public class b implements c.a.t0.r3.b.a {
     public void onResume() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (fVar = this.f22506b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (fVar = this.f21889b) == null) {
             return;
         }
         fVar.p();

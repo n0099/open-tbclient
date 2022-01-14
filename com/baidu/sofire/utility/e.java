@@ -23,7 +23,7 @@ import java.io.FileReader;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
@@ -82,11 +82,11 @@ public final class e {
                             return e2;
                         }
                     }
-                    String k2 = a2.k();
-                    if (!TextUtils.isEmpty(k2)) {
-                        a2.c(new String(Base64.encode(h.a("30212102dicudiab".getBytes(), k2.getBytes("UTF-8"), true), 10), "UTF-8"));
-                        a = k2;
-                        return k2;
+                    String k = a2.k();
+                    if (!TextUtils.isEmpty(k)) {
+                        a2.c(new String(Base64.encode(h.a("30212102dicudiab".getBytes(), k.getBytes("UTF-8"), true), 10), "UTF-8"));
+                        a = k;
+                        return k;
                     }
                     String g2 = g(context);
                     String h2 = u.h(context);
@@ -95,15 +95,15 @@ public final class e {
                     }
                     String str = g2 + "|" + new StringBuffer(h2).reverse().toString();
                     String str2 = new String(Base64.encode(h.a("30212102dicudiab".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8");
-                    String k3 = a2.k();
-                    if (TextUtils.isEmpty(k3)) {
+                    String k2 = a2.k();
+                    if (TextUtils.isEmpty(k2)) {
                         a2.b(str);
                         a2.c(str2);
                         a = str;
                         return str;
                     }
-                    a = k3;
-                    return k3;
+                    a = k2;
+                    return k2;
                 } catch (Throwable unused) {
                     c.a();
                     return "";
@@ -119,7 +119,7 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                String string = a2.f39766c.getString("sgud", "");
+                String string = a2.f38449c.getString("sgud", "");
                 if (TextUtils.isEmpty(string)) {
                     if (Build.VERSION.SDK_INT > 25) {
                         return "";
@@ -137,8 +137,8 @@ public final class e {
                     if (TextUtils.isEmpty(a3)) {
                         return "";
                     }
-                    a2.f39767d.putString("sgud", a3);
-                    a2.f39767d.commit();
+                    a2.f38450d.putString("sgud", a3);
+                    a2.f38450d.commit();
                     return a3;
                 }
                 return string;

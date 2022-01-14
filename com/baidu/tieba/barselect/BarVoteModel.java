@@ -38,22 +38,22 @@ public class BarVoteModel extends BdBaseModel {
     public final BdUniqueId SWITCH_TYPE;
 
     /* renamed from: e  reason: collision with root package name */
-    public BarVoteActivity f43741e;
+    public BarVoteActivity f42154e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f43742f;
+    public f f42155f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f43743g;
+    public c f42156g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f43744h;
+    public long f42157h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.d.c.g.a f43745i;
+    public c.a.d.c.g.a f42158i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HttpMessageListener f43746j;
+    public HttpMessageListener f42159j;
     public int mPn;
 
     /* loaded from: classes12.dex */
@@ -64,14 +64,14 @@ public class BarVoteModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.barselect.BarVoteModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class RunnableC1888a implements Runnable {
+        public class RunnableC1904a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f43747e;
+            public final /* synthetic */ a f42160e;
 
-            public RunnableC1888a(a aVar) {
+            public RunnableC1904a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,14 +86,14 @@ public class BarVoteModel extends BdBaseModel {
                         return;
                     }
                 }
-                this.f43747e = aVar;
+                this.f42160e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f43747e.a.C();
+                    this.f42160e.a.C();
                 }
             }
         }
@@ -104,7 +104,7 @@ public class BarVoteModel extends BdBaseModel {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f43748e;
+            public final /* synthetic */ a f42161e;
 
             public b(a aVar) {
                 Interceptable interceptable = $ic;
@@ -121,14 +121,14 @@ public class BarVoteModel extends BdBaseModel {
                         return;
                     }
                 }
-                this.f43748e = aVar;
+                this.f42161e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f43748e.a.C();
+                    this.f42161e.a.C();
                 }
             }
         }
@@ -173,42 +173,42 @@ public class BarVoteModel extends BdBaseModel {
                 if (voteData != null && voteData.a() != null && (voteData.a().g() == 1 || voteData.a().g() == 2)) {
                     BarVoteModel barVoteModel = this.a;
                     if (barVoteModel.mPn == 0) {
-                        barVoteModel.f43742f = voteData;
+                        barVoteModel.f42155f = voteData;
                         this.a.mPn++;
-                    } else if (barVoteModel.f43742f != null && voteData.a() != null && ((voteData.a().g() == 1 || voteData.a().g() == 2) && this.a.f43742f.b() != null && voteData.b() != null)) {
-                        this.a.f43742f.b().addAll(voteData.b());
-                        this.a.f43742f.j(voteData.d());
+                    } else if (barVoteModel.f42155f != null && voteData.a() != null && ((voteData.a().g() == 1 || voteData.a().g() == 2) && this.a.f42155f.b() != null && voteData.b() != null)) {
+                        this.a.f42155f.b().addAll(voteData.b());
+                        this.a.f42155f.j(voteData.d());
                         this.a.mPn++;
                     }
                 }
-                if (this.a.f43743g != null) {
-                    this.a.f43743g.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f43742f);
+                if (this.a.f42156g != null) {
+                    this.a.f42156g.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f42155f);
                 }
             } else if (responsedMessage.getOrginalMessage().getTag() == this.a.RELOAD_TYPE) {
                 if (voteData != null && voteData.a() != null && (voteData.a().g() == 1 || voteData.a().g() == 2)) {
                     BarVoteModel barVoteModel2 = this.a;
                     if (barVoteModel2.mPn == 0) {
-                        barVoteModel2.f43742f = voteData;
+                        barVoteModel2.f42155f = voteData;
                         this.a.mPn++;
                     }
                 }
-                if (this.a.f43743g != null) {
-                    this.a.f43743g.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f43742f);
+                if (this.a.f42156g != null) {
+                    this.a.f42156g.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f42155f);
                 }
             } else if (responsedMessage.getOrginalMessage().getTag() == this.a.SWITCH_TYPE) {
                 if (voteData == null || voteData.a() == null) {
-                    if (this.a.f43741e != null) {
+                    if (this.a.f42154e != null) {
                         e.a().postDelayed(new b(this), 5000L);
                     }
-                } else if (voteData.a().g() == c.a.t0.c0.e.c.f15707c) {
-                    this.a.f43742f = voteData;
+                } else if (voteData.a().g() == c.a.t0.c0.e.c.f15311c) {
+                    this.a.f42155f = voteData;
                     BarVoteModel barVoteModel3 = this.a;
                     barVoteModel3.mPn = 1;
-                    if (barVoteModel3.f43743g != null) {
-                        this.a.f43743g.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f43742f);
+                    if (barVoteModel3.f42156g != null) {
+                        this.a.f42156g.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f42155f);
                     }
-                } else if (this.a.f43741e != null) {
-                    e.a().postDelayed(new RunnableC1888a(this), 5000L);
+                } else if (this.a.f42154e != null) {
+                    e.a().postDelayed(new RunnableC1904a(this), 5000L);
                 }
             }
         }
@@ -245,7 +245,7 @@ public class BarVoteModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getOrginalMessage() == null || !(httpResponsedMessage instanceof CommitVoteResMsg) || this.a.f43742f == null || this.a.f43742f.a() == null || this.a.f43741e == null || httpResponsedMessage.getOrginalMessage().getTag() != this.a.f43741e.mPageId) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getOrginalMessage() == null || !(httpResponsedMessage instanceof CommitVoteResMsg) || this.a.f42155f == null || this.a.f42155f.a() == null || this.a.f42154e == null || httpResponsedMessage.getOrginalMessage().getTag() != this.a.f42154e.mPageId) {
                 return;
             }
             int error = httpResponsedMessage.getError();
@@ -257,7 +257,7 @@ public class BarVoteModel extends BdBaseModel {
                     c.a.t0.w3.p0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                     return;
                 } else if (error != 3250002 && error != 3250004) {
-                    n.M(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
+                    n.N(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
                     return;
                 } else {
                     BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
@@ -265,33 +265,33 @@ public class BarVoteModel extends BdBaseModel {
                     blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.block_user_feed);
                     blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.know);
                     blockPopInfoData.ahead_url = "http://tieba.baidu.com/mo/q/userappeal";
-                    AntiHelper.s(this.a.f43741e, blockPopInfoData);
+                    AntiHelper.s(this.a.f42154e, blockPopInfoData);
                     return;
                 }
             }
             boolean z = false;
-            this.a.f43742f.a().k(false);
+            this.a.f42155f.a().k(false);
             Message<?> orginalMessage = httpResponsedMessage.getOrginalMessage();
-            if (!(orginalMessage instanceof CommitVoteReqMsg) || this.a.f43742f.b() == null) {
+            if (!(orginalMessage instanceof CommitVoteReqMsg) || this.a.f42155f.b() == null) {
                 return;
             }
             CommitVoteReqMsg commitVoteReqMsg = (CommitVoteReqMsg) orginalMessage;
             if (commitVoteReqMsg.candidate_uid != 0) {
-                for (d dVar : this.a.f43742f.b()) {
+                for (d dVar : this.a.f42155f.b()) {
                     if (dVar.l() == commitVoteReqMsg.candidate_uid) {
                         dVar.D(dVar.m() + 1);
                         z = true;
                     }
                 }
-                if (this.a.f43742f.f() != null && this.a.f43742f.f().l() == commitVoteReqMsg.candidate_uid) {
-                    this.a.f43742f.f().D(this.a.f43742f.f().m() + 1);
+                if (this.a.f42155f.f() != null && this.a.f42155f.f().l() == commitVoteReqMsg.candidate_uid) {
+                    this.a.f42155f.f().D(this.a.f42155f.f().m() + 1);
                     z = true;
                 }
-                if (this.a.f43743g == null || !z) {
+                if (this.a.f42156g == null || !z) {
                     return;
                 }
-                n.L(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
-                this.a.f43743g.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f43742f);
+                n.M(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
+                this.a.f42156g.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f42155f);
             }
         }
     }
@@ -320,13 +320,13 @@ public class BarVoteModel extends BdBaseModel {
         this.SWITCH_TYPE = BdUniqueId.gen();
         this.RELOAD_TYPE = BdUniqueId.gen();
         this.mPn = 0;
-        this.f43743g = null;
-        this.f43745i = new a(this, CmdConfigHttp.CMD_BAR_ELECTION, 309642);
-        this.f43746j = new b(this, CmdConfigHttp.CMD_BAR_VOTE);
-        this.f43741e = barVoteActivity;
-        this.f43744h = barVoteActivity.getIntent().getLongExtra("fid", 0L);
-        registerListener(this.f43745i);
-        registerListener(this.f43746j);
+        this.f42156g = null;
+        this.f42158i = new a(this, CmdConfigHttp.CMD_BAR_ELECTION, 309642);
+        this.f42159j = new b(this, CmdConfigHttp.CMD_BAR_VOTE);
+        this.f42154e = barVoteActivity;
+        this.f42157h = barVoteActivity.getIntent().getLongExtra("fid", 0L);
+        registerListener(this.f42158i);
+        registerListener(this.f42159j);
         refresh();
     }
 
@@ -334,7 +334,7 @@ public class BarVoteModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
             VoteElectionRequestMessage voteElectionRequestMessage = new VoteElectionRequestMessage();
-            voteElectionRequestMessage.setFid(this.f43744h);
+            voteElectionRequestMessage.setFid(this.f42157h);
             if (bdUniqueId == this.NORMAL_TYPE) {
                 voteElectionRequestMessage.setPn(this.mPn + 1);
             } else if (bdUniqueId == this.SWITCH_TYPE) {
@@ -354,7 +354,7 @@ public class BarVoteModel extends BdBaseModel {
     public void B(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f43743g = cVar;
+            this.f42156g = cVar;
         }
     }
 
@@ -395,8 +395,8 @@ public class BarVoteModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f43745i);
-            MessageManager.getInstance().unRegisterListener(this.f43746j);
+            MessageManager.getInstance().unRegisterListener(this.f42158i);
+            MessageManager.getInstance().unRegisterListener(this.f42159j);
         }
     }
 
@@ -406,7 +406,7 @@ public class BarVoteModel extends BdBaseModel {
             if (l.A()) {
                 A(this.RELOAD_TYPE);
             } else {
-                this.f43741e.showNetRefreshView();
+                this.f42154e.showNetRefreshView();
             }
         }
     }

@@ -20,7 +20,7 @@ public final class d implements ServiceConnection {
     public final /* synthetic */ Intent a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PushManager f57113b;
+    public final /* synthetic */ PushManager f54952b;
 
     public d(PushManager pushManager, Intent intent) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class d implements ServiceConnection {
                 return;
             }
         }
-        this.f57113b = pushManager;
+        this.f54952b = pushManager;
         this.a = intent;
     }
 
@@ -53,7 +53,7 @@ public final class d implements ServiceConnection {
             } catch (Exception e2) {
                 LogUtil.d("bindMcsService exception:" + e2);
             }
-            context = this.f57113b.mContext;
+            context = this.f54952b.mContext;
             context.unbindService(this);
         }
     }

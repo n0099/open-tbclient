@@ -21,7 +21,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f12490b;
+    public static b f12198b;
     public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<String, a> a;
 
@@ -48,14 +48,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12490b == null) {
+            if (f12198b == null) {
                 synchronized (b.class) {
-                    if (f12490b == null) {
-                        f12490b = new b();
+                    if (f12198b == null) {
+                        f12198b = new b();
                     }
                 }
             }
-            return f12490b;
+            return f12198b;
         }
         return (b) invokeV.objValue;
     }
@@ -167,7 +167,7 @@ public class b {
                     this.a.putAll(hashMap);
                 }
                 EditorHelper.putString(g(), "pref_key_abtest_switchs", jSONArray.toString());
-                c.a.s0.s.g0.b.j().v("perf_start_open", h("performance_start_small_flow") ? 1 : 0);
+                c.a.s0.s.h0.b.k().w("perf_start_open", h("performance_start_small_flow") ? 1 : 0);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

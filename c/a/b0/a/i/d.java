@@ -17,13 +17,13 @@ public class d {
     public Vector<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1619b;
+    public long f1601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1620c;
+    public long f1602c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Vector<Integer> f1621d;
+    public Vector<Integer> f1603d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class d {
             }
         }
         this.a = new Vector<>();
-        this.f1620c = 0L;
-        this.f1621d = new Vector<>();
+        this.f1602c = 0L;
+        this.f1603d = new Vector<>();
     }
 
     public String a(boolean z) {
@@ -99,15 +99,15 @@ public class d {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            Vector<Integer> vector = this.f1621d;
+            Vector<Integer> vector = this.f1603d;
             if (vector == null || vector.size() == 0) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
             float f2 = 0.0f;
-            int size = this.f1621d.size();
+            int size = this.f1603d.size();
             for (int i2 = 0; i2 < size; i2++) {
-                Integer num = this.f1621d.get(i2);
+                Integer num = this.f1603d.get(i2);
                 if (num != null) {
                     f2 += num.intValue();
                     jSONArray.put(num);
@@ -125,43 +125,43 @@ public class d {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f1619b <= 0) {
-                this.f1619b = System.currentTimeMillis();
+            if (this.f1601b <= 0) {
+                this.f1601b = System.currentTimeMillis();
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            int i2 = (int) (currentTimeMillis - this.f1619b);
+            int i2 = (int) (currentTimeMillis - this.f1601b);
             if (i2 < 0) {
                 return;
             }
             this.a.add(Integer.valueOf(i2));
-            this.f1619b = currentTimeMillis;
+            this.f1601b = currentTimeMillis;
         }
     }
 
     public void e() {
         int currentTimeMillis;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f1620c <= 0 || (currentTimeMillis = (int) (System.currentTimeMillis() - this.f1620c)) < 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f1602c <= 0 || (currentTimeMillis = (int) (System.currentTimeMillis() - this.f1602c)) < 0) {
             return;
         }
-        this.f1621d.add(Integer.valueOf(currentTimeMillis));
+        this.f1603d.add(Integer.valueOf(currentTimeMillis));
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f1620c = System.currentTimeMillis();
+            this.f1602c = System.currentTimeMillis();
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f1619b = 0L;
-            this.f1620c = 0L;
+            this.f1601b = 0L;
+            this.f1602c = 0L;
             this.a.clear();
-            this.f1621d.clear();
+            this.f1603d.clear();
         }
     }
 }

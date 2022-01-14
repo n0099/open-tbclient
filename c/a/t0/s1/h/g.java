@@ -21,10 +21,10 @@ public class g {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SQLiteDatabase f22681b;
+    public static volatile SQLiteDatabase f22060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, SQLiteDatabase> f22682c;
+    public static HashMap<String, SQLiteDatabase> f22061c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class g {
                 return;
             }
         }
-        f22682c = new HashMap<>();
+        f22061c = new HashMap<>();
     }
 
     public static void a(String str) {
@@ -117,19 +117,19 @@ public class g {
                     return null;
                 }
                 String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-                if (f22682c.containsKey(str)) {
-                    return f22682c.get(str);
+                if (f22061c.containsKey(str)) {
+                    return f22061c.get(str);
                 }
-                if (f22681b != null && str.equals(a) && f22681b.isOpen()) {
-                    return f22681b;
+                if (f22060b != null && str.equals(a) && f22060b.isOpen()) {
+                    return f22060b;
                 }
-                if (f22681b != null) {
-                    o.b(f22681b);
+                if (f22060b != null) {
+                    o.b(f22060b);
                 }
                 f fVar = new f(TbadkCoreApplication.getInst().getApp(), str);
                 a = str;
-                f22681b = fVar.getWritableDatabase();
-                return f22681b;
+                f22060b = fVar.getWritableDatabase();
+                return f22060b;
             }
         }
         return (SQLiteDatabase) invokeV.objValue;

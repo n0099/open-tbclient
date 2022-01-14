@@ -31,10 +31,10 @@ public class b extends d {
                 return;
             }
         }
-        this.f1733d = "";
-        this.f1731b = false;
-        this.f1732c = false;
-        this.f1736g = -100;
+        this.f1713d = "";
+        this.f1711b = false;
+        this.f1712c = false;
+        this.f1716g = -100;
     }
 
     @Override // c.a.b1.e.f.c

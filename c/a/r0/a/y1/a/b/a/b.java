@@ -12,7 +12,7 @@ public class b extends a<Bundle> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9900b;
+    public String f9686b;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -29,12 +29,12 @@ public class b extends a<Bundle> {
                 return;
             }
         }
-        this.f9900b = str;
+        this.f9686b = str;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9900b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9686b : (String) invokeV.objValue;
     }
 }

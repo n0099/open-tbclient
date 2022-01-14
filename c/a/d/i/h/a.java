@@ -9,6 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.aideviceperformance.data.UserStickinessSQLiteOpenHelper;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
 import com.baidu.tieba.compatible.EditorHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,7 +26,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f3210b;
+    public static volatile a f3172b;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Integer> a;
 
@@ -66,14 +67,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f3210b == null) {
+                if (f3172b == null) {
                     synchronized (a.class) {
-                        if (f3210b == null) {
-                            f3210b = new a();
+                        if (f3172b == null) {
+                            f3172b = new a();
                         }
                     }
                 }
-                aVar = f3210b;
+                aVar = f3172b;
             }
             return aVar;
         }
@@ -135,7 +136,7 @@ public class a {
     public void h(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, str, i2) == null) {
-            j(str, null, null, "count_" + i2);
+            j(str, null, null, UserStickinessSQLiteOpenHelper.COUNT_PREFIX + i2);
         }
     }
 
@@ -163,9 +164,9 @@ public class a {
                 c2.b("comment", str4);
             }
             c2.c("pid", Integer.valueOf(Process.myPid()));
-            PluginSettings k2 = c.j().k();
-            if (k2 != null) {
-                c2.b("pver", k2.getContainerVersion());
+            PluginSettings k = c.j().k();
+            if (k != null) {
+                c2.b("pver", k.getContainerVersion());
             }
             c2.b("appver", BdStatisticsManager.getInstance().getAppVersion());
             BdLog.e(c2.toString());
@@ -186,9 +187,9 @@ public class a {
                 c2.b("pname", str2);
             }
             c2.c("pid", Integer.valueOf(Process.myPid()));
-            PluginSettings k2 = c.j().k();
-            if (k2 != null) {
-                c2.b("pver", k2.getContainerVersion());
+            PluginSettings k = c.j().k();
+            if (k != null) {
+                c2.b("pver", k.getContainerVersion());
             }
             c2.b("appver", BdStatisticsManager.getInstance().getAppVersion());
             BdStatisticsManager.getInstance().debug("pluginproxy", c2);
@@ -219,9 +220,9 @@ public class a {
                 c2.b("comment", str4);
             }
             c2.c("pid", Integer.valueOf(Process.myPid()));
-            PluginSettings k2 = c.j().k();
-            if (k2 != null) {
-                c2.b("pver", k2.getContainerVersion());
+            PluginSettings k = c.j().k();
+            if (k != null) {
+                c2.b("pver", k.getContainerVersion());
             }
             c2.b("appver", BdStatisticsManager.getInstance().getAppVersion());
             BdLog.e(c2.toString());
@@ -261,9 +262,9 @@ public class a {
                 c2.b("comment", str4);
             }
             c2.c("pid", Integer.valueOf(Process.myPid()));
-            PluginSettings k2 = c.j().k();
-            if (k2 != null) {
-                c2.b("pver", k2.getContainerVersion());
+            PluginSettings k = c.j().k();
+            if (k != null) {
+                c2.b("pver", k.getContainerVersion());
             }
             c2.b("appver", BdStatisticsManager.getInstance().getAppVersion());
             BdLog.e(c2.toString());

@@ -21,7 +21,7 @@ public class f {
     public static g b(Context context) {
         boolean a = ah.a(context);
         com.kwad.sdk.core.d.a.a("InfoCollector", "queryAccessibilityServicePermission result: " + a);
-        return new g(s.f57426j, a ? g.f57677b : g.f57678c);
+        return new g(s.f55249j, a ? g.f55491b : g.f55492c);
     }
 
     @NonNull
@@ -35,7 +35,7 @@ public class f {
             if (strArr != null) {
                 for (String str : strArr) {
                     int a = ah.a(context, str);
-                    arrayList.add(new g(str, a == 0 ? g.f57677b : a == -1 ? g.f57678c : g.a));
+                    arrayList.add(new g(str, a == 0 ? g.f55491b : a == -1 ? g.f55492c : g.a));
                 }
             }
             return arrayList;

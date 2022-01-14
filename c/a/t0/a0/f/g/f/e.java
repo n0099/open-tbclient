@@ -16,10 +16,10 @@ public class e {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f15015b;
+    public a f14653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f15016c;
+    public int f14654c;
 
     public e(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class e {
                 return;
             }
         }
-        this.f15016c = -1;
+        this.f14654c = -1;
         this.a = tbPageContext;
     }
 
     public void a(ViewGroup viewGroup) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || (aVar = this.f15015b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || (aVar = this.f14653b) == null) {
             return;
         }
         aVar.a(viewGroup);
@@ -53,48 +53,48 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, z) == null) {
             if (aVar == null) {
-                this.f15016c = -1;
-                this.f15015b = new b(this.a);
+                this.f14654c = -1;
+                this.f14653b = new b(this.a);
             } else if (z) {
-                int i2 = aVar.f14963d;
-                this.f15016c = i2;
+                int i2 = aVar.f14603d;
+                this.f14654c = i2;
                 if (i2 == 1) {
-                    this.f15015b = new d(this.a);
+                    this.f14653b = new d(this.a);
                 } else if (i2 == 2) {
-                    this.f15015b = new f(this.a);
+                    this.f14653b = new f(this.a);
                 } else if (i2 != 3) {
-                    this.f15015b = new b(this.a);
+                    this.f14653b = new b(this.a);
                 } else {
-                    this.f15015b = new c(this.a);
+                    this.f14653b = new c(this.a);
                 }
             }
-            if (this.f15015b.f(aVar)) {
+            if (this.f14653b.f(aVar)) {
                 if (z) {
-                    this.f15015b.d();
+                    this.f14653b.d();
                 }
-                this.f15015b.b(aVar);
+                this.f14653b.b(aVar);
                 return;
             }
-            this.f15016c = -1;
+            this.f14654c = -1;
             b bVar = new b(this.a);
-            this.f15015b = bVar;
+            this.f14653b = bVar;
             if (z) {
                 bVar.d();
             }
-            this.f15015b.b(aVar);
+            this.f14653b.b(aVar);
         }
     }
 
     public boolean c(c.a.t0.a0.f.g.c.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) ? aVar == null || this.f15016c != aVar.f14963d : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) ? aVar == null || this.f14654c != aVar.f14603d : invokeL.booleanValue;
     }
 
     public void d(boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (aVar = this.f15015b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (aVar = this.f14653b) == null) {
             return;
         }
         aVar.g(z);
@@ -103,7 +103,7 @@ public class e {
     public void e() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f15015b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f14653b) == null) {
             return;
         }
         aVar.h();
@@ -112,7 +112,7 @@ public class e {
     public void f(int i2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (aVar = this.f15015b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (aVar = this.f14653b) == null) {
             return;
         }
         aVar.i(i2);
@@ -121,7 +121,7 @@ public class e {
     public void g() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f15015b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f14653b) == null) {
             return;
         }
         aVar.j();
@@ -130,7 +130,7 @@ public class e {
     public void h() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f15015b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f14653b) == null) {
             return;
         }
         aVar.k();
@@ -139,7 +139,7 @@ public class e {
     public void i() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (aVar = this.f15015b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (aVar = this.f14653b) == null) {
             return;
         }
         aVar.l();
@@ -148,7 +148,7 @@ public class e {
     public void j() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (aVar = this.f15015b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (aVar = this.f14653b) == null) {
             return;
         }
         aVar.m();
@@ -157,7 +157,7 @@ public class e {
     public void k() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (aVar = this.f15015b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (aVar = this.f14653b) == null) {
             return;
         }
         aVar.n();

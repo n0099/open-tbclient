@@ -1,6 +1,6 @@
 package c.a.t0.o1.c.f;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.v1;
 import c.a.s0.s.q.x0;
 import com.baidu.adp.BdUniqueId;
@@ -17,17 +17,15 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
 import tbclient.Userlike.ConcernData;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends v1 {
     public static /* synthetic */ Interceptable $ic;
     public static final Integer l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f20763j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public List<MetaData> f20764k;
+    public boolean f20211j;
+    public List<MetaData> k;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +56,7 @@ public class a extends v1 {
                 return;
             }
         }
-        this.f20764k = new ArrayList();
+        this.k = new ArrayList();
     }
 
     public static boolean o(ConcernData concernData) {
@@ -77,7 +75,7 @@ public class a extends v1 {
     public List<MetaData> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20764k : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (List) invokeV.objValue;
     }
 
     @Override // c.a.s0.s.q.v1, c.a.s0.s.q.a
@@ -88,20 +86,20 @@ public class a extends v1 {
     }
 
     @Override // c.a.s0.s.q.v1, c.a.s0.s.q.a
-    public d2 getThreadData() {
+    public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (d2) invokeV.objValue;
+        return (e2) invokeV.objValue;
     }
 
     @Override // c.a.s0.s.q.v1, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? v1.f13823i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? v1.f13510i : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // c.a.s0.s.q.v1
@@ -114,20 +112,20 @@ public class a extends v1 {
         for (int i2 = 0; i2 < min; i2++) {
             MetaData metaData = new MetaData();
             metaData.parserProtobuf(list.get(i2));
-            this.f20764k.add(metaData);
+            this.k.add(metaData);
         }
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20763j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20211j : invokeV.booleanValue;
     }
 
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f20763j = z;
+            this.f20211j = z;
         }
     }
 }

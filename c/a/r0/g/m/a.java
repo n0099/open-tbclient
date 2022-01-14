@@ -25,20 +25,20 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10569b;
+    public static final String f10341b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.g.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0673a extends StringResponseCallback {
+    public static class C0682a extends StringResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Response a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10570b;
+        public final /* synthetic */ String f10342b;
 
-        public C0673a(String str) {
+        public C0682a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public class a {
                     return;
                 }
             }
-            this.f10570b = str;
+            this.f10342b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,14 +72,14 @@ public class a {
                         b.a(f2);
                         return;
                     }
-                    a.d("get launch scheme fail: request fail with code " + i2, this.f10570b, str, true);
+                    a.d("get launch scheme fail: request fail with code " + i2, this.f10342b, str, true);
                     return;
                 }
                 try {
                     b.a(new JSONObject(str).optString("data"));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
-                    a.d("get launch scheme fail: " + e2.getMessage(), this.f10570b, str, false);
+                    a.d("get launch scheme fail: " + e2.getMessage(), this.f10342b, str, false);
                 }
             }
         }
@@ -88,7 +88,7 @@ public class a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                a.d("get launch scheme fail: network err with exception: " + exc.getMessage(), this.f10570b, "", true);
+                a.d("get launch scheme fail: network err with exception: " + exc.getMessage(), this.f10342b, "", true);
             }
         }
 
@@ -119,7 +119,7 @@ public class a {
             }
         }
         a = k.a;
-        f10569b = SchemeConfig.getSchemeHead() + "://";
+        f10341b = SchemeConfig.getSchemeHead() + "://";
     }
 
     public static void d(String str, String str2, String str3, boolean z) {
@@ -142,7 +142,7 @@ public class a {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(c.a.r0.a.w2.a.a()).url(str).build().executeAsyncOnUIBack(new C0673a(str));
+            HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(c.a.r0.a.w2.a.a()).url(str).build().executeAsyncOnUIBack(new C0682a(str));
         }
     }
 
@@ -155,7 +155,7 @@ public class a {
             }
             String header = response.header("Location");
             if (!TextUtils.isEmpty(header) && header.startsWith("baiduboxapp://")) {
-                return header.replace("baiduboxapp://", f10569b);
+                return header.replace("baiduboxapp://", f10341b);
             }
             return null;
         }

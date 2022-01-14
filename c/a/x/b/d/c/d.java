@@ -15,22 +15,22 @@ public class d {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27411b;
+    public String f26591b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27412c;
+    public String f26592c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27413d;
+    public String f26593d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LiveHostInfo f27414e;
+    public LiveHostInfo f26594e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LiveStatInfo f27415f;
+    public LiveStatInfo f26595f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27416g;
+    public boolean f26596g;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class d {
             }
         }
         this.a = false;
-        this.f27416g = true;
+        this.f26596g = true;
     }
 
     public void a(JSONObject jSONObject) {
@@ -56,21 +56,21 @@ public class d {
         }
         this.a = false;
         jSONObject.optString("feed_id");
-        this.f27411b = jSONObject.optString("nid");
-        this.f27412c = jSONObject.optString("room_id");
+        this.f26591b = jSONObject.optString("nid");
+        this.f26592c = jSONObject.optString("room_id");
         jSONObject.optString("title");
         jSONObject.optInt(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
-        this.f27413d = jSONObject.optString("cmd");
+        this.f26593d = jSONObject.optString("cmd");
         JSONObject optJSONObject = jSONObject.optJSONObject("host");
         if (optJSONObject != null) {
             LiveHostInfo liveHostInfo = new LiveHostInfo();
-            this.f27414e = liveHostInfo;
+            this.f26594e = liveHostInfo;
             liveHostInfo.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("stat");
         if (optJSONObject2 != null) {
             LiveStatInfo liveStatInfo = new LiveStatInfo();
-            this.f27415f = liveStatInfo;
+            this.f26595f = liveStatInfo;
             liveStatInfo.parserJson(optJSONObject2);
         }
     }

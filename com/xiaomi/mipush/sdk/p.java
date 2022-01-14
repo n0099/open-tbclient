@@ -40,7 +40,7 @@ public final class p extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo236a() {
+    public String mo248a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;
@@ -54,6 +54,6 @@ public final class p extends ai.a {
             return;
         }
         ieVar.a(com.xiaomi.push.service.at.a());
-        an.a(this.a.getApplicationContext()).a((an) this.f100a, hf.f63551i, true, (hs) null, true);
+        an.a(this.a.getApplicationContext()).a((an) this.f100a, hf.f61166i, true, (hs) null, true);
     }
 }

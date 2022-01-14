@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
 import c.a.s0.s.k;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.f;
 import c.a.t0.g0.b0;
 import c.a.t0.g0.m;
@@ -60,7 +60,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AppPosInfo;
 /* loaded from: classes6.dex */
-public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
+public class e extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSourceShareAndPraiseLayout A;
@@ -98,7 +98,7 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f15264e;
+        public final /* synthetic */ e f14886e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -115,14 +115,14 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                     return;
                 }
             }
-            this.f15264e = eVar;
+            this.f14886e = eVar;
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewAttachedToWindow(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f15264e.J.playAnimation();
+                this.f14886e.J.playAnimation();
             }
         }
 
@@ -130,7 +130,7 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         public void onViewDetachedFromWindow(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                this.f15264e.J.cancelAnimation();
+                this.f14886e.J.cancelAnimation();
             }
         }
     }
@@ -141,7 +141,7 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f15265e;
+        public final /* synthetic */ e f14887e;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -158,16 +158,16 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                     return;
                 }
             }
-            this.f15265e = eVar;
+            this.f14887e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15265e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f14887e.g() == null) {
                 return;
             }
-            this.f15265e.g().a(view, this.f15265e.o);
+            this.f14887e.g().a(view, this.f14887e.o);
         }
     }
 
@@ -242,8 +242,8 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         this.p.getCommentContainer().setOnClickListener(this);
         this.p.hideDisagree();
         f fVar = new f();
-        fVar.f13685b = 2;
-        fVar.f13691h = 2;
+        fVar.f13371b = 2;
+        fVar.f13377h = 2;
         this.p.setAgreeStatisticData(fVar);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) j2.findViewById(R.id.card_bottom_op_weight_layout);
         this.q = threadCommentAndPraiseInfoLayout2;
@@ -274,34 +274,34 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         this.S = (TbLiveContainer) j2.findViewById(R.id.tb_live_container);
     }
 
-    public final void K(d2 d2Var, String str) {
+    public final void K(e2 e2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, d2Var, str) == null) {
-            TiebaStatic.log(new StatisticItem("c12126").param("tid", d2Var.g0()).param("obj_locate", this.U ? 2 : 1).param("obj_id", d2Var.o1().live_id).param("obj_type", 2));
-            if (d2Var.o1() != null && d2Var.o1().user_info != null && d2Var.o1().user_info.is_official == 2) {
-                TiebaStatic.log(new StatisticItem("c12801").param("tid", d2Var.g0()));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, e2Var, str) == null) {
+            TiebaStatic.log(new StatisticItem("c12126").param("tid", e2Var.g0()).param("obj_locate", this.U ? 2 : 1).param("obj_id", e2Var.o1().live_id).param("obj_type", 2));
+            if (e2Var.o1() != null && e2Var.o1().user_info != null && e2Var.o1().user_info.is_official == 2) {
+                TiebaStatic.log(new StatisticItem("c12801").param("tid", e2Var.g0()));
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (str.equals(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY)) {
-                if (d2Var.a0().equals(this.T)) {
-                    TiebaStatic.log(new StatisticItem("c11843").param("uid", currentAccount).param("fid", d2Var.U()));
+                if (e2Var.a0().equals(this.T)) {
+                    TiebaStatic.log(new StatisticItem("c11843").param("uid", currentAccount).param("fid", e2Var.U()));
                 } else {
-                    TiebaStatic.log(new StatisticItem("c11845").param("uid", currentAccount).param("fid", d2Var.U()));
+                    TiebaStatic.log(new StatisticItem("c11845").param("uid", currentAccount).param("fid", e2Var.U()));
                 }
             }
         }
     }
 
-    public final void L(d2 d2Var) {
+    public final void L(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) || d2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var) == null) || e2Var == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c12125").param("tid", d2Var.g0()).param("obj_locate", this.U ? 2 : 1).param("obj_id", d2Var.o1().live_id).param("obj_type", 2));
-        if (d2Var.o1() == null || d2Var.o1().user_info == null || d2Var.o1().user_info.is_official != 2) {
+        TiebaStatic.log(new StatisticItem("c12125").param("tid", e2Var.g0()).param("obj_locate", this.U ? 2 : 1).param("obj_id", e2Var.o1().live_id).param("obj_type", 2));
+        if (e2Var.o1() == null || e2Var.o1().user_info == null || e2Var.o1().user_info.is_official != 2) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c12800").param("tid", d2Var.g0()));
+        TiebaStatic.log(new StatisticItem("c12800").param("tid", e2Var.g0()));
     }
 
     public int M(int i2) {
@@ -320,9 +320,9 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (k.c().g() && (t = this.o) != 0 && ((d2) t).getThreadData() != null && ((d2) this.o).getThreadData().o1() != null) {
+            if (k.c().g() && (t = this.o) != 0 && ((e2) t).getThreadData() != null && ((e2) this.o).getThreadData().o1() != null) {
                 this.I.setPlaceHolder(3);
-                this.I.startLoad(((d2) this.o).getThreadData().o1().cover, 10, false);
+                this.I.startLoad(((e2) this.o).getThreadData().o1().cover, 10, false);
                 this.H.setVisibility(0);
                 return;
             }
@@ -330,42 +330,42 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         }
     }
 
-    public void P(Context context, d2 d2Var) {
+    public void P(Context context, e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, context, d2Var) == null) || context == null || d2Var == null || d2Var.o1() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, context, e2Var) == null) || context == null || e2Var == null || e2Var.o1() == null) {
             return;
         }
         if (!l.z()) {
-            n.L(context, R.string.no_network_guide);
+            n.M(context, R.string.no_network_guide);
             return;
         }
         String str = this.X ? AlaLiveRoomActivityConfig.FREM_TYPE_LIVE_FRS_STAGE_LIVE : AlaLiveRoomActivityConfig.FROM_TYPE_FRS_PLAY;
-        if (d2Var.b0() != null) {
-            str = d2Var.b0();
+        if (e2Var.b0() != null) {
+            str = e2Var.b0();
         }
         int frsCurTabType = TbSingleton.getInstance().getFrsCurTabType();
         if (frsCurTabType == 14) {
-            str = AlaLiveRoomActivityConfig.FRS_LIVE_FROM_PREFIX_NEW + d2Var.U();
+            str = AlaLiveRoomActivityConfig.FRS_LIVE_FROM_PREFIX_NEW + e2Var.U();
         } else if (frsCurTabType == 13) {
-            str = AlaLiveRoomActivityConfig.FRS_LIVE_FROM_PREFIX_HOT + d2Var.U();
+            str = AlaLiveRoomActivityConfig.FRS_LIVE_FROM_PREFIX_HOT + e2Var.U();
         }
-        K(d2Var, str);
-        AlaInfoData o1 = d2Var.o1();
+        K(e2Var, str);
+        AlaInfoData o1 = e2Var.o1();
         if (o1.isLegalYYLiveData()) {
             TbPageContext<?> tbPageContext = this.m;
             YyExtData yyExtData = o1.mYyExtData;
             YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + o1.roomId, o1.mYyExtData.streamInfo, YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB);
-            R(((d2) this.o).v1(), String.valueOf(((d2) this.o).U()), String.valueOf(o1.roomId), String.valueOf(o1.live_id), o1.mYyExtData.mSid);
+            R(((e2) this.o).v1(), String.valueOf(((e2) this.o).U()), String.valueOf(o1.roomId), String.valueOf(o1.live_id), o1.mYyExtData.mSid);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.t0.g0.b
     /* renamed from: Q */
-    public void k(d2 d2Var) {
+    public void k(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, d2Var) == null) {
-            this.o = d2Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, e2Var) == null) {
+            this.o = e2Var;
             S();
         }
     }
@@ -399,29 +399,29 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             T t = this.o;
             int i2 = 8;
-            if (t != 0 && ((d2) t).J() != null) {
+            if (t != 0 && ((e2) t).J() != null) {
                 this.E.setVisibility(0);
-                int k2 = n.k(this.m.getPageActivity());
-                if (k2 != this.Y) {
+                int k = n.k(this.m.getPageActivity());
+                if (k != this.Y) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.H.getLayoutParams();
-                    int k3 = n.k(getContext()) - ((UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.M_W_X005)) * 2);
-                    layoutParams.width = k3;
-                    layoutParams.height = (k3 * 9) / 16;
+                    int k2 = n.k(getContext()) - ((UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.M_W_X005)) * 2);
+                    layoutParams.width = k2;
+                    layoutParams.height = (k2 * 9) / 16;
                     this.H.setLayoutParams(layoutParams);
-                    this.Y = k2;
+                    this.Y = k;
                 }
                 SparseArray<String> sparseArray = null;
-                if (((d2) this.o).o1() != null && ((d2) this.o).o1().user_info != null && ((d2) this.o).o1().user_info.is_official == 2) {
+                if (((e2) this.o).o1() != null && ((e2) this.o).o1().user_info != null && ((e2) this.o).o1().user_info.is_official == 2) {
                     this.X = true;
-                    sparseArray = ((d2) this.o).o1().dislikeInfo;
+                    sparseArray = ((e2) this.o).o1().dislikeInfo;
                     this.G.setVisibility(0);
                     int[] p = n.p(getContext());
                     ViewGroup.LayoutParams layoutParams2 = this.G.getLayoutParams();
                     layoutParams2.width = p[0];
                     layoutParams2.height = (p[0] * 156) / 1080;
                     this.G.setLayoutParams(layoutParams2);
-                    if (!TextUtils.isEmpty(((d2) this.o).o1().liveStagePicUrl)) {
-                        this.G.startLoad(((d2) this.o).o1().liveStagePicUrl, 10, false);
+                    if (!TextUtils.isEmpty(((e2) this.o).o1().liveStagePicUrl)) {
+                        this.G.startLoad(((e2) this.o).o1().liveStagePicUrl, 10, false);
                     }
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.z.getLayoutParams();
                     marginLayoutParams.topMargin = this.m.getResources().getDimensionPixelSize(R.dimen.tbds24);
@@ -434,36 +434,36 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                     this.z.setLayoutParams(marginLayoutParams2);
                 }
                 if (this.X && sparseArray != null && sparseArray.size() > 0) {
-                    this.Z.b((d2) this.o, "ala_frs_demo_hell_live_feed_back_type");
+                    this.Z.b((e2) this.o, "ala_frs_demo_hell_live_feed_back_type");
                 } else if (this.Z.a() != null) {
                     this.Z.a().setVisibility(8);
                 }
-                ((d2) this.o).d3(false, true);
-                this.z.setData((d2) this.o);
-                SpannableStringBuilder i1 = ((d2) this.o).i1();
+                ((e2) this.o).d3(false, true);
+                this.z.setData((e2) this.o);
+                SpannableStringBuilder i1 = ((e2) this.o).i1();
                 if (i1 != null && !StringUtils.isNull(i1.toString())) {
-                    this.F.setText(((d2) this.o).i1());
+                    this.F.setText(((e2) this.o).i1());
                     this.F.setVisibility(0);
                 } else {
                     this.F.setVisibility(8);
                 }
-                if (((d2) this.o).o1().audience_count > 0) {
+                if (((e2) this.o).o1().audience_count > 0) {
                     this.N.setVisibility(0);
                     this.K.setVisibility(0);
-                    this.K.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((d2) this.o).o1().audience_count)));
+                    this.K.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((e2) this.o).o1().audience_count)));
                 } else {
                     this.N.setVisibility(8);
                     this.K.setVisibility(8);
                 }
                 this.L.setVisibility(8);
-                if (((d2) this.o).o1().openRecomReason == 1) {
-                    String str = ((d2) this.o).o1().recomReason;
+                if (((e2) this.o).o1().openRecomReason == 1) {
+                    String str = ((e2) this.o).o1().recomReason;
                     if (!StringUtils.isNull(str)) {
                         this.L.setVisibility(0);
                         this.L.setText(str);
                     } else {
-                        String x0 = ((d2) this.o).x0();
-                        String D0 = ((d2) this.o).D0();
+                        String x0 = ((e2) this.o).x0();
+                        String D0 = ((e2) this.o).D0();
                         if (UtilHelper.isDecimal(x0) && UtilHelper.isDecimal(D0) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
                             AppPosInfo c2 = c.a.t0.j3.j0.a.e().c();
                             String str2 = c2.latitude;
@@ -476,9 +476,9 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                     }
                 }
                 RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.O.getLayoutParams();
-                if (((d2) this.o).o1() != null && !StringUtils.isNull(((d2) this.o).o1().forumUserLiveMsg)) {
+                if (((e2) this.o).o1() != null && !StringUtils.isNull(((e2) this.o).o1().forumUserLiveMsg)) {
                     this.P.setVisibility(0);
-                    String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(((d2) this.o).o1().forumUserLiveMsg, 10, "...");
+                    String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(((e2) this.o).o1().forumUserLiveMsg, 10, "...");
                     this.Q.setText(cutChineseAndEnglishWithSuffix + TbadkCoreApplication.getInst().getResources().getString(R.string.ala_forum_live_suffix));
                     layoutParams3.addRule(3, R.id.forum_friends_now_looking);
                 } else {
@@ -487,13 +487,13 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                 }
                 this.O.setLayoutParams(layoutParams3);
                 V(M(1));
-                L((d2) this.o);
+                L((e2) this.o);
                 this.W.setVisibility((c.a.t0.d1.b.f().i() || c.a.t0.d1.a.h().j()) ? 0 : 0);
                 l(this.m, TbadkCoreApplication.getInst().getSkinType());
                 O();
                 this.J.playAnimation();
                 C(this.E);
-                this.S.bindData((d2) this.o);
+                this.S.bindData((e2) this.o);
                 this.S.setStaticsLocationPage("2");
                 return;
             }
@@ -529,10 +529,10 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         }
         if (i2 == 1) {
             this.p.setVisibility(8);
-            this.A.setData((d2) this.o);
+            this.A.setData((e2) this.o);
             return;
         }
-        this.B.setVisibility(this.p.setData((d2) t) ? 8 : 0);
+        this.B.setVisibility(this.p.setData((e2) t) ? 8 : 0);
         this.A.setVisibility(8);
     }
 
@@ -564,7 +564,7 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048592, this, tbPageContext, i2) == null) {
-            if (this.f18209e != i2) {
+            if (this.f17766e != i2) {
                 v(tbPageContext, i2);
                 c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.E);
                 d2.n(R.string.J_X06);
@@ -585,14 +585,14 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                 this.z.onChangeSkinType(i(), TbadkCoreApplication.getInst().getSkinType());
                 this.I.setPlaceHolder(3);
                 this.p.onChangeSkinType();
-                this.f18209e = i2;
+                this.f17766e = i2;
                 ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = this.A;
                 if (threadSourceShareAndPraiseLayout != null && threadSourceShareAndPraiseLayout.getVisibility() == 0) {
                     this.A.onChangeSkinType();
                 }
             }
             T t = this.o;
-            if (t != 0 && m.k(((d2) t).g0())) {
+            if (t != 0 && m.k(((e2) t).g0())) {
                 SkinManager.setViewTextColor(this.F, R.color.CAM_X0109);
             } else {
                 SkinManager.setViewTextColor(this.F, R.color.CAM_X0105);
@@ -614,26 +614,26 @@ public class e extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                 if (g() != null) {
                     g().a(view, this.o);
                 }
-                P(getContext(), (d2) this.o);
+                P(getContext(), (e2) this.o);
                 return;
             }
             return;
         }
         T t = this.o;
         if (t != 0) {
-            m.a(((d2) t).g0());
+            m.a(((e2) t).g0());
         }
         if (g() != null) {
             g().a(this.E, this.o);
         }
-        P(getContext(), (d2) this.o);
+        P(getContext(), (e2) this.o);
         if (this.o != 0) {
             if (view == this.p.getCommentContainer() || view == this.A.mSharePraiseView.getCommentContainer()) {
                 StatisticItem statisticItem = new StatisticItem("c12942");
                 statisticItem.param("obj_locate", 2);
                 statisticItem.param("obj_type", 5);
-                statisticItem.param("tid", ((d2) this.o).v1());
-                statisticItem.param("nid", ((d2) this.o).G0());
+                statisticItem.param("tid", ((e2) this.o).v1());
+                statisticItem.param("nid", ((e2) this.o).G0());
                 c.a.s0.o0.c f2 = TbPageExtraHelper.f(view);
                 if (f2 != null) {
                     statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, f2.a());

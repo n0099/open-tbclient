@@ -60,7 +60,7 @@ public class b {
                 int size = h2.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     c.a.t0.f4.a aVar = (c.a.t0.f4.a) h2.get(i2);
-                    this.a.j(aVar.a, aVar.f18205b);
+                    this.a.j(aVar.a, aVar.f17762b);
                 }
                 return null;
             }
@@ -70,12 +70,12 @@ public class b {
 
     /* renamed from: c.a.t0.f4.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1099b extends BdAsyncTask<c.a.t0.f4.a, Void, Void> {
+    public class C1113b extends BdAsyncTask<c.a.t0.f4.a, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C1099b(b bVar) {
+        public C1113b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,7 +188,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            File file = new File(f.f18559e);
+            File file = new File(f.f18096e);
             if (file.exists()) {
                 return file.listFiles();
             }
@@ -284,7 +284,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             try {
-                byte[] b2 = c.b(aVar.f18205b);
+                byte[] b2 = c.b(aVar.f17762b);
                 c.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
                 c.a.t0.h2.d.b(aVar.a);
             } catch (Exception e2) {
@@ -296,7 +296,7 @@ public class b {
     public void j(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            new C1099b(this).execute(new c.a.t0.f4.a(str, jSONObject));
+            new C1113b(this).execute(new c.a.t0.f4.a(str, jSONObject));
         }
     }
 

@@ -46,7 +46,7 @@ public class g implements View.OnTouchListener {
                 if (motionEvent.getAction() != 2) {
                     return false;
                 }
-                imageButton = this.a.f35086k;
+                imageButton = this.a.k;
                 if (imageButton.isPressed()) {
                     return false;
                 }

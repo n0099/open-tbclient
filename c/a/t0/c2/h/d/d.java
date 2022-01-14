@@ -39,10 +39,10 @@ public class d extends c.a.d.n.e.a<c.a.t0.c2.h.e.d, SearchSuggestLiveViewHolder>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f15788e;
+        public final /* synthetic */ Context f15390e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f15789f;
+        public final /* synthetic */ d f15391f;
 
         public a(d dVar, Context context) {
             Interceptable interceptable = $ic;
@@ -59,8 +59,8 @@ public class d extends c.a.d.n.e.a<c.a.t0.c2.h.e.d, SearchSuggestLiveViewHolder>
                     return;
                 }
             }
-            this.f15789f = dVar;
-            this.f15788e = context;
+            this.f15391f = dVar;
+            this.f15390e = context;
         }
 
         @Override // c.a.d.n.e.w
@@ -68,13 +68,13 @@ public class d extends c.a.d.n.e.a<c.a.t0.c2.h.e.d, SearchSuggestLiveViewHolder>
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof c.a.t0.c2.h.e.d)) {
                 c.a.t0.c2.h.e.d dVar = (c.a.t0.c2.h.e.d) nVar;
-                this.f15789f.b0(dVar);
-                TbPageContext tbPageContext = (TbPageContext) j.a(this.f15788e);
+                this.f15391f.b0(dVar);
+                TbPageContext tbPageContext = (TbPageContext) j.a(this.f15390e);
                 String e2 = dVar.e();
                 String g2 = dVar.g();
                 String i3 = dVar.i();
                 YYLiveUtil.jumpToYYLiveRoom(tbPageContext, e2, g2, i3, "" + dVar.d(), "search_sug_live");
-                c.a.d.f.p.n.w(this.f15788e, view);
+                c.a.d.f.p.n.w(this.f15390e, view);
             }
         }
     }
@@ -85,7 +85,7 @@ public class d extends c.a.d.n.e.a<c.a.t0.c2.h.e.d, SearchSuggestLiveViewHolder>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TBLottieAnimationView f15790e;
+        public final /* synthetic */ TBLottieAnimationView f15392e;
 
         public b(d dVar, TBLottieAnimationView tBLottieAnimationView) {
             Interceptable interceptable = $ic;
@@ -102,14 +102,14 @@ public class d extends c.a.d.n.e.a<c.a.t0.c2.h.e.d, SearchSuggestLiveViewHolder>
                     return;
                 }
             }
-            this.f15790e = tBLottieAnimationView;
+            this.f15392e = tBLottieAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f15790e.playAnimation();
+                this.f15392e.playAnimation();
             }
         }
     }
@@ -134,7 +134,7 @@ public class d extends c.a.d.n.e.a<c.a.t0.c2.h.e.d, SearchSuggestLiveViewHolder>
             }
         }
         this.m = context;
-        this.f3302h = bdUniqueId;
+        this.f3261h = bdUniqueId;
         V(new a(this, context));
     }
 

@@ -21,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -31,7 +32,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f47991e;
+    public final HttpMessageListener f46201e;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -81,7 +82,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 arrayList = null;
             } else {
                 HashMap hashMap = (HashMap) extra;
-                Object obj = hashMap.get("callback");
+                Object obj = hashMap.get(WebChromeClient.KEY_ARG_CALLBACK);
                 lVar = (obj == null || !(obj instanceof e.l)) ? null : (e.l) obj;
                 Object obj2 = hashMap.get("list");
                 arrayList = (obj2 == null || !(obj2 instanceof ArrayList)) ? null : (ArrayList) obj2;
@@ -135,12 +136,12 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f47991e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+        this.f46201e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f47991e.setTag(getUniqueId());
-        this.f47991e.setSelfListener(true);
-        registerListener(this.f47991e);
+        this.f46201e.setTag(getUniqueId());
+        this.f46201e.setSelfListener(true);
+        registerListener(this.f46201e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -148,7 +149,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f47991e);
+            MessageManager.getInstance().unRegisterListener(this.f46201e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
             return true;
         }
@@ -207,7 +208,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 httpMessage.addParam("memes", sb.toString());
                 httpMessage.addParam("forum_id", i2);
                 HashMap hashMap = new HashMap();
-                hashMap.put("callback", lVar);
+                hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, lVar);
                 hashMap.put("list", arrayList);
                 hashMap.put("autoInstall", Boolean.valueOf(i2 == 0));
                 httpMessage.setExtra(hashMap);

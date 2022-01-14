@@ -16,13 +16,13 @@ public class n {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f25644b;
+    public long f24926b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25645c;
+    public boolean f24927c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25646d;
+    public String f24928d;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -38,15 +38,15 @@ public class n {
             }
         }
         this.a = 0;
-        this.f25644b = 0L;
-        this.f25645c = false;
-        this.f25646d = null;
+        this.f24926b = 0L;
+        this.f24927c = false;
+        this.f24928d = null;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25646d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24928d : (String) invokeV.objValue;
     }
 
     public int b() {
@@ -70,7 +70,7 @@ public class n {
                 fans.is_get.intValue();
                 fans.num.intValue();
                 fans.open.intValue();
-                this.f25644b = fans.left_time.intValue();
+                this.f24926b = fans.left_time.intValue();
             }
             Size size = starInfo.top_size;
             if (size != null) {
@@ -84,7 +84,7 @@ public class n {
             }
         }
         boolean z = starInfo.trade != null;
-        this.f25645c = z;
+        this.f24927c = z;
         if (z) {
             Integer num = starInfo.trade.time;
             if (num != null) {
@@ -92,6 +92,6 @@ public class n {
             }
             String str3 = starInfo.trade.url;
         }
-        this.f25646d = starInfo.star_forum_headimg;
+        this.f24928d = starInfo.star_forum_headimg;
     }
 }

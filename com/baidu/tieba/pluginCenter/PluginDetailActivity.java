@@ -66,7 +66,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginDetailActivity f49222e;
+        public final /* synthetic */ PluginDetailActivity f47371e;
 
         public a(PluginDetailActivity pluginDetailActivity) {
             Interceptable interceptable = $ic;
@@ -83,14 +83,14 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                     return;
                 }
             }
-            this.f49222e = pluginDetailActivity;
+            this.f47371e = pluginDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49222e.closeActivity();
+                this.f47371e.closeActivity();
             }
         }
     }
@@ -101,7 +101,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginDetailActivity f49223e;
+        public final /* synthetic */ PluginDetailActivity f47372e;
 
         public b(PluginDetailActivity pluginDetailActivity) {
             Interceptable interceptable = $ic;
@@ -118,16 +118,16 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                     return;
                 }
             }
-            this.f49223e = pluginDetailActivity;
+            this.f47372e = pluginDetailActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                SkinManager.setViewTextColor(this.f49223e.mEnableText, c.a.t0.b3.a.CAM_X0109, 1);
-                this.f49223e.mEnableText.setEnabled(false);
-                PluginPackageManager.u().K(this.f49223e.mPluginConfig, this.f49223e.mDownLoadAndInstallCallback);
+                SkinManager.setViewTextColor(this.f47372e.mEnableText, c.a.t0.b3.a.CAM_X0109, 1);
+                this.f47372e.mEnableText.setEnabled(false);
+                PluginPackageManager.u().K(this.f47372e.mPluginConfig, this.f47372e.mDownLoadAndInstallCallback);
                 aVar.dismiss();
             }
         }
@@ -139,7 +139,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginDetailActivity f49224e;
+        public final /* synthetic */ PluginDetailActivity f47373e;
 
         public c(PluginDetailActivity pluginDetailActivity) {
             Interceptable interceptable = $ic;
@@ -156,7 +156,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                     return;
                 }
             }
-            this.f49224e = pluginDetailActivity;
+            this.f47373e = pluginDetailActivity;
         }
 
         @Override // c.a.s0.s.s.a.e

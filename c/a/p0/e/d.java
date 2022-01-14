@@ -5,7 +5,6 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,12 +15,12 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d f4699c;
+    public static volatile d f4597c;
     public transient /* synthetic */ FieldHolder $fh;
     public HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f4700b;
+    public Handler f4598b;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -58,7 +57,7 @@ public class d {
                 if (i2 == -1) {
                     i2 = c.j().a();
                 }
-                c.j().c(message.what, 3, SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, i2, "out time.", bVar, true);
+                c.j().c(message.what, 3, 2019, i2, "out time.", bVar, true);
             }
         }
     }
@@ -78,23 +77,23 @@ public class d {
         }
         HandlerThread handlerThread = new HandlerThread("callback-handler");
         this.a = handlerThread;
-        this.f4700b = null;
+        this.f4598b = null;
         handlerThread.start();
-        this.f4700b = new a(this, this.a.getLooper());
+        this.f4598b = new a(this, this.a.getLooper());
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f4699c == null) {
+            if (f4597c == null) {
                 synchronized (d.class) {
-                    if (f4699c == null) {
-                        f4699c = new d();
+                    if (f4597c == null) {
+                        f4597c = new d();
                     }
                 }
             }
-            return f4699c;
+            return f4597c;
         }
         return (d) invokeV.objValue;
     }
@@ -102,14 +101,14 @@ public class d {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f4700b.removeMessages(i2);
+            this.f4598b.removeMessages(i2);
         }
     }
 
     public void c(Message message, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j2) == null) {
-            this.f4700b.sendMessageDelayed(message, j2);
+            this.f4598b.sendMessageDelayed(message, j2);
         }
     }
 }

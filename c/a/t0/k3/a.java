@@ -37,34 +37,32 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f19267b;
+    public boolean f18772b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f19268c;
+    public boolean f18773c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f19269d;
+    public boolean f18774d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f19270e;
+    public boolean f18775e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19271f;
+    public boolean f18776f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f19272g;
+    public boolean f18777g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f19273h;
+    public boolean f18778h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19274i;
+    public boolean f18779i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f19275j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f19276k;
+    public boolean f18780j;
+    public int k;
     public int l;
     public int m;
     public int n;
@@ -83,13 +81,13 @@ public class a {
 
     /* renamed from: c.a.t0.k3.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1154a extends CustomMessageListener {
+    public class C1168a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1154a(a aVar, int i2) {
+        public C1168a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -158,7 +156,7 @@ public class a {
                 } else {
                     this.a.o = true;
                     a aVar = this.a;
-                    aVar.f19270e = aVar.o ? true : this.a.f19270e;
+                    aVar.f18775e = aVar.o ? true : this.a.f18775e;
                     this.a.n = responseUnreadPointNum.getNum();
                     this.a.D();
                 }
@@ -201,9 +199,9 @@ public class a {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
                 if (booleanValue) {
-                    c.a.s0.s.g0.b.j().t("key_feedback_tip_show", true);
+                    c.a.s0.s.h0.b.k().u("key_feedback_tip_show", true);
                 }
-                this.a.f19274i = booleanValue;
+                this.a.f18779i = booleanValue;
                 this.a.v = booleanValue;
                 this.a.D();
             }
@@ -239,7 +237,7 @@ public class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:13:0x004c, code lost:
-            if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() <= r2.l("maintab_member_center_red_tip_" + r1, 0)) goto L12;
+            if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() <= r2.m("maintab_member_center_red_tip_" + r1, 0)) goto L12;
          */
         @Override // com.baidu.adp.framework.listener.MessageListener
         /*
@@ -252,12 +250,12 @@ public class a {
                 if (booleanValue) {
                     if (TbadkCoreApplication.isLogin()) {
                         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                        c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
+                        c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
                     }
                     booleanValue = false;
                 }
                 this.a.t = booleanValue;
-                this.a.f19272g = booleanValue;
+                this.a.f18777g = booleanValue;
                 this.a.D();
             }
         }
@@ -299,7 +297,7 @@ public class a {
             }
             this.a.p = ((Boolean) customResponsedMessage.getData()).booleanValue();
             a aVar = this.a;
-            aVar.f19271f = aVar.p ? true : this.a.f19271f;
+            aVar.f18776f = aVar.p ? true : this.a.f18776f;
             this.a.D();
         }
     }
@@ -341,9 +339,9 @@ public class a {
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer) && ((Integer) data).intValue() == 4) {
                 this.a.F();
-                if (this.a.f19275j) {
+                if (this.a.f18780j) {
                     TiebaStatic.log(new StatisticItem("c13688").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 1));
-                    this.a.f19275j = false;
+                    this.a.f18780j = false;
                 }
             }
         }
@@ -426,12 +424,12 @@ public class a {
                         return;
                     }
                     String a = activityPrizeData.a();
-                    c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-                    String p = j2.p("person_item_activity_prize_red_tip" + currentAccount, "");
-                    if (StringUtils.isNull(a) || a.equals(p)) {
+                    c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                    String q = k.q("person_item_activity_prize_red_tip" + currentAccount, "");
+                    if (StringUtils.isNull(a) || a.equals(q)) {
                         return;
                     }
-                    this.a.f19273h = true;
+                    this.a.f18778h = true;
                     this.a.u = true;
                     this.a.D();
                 }
@@ -445,7 +443,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19277e;
+        public final /* synthetic */ a f18781e;
 
         public i(a aVar) {
             Interceptable interceptable = $ic;
@@ -462,13 +460,13 @@ public class a {
                     return;
                 }
             }
-            this.f19277e = aVar;
+            this.f18781e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f19277e.w) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18781e.w) {
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
@@ -498,7 +496,7 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C1154a c1154a) {
+    public /* synthetic */ a(C1168a c1168a) {
         this();
     }
 
@@ -511,19 +509,19 @@ public class a {
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19268c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18773c : invokeV.booleanValue;
     }
 
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19267b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18772b : invokeV.booleanValue;
     }
 
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19272g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18777g : invokeV.booleanValue;
     }
 
     public final void D() {
@@ -531,28 +529,28 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SparseArray sparseArray = new SparseArray();
             if (this.o) {
-                sparseArray.append(4, new b.a(this.f19270e, this.n));
+                sparseArray.append(4, new b.a(this.f18775e, this.n));
             }
             if (this.q) {
-                sparseArray.append(2, new b.a(this.f19267b, this.f19276k));
+                sparseArray.append(2, new b.a(this.f18772b, this.k));
             }
             if (this.r) {
-                sparseArray.append(1, new b.a(this.f19269d, this.l));
+                sparseArray.append(1, new b.a(this.f18774d, this.l));
             }
             if (this.s) {
-                sparseArray.append(3, new b.a(this.f19268c, this.m));
+                sparseArray.append(3, new b.a(this.f18773c, this.m));
             }
             if (this.p) {
-                sparseArray.append(5, new b.a(this.f19271f, 0));
+                sparseArray.append(5, new b.a(this.f18776f, 0));
             }
             if (this.t) {
-                sparseArray.append(7, new b.a(this.f19272g, 0));
+                sparseArray.append(7, new b.a(this.f18777g, 0));
             }
             if (this.u) {
-                sparseArray.append(9, new b.a(this.f19273h, 0));
+                sparseArray.append(9, new b.a(this.f18778h, 0));
             }
             if (this.v) {
-                sparseArray.append(10, new b.a(this.f19274i, 0));
+                sparseArray.append(10, new b.a(this.f18779i, 0));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new c.a.t0.k3.b(sparseArray)));
             M();
@@ -564,16 +562,16 @@ public class a {
         if ((interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) && responsedMessage != null && (responsedMessage instanceof NewsNotifyMessage)) {
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
             this.s = newsNotifyMessage.getMsgBookmark() > this.m;
-            this.q = newsNotifyMessage.getMsgFans() > this.f19276k;
+            this.q = newsNotifyMessage.getMsgFans() > this.k;
             this.r = newsNotifyMessage.getMsgGiftNum() > this.l;
             this.m = newsNotifyMessage.getMsgBookmark();
-            this.f19276k = newsNotifyMessage.getMsgFans();
+            this.k = newsNotifyMessage.getMsgFans();
             this.l = newsNotifyMessage.getMsgGiftNum();
             if (this.s || this.q || this.r || this.p) {
-                this.f19267b = this.q ? true : this.f19267b;
-                this.f19268c = this.s ? true : this.f19268c;
-                this.f19269d = this.r ? true : this.f19269d;
-                this.f19271f = this.p ? true : this.f19271f;
+                this.f18772b = this.q ? true : this.f18772b;
+                this.f18773c = this.s ? true : this.f18773c;
+                this.f18774d = this.r ? true : this.f18774d;
+                this.f18776f = this.p ? true : this.f18776f;
                 D();
             }
         }
@@ -589,14 +587,14 @@ public class a {
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f19267b = false;
-            this.f19268c = false;
-            this.f19269d = false;
-            this.f19270e = false;
-            this.f19271f = false;
-            this.f19272g = false;
-            this.f19273h = false;
-            this.f19276k = 0;
+            this.f18772b = false;
+            this.f18773c = false;
+            this.f18774d = false;
+            this.f18775e = false;
+            this.f18776f = false;
+            this.f18777g = false;
+            this.f18778h = false;
+            this.k = 0;
             this.l = 0;
             this.m = 0;
             this.n = 0;
@@ -635,7 +633,7 @@ public class a {
     public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            boolean z = this.f19269d || this.f19268c || this.f19267b || this.f19270e || this.f19271f || this.f19272g || this.f19273h || this.f19275j;
+            boolean z = this.f18774d || this.f18773c || this.f18772b || this.f18775e || this.f18776f || this.f18777g || this.f18778h || this.f18780j;
             if (this.a || !TbadkCoreApplication.isLogin()) {
                 return;
             }
@@ -647,15 +645,15 @@ public class a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && z) {
             SparseArray sparseArray = new SparseArray();
-            sparseArray.append(4, new b.a(this.f19270e, this.n));
-            sparseArray.append(2, new b.a(this.f19267b, this.f19276k));
-            sparseArray.append(1, new b.a(this.f19269d, this.l));
-            sparseArray.append(3, new b.a(this.f19268c, this.m));
-            sparseArray.append(5, new b.a(this.f19271f, 0));
-            sparseArray.append(7, new b.a(this.f19272g, 0));
-            sparseArray.append(9, new b.a(this.f19273h, 0));
-            sparseArray.append(10, new b.a(this.f19274i, 0));
-            sparseArray.append(11, new b.a(this.f19275j, 0));
+            sparseArray.append(4, new b.a(this.f18775e, this.n));
+            sparseArray.append(2, new b.a(this.f18772b, this.k));
+            sparseArray.append(1, new b.a(this.f18774d, this.l));
+            sparseArray.append(3, new b.a(this.f18773c, this.m));
+            sparseArray.append(5, new b.a(this.f18776f, 0));
+            sparseArray.append(7, new b.a(this.f18777g, 0));
+            sparseArray.append(9, new b.a(this.f18778h, 0));
+            sparseArray.append(10, new b.a(this.f18779i, 0));
+            sparseArray.append(11, new b.a(this.f18780j, 0));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new c.a.t0.k3.b(sparseArray)));
         }
     }
@@ -665,41 +663,41 @@ public class a {
         if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && z2) {
             switch (i2) {
                 case 1:
-                    this.f19269d = z;
+                    this.f18774d = z;
                     break;
                 case 2:
-                    this.f19267b = z;
+                    this.f18772b = z;
                     break;
                 case 3:
-                    this.f19268c = z;
+                    this.f18773c = z;
                     break;
                 case 4:
-                    this.f19270e = z;
+                    this.f18775e = z;
                     break;
                 case 5:
                     AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                     if (currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-                        c.a.s0.s.g0.b.j().t("member_close_ad_setting_clicked", true);
+                        c.a.s0.s.h0.b.k().u("member_close_ad_setting_clicked", true);
                     }
-                    this.f19271f = z;
+                    this.f18776f = z;
                     break;
                 case 7:
                     String currentAccount = !TbadkCoreApplication.isLogin() ? SevenZipUtils.FILE_NAME_TEMP : TbadkCoreApplication.getCurrentAccount();
-                    c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-                    j2.w("maintab_member_center_red_tip_" + currentAccount, TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime());
-                    this.f19272g = z;
+                    c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                    k.x("maintab_member_center_red_tip_" + currentAccount, TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime());
+                    this.f18777g = z;
                     break;
                 case 9:
-                    this.f19273h = z;
+                    this.f18778h = z;
                     String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-                    c.a.s0.s.g0.b j3 = c.a.s0.s.g0.b.j();
-                    j3.x("person_item_activity_prize_red_tip" + currentAccount2, TbadkCoreApplication.getInst().getActivityPrizeData().a());
+                    c.a.s0.s.h0.b k2 = c.a.s0.s.h0.b.k();
+                    k2.y("person_item_activity_prize_red_tip" + currentAccount2, TbadkCoreApplication.getInst().getActivityPrizeData().a());
                     break;
                 case 10:
-                    this.f19274i = z;
+                    this.f18779i = z;
                     break;
                 case 11:
-                    this.f19275j = z;
+                    this.f18780j = z;
                     break;
             }
             K(true);
@@ -710,9 +708,9 @@ public class a {
     public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (((this.f19276k > 0 && this.q) || (this.m > 0 && this.s) || this.p || this.u || this.v) && !this.a && TbadkCoreApplication.isLogin()) {
+            if (((this.k > 0 && this.q) || (this.m > 0 && this.s) || this.p || this.u || this.v) && !this.a && TbadkCoreApplication.isLogin()) {
                 if (this.v) {
-                    c.a.s0.s.g0.b.j().t("key_feedback_tip_tab_show", true);
+                    c.a.s0.s.h0.b.k().u("key_feedback_tip_tab_show", true);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new c.a.s0.i0.a(true, 0)));
             }
@@ -737,8 +735,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (!c.a.s0.s.g0.b.j().g("member_close_ad_setting_clicked", false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-                this.f19271f = true;
+            if (!c.a.s0.s.h0.b.k().h("member_close_ad_setting_clicked", false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
+                this.f18776f = true;
             }
             TbadkSettings inst = TbadkSettings.getInst();
             StringBuilder sb = new StringBuilder();
@@ -752,14 +750,14 @@ public class a {
     public final void y() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new c.a.s0.i0.a(this.f19271f)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new c.a.s0.i0.a(this.f18776f)));
         }
     }
 
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f19273h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f18778h : invokeV.booleanValue;
     }
 
     public a() {
@@ -776,16 +774,16 @@ public class a {
             }
         }
         this.a = false;
-        this.f19267b = false;
-        this.f19268c = false;
-        this.f19269d = false;
-        this.f19270e = false;
-        this.f19271f = false;
-        this.f19272g = false;
-        this.f19273h = false;
-        this.f19274i = c.a.s0.s.g0.b.j().g("key_feedback_tip_show", false);
-        this.f19275j = false;
-        this.f19276k = 0;
+        this.f18772b = false;
+        this.f18773c = false;
+        this.f18774d = false;
+        this.f18775e = false;
+        this.f18776f = false;
+        this.f18777g = false;
+        this.f18778h = false;
+        this.f18779i = c.a.s0.s.h0.b.k().h("key_feedback_tip_show", false);
+        this.f18780j = false;
+        this.k = 0;
         this.l = 0;
         this.m = 0;
         this.n = 0;
@@ -797,7 +795,7 @@ public class a {
         this.t = false;
         this.u = false;
         this.v = false;
-        this.x = new C1154a(this, 2001120);
+        this.x = new C1168a(this, 2001120);
         this.y = new b(this, 2001176);
         this.z = new c(this, 2016561);
         this.A = new d(this, 2016459);

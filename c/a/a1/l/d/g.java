@@ -25,6 +25,7 @@ import com.baidu.ugc.editvideo.editvideo.muxer.MultiAudioMixer;
 import com.baidu.ugc.utils.FileUtils;
 import com.google.android.material.badge.BadgeDrawable;
 import com.kuaishou.weapon.un.w0;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -43,7 +44,7 @@ public class g {
         public FileOutputStream a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f1321b;
+        public final /* synthetic */ String f1316b;
 
         public a(String str) throws FileNotFoundException {
             Interceptable interceptable = $ic;
@@ -60,8 +61,8 @@ public class g {
                     return;
                 }
             }
-            this.f1321b = str;
-            this.a = new FileOutputStream(this.f1321b);
+            this.f1316b = str;
+            this.a = new FileOutputStream(this.f1316b);
         }
 
         @Override // com.baidu.ugc.editvideo.editvideo.muxer.MultiAudioMixer.OnAudioMixListener
@@ -110,7 +111,7 @@ public class g {
         public final /* synthetic */ a.InterfaceC0029a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f1322b;
+        public final /* synthetic */ StringBuilder f1317b;
 
         public b(a.InterfaceC0029a interfaceC0029a, StringBuilder sb) {
             Interceptable interceptable = $ic;
@@ -128,7 +129,7 @@ public class g {
                 }
             }
             this.a = interfaceC0029a;
-            this.f1322b = sb;
+            this.f1317b = sb;
         }
 
         @Override // c.a.a1.s.a.InterfaceC0029a
@@ -154,7 +155,7 @@ public class g {
                 sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
                 sb.append(obj != null ? obj.toString() : "");
                 String sb2 = sb.toString();
-                StringBuilder sb3 = this.f1322b;
+                StringBuilder sb3 = this.f1317b;
                 if (sb3 != null) {
                     sb3.append(sb2);
                 }
@@ -217,7 +218,7 @@ public class g {
             bArr[1] = -7;
             bArr[2] = (byte) (64 + (i4 << 2) + 0);
             bArr[3] = (byte) (128 + (i2 >> 11));
-            bArr[4] = (byte) ((i2 & 2047) >> 3);
+            bArr[4] = (byte) ((i2 & RevenueServerConst.GetUserCouponStoreResponse) >> 3);
             bArr[5] = (byte) (((i2 & 7) << 5) + 31);
             bArr[6] = -4;
         }
@@ -396,10 +397,10 @@ public class g {
                                                     }
                                                     if (!z4) {
                                                         if (c0018f2.a()) {
-                                                            bArr = f.c(c0018f2.f1318c / 8, c0018f.f1318c / 8, bArr);
+                                                            bArr = f.c(c0018f2.f1313c / 8, c0018f.f1313c / 8, bArr);
                                                         }
                                                         if (c0018f2.b()) {
-                                                            bArr = f.d(c0018f2.f1317b, c0018f.f1317b, 2, bArr);
+                                                            bArr = f.d(c0018f2.f1312b, c0018f.f1312b, 2, bArr);
                                                             byteBuffer2.position(0);
                                                             byteBuffer2.put(bArr);
                                                         }
@@ -592,7 +593,7 @@ public class g {
                 if (e2 == null) {
                     return false;
                 }
-                f.j(strArr[0], strArr[1], str, e2.f1317b, new b(interfaceC0029a, sb));
+                f.j(strArr[0], strArr[1], str, e2.f1312b, new b(interfaceC0029a, sb));
                 try {
                     synchronized (a) {
                         a.wait();
@@ -695,7 +696,7 @@ public class g {
                     long currentTimeMillis4 = System.currentTimeMillis();
                     c.a.a1.l.d.a aVar = new c.a.a1.l.d.a(str7);
                     aVar.e(e2.a);
-                    aVar.d(e2.f1317b);
+                    aVar.d(e2.f1312b);
                     aVar.c(str);
                     c.a.a1.t.c.c("MultimediaMixer", "aacEncodercostTime:" + (System.currentTimeMillis() - currentTimeMillis4));
                     c.a.a1.t.c.c("MultimediaMixer", "auidomixcosttime:" + (System.currentTimeMillis() - currentTimeMillis));

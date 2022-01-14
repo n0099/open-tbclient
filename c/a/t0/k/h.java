@@ -1,6 +1,6 @@
 package c.a.t0.k;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,17 +15,17 @@ public class h {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ForumManageModel f19119b;
+    public ForumManageModel f18633b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d2 f19120c;
+    public e2 f18634c;
 
-    public h(int i2, ForumManageModel forumManageModel, d2 d2Var) {
+    public h(int i2, ForumManageModel forumManageModel, e2 e2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), forumManageModel, d2Var};
+            Object[] objArr = {Integer.valueOf(i2), forumManageModel, e2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -36,20 +36,20 @@ public class h {
             }
         }
         this.a = i2;
-        this.f19119b = forumManageModel;
-        this.f19120c = d2Var;
+        this.f18633b = forumManageModel;
+        this.f18634c = e2Var;
     }
 
     public ForumManageModel a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19119b : (ForumManageModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18633b : (ForumManageModel) invokeV.objValue;
     }
 
-    public d2 b() {
+    public e2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19120c : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18634c : (e2) invokeV.objValue;
     }
 
     public int getType() {

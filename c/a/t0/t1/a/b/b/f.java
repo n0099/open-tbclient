@@ -35,34 +35,32 @@ public class f {
     public c.a.s0.t.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DataRes f24315b;
+    public DataRes f23634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24316c;
+    public boolean f23635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24317d;
+    public boolean f23636d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f24318e;
+    public boolean f23637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f24319f;
+    public BdUniqueId f23638f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final BlackListModel f24320g;
+    public final BlackListModel f23639g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PersonalTalkSettingActivity f24321h;
+    public PersonalTalkSettingActivity f23640h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f24322i;
+    public e f23641i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.d.c.g.c f24323j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public CustomMessageListener f24324k;
+    public c.a.d.c.g.c f23642j;
+    public CustomMessageListener k;
 
     /* loaded from: classes8.dex */
     public class a extends k0<PersonalSettingItemData> {
@@ -105,10 +103,10 @@ public class f {
         public final /* synthetic */ long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonalTalkSettingActivity f24325b;
+        public final /* synthetic */ PersonalTalkSettingActivity f23643b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ f f24326c;
+        public final /* synthetic */ f f23644c;
 
         public b(f fVar, long j2, PersonalTalkSettingActivity personalTalkSettingActivity) {
             Interceptable interceptable = $ic;
@@ -125,9 +123,9 @@ public class f {
                     return;
                 }
             }
-            this.f24326c = fVar;
+            this.f23644c = fVar;
             this.a = j2;
-            this.f24325b = personalTalkSettingActivity;
+            this.f23643b = personalTalkSettingActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,11 +135,11 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, personalSettingItemData) == null) {
                 if (personalSettingItemData != null) {
-                    this.f24326c.f24318e = personalSettingItemData.isAcceptNotify();
+                    this.f23644c.f23637e = personalSettingItemData.isAcceptNotify();
                 }
                 RequestQueryUserInfoMessage requestQueryUserInfoMessage = new RequestQueryUserInfoMessage();
                 requestQueryUserInfoMessage.setReqUserId(this.a);
-                this.f24325b.sendMessage(requestQueryUserInfoMessage);
+                this.f23643b.sendMessage(requestQueryUserInfoMessage);
             }
         }
     }
@@ -183,9 +181,9 @@ public class f {
             int cmd = socketResponsedMessage.getCmd();
             if (cmd == 104102) {
                 if (socketResponsedMessage instanceof ResponsedMessage) {
-                    this.a.f24321h.closeLoadingDialog();
+                    this.a.f23640h.closeLoadingDialog();
                     if (socketResponsedMessage.getError() != 0) {
-                        this.a.f24321h.showToast(socketResponsedMessage.getErrorString());
+                        this.a.f23640h.showToast(socketResponsedMessage.getErrorString());
                     }
                 }
                 if (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) {
@@ -193,9 +191,9 @@ public class f {
                     if (responseUpdateMaskInfoMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) {
                         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) responseUpdateMaskInfoMessage.getOrginalMessage();
                         if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
-                            this.a.f24317d = requestUpdateMaskInfoMessage.getIsMask() == 1;
-                            if (this.a.f24322i != null) {
-                                this.a.f24322i.updateUI();
+                            this.a.f23636d = requestUpdateMaskInfoMessage.getIsMask() == 1;
+                            if (this.a.f23641i != null) {
+                                this.a.f23641i.updateUI();
                             }
                         }
                     }
@@ -203,19 +201,19 @@ public class f {
             } else if (cmd != 205003) {
             } else {
                 if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() != 0) {
-                    this.a.f24321h.hideProgressBar();
-                    this.a.f24321h.showToast(socketResponsedMessage.getErrorString());
+                    this.a.f23640h.hideProgressBar();
+                    this.a.f23640h.showToast(socketResponsedMessage.getErrorString());
                 } else if (socketResponsedMessage instanceof ResponseQueryUserInfoMessage) {
                     ResponseQueryUserInfoMessage responseQueryUserInfoMessage = (ResponseQueryUserInfoMessage) socketResponsedMessage;
                     if (responseQueryUserInfoMessage.getResData() != null) {
-                        this.a.f24315b = responseQueryUserInfoMessage.getResData();
+                        this.a.f23634b = responseQueryUserInfoMessage.getResData();
                         f fVar = this.a;
-                        fVar.f24316c = fVar.f24315b.hasConcerned.intValue() == 1;
+                        fVar.f23635c = fVar.f23634b.hasConcerned.intValue() == 1;
                         f fVar2 = this.a;
-                        fVar2.f24317d = fVar2.f24315b.isBlacklist.intValue() == 1;
-                        this.a.f24321h.hideProgressBar();
-                        if (this.a.f24322i != null) {
-                            this.a.f24322i.updateUI();
+                        fVar2.f23636d = fVar2.f23634b.isBlacklist.intValue() == 1;
+                        this.a.f23640h.hideProgressBar();
+                        if (this.a.f23641i != null) {
+                            this.a.f23641i.updateUI();
                         }
                     }
                 }
@@ -257,22 +255,22 @@ public class f {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (!updateAttentionMessage.isSucc()) {
-                    if (this.a.f24321h == null || TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
+                    if (this.a.f23640h == null || TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
                         return;
                     }
-                    this.a.f24321h.showToast(updateAttentionMessage.getErrorString());
+                    this.a.f23640h.showToast(updateAttentionMessage.getErrorString());
                     return;
                 }
-                this.a.f24316c = updateAttentionMessage.isAttention();
-                if (this.a.f24321h != null) {
-                    if (this.a.f24316c) {
-                        this.a.f24321h.showToast(R.string.add_success);
+                this.a.f23635c = updateAttentionMessage.isAttention();
+                if (this.a.f23640h != null) {
+                    if (this.a.f23635c) {
+                        this.a.f23640h.showToast(R.string.add_success);
                     } else {
-                        this.a.f24321h.showToast(R.string.remove_succ);
+                        this.a.f23640h.showToast(R.string.remove_succ);
                     }
                 }
-                if (this.a.f24322i != null) {
-                    this.a.f24322i.updateUI();
+                if (this.a.f23641i != null) {
+                    this.a.f23641i.updateUI();
                 }
             }
         }
@@ -298,16 +296,16 @@ public class f {
                 return;
             }
         }
-        this.f24316c = false;
-        this.f24317d = false;
-        this.f24318e = false;
-        this.f24319f = BdUniqueId.gen();
-        this.f24323j = new c(this, 0);
-        this.f24324k = new d(this, 0);
-        this.f24321h = personalTalkSettingActivity;
-        this.f24322i = eVar;
+        this.f23635c = false;
+        this.f23636d = false;
+        this.f23637e = false;
+        this.f23638f = BdUniqueId.gen();
+        this.f23642j = new c(this, 0);
+        this.k = new d(this, 0);
+        this.f23640h = personalTalkSettingActivity;
+        this.f23641i = eVar;
         this.a = new c.a.s0.t.e.a(personalTalkSettingActivity.getPageContext());
-        this.f24320g = new BlackListModel(personalTalkSettingActivity.getPageContext());
+        this.f23639g = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
         n0.c(new a(this, j2), new b(this, j2, personalTalkSettingActivity));
     }
@@ -315,31 +313,31 @@ public class f {
     public CustomMessageListener i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24324k : (CustomMessageListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (CustomMessageListener) invokeV.objValue;
     }
 
     public DataRes j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24315b : (DataRes) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23634b : (DataRes) invokeV.objValue;
     }
 
     public c.a.d.c.g.c k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24323j : (c.a.d.c.g.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23642j : (c.a.d.c.g.c) invokeV.objValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24317d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23636d : invokeV.booleanValue;
     }
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24318e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23637e : invokeV.booleanValue;
     }
 
     public void n() {
@@ -349,7 +347,7 @@ public class f {
             if (aVar != null) {
                 aVar.g();
             }
-            BlackListModel blackListModel = this.f24320g;
+            BlackListModel blackListModel = this.f23639g;
             if (blackListModel != null) {
                 blackListModel.cancelLoadData();
             }
@@ -359,7 +357,7 @@ public class f {
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f24318e = z;
+            this.f23637e = z;
         }
     }
 
@@ -368,10 +366,10 @@ public class f {
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             requestUpdateMaskInfoMessage.setMaskType(9);
-            requestUpdateMaskInfoMessage.setList(String.valueOf(this.f24315b.id));
+            requestUpdateMaskInfoMessage.setList(String.valueOf(this.f23634b.id));
             requestUpdateMaskInfoMessage.setSettingMask(z);
-            requestUpdateMaskInfoMessage.setTag(this.f24319f);
-            MessageManager.getInstance().removeMessage(104102, this.f24319f);
+            requestUpdateMaskInfoMessage.setTag(this.f23638f);
+            MessageManager.getInstance().removeMessage(104102, this.f23638f);
             MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
         }
     }
@@ -379,11 +377,11 @@ public class f {
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f24321h.showLoadingDialog(null);
+            this.f23640h.showLoadingDialog(null);
             if (z) {
-                this.f24320g.addToBlackList(this.f24315b.id.longValue());
+                this.f23639g.addToBlackList(this.f23634b.id.longValue());
             } else {
-                this.f24320g.removeFromBlackList(this.f24315b.id.longValue());
+                this.f23639g.removeFromBlackList(this.f23634b.id.longValue());
             }
         }
     }

@@ -82,6 +82,7 @@ public class TiebaUtilityVideoCreationCenterAuto {
     public static class VideoCreationCenterSendParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String isVideo;
         public String objLocate;
         public String pageId;
         public String topicId;
@@ -110,59 +111,73 @@ public class TiebaUtilityVideoCreationCenterAuto {
                 videoCreationCenterSendParams.pageId = (String) hashMap.get("pageId");
                 videoCreationCenterSendParams.topicId = (String) hashMap.get("topicId");
                 videoCreationCenterSendParams.topicName = (String) hashMap.get("topicName");
+                videoCreationCenterSendParams.isVideo = (String) hashMap.get("isVideo");
                 return videoCreationCenterSendParams;
             }
             return (VideoCreationCenterSendParams) invokeL.objValue;
         }
 
+        public String getIsVideo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isVideo : (String) invokeV.objValue;
+        }
+
         public String getObjLocate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.objLocate : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.objLocate : (String) invokeV.objValue;
         }
 
         public String getPageId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageId : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageId : (String) invokeV.objValue;
         }
 
         public String getTopicId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.topicId : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.topicId : (String) invokeV.objValue;
         }
 
         public String getTopicName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.topicName : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.topicName : (String) invokeV.objValue;
+        }
+
+        public void setIsVideo(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                this.isVideo = str;
+            }
         }
 
         public void setObjLocate(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
                 this.objLocate = str;
             }
         }
 
         public void setPageId(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
                 this.pageId = str;
             }
         }
 
         public void setTopicId(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
                 this.topicId = str;
             }
         }
 
         public void setTopicName(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
                 this.topicName = str;
             }
         }
@@ -170,12 +185,13 @@ public class TiebaUtilityVideoCreationCenterAuto {
         public HashMap toMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("objLocate", this.objLocate);
                 hashMap.put("pageId", this.pageId);
                 hashMap.put("topicId", this.topicId);
                 hashMap.put("topicName", this.topicName);
+                hashMap.put("isVideo", this.isVideo);
                 return hashMap;
             }
             return (HashMap) invokeV.objValue;

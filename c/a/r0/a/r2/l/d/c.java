@@ -11,10 +11,10 @@ public class c<ResultType> {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8924b;
+    public String f8729b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ResultType f8925c;
+    public ResultType f8730c;
 
     public c() {
         Interceptable interceptable = $ic;

@@ -11,9 +11,9 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.a1.t.g;
 import c.a.d.f.p.n;
-import c.a.s0.n0.c;
 import c.a.s0.n0.d;
 import c.a.s0.n0.e;
+import c.a.s0.n0.f;
 import c.a.s0.u.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -26,6 +26,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.novel.NovelResult;
@@ -44,27 +45,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NovelInfoCardView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean A;
+    public String B;
+    public String C;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41884e;
+    public int f40437e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f41885f;
+    public TbImageView f40438f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41886g;
+    public TextView f40439g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f41887h;
+    public TextView f40440h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f41888i;
+    public TextView f40441i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f41889j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f41890k;
+    public ImageView f40442j;
+    public TextView k;
     public View l;
     public TextView m;
     public View mReadMoreButton;
@@ -75,11 +77,12 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
     public TextView r;
     public TextView s;
     public j t;
-    public c.a.s0.n0.c u;
+    public d u;
     public TbPageContext<?> v;
     public long w;
     public long x;
     public String y;
+    public boolean z;
 
     /* loaded from: classes11.dex */
     public class a implements TbImageView.g {
@@ -111,20 +114,20 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || z) {
                 return;
             }
-            this.a.f41885f.setDefaultBgResource(R.drawable.pic_novel_default_cover_normal);
+            this.a.f40438f.setDefaultBgResource(R.drawable.pic_novel_default_cover_normal);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.f41885f.setDefaultBgResource(R.drawable.pic_novel_default_cover_normal);
+                this.a.f40438f.setDefaultBgResource(R.drawable.pic_novel_default_cover_normal);
             }
         }
     }
 
     /* loaded from: classes11.dex */
-    public class b implements c.d {
+    public class b implements d.InterfaceC0860d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NovelInfoCardView a;
@@ -147,7 +150,7 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
             this.a = novelInfoCardView;
         }
 
-        @Override // c.a.s0.n0.c.d
+        @Override // c.a.s0.n0.d.InterfaceC0860d
         public void a(NovelResult novelResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, novelResult) == null) {
@@ -158,13 +161,15 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
                 } else {
                     new BdTopToast(this.a.getContext()).setIcon(true).setContent(this.a.v.getString(R.string.novel_pay_success)).show((ViewGroup) this.a.getRootView());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
-                    NovelInfoCardView novelInfoCardView = this.a;
-                    novelInfoCardView.j(novelInfoCardView.k(novelInfoCardView.t.e()));
                     this.a.t.m(true);
+                    if (this.a.z) {
+                        this.a.A = true;
+                        this.a.saveFreeBookPayState(true);
+                    }
+                    NovelInfoCardView novelInfoCardView = this.a;
+                    novelInfoCardView.setReadingProgress(novelInfoCardView.w);
                     NovelInfoCardView novelInfoCardView2 = this.a;
-                    novelInfoCardView2.setReadingProgress(novelInfoCardView2.w);
-                    NovelInfoCardView novelInfoCardView3 = this.a;
-                    novelInfoCardView3.onChangePayState(novelInfoCardView3.t);
+                    novelInfoCardView2.onChangePayState(novelInfoCardView2.t);
                 }
             }
         }
@@ -232,7 +237,8 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
                 return;
             }
         }
-        this.f41884e = 3;
+        this.f40437e = 3;
+        this.z = false;
         h(context);
     }
 
@@ -241,12 +247,15 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.t == null) {
             return;
         }
-        String b2 = d.b(String.valueOf(this.t.h()), TbadkCoreApplication.getCurrentAccount());
+        String b2 = e.b(String.valueOf(this.t.h()), TbadkCoreApplication.getCurrentAccount());
         ReadRecordsData readRecordsData = (ReadRecordsData) OrmObject.objectWithJsonStr(b2, ReadRecordsData.class);
         if (StringUtils.isNull(b2) || readRecordsData == null) {
             readRecordsData = new ReadRecordsData();
             readRecordsData.z(String.valueOf(this.t.b()));
             readRecordsData.y(String.valueOf(this.w / 100));
+        }
+        if (this.z) {
+            this.A = c.a.s0.s.h0.b.k().h("key_pb_free_novel_paid_data", false);
         }
         setReadingProgress(readRecordsData.w());
         setCid(readRecordsData.x());
@@ -284,11 +293,11 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            TbImageView tbImageView = this.f41885f;
+            TbImageView tbImageView = this.f40438f;
             if (tbImageView == null || tbImageView.getVisibility() != 0) {
                 return null;
             }
-            return this.f41885f;
+            return this.f40438f;
         }
         return (View) invokeV.objValue;
     }
@@ -312,13 +321,13 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.novel_info_card_layout, (ViewGroup) this, true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.novel_info_cover_page);
-            this.f41885f = tbImageView;
+            this.f40438f = tbImageView;
             tbImageView.setConrers(15);
-            this.f41886g = (TextView) findViewById(R.id.novel_info_book_name);
-            this.f41887h = (TextView) findViewById(R.id.novel_already_pay_state_tip);
-            this.f41888i = (TextView) findViewById(R.id.novel_info_book_summary);
-            this.f41889j = (ImageView) findViewById(R.id.novel_author_icon);
-            this.f41890k = (TextView) findViewById(R.id.novel_author_name);
+            this.f40439g = (TextView) findViewById(R.id.novel_info_book_name);
+            this.f40440h = (TextView) findViewById(R.id.novel_already_pay_state_tip);
+            this.f40441i = (TextView) findViewById(R.id.novel_info_book_summary);
+            this.f40442j = (ImageView) findViewById(R.id.novel_author_icon);
+            this.k = (TextView) findViewById(R.id.novel_author_name);
             this.l = findViewById(R.id.novel_no_pay_view);
             this.m = (TextView) findViewById(R.id.novel_pay_price_num);
             this.n = (TextView) findViewById(R.id.novel_pay_price_unit);
@@ -329,7 +338,7 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
             this.q = (TextView) findViewById(R.id.novel_state_btn);
             this.v = getTbPageContext();
             this.q.setOnClickListener(this);
-            this.f41885f.setOnClickListener(this);
+            this.f40438f.setOnClickListener(this);
             setOnClickListener(this);
             onChangeSkinType();
             i();
@@ -339,78 +348,98 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.s0.n0.c cVar = new c.a.s0.n0.c(this.v);
-            this.u = cVar;
-            cVar.l(new b(this));
+            d dVar = new d(this.v);
+            this.u = dVar;
+            dVar.l(new b(this));
         }
     }
 
-    public final void j(String str) {
+    public final boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            j jVar = this.t;
+            if (jVar == null) {
+                return false;
+            }
+            return "0".equals(jVar.d()) || "0L".equals(this.t.d());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(getContext(), "", str, true);
+            tbWebViewActivityConfig.setFixTitle(true);
+            tbWebViewActivityConfig.setNoClose(true);
             tbWebViewActivityConfig.setNoMenu(true);
             tbWebViewActivityConfig.setNoShare(true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
         }
     }
 
-    public final String k(String str) {
+    public final String l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return CommonUrlParamManager.getInstance().processUrl(d.d(str, "data", this.y)) + "&ctv=2&cen=ua_ut_uid";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return CommonUrlParamManager.getInstance().processUrl(e.d(str, "data", this.y)) + "&ctv=2&cen=ua_ut_uid";
         }
         return (String) invokeL.objValue;
     }
 
     public void onChangePayState(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jVar) == null) {
-            if (jVar.i()) {
-                jVar.m(true);
-                this.f41887h.setVisibility(0);
-                this.f41887h.setText(R.string.novel_text_already_pay);
-                this.p.setVisibility(0);
-                this.r.setText(R.string.novel_text_already_read);
-                TextView textView = this.s;
-                textView.setText(this.x + "%");
-                this.q.setText(R.string.novel_text_go_to_reading);
-                this.l.setVisibility(8);
-                View view = this.mReadMoreButton;
-                if (view != null) {
-                    view.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jVar) == null) {
+            if (!jVar.i() && !this.A) {
+                if (this.z) {
+                    this.f40440h.setVisibility(0);
+                    this.f40440h.setText(R.string.novel_text_free);
+                } else {
+                    this.f40440h.setVisibility(8);
                 }
-                onChangeSkinType();
+                this.l.setVisibility(0);
+                this.n.setText(R.string.novel_pay_currency_unit_Y_coin);
+                this.q.setText(R.string.novel_pay);
+                this.m.setText(String.valueOf(g.a(jVar.d(), -1.0d) / 100.0d));
+                this.o.setText(g(jVar.d()));
                 return;
             }
-            this.f41887h.setVisibility(8);
-            this.l.setVisibility(0);
-            this.n.setText(R.string.novel_pay_currency_unit_Y_coin);
-            this.q.setText(R.string.novel_pay);
-            this.m.setText(String.valueOf(g.a(jVar.d(), -1.0d) / 100.0d));
-            this.o.setText(g(jVar.d()));
+            jVar.m(true);
+            this.f40440h.setVisibility(0);
+            this.f40440h.setText(R.string.novel_text_already_pay);
+            this.p.setVisibility(0);
+            this.r.setText(R.string.novel_text_already_read);
+            TextView textView = this.s;
+            textView.setText(this.x + "%");
+            this.q.setText(R.string.novel_text_go_to_reading);
+            this.l.setVisibility(8);
+            View view = this.mReadMoreButton;
+            if (view != null) {
+                view.setVisibility(8);
+            }
+            onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f41884e = TbadkCoreApplication.getInst().getSkinType();
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f41886g);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f40437e = TbadkCoreApplication.getInst().getSkinType();
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f40439g);
             d2.A(R.string.F_X01);
             d2.v(R.color.CAM_X0105);
-            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.f41888i);
+            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.f40441i);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0108);
-            c.a.s0.s.u.c d4 = c.a.s0.s.u.c.d(this.f41887h);
+            c.a.s0.s.u.c d4 = c.a.s0.s.u.c.d(this.f40440h);
             d4.n(R.string.J_X04);
             d4.l(R.dimen.L_X02);
             d4.k(R.color.CAM_X0302);
-            c.a.s0.s.u.c d5 = c.a.s0.s.u.c.d(this.f41890k);
+            c.a.s0.s.u.c d5 = c.a.s0.s.u.c.d(this.k);
             d5.A(R.string.F_X01);
             d5.v(R.color.CAM_X0110);
-            c.a.s0.s.u.c d6 = c.a.s0.s.u.c.d(this.f41887h);
+            c.a.s0.s.u.c d6 = c.a.s0.s.u.c.d(this.f40440h);
             d6.A(R.string.F_X01);
             d6.v(R.color.CAM_X0303);
             c.a.s0.s.u.c d7 = c.a.s0.s.u.c.d(this.m);
@@ -442,30 +471,30 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
                 SkinManager.setBackgroundShapeDrawable(this.q, n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds60), R.color.CAM_X0305, R.color.CAM_X0206);
             }
             SkinManager.setBackgroundResource(this, R.drawable.applets_cell_bg);
-            this.f41885f.setDrawBorder(true);
-            this.f41885f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.f41885f.setBorderWidth(n.f(this.v.getPageActivity(), R.dimen.L_X01));
-            this.f41885f.setSkinType(this.f41884e);
-            WebPManager.setPureDrawable(this.f41889j, R.drawable.icon_novel_author, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL);
+            this.f40438f.setDrawBorder(true);
+            this.f40438f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f40438f.setBorderWidth(n.f(this.v.getPageActivity(), R.dimen.L_X01));
+            this.f40438f.setSkinType(this.f40437e);
+            WebPManager.setPureDrawable(this.f40442j, R.drawable.icon_novel_author, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
             onClickStatePayOrRead();
             if (this.t != null) {
                 if (view.getId() == R.id.novel_info_cover_page) {
-                    e.a(3, String.valueOf(this.t.h()));
+                    f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 3, String.valueOf(this.t.h()), this.B, this.C);
                 } else if (view.getId() == R.id.novel_state_btn) {
                     if (this.t.i()) {
-                        e.a(2, String.valueOf(this.t.h()));
+                        f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 2, String.valueOf(this.t.h()), this.B, this.C);
                     } else {
-                        e.a(1, String.valueOf(this.t.h()));
+                        f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 1, String.valueOf(this.t.h()), this.B, this.C);
                     }
                 } else {
-                    e.a(4, String.valueOf(this.t.h()));
+                    f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 4, String.valueOf(this.t.h()), this.B, this.C);
                 }
             }
         }
@@ -474,28 +503,30 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
     public void onClickStatePayOrRead() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (jVar = this.t) == null || StringUtils.isNull(jVar.e())) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (jVar = this.t) == null || StringUtils.isNull(jVar.e())) {
             return;
         }
         if (this.t.i()) {
-            j(k(this.t.e()));
-        } else {
-            this.u.q(this.t.h(), this.t.g(), Double.valueOf(this.t.d()).intValue());
+            k(l(this.t.e()));
+            f.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, String.valueOf(this.t.h()), this.B, this.C);
+            return;
         }
+        this.u.q(this.t.h(), this.t.g(), Double.valueOf(this.t.d()).intValue());
+        this.u.s(this.B, this.C);
     }
 
     public void onDestroy() {
-        c.a.s0.n0.c cVar;
+        d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (cVar = this.u) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (dVar = this.u) == null) {
             return;
         }
-        cVar.o();
+        dVar.o();
     }
 
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.t == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.t == null) {
             return;
         }
         getReadDataRecord();
@@ -503,9 +534,16 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         textView.setText(this.x + "%");
     }
 
+    public void saveFreeBookPayState(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && TbadkCoreApplication.isLogin()) {
+            c.a.s0.s.h0.b.k().u("key_pb_free_novel_paid_data", z);
+        }
+    }
+
     public void setCid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             if (str != null) {
                 this.y = str;
             } else {
@@ -514,22 +552,25 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         }
     }
 
-    public void setData(j jVar) {
+    public void setData(j jVar, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048592, this, jVar, str, str2) == null) {
             if (jVar != null && !jVar.k()) {
                 setVisibility(0);
                 this.t = jVar;
+                this.B = str;
+                this.C = str2;
                 if (StringUtils.isNull(jVar.f(), true)) {
-                    this.f41885f.setDefaultBgResource(R.drawable.pic_novel_default_cover_normal);
+                    this.f40438f.setDefaultBgResource(R.drawable.pic_novel_default_cover_normal);
                 } else {
-                    this.f41885f.setEvent(new a(this));
-                    this.f41885f.startLoad(this.t.f(), 10, false);
+                    this.f40438f.setEvent(new a(this));
+                    this.f40438f.startLoad(this.t.f(), 10, false);
                 }
-                this.f41886g.setText(this.t.g());
-                this.f41888i.setText(this.t.c());
-                this.f41890k.setText(this.t.a());
+                this.f40439g.setText(this.t.g());
+                this.f40441i.setText(this.t.c());
+                this.k.setText(this.t.a());
                 this.w = 100 - this.t.j();
+                this.z = j();
                 getReadDataRecord();
                 onChangePayState(this.t);
                 return;
@@ -540,7 +581,7 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
 
     public void setReadMoreButtonState(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, view) == null) || view == null) {
             return;
         }
         this.mReadMoreButton = view;
@@ -548,7 +589,7 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
 
     public void setReadingProgress(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
             if (j2 != 0) {
                 this.x = Math.max(j2, this.w);
             } else {
@@ -576,7 +617,8 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
                 return;
             }
         }
-        this.f41884e = 3;
+        this.f40437e = 3;
+        this.z = false;
         h(context);
     }
 
@@ -599,7 +641,8 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
                 return;
             }
         }
-        this.f41884e = 3;
+        this.f40437e = 3;
+        this.z = false;
         h(context);
     }
 }

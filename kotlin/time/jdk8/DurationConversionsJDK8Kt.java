@@ -16,7 +16,7 @@ public final class DurationConversionsJDK8Kt {
     @InlineOnly
     @ExperimentalTime
     /* renamed from: toJavaDuration-LRDsOJo  reason: not valid java name */
-    public static final Duration m2079toJavaDurationLRDsOJo(double d2) {
+    public static final Duration m2091toJavaDurationLRDsOJo(double d2) {
         Duration ofSeconds = Duration.ofSeconds((long) kotlin.time.Duration.getInSeconds-impl(d2), kotlin.time.Duration.getNanosecondsComponent-impl(d2));
         Intrinsics.checkNotNullExpressionValue(ofSeconds, "toComponents { seconds, …, nanoseconds.toLong()) }");
         return ofSeconds;

@@ -12,13 +12,13 @@ public class b {
     public Rect a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f35175b;
+    public Rect f34038b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35176c;
+    public int f34039c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35177d;
+    public int f34040d;
 
     public b() {
         Interceptable interceptable = $ic;

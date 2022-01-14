@@ -15,25 +15,25 @@ public class b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14126b;
+    public String f13796b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14127c;
+    public String f13797c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14128d;
+    public String f13798d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14129e;
+    public boolean f13799e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14130f;
+    public String f13800f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14131g;
+    public boolean f13801g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14132h;
+    public String f13802h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -52,37 +52,37 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14128d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13798d : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14126b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13796b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14130f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13800f : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14127c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13797c : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14132h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13802h : (String) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14131g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13801g : invokeV.booleanValue;
     }
 
     public boolean g() {
@@ -94,7 +94,7 @@ public class b {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14129e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13799e : invokeV.booleanValue;
     }
 
     public void i(JSONObject jSONObject) {
@@ -103,19 +103,19 @@ public class b {
             return;
         }
         j(jSONObject.optInt("switch") == 1);
-        this.f14126b = jSONObject.optString("feed_text");
+        this.f13796b = jSONObject.optString("feed_text");
         jSONObject.optString("enter_forum_text");
-        this.f14127c = jSONObject.optString("my_tab_text");
+        this.f13797c = jSONObject.optString("my_tab_text");
         long optLong = jSONObject.optLong("dot_timestamp");
         String str = "";
         if (optLong != 0) {
             str = optLong + "";
         }
-        this.f14128d = str;
-        this.f14129e = jSONObject.optInt("user_satisfy") == 1;
-        this.f14130f = jSONObject.optString("h5_url");
-        this.f14131g = jSONObject.optInt("person_item_switch") == 1;
-        this.f14132h = jSONObject.optString("person_item_text");
+        this.f13798d = str;
+        this.f13799e = jSONObject.optInt("user_satisfy") == 1;
+        this.f13800f = jSONObject.optString("h5_url");
+        this.f13801g = jSONObject.optInt("person_item_switch") == 1;
+        this.f13802h = jSONObject.optString("person_item_text");
     }
 
     public void j(boolean z) {

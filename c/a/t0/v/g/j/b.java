@@ -27,10 +27,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f25208e;
+        public final /* synthetic */ AlertDialog f24504e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f25209f;
+        public final /* synthetic */ Activity f24505f;
 
         public a(AlertDialog alertDialog, Activity activity) {
             Interceptable interceptable = $ic;
@@ -47,15 +47,15 @@ public class b {
                     return;
                 }
             }
-            this.f25208e = alertDialog;
-            this.f25209f = activity;
+            this.f24504e = alertDialog;
+            this.f24505f = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a(this.f25208e, this.f25209f);
+                b.a(this.f24504e, this.f24505f);
             }
         }
     }

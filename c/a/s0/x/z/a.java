@@ -41,16 +41,16 @@ public class a extends m {
         this.m = false;
         this.l = 2;
         this.n = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
-        this.f14538k = new SendView(context);
+        this.k = new SendView(context);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
         ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-        ((View) this.f14538k).setLayoutParams(layoutParams);
+        ((View) this.k).setLayoutParams(layoutParams);
     }
 
     public void f(int i2) {
         n nVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && (nVar = this.f14538k) != null && (nVar instanceof TextView)) {
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && (nVar = this.k) != null && (nVar instanceof TextView)) {
             ((TextView) nVar).setText(i2);
         }
     }
@@ -58,7 +58,7 @@ public class a extends m {
     public void g(@ColorRes int i2) {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (nVar = this.f14538k) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (nVar = this.k) == null) {
             return;
         }
         ((SendView) nVar).setTextColor(i2);

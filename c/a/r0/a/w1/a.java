@@ -54,14 +54,14 @@ public class a {
             if (b.k()) {
                 boolean z = false;
                 for (c.a.r0.a.w1.g.a aVar : e2) {
-                    String h2 = b.h(aVar.f9757e);
+                    String h2 = b.h(aVar.f9545e);
                     if (!TextUtils.isEmpty(h2) && new File(h2).exists()) {
-                        aVar.f9761i = h2;
+                        aVar.f9549i = h2;
                         c(jSONObject, jSONObject2, aVar);
                         z = true;
-                        d.i("Module-Plugin", "use debug dependencies，name=" + aVar.f9757e + " path=" + aVar.f9761i);
+                        d.i("Module-Plugin", "use debug dependencies，name=" + aVar.f9545e + " path=" + aVar.f9549i);
                     } else {
-                        d.o("Module-Plugin", "debug dependencies not exist，name=" + aVar.f9757e + " path=" + aVar.f9761i);
+                        d.o("Module-Plugin", "debug dependencies not exist，name=" + aVar.f9545e + " path=" + aVar.f9549i);
                     }
                 }
                 if (!z) {
@@ -89,19 +89,19 @@ public class a {
         }
         for (c.a.r0.a.w1.g.a aVar : list) {
             if (aVar != null) {
-                if (aVar.f9756k) {
+                if (aVar.k) {
                     c(jSONObject, jSONObject2, aVar);
                 } else {
-                    i q = c.a.r0.q.g.a.i().q(aVar.f9757e, aVar.l, aVar.m);
+                    i q = c.a.r0.q.g.a.i().q(aVar.f9545e, aVar.l, aVar.m);
                     if (q == null) {
-                        c.a.r0.a.w1.e.a.a(Log.getStackTraceString(new Throwable(aVar.f9757e + " query db fail")));
+                        c.a.r0.a.w1.e.a.a(Log.getStackTraceString(new Throwable(aVar.f9545e + " query db fail")));
                     } else {
-                        File t = c.a.r0.a.a1.d.t(aVar.f9757e, String.valueOf(q.f11763i));
+                        File t = c.a.r0.a.a1.d.t(aVar.f9545e, String.valueOf(q.f11496i));
                         if (t != null && t.exists()) {
-                            aVar.f9761i = t.getAbsolutePath();
+                            aVar.f9549i = t.getAbsolutePath();
                             c(jSONObject, jSONObject2, aVar);
                         } else {
-                            c.a.r0.a.w1.e.a.a(Log.getStackTraceString(new Throwable(aVar.f9757e + " local file not exist")));
+                            c.a.r0.a.w1.e.a.a(Log.getStackTraceString(new Throwable(aVar.f9545e + " local file not exist")));
                         }
                     }
                 }
@@ -112,22 +112,22 @@ public class a {
     public static void c(@NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull c.a.r0.a.w1.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, jSONObject, jSONObject2, aVar) == null) {
-            String str = aVar.f9761i;
-            String str2 = aVar.f9762j;
+            String str = aVar.f9549i;
+            String str2 = aVar.f9550j;
             if (a) {
-                c.a.r0.a.w1.e.a.b("apply dep path, name = " + aVar.f9757e + "; inline = " + aVar.f9756k + "; path = " + str + "; config = " + str2);
+                c.a.r0.a.w1.e.a.b("apply dep path, name = " + aVar.f9545e + "; inline = " + aVar.k + "; path = " + str + "; config = " + str2);
             }
             if (TextUtils.isEmpty(str)) {
-                c.a.r0.a.w1.e.a.b(Log.getStackTraceString(new Throwable(aVar.f9757e + " path is empty")));
+                c.a.r0.a.w1.e.a.b(Log.getStackTraceString(new Throwable(aVar.f9545e + " path is empty")));
                 return;
             }
-            w.f(jSONObject, aVar.f9757e, str);
-            if (TextUtils.isEmpty(aVar.f9762j)) {
+            w.f(jSONObject, aVar.f9545e, str);
+            if (TextUtils.isEmpty(aVar.f9550j)) {
                 return;
             }
             File file = new File(str, str2);
             if (file.exists() && file.isFile()) {
-                w.f(jSONObject2, aVar.f9757e, w.d(c.a.r0.w.d.E(file)));
+                w.f(jSONObject2, aVar.f9545e, w.d(c.a.r0.w.d.E(file)));
             }
         }
     }

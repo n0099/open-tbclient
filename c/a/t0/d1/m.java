@@ -30,7 +30,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f16559e;
+        public final /* synthetic */ c.a.s0.s.s.a f16244e;
 
         public a(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class m {
                     return;
                 }
             }
-            this.f16559e = aVar;
+            this.f16244e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f16559e.dismiss();
+                this.f16244e.dismiss();
             }
         }
     }
@@ -65,19 +65,19 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f16560e;
+        public final /* synthetic */ c.a.s0.s.s.a f16245e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f16561f;
+        public final /* synthetic */ int f16246f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f16562g;
+        public final /* synthetic */ String f16247g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f16563h;
+        public final /* synthetic */ String f16248h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16564i;
+        public final /* synthetic */ TbPageContext f16249i;
 
         public b(c.a.s0.s.s.a aVar, int i2, String str, String str2, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -94,20 +94,20 @@ public class m {
                     return;
                 }
             }
-            this.f16560e = aVar;
-            this.f16561f = i2;
-            this.f16562g = str;
-            this.f16563h = str2;
-            this.f16564i = tbPageContext;
+            this.f16245e = aVar;
+            this.f16246f = i2;
+            this.f16247g = str;
+            this.f16248h = str2;
+            this.f16249i = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f16560e.dismiss();
-                if (this.f16561f == 1) {
-                    UrlManager.getInstance().dealOneLink(this.f16564i, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", this.f16562g, this.f16563h)});
+                this.f16245e.dismiss();
+                if (this.f16246f == 1) {
+                    UrlManager.getInstance().dealOneLink(this.f16249i, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", this.f16247g, this.f16248h)});
                 }
             }
         }
@@ -119,7 +119,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f16565e;
+        public final /* synthetic */ c.a.s0.s.s.a f16250e;
 
         public c(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -136,20 +136,20 @@ public class m {
                     return;
                 }
             }
-            this.f16565e = aVar;
+            this.f16250e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f16565e.dismiss();
+                this.f16250e.dismiss();
             }
         }
     }
 
     public static void a(TbPageContext<?> tbPageContext, WindowToast windowToast, String str, String str2) {
-        int k2;
+        int k;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, windowToast, str, str2) == null) || tbPageContext == null || tbPageContext.getPageActivity() == null) {
             return;
@@ -182,11 +182,11 @@ public class m {
         tbImageView.setIsBitmapPic(true);
         int f3 = c.a.d.f.p.n.f(tbPageContext.getPageActivity(), R.dimen.tbds44);
         if (UtilHelper.getRealScreenOrientation(tbPageContext.getPageActivity()) == 2) {
-            k2 = c.a.d.f.p.n.i(tbPageContext.getPageActivity());
+            k = c.a.d.f.p.n.i(tbPageContext.getPageActivity());
         } else {
-            k2 = c.a.d.f.p.n.k(tbPageContext.getPageActivity());
+            k = c.a.d.f.p.n.k(tbPageContext.getPageActivity());
         }
-        int i3 = k2 - (f3 * 2);
+        int i3 = k - (f3 * 2);
         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = (i3 * 560) / 992;
@@ -201,7 +201,7 @@ public class m {
     }
 
     public static void b(Activity activity, TbPageContext<?> tbPageContext) {
-        int k2;
+        int k;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65537, null, activity, tbPageContext) == null) || activity == null || tbPageContext == null) {
             return;
@@ -226,11 +226,11 @@ public class m {
         tbImageView.setIsBitmapPic(true);
         int f3 = c.a.d.f.p.n.f(activity, R.dimen.tbds44);
         if (UtilHelper.getRealScreenOrientation(activity) == 2) {
-            k2 = c.a.d.f.p.n.i(activity);
+            k = c.a.d.f.p.n.i(activity);
         } else {
-            k2 = c.a.d.f.p.n.k(activity);
+            k = c.a.d.f.p.n.k(activity);
         }
-        int i2 = k2 - (f3 * 2);
+        int i2 = k - (f3 * 2);
         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = (i2 * 556) / 988;

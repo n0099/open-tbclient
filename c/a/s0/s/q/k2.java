@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.VideoChannelInfo;
+import tbclient.BirthdayInfo;
 /* loaded from: classes6.dex */
 public class k2 {
     public static /* synthetic */ Interceptable $ic;
@@ -14,7 +14,13 @@ public class k2 {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13760b;
+    public String f13446b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f13447c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f13448d;
 
     public k2() {
         Interceptable interceptable = $ic;
@@ -35,21 +41,20 @@ public class k2 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        try {
-            this.a = jSONObject.optLong("channel_id", 0L);
-            this.f13760b = jSONObject.optString("channel_name");
-            jSONObject.optString("channel_avatar");
-        } catch (Exception unused) {
-        }
+        this.a = jSONObject.optLong("birthday_time", 0L);
+        this.f13448d = jSONObject.optInt("birthday_show_status", 0);
+        this.f13446b = jSONObject.optString("constellation", "");
+        this.f13447c = jSONObject.optInt("age", 0);
     }
 
-    public void b(VideoChannelInfo videoChannelInfo) {
+    public void b(BirthdayInfo birthdayInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoChannelInfo) == null) || videoChannelInfo == null || videoChannelInfo.channel_id.longValue() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, birthdayInfo) == null) || birthdayInfo == null) {
             return;
         }
-        this.a = videoChannelInfo.channel_id.longValue();
-        this.f13760b = videoChannelInfo.channel_name;
-        String str = videoChannelInfo.channel_avatar;
+        this.a = birthdayInfo.birthday_time.longValue();
+        this.f13448d = birthdayInfo.birthday_show_status.intValue();
+        this.f13446b = birthdayInfo.constellation;
+        this.f13447c = birthdayInfo.age.intValue();
     }
 }

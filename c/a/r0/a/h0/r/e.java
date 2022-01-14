@@ -20,11 +20,11 @@ public class e extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7008c;
+    public static final boolean f6858c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f7009b;
+    public File f6859b;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class e extends b {
                 return;
             }
         }
-        f7008c = k.a;
+        f6858c = k.a;
     }
 
     public e() {
@@ -55,7 +55,7 @@ public class e extends b {
                 return;
             }
         }
-        this.f7009b = o();
+        this.f6859b = o();
     }
 
     @Override // c.a.r0.a.h0.r.b
@@ -63,23 +63,23 @@ public class e extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            if (cVar != null && this.f7009b.exists()) {
-                File file = this.f7009b;
-                File file2 = new File(file, cVar.f11761g + File.separator + cVar.q);
+            if (cVar != null && this.f6859b.exists()) {
+                File file = this.f6859b;
+                File file2 = new File(file, cVar.f11494g + File.separator + cVar.q);
                 if (file2.exists()) {
                     try {
                         if (!d(Channels.newChannel(new FileInputStream(file2)), cVar.m)) {
-                            boolean z = f7008c;
+                            boolean z = f6858c;
                             return false;
                         }
-                        File j2 = j(cVar.f11762h, cVar.f11761g, cVar.f11763i);
+                        File j2 = j(cVar.f11495h, cVar.f11494g, cVar.f11496i);
                         if (j2 == null) {
-                            boolean z2 = f7008c;
+                            boolean z2 = f6858c;
                             return false;
                         }
                         return n(new BufferedInputStream(new FileInputStream(file2)), j2);
                     } catch (IOException e2) {
-                        if (f7008c) {
+                        if (f6858c) {
                             e2.printStackTrace();
                         }
                         return false;
@@ -97,8 +97,8 @@ public class e extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.f7009b.exists()) {
-                File file = this.f7009b;
+            if (this.f6859b.exists()) {
+                File file = this.f6859b;
                 File file2 = new File(file, str + File.separator + "app_info.json");
                 if (file2.exists()) {
                     return c.a.r0.w.d.E(file2);
@@ -115,8 +115,8 @@ public class e extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f7009b.exists()) {
-                File file = new File(this.f7009b, "preset_list.json");
+            if (this.f6859b.exists()) {
+                File file = new File(this.f6859b, "preset_list.json");
                 if (file.exists()) {
                     return c.a.r0.w.d.E(file);
                 }

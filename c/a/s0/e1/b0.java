@@ -65,7 +65,7 @@ public class b0 {
             builder.model = Build.MODEL;
             builder._os_version = Build.VERSION.RELEASE;
             builder.brand = Build.BRAND;
-            builder.user_agent = w0.b();
+            builder.user_agent = v0.b();
             if (z) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
                     builder.BDUSS = c.a.s0.k0.f.b();
@@ -95,7 +95,7 @@ public class b0 {
             }
             builder.pversion = "1.0.3";
             builder.lego_lib_version = TbConfig.getLegoLibVersion();
-            if (c.a.s0.s.g0.b.j().k("android_safe_sdk_open", 0) == 1) {
+            if (c.a.s0.s.h0.b.k().l("android_safe_sdk_open", 0) == 1) {
                 builder.z_id = TbadkCoreApplication.getInst().getZid();
             }
             builder.net_type = Integer.valueOf(c.a.d.f.p.l.I());
@@ -118,13 +118,13 @@ public class b0 {
                 i2 = 2;
             }
             builder.cmode = Integer.valueOf(i2);
-            builder.start_type = Integer.valueOf(c.a.s0.s.y.a.f14007e);
+            builder.start_type = Integer.valueOf(c.a.s0.s.y.a.f13680f);
             try {
-                builder.start_scheme = StringUtils.isNull(c.a.s0.s.y.a.f14006d) ? "" : URLEncoder.encode(c.a.s0.s.y.a.f14006d, "utf-8");
+                builder.start_scheme = StringUtils.isNull(c.a.s0.s.y.a.f13679e) ? "" : URLEncoder.encode(c.a.s0.s.y.a.f13679e, "utf-8");
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
             }
-            builder.extra = c.a.s0.s.g0.b.j().p("key_sync_extra_field", "");
+            builder.extra = c.a.s0.s.h0.b.k().q("key_sync_extra_field", "");
             builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
             field.set(obj, builder.build(false));
         } catch (Throwable th) {

@@ -9,10 +9,10 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f60154b;
+    public boolean f57871b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60155c = 2;
+    public int f57872c = 2;
 
     public static e a(AdTemplate adTemplate, AdInfo adInfo, com.kwad.sdk.core.download.a.b bVar) {
         String str;
@@ -43,7 +43,7 @@ public class e {
     }
 
     public void a(int i2) {
-        this.f60155c = i2;
+        this.f57872c = i2;
     }
 
     public void a(String str) {
@@ -51,10 +51,10 @@ public class e {
     }
 
     public void a(boolean z) {
-        this.f60154b = z;
+        this.f57871b = z;
     }
 
     public int b() {
-        return this.f60155c;
+        return this.f57872c;
     }
 }

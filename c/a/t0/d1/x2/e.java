@@ -1,6 +1,6 @@
 package c.a.t0.d1.x2;
 
-import com.baidu.android.imsdk.internal.Constants;
+import c.a.t0.d1.p1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,103 +10,48 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f17119b;
+    public int f16765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f17120c;
+    public p1 f16766c;
 
-    public e(String str) {
+    /* renamed from: d  reason: collision with root package name */
+    public String f16767d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f16768e;
+
+    public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (str != null && str.matches("\\d{1}_\\d{1}.*")) {
-            this.a = str.substring(0, 1).contains("1");
-            this.f17119b = str.substring(2, 3).contains("1");
-            if (str.length() >= 5) {
-                this.f17120c = str.substring(4, 5).contains("1");
-                return;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null || !(obj instanceof e)) {
+                return false;
             }
-            return;
-        }
-        this.a = false;
-        this.f17119b = true;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17119b : invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17120c : invokeV.booleanValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f17119b = z;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f17120c = z;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? String.format("%s_%s_%s", Integer.valueOf(this.a ? 1 : 0), Integer.valueOf(this.f17119b ? 1 : 0), Integer.valueOf(this.f17120c ? 1 : 0)) : (String) invokeV.objValue;
-    }
-
-    public e(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            e eVar = (e) obj;
+            if (this.f16765b == eVar.f16765b && (str = this.a) != null && str.equals(eVar.a)) {
+                return true;
             }
+            return super.equals(obj);
         }
-        this.a = z;
-        this.f17119b = z2;
+        return invokeL.booleanValue;
     }
 }

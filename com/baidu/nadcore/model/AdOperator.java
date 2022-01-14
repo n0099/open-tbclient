@@ -16,13 +16,13 @@ public class AdOperator {
     public final TYPE a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f38227b;
+    public final a f37023b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f38228c;
+    public final String f37024c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f38229d;
+    public final String f37025d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */

@@ -22,10 +22,10 @@ public class b implements c.a.s0.b1.b {
     public final c.a.t0.r3.b.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.t0.r3.b.c f22483b;
+    public final c.a.t0.r3.b.c f21866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f22484c;
+    public final c f21867c;
 
     public b(c.a.t0.r3.b.b bVar, c.a.t0.r3.b.c cVar, c cVar2) {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class b implements c.a.s0.b1.b {
             }
         }
         this.a = bVar;
-        this.f22483b = cVar;
-        this.f22484c = cVar2;
+        this.f21866b = cVar;
+        this.f21867c = cVar2;
     }
 
     @Override // c.a.s0.b1.b
@@ -52,7 +52,7 @@ public class b implements c.a.s0.b1.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 2).param("obj_type", "a064").param(TiebaStatic.Params.RESOURCE_ID, 0).param("obj_locate", 1));
-            this.f22484c.d();
+            this.f21867c.d();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_TB_LOAD_END_STAMP_KEY);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921638));
         }
@@ -70,8 +70,8 @@ public class b implements c.a.s0.b1.b {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            if (this.f22484c.e() != null) {
-                if (this.f22484c.e().getHeight() == n.i(this.a.getActivity())) {
+            if (this.f21867c.e() != null) {
+                if (this.f21867c.e().getHeight() == n.i(this.a.getActivity())) {
                     z2 = true;
                     TiebaStatic.log(new StatisticItem("c13332").param("obj_id", str).param("obj_type", !z2 ? 2 : 1));
                     StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 2).param("obj_type", "a030").param("obj_locate", 0).eventStat();
@@ -85,7 +85,7 @@ public class b implements c.a.s0.b1.b {
                     c.a.t0.v3.c.g().c(this.a.getUniqueId(), statisticItem);
                     SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
                     this.a.getActivity().overridePendingTransition(0, 0);
-                    this.f22483b.a();
+                    this.f21866b.a();
                 }
             }
             z2 = false;
@@ -98,7 +98,7 @@ public class b implements c.a.s0.b1.b {
             c.a.t0.v3.c.g().c(this.a.getUniqueId(), statisticItem2);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
             this.a.getActivity().overridePendingTransition(0, 0);
-            this.f22483b.a();
+            this.f21866b.a();
         }
     }
 
@@ -106,16 +106,16 @@ public class b implements c.a.s0.b1.b {
     public void c(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f22484c.d();
+            this.f21867c.d();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_TB_LOAD_END_STAMP_KEY);
-            if (this.f22484c.e() != null) {
-                int k2 = n.k(this.a.getActivity());
+            if (this.f21867c.e() != null) {
+                int k = n.k(this.a.getActivity());
                 int i2 = n.i(this.a.getActivity());
                 if (!z2) {
                     i2 = (int) (n.i(this.a.getActivity()) * 0.8125d);
                 }
-                this.f22484c.e().setLayoutParams(new RelativeLayout.LayoutParams(k2, i2));
-                this.a.getRootView().addView(this.f22484c.e());
+                this.f21867c.e().setLayoutParams(new RelativeLayout.LayoutParams(k, i2));
+                this.a.getRootView().addView(this.f21867c.e());
                 if (this.a.i()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016522, this.a.getActivity()));
                 }
@@ -135,7 +135,7 @@ public class b implements c.a.s0.b1.b {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_START_STAMP_KEY);
                 return;
             }
-            this.f22483b.a();
+            this.f21866b.a();
         }
     }
 
@@ -146,7 +146,7 @@ public class b implements c.a.s0.b1.b {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
             this.a.f();
             if (this.a.e()) {
-                this.f22483b.a();
+                this.f21866b.a();
             }
         }
     }

@@ -48,8 +48,8 @@ public class d extends c.a.t0.q2.b.a {
         public void onFail(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                this.a.f22274b.closeLoadingDialog();
-                BaseActivity baseActivity = this.a.f22274b;
+                this.a.f21663b.closeLoadingDialog();
+                BaseActivity baseActivity = this.a.f21663b;
                 baseActivity.showToast(String.format(baseActivity.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
             }
         }
@@ -96,7 +96,7 @@ public class d extends c.a.t0.q2.b.a {
     public void j(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f22277e = cVar;
+            this.f21666e = cVar;
         }
     }
 
@@ -120,7 +120,7 @@ public class d extends c.a.t0.q2.b.a {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BaseActivity baseActivity = this.f22274b;
+            BaseActivity baseActivity = this.f21663b;
             new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.onekey_login_dialog_activity_agreement_text), SwanAppPhoneLoginDialog.PASS_ACCOUNT_AGREE, false).start();
         }
     }
@@ -130,27 +130,27 @@ public class d extends c.a.t0.q2.b.a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             l();
             PassportSDK passportSDK = PassportSDK.getInstance();
-            BaseActivity baseActivity = this.f22274b;
-            passportSDK.loadOneKeyLogin(baseActivity, c.a.t0.q2.c.b.h(baseActivity, this.f22277e.f22296c), new a(this));
+            BaseActivity baseActivity = this.f21663b;
+            passportSDK.loadOneKeyLogin(baseActivity, c.a.t0.q2.c.b.h(baseActivity, this.f21666e.f21684c), new a(this));
         }
     }
 
     public final void t() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f22277e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f21666e) == null) {
             return;
         }
         int a2 = cVar.a();
         if (a2 == 1) {
-            BaseActivity baseActivity = this.f22274b;
+            BaseActivity baseActivity = this.f21663b;
             new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.onekey_login_dialog_activity_operator_1), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
         } else if (a2 == 2) {
-            BaseActivity baseActivity2 = this.f22274b;
+            BaseActivity baseActivity2 = this.f21663b;
             new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.onekey_login_dialog_activity_operator_2), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
         } else if (a2 != 3) {
         } else {
-            BaseActivity baseActivity3 = this.f22274b;
+            BaseActivity baseActivity3 = this.f21663b;
             new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.onekey_login_dialog_activity_operator_3), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
         }
     }
@@ -158,7 +158,7 @@ public class d extends c.a.t0.q2.b.a {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            BaseActivity baseActivity = this.f22274b;
+            BaseActivity baseActivity = this.f21663b;
             new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.onekey_login_dialog_activity_privacy_text), "http://privacy.baidu.com/mdetail?id=288", false).start();
         }
     }

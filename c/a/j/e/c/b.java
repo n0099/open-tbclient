@@ -18,31 +18,31 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f3899b;
+    public final long f3837b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f3900c;
+    public long f3838c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3901d;
+    public boolean f3839d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f3902e;
+    public boolean f3840e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f3903f;
+    public boolean f3841f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f3904g;
+    public boolean f3842g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.j.e.c.a f3905h;
+    public c.a.j.e.c.a f3843h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f3906i;
+    public long f3844i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Handler f3907j;
+    public Handler f3845j;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -77,29 +77,29 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 synchronized (this.a) {
-                    if (!this.a.f3901d && !this.a.f3903f) {
-                        long j3 = this.a.f3906i;
-                        long elapsedRealtime = this.a.f3900c - SystemClock.elapsedRealtime();
+                    if (!this.a.f3839d && !this.a.f3841f) {
+                        long j3 = this.a.f3844i;
+                        long elapsedRealtime = this.a.f3838c - SystemClock.elapsedRealtime();
                         long j4 = 0;
                         if (elapsedRealtime <= 0) {
-                            this.a.f3904g = true;
-                            this.a.f3906i = this.a.a;
-                            this.a.f3905h.a(0L, Math.max(this.a.f3906i - j3, 0L));
-                            this.a.f3905h.onFinish();
+                            this.a.f3842g = true;
+                            this.a.f3844i = this.a.a;
+                            this.a.f3843h.a(0L, Math.max(this.a.f3844i - j3, 0L));
+                            this.a.f3843h.onFinish();
                         } else {
                             long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                            this.a.f3906i = this.a.a - elapsedRealtime;
-                            this.a.f3905h.a(elapsedRealtime, Math.max(this.a.f3906i - j3, 0L));
+                            this.a.f3844i = this.a.a - elapsedRealtime;
+                            this.a.f3843h.a(elapsedRealtime, Math.max(this.a.f3844i - j3, 0L));
                             long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
-                            if (elapsedRealtime < this.a.f3899b) {
+                            if (elapsedRealtime < this.a.f3837b) {
                                 j2 = elapsedRealtime - elapsedRealtime3;
                                 if (j2 < 0) {
                                     sendMessageDelayed(obtainMessage(1), j4);
                                 }
                             } else {
-                                j2 = this.a.f3899b - elapsedRealtime3;
+                                j2 = this.a.f3837b - elapsedRealtime3;
                                 while (j2 < 0) {
-                                    j2 += this.a.f3899b;
+                                    j2 += this.a.f3837b;
                                 }
                             }
                             j4 = j2;
@@ -126,16 +126,16 @@ public class b {
                 return;
             }
         }
-        this.f3901d = false;
-        this.f3902e = false;
-        this.f3903f = false;
-        this.f3904g = false;
-        this.f3906i = 0L;
-        this.f3907j = new a(this, Looper.getMainLooper());
+        this.f3839d = false;
+        this.f3840e = false;
+        this.f3841f = false;
+        this.f3842g = false;
+        this.f3844i = 0L;
+        this.f3845j = new a(this, Looper.getMainLooper());
         this.a = j2;
-        this.f3899b = j3;
-        this.f3906i = 0L;
-        this.f3905h = aVar;
+        this.f3837b = j3;
+        this.f3844i = 0L;
+        this.f3843h = aVar;
     }
 
     public final synchronized b b() {
@@ -143,19 +143,19 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                this.f3901d = false;
-                this.f3904g = false;
-                this.f3903f = false;
-                this.f3902e = false;
+                this.f3839d = false;
+                this.f3842g = false;
+                this.f3841f = false;
+                this.f3840e = false;
                 if (this.a <= 0) {
-                    this.f3904g = true;
-                    this.f3905h.onFinish();
+                    this.f3842g = true;
+                    this.f3843h.onFinish();
                     return this;
                 }
-                this.f3900c = SystemClock.elapsedRealtime() + this.a;
-                this.f3907j.sendMessage(this.f3907j.obtainMessage(1));
-                this.f3905h.onStart();
-                this.f3902e = true;
+                this.f3838c = SystemClock.elapsedRealtime() + this.a;
+                this.f3845j.sendMessage(this.f3845j.obtainMessage(1));
+                this.f3843h.onStart();
+                this.f3840e = true;
                 return this;
             }
         }
@@ -166,13 +166,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (!this.f3903f && !this.f3901d && !this.f3904g && this.f3902e) {
+                if (!this.f3841f && !this.f3839d && !this.f3842g && this.f3840e) {
                     SystemClock.elapsedRealtime();
-                    this.f3903f = true;
-                    this.f3901d = false;
-                    this.f3904g = false;
-                    this.f3905h.onPause();
-                    this.f3907j.removeMessages(1);
+                    this.f3841f = true;
+                    this.f3839d = false;
+                    this.f3842g = false;
+                    this.f3843h.onPause();
+                    this.f3845j.removeMessages(1);
                 }
             }
         }
@@ -182,12 +182,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f3901d = true;
-                this.f3903f = false;
-                this.f3904g = false;
-                this.f3902e = false;
-                this.f3907j.removeMessages(1);
-                this.f3905h.onCancel();
+                this.f3839d = true;
+                this.f3841f = false;
+                this.f3842g = false;
+                this.f3840e = false;
+                this.f3845j.removeMessages(1);
+                this.f3843h.onCancel();
             }
         }
     }
@@ -196,7 +196,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                this.f3905h = new a.C0154a();
+                this.f3843h = new a.C0163a();
                 h();
             }
         }

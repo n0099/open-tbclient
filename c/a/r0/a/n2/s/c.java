@@ -72,36 +72,36 @@ public class c extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f8163h == null) {
-                this.f8163h = new JSONObject();
+            if (this.f7983h == null) {
+                this.f7983h = new JSONObject();
             }
             try {
                 if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
-                    this.f8163h.put("errorno", this.v);
+                    this.f7983h.put("errorno", this.v);
                 }
                 String b2 = m.b(this.w);
                 this.w = b2;
-                this.f8163h.put("url", b2);
-                this.f8163h.put("netStatus", this.y);
+                this.f7983h.put("url", b2);
+                this.f7983h.put("netStatus", this.y);
                 if (!TextUtils.isEmpty(this.x)) {
-                    this.f8163h.put("msg", this.x);
+                    this.f7983h.put("msg", this.x);
                 }
                 if (!TextUtils.isEmpty(this.z)) {
-                    this.f8163h.put("pagetype", this.z);
+                    this.f7983h.put("pagetype", this.z);
                 }
                 if (!TextUtils.isEmpty(this.A)) {
-                    this.f8163h.put("curpage", this.A);
+                    this.f7983h.put("curpage", this.A);
                 }
                 if (!TextUtils.isEmpty(this.B)) {
-                    this.f8163h.put("requesttype", this.B);
+                    this.f7983h.put("requesttype", this.B);
                 }
                 if (this.D - this.C > 0) {
-                    this.f8163h.put("startTime", this.C);
-                    this.f8163h.put("endTime", this.D);
+                    this.f7983h.put("startTime", this.C);
+                    this.f7983h.put("endTime", this.D);
                 }
                 ExtensionCore T = c.a.r0.a.h0.u.g.U().T();
                 if (T != null) {
-                    this.f8163h.put("extension_ver", T.extensionCoreVersionName);
+                    this.f7983h.put("extension_ver", T.extensionCoreVersionName);
                 }
             } catch (JSONException e2) {
                 c.a.r0.a.e0.d.e("SwanAppRequestEvent", "834", "#toJSONObject error", e2, false);
@@ -133,7 +133,7 @@ public class c extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = this.f8163h;
+            JSONObject jSONObject = this.f7983h;
             return jSONObject != null && TextUtils.equals(jSONObject.optString("requesttype"), "0");
         }
         return invokeV.booleanValue;

@@ -2,7 +2,7 @@ package com.baidu.tbadk.data;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.n.e.n;
-import c.a.s0.s.q.j2;
+import c.a.s0.s.q.k2;
 import c.a.s0.u.q;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
@@ -77,7 +77,7 @@ public class UserData extends MetaData {
     public String lng;
     public long loginTime;
     public ActivitySponsorData mActivitySponsorData;
-    public j2 mBirthdayInfo;
+    public k2 mBirthdayInfo;
     public List<MyGift> mGift;
     public int mGiftNum;
     public List<MyGroup> mGroup;
@@ -230,10 +230,10 @@ public class UserData extends MetaData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.bimg_url : (String) invokeV.objValue;
     }
 
-    public j2 getBirthdayInfo() {
+    public k2 getBirthdayInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mBirthdayInfo : (j2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mBirthdayInfo : (k2) invokeV.objValue;
     }
 
     public CloseAdData getCloseAdData() {
@@ -682,9 +682,9 @@ public class UserData extends MetaData {
         this.isShowRedPacket = user.is_show_redpacket.intValue() == 1;
         BirthdayInfo birthdayInfo = user.birthday_info;
         if (birthdayInfo != null) {
-            j2 j2Var = new j2();
-            this.mBirthdayInfo = j2Var;
-            j2Var.b(birthdayInfo);
+            k2 k2Var = new k2();
+            this.mBirthdayInfo = k2Var;
+            k2Var.b(birthdayInfo);
         }
         this.bawuThrones = user.bawu_thrones;
         this.showPbPrivateFlag = user.show_pb_private_flag.intValue();
@@ -822,7 +822,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, c.a.s0.s.i0.t.a
+    @Override // com.baidu.tbadk.data.MetaData, c.a.s0.s.j0.t.a
     public void setLikeStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
@@ -1071,9 +1071,9 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject10 = jSONObject.optJSONObject("birthday_info");
                 if (optJSONObject10 != null) {
-                    j2 j2Var = new j2();
-                    this.mBirthdayInfo = j2Var;
-                    j2Var.a(optJSONObject10);
+                    k2 k2Var = new k2();
+                    this.mBirthdayInfo = k2Var;
+                    k2Var.a(optJSONObject10);
                 }
                 this.mTiebaUid = jSONObject.optString("tieba_uid");
             } catch (Exception e2) {

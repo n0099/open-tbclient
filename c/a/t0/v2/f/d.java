@@ -144,7 +144,7 @@ public class d extends c.a.t0.g0.b<k> {
         this.o.setAdapter(aVar);
         this.p.setupWithViewPager(this.o);
         this.q.setVisibility(8);
-        l(i(), this.f18209e);
+        l(i(), this.f17766e);
     }
 
     @Override // c.a.t0.g0.b
@@ -219,7 +219,7 @@ public class d extends c.a.t0.g0.b<k> {
                     this.p.setVisibility(0);
                 }
                 this.r.a(this.n);
-                l(i(), this.f18209e);
+                l(i(), this.f17766e);
                 return;
             }
             o(8);

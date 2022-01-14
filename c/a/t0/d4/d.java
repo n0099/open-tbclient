@@ -51,25 +51,23 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17526e;
+    public Context f17101e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f17527f;
+    public LinearLayout f17102f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f17528g;
+    public EMTextView f17103g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.d4.c f17529h;
+    public c.a.t0.d4.c f17104h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f17530i;
+    public EMTextView f17105i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f17531j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public AlertDialog f17532k;
+    public View f17106j;
+    public AlertDialog k;
     public DialogInterface.OnDismissListener l;
     public boolean m;
     public ShareDialogConfig n;
@@ -121,7 +119,7 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f17533e;
+        public final /* synthetic */ d f17107e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -138,19 +136,19 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
                     return;
                 }
             }
-            this.f17533e = dVar;
+            this.f17107e = dVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (this.f17533e.l != null) {
-                    this.f17533e.l.onDismiss(dialogInterface);
+                if (this.f17107e.l != null) {
+                    this.f17107e.l.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(2001450);
-                if (this.f17533e.f17529h != null) {
-                    this.f17533e.f17529h.s();
+                if (this.f17107e.f17104h != null) {
+                    this.f17107e.f17104h.s();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.FALSE));
             }
@@ -163,7 +161,7 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f17534e;
+        public final /* synthetic */ d f17108e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -180,7 +178,7 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
                     return;
                 }
             }
-            this.f17534e = dVar;
+            this.f17108e = dVar;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -188,10 +186,10 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (this.f17534e.f17532k == null || !this.f17534e.f17532k.isShowing()) {
+                if (this.f17108e.k == null || !this.f17108e.k.isShowing()) {
                     return null;
                 }
-                this.f17534e.h();
+                this.f17108e.h();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -238,42 +236,42 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
         }
         this.o = 0.33f;
         this.p = new a(this, 2001304);
-        this.f17526e = context;
+        this.f17101e = context;
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f17527f = linearLayout;
+        this.f17102f = linearLayout;
         linearLayout.setOrientation(1);
         EMTextView eMTextView = new EMTextView(context);
-        this.f17528g = eMTextView;
+        this.f17103g = eMTextView;
         eMTextView.setTextSize(0, u);
-        EMTextView eMTextView2 = this.f17528g;
+        EMTextView eMTextView2 = this.f17103g;
         int i4 = q;
         eMTextView2.setPadding(i4, r, i4, s);
-        this.f17528g.setGravity(1);
-        this.f17528g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        this.f17527f.addView(this.f17528g);
-        this.f17529h = new c.a.t0.d4.c(context);
+        this.f17103g.setGravity(1);
+        this.f17103g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.f17102f.addView(this.f17103g);
+        this.f17104h = new c.a.t0.d4.c(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         int i5 = ShareGridLayout.DEFAULT_MARGIN_LEFT_RIGHT;
         layoutParams.leftMargin = i5;
         layoutParams.rightMargin = i5;
-        this.f17527f.addView(this.f17529h.l(z), layoutParams);
+        this.f17102f.addView(this.f17104h.l(z), layoutParams);
         EMTextView eMTextView3 = new EMTextView(context);
-        this.f17530i = eMTextView3;
+        this.f17105i = eMTextView3;
         eMTextView3.setGravity(1);
-        this.f17530i.setTextSize(0, v);
-        this.f17530i.setText(R.string.cancel);
+        this.f17105i.setTextSize(0, v);
+        this.f17105i.setText(R.string.cancel);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = w;
-        this.f17530i.setLayoutParams(layoutParams2);
-        EMTextView eMTextView4 = this.f17530i;
+        this.f17105i.setLayoutParams(layoutParams2);
+        EMTextView eMTextView4 = this.f17105i;
         int i6 = t;
         eMTextView4.setPadding(0, i6, 0, i6);
-        this.f17530i.setOnClickListener(this);
-        this.f17527f.addView(this.f17530i);
-        this.f17531j = new View(context);
-        this.f17531j.setLayoutParams(new LinearLayout.LayoutParams(-1, n.f(TbadkCoreApplication.getInst(), R.dimen.bottom_enter_anim_place_holder_height)));
-        this.f17527f.addView(this.f17531j);
-        this.f17529h.t(this);
+        this.f17105i.setOnClickListener(this);
+        this.f17102f.addView(this.f17105i);
+        this.f17106j = new View(context);
+        this.f17106j.setLayoutParams(new LinearLayout.LayoutParams(-1, n.f(TbadkCoreApplication.getInst(), R.dimen.bottom_enter_anim_place_holder_height)));
+        this.f17102f.addView(this.f17106j);
+        this.f17104h.t(this);
     }
 
     @Override // c.a.t0.d4.a
@@ -287,21 +285,21 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f17527f);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f17102f);
             d2.n(R.string.J_X14);
             d2.f(R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.f17528g, R.color.CAM_X0109);
-            SkinManager.setViewTextColorSelector(this.f17530i, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f17103g, R.color.CAM_X0109);
+            SkinManager.setViewTextColorSelector(this.f17105i, R.color.CAM_X0107);
         }
     }
 
     public void h() {
         AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (alertDialog = this.f17532k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (alertDialog = this.k) == null) {
             return;
         }
-        Context context = this.f17526e;
+        Context context = this.f17101e;
         if (context instanceof Activity) {
             g.a(alertDialog, (Activity) context);
             MessageManager.getInstance().unRegisterListener(this.p);
@@ -313,7 +311,7 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
         i0 sharePanelConfData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, from) == null) && (sharePanelConfData = TbSingleton.getInstance().getSharePanelConfData()) != null && sharePanelConfData.d(from) && sharePanelConfData.c() && !m.isEmpty(sharePanelConfData.b())) {
-            this.f17528g.setText(sharePanelConfData.b());
+            this.f17103g.setText(sharePanelConfData.b());
         }
     }
 
@@ -343,22 +341,22 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
             ShareItem shareItem2 = shareDialogConfig.shareItem;
             if (!shareItem2.f0) {
                 if (shareItem2.g0) {
-                    this.f17528g.setText(R.string.transmit_share_more);
+                    this.f17103g.setText(R.string.transmit_share_more);
                 } else {
-                    this.f17528g.setText(R.string.transmit_share_no_outer);
+                    this.f17103g.setText(R.string.transmit_share_no_outer);
                 }
             } else {
                 String sharePanelText = TbSingleton.getInstance().getSharePanelText();
                 if (!TextUtils.isEmpty(sharePanelText)) {
-                    this.f17528g.setText(sharePanelText);
+                    this.f17103g.setText(sharePanelText);
                 } else {
-                    this.f17528g.setText(R.string.transmit_share_not_add_experience);
+                    this.f17103g.setText(R.string.transmit_share_not_add_experience);
                 }
             }
             if (shareDialogConfig.isShowNovelMask()) {
-                this.f17528g.setVisibility(4);
+                this.f17103g.setVisibility(4);
             }
-            this.f17529h.u(shareDialogConfig, this.m);
+            this.f17104h.u(shareDialogConfig, this.m);
             this.n = shareDialogConfig;
         }
     }
@@ -374,18 +372,18 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             g();
-            AlertDialog create = new AlertDialog.Builder(this.f17526e, R.style.DialogTheme).create();
-            this.f17532k = create;
+            AlertDialog create = new AlertDialog.Builder(this.f17101e, R.style.DialogTheme).create();
+            this.k = create;
             create.setCanceledOnTouchOutside(true);
-            this.f17532k.setOnDismissListener(new b(this));
-            Context context = this.f17526e;
+            this.k.setOnDismissListener(new b(this));
+            Context context = this.f17101e;
             if (context instanceof Activity) {
-                g.i(this.f17532k, (Activity) context);
+                g.i(this.k, (Activity) context);
             }
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f17527f);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f17102f);
             d2.n(R.string.J_X14);
             d2.f(R.color.CAM_X0212);
-            Window window = this.f17532k.getWindow();
+            Window window = this.k.getWindow();
             if (window == null) {
                 return;
             }
@@ -396,10 +394,10 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
             window.setWindowAnimations(R.style.share_dialog_style);
             window.setGravity(80);
             window.setLayout(-1, -2);
-            window.setContentView(this.f17527f);
+            window.setContentView(this.f17102f);
             window.setDimAmount(this.o);
             j();
-            j.a(this.f17526e).registerListener(this.p);
+            j.a(this.f17101e).registerListener(this.p);
             MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.TRUE));
         }
     }
@@ -407,14 +405,14 @@ public class d implements View.OnClickListener, c.a.t0.d4.a {
     public final void o(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, objArr) == null) {
-            TiebaStatic.eventStat(this.f17526e, str, "click", 1, objArr);
+            TiebaStatic.eventStat(this.f17101e, str, "click", 1, objArr);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, view) == null) && view == this.f17530i) {
+        if ((interceptable == null || interceptable.invokeL(1048586, this, view) == null) && view == this.f17105i) {
             o("share_cancel", new Object[0]);
             h();
         }

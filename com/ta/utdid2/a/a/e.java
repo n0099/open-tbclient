@@ -5,6 +5,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,7 +44,7 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             String str = "";
             try {
-                string = Settings.Secure.getString(context.getContentResolver(), "android_id");
+                string = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             } catch (Throwable unused) {
             }
             try {
@@ -94,11 +95,11 @@ public class e {
             }
             if (telephonyManager != null) {
                 subscriberId = telephonyManager.getSubscriberId();
-                return !g.m112a(subscriberId) ? a() : subscriberId;
+                return !g.m124a(subscriberId) ? a() : subscriberId;
             }
         }
         subscriberId = null;
-        if (!g.m112a(subscriberId)) {
+        if (!g.m124a(subscriberId)) {
         }
     }
 
@@ -137,21 +138,21 @@ public class e {
             }
             if (telephonyManager != null) {
                 str = telephonyManager.getDeviceId();
-                if (g.m112a(str)) {
+                if (g.m124a(str)) {
                     str = b();
                 }
-                if (g.m112a(str)) {
+                if (g.m124a(str)) {
                     str = b(context);
                 }
-                return !g.m112a(str) ? a() : str;
+                return !g.m124a(str) ? a() : str;
             }
         }
         str = null;
-        if (g.m112a(str)) {
+        if (g.m124a(str)) {
         }
-        if (g.m112a(str)) {
+        if (g.m124a(str)) {
         }
-        if (!g.m112a(str)) {
+        if (!g.m124a(str)) {
         }
     }
 }

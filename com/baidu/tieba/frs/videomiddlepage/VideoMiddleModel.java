@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
 import c.a.s0.e1.i;
-import c.a.t0.d1.s1.g;
+import c.a.t0.d1.t1.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -46,25 +46,23 @@ public class VideoMiddleModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45415e;
+    public int f43764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45416f;
+    public String f43765f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f45417g;
+    public String f43766g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f45418h;
+    public String f43767h;
 
     /* renamed from: i  reason: collision with root package name */
-    public VideoSerializeVideoThreadInfo f45419i;
+    public VideoSerializeVideoThreadInfo f43768i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f45420j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public b f45421k;
+    public boolean f43769j;
+    public b k;
     public String l;
     public String m;
     public final HttpMessageListener n;
@@ -155,18 +153,18 @@ public class VideoMiddleModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoMiddleDataResponseMessage)) {
-                    if (this.a.f45421k != null) {
-                        this.a.f45421k.a("error");
+                    if (this.a.k != null) {
+                        this.a.k.a("error");
                         return;
                     }
                     return;
                 }
-                this.a.f45420j = false;
+                this.a.f43769j = false;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     TbSingleton.getInstance().clearVideoRecord();
-                    if (this.a.f45421k != null) {
+                    if (this.a.k != null) {
                         VideoMiddleDataResponseMessage videoMiddleDataResponseMessage = (VideoMiddleDataResponseMessage) httpResponsedMessage;
-                        this.a.f45421k.b(videoMiddleDataResponseMessage.mDataList, videoMiddleDataResponseMessage.mHasMore);
+                        this.a.k.b(videoMiddleDataResponseMessage.mDataList, videoMiddleDataResponseMessage.mHasMore);
                         return;
                     }
                     return;
@@ -176,8 +174,8 @@ public class VideoMiddleModel extends BdBaseModel {
                 if (TextUtils.isEmpty(errorString)) {
                     errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                 }
-                if (this.a.f45421k != null) {
-                    this.a.f45421k.a(errorString);
+                if (this.a.k != null) {
+                    this.a.k.a(errorString);
                 }
             }
         }
@@ -210,7 +208,7 @@ public class VideoMiddleModel extends BdBaseModel {
         }
         this.m = "client_other";
         this.n = new a(this, CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION);
-        this.f45421k = bVar;
+        this.k = bVar;
         registerTask();
         this.n.setTag(getUniqueId());
         this.n.setSelfListener(true);
@@ -218,42 +216,42 @@ public class VideoMiddleModel extends BdBaseModel {
     }
 
     public static /* synthetic */ int y(VideoMiddleModel videoMiddleModel) {
-        int i2 = videoMiddleModel.f45415e;
-        videoMiddleModel.f45415e = i2 - 1;
+        int i2 = videoMiddleModel.f43764e;
+        videoMiddleModel.f43764e = i2 - 1;
         return i2;
     }
 
     public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45415e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43764e : invokeV.intValue;
     }
 
     public void B(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f45416f = str;
+            this.f43765f = str;
         }
     }
 
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f45418h = str;
+            this.f43767h = str;
         }
     }
 
     public void D(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f45417g = str;
+            this.f43766g = str;
         }
     }
 
     public void E(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, videoSerializeVideoThreadInfo) == null) {
-            this.f45419i = videoSerializeVideoThreadInfo;
+            this.f43768i = videoSerializeVideoThreadInfo;
         }
     }
 
@@ -274,16 +272,16 @@ public class VideoMiddleModel extends BdBaseModel {
         BaijiahaoData baijiahaoData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f45420j) {
+            if (this.f43769j) {
                 return false;
             }
-            this.f45420j = true;
+            this.f43769j = true;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION);
-            httpMessage.addParam("tid", this.f45416f);
-            httpMessage.addParam("st_type", this.f45417g);
-            httpMessage.addParam("yuelaou_locate", this.f45418h);
-            int i2 = this.f45415e + 1;
-            this.f45415e = i2;
+            httpMessage.addParam("tid", this.f43765f);
+            httpMessage.addParam("st_type", this.f43766g);
+            httpMessage.addParam("yuelaou_locate", this.f43767h);
+            int i2 = this.f43764e + 1;
+            this.f43764e = i2;
             httpMessage.addParam("pn", i2);
             httpMessage.addParam("user_view_data", z());
             if ("frs".equals(this.l)) {
@@ -295,12 +293,12 @@ public class VideoMiddleModel extends BdBaseModel {
             }
             httpMessage.addParam(IntentConfig.CALL_FROM, this.m);
             this.m = "client_index";
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.f45419i;
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.f43768i;
             if (videoSerializeVideoThreadInfo != null && (baijiahaoData = videoSerializeVideoThreadInfo.mBaijiahaoData) != null) {
                 httpMessage.addParam("ori_ugc_nid", baijiahaoData.oriUgcNid);
-                httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, this.f45419i.mBaijiahaoData.oriUgcType);
-                httpMessage.addParam("ori_ugc_vid", this.f45419i.mBaijiahaoData.oriUgcVid);
-                httpMessage.addParam("ori_ugc_tid", this.f45419i.mBaijiahaoData.oriUgcTid);
+                httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, this.f43768i.mBaijiahaoData.oriUgcType);
+                httpMessage.addParam("ori_ugc_vid", this.f43768i.mBaijiahaoData.oriUgcVid);
+                httpMessage.addParam("ori_ugc_tid", this.f43768i.mBaijiahaoData.oriUgcTid);
             }
             httpMessage.addParam("app_transmit_data", i.a());
             sendMessage(httpMessage);

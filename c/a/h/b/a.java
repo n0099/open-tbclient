@@ -36,20 +36,20 @@ public class a extends m {
                 return;
             }
         }
-        this.f14529b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
-        this.f14531d = R.drawable.icon_pure_post_speak24;
-        this.f14534g = false;
-        this.f14535h = true;
+        this.f14189b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
+        this.f14191d = R.drawable.icon_pure_post_speak24;
+        this.f14194g = false;
+        this.f14195h = true;
         this.m = true;
         this.l = 5;
-        this.f14538k = new SendVoiceView(context);
+        this.k = new SendVoiceView(context);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -2);
         ((LinearLayout.LayoutParams) layoutParams).leftMargin = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         ((LinearLayout.LayoutParams) layoutParams).rightMargin = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         ((LinearLayout.LayoutParams) layoutParams).topMargin = context.getResources().getDimensionPixelSize(R.dimen.ds22);
         ((LinearLayout.LayoutParams) layoutParams).bottomMargin = context.getResources().getDimensionPixelSize(R.dimen.ds20);
         ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
-        ((View) this.f14538k).setLayoutParams(layoutParams);
+        ((View) this.k).setLayoutParams(layoutParams);
         this.n = new int[0];
     }
 }

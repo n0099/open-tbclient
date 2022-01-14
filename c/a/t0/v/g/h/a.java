@@ -24,16 +24,16 @@ public class a implements c {
     public final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.t0.v.g.c f25202b;
+    public final c.a.t0.v.g.c f24498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final DownloadCacheKey f25203c;
+    public final DownloadCacheKey f24499c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f25204d;
+    public int f24500d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Set<d> f25205e;
+    public final Set<d> f24501e;
 
     static {
         InterceptResult invokeClinit;
@@ -66,71 +66,71 @@ public class a implements c {
             }
         }
         this.a = new Object();
-        this.f25204d = 0;
-        this.f25205e = new HashSet();
-        this.f25203c = downloadCacheKey;
-        this.f25202b = new c.a.t0.v.g.c();
+        this.f24500d = 0;
+        this.f24501e = new HashSet();
+        this.f24499c = downloadCacheKey;
+        this.f24498b = new c.a.t0.v.g.c();
     }
 
     @Override // c.a.t0.v.g.h.c
     public void a(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) || this.f25203c == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) || this.f24499c == null) {
             return;
         }
-        AdDownloadData b2 = e.d().b(this.f25203c);
+        AdDownloadData b2 = e.d().b(this.f24499c);
         b2.extra().setStatus(DownloadStatus.STATUS_PAUSED);
         if (f()) {
             return;
         }
-        for (d dVar : this.f25205e) {
-            dVar.c(this.f25203c, b2.getPercent());
+        for (d dVar : this.f24501e) {
+            dVar.c(this.f24499c, b2.getPercent());
         }
     }
 
     @Override // c.a.t0.v.g.h.c
     public void b(String str, StopStatus stopStatus) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, stopStatus) == null) || this.f25203c == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, stopStatus) == null) || this.f24499c == null) {
             return;
         }
-        e.d().b(this.f25203c).extra().setStatus(DownloadStatus.STATUS_NONE);
+        e.d().b(this.f24499c).extra().setStatus(DownloadStatus.STATUS_NONE);
         if (f()) {
             return;
         }
-        for (d dVar : this.f25205e) {
-            dVar.f(this.f25203c, stopStatus);
+        for (d dVar : this.f24501e) {
+            dVar.f(this.f24499c, stopStatus);
         }
     }
 
     @Override // c.a.t0.v.g.h.c
     public void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f25203c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f24499c == null) {
             return;
         }
-        e.d().b(this.f25203c).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
+        e.d().b(this.f24499c).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
         if (f()) {
             return;
         }
-        for (d dVar : this.f25205e) {
-            dVar.e(this.f25203c);
+        for (d dVar : this.f24501e) {
+            dVar.e(this.f24499c);
         }
     }
 
     @Override // c.a.t0.v.g.h.c
     public void d(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) || this.f25203c == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) || this.f24499c == null) {
             return;
         }
-        AdDownloadData b2 = e.d().b(this.f25203c);
+        AdDownloadData b2 = e.d().b(this.f24499c);
         b2.extra().setPercent(i2);
         if (f()) {
             return;
         }
-        for (d dVar : this.f25205e) {
-            dVar.g(this.f25203c, b2.getPercent());
+        for (d dVar : this.f24501e) {
+            dVar.g(this.f24499c, b2.getPercent());
         }
     }
 
@@ -140,7 +140,7 @@ public class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, dVar)) == null) {
             synchronized (this.a) {
-                add = this.f25205e.add(dVar);
+                add = this.f24501e.add(dVar);
             }
             return add;
         }
@@ -150,37 +150,37 @@ public class a implements c {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f25205e.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24501e.isEmpty() : invokeV.booleanValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f25203c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f24499c == null) {
             return;
         }
-        AdDownloadData b2 = e.d().b(this.f25203c);
-        this.f25202b.b(710, this.f25203c.mPackageName, b2.getExtInfo(), b2);
+        AdDownloadData b2 = e.d().b(this.f24499c);
+        this.f24498b.b(710, this.f24499c.mPackageName, b2.getExtInfo(), b2);
         b2.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
         b2.extra().setPercent(100);
         if (f()) {
             return;
         }
-        for (d dVar : this.f25205e) {
-            dVar.b(this.f25203c);
+        for (d dVar : this.f24501e) {
+            dVar.b(this.f24499c);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f25203c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f24499c == null) {
             return;
         }
-        e.d().b(this.f25203c).extra().setStatus(DownloadStatus.STATUS_NONE);
+        e.d().b(this.f24499c).extra().setStatus(DownloadStatus.STATUS_NONE);
         if (f()) {
             return;
         }
-        for (d dVar : this.f25205e) {
-            dVar.d(this.f25203c);
+        for (d dVar : this.f24501e) {
+            dVar.d(this.f24499c);
         }
     }
 
@@ -190,7 +190,7 @@ public class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar)) == null) {
             synchronized (this.a) {
-                remove = this.f25205e.remove(dVar);
+                remove = this.f24501e.remove(dVar);
             }
             return remove;
         }
@@ -200,39 +200,39 @@ public class a implements c {
     public void j(int i2, @Nullable String str, String str2, AdDownloadData adDownloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), str, str2, adDownloadData}) == null) {
-            this.f25202b.b(i2, str, str2, adDownloadData);
+            this.f24498b.b(i2, str, str2, adDownloadData);
         }
     }
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f25204d = i2;
+            this.f24500d = i2;
         }
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f25204d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f24500d : invokeV.intValue;
     }
 
     @Override // c.a.t0.v.g.h.c
     public void onSuccess(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) || this.f25203c == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) || this.f24499c == null) {
             return;
         }
-        AdDownloadData b2 = e.d().b(this.f25203c);
-        this.f25202b.b(704, this.f25203c.mPackageName, b2.getExtInfo(), b2);
+        AdDownloadData b2 = e.d().b(this.f24499c);
+        this.f24498b.b(704, this.f24499c.mPackageName, b2.getExtInfo(), b2);
         b2.extra().setStatus(DownloadStatus.STATUS_SUCCESS);
         b2.extra().setPercent(100);
-        e.d().b(this.f25203c).extra().setDownloadPath(str2);
+        e.d().b(this.f24499c).extra().setDownloadPath(str2);
         if (f()) {
             return;
         }
-        for (d dVar : this.f25205e) {
-            dVar.a(this.f25203c, str2, false);
+        for (d dVar : this.f24501e) {
+            dVar.a(this.f24499c, str2, false);
         }
     }
 }

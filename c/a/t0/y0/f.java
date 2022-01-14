@@ -26,28 +26,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static f f26448f;
+    public static f f25663f;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f26449b;
+    public List<String> f25664b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26450c;
+    public int f25665c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f26451d;
+    public CustomMessageListener f25666d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f26452e;
+    public CustomMessageListener f25667e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,14 +116,14 @@ public class f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001119 && (customResponsedMessage instanceof QueryDownloadMessage)) {
-                this.a.f26449b = ((QueryDownloadMessage) customResponsedMessage).getData();
+                this.a.f25664b = ((QueryDownloadMessage) customResponsedMessage).getData();
                 f fVar = this.a;
-                fVar.g(fVar.f26449b);
+                fVar.g(fVar.f25664b);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c extends BdAsyncTask<List<String>, List<DownloadData>, List<DownloadData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -182,7 +182,7 @@ public class f {
                     list = new LinkedList<>();
                 }
                 for (DownloadData downloadData : c.a.s0.w.f.k().j()) {
-                    for (String str : this.a.f26449b) {
+                    for (String str : this.a.f25664b) {
                         if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
                             list.add(downloadData);
                         }
@@ -206,7 +206,7 @@ public class f {
                 return;
             }
         }
-        f26448f = new f();
+        f25663f = new f();
     }
 
     public f() {
@@ -222,17 +222,17 @@ public class f {
                 return;
             }
         }
-        this.f26450c = 5;
-        this.f26451d = new a(this, 2001140);
-        this.f26452e = new b(this, 2001119);
-        MessageManager.getInstance().registerListener(this.f26452e);
-        MessageManager.getInstance().registerListener(this.f26451d);
+        this.f25665c = 5;
+        this.f25666d = new a(this, 2001140);
+        this.f25667e = new b(this, 2001119);
+        MessageManager.getInstance().registerListener(this.f25667e);
+        MessageManager.getInstance().registerListener(this.f25666d);
     }
 
     public static f f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f26448f : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f25663f : (f) invokeV.objValue;
     }
 
     public void d() {
@@ -319,6 +319,6 @@ public class f {
         sb.append(str);
         downloadData.setPath(sb.toString());
         BdLog.d("download:path:" + downloadData.getPath());
-        c.a.s0.w.f.k().m(downloadData, this.f26450c);
+        c.a.s0.w.f.k().m(downloadData, this.f25665c);
     }
 }

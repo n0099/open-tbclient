@@ -123,7 +123,7 @@ public class CommonPlatformView implements PlatformView, MethodChannel.MethodCal
                 this.mSquareDelegate = aVar;
                 aVar.g();
                 this.mSquareDelegate.o();
-                this.mainView = this.mSquareDelegate.f24105d.d();
+                this.mainView = this.mSquareDelegate.f23432d.d();
             }
         }
     }

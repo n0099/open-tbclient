@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import android.util.SparseIntArray;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,15 +21,15 @@ public final class a {
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f8548b;
+    public static final Pattern f8364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SparseIntArray f8549c;
+    public static final SparseIntArray f8365c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.p2.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0507a {
+    public static /* synthetic */ class C0516a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -49,21 +48,21 @@ public final class a {
             }
         }
         a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        f8548b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+        f8364b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
         SparseIntArray sparseIntArray = new SparseIntArray();
-        f8549c = sparseIntArray;
+        f8365c = sparseIntArray;
         sparseIntArray.put(d("jan"), 0);
-        f8549c.put(d("feb"), 1);
-        f8549c.put(d("mar"), 2);
-        f8549c.put(d("apr"), 3);
-        f8549c.put(d("may"), 4);
-        f8549c.put(d("jun"), 5);
-        f8549c.put(d("jul"), 6);
-        f8549c.put(d("aug"), 7);
-        f8549c.put(d("sep"), 8);
-        f8549c.put(d("oct"), 9);
-        f8549c.put(d("nov"), 10);
-        f8549c.put(d("dec"), 11);
+        f8365c.put(d("feb"), 1);
+        f8365c.put(d("mar"), 2);
+        f8365c.put(d("apr"), 3);
+        f8365c.put(d("may"), 4);
+        f8365c.put(d("jun"), 5);
+        f8365c.put(d("jul"), 6);
+        f8365c.put(d("aug"), 7);
+        f8365c.put(d("sep"), 8);
+        f8365c.put(d("oct"), 9);
+        f8365c.put(d("nov"), 10);
+        f8365c.put(d("dec"), 11);
     }
 
     public static int a(@NonNull Matcher matcher, int i2) {
@@ -91,7 +90,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i2)) == null) {
             try {
-                return f8549c.get(d(matcher.group(i2)), -1);
+                return f8365c.get(d(matcher.group(i2)), -1);
             } catch (Exception unused) {
                 return -1;
             }
@@ -151,17 +150,17 @@ public final class a {
             b bVar = new b(null);
             Matcher matcher = a.matcher(str);
             if (matcher.find()) {
-                bVar.f8551c = a(matcher, 1);
-                bVar.f8550b = b(matcher, 2);
+                bVar.f8367c = a(matcher, 1);
+                bVar.f8366b = b(matcher, 2);
                 bVar.a = c(matcher, 3);
                 f(bVar, matcher, 4);
             } else {
-                Matcher matcher2 = f8548b.matcher(str);
+                Matcher matcher2 = f8364b.matcher(str);
                 if (!matcher2.find()) {
                     return -1L;
                 }
-                bVar.f8550b = b(matcher2, 1);
-                bVar.f8551c = a(matcher2, 2);
+                bVar.f8366b = b(matcher2, 1);
+                bVar.f8367c = a(matcher2, 2);
                 f(bVar, matcher2, 3);
                 bVar.a = c(matcher2, 4);
             }
@@ -169,13 +168,13 @@ public final class a {
                 return -1L;
             }
             if (bVar.a >= 2038) {
-                bVar.a = SpeedStatsStampTable.INIT_MSG_SIX_STAMP_KEY;
-                bVar.f8550b = 0;
-                bVar.f8551c = 1;
+                bVar.a = 2038;
+                bVar.f8366b = 0;
+                bVar.f8367c = 1;
             }
             GregorianCalendar gregorianCalendar = new GregorianCalendar();
             gregorianCalendar.setTimeZone(TimeZone.getTimeZone("UTC"));
-            gregorianCalendar.set(bVar.a, bVar.f8550b, bVar.f8551c, bVar.f8552d, bVar.f8553e, bVar.f8554f);
+            gregorianCalendar.set(bVar.a, bVar.f8366b, bVar.f8367c, bVar.f8368d, bVar.f8369e, bVar.f8370f);
             return gregorianCalendar.getTimeInMillis();
         }
         return invokeL.longValue;
@@ -199,10 +198,10 @@ public final class a {
                 } else {
                     i3 = 1;
                 }
-                bVar.f8552d = charAt;
-                bVar.f8553e = ((group.charAt(i4) - '0') * 10) + (group.charAt(i5) - '0');
+                bVar.f8368d = charAt;
+                bVar.f8369e = ((group.charAt(i4) - '0') * 10) + (group.charAt(i5) - '0');
                 int i6 = i3 + 1 + 1 + 1 + 1;
-                bVar.f8554f = ((group.charAt(i6) - '0') * 10) + (group.charAt(i6 + 1) - '0');
+                bVar.f8370f = ((group.charAt(i6) - '0') * 10) + (group.charAt(i6 + 1) - '0');
             } catch (Exception unused) {
             }
         }
@@ -215,19 +214,19 @@ public final class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f8550b;
+        public int f8366b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f8551c;
+        public int f8367c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f8552d;
+        public int f8368d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f8553e;
+        public int f8369e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f8554f;
+        public int f8370f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -243,20 +242,20 @@ public final class a {
                 }
             }
             this.a = -1;
-            this.f8550b = -1;
-            this.f8551c = -1;
-            this.f8552d = -1;
-            this.f8553e = -1;
-            this.f8554f = -1;
+            this.f8366b = -1;
+            this.f8367c = -1;
+            this.f8368d = -1;
+            this.f8369e = -1;
+            this.f8370f = -1;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == -1 || this.f8550b == -1 || this.f8551c == -1 || this.f8552d == -1 || this.f8553e == -1 || this.f8554f == -1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == -1 || this.f8366b == -1 || this.f8367c == -1 || this.f8368d == -1 || this.f8369e == -1 || this.f8370f == -1 : invokeV.booleanValue;
         }
 
-        public /* synthetic */ b(C0507a c0507a) {
+        public /* synthetic */ b(C0516a c0516a) {
             this();
         }
     }

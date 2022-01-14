@@ -32,28 +32,28 @@ public class c {
     public PostSearchActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f17641b;
+    public View f17212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f17642c;
+    public View f17213c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdListView f17643d;
+    public BdListView f17214d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.c2.d f17644e;
+    public c.a.t0.c2.d f17215e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f17645f;
+    public View f17216f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.s0.s.s.a f17646g;
+    public c.a.s0.s.s.a f17217g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoDataView f17647h;
+    public NoDataView f17218h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f17648i;
+    public boolean f17219i;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -61,7 +61,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17649e;
+        public final /* synthetic */ c f17220e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -78,14 +78,14 @@ public class c {
                     return;
                 }
             }
-            this.f17649e = cVar;
+            this.f17220e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17649e.l();
+                this.f17220e.l();
             }
         }
     }
@@ -96,7 +96,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17650e;
+        public final /* synthetic */ c f17221e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -113,33 +113,33 @@ public class c {
                     return;
                 }
             }
-            this.f17650e = cVar;
+            this.f17221e = cVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                TiebaStatic.log(new StatisticItem("c12403").param("fid", this.f17650e.a.mForumId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fname", this.f17650e.a.mForumName));
-                String str = (String) this.f17650e.f17643d.getItemAtPosition(i2 + 1);
-                this.f17650e.a.setEditSearchText(str);
-                this.f17650e.a.startSearch(str);
-                PostSearchActivity unused = this.f17650e.a;
-                TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", str).param("obj_source", "3").param("obj_type", "2").param("fid", this.f17650e.a.mForumId));
+                TiebaStatic.log(new StatisticItem("c12403").param("fid", this.f17221e.a.mForumId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fname", this.f17221e.a.mForumName));
+                String str = (String) this.f17221e.f17214d.getItemAtPosition(i2 + 1);
+                this.f17221e.a.setEditSearchText(str);
+                this.f17221e.a.startSearch(str);
+                PostSearchActivity unused = this.f17221e.a;
+                TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", str).param("obj_source", "3").param("obj_type", "2").param("fid", this.f17221e.a.mForumId));
             }
         }
     }
 
     /* renamed from: c.a.t0.e3.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class View$OnTouchListenerC1078c implements View.OnTouchListener {
+    public class View$OnTouchListenerC1092c implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17651e;
+        public final /* synthetic */ c f17222e;
 
-        public View$OnTouchListenerC1078c(c cVar) {
+        public View$OnTouchListenerC1092c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,7 +154,7 @@ public class c {
                     return;
                 }
             }
-            this.f17651e = cVar;
+            this.f17222e = cVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -162,7 +162,7 @@ public class c {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                this.f17651e.a.hideSoftKeyPad();
+                this.f17222e.a.hideSoftKeyPad();
                 return false;
             }
             return invokeLL.booleanValue;
@@ -205,7 +205,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17652e;
+        public final /* synthetic */ c f17223e;
 
         public e(c cVar) {
             Interceptable interceptable = $ic;
@@ -222,7 +222,7 @@ public class c {
                     return;
                 }
             }
-            this.f17652e = cVar;
+            this.f17223e = cVar;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -230,9 +230,9 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f17652e.a.getModel().g();
-                this.f17652e.f17643d.setVisibility(8);
-                this.f17652e.n();
+                this.f17223e.a.getModel().g();
+                this.f17223e.f17214d.setVisibility(8);
+                this.f17223e.n();
             }
         }
     }
@@ -243,7 +243,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17653e;
+        public final /* synthetic */ c f17224e;
 
         public f(c cVar) {
             Interceptable interceptable = $ic;
@@ -260,7 +260,7 @@ public class c {
                     return;
                 }
             }
-            this.f17653e = cVar;
+            this.f17224e = cVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -268,7 +268,7 @@ public class c {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                this.f17653e.a.hideSoftKeyPad();
+                this.f17224e.a.hideSoftKeyPad();
                 return false;
             }
             return invokeLL.booleanValue;
@@ -290,33 +290,33 @@ public class c {
                 return;
             }
         }
-        this.f17644e = null;
-        this.f17645f = null;
-        this.f17648i = false;
+        this.f17215e = null;
+        this.f17216f = null;
+        this.f17219i = false;
         this.a = postSearchActivity;
-        this.f17641b = view;
+        this.f17212b = view;
         h();
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f17642c.setVisibility(8);
+            this.f17213c.setVisibility(8);
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f17648i = false;
-            this.a.hideLoadingView(this.f17642c);
+            this.f17219i = false;
+            this.a.hideLoadingView(this.f17213c);
         }
     }
 
     public void g() {
         NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (noDataView = this.f17647h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (noDataView = this.f17218h) == null) {
             return;
         }
         noDataView.setVisibility(8);
@@ -325,19 +325,19 @@ public class c {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f17642c = this.a.findViewById(R.id.history_frame);
-            this.f17643d = (BdListView) this.f17641b.findViewById(R.id.history_list);
-            BdListViewHelper.d(this.a.getActivity(), this.f17643d, BdListViewHelper.HeadType.DEFAULT);
+            this.f17213c = this.a.findViewById(R.id.history_frame);
+            this.f17214d = (BdListView) this.f17212b.findViewById(R.id.history_list);
+            BdListViewHelper.d(this.a.getActivity(), this.f17214d, BdListViewHelper.HeadType.DEFAULT);
             c.a.t0.c2.d dVar = new c.a.t0.c2.d(this.a.getPageContext().getPageActivity(), null);
-            this.f17644e = dVar;
+            this.f17215e = dVar;
             dVar.b(false);
-            this.f17643d.setAdapter((ListAdapter) this.f17644e);
+            this.f17214d.setAdapter((ListAdapter) this.f17215e);
             View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
-            this.f17645f = inflate;
-            this.f17643d.addFooterView(inflate);
-            this.f17645f.setOnClickListener(new a(this));
-            this.f17643d.setOnItemClickListener(new b(this));
-            this.f17643d.setOnTouchListener(new View$OnTouchListenerC1078c(this));
+            this.f17216f = inflate;
+            this.f17214d.addFooterView(inflate);
+            this.f17216f.setOnClickListener(new a(this));
+            this.f17214d.setOnItemClickListener(new b(this));
+            this.f17214d.setOnTouchListener(new View$OnTouchListenerC1092c(this));
         }
     }
 
@@ -345,10 +345,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f17642c.getVisibility() != 0 || this.f17648i) {
+            if (this.f17213c.getVisibility() != 0 || this.f17219i) {
                 return false;
             }
-            NoDataView noDataView = this.f17647h;
+            NoDataView noDataView = this.f17218h;
             return noDataView == null || 8 == noDataView.getVisibility();
         }
         return invokeV.booleanValue;
@@ -357,9 +357,9 @@ public class c {
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            c.a.s0.x0.a.a(this.a.getPageContext(), this.f17645f);
-            this.f17644e.notifyDataSetChanged();
-            NoDataView noDataView = this.f17647h;
+            c.a.s0.x0.a.a(this.a.getPageContext(), this.f17216f);
+            this.f17215e.notifyDataSetChanged();
+            NoDataView noDataView = this.f17218h;
             if (noDataView != null) {
                 noDataView.onChangeSkinType(this.a.getPageContext(), i2);
             }
@@ -369,16 +369,16 @@ public class c {
     public void k(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-            this.f17642c.setVisibility(0);
+            this.f17213c.setVisibility(0);
             f();
             if (arrayList != null && arrayList.size() != 0) {
                 g();
-                this.f17643d.setVisibility(0);
-                this.f17644e.a(arrayList);
-                this.f17644e.notifyDataSetChanged();
+                this.f17214d.setVisibility(0);
+                this.f17215e.a(arrayList);
+                this.f17215e.notifyDataSetChanged();
                 return;
             }
-            this.f17643d.setVisibility(8);
+            this.f17214d.setVisibility(8);
             n();
         }
     }
@@ -386,19 +386,19 @@ public class c {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.f17646g == null) {
-                this.f17646g = new c.a.s0.s.s.a(this.a.getPageContext().getPageActivity()).setMessage(this.a.getPageContext().getString(R.string.alert_clean_history)).setPositiveButton(this.a.getPageContext().getString(R.string.clear_all_text), new e(this)).setNegativeButton(this.a.getPageContext().getString(R.string.cancel), new d(this)).create(this.a.getPageContext());
+            if (this.f17217g == null) {
+                this.f17217g = new c.a.s0.s.s.a(this.a.getPageContext().getPageActivity()).setMessage(this.a.getPageContext().getString(R.string.alert_clean_history)).setPositiveButton(this.a.getPageContext().getString(R.string.clear_all_text), new e(this)).setNegativeButton(this.a.getPageContext().getString(R.string.cancel), new d(this)).create(this.a.getPageContext());
             }
-            this.f17646g.show();
+            this.f17217g.show();
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f17648i = true;
+            this.f17219i = true;
             PostSearchActivity postSearchActivity = this.a;
-            postSearchActivity.showLoadingView(this.f17642c, false, postSearchActivity.getResources().getDimensionPixelSize(R.dimen.ds386));
+            postSearchActivity.showLoadingView(this.f17213c, false, postSearchActivity.getResources().getDimensionPixelSize(R.dimen.ds386));
         }
     }
 
@@ -412,21 +412,21 @@ public class c {
     public final void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            if (this.f17647h == null) {
-                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.f17642c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(this.a.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.text_no_search_record), null);
-                this.f17647h = a2;
+            if (this.f17218h == null) {
+                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.f17213c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(this.a.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.text_no_search_record), null);
+                this.f17218h = a2;
                 a2.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-                this.f17647h.setOnTouchListener(new f(this));
+                this.f17218h.setOnTouchListener(new f(this));
             }
-            this.f17647h.setTextOption(NoDataViewFactory.e.d(null, this.a.getResources().getString(i2)));
-            this.f17647h.setVisibility(0);
+            this.f17218h.setTextOption(NoDataViewFactory.e.d(null, this.a.getResources().getString(i2)));
+            this.f17218h.setVisibility(0);
         }
     }
 
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f17643d.setVisibility(8);
+            this.f17214d.setVisibility(8);
             o(R.string.new_text_no_search_result);
         }
     }

@@ -11,7 +11,7 @@ import c.a.s0.r0.a;
 import c.a.s0.r0.c;
 import c.a.s0.r0.g;
 import c.a.s0.r0.h;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -105,7 +105,7 @@ public class PayActivityStatic {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             Context applicationContext = BdBaseApplication.getInst().getApp().getApplicationContext();
             String packageName = applicationContext.getPackageName();
-            String p = b.j().p("version_name", "");
+            String q = b.k().q("version_name", "");
             Context context = TbadkCoreApplication.getInst().getContext();
             MiddleReportConfig build = new MiddleReportConfig.MiddleReportConfigBuilder().build();
             build.setAppName(context.getString(R.string.app_name));
@@ -120,7 +120,7 @@ public class PayActivityStatic {
             build2.setUseChannel(i2);
             build2.setCurrencyType(4);
             build2.setPackageName(packageName);
-            build2.setVersion(p);
+            build2.setVersion(q);
             build2.setTestEnv(BdBaseApplication.getInst().isDebugMode());
             build2.setAuthType(6);
             build2.setProtoType(ProtocolType.HTTP);
@@ -169,29 +169,36 @@ public class PayActivityStatic {
         }
     }
 
+    public static void destoryYyPayCallback(c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, cVar) == null) && cVar == yyPayResultCallback) {
+            yyPayResultCallback = null;
+        }
+    }
+
     public static void doYYPayTask(g gVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, gVar) == null) || gVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, gVar) == null) || gVar == null) {
             return;
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = gVar.f13295e;
+        yyPayResultCallback = gVar.f12975e;
         Object obj = gVar.a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        viewParams.closeOnSuccess = gVar.f13297g;
-        if (!TextUtils.isEmpty(gVar.f13293c)) {
-            viewParams.payAmountDialogTitle = gVar.f13293c;
+        viewParams.closeOnSuccess = gVar.f12977g;
+        if (!TextUtils.isEmpty(gVar.f12973c)) {
+            viewParams.payAmountDialogTitle = gVar.f12973c;
         }
-        Long l = gVar.f13294d;
+        Long l = gVar.f12974d;
         if (l != null) {
             int intValue = l.intValue();
             viewParams.targetAmount = intValue;
             if (intValue > 0) {
-                int i2 = gVar.f13296f;
+                int i2 = gVar.f12976f;
                 if (i2 == 1) {
                     viewParams.payScene = PayScene.DIALOG_PAY_SCENE;
                 } else if (i2 != 3) {
@@ -290,19 +297,19 @@ public class PayActivityStatic {
                     }
                     h hVar = new h();
                     CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                    hVar.f13303g = currencyChargeMessage.status;
-                    hVar.f13298b = currencyChargeMessage.appid;
-                    hVar.f13304h = Long.valueOf(currencyChargeMessage.uid);
-                    hVar.f13305i = currencyChargeMessage.usedChannel;
-                    hVar.f13300d = currencyChargeMessage.currencyType;
+                    hVar.f12983g = currencyChargeMessage.status;
+                    hVar.f12978b = currencyChargeMessage.appid;
+                    hVar.f12984h = Long.valueOf(currencyChargeMessage.uid);
+                    hVar.f12985i = currencyChargeMessage.usedChannel;
+                    hVar.f12980d = currencyChargeMessage.currencyType;
                     hVar.a = Long.valueOf(currencyChargeMessage.amount);
-                    hVar.f13299c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                    hVar.f13302f = currencyChargeMessage.orderId;
-                    hVar.f13301e = currencyChargeMessage.expand;
+                    hVar.f12979c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                    hVar.f12982f = currencyChargeMessage.orderId;
+                    hVar.f12981e = currencyChargeMessage.expand;
                     PayActivityStatic.yyPayResultCallback.a(hVar);
                 }
             };
-            if (gVar.f13292b == 0) {
+            if (gVar.f12972b == 0) {
                 yyPayUIKit.startPayDialog((Activity) obj, viewParams, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);
@@ -313,7 +320,7 @@ public class PayActivityStatic {
     public static Activity getCurrentActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             try {
                 Class<?> cls = Class.forName("android.app.ActivityThread");
                 Object invoke = cls.getMethod("currentActivityThread", new Class[0]).invoke(null, new Object[0]);
@@ -340,7 +347,7 @@ public class PayActivityStatic {
     public static PayReq getPayReq(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jSONObject)) == null) {
             PayReq payReq = new PayReq();
             payReq.appId = jSONObject.optString("appid");
             payReq.partnerId = jSONObject.optString("partnerid");
@@ -356,7 +363,7 @@ public class PayActivityStatic {
 
     public static void initBaiduWallet() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && BaiduWalletDelegate.getInstance().getAppContext() == null) {
+        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && BaiduWalletDelegate.getInstance().getAppContext() == null) {
             BaiduWallet.getInstance().initWallet(new Login(TbadkApplication.getInst().getContext()), TbadkApplication.getInst().getContext(), "tieba");
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put(BaiduRimConstants.RIM_ID_KEY, "2100020001");
@@ -376,7 +383,7 @@ public class PayActivityStatic {
 
     public static void initYYPaySDK() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && needInitYYPaySDk()) {
+        if ((interceptable == null || interceptable.invokeV(65547, null) == null) && needInitYYPaySDk()) {
             MiddleRevenueConfig buildMiddleRevenueConfig = buildMiddleRevenueConfig(10002);
             PayUIKitConfig builder = new PayUIKitConfig.PayUIKitConfigBuilder().setRevenueConfig(buildMiddleRevenueConfig).builder();
             builder.revenueConfig = buildMiddleRevenueConfig;
@@ -391,13 +398,13 @@ public class PayActivityStatic {
     public static boolean isAccountChange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? yyPayUIKit.getPayUIKitConfig().revenueConfig.getUid() != Long.parseLong(TbadkCoreApplication.getCurrentAccountInfo().getID()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? yyPayUIKit.getPayUIKitConfig().revenueConfig.getUid() != Long.parseLong(TbadkCoreApplication.getCurrentAccountInfo().getID()) : invokeV.booleanValue;
     }
 
     public static boolean needInitYYPaySDk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             if (yyPayUIKit != null) {
                 if (!isAccountChange()) {
                     return false;
@@ -414,7 +421,7 @@ public class PayActivityStatic {
 
     public static void onWxPayResult(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, map) == null) {
+        if (interceptable == null || interceptable.invokeL(65550, null, map) == null) {
             HashMap hashMap = new HashMap();
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 hashMap.put(entry.getKey(), entry.getValue().toString());
@@ -428,7 +435,7 @@ public class PayActivityStatic {
 
     public static void registerYYPayUIKitProxy(String str, IWechatProxyCallback iWechatProxyCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, str, iWechatProxyCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(65551, null, str, iWechatProxyCallback) == null) {
             wxPayCallback = iWechatProxyCallback;
             wxRecharge(str);
         }
@@ -436,7 +443,7 @@ public class PayActivityStatic {
 
     public static void wxRecharge(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
             try {
                 IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
                 PayReq payReq = getPayReq(new JSONObject(str));

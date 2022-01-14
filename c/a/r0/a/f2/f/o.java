@@ -81,7 +81,7 @@ public class o extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
                 return false;
             } else if (eVar.m0()) {
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {

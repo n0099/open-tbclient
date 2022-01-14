@@ -152,10 +152,10 @@ public class NewFriendDbManagerStatic {
         public final /* synthetic */ c.a.t0.s1.g.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f43336b;
+        public final /* synthetic */ String f41783b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f43337c;
+        public final /* synthetic */ String f41784c;
 
         public d(NewFriendDbManagerStatic newFriendDbManagerStatic, c.a.t0.s1.g.a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -173,8 +173,8 @@ public class NewFriendDbManagerStatic {
                 }
             }
             this.a = aVar;
-            this.f43336b = str;
-            this.f43337c = str2;
+            this.f41783b = str;
+            this.f41784c = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -183,7 +183,7 @@ public class NewFriendDbManagerStatic {
         public void onReturnDataInUI(Void r9) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, r9) == null) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.a.b(), this.a.e(), this.a.d(), this.f43336b, this.f43337c));
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.a.b(), this.a.e(), this.a.d(), this.f41783b, this.f41784c));
             }
         }
     }
@@ -458,7 +458,7 @@ public class NewFriendDbManagerStatic {
             public final /* synthetic */ long a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ c.a.t0.s1.g.a f43338b;
+            public final /* synthetic */ c.a.t0.s1.g.a f41785b;
 
             public a(l lVar, long j2, c.a.t0.s1.g.a aVar) {
                 Interceptable interceptable = $ic;
@@ -476,7 +476,7 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j2;
-                this.f43338b = aVar;
+                this.f41785b = aVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -489,7 +489,7 @@ public class NewFriendDbManagerStatic {
                     if (c.a.t0.x.e.a.b.f().n(this.a)) {
                         return null;
                     }
-                    c.a.t0.x.e.a.b.f().l(this.f43338b);
+                    c.a.t0.x.e.a.b.f().l(this.f41785b);
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -629,7 +629,7 @@ public class NewFriendDbManagerStatic {
             public final /* synthetic */ long a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ c.a.t0.s1.g.a f43339b;
+            public final /* synthetic */ c.a.t0.s1.g.a f41786b;
 
             public a(o oVar, long j2, c.a.t0.s1.g.a aVar) {
                 Interceptable interceptable = $ic;
@@ -647,7 +647,7 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j2;
-                this.f43339b = aVar;
+                this.f41786b = aVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -661,9 +661,9 @@ public class NewFriendDbManagerStatic {
                     if (e2 == null) {
                         return null;
                     }
-                    this.f43339b.j(e2.d());
-                    this.f43339b.k(e2.e());
-                    c.a.t0.x.e.a.b.f().l(this.f43339b);
+                    this.f41786b.j(e2.d());
+                    this.f41786b.k(e2.e());
+                    c.a.t0.x.e.a.b.f().l(this.f41786b);
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -677,7 +677,7 @@ public class NewFriendDbManagerStatic {
             public final /* synthetic */ long a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ RequestAddFriendMessage f43340b;
+            public final /* synthetic */ RequestAddFriendMessage f41787b;
 
             public b(o oVar, long j2, RequestAddFriendMessage requestAddFriendMessage) {
                 Interceptable interceptable = $ic;
@@ -695,7 +695,7 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j2;
-                this.f43340b = requestAddFriendMessage;
+                this.f41787b = requestAddFriendMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -705,7 +705,7 @@ public class NewFriendDbManagerStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, r9) == null) {
                     ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = new ResponseNewFriendUpdateUiMsg(-1, this.a, "", "", "", "");
-                    responseNewFriendUpdateUiMsg.setContent(this.f43340b.getMessage());
+                    responseNewFriendUpdateUiMsg.setContent(this.f41787b.getMessage());
                     MessageManager.getInstance().dispatchResponsedMessageToUI(responseNewFriendUpdateUiMsg);
                 }
             }
@@ -966,7 +966,7 @@ public class NewFriendDbManagerStatic {
             public final /* synthetic */ long a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ c.a.t0.s1.g.a f43341b;
+            public final /* synthetic */ c.a.t0.s1.g.a f41788b;
 
             public a(q qVar, long j2, c.a.t0.s1.g.a aVar) {
                 Interceptable interceptable = $ic;
@@ -984,7 +984,7 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j2;
-                this.f43341b = aVar;
+                this.f41788b = aVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -998,10 +998,10 @@ public class NewFriendDbManagerStatic {
                     if (0 == this.a || (e2 = c.a.t0.x.e.a.b.f().e(this.a)) == null) {
                         return null;
                     }
-                    this.f43341b.g(e2.a());
-                    this.f43341b.j(e2.d());
-                    this.f43341b.k(e2.e());
-                    c.a.t0.x.e.a.b.f().l(this.f43341b);
+                    this.f41788b.g(e2.a());
+                    this.f41788b.j(e2.d());
+                    this.f41788b.k(e2.e());
+                    c.a.t0.x.e.a.b.f().l(this.f41788b);
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -1015,16 +1015,16 @@ public class NewFriendDbManagerStatic {
             public final /* synthetic */ long a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f43342b;
+            public final /* synthetic */ String f41789b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f43343c;
+            public final /* synthetic */ String f41790c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ String f43344d;
+            public final /* synthetic */ String f41791d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f43345e;
+            public final /* synthetic */ String f41792e;
 
             public b(q qVar, long j2, String str, String str2, String str3, String str4) {
                 Interceptable interceptable = $ic;
@@ -1042,10 +1042,10 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j2;
-                this.f43342b = str;
-                this.f43343c = str2;
-                this.f43344d = str3;
-                this.f43345e = str4;
+                this.f41789b = str;
+                this.f41790c = str2;
+                this.f41791d = str3;
+                this.f41792e = str4;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1054,7 +1054,7 @@ public class NewFriendDbManagerStatic {
             public void onReturnDataInUI(Void r9) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, r9) == null) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.a, this.f43342b, this.f43343c, this.f43344d, this.f43345e));
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.a, this.f41789b, this.f41790c, this.f41791d, this.f41792e));
                 }
             }
         }
@@ -1329,8 +1329,8 @@ public class NewFriendDbManagerStatic {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-            j2.C("get_addresslist_switch" + ((String) customResponsedMessage.getData()));
+            c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+            k.D("get_addresslist_switch" + ((String) customResponsedMessage.getData()));
         }
     }
 

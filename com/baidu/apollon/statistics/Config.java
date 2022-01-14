@@ -4,41 +4,39 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TYPE_NORMAL = "normal_log";
     public static final String a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f33714b = false;
+    public static final boolean f32644b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f33715c = 204800;
+    public static final int f32645c = 204800;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f33716d = 51200;
+    public static final int f32646d = 51200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f33717e = 604800000;
+    public static final long f32647e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f33718f = 86400000;
+    public static final long f32648f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f33719g = "publish_data";
+    public static final String f32649g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f33720h = "sign";
+    public static final String f32650h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f33721i = "mk";
+    public static final String f32651i = "mk";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f33722j = "array";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final String f33723k = "exception";
+    public static final String f32652j = "array";
+    public static final String k = "exception";
     public static final String l = "dim_excep_time";
     public static final String m = "dim_excep_owner";
     public static final String n = "dim_excep_key";

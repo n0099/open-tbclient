@@ -95,7 +95,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6491e;
+        public final /* synthetic */ d f6350e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -112,14 +112,14 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6491e = dVar;
+            this.f6350e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6491e.v1(c.a.r0.a.x1.a.a.E());
+                this.f6350e.v1(c.a.r0.a.x1.a.a.E());
             }
         }
     }
@@ -130,10 +130,10 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f6492e;
+        public final /* synthetic */ boolean f6351e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f6493f;
+        public final /* synthetic */ d f6352f;
 
         public b(d dVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -150,8 +150,8 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6493f = dVar;
-            this.f6492e = z;
+            this.f6352f = dVar;
+            this.f6351e = z;
         }
 
         @Override // java.lang.Runnable
@@ -159,28 +159,28 @@ public abstract class d extends Fragment implements SlideInterceptor {
             SwanAppActionBar swanAppActionBar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d dVar = this.f6493f;
+                d dVar = this.f6352f;
                 if (dVar.g0 == null || (swanAppActionBar = dVar.k0) == null) {
                     return;
                 }
-                if (this.f6492e) {
+                if (this.f6351e) {
                     if (dVar.t0 == null) {
-                        dVar.t0 = new TextView(this.f6493f.g0);
+                        dVar.t0 = new TextView(this.f6352f.g0);
                     }
-                    if (this.f6493f.t0.getParent() instanceof SwanAppActionBar) {
+                    if (this.f6352f.t0.getParent() instanceof SwanAppActionBar) {
                         return;
                     }
-                    this.f6493f.t0.setText(c.a.r0.a.h.aiapps_debug_open_cts);
-                    d dVar2 = this.f6493f;
+                    this.f6352f.t0.setText(c.a.r0.a.h.aiapps_debug_open_cts);
+                    d dVar2 = this.f6352f;
                     dVar2.t0.setTextColor(dVar2.D1().getColor(17170455));
-                    d dVar3 = this.f6493f;
+                    d dVar3 = this.f6352f;
                     dVar3.k0.addView(dVar3.t0);
                     return;
                 }
                 TextView textView = dVar.t0;
                 if (textView != null) {
                     swanAppActionBar.removeView(textView);
-                    this.f6493f.t0 = null;
+                    this.f6352f.t0 = null;
                 }
             }
         }
@@ -192,7 +192,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6494e;
+        public final /* synthetic */ d f6353e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -209,28 +209,28 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6494e = dVar;
+            this.f6353e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f6494e.c2();
+                this.f6353e.c2();
             }
         }
     }
 
     /* renamed from: c.a.r0.a.h0.g.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0354d implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
+    public class C0363d implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6495e;
+        public final /* synthetic */ d f6354e;
 
-        public C0354d(d dVar) {
+        public C0363d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -245,7 +245,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6495e = dVar;
+            this.f6354e = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -255,13 +255,13 @@ public abstract class d extends Fragment implements SlideInterceptor {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.f6495e.z0.setRegionFactor(0.1d);
-                    d dVar = this.f6495e;
+                    this.f6354e.z0.setRegionFactor(0.1d);
+                    d dVar = this.f6354e;
                     dVar.G0 = 0.1d;
                     dVar.z0.setCanSlide(dVar.s1());
                     return;
                 }
-                d dVar2 = this.f6495e;
+                d dVar2 = this.f6354e;
                 dVar2.z0.setCanSlide(dVar2.s1());
             }
         }
@@ -329,7 +329,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6496e;
+        public final /* synthetic */ d f6355e;
 
         public f(d dVar) {
             Interceptable interceptable = $ic;
@@ -346,7 +346,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6496e = dVar;
+            this.f6355e = dVar;
         }
 
         @Override // java.lang.Runnable
@@ -364,7 +364,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6497e;
+        public final /* synthetic */ d f6356e;
 
         /* loaded from: classes.dex */
         public class a implements c.a.r0.a.h0.j.b<Boolean> {
@@ -396,7 +396,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             public void a(Boolean bool) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) && bool.booleanValue()) {
-                    this.a.f6497e.b2();
+                    this.a.f6356e.b2();
                 }
             }
         }
@@ -416,7 +416,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6497e = dVar;
+            this.f6356e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -424,9 +424,9 @@ public abstract class d extends Fragment implements SlideInterceptor {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (c.a.r0.a.v0.a.b().c()) {
-                    c.a.r0.a.v0.a.b().f(this.f6497e.g0, new a(this));
+                    c.a.r0.a.v0.a.b().f(this.f6356e.g0, new a(this));
                 } else {
-                    this.f6497e.b2();
+                    this.f6356e.b2();
                 }
             }
         }
@@ -438,7 +438,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6498e;
+        public final /* synthetic */ d f6357e;
 
         public h(d dVar) {
             Interceptable interceptable = $ic;
@@ -455,22 +455,22 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6498e = dVar;
+            this.f6357e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f6498e.d2();
+                this.f6357e.d2();
                 c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-                fVar.f8160e = SupportMenuInflater.XML_MENU;
+                fVar.f7980e = SupportMenuInflater.XML_MENU;
                 if (c.a.r0.a.d2.e.a0() != null && c.a.r0.a.d2.e.a0().T().d("key_unread_counts_message", 0).intValue() > 0) {
-                    fVar.f8162g = String.valueOf(1);
+                    fVar.f7982g = String.valueOf(1);
                 }
-                this.f6498e.u1(fVar);
-                if (this.f6498e.C0 != null) {
-                    this.f6498e.C0.a();
+                this.f6357e.u1(fVar);
+                if (this.f6357e.C0 != null) {
+                    this.f6357e.C0.a();
                 }
             }
         }
@@ -482,7 +482,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6499e;
+        public final /* synthetic */ d f6358e;
 
         /* loaded from: classes.dex */
         public class a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
@@ -490,7 +490,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ i f6500e;
+            public final /* synthetic */ i f6359e;
 
             public a(i iVar) {
                 Interceptable interceptable = $ic;
@@ -507,7 +507,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
                         return;
                     }
                 }
-                this.f6500e = iVar;
+                this.f6359e = iVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -517,9 +517,9 @@ public abstract class d extends Fragment implements SlideInterceptor {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                     if (c.a.r0.a.h2.c.d.h(iVar)) {
-                        this.f6500e.f6499e.k2();
+                        this.f6359e.f6358e.k2();
                     } else {
-                        this.f6500e.f6499e.g2();
+                        this.f6359e.f6358e.g2();
                     }
                 }
             }
@@ -540,25 +540,25 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6499e = dVar;
+            this.f6358e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Activity activity;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (activity = this.f6499e.g0) != null && (activity instanceof SwanAppActivity)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (activity = this.f6358e.g0) != null && (activity instanceof SwanAppActivity)) {
                 c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
                 if (a0 != null && !TextUtils.isEmpty(a0.getAppId())) {
                     if (c.a.r0.a.z2.j.f() && c.a.r0.q.k.i.m.a().d()) {
                         a0.d0().g(a0.x(), "mapp_emit_app_close", new a(this));
                         return;
                     } else {
-                        this.f6499e.g2();
+                        this.f6358e.g2();
                         return;
                     }
                 }
-                this.f6499e.t1();
+                this.f6358e.t1();
             }
         }
     }
@@ -604,10 +604,10 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f6501e;
+        public final /* synthetic */ View f6360e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f6502f;
+        public final /* synthetic */ d f6361f;
 
         public k(d dVar, View view) {
             Interceptable interceptable = $ic;
@@ -624,8 +624,8 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6502f = dVar;
-            this.f6501e = view;
+            this.f6361f = dVar;
+            this.f6360e = view;
         }
 
         @Override // java.lang.Runnable
@@ -634,7 +634,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c.a.r0.a.l2.c.g()) {
                 return;
             }
-            this.f6502f.w1(this.f6501e, c.a.r0.a.l2.c.d(), c.a.r0.a.l2.c.f());
+            this.f6361f.w1(this.f6360e, c.a.r0.a.l2.c.d(), c.a.r0.a.l2.c.f());
         }
     }
 
@@ -644,16 +644,16 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f6503e;
+        public final /* synthetic */ boolean f6362e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f6504f;
+        public final /* synthetic */ boolean f6363f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f6505g;
+        public final /* synthetic */ View f6364g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f6506h;
+        public final /* synthetic */ d f6365h;
 
         /* loaded from: classes.dex */
         public class a implements View.OnClickListener {
@@ -661,7 +661,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ l f6507e;
+            public final /* synthetic */ l f6366e;
 
             public a(l lVar) {
                 Interceptable interceptable = $ic;
@@ -678,14 +678,14 @@ public abstract class d extends Fragment implements SlideInterceptor {
                         return;
                     }
                 }
-                this.f6507e = lVar;
+                this.f6366e = lVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f6507e.f6506h.i2();
+                    this.f6366e.f6365h.i2();
                 }
             }
         }
@@ -696,7 +696,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ l f6508e;
+            public final /* synthetic */ l f6367e;
 
             public b(l lVar) {
                 Interceptable interceptable = $ic;
@@ -713,14 +713,14 @@ public abstract class d extends Fragment implements SlideInterceptor {
                         return;
                     }
                 }
-                this.f6508e = lVar;
+                this.f6367e = lVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f6508e.f6506h.K2();
+                    this.f6367e.f6365h.K2();
                 }
             }
         }
@@ -740,34 +740,34 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6506h = dVar;
-            this.f6503e = z;
-            this.f6504f = z2;
-            this.f6505g = view;
+            this.f6365h = dVar;
+            this.f6362e = z;
+            this.f6363f = z2;
+            this.f6364g = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f6503e || this.f6504f) {
-                    d dVar = this.f6506h;
+                if (this.f6362e || this.f6363f) {
+                    d dVar = this.f6365h;
                     if (dVar.v0 == null) {
-                        View view = this.f6505g;
+                        View view = this.f6364g;
                         if (view == null) {
                             c.a.r0.a.e0.d.b("SwanAppBaseFragment", "view为null");
                             return;
                         }
                         dVar.v0 = (Button) view.findViewById(c.a.r0.a.f.swanapp_obtain_stability_data_btn);
                     }
-                    this.f6506h.v0.setVisibility(0);
-                    if (this.f6503e) {
-                        this.f6506h.v0.setOnClickListener(new a(this));
+                    this.f6365h.v0.setVisibility(0);
+                    if (this.f6362e) {
+                        this.f6365h.v0.setOnClickListener(new a(this));
                     }
-                    if (this.f6504f) {
-                        this.f6506h.w0 = new AtomicBoolean(false);
-                        this.f6506h.v0.setText(c.a.r0.a.h.swanapp_stability_profile_pause);
-                        this.f6506h.v0.setOnClickListener(new b(this));
+                    if (this.f6363f) {
+                        this.f6365h.w0 = new AtomicBoolean(false);
+                        this.f6365h.v0.setText(c.a.r0.a.h.swanapp_stability_profile_pause);
+                        this.f6365h.v0.setOnClickListener(new b(this));
                     }
                 }
             }
@@ -813,7 +813,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6509e;
+        public final /* synthetic */ d f6368e;
 
         public n(d dVar) {
             Interceptable interceptable = $ic;
@@ -830,14 +830,14 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6509e = dVar;
+            this.f6368e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6509e.j2();
+                this.f6368e.j2();
             }
         }
     }
@@ -849,13 +849,13 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f6510b;
+        public long f6369b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Runnable f6511c;
+        public Runnable f6370c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d f6512d;
+        public final /* synthetic */ d f6371d;
 
         public o(d dVar, Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -872,33 +872,33 @@ public abstract class d extends Fragment implements SlideInterceptor {
                     return;
                 }
             }
-            this.f6512d = dVar;
+            this.f6371d = dVar;
             this.a = 0;
-            this.f6510b = 0L;
-            this.f6511c = runnable;
+            this.f6369b = 0L;
+            this.f6370c = runnable;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f6510b > 1333) {
-                    this.f6510b = currentTimeMillis;
+                if (currentTimeMillis - this.f6369b > 1333) {
+                    this.f6369b = currentTimeMillis;
                     this.a = 1;
                     return;
                 }
                 int i2 = this.a + 1;
                 this.a = i2;
                 if (i2 == 3) {
-                    Runnable runnable = this.f6511c;
+                    Runnable runnable = this.f6370c;
                     if (runnable != null) {
                         runnable.run();
                     }
                     this.a = 0;
-                    this.f6510b = 0L;
+                    this.f6369b = 0L;
                     return;
                 }
-                this.f6510b = currentTimeMillis;
+                this.f6369b = currentTimeMillis;
             }
         }
     }
@@ -938,7 +938,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             }
         }
         this.f0 = UUID.randomUUID().toString();
-        this.y0 = c.a.r0.a.a3.d.b.f5309i;
+        this.y0 = c.a.r0.a.a3.d.b.f5199i;
         this.A0 = 1;
         this.B0 = 1;
         this.E0 = false;
@@ -1048,7 +1048,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             frameLayout.setBackgroundColor(i2);
             c.a.r0.a.d2.n.g A1 = A1();
             if (A1 != null) {
-                A1.f5702e = i2;
+                A1.f5577e = i2;
                 A1.p = z;
                 return true;
             }
@@ -1127,8 +1127,8 @@ public abstract class d extends Fragment implements SlideInterceptor {
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             c.a.r0.a.f2.f.o0.a.f("backtohome", SupportMenuInflater.XML_MENU, c.a.r0.a.g1.f.U().g());
             c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-            fVar.f8160e = "gohome";
-            fVar.f8158c = SupportMenuInflater.XML_MENU;
+            fVar.f7980e = "gohome";
+            fVar.f7978c = SupportMenuInflater.XML_MENU;
             u1(fVar);
         }
     }
@@ -1262,17 +1262,17 @@ public abstract class d extends Fragment implements SlideInterceptor {
             }
             c.a.r0.a.m1.c cVar = this.h0;
             if (cVar == null) {
-                f2 = s.f40706e;
+                f2 = s.f39343e;
             } else {
                 f2 = c.a.r0.a.g1.f.U().f(c.a.r0.a.f2.f.o0.j.c(cVar.i(), s));
             }
             n2(f2.a);
-            this.k0.setTitle(f2.f5699b);
+            this.k0.setTitle(f2.f5574b);
             this.C0 = new o(this, new f(this));
             if (!(this instanceof SwanAppAdLandingFragment)) {
-                w2(SwanAppConfigData.t(f2.f5700c));
+                w2(SwanAppConfigData.t(f2.f5575c));
             }
-            String str2 = f2.f5700c;
+            String str2 = f2.f5575c;
         }
     }
 
@@ -1519,7 +1519,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             c.a.r0.a.g1.f.U().u(new c.a.r0.a.o0.d.d(hashMap));
             c.a.r0.a.e0.d.i("SwanAppBaseFragment", "onClose");
             c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-            fVar.f8160e = IntentConfig.CLOSE;
+            fVar.f7980e = IntentConfig.CLOSE;
             u1(fVar);
         }
     }
@@ -1704,7 +1704,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             swanAppActionBar.setTitle(str);
             c.a.r0.a.d2.n.g A1 = A1();
             if (A1 != null) {
-                A1.f5699b = str;
+                A1.f5574b = str;
                 A1.g(z);
             }
             c.a.r0.a.e0.d.i("SwanAppBaseFragment", "page title: " + str);
@@ -1761,7 +1761,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             if (A1 != null && (A1.l || A1.m)) {
                 c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
                 if (a0 != null) {
-                    a0.d0().g(a0.x(), "scope_disable_swipe_back", new C0354d(this));
+                    a0.d0().g(a0.x(), "scope_disable_swipe_back", new C0363d(this));
                     return;
                 } else {
                     this.z0.setCanSlide(s1());
@@ -1873,7 +1873,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             c.a.r0.a.d2.n.g A1 = A1();
             if (A1 != null) {
                 if (!TextUtils.isEmpty(str)) {
-                    A1.f5700c = str;
+                    A1.f5575c = str;
                 }
                 A1.g(z);
             }
@@ -1898,9 +1898,9 @@ public abstract class d extends Fragment implements SlideInterceptor {
                 i2.g();
                 i2.a();
                 c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-                eVar.f8160e = com.alipay.sdk.widget.d.u;
-                eVar.f8162g = T1() ? "1" : "0";
-                eVar.f8157b = "gesture";
+                eVar.f7980e = com.alipay.sdk.widget.d.u;
+                eVar.f7982g = T1() ? "1" : "0";
+                eVar.f7977b = "gesture";
                 c.a.r0.a.n2.d.a(eVar, c.a.r0.a.d2.d.J().r().V());
                 c.a.r0.a.n2.d.c(eVar);
                 return;

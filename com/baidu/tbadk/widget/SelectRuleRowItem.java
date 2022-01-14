@@ -18,7 +18,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f42738g;
+    public a f41230g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SelectRuleRowItem(Context context) {
@@ -48,7 +48,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
             setGravity(16);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             a aVar = new a(getContext());
-            this.f42738g = aVar;
+            this.f41230g = aVar;
             setAdapter(aVar);
         }
     }
@@ -56,21 +56,21 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     public void onSkinTypeChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f42738g.notifyDataSetChanged();
+            this.f41230g.notifyDataSetChanged();
         }
     }
 
     public void setData(List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, list2) == null) {
-            this.f42738g.c(list, list2);
+            this.f41230g.c(list, list2);
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f42738g.e(i2);
+            this.f41230g.e(i2);
         }
     }
 
@@ -98,7 +98,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     public void setData(List<String> list, List<String> list2, List<String> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, list, list2, list3) == null) {
-            this.f42738g.d(list, list2, list3);
+            this.f41230g.d(list, list2, list3);
         }
     }
 

@@ -65,7 +65,7 @@ public class e extends c.a.r0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f6513e;
+        public final /* synthetic */ e f6372e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -82,14 +82,14 @@ public class e extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6513e = eVar;
+            this.f6372e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Activity activity;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (activity = this.f6513e.g0) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (activity = this.f6372e.g0) == null) {
                 return;
             }
             activity.finish();
@@ -102,10 +102,10 @@ public class e extends c.a.r0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.f1.e.b f6514e;
+        public final /* synthetic */ c.a.r0.a.f1.e.b f6373e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f6515f;
+        public final /* synthetic */ e f6374f;
 
         public b(e eVar, c.a.r0.a.f1.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -122,19 +122,19 @@ public class e extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6515f = eVar;
-            this.f6514e = bVar;
+            this.f6374f = eVar;
+            this.f6373e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Activity activity;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (activity = this.f6515f.g0) != null && SwanAppNetworkUtils.i(activity)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (activity = this.f6374f.g0) != null && SwanAppNetworkUtils.i(activity)) {
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("property_web_mode_degrade", true);
-                SwanLauncher.j().n(this.f6514e, bundle);
-                this.f6515f.g0.finishAndRemoveTask();
+                SwanLauncher.j().n(this.f6373e, bundle);
+                this.f6374f.g0.finishAndRemoveTask();
             }
         }
     }
@@ -145,10 +145,10 @@ public class e extends c.a.r0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6516e;
+        public final /* synthetic */ String f6375e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f6517f;
+        public final /* synthetic */ e f6376f;
 
         public c(e eVar, String str) {
             Interceptable interceptable = $ic;
@@ -165,17 +165,17 @@ public class e extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6517f = eVar;
-            this.f6516e = str;
+            this.f6376f = eVar;
+            this.f6375e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f6517f.L0 == null || TextUtils.isEmpty(this.f6517f.L0.forbiddenDetail)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f6376f.L0 == null || TextUtils.isEmpty(this.f6376f.L0.forbiddenDetail)) {
                 return;
             }
-            c.a.r0.a.c1.a.u().b(this.f6517f.getActivity(), this.f6516e, this.f6517f.L0.appTitle, this.f6517f.L0.forbiddenDetail);
+            c.a.r0.a.c1.a.u().b(this.f6376f.getActivity(), this.f6375e, this.f6376f.L0.appTitle, this.f6376f.L0.forbiddenDetail);
         }
     }
 
@@ -185,10 +185,10 @@ public class e extends c.a.r0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.f1.e.b f6518e;
+        public final /* synthetic */ c.a.r0.a.f1.e.b f6377e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f6519f;
+        public final /* synthetic */ e f6378f;
 
         public d(e eVar, c.a.r0.a.f1.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -205,31 +205,31 @@ public class e extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6519f = eVar;
-            this.f6518e = bVar;
+            this.f6378f = eVar;
+            this.f6377e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Activity activity;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (activity = this.f6519f.g0) != null && SwanAppNetworkUtils.i(activity)) {
-                SwanLauncher.j().n(this.f6518e, null);
-                this.f6519f.g0.finish();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (activity = this.f6378f.g0) != null && SwanAppNetworkUtils.i(activity)) {
+                SwanLauncher.j().n(this.f6377e, null);
+                this.f6378f.g0.finish();
             }
         }
     }
 
     /* renamed from: c.a.r0.a.h0.g.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class View$OnClickListenerC0355e implements View.OnClickListener {
+    public class View$OnClickListenerC0364e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f6520e;
+        public final /* synthetic */ e f6379e;
 
-        public View$OnClickListenerC0355e(e eVar) {
+        public View$OnClickListenerC0364e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,19 +244,19 @@ public class e extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6520e = eVar;
+            this.f6379e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f6520e.P0)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f6379e.P0)) {
                 return;
             }
-            Activity activity = this.f6520e.g0;
+            Activity activity = this.f6379e.g0;
             if (activity instanceof FragmentActivity) {
                 m supportFragmentManager = ((FragmentActivity) activity).getSupportFragmentManager();
-                l.d V2 = l.V2(this.f6520e.P0);
+                l.d V2 = l.V2(this.f6379e.P0);
                 V2.a(false);
                 V2.c(supportFragmentManager);
             }
@@ -269,7 +269,7 @@ public class e extends c.a.r0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f6521e;
+        public final /* synthetic */ e f6380e;
 
         public f(e eVar) {
             Interceptable interceptable = $ic;
@@ -286,14 +286,14 @@ public class e extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6521e = eVar;
+            this.f6380e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                FragmentActivity activity = this.f6521e.getActivity();
+                FragmentActivity activity = this.f6380e.getActivity();
                 if (!(activity instanceof SwanAppClearCacheErrorActivity)) {
                     if (c.a.r0.a.h0.g.d.I0) {
                         throw new IllegalStateException("非SwanAppClearCacheErrorActivity");
@@ -302,7 +302,7 @@ public class e extends c.a.r0.a.h0.g.d {
                 }
                 ((SwanAppClearCacheErrorActivity) activity).markHasGotoClearCache();
                 try {
-                    this.f6521e.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("baiduboxapp://v16/ucenter/cleanCache")));
+                    this.f6380e.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("baiduboxapp://v16/ucenter/cleanCache")));
                 } catch (Exception e2) {
                     c.a.r0.a.e0.d.l("SwanAppErrorFragment", "打开清理缓存界面失败", e2);
                 }
@@ -316,7 +316,7 @@ public class e extends c.a.r0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f6522e;
+        public final /* synthetic */ e f6381e;
 
         public g(e eVar) {
             Interceptable interceptable = $ic;
@@ -333,14 +333,14 @@ public class e extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6522e = eVar;
+            this.f6381e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f6522e.J1();
+                this.f6381e.J1();
             }
         }
     }
@@ -351,10 +351,10 @@ public class e extends c.a.r0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.f1.e.b f6523e;
+        public final /* synthetic */ c.a.r0.a.f1.e.b f6382e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f6524f;
+        public final /* synthetic */ e f6383f;
 
         public h(e eVar, c.a.r0.a.f1.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -371,17 +371,17 @@ public class e extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6524f = eVar;
-            this.f6523e = bVar;
+            this.f6383f = eVar;
+            this.f6382e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Activity activity;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (activity = this.f6524f.g0) != null && SwanAppNetworkUtils.i(activity)) {
-                SwanLauncher.j().n(this.f6523e, null);
-                this.f6524f.g0.finish();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (activity = this.f6383f.g0) != null && SwanAppNetworkUtils.i(activity)) {
+                SwanLauncher.j().n(this.f6382e, null);
+                this.f6383f.g0.finish();
             }
         }
     }
@@ -392,10 +392,10 @@ public class e extends c.a.r0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f6525e;
+        public final /* synthetic */ Activity f6384e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f6526f;
+        public final /* synthetic */ e f6385f;
 
         public i(e eVar, Activity activity) {
             Interceptable interceptable = $ic;
@@ -412,8 +412,8 @@ public class e extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6526f = eVar;
-            this.f6525e = activity;
+            this.f6385f = eVar;
+            this.f6384e = activity;
         }
 
         @Override // c.a.r0.n.e
@@ -423,16 +423,16 @@ public class e extends c.a.r0.a.h0.g.d {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, oVar)) == null) {
                 int c2 = oVar.c();
                 if (c2 == 5) {
-                    this.f6526f.d3(this.f6525e);
+                    this.f6385f.d3(this.f6384e);
                 } else if (c2 == 9) {
-                    this.f6526f.a3(this.f6525e);
+                    this.f6385f.a3(this.f6384e);
                     return true;
                 } else if (c2 == 39) {
-                    this.f6526f.e3(this.f6525e);
+                    this.f6385f.e3(this.f6384e);
                 } else if (c2 == 46) {
-                    this.f6526f.b3(oVar, this.f6525e);
+                    this.f6385f.b3(oVar, this.f6384e);
                 } else if (c2 == 47) {
-                    this.f6526f.c3(oVar, this.f6525e);
+                    this.f6385f.c3(oVar, this.f6384e);
                 }
                 return true;
             }
@@ -451,7 +451,7 @@ public class e extends c.a.r0.a.h0.g.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.n2.s.e f6527e;
+            public final /* synthetic */ c.a.r0.a.n2.s.e f6386e;
 
             public a(c.a.r0.a.n2.s.e eVar) {
                 Interceptable interceptable = $ic;
@@ -468,14 +468,14 @@ public class e extends c.a.r0.a.h0.g.d {
                         return;
                     }
                 }
-                this.f6527e = eVar;
+                this.f6386e = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.r0.a.n2.b.i("934", "85", this.f6527e.f());
+                    c.a.r0.a.n2.b.i("934", "85", this.f6386e.f());
                 }
             }
         }
@@ -484,11 +484,11 @@ public class e extends c.a.r0.a.h0.g.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65536, null, str, bVar, forbiddenInfo) == null) {
                 c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-                eVar.f8161f = forbiddenInfo.appId;
-                eVar.f8162g = "errormenu";
-                eVar.f8157b = "click";
-                eVar.f8160e = str;
-                eVar.f8158c = forbiddenInfo.launchSource;
+                eVar.f7981f = forbiddenInfo.appId;
+                eVar.f7982g = "errormenu";
+                eVar.f7977b = "click";
+                eVar.f7980e = str;
+                eVar.f7978c = forbiddenInfo.launchSource;
                 eVar.b(n.k(bVar.W()));
                 eVar.d(bVar.s0().getString(UBCCloudControlProcessor.UBC_KEY));
                 q.j(new a(eVar), "SwanAppFuncClickUBC");
@@ -1120,7 +1120,7 @@ public class e extends c.a.r0.a.h0.g.d {
             if (TextUtils.equals(this.O0, "1")) {
                 textView.setOnClickListener(new d(this, bVar));
             } else if (TextUtils.equals(this.O0, "2")) {
-                textView.setOnClickListener(new View$OnClickListenerC0355e(this));
+                textView.setOnClickListener(new View$OnClickListenerC0364e(this));
             } else if (TextUtils.equals(this.O0, "3")) {
                 textView.setOnClickListener(new f(this));
             } else if (TextUtils.equals(this.O0, "4")) {
@@ -1222,17 +1222,17 @@ public class e extends c.a.r0.a.h0.g.d {
         if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (nVar = this.q0) == null) {
             return;
         }
-        o k2 = nVar.k(46);
-        o k3 = this.q0.k(47);
-        if (k2 != null && this.M0 > 0) {
-            k3.o(1);
-            k3.n(this.M0);
+        o k = nVar.k(46);
+        o k2 = this.q0.k(47);
+        if (k != null && this.M0 > 0) {
+            k2.o(1);
+            k2.n(this.M0);
         }
-        if (k3 == null || this.N0 <= 0) {
+        if (k2 == null || this.N0 <= 0) {
             return;
         }
-        k3.o(1);
-        k3.n(this.N0);
+        k2.o(1);
+        k2.n(this.N0);
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment

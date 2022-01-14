@@ -25,7 +25,7 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f43895b;
+    public int f42296b;
     public EntelechyUserLikeButton mAddLoveBtnTextView;
     public BarImageView mForumAvatarImageView;
     public TextView mForumNameTextView;
@@ -51,7 +51,7 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
         this.mForumAvatarImageView = null;
         this.mForumNameTextView = null;
         this.mAddLoveBtnTextView = null;
-        this.f43895b = 3;
+        this.f42296b = 3;
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -71,17 +71,17 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
             if (cVar != null && (cVar instanceof g)) {
                 g gVar = (g) cVar;
                 this.a = gVar;
-                this.mForumAvatarImageView.setTag(gVar.f18233b);
-                this.mForumAvatarImageView.setTag(R.id.tag_forum_name, this.a.f18234c);
-                this.mForumAvatarImageView.startLoad(this.a.f18233b, 15, false);
+                this.mForumAvatarImageView.setTag(gVar.f17788b);
+                this.mForumAvatarImageView.setTag(R.id.tag_forum_name, this.a.f17789c);
+                this.mForumAvatarImageView.startLoad(this.a.f17788b, 15, false);
                 TextView textView = this.mForumNameTextView;
-                textView.setText(StringHelper.getFixedText(this.a.f18234c, 4, true) + getView().getContext().getResources().getString(R.string.forum));
-                this.mForumNameTextView.setTag(R.id.tag_forum_name, this.a.f18234c);
-                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_id, Long.valueOf(this.a.f18235d));
-                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_name, this.a.f18234c);
-                getView().setTag(R.id.tag_forum_id, Long.valueOf(this.a.f18235d));
-                getView().setTag(R.id.tag_forum_name, this.a.f18234c);
-                a(this.mAddLoveBtnTextView, this.a.f18236e);
+                textView.setText(StringHelper.getFixedText(this.a.f17789c, 4, true) + getView().getContext().getResources().getString(R.string.forum));
+                this.mForumNameTextView.setTag(R.id.tag_forum_name, this.a.f17789c);
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_id, Long.valueOf(this.a.f17790d));
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_name, this.a.f17789c);
+                getView().setTag(R.id.tag_forum_id, Long.valueOf(this.a.f17790d));
+                getView().setTag(R.id.tag_forum_name, this.a.f17789c);
+                a(this.mAddLoveBtnTextView, this.a.f17791e);
                 this.mForumAvatarImageView.setOnClickListener(this.onClickListener);
                 this.mAddLoveBtnTextView.setOnClickListener(this.onClickListener);
                 this.mForumNameTextView.setOnClickListener(this.onClickListener);
@@ -112,12 +112,12 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (this.f43895b != i2) {
+            if (this.f42296b != i2) {
                 SkinManager.setBackgroundColor(getView(), R.color.CAM_X0201);
                 SkinManager.setViewTextColor(this.mForumNameTextView, R.color.CAM_X0105);
-                a(this.mAddLoveBtnTextView, this.a.f18236e);
+                a(this.mAddLoveBtnTextView, this.a.f17791e);
             }
-            this.f43895b = i2;
+            this.f42296b = i2;
         }
     }
 }

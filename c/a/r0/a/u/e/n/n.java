@@ -19,7 +19,7 @@ public class n extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public AudioManager f9475f;
+    public AudioManager f9269f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(@NonNull c.a.r0.a.u.c.b bVar) {
@@ -62,11 +62,11 @@ public class n extends a {
                 c.a.r0.a.e0.d.c("VolumeApi", "swan activity is null");
                 return new c.a.r0.a.u.h.b(1001, "swan activity is null");
             }
-            if (this.f9475f == null) {
-                this.f9475f = (AudioManager) x.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            if (this.f9269f == null) {
+                this.f9269f = (AudioManager) x.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             }
-            float streamMaxVolume = this.f9475f.getStreamMaxVolume(3);
-            float streamVolume = this.f9475f.getStreamVolume(3);
+            float streamMaxVolume = this.f9269f.getStreamMaxVolume(3);
+            float streamVolume = this.f9269f.getStreamVolume(3);
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", streamVolume / streamMaxVolume);
@@ -110,14 +110,14 @@ public class n extends a {
             if (bVar.isSuccess()) {
                 try {
                     float parseFloat = Float.parseFloat(((JSONObject) s.second).optString("value"));
-                    if (this.f9475f == null) {
-                        this.f9475f = (AudioManager) x.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                    if (this.f9269f == null) {
+                        this.f9269f = (AudioManager) x.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                     }
-                    int streamMaxVolume = this.f9475f.getStreamMaxVolume(3);
+                    int streamMaxVolume = this.f9269f.getStreamMaxVolume(3);
                     int y = y(parseFloat, streamMaxVolume);
                     if (y >= 0 && y <= streamMaxVolume) {
                         try {
-                            this.f9475f.setStreamVolume(3, y, 1);
+                            this.f9269f.setStreamVolume(3, y, 1);
                             return c.a.r0.a.u.h.b.f();
                         } catch (SecurityException unused) {
                             return new c.a.r0.a.u.h.b(1001, "Cannot set volume under silent mode.");

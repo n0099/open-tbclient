@@ -25,16 +25,16 @@ public class k {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f17509b;
+    public boolean f17085b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17510c;
+    public int f17086c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f17511d;
+    public boolean f17087d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.t0.c3.b> f17512e;
+    public List<c.a.t0.c3.b> f17088e;
 
     /* loaded from: classes7.dex */
     public static class a extends BdAsyncTask<Void, Void, Void> {
@@ -61,9 +61,9 @@ public class k {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                c.a.t0.h2.d.a(c.a.t0.h2.f.f18556b);
-                c.a.t0.h2.d.a(c.a.t0.h2.f.f18557c);
-                c.a.t0.h2.d.a(c.a.t0.h2.f.f18558d);
+                c.a.t0.h2.d.a(c.a.t0.h2.f.f18093b);
+                c.a.t0.h2.d.a(c.a.t0.h2.f.f18094c);
+                c.a.t0.h2.d.a(c.a.t0.h2.f.f18095d);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -103,7 +103,7 @@ public class k {
                 }
                 l lVar = lVarArr[0];
                 synchronized ("debug") {
-                    File file = new File(c.a.t0.h2.f.f18559e + c.a.t0.h2.f.a + lVar.f17513b + c.a.t0.h2.f.a + "debug");
+                    File file = new File(c.a.t0.h2.f.f18096e + c.a.t0.h2.f.a + lVar.f17089b + c.a.t0.h2.f.a + "debug");
                     StringBuilder sb = new StringBuilder();
                     sb.append(lVar.a.a().toString());
                     sb.append(StringUtils.LF);
@@ -148,7 +148,7 @@ public class k {
                 }
                 e eVar = eVarArr[0];
                 synchronized ("kpi") {
-                    c.a.t0.h2.d.g(new File(c.a.t0.h2.f.f18559e + c.a.t0.h2.f.a + eVar.f17487d + c.a.t0.h2.f.a + "kpi"), k.e(eVar.a, eVar.f17485b, eVar.f17486c).toString(), false);
+                    c.a.t0.h2.d.g(new File(c.a.t0.h2.f.f18096e + c.a.t0.h2.f.a + eVar.f17064d + c.a.t0.h2.f.a + "kpi"), k.e(eVar.a, eVar.f17062b, eVar.f17063c).toString(), false);
                 }
                 return null;
             }
@@ -189,11 +189,11 @@ public class k {
                 return;
             }
         }
-        this.f17509b = true;
-        this.f17510c = 0;
-        this.f17511d = false;
+        this.f17085b = true;
+        this.f17086c = 0;
+        this.f17087d = false;
         this.a = str;
-        this.f17512e = new ArrayList();
+        this.f17088e = new ArrayList();
     }
 
     public static final JSONObject e(boolean z, int i2, boolean z2) {
@@ -220,7 +220,7 @@ public class k {
     public void a(c.a.t0.c3.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f17512e.add(bVar);
+            this.f17088e.add(bVar);
             c();
             m(bVar);
             l();
@@ -234,10 +234,10 @@ public class k {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONArray jSONArray = new JSONArray();
-                if (!ListUtils.isEmpty(this.f17512e)) {
-                    int size = this.f17512e.size();
+                if (!ListUtils.isEmpty(this.f17088e)) {
+                    int size = this.f17088e.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        jSONArray.put(this.f17512e.get(i2).a());
+                        jSONArray.put(this.f17088e.get(i2).a());
                     }
                 }
                 jSONObject.put("running", jSONArray);
@@ -252,7 +252,7 @@ public class k {
     public final void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && c.a.d.f.p.h.c()) {
-            File file = new File(c.a.t0.h2.f.f18559e + c.a.t0.h2.f.a + this.a + c.a.t0.h2.f.a);
+            File file = new File(c.a.t0.h2.f.f18096e + c.a.t0.h2.f.a + this.a + c.a.t0.h2.f.a);
             if (file.exists()) {
                 return;
             }
@@ -263,53 +263,53 @@ public class k {
     public JSONObject d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e(this.f17509b, this.f17510c, this.f17511d) : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e(this.f17085b, this.f17086c, this.f17087d) : (JSONObject) invokeV.objValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f17510c++;
+            this.f17086c++;
         }
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17510c > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17086c > 0 : invokeV.booleanValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17511d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17087d : invokeV.booleanValue;
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f17509b = false;
+            this.f17085b = false;
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f17509b = true;
+            this.f17085b = true;
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f17511d = true;
+            this.f17087d = true;
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && c.a.d.f.p.h.c()) {
-            new c(this).execute(new e(this.f17509b, this.f17510c, this.f17511d, this.a));
+            new c(this).execute(new e(this.f17085b, this.f17086c, this.f17087d, this.a));
         }
     }
 

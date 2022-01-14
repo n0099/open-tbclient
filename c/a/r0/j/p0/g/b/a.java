@@ -30,37 +30,35 @@ public class a implements c.a.r0.j.p0.g.b.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f11440e;
+    public Context f11184e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.j.p0.g.e.a f11441f;
+    public c.a.r0.j.p0.g.e.a f11185f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f11442g;
+    public b f11186g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f11443h;
+    public Handler f11187h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f11444i;
+    public ViewGroup f11188i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f11445j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f11446k;
+    public int f11189j;
+    public boolean k;
     public ObjectAnimator l;
     public d m;
 
     /* renamed from: c.a.r0.j.p0.g.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class HandlerC0758a extends Handler {
+    public class HandlerC0767a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0758a(a aVar, Looper looper) {
+        public HandlerC0767a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -85,8 +83,8 @@ public class a implements c.a.r0.j.p0.g.b.b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                 int f2 = this.a.f();
-                if (f2 > 0 && this.a.f11446k) {
-                    this.a.f11443h.sendEmptyMessageDelayed(1, f2);
+                if (f2 > 0 && this.a.k) {
+                    this.a.f11187h.sendEmptyMessageDelayed(1, f2);
                 }
                 this.a.k();
             }
@@ -117,7 +115,7 @@ public class a implements c.a.r0.j.p0.g.b.b {
                 return;
             }
         }
-        this.f11440e = context;
+        this.f11184e = context;
         this.m = dVar;
         j(i());
         h();
@@ -143,8 +141,8 @@ public class a implements c.a.r0.j.p0.g.b.b {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f11444i.setVisibility(8);
-            c.a.r0.j.p0.b.a(this.f11444i, g());
+            this.f11188i.setVisibility(8);
+            c.a.r0.j.p0.b.a(this.f11188i, g());
         }
     }
 
@@ -152,7 +150,7 @@ public class a implements c.a.r0.j.p0.g.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f11444i, PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.2f, 6.0f), Keyframe.ofFloat(0.4f, -6.0f), Keyframe.ofFloat(0.6f, 6.0f), Keyframe.ofFloat(0.8f, -6.0f), Keyframe.ofFloat(1.0f, 0.0f)));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f11188i, PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.2f, 6.0f), Keyframe.ofFloat(0.4f, -6.0f), Keyframe.ofFloat(0.6f, 6.0f), Keyframe.ofFloat(0.8f, -6.0f), Keyframe.ofFloat(1.0f, 0.0f)));
             ofPropertyValuesHolder.setDuration(600L);
             return ofPropertyValuesHolder;
         }
@@ -163,9 +161,9 @@ public class a implements c.a.r0.j.p0.g.b.b {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f11446k = false;
-            this.f11443h.removeCallbacksAndMessages(null);
-            c.a.r0.j.p0.b.d(this.f11444i);
+            this.k = false;
+            this.f11187h.removeCallbacksAndMessages(null);
+            c.a.r0.j.p0.b.d(this.f11188i);
         }
     }
 
@@ -173,7 +171,7 @@ public class a implements c.a.r0.j.p0.g.b.b {
     public void e(c.a.r0.j.p0.g.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f11441f = aVar;
+            this.f11185f = aVar;
         }
     }
 
@@ -191,8 +189,8 @@ public class a implements c.a.r0.j.p0.g.b.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             c.a.r0.a.m1.e.a.a aVar = new c.a.r0.a.m1.e.a.a();
-            aVar.m(g.a(this.m.left) - this.f11445j);
-            aVar.n(g.a(this.m.top) - this.f11445j);
+            aVar.m(g.a(this.m.left) - this.f11189j);
+            aVar.n(g.a(this.m.top) - this.f11189j);
             aVar.o(-2);
             aVar.k(-2);
             return aVar;
@@ -204,7 +202,7 @@ public class a implements c.a.r0.j.p0.g.b.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.l = d();
-            this.f11443h = new HandlerC0758a(this, Looper.getMainLooper());
+            this.f11187h = new HandlerC0767a(this, Looper.getMainLooper());
         }
     }
 
@@ -212,9 +210,9 @@ public class a implements c.a.r0.j.p0.g.b.b {
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f11446k = false;
-            this.f11443h.removeMessages(1);
-            this.f11444i.setVisibility(8);
+            this.k = false;
+            this.f11187h.removeMessages(1);
+            this.f11188i.setVisibility(8);
         }
     }
 
@@ -222,19 +220,19 @@ public class a implements c.a.r0.j.p0.g.b.b {
     public View i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? LayoutInflater.from(this.f11440e).inflate(f.swangame_recommend_button, (ViewGroup) null) : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? LayoutInflater.from(this.f11184e).inflate(f.swangame_recommend_button, (ViewGroup) null) : (View) invokeV.objValue;
     }
 
     public final void j(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            this.f11445j = (int) this.f11440e.getResources().getDimension(c.a.r0.h.c.swangame_recommend_button_root_padding);
-            this.f11444i = new FrameLayout(this.f11440e);
+            this.f11189j = (int) this.f11184e.getResources().getDimension(c.a.r0.h.c.swangame_recommend_button_root_padding);
+            this.f11188i = new FrameLayout(this.f11184e);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g.a(this.m.width), g.a(this.m.height));
-            int i2 = this.f11445j;
+            int i2 = this.f11189j;
             layoutParams.setMargins(i2, i2, i2, i2);
-            this.f11444i.setBackgroundColor(0);
-            this.f11444i.addView(view, layoutParams);
+            this.f11188i.setBackgroundColor(0);
+            this.f11188i.addView(view, layoutParams);
         }
     }
 
@@ -248,10 +246,10 @@ public class a implements c.a.r0.j.p0.g.b.b {
     @Override // c.a.r0.j.p0.g.b.b
     public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && this.f11446k) {
-            this.f11443h.removeMessages(1);
+        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && this.k) {
+            this.f11187h.removeMessages(1);
             if (z) {
-                this.f11443h.sendEmptyMessage(1);
+                this.f11187h.sendEmptyMessage(1);
             }
         }
     }
@@ -260,10 +258,10 @@ public class a implements c.a.r0.j.p0.g.b.b {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f11446k = true;
-            this.f11444i.setVisibility(0);
-            this.f11443h.removeMessages(1);
-            this.f11443h.sendEmptyMessage(1);
+            this.k = true;
+            this.f11188i.setVisibility(0);
+            this.f11187h.removeMessages(1);
+            this.f11187h.sendEmptyMessage(1);
         }
     }
 
@@ -271,7 +269,7 @@ public class a implements c.a.r0.j.p0.g.b.b {
     public void t(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            this.f11442g = bVar;
+            this.f11186g = bVar;
         }
     }
 
@@ -279,7 +277,7 @@ public class a implements c.a.r0.j.p0.g.b.b {
     public void update() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            c.a.r0.j.p0.b.f(this.f11444i, g());
+            c.a.r0.j.p0.b.f(this.f11188i, g());
         }
     }
 }

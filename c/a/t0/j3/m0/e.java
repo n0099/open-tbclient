@@ -21,13 +21,11 @@ public class e extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public HeadImageView f18985i;
+    public HeadImageView f18506i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f18986j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f18987k;
+    public TextView f18507j;
+    public TextView k;
     public CountDownTextView l;
     public boolean m;
 
@@ -37,10 +35,10 @@ public class e extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.j3.i0.b.g f18988e;
+        public final /* synthetic */ c.a.t0.j3.i0.b.g f18508e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f18989f;
+        public final /* synthetic */ e f18509f;
 
         public a(e eVar, c.a.t0.j3.i0.b.g gVar) {
             Interceptable interceptable = $ic;
@@ -57,28 +55,28 @@ public class e extends g {
                     return;
                 }
             }
-            this.f18989f = eVar;
-            this.f18988e = gVar;
+            this.f18509f = eVar;
+            this.f18508e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                Context context = this.f18989f.f18992b.getContext();
-                String str = this.f18988e.f18880d;
-                AdvertAppInfo advertAppInfo = this.f18989f.f18994d;
-                z.d(context, str, null, advertAppInfo != null ? advertAppInfo.m4 : "", this.f18988e.f18886j);
-                c.a.t0.j3.l0.c cVar = this.f18989f.f18993c;
+                Context context = this.f18509f.f18512b.getContext();
+                String str = this.f18508e.f18410d;
+                AdvertAppInfo advertAppInfo = this.f18509f.f18514d;
+                z.d(context, str, null, advertAppInfo != null ? advertAppInfo.m4 : "", this.f18508e.f18416j);
+                c.a.t0.j3.l0.c cVar = this.f18509f.f18513c;
                 if (cVar != null) {
                     cVar.i(302);
-                    c.a.t0.j3.l0.e.b().d(this.f18989f.f18993c);
+                    c.a.t0.j3.l0.e.b().d(this.f18509f.f18513c);
                 }
-                c.a.t0.x1.o.h.b bVar = this.f18989f.f18995e;
+                c.a.t0.x1.o.h.b bVar = this.f18509f.f18515e;
                 if (bVar != null) {
                     c.a.t0.x1.o.h.c.h(bVar);
                 }
-                this.f18989f.a(false);
+                this.f18509f.a(false);
             }
         }
     }
@@ -121,9 +119,9 @@ public class e extends g {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.f18986j, R.color.CAM_X0101, 1);
-            SkinManager.setViewTextColor(this.f18987k, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.f18987k, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setViewTextColor(this.f18507j, R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.k, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -132,11 +130,11 @@ public class e extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
             super.d(gVar);
-            this.f18985i.startLoad(gVar.f18879c, 10, false);
-            this.f18986j.setText(gVar.f18878b);
-            this.f18987k.setText(gVar.f18881e);
-            this.f18992b.setOnClickListener(new a(this, gVar));
-            this.l.update(gVar.f18884h);
+            this.f18506i.startLoad(gVar.f18409c, 10, false);
+            this.f18507j.setText(gVar.f18408b);
+            this.k.setText(gVar.f18411e);
+            this.f18512b.setOnClickListener(new a(this, gVar));
+            this.l.update(gVar.f18414h);
             c();
         }
     }
@@ -163,13 +161,13 @@ public class e extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             HeadImageView headImageView = (HeadImageView) b(R.id.user_portrait);
-            this.f18985i = headImageView;
+            this.f18506i = headImageView;
             headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
-            this.f18985i.setDefaultBgResource(R.color.CAM_X0205);
-            this.f18985i.setIsRound(true);
-            this.f18986j = (TextView) b(R.id.user_name);
+            this.f18506i.setDefaultBgResource(R.color.CAM_X0205);
+            this.f18506i.setIsRound(true);
+            this.f18507j = (TextView) b(R.id.user_name);
             this.l = (CountDownTextView) b(R.id.count_down_text);
-            this.f18987k = (TextView) b(R.id.action);
+            this.k = (TextView) b(R.id.action);
         }
     }
 }

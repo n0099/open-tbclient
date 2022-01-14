@@ -25,10 +25,10 @@ public class c extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f17835e;
+    public TbPageContext<BaseFragmentActivity> f17403e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<o> f17836f;
+    public List<o> f17404f;
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -37,7 +37,7 @@ public class c extends BaseAdapter {
         public LinearLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f17837b;
+        public TbImageView f17405b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -69,8 +69,8 @@ public class c extends BaseAdapter {
                 return;
             }
         }
-        this.f17835e = tbPageContext;
-        this.f17836f = arrayList;
+        this.f17403e = tbPageContext;
+        this.f17404f = arrayList;
     }
 
     @Override // android.widget.Adapter
@@ -78,7 +78,7 @@ public class c extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<o> list = this.f17836f;
+            List<o> list = this.f17404f;
             if (list == null) {
                 return 0;
             }
@@ -92,7 +92,7 @@ public class c extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            List<o> list = this.f17836f;
+            List<o> list = this.f17404f;
             if (list == null) {
                 return null;
             }
@@ -106,7 +106,7 @@ public class c extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<o> list = this.f17836f;
+            List<o> list = this.f17404f;
             if (list == null) {
                 return 0L;
             }
@@ -124,14 +124,14 @@ public class c extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 aVar = new a();
-                LinearLayout linearLayout = new LinearLayout(this.f17835e.getPageActivity());
+                LinearLayout linearLayout = new LinearLayout(this.f17403e.getPageActivity());
                 aVar.a = linearLayout;
                 linearLayout.setGravity(1);
-                TbImageView tbImageView = new TbImageView(this.f17835e.getPageActivity());
-                int f2 = ((n.q(this.f17835e.getPageActivity()).widthPixels - (n.f(this.f17835e.getPageActivity(), R.dimen.ds24) * 2)) - n.f(this.f17835e.getPageActivity(), R.dimen.ds10)) / 2;
+                TbImageView tbImageView = new TbImageView(this.f17403e.getPageActivity());
+                int f2 = ((n.q(this.f17403e.getPageActivity()).widthPixels - (n.f(this.f17403e.getPageActivity(), R.dimen.ds24) * 2)) - n.f(this.f17403e.getPageActivity(), R.dimen.ds10)) / 2;
                 tbImageView.setLayoutParams(new LinearLayout.LayoutParams(f2, (int) ((f2 / 173.0f) * 85.0f)));
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                aVar.f17837b = tbImageView;
+                aVar.f17405b = tbImageView;
                 aVar.a.addView(tbImageView);
                 view2 = aVar.a;
                 view2.setTag(aVar);
@@ -139,8 +139,8 @@ public class c extends BaseAdapter {
                 view2 = view;
                 aVar = (a) view.getTag();
             }
-            aVar.f17837b.startLoad(this.f17836f.get(i2).b(), 10, false);
-            c.a.s0.x0.a.a(this.f17835e, view2);
+            aVar.f17405b.startLoad(this.f17404f.get(i2).b(), 10, false);
+            c.a.s0.x0.a.a(this.f17403e, view2);
             return view2;
         }
         return (View) invokeILL.objValue;

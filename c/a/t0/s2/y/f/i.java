@@ -34,7 +34,7 @@ public class i extends c.a.d.n.e.a<x, VideoTabPbFloatEnterForumViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f23979e;
+        public final /* synthetic */ i f23311e;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class i extends c.a.d.n.e.a<x, VideoTabPbFloatEnterForumViewHolder> {
                     return;
                 }
             }
-            this.f23979e = iVar;
+            this.f23311e = iVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f23979e.m instanceof VideoPbCommentFloatFragment)) {
-                VideoPbCommentFloatFragment videoPbCommentFloatFragment = (VideoPbCommentFloatFragment) this.f23979e.m;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f23311e.m instanceof VideoPbCommentFloatFragment)) {
+                VideoPbCommentFloatFragment videoPbCommentFloatFragment = (VideoPbCommentFloatFragment) this.f23311e.m;
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
                 statisticItem.param("fid", videoPbCommentFloatFragment.getPbModel().getForumId());
                 statisticItem.param("tid", videoPbCommentFloatFragment.getPbModel().h1());
@@ -108,15 +108,15 @@ public class i extends c.a.d.n.e.a<x, VideoTabPbFloatEnterForumViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f3299e);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.f3299e);
+            FrameLayout frameLayout = new FrameLayout(this.f3258e);
+            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.f3258e);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = n.f(this.f3299e, c.a.t0.s2.g.tbds156);
-            layoutParams.topMargin = n.f(this.f3299e, c.a.t0.s2.g.M_H_X003);
-            layoutParams.rightMargin = n.f(this.f3299e, c.a.t0.s2.g.M_W_X007);
-            layoutParams.bottomMargin = n.f(this.f3299e, c.a.t0.s2.g.M_H_X005);
+            layoutParams.leftMargin = n.f(this.f3258e, c.a.t0.s2.g.tbds156);
+            layoutParams.topMargin = n.f(this.f3258e, c.a.t0.s2.g.M_H_X003);
+            layoutParams.rightMargin = n.f(this.f3258e, c.a.t0.s2.g.M_W_X007);
+            layoutParams.bottomMargin = n.f(this.f3258e, c.a.t0.s2.g.M_H_X005);
             frameLayout.addView(flowLabelLayout, layoutParams);
-            return new VideoTabPbFloatEnterForumViewHolder(this.f3299e, frameLayout);
+            return new VideoTabPbFloatEnterForumViewHolder(this.f3258e, frameLayout);
         }
         return (VideoTabPbFloatEnterForumViewHolder) invokeL.objValue;
     }
@@ -126,7 +126,7 @@ public class i extends c.a.d.n.e.a<x, VideoTabPbFloatEnterForumViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, xVar, videoTabPbFloatEnterForumViewHolder})) == null) {
             if (xVar != null) {
-                videoTabPbFloatEnterForumViewHolder.setData(xVar.f23104e);
+                videoTabPbFloatEnterForumViewHolder.setData(xVar.f22467e);
                 videoTabPbFloatEnterForumViewHolder.setAfterListener(new a(this));
             }
             SkinManager.setBackgroundColor(view, c.a.t0.s2.f.CAM_X0204);

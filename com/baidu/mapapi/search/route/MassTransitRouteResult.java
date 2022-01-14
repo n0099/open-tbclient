@@ -24,19 +24,19 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
     public TransitResultNode a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TransitResultNode f36835b;
+    public TransitResultNode f35622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TaxiInfo f36836c;
+    public TaxiInfo f35623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36837d;
+    public int f35624d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<MassTransitRouteLine> f36838e;
+    public List<MassTransitRouteLine> f35625e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SuggestAddrInfo f36839f;
+    public SuggestAddrInfo f35626f;
 
     static {
         InterceptResult invokeClinit;
@@ -84,13 +84,13 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
             }
         }
         this.a = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
-        this.f36835b = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
-        this.f36836c = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
-        this.f36837d = parcel.readInt();
+        this.f35622b = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
+        this.f35623c = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.f35624d = parcel.readInt();
         ArrayList arrayList = new ArrayList();
-        this.f36838e = arrayList;
+        this.f35625e = arrayList;
         parcel.readList(arrayList, MassTransitRouteLine.class.getClassLoader());
-        this.f36839f = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f35626f = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -106,7 +106,7 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
     public TransitResultNode getDestination() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36835b : (TransitResultNode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35622b : (TransitResultNode) invokeV.objValue;
     }
 
     public TransitResultNode getOrigin() {
@@ -118,31 +118,31 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
     public List<MassTransitRouteLine> getRouteLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36838e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35625e : (List) invokeV.objValue;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36839f : (SuggestAddrInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35626f : (SuggestAddrInfo) invokeV.objValue;
     }
 
     public TaxiInfo getTaxiInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36836c : (TaxiInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35623c : (TaxiInfo) invokeV.objValue;
     }
 
     public int getTotal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36837d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35624d : invokeV.intValue;
     }
 
     public void setDestination(TransitResultNode transitResultNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, transitResultNode) == null) {
-            this.f36835b = transitResultNode;
+            this.f35622b = transitResultNode;
         }
     }
 
@@ -156,28 +156,28 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
     public void setRoutelines(List<MassTransitRouteLine> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.f36838e = list;
+            this.f35625e = list;
         }
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, suggestAddrInfo) == null) {
-            this.f36839f = suggestAddrInfo;
+            this.f35626f = suggestAddrInfo;
         }
     }
 
     public void setTaxiInfo(TaxiInfo taxiInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, taxiInfo) == null) {
-            this.f36836c = taxiInfo;
+            this.f35623c = taxiInfo;
         }
     }
 
     public void setTotal(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f36837d = i2;
+            this.f35624d = i2;
         }
     }
 
@@ -186,11 +186,11 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
             parcel.writeParcelable(this.a, 1);
-            parcel.writeParcelable(this.f36835b, 1);
-            parcel.writeParcelable(this.f36836c, 1);
-            parcel.writeInt(this.f36837d);
-            parcel.writeList(this.f36838e);
-            parcel.writeParcelable(this.f36839f, 1);
+            parcel.writeParcelable(this.f35622b, 1);
+            parcel.writeParcelable(this.f35623c, 1);
+            parcel.writeInt(this.f35624d);
+            parcel.writeList(this.f35625e);
+            parcel.writeParcelable(this.f35626f, 1);
         }
     }
 }

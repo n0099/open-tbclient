@@ -45,9 +45,9 @@ public class c implements c.a.s0.c.e {
         }
         UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
         aVar.a = fVar.a;
-        aVar.f42212b = fVar.f12557c;
-        aVar.f42214d = true;
-        aVar.f42213c = hashMap.get("touid") == null ? "" : hashMap.get("touid");
+        aVar.f40742b = fVar.f12263c;
+        aVar.f40744d = true;
+        aVar.f40743c = hashMap.get("touid") == null ? "" : hashMap.get("touid");
         MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
     }
 }

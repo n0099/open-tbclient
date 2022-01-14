@@ -43,14 +43,14 @@ public class d {
             }
             c.a.r0.a.n2.s.e eVar3 = new c.a.r0.a.n2.s.e();
             eVar3.a = n.n(eVar.V().G());
-            eVar3.f8161f = eVar.getAppId();
-            eVar3.f8158c = eVar.V().T();
-            eVar3.f8157b = NodeJS.STARTUP_SCRIPT_NAME;
-            eVar3.f8162g = eVar2.a;
-            eVar3.f8160e = eVar2.f11486b;
+            eVar3.f7981f = eVar.getAppId();
+            eVar3.f7978c = eVar.V().T();
+            eVar3.f7977b = NodeJS.STARTUP_SCRIPT_NAME;
+            eVar3.f7982g = eVar2.a;
+            eVar3.f7980e = eVar2.f11229b;
             eVar3.a("na_start", Long.valueOf(l));
-            eVar3.a("h5_start", Long.valueOf(eVar2.f11487c));
-            eVar3.a("h5_finish", Long.valueOf(eVar2.f11488d));
+            eVar3.a("h5_start", Long.valueOf(eVar2.f11230c));
+            eVar3.a("h5_finish", Long.valueOf(eVar2.f11231d));
             n.x("1235", eVar3);
         }
     }

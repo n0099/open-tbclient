@@ -10,34 +10,32 @@ public class b {
     public static final String a = "https";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31815b = "user_agent";
+    public static final String f30819b = "user_agent";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31816c = "tid";
+    public static final String f30820c = "tid";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f31817d = "external_info";
+    public static final String f30821d = "external_info";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f31818e = "has_alipay";
+    public static final String f30822e = "has_alipay";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f31819f = "has_msp_app";
+    public static final String f30823f = "has_msp_app";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f31820g = "utdid";
+    public static final String f30824g = "utdid";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f31821h = "app_key";
+    public static final String f30825h = "app_key";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f31822i = "trideskey";
+    public static final String f30826i = "trideskey";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f31823j = "new_client_key";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final String f31824k = "pa";
+    public static final String f30827j = "new_client_key";
+    public static final String k = "pa";
     public transient /* synthetic */ FieldHolder $fh;
 
     public b() {

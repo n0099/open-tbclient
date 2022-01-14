@@ -26,16 +26,16 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LabelSettingView f25228e;
+    public LabelSettingView f24524e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.v1.b.b f25229f;
+    public c.a.t0.v1.b.b f24525f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<c.a.t0.v1.b.a> f25230g;
+    public List<c.a.t0.v1.b.a> f24526g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<Integer> f25231h;
+    public List<Integer> f24527h;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -43,10 +43,10 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f25232e;
+        public int f24528e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f25233f;
+        public final /* synthetic */ b f24529f;
 
         public a(b bVar, int i2) {
             Interceptable interceptable = $ic;
@@ -63,40 +63,40 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f25233f = bVar;
-            this.f25232e = i2;
+            this.f24529f = bVar;
+            this.f24528e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             c.a.t0.v1.b.a item;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (item = this.f25233f.getItem(this.f25232e)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (item = this.f24529f.getItem(this.f24528e)) == null) {
                 return;
             }
-            item.f25235c = !item.f25235c;
+            item.f24531c = !item.f24531c;
             if (view instanceof TextView) {
-                this.f25233f.d((TextView) view, item);
+                this.f24529f.d((TextView) view, item);
             }
-            if (item.f25235c) {
-                this.f25233f.f25231h.add(Integer.valueOf(item.a));
+            if (item.f24531c) {
+                this.f24529f.f24527h.add(Integer.valueOf(item.a));
             } else {
-                this.f25233f.f25231h.remove(Integer.valueOf(item.a));
+                this.f24529f.f24527h.remove(Integer.valueOf(item.a));
             }
-            if (this.f25233f.f25228e != null) {
-                this.f25233f.f25228e.changeCompleteStatu(ListUtils.getCount(this.f25233f.f25231h) > 0);
+            if (this.f24529f.f24524e != null) {
+                this.f24529f.f24524e.changeCompleteStatu(ListUtils.getCount(this.f24529f.f24527h) > 0);
             }
         }
     }
 
     /* renamed from: c.a.t0.v1.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1475b {
+    public class C1490b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
 
-        public C1475b(b bVar) {
+        public C1490b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,8 +128,8 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f25228e = labelSettingView;
-        this.f25231h = new ArrayList();
+        this.f24524e = labelSettingView;
+        this.f24527h = new ArrayList();
     }
 
     public final void d(TextView textView, c.a.t0.v1.b.a aVar) {
@@ -138,12 +138,12 @@ public class b extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, textView, aVar) == null) || aVar == null) {
             return;
         }
-        String str = aVar.f25234b;
-        if (!StringUtils.isNull(str) && aVar.f25234b.length() > 4) {
-            str = aVar.f25234b.substring(0, 3) + "...";
+        String str = aVar.f24530b;
+        if (!StringUtils.isNull(str) && aVar.f24530b.length() > 4) {
+            str = aVar.f24530b.substring(0, 3) + "...";
         }
         textView.setText(str);
-        if (aVar.f25235c) {
+        if (aVar.f24531c) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0302);
             drawable = SkinManager.getDrawable(R.drawable.icon_lable_confirm_s);
         } else {
@@ -159,14 +159,14 @@ public class b extends BaseAdapter {
     public c.a.t0.v1.b.a getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (c.a.t0.v1.b.a) ListUtils.getItem(this.f25230g, i2) : (c.a.t0.v1.b.a) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (c.a.t0.v1.b.a) ListUtils.getItem(this.f24526g, i2) : (c.a.t0.v1.b.a) invokeI.objValue;
     }
 
     public List<Integer> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c.a.t0.v1.b.b bVar = this.f25229f;
+            c.a.t0.v1.b.b bVar = this.f24525f;
             return bVar == null ? new ArrayList() : bVar.a();
         }
         return (List) invokeV.objValue;
@@ -175,14 +175,14 @@ public class b extends BaseAdapter {
     public List<Integer> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25231h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24527h : (List) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f25230g) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f24526g) : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -202,19 +202,19 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C1475b c1475b;
+        C1490b c1490b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f25228e.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-                c1475b = new C1475b(this);
-                c1475b.a = (TextView) view;
-                view.setTag(c1475b);
+                view = LayoutInflater.from(this.f24524e.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+                c1490b = new C1490b(this);
+                c1490b.a = (TextView) view;
+                view.setTag(c1490b);
             } else {
-                c1475b = (C1475b) view.getTag();
+                c1490b = (C1490b) view.getTag();
             }
-            c1475b.a.setOnClickListener(new a(this, i2));
-            d(c1475b.a, getItem(i2));
+            c1490b.a.setOnClickListener(new a(this, i2));
+            d(c1490b.a, getItem(i2));
             return view;
         }
         return (View) invokeILL.objValue;
@@ -225,11 +225,11 @@ public class b extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) || bVar == null || ListUtils.isEmpty(bVar.b())) {
             return;
         }
-        this.f25229f = bVar;
-        this.f25230g = bVar.b();
+        this.f24525f = bVar;
+        this.f24526g = bVar.b();
         if (ListUtils.isEmpty(bVar.a())) {
             return;
         }
-        this.f25231h = new ArrayList(bVar.a());
+        this.f24527h = new ArrayList(bVar.a());
     }
 }

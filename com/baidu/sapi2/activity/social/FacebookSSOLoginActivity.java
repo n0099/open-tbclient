@@ -85,7 +85,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login cancel");
                 FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
-                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f39350g);
+                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f38049g);
             }
         }
 
@@ -94,7 +94,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, facebookException) == null) {
                 Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login error");
                 FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
-                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f39350g);
+                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f38049g);
             }
         }
     }

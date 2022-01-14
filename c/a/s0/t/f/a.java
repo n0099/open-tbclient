@@ -16,25 +16,23 @@ public class a implements TbCheckBox.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14356e;
+    public boolean f14023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14357f;
+    public String f14024f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f14358g;
+    public long f14025g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14359h;
+    public int f14026h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f14360i;
+    public String f14027i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f14361j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f14362k;
+    public String f14028j;
+    public String k;
     public b l;
     public String m;
 
@@ -51,13 +49,13 @@ public class a implements TbCheckBox.c {
                 return;
             }
         }
-        this.f14356e = false;
+        this.f14023e = false;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14362k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (String) invokeV.objValue;
     }
 
     public b b() {
@@ -71,11 +69,11 @@ public class a implements TbCheckBox.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             StringBuilder sb = new StringBuilder(64);
-            String str = this.f14357f;
+            String str = this.f14024f;
             if (str != null) {
                 sb.append(str);
             }
-            String str2 = this.f14361j;
+            String str2 = this.f14028j;
             if (str2 != null) {
                 sb.append(str2);
             }
@@ -87,19 +85,19 @@ public class a implements TbCheckBox.c {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14361j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14028j : (String) invokeV.objValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14358g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14025g : invokeV.longValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14357f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14024f : (String) invokeV.objValue;
     }
 
     public String g() {
@@ -111,20 +109,20 @@ public class a implements TbCheckBox.c {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14360i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14027i : (String) invokeV.objValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f14359h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f14026h : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public boolean isChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f14356e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f14023e : invokeV.booleanValue;
     }
 
     public void j(friendList friendlist) {
@@ -132,11 +130,11 @@ public class a implements TbCheckBox.c {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, friendlist) == null) || friendlist == null) {
             return;
         }
-        this.f14357f = friendlist.user_name;
-        this.f14358g = friendlist.user_id.longValue();
-        this.f14360i = friendlist.portrait;
+        this.f14024f = friendlist.user_name;
+        this.f14025g = friendlist.user_id.longValue();
+        this.f14027i = friendlist.portrait;
         this.m = friendlist.name_show;
-        this.f14361j = friendlist.quanpin;
+        this.f14028j = friendlist.quanpin;
         LbsInfo lbsInfo = friendlist.location;
         int i2 = -1;
         long j2 = 0;
@@ -158,7 +156,7 @@ public class a implements TbCheckBox.c {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f14362k = str;
+            this.k = str;
         }
     }
 
@@ -172,21 +170,21 @@ public class a implements TbCheckBox.c {
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f14361j = str;
+            this.f14028j = str;
         }
     }
 
     public void n(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.f14358g = j2;
+            this.f14025g = j2;
         }
     }
 
     public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f14357f = str;
+            this.f14024f = str;
         }
     }
 
@@ -200,14 +198,14 @@ public class a implements TbCheckBox.c {
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f14360i = str;
+            this.f14027i = str;
         }
     }
 
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f14359h = i2;
+            this.f14026h = i2;
         }
     }
 
@@ -215,7 +213,7 @@ public class a implements TbCheckBox.c {
     public void setChecked(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f14356e = z;
+            this.f14023e = z;
         }
     }
 }

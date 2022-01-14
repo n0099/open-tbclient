@@ -11,10 +11,10 @@ public class b {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10453b;
+    public static final String f10227b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f10454c;
+    public static final byte[] f10228c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class b {
             }
         }
         a = c.a.r0.a.c1.a.o().t();
-        f10453b = a + "/bdtls";
-        f10454c = new byte[]{0, -98};
+        f10227b = a + "/bdtls";
+        f10228c = new byte[]{0, -98};
     }
 }

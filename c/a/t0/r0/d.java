@@ -18,10 +18,10 @@ public class d {
     public c.a.t0.r0.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f22415b;
+    public b f21796b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f22416c;
+    public HttpMessageListener f21797c;
 
     /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
@@ -57,8 +57,8 @@ public class d {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof RnSyncResponseMessage)) {
                 RnSyncResponseMessage rnSyncResponseMessage = (RnSyncResponseMessage) httpResponsedMessage;
                 this.a.a = rnSyncResponseMessage.getData();
-                if (this.a.f22415b != null) {
-                    this.a.f22415b.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
+                if (this.a.f21796b != null) {
+                    this.a.f21796b.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
                 }
             }
         }
@@ -82,21 +82,21 @@ public class d {
                 return;
             }
         }
-        this.f22416c = new a(this, CmdConfigHttp.CMD_GET_RN_SYNC);
-        MessageManager.getInstance().registerListener(this.f22416c);
+        this.f21797c = new a(this, CmdConfigHttp.CMD_GET_RN_SYNC);
+        MessageManager.getInstance().registerListener(this.f21797c);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f22416c);
+            MessageManager.getInstance().unRegisterListener(this.f21797c);
         }
     }
 
     public void d(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f22415b = bVar;
+            this.f21796b = bVar;
         }
     }
 

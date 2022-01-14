@@ -56,7 +56,7 @@ public class d extends f {
             }
         }
         this.v = false;
-        this.f8158c = "NA";
+        this.f7978c = "NA";
     }
 
     @Override // c.a.r0.a.n2.s.f, c.a.r0.a.n2.s.e
@@ -64,8 +64,8 @@ public class d extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f8163h == null) {
-                this.f8163h = new JSONObject();
+            if (this.f7983h == null) {
+                this.f7983h = new JSONObject();
             }
             try {
                 if (this.w != null) {
@@ -76,12 +76,12 @@ public class d extends f {
                         }
                     }
                     if (this.w.length() != 0) {
-                        this.f8163h.put("info", this.w);
+                        this.f7983h.put("info", this.w);
                     }
                 }
                 ExtensionCore T = c.a.r0.a.h0.u.g.U().T();
                 if (T != null) {
-                    this.f8163h.put("extension_ver", T.extensionCoreVersionName);
+                    this.f7983h.put("extension_ver", T.extensionCoreVersionName);
                 }
             } catch (JSONException e2) {
                 if (x) {
@@ -118,7 +118,7 @@ public class d extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f8161f = str;
+            this.f7981f = str;
             return this;
         }
         return (d) invokeL.objValue;
@@ -138,7 +138,7 @@ public class d extends f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.f8157b = String.valueOf(i2);
+            this.f7977b = String.valueOf(i2);
             return this;
         }
         return (d) invokeI.objValue;
@@ -148,7 +148,7 @@ public class d extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
-            this.f8157b = String.valueOf(aVar.a());
+            this.f7977b = String.valueOf(aVar.a());
             String sb = aVar.g().toString();
             if (!TextUtils.isEmpty(sb)) {
                 l("detail", sb);
@@ -176,10 +176,10 @@ public class d extends f {
                 return this;
             }
             if (!TextUtils.isEmpty(eVar.T())) {
-                this.f8158c = eVar.T();
+                this.f7978c = eVar.T();
             }
             if (!TextUtils.isEmpty(eVar.H())) {
-                this.f8161f = eVar.H();
+                this.f7981f = eVar.H();
             }
             if (!TextUtils.isEmpty(eVar.W())) {
                 this.p = eVar.W();
@@ -196,7 +196,7 @@ public class d extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.f8162g = str;
+            this.f7982g = str;
             return this;
         }
         return (d) invokeL.objValue;
@@ -206,7 +206,7 @@ public class d extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            this.f8158c = str;
+            this.f7978c = str;
             return this;
         }
         return (d) invokeL.objValue;

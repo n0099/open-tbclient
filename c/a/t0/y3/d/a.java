@@ -20,13 +20,13 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f26660e;
+    public TbPageContext f25867e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<b> f26661f;
+    public LinkedList<b> f25868f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f26662g;
+    public int f25869g;
 
     public a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f26660e = tbPageContext;
-        this.f26661f = new LinkedList<>();
+        this.f25867e = tbPageContext;
+        this.f25868f = new LinkedList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,13 +53,13 @@ public class a extends BaseAdapter {
     public b getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (b) ListUtils.getItem(this.f26661f, i2) : (b) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (b) ListUtils.getItem(this.f25868f, i2) : (b) invokeI.objValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f26662g = i2;
+            this.f25869g = i2;
         }
     }
 
@@ -68,8 +68,8 @@ public class a extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f26661f.clear();
-        this.f26661f.addAll(list);
+        this.f25868f.clear();
+        this.f25868f.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -77,7 +77,7 @@ public class a extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.f26661f) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.f25868f) : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -95,7 +95,7 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                aVar = new c.a.t0.y3.g.a(this.f26660e, this.f26662g);
+                aVar = new c.a.t0.y3.g.a(this.f25867e, this.f25869g);
                 view2 = aVar.b();
                 view2.setTag(aVar);
             } else {

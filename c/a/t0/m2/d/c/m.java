@@ -41,7 +41,7 @@ public class m extends c.a.t0.m2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f19857e;
+        public final /* synthetic */ m f19342e;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class m extends c.a.t0.m2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
                     return;
                 }
             }
-            this.f19857e = mVar;
+            this.f19342e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f19857e.p.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f19857e.p.getPageActivity(), this.f19857e.s)));
+                this.f19342e.p.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f19342e.p.getPageActivity(), this.f19342e.s)));
             }
         }
     }
@@ -109,7 +109,7 @@ public class m extends c.a.t0.m2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f19858e;
+        public final /* synthetic */ m f19343e;
 
         public c(m mVar) {
             Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class m extends c.a.t0.m2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
                     return;
                 }
             }
-            this.f19858e = mVar;
+            this.f19343e = mVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,7 +135,7 @@ public class m extends c.a.t0.m2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
         public void c(View view, q1 q1Var, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, q1Var, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                c.a.t0.m2.c.a("c14399", q1Var, i2 + 1, this.f19858e.n.getOrignalPage().getTopicId());
+                c.a.t0.m2.c.a("c14399", q1Var, i2 + 1, this.f19343e.n.getOrignalPage().getTopicId());
             }
         }
 
@@ -146,13 +146,13 @@ public class m extends c.a.t0.m2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, q1Var, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 if (q1Var == null) {
-                    this.f19858e.p.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f19858e.p.getPageActivity(), this.f19858e.s)));
+                    this.f19343e.p.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f19343e.p.getPageActivity(), this.f19343e.s)));
                     return;
                 }
                 String p = q1Var.p();
                 if (c.a.d.f.p.m.isForumName(p)) {
-                    this.f19858e.p.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f19858e.p.getPageActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
-                    c.a.t0.m2.c.a("c13739", q1Var, i2 + 1, this.f19858e.n.getOrignalPage().getTopicId());
+                    this.f19343e.p.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f19343e.p.getPageActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+                    c.a.t0.m2.c.a("c13739", q1Var, i2 + 1, this.f19343e.n.getOrignalPage().getTopicId());
                 }
             }
         }

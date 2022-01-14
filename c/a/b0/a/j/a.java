@@ -18,23 +18,23 @@ public class a extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static JSONObject f1622h;
+    public static JSONObject f1604h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f1623c;
+    public c f1605c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WeakReference<Context> f1624d;
+    public WeakReference<Context> f1606d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1625e;
+    public String f1607e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f1626f;
+    public File f1608f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f1627g;
+    public boolean f1609g;
 
     /* renamed from: c.a.b0.a.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -68,59 +68,59 @@ public class a extends d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (a.f1622h == null) {
-                    a.f1622h = new JSONObject();
+                if (a.f1604h == null) {
+                    a.f1604h = new JSONObject();
                 }
-                if (this.a.f1626f != null) {
-                    if (this.a.f1627g || !this.a.m()) {
-                        if (!this.a.f1626f.isDirectory()) {
+                if (this.a.f1608f != null) {
+                    if (this.a.f1609g || !this.a.m()) {
+                        if (!this.a.f1608f.isDirectory()) {
                             try {
-                                a.f1622h.put("file-del", true);
+                                a.f1604h.put("file-del", true);
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
                             }
-                            this.a.f1626f.delete();
+                            this.a.f1608f.delete();
                         }
-                        File file = new File(this.a.f1626f.getAbsoluteFile() + ".loading");
-                        boolean a = this.a.f1623c.a(this.a.f1625e, file);
+                        File file = new File(this.a.f1608f.getAbsoluteFile() + ".loading");
+                        boolean a = this.a.f1605c.a(this.a.f1607e, file);
                         if (a) {
                             try {
-                                a.f1622h.put("assetsToSD", true);
+                                a.f1604h.put("assetsToSD", true);
                             } catch (JSONException e3) {
                                 e3.printStackTrace();
                             }
-                            a = file.renameTo(this.a.f1626f);
+                            a = file.renameTo(this.a.f1608f);
                         }
                         if (!a) {
                             try {
-                                a.f1622h.put("renameTo-del", true);
+                                a.f1604h.put("renameTo-del", true);
                             } catch (JSONException e4) {
                                 e4.printStackTrace();
                             }
                             e.b(file);
-                            if (this.a.f1626f.exists()) {
-                                e.b(this.a.f1626f);
+                            if (this.a.f1608f.exists()) {
+                                e.b(this.a.f1608f);
                             }
                         }
                         try {
-                            a.f1622h.put("result", a);
+                            a.f1604h.put("result", a);
                         } catch (JSONException e5) {
                             e5.printStackTrace();
                         }
                         if (this.a.l()) {
-                            i.a("ARSourceCopyManager", "sdk exist + " + a.f1622h.toString());
+                            i.a("ARSourceCopyManager", "sdk exist + " + a.f1604h.toString());
                         }
                         return Boolean.valueOf(a);
                     }
                     try {
-                        a.f1622h.put("exist", true);
+                        a.f1604h.put("exist", true);
                     } catch (JSONException e6) {
                         e6.printStackTrace();
                     }
                     return Boolean.TRUE;
                 }
                 try {
-                    a.f1622h.put("sdcardPath", StringUtil.NULL_STRING);
+                    a.f1604h.put("sdcardPath", StringUtil.NULL_STRING);
                 } catch (JSONException e7) {
                     e7.printStackTrace();
                 }
@@ -159,7 +159,7 @@ public class a extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            WeakReference<Context> weakReference = this.f1624d;
+            WeakReference<Context> weakReference = this.f1606d;
             if (weakReference != null) {
                 return weakReference.get();
             }
@@ -174,23 +174,23 @@ public class a extends d {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             boolean m = m();
             JSONObject jSONObject = new JSONObject();
-            f1622h = jSONObject;
+            f1604h = jSONObject;
             if (m) {
                 try {
                     jSONObject.put("type", c.a.b0.a.c.a ? "assets" : "soloader");
-                    f1622h.put("exist", m);
-                    f1622h.put("path", this.f1626f);
+                    f1604h.put("exist", m);
+                    f1604h.put("path", this.f1608f);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
                 if (l()) {
-                    i.a("ARSourceCopyManager", "sdk exist + " + f1622h.toString());
+                    i.a("ARSourceCopyManager", "sdk exist + " + f1604h.toString());
                 }
                 d(2);
             } else if (getContext() != null) {
                 try {
                     if (l()) {
-                        i.a("ARSourceCopyManager", "sdk loading .. to " + this.f1626f.getAbsoluteFile());
+                        i.a("ARSourceCopyManager", "sdk loading .. to " + this.f1608f.getAbsoluteFile());
                     }
                     k();
                 } catch (Exception e3) {
@@ -203,7 +203,7 @@ public class a extends d {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f1623c = new c(getContext());
+            this.f1605c = new c(getContext());
             new AsyncTaskC0035a(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
         }
     }
@@ -218,8 +218,8 @@ public class a extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = this.f1626f;
-            return file != null && file.isDirectory() && this.f1626f.exists();
+            File file = this.f1608f;
+            return file != null && file.isDirectory() && this.f1608f.exists();
         }
         return invokeV.booleanValue;
     }

@@ -44,34 +44,32 @@ public class c implements o {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewStub f18903b;
+    public ViewStub f18431b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f18904c;
+    public View f18432c;
 
     /* renamed from: d  reason: collision with root package name */
-    public XfremodeRoundLayout f18905d;
+    public XfremodeRoundLayout f18433d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f18906e;
+    public TbImageView f18434e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f18907f;
+    public TextView f18435f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18908g;
+    public TextView f18436g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdAppInfoView f18909h;
+    public AdAppInfoView f18437h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ApkDownloadView f18910i;
+    public ApkDownloadView f18438i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f18911j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ImageView f18912k;
+    public TextView f18439j;
+    public ImageView k;
     public TextView l;
     public AdCard m;
     public DownloadCacheKey n;
@@ -85,7 +83,7 @@ public class c implements o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18913e;
+        public final /* synthetic */ c f18440e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -102,17 +100,17 @@ public class c implements o {
                     return;
                 }
             }
-            this.f18913e = cVar;
+            this.f18440e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AdCard adCard = this.f18913e.m;
-                this.f18913e.q.add(adCard.getAdvertAppInfo());
+                AdCard adCard = this.f18440e.m;
+                this.f18440e.q.add(adCard.getAdvertAppInfo());
                 c.a.t0.j3.l0.d.m(adCard.getAdvertAppInfo());
-                this.f18913e.f18904c.setVisibility(8);
+                this.f18440e.f18432c.setVisibility(8);
             }
         }
     }
@@ -123,7 +121,7 @@ public class c implements o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18914e;
+        public final /* synthetic */ c f18441e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -140,14 +138,14 @@ public class c implements o {
                     return;
                 }
             }
-            this.f18914e = cVar;
+            this.f18441e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AdCard adCard = this.f18914e.m;
+                AdCard adCard = this.f18441e.m;
                 String str = adCard.scheme;
                 if (m.isEmpty(str)) {
                     return;
@@ -163,19 +161,19 @@ public class c implements o {
                         i2 = z.d(TbadkCoreApplication.getInst(), str, downloadId, str2, adCard.cmdScheme);
                     }
                 }
-                this.f18914e.f(i2, adCard);
+                this.f18441e.f(i2, adCard);
             }
         }
     }
 
     /* renamed from: c.a.t0.j3.i0.d.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1137c implements b.a {
+    public class C1151c implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
-        public C1137c(c cVar) {
+        public C1151c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -223,7 +221,7 @@ public class c implements o {
             }
         }
         this.o = null;
-        this.f18903b = viewStub;
+        this.f18431b = viewStub;
         this.a = tbPageContext;
     }
 
@@ -232,15 +230,15 @@ public class c implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, advertAppInfo, gVar) == null) {
             if (advertAppInfo == null) {
-                View view = this.f18904c;
+                View view = this.f18432c;
                 if (view != null) {
                     view.setVisibility(8);
                     return;
                 }
                 return;
             }
-            if (this.f18904c == null) {
-                l(this.f18903b);
+            if (this.f18432c == null) {
+                l(this.f18431b);
                 this.p = new ArrayList();
                 this.q = new ArrayList();
             }
@@ -283,14 +281,14 @@ public class c implements o {
             b2.setCmdScheme(this.m.cmdScheme);
         }
         e d2 = e.d();
-        ApkDownloadView apkDownloadView = this.f18910i;
+        ApkDownloadView apkDownloadView = this.f18438i;
         c.a.t0.v.g.g.c c2 = d2.c(apkDownloadView, apkDownloadView, b2);
         this.o = new c.a.t0.v.g.h.b(c2);
         if (b2.extra().getPercent() > 0) {
             c2.d(b2);
         }
         n();
-        this.f18910i.onStatusChanged(b2.getCurrentState());
+        this.f18438i.onStatusChanged(b2.getCurrentState());
     }
 
     public float h(@StringRes int i2) {
@@ -309,8 +307,8 @@ public class c implements o {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f18911j.setVisibility(8);
-            this.f18910i.setVisibility(0);
+            this.f18439j.setVisibility(8);
+            this.f18438i.setVisibility(0);
             AdCard adCard = this.m;
             c.a.t0.j3.i0.b.b bVar = adCard.downloadInfo;
             if (bVar == null) {
@@ -321,10 +319,10 @@ public class c implements o {
             if (z.r(str)) {
                 o.setStatus(8);
             } else {
-                o.setStatus(this.f18910i.getDownloadStatus());
+                o.setStatus(this.f18438i.getDownloadStatus());
             }
-            this.f18910i.setData(o);
-            this.f18910i.setOnClickInterceptListener(new C1137c(this));
+            this.f18438i.setData(o);
+            this.f18438i.setOnClickInterceptListener(new C1151c(this));
         }
     }
 
@@ -342,7 +340,7 @@ public class c implements o {
             }
             if (i2 == null) {
                 c.a.t0.j3.i0.b.b bVar = this.m.downloadInfo;
-                i2 = DownloadCacheKey.create(downloadId, bVar.f18863b, bVar.a);
+                i2 = DownloadCacheKey.create(downloadId, bVar.f18393b, bVar.a);
                 e.d().j(i2, null);
             }
             g(i2);
@@ -352,14 +350,14 @@ public class c implements o {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f18910i.setVisibility(8);
+            this.f18438i.setVisibility(8);
             c.a.t0.j3.i0.b.a aVar = this.m.operate;
-            String str = aVar != null ? aVar.f18860b : null;
+            String str = aVar != null ? aVar.f18390b : null;
             if (TextUtils.isEmpty(str)) {
                 str = "立即查看";
             }
-            this.f18911j.setVisibility(0);
-            this.f18911j.setText(str);
+            this.f18439j.setVisibility(0);
+            this.f18439j.setText(str);
         }
     }
 
@@ -368,38 +366,38 @@ public class c implements o {
         if (interceptable == null || interceptable.invokeL(1048583, this, viewStub) == null) {
             viewStub.setLayoutResource(R.layout.ad_pic_banner_layout);
             View inflate = viewStub.inflate();
-            this.f18904c = inflate;
-            this.f18905d = (XfremodeRoundLayout) inflate.findViewById(R.id.ad_img_container);
-            this.f18906e = (TbImageView) this.f18904c.findViewById(R.id.ad_img);
-            this.f18907f = (TextView) this.f18904c.findViewById(R.id.ad_brand_name);
-            this.f18908g = (TextView) this.f18904c.findViewById(R.id.ad_title);
-            AdAppInfoView adAppInfoView = (AdAppInfoView) this.f18904c.findViewById(R.id.ad_app_info_view);
-            this.f18909h = adAppInfoView;
+            this.f18432c = inflate;
+            this.f18433d = (XfremodeRoundLayout) inflate.findViewById(R.id.ad_img_container);
+            this.f18434e = (TbImageView) this.f18432c.findViewById(R.id.ad_img);
+            this.f18435f = (TextView) this.f18432c.findViewById(R.id.ad_brand_name);
+            this.f18436g = (TextView) this.f18432c.findViewById(R.id.ad_title);
+            AdAppInfoView adAppInfoView = (AdAppInfoView) this.f18432c.findViewById(R.id.ad_app_info_view);
+            this.f18437h = adAppInfoView;
             adAppInfoView.setTextColor(R.color.CAM_X0101);
-            this.f18910i = (ApkDownloadView) this.f18904c.findViewById(R.id.ad_download_btn);
-            this.f18911j = (TextView) this.f18904c.findViewById(R.id.ad_transform_btn);
-            this.f18912k = (ImageView) this.f18904c.findViewById(R.id.ad_close_view);
-            this.l = (TextView) this.f18904c.findViewById(R.id.ad_tag);
-            this.f18905d.setRoundLayoutRadius(h(R.string.J_X05));
-            SkinManager.setViewTextColor(this.f18911j, R.color.CAM_X0105, 1);
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f18911j);
+            this.f18438i = (ApkDownloadView) this.f18432c.findViewById(R.id.ad_download_btn);
+            this.f18439j = (TextView) this.f18432c.findViewById(R.id.ad_transform_btn);
+            this.k = (ImageView) this.f18432c.findViewById(R.id.ad_close_view);
+            this.l = (TextView) this.f18432c.findViewById(R.id.ad_tag);
+            this.f18433d.setRoundLayoutRadius(h(R.string.J_X05));
+            SkinManager.setViewTextColor(this.f18439j, R.color.CAM_X0105, 1);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f18439j);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0201);
             TbPageContext tbPageContext = this.a;
             if (tbPageContext != null) {
-                this.f18910i.enableDownloadListener(tbPageContext.getUniqueId());
+                this.f18438i.enableDownloadListener(tbPageContext.getUniqueId());
             }
-            this.f18910i.setTextSize(R.dimen.T_X08);
-            this.f18910i.setTextColorInitSkin(R.color.CAM_X0105);
-            this.f18910i.setTextColorSkin(R.color.CAM_X0105);
-            this.f18910i.setStrokeWidth(R.dimen.ds0);
-            this.f18910i.setBackgroundSkin(R.drawable.pic_banner_down_btn_bg);
-            this.f18910i.changeSkin();
+            this.f18438i.setTextSize(R.dimen.T_X08);
+            this.f18438i.setTextColorInitSkin(R.color.CAM_X0105);
+            this.f18438i.setTextColorSkin(R.color.CAM_X0105);
+            this.f18438i.setStrokeWidth(R.dimen.ds0);
+            this.f18438i.setBackgroundSkin(R.drawable.pic_banner_down_btn_bg);
+            this.f18438i.changeSkin();
             int[] p = n.p(TbadkCoreApplication.getInst());
             int i2 = p[0];
             int i3 = p[1];
-            this.f18912k.setOnClickListener(new a(this));
-            this.f18904c.setOnClickListener(new b(this));
+            this.k.setOnClickListener(new a(this));
+            this.f18432c.setOnClickListener(new b(this));
         }
     }
 
@@ -426,7 +424,7 @@ public class c implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, adCard, i2)) == null) {
             DownloadData downloadData = new DownloadData(adCard.getDownloadId());
-            downloadData.setUrl(adCard.downloadInfo.f18863b);
+            downloadData.setUrl(adCard.downloadInfo.f18393b);
             downloadData.setName(adCard.userName);
             downloadData.setPosition(i2);
             downloadData.setNotifyId(c.a.d.f.m.b.e(adCard.adId, 0));
@@ -456,34 +454,34 @@ public class c implements o {
         if (interceptable == null || interceptable.invokeLL(1048589, this, advertAppInfo, gVar) == null) {
             AdCard adCard = (AdCard) advertAppInfo.n4;
             this.m = adCard;
-            if (adCard != null && !gVar.f12671j && !gVar.f12672k) {
+            if (adCard != null && !gVar.f12374j && !gVar.k) {
                 if (this.q.contains(advertAppInfo)) {
-                    this.f18904c.setVisibility(8);
+                    this.f18432c.setVisibility(8);
                     return;
                 }
-                this.f18904c.setVisibility(0);
+                this.f18432c.setVisibility(0);
                 m(advertAppInfo);
-                ((RelativeLayout.LayoutParams) this.f18904c.getLayoutParams()).bottomMargin = gVar.f12669h + n.f(TbadkCoreApplication.getInst(), R.dimen.tbds52);
-                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f18904c);
+                ((RelativeLayout.LayoutParams) this.f18432c.getLayoutParams()).bottomMargin = gVar.f12372h + n.f(TbadkCoreApplication.getInst(), R.dimen.tbds52);
+                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f18432c);
                 d2.n(R.string.J_X06);
                 d2.f(R.color.CAM_X0214);
-                this.f18906e.startLoad(this.m.userImage, 17, false);
-                this.f18907f.setText(this.m.userName);
-                this.f18908g.setText(this.m.threadTitle);
+                this.f18434e.startLoad(this.m.userImage, 17, false);
+                this.f18435f.setText(this.m.userName);
+                this.f18436g.setText(this.m.threadTitle);
                 if (this.m.appInfoModel == null) {
-                    this.f18909h.setVisibility(8);
+                    this.f18437h.setVisibility(8);
                     this.l.setVisibility(0);
-                    this.f18907f.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X05));
-                    this.f18908g.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X07));
-                    this.f18908g.setMaxLines(2);
+                    this.f18435f.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X05));
+                    this.f18436g.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X07));
+                    this.f18436g.setMaxLines(2);
                 } else {
-                    this.f18909h.setVisibility(0);
+                    this.f18437h.setVisibility(0);
                     this.l.setVisibility(8);
-                    this.f18909h.setAd(advertAppInfo);
-                    this.f18909h.setAppInfo(this.m.appInfoModel);
-                    this.f18907f.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06));
-                    this.f18908g.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X08));
-                    this.f18908g.setMaxLines(1);
+                    this.f18437h.setAd(advertAppInfo);
+                    this.f18437h.setAppInfo(this.m.appInfoModel);
+                    this.f18435f.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06));
+                    this.f18436g.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X08));
+                    this.f18436g.setMaxLines(1);
                 }
                 if (advertAppInfo.V4()) {
                     i();
@@ -496,7 +494,7 @@ public class c implements o {
                     return;
                 }
             }
-            this.f18904c.setVisibility(8);
+            this.f18432c.setVisibility(8);
         }
     }
 }

@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends c.a.t0.g0.b<c.a.t0.o1.k.c.c.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final int D;
@@ -211,7 +211,7 @@ public class a extends c.a.t0.g0.b<c.a.t0.o1.k.c.c.a> {
             if (aVar.a0 == 0) {
                 this.r.setText("NEW");
             } else {
-                this.r.setText(String.format(this.f18210f.getString(R.string.topic_partake_default), StringHelper.numberUniformFormat(aVar.a0)));
+                this.r.setText(String.format(this.f17767f.getString(R.string.topic_partake_default), StringHelper.numberUniformFormat(aVar.a0)));
             }
             if (aVar.d0 == null) {
                 this.x.setVisibility(8);
@@ -229,7 +229,7 @@ public class a extends c.a.t0.g0.b<c.a.t0.o1.k.c.c.a> {
             int f4 = n.f(getContext(), R.dimen.tbds16);
             layoutParams2.addRule(1, R.id.user_avatar);
             layoutParams2.setMargins(f3, 0, f4, 0);
-            this.q.setTextSize(0, n.f(this.f18211g, R.dimen.tbds40));
+            this.q.setTextSize(0, n.f(this.f17768g, R.dimen.tbds40));
             c d2 = c.d(this.q);
             d2.v(R.color.CAM_X0105);
             d2.A(R.string.F_X01);
@@ -246,7 +246,7 @@ public class a extends c.a.t0.g0.b<c.a.t0.o1.k.c.c.a> {
         if (str.length() > 14) {
             str = str.substring(0, 13) + "...";
         }
-        this.q.setText(String.format(this.f18210f.getString(R.string.daily_topic_name), str));
+        this.q.setText(String.format(this.f17767f.getString(R.string.daily_topic_name), str));
         if (StringUtils.isNull(aVar.b0)) {
             this.t.setVisibility(8);
             this.w.setUserColor(R.color.CAM_X0109);

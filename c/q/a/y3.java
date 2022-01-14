@@ -20,18 +20,18 @@ public class y3 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static y3 f31522d;
+    public static y3 f30531d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f31523e;
+    public static String f30532e;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f31524b;
+    public long f30533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f31525c;
+    public long f30534c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class y3 {
                 return;
             }
         }
-        f31523e = x5.f31510d + "jy/cf?";
+        f30532e = x5.f30519d + "jy/cf?";
     }
 
     public y3(Context context) {
@@ -71,14 +71,14 @@ public class y3 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f31522d == null) {
+            if (f30531d == null) {
                 synchronized (y3.class) {
-                    if (f31522d == null) {
-                        f31522d = new y3(context);
+                    if (f30531d == null) {
+                        f30531d = new y3(context);
                     }
                 }
             }
-            return f31522d;
+            return f30531d;
         }
         return (y3) invokeL.objValue;
     }
@@ -86,17 +86,17 @@ public class y3 {
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f31523e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f30532e : (String) invokeV.objValue;
     }
 
     public final void e(b6 b6Var) {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b6Var) == null) || b6Var == null || (jSONObject = b6Var.f31271c) == null || jSONObject.length() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b6Var) == null) || b6Var == null || (jSONObject = b6Var.f30294c) == null || jSONObject.length() == 0) {
             return;
         }
         try {
-            JSONObject jSONObject2 = b6Var.f31271c;
+            JSONObject jSONObject2 = b6Var.f30294c;
             m2.q(this.a, jSONObject2.optString("bt", ""));
             int optInt = jSONObject2.optInt("time", 12);
             SharedPreferences.Editor edit = this.a.getSharedPreferences("_prefs", 0).edit();
@@ -165,7 +165,7 @@ public class y3 {
             m2.p(this.a, new Date().getTime());
         } catch (Exception e2) {
             y2 a = c3.a(this.a);
-            a.a(101, this.f31525c);
+            a.a(101, this.f30534c);
             a.m();
             e2.printStackTrace();
         }

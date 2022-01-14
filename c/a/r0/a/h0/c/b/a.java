@@ -16,15 +16,15 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6430c;
+    public static final boolean f6289c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile a f6431d;
+    public static volatile a f6290d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Long> f6432b;
+    public HashMap<String, Long> f6291b;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public final class a {
                 return;
             }
         }
-        f6430c = k.a;
+        f6289c = k.a;
     }
 
     public a() {
@@ -56,21 +56,21 @@ public final class a {
             }
         }
         this.a = false;
-        this.f6432b = new HashMap<>();
+        this.f6291b = new HashMap<>();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f6431d == null) {
+            if (f6290d == null) {
                 synchronized (a.class) {
-                    if (f6431d == null) {
-                        f6431d = new a();
+                    if (f6290d == null) {
+                        f6290d = new a();
                     }
                 }
             }
-            return f6431d;
+            return f6290d;
         }
         return (a) invokeV.objValue;
     }
@@ -89,18 +89,18 @@ public final class a {
                 return false;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            HashMap<String, Long> hashMap = this.f6432b;
-            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.f6432b.get(str).longValue() <= 18000000) {
-                if (f6430c) {
+            HashMap<String, Long> hashMap = this.f6291b;
+            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.f6291b.get(str).longValue() <= 18000000) {
+                if (f6289c) {
                     String str2 = "id = " + str + " 的小程序已在5小时内被标记为无需更新，不走MaxAge逻辑";
                     return true;
                 }
                 return true;
             }
-            if (f6430c) {
-                HashMap<String, Long> hashMap2 = this.f6432b;
+            if (f6289c) {
+                HashMap<String, Long> hashMap2 = this.f6291b;
                 if (hashMap2 != null && hashMap2.containsKey(str)) {
-                    String str3 = "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.f6432b.get(str) + " ，id = " + str;
+                    String str3 = "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.f6291b.get(str) + " ，id = " + str;
                 } else {
                     String str4 = "小程序未被标记未无更新， id = " + str;
                 }

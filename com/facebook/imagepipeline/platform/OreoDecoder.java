@@ -15,7 +15,7 @@ import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(26)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OreoDecoder extends DefaultDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

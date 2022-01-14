@@ -1,5 +1,5 @@
 package com.tachikoma.core.base;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface NativeModule {
     void destroy();
 

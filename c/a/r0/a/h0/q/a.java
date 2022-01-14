@@ -24,25 +24,25 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f6970b;
+    public static final c f6820b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.h0.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0395a implements Runnable {
+    public static class RunnableC0404a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6971e;
+        public final /* synthetic */ String f6821e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f6972f;
+        public final /* synthetic */ boolean f6822f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f6973g;
+        public final /* synthetic */ String f6823g;
 
-        public RunnableC0395a(String str, boolean z, String str2) {
+        public RunnableC0404a(String str, boolean z, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,9 +57,9 @@ public class a {
                     return;
                 }
             }
-            this.f6971e = str;
-            this.f6972f = z;
-            this.f6973g = str2;
+            this.f6821e = str;
+            this.f6822f = z;
+            this.f6823g = str2;
         }
 
         @Override // java.lang.Runnable
@@ -67,30 +67,30 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = a.a ? System.currentTimeMillis() : 0L;
-                Set<String> m = b.k().m(this.f6971e, true);
+                Set<String> m = b.k().m(this.f6821e, true);
                 if (m == null || m.size() <= 0) {
                     return;
                 }
                 if (a.a) {
-                    String str = "start prelink, swan is already launched - " + this.f6972f;
+                    String str = "start prelink, swan is already launched - " + this.f6822f;
                 }
                 for (String str2 : m) {
-                    boolean b2 = a.b(this.f6973g, this.f6971e, str2);
+                    boolean b2 = a.b(this.f6823g, this.f6821e, str2);
                     d d2 = d.d();
-                    String str3 = this.f6973g;
+                    String str3 = this.f6823g;
                     a.b a = c.a.r0.a.h0.o.j.e.a.a();
                     a.h(RecordType.PREFETCH_PRELINK);
                     a.f(str2);
                     a.g(b2);
                     d2.f(str3, a.e());
                     if (b2) {
-                        b.k().s(this.f6971e, str2);
-                        a.d(this.f6971e, str2);
+                        b.k().s(this.f6821e, str2);
+                        a.d(this.f6821e, str2);
                     }
                 }
                 if (a.a) {
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    String str4 = " prelink - " + this.f6971e + ", cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
+                    String str4 = " prelink - " + this.f6821e + ", cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
                 }
             }
         }
@@ -110,7 +110,7 @@ public class a {
             }
         }
         a = k.a;
-        f6970b = e.a();
+        f6820b = e.a();
     }
 
     public static boolean b(String str, String str2, String str3) {
@@ -120,7 +120,7 @@ public class a {
             if (TextUtils.isEmpty(str3)) {
                 return false;
             }
-            return f6970b.c(str, str2, str3);
+            return f6820b.c(str, str2, str3);
         }
         return invokeLLL.booleanValue;
     }
@@ -128,7 +128,7 @@ public class a {
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            if (!f6970b.b()) {
+            if (!f6820b.b()) {
                 boolean z = a;
             } else if (TextUtils.isEmpty(str2)) {
                 boolean z2 = a;
@@ -136,7 +136,7 @@ public class a {
                 c.a.r0.a.d2.e r = c.a.r0.a.d2.d.J().r();
                 if (r == null) {
                     boolean z3 = a;
-                } else if (TextUtils.equals(r.f5660f, str2)) {
+                } else if (TextUtils.equals(r.f5537f, str2)) {
                     e(str, str2, r.H());
                 }
             }
@@ -145,16 +145,16 @@ public class a {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || f6970b.a() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || f6820b.a() == null) {
             return;
         }
-        f6970b.a().b(str, str2, true);
+        f6820b.a().b(str, str2, true);
     }
 
     public static void e(String str, @NonNull String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            ExecutorUtilsExt.postOnSerial(new RunnableC0395a(str2, z, str), "SwanPreLinkWhenPreload");
+            ExecutorUtilsExt.postOnSerial(new RunnableC0404a(str2, z, str), "SwanPreLinkWhenPreload");
         }
     }
 }

@@ -17,13 +17,13 @@ public class b {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2684b;
+    public String f2664b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2685c;
+    public String f2665c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2686d;
+    public String f2666d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,12 +39,12 @@ public class b {
             }
         }
         this.a = Environment.getExternalStorageDirectory().getAbsolutePath();
-        this.f2684b = this.a + "/baidu/";
-        this.f2685c = null;
-        this.f2686d = null;
+        this.f2664b = this.a + "/baidu/";
+        this.f2665c = null;
+        this.f2666d = null;
         try {
-            this.f2685c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
-            this.f2686d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+            this.f2665c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.f2666d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -61,26 +61,26 @@ public class b {
                     return null;
                 }
                 if (str != null) {
-                    str3 = this.f2684b + str + "/";
+                    str3 = this.f2664b + str + "/";
                 } else {
-                    str3 = this.f2684b;
+                    str3 = this.f2664b;
                 }
             } else if (z3) {
-                str2 = this.f2686d;
+                str2 = this.f2666d;
                 if (str2 == null) {
                     return null;
                 }
                 if (str != null) {
-                    str3 = this.f2686d + str + "/";
+                    str3 = this.f2666d + str + "/";
                 }
                 str3 = str2;
             } else {
-                str2 = this.f2685c;
+                str2 = this.f2665c;
                 if (str2 == null) {
                     return null;
                 }
                 if (str != null) {
-                    str3 = this.f2685c + str + "/";
+                    str3 = this.f2665c + str + "/";
                 }
                 str3 = str2;
             }
@@ -133,6 +133,6 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
             return;
         }
-        this.f2684b = this.a + "/" + str + "/";
+        this.f2664b = this.a + "/" + str + "/";
     }
 }

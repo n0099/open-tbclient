@@ -21,7 +21,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
@@ -150,29 +150,29 @@ public class a {
         List<c.a.t0.n2.f.b> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            if (aVar == null || (list = aVar.f20143e) == null || list.size() == 0) {
+            if (aVar == null || (list = aVar.f19613e) == null || list.size() == 0) {
                 return 0;
             }
             String str = ".emotions/" + aVar.a;
-            g k2 = g.k();
-            List<c.a.t0.n2.f.b> list2 = aVar.f20143e;
+            g k = g.k();
+            List<c.a.t0.n2.f.b> list2 = aVar.f19613e;
             int i2 = 0;
             for (int i3 = 0; i3 < list2.size(); i3++) {
                 c.a.t0.n2.f.b bVar = list2.get(i3);
-                if (a(str + "/" + bVar.f20146g)) {
-                    if (a(str + "/" + bVar.f20147h)) {
+                if (a(str + "/" + bVar.f19616g)) {
+                    if (a(str + "/" + bVar.f19617h)) {
                         StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-                        sb.append(aVar.a + "_" + bVar.f20145f);
+                        sb.append(aVar.a + "_" + bVar.f19615f);
                         sb.append(",");
-                        sb.append(bVar.f20149j);
+                        sb.append(bVar.f19619j);
                         sb.append(",");
-                        sb.append(bVar.f20148i);
+                        sb.append(bVar.f19618i);
                         sb.append(",");
                         String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + c.a.d.f.p.t.c(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                        boolean isGif = FileHelper.isGif(str, bVar.f20146g);
-                        b.g(aVar.a, bVar.f20147h, b.c(str2, true, false));
-                        b.g(aVar.a, bVar.f20146g, b.c(str2, false, isGif));
-                        if (k2.d(str2, aVar.a, i3 + 1)) {
+                        boolean isGif = FileHelper.isGif(str, bVar.f19616g);
+                        b.g(aVar.a, bVar.f19617h, b.c(str2, true, false));
+                        b.g(aVar.a, bVar.f19616g, b.c(str2, false, isGif));
+                        if (k.d(str2, aVar.a, i3 + 1)) {
                             i2++;
                         }
                     }
@@ -187,13 +187,13 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, inputStream)) == null) {
-            g k2 = g.k();
+            g k = g.k();
             List<String> a2 = b.a(str, inputStream);
             int i2 = 0;
             int i3 = 0;
             while (i2 < a2.size()) {
                 i2++;
-                if (k2.d(a2.get(i2), str, i2)) {
+                if (k.d(a2.get(i2), str, i2)) {
                     i3++;
                 }
             }

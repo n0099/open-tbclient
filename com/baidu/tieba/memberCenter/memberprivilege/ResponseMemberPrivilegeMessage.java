@@ -66,9 +66,9 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
             if (aVar == null || (eVar = aVar.a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.a)) {
                 return;
             }
-            a.b bVar = eVar.f18074d;
-            if (bVar != null && bVar.f18067b > bVar.f18068c && !StringUtils.isNull(bVar.f18069d)) {
-                currentAccountObj.setMemberIconUrl(bVar.f18069d);
+            a.b bVar = eVar.f17635d;
+            if (bVar != null && bVar.f17628b > bVar.f17629c && !StringUtils.isNull(bVar.f17630d)) {
+                currentAccountObj.setMemberIconUrl(bVar.f17630d);
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }

@@ -35,13 +35,13 @@ public class i {
     public static Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, com.kwad.sdk.collector.e> f57681b = new HashMap();
+    public static Map<String, com.kwad.sdk.collector.e> f55495b = new HashMap();
 
     /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.collector.e<com.kwad.sdk.core.request.model.c> {
 
         /* renamed from: c  reason: collision with root package name */
-        public static com.kwad.sdk.core.request.model.c f57682c;
+        public static com.kwad.sdk.core.request.model.c f55496c;
 
         public a(boolean z) {
             super(z);
@@ -69,9 +69,9 @@ public class i {
             int i2;
             int i3;
             if (ao.a() || com.kwad.sdk.core.config.b.a(64L)) {
-                return f57682c;
+                return f55496c;
             }
-            com.kwad.sdk.core.request.model.c cVar = f57682c;
+            com.kwad.sdk.core.request.model.c cVar = f55496c;
             if (cVar != null) {
                 return cVar;
             }
@@ -80,8 +80,8 @@ public class i {
                 return null;
             }
             int i4 = -1;
-            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, s.f57423g) != -1) {
-                if (av.a(context, s.f57423g) == 0) {
+            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, s.f55246g) != -1) {
+                if (av.a(context, s.f55246g) == 0) {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     CellLocation cellLocation = telephonyManager.getCellLocation();
                     if (cellLocation instanceof CdmaCellLocation) {
@@ -112,9 +112,9 @@ public class i {
                             i4 = a(cellInfo);
                         }
                     }
-                    f57682c = new com.kwad.sdk.core.request.model.c(i3, i2, i4);
+                    f55496c = new com.kwad.sdk.core.request.model.c(i3, i2, i4);
                 }
-                return f57682c;
+                return f55496c;
             }
             return null;
         }
@@ -124,20 +124,20 @@ public class i {
     public static class b extends com.kwad.sdk.collector.e<List<com.kwad.sdk.collector.kwai.e>> implements SensorEventListener {
 
         /* renamed from: c  reason: collision with root package name */
-        public d f57683c;
+        public d f55497c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d f57684d;
+        public d f55498d;
 
         /* renamed from: e  reason: collision with root package name */
-        public d f57685e;
+        public d f55499e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f57686f;
+        public boolean f55500f;
 
         public b(Context context, boolean z) {
             super(z);
-            this.f57686f = false;
+            this.f55500f = false;
             if (z && 0 == 0) {
                 d(context);
             }
@@ -145,17 +145,17 @@ public class i {
 
         private List<com.kwad.sdk.collector.kwai.e> a() {
             ArrayList arrayList = new ArrayList();
-            d dVar = this.f57683c;
+            d dVar = this.f55497c;
             if (dVar != null) {
-                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar.a(), this.f57683c.b()));
+                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar.a(), this.f55497c.b()));
             }
-            d dVar2 = this.f57684d;
+            d dVar2 = this.f55498d;
             if (dVar2 != null) {
-                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar2.a(), this.f57684d.b()));
+                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar2.a(), this.f55498d.b()));
             }
-            d dVar3 = this.f57685e;
+            d dVar3 = this.f55499e;
             if (dVar3 != null) {
-                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar3.a(), this.f57685e.b()));
+                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar3.a(), this.f55499e.b()));
             }
             return arrayList;
         }
@@ -234,7 +234,7 @@ public class i {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (this.f57686f) {
+            if (this.f55500f) {
                 return e(context);
             }
             List<com.kwad.sdk.collector.kwai.e> a = a();
@@ -254,12 +254,12 @@ public class i {
             }
             int type = sensorEvent.sensor.getType();
             if (type == 1) {
-                this.f57683c = new d(sensorEvent);
+                this.f55497c = new d(sensorEvent);
             } else if (type == 4) {
-                this.f57684d = new d(sensorEvent);
+                this.f55498d = new d(sensorEvent);
             } else if (type != 9) {
             } else {
-                this.f57685e = new d(sensorEvent);
+                this.f55499e = new d(sensorEvent);
             }
         }
     }
@@ -276,7 +276,7 @@ public class i {
         public SensorEvent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f57696b = System.currentTimeMillis();
+        public long f55510b = System.currentTimeMillis();
 
         public d(SensorEvent sensorEvent) {
             this.a = sensorEvent;
@@ -287,7 +287,7 @@ public class i {
         }
 
         public long b() {
-            return this.f57696b;
+            return this.f55510b;
         }
     }
 
@@ -303,12 +303,12 @@ public class i {
         @SuppressLint({"MissingPermission"})
         /* renamed from: c */
         public com.kwad.sdk.collector.kwai.f b(Context context) {
-            if (av.a(context, s.f57419c) != 0) {
+            if (av.a(context, s.f55242c) != 0) {
                 return null;
             }
             com.kwad.sdk.collector.kwai.f fVar = new com.kwad.sdk.collector.kwai.f();
             if (Build.VERSION.SDK_INT >= 22) {
-                fVar.f57716b = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoCount();
+                fVar.f55530b = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoCount();
             }
             fVar.a = av.a(context, (TelephonyManager) null);
             return fVar;
@@ -325,7 +325,7 @@ public class i {
 
     @Nullable
     public static <T> T a(String str) {
-        com.kwad.sdk.collector.e eVar = f57681b.get(str);
+        com.kwad.sdk.collector.e eVar = f55495b.get(str);
         if (eVar != null) {
             return (T) eVar.a(a);
         }
@@ -339,35 +339,35 @@ public class i {
         boolean O = com.kwad.sdk.core.config.b.O();
         com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "sensorEnable2: " + O);
         if (d()) {
-            if (f57681b.containsKey("baseStationEnable")) {
+            if (f55495b.containsKey("baseStationEnable")) {
                 boolean W = com.kwad.sdk.core.config.b.W();
-                com.kwad.sdk.collector.e eVar = f57681b.get("baseStationEnable");
+                com.kwad.sdk.collector.e eVar = f55495b.get("baseStationEnable");
                 if (eVar != null) {
                     eVar.a(W);
                 }
             }
-            if (f57681b.containsKey("sensorEventEnable")) {
+            if (f55495b.containsKey("sensorEventEnable")) {
                 boolean O2 = com.kwad.sdk.core.config.b.O();
-                com.kwad.sdk.collector.e eVar2 = f57681b.get("sensorEventEnable");
+                com.kwad.sdk.collector.e eVar2 = f55495b.get("sensorEventEnable");
                 if (eVar2 != null) {
                     eVar2.a(O2);
                 }
             }
-            if (f57681b.containsKey("simCardInfoEnable")) {
+            if (f55495b.containsKey("simCardInfoEnable")) {
                 boolean N = com.kwad.sdk.core.config.b.N();
-                com.kwad.sdk.collector.e eVar3 = f57681b.get("simCardInfoEnable");
+                com.kwad.sdk.collector.e eVar3 = f55495b.get("simCardInfoEnable");
                 if (eVar3 != null) {
                     eVar3.a(N);
                 }
             }
         } else {
             a = context.getApplicationContext();
-            f57681b.put("baseStationEnable", new a(com.kwad.sdk.core.config.b.W()));
-            f57681b.put("sensorEventEnable", new b(a, com.kwad.sdk.core.config.b.O()));
-            f57681b.put("simCardInfoEnable", new e(com.kwad.sdk.core.config.b.N()));
+            f55495b.put("baseStationEnable", new a(com.kwad.sdk.core.config.b.W()));
+            f55495b.put("sensorEventEnable", new b(a, com.kwad.sdk.core.config.b.O()));
+            f55495b.put("simCardInfoEnable", new e(com.kwad.sdk.core.config.b.N()));
             com.kwad.sdk.collector.kwai.c.a(context);
         }
-        for (com.kwad.sdk.collector.e eVar4 : f57681b.values()) {
+        for (com.kwad.sdk.collector.e eVar4 : f55495b.values()) {
             com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "collector: " + eVar4.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar4.getClass().getSimpleName());
         }
     }

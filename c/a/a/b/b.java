@@ -15,7 +15,7 @@ public class b {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1062b;
+    public static String f1061b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -130,7 +130,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             String str = "https://rtc-so.cdn.bcebos.com" + i() + h();
-            f1062b = str;
+            f1061b = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -140,10 +140,10 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            if (TextUtils.isEmpty(f1062b)) {
+            if (TextUtils.isEmpty(f1061b)) {
                 j();
             }
-            return c(context, f1062b) + File.separator + "jniLibs" + File.separator + a();
+            return c(context, f1061b) + File.separator + "jniLibs" + File.separator + a();
         }
         return (String) invokeL.objValue;
     }

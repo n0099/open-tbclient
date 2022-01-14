@@ -1,337 +1,211 @@
 package c.a.s0.e1;
 
-import android.os.Build;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.webkit.WebSettings;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLDecoder;
+import com.squareup.wire.Message;
+import com.squareup.wire.Wire;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class w0 {
     public static /* synthetic */ Interceptable $ic;
-    public static BaseWebView a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseWebView a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2, BaseWebView baseWebView) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), baseWebView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final void a(Wire wire, Class<? extends Message> cls) {
+        File[] listFiles;
+        String name;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, wire, cls) == null) || wire == null || cls == null) {
+            return;
+        }
+        String str = "wire_" + cls.getName();
+        File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + "_" + TbConfig.getVersion());
+        byte[] bArr = null;
+        try {
+            if (file.exists() && (bArr = b(file)) != null) {
+                wire.parseFrom(bArr, cls);
+            }
+            if (bArr == null) {
+                byte[] bArr2 = (byte[]) c.a.d.f.b.a.a.c(cls, "toByteArray", new Object[0]).invoke(c(cls, new HashSet()), new Object[0]);
+                wire.parseFrom(bArr2, cls);
+                d(file, bArr2);
+            }
+        } catch (Throwable th) {
+            BdLog.detailException(th);
+            try {
+                file.delete();
+            } catch (Throwable unused) {
+            }
+        }
+        File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+        if (cacheDir == null || (listFiles = cacheDir.listFiles()) == null) {
+            return;
+        }
+        for (File file2 : listFiles) {
+            if (file2 != null && (name = file2.getName()) != null && name.startsWith(str) && !file.getName().equals(name)) {
+                try {
+                    file2.delete();
+                } catch (Throwable unused2) {
                 }
             }
-            this.a = baseWebView;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            BaseWebView baseWebView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921024 || (baseWebView = this.a) == null) {
-                return;
-            }
-            baseWebView.reload();
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f12741b;
-
-        public b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.f12741b = "";
-            this.a = str;
-            this.f12741b = str2;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj != null && b.class == obj.getClass()) {
-                    b bVar = (b) obj;
-                    String str = this.a;
-                    if (str == null) {
-                        if (bVar.a != null) {
-                            return false;
-                        }
-                    } else if (!str.equals(bVar.a)) {
-                        return false;
-                    }
-                    String str2 = this.f12741b;
-                    if (str2 == null) {
-                        if (bVar.f12741b != null) {
-                            return false;
-                        }
-                    } else if (!str2.equals(bVar.f12741b)) {
-                        return false;
-                    }
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String str = this.a;
-                int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
-                String str2 = this.f12741b;
-                return hashCode + (str2 != null ? str2.hashCode() : 0);
-            }
-            return invokeV.intValue;
-        }
-    }
-
-    public static String a(String str) {
+    public static byte[] b(File file) {
         InterceptResult invokeL;
+        ByteArrayOutputStream byteArrayOutputStream;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (c.a.d.f.p.m.isEmpty(str) || str.contains("page_type")) {
-                return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            byte[] bArr = null;
+            if (file == null) {
+                return null;
             }
-            StringBuilder sb = new StringBuilder(str);
-            if (str.contains("?")) {
-                sb.append("&");
-            } else {
-                sb.append("?");
-            }
-            sb.append("page_type");
-            sb.append("=");
-            sb.append(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                StringBuilder sb = new StringBuilder();
-                String p = c.a.s0.s.g0.b.j().p("key_default_useragent", "");
+            try {
+                fileInputStream = new FileInputStream(file);
                 try {
-                    if (TextUtils.isEmpty(p)) {
-                        p = WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst());
-                        c.a.s0.s.g0.b.j().x("key_default_useragent", p);
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                sb.append(p);
-                sb.append(" tieba/");
-                sb.append(TbConfig.getVersion());
-                return sb.toString();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            int indexOf = str.indexOf(str2);
-            if (indexOf != -1) {
-                int length = indexOf + str2.length();
-                int i2 = length;
-                while (i2 < str.length() && str.charAt(i2) != '&') {
-                    i2++;
-                }
-                try {
-                    return URLDecoder.decode(str.substring(length, i2));
-                } catch (Exception e2) {
-                    BdLog.e(e2.toString());
-                    return "";
-                }
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            String str3 = "";
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
-                for (int i2 = 1; i2 < split.length; i2++) {
-                    String[] split2 = split[i2].split("&");
-                    if (split2 != null && split2.length > 0) {
-                        int length = split2.length;
-                        int i3 = 0;
+                    byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                    try {
+                        byte[] bArr2 = new byte[1024];
                         while (true) {
-                            if (i3 < length) {
-                                String[] split3 = split2[i3].split("=");
-                                if (split3.length == 2) {
-                                    String str4 = split3[0];
-                                    String str5 = split3[1];
-                                    if (str2.equals(str4)) {
-                                        try {
-                                            str3 = URLDecoder.decode(str5);
-                                            break;
-                                        } catch (Exception unused) {
-                                            str3 = str5;
-                                        }
+                            int read = fileInputStream.read(bArr2, 0, 1024);
+                            if (read == -1) {
+                                break;
+                            }
+                            byteArrayOutputStream.write(bArr2, 0, read);
+                        }
+                        bArr = byteArrayOutputStream.toByteArray();
+                    } catch (Throwable th) {
+                        th = th;
+                        try {
+                            BdLog.e(th.getMessage());
+                            return bArr;
+                        } finally {
+                            c.a.d.f.p.o.e(fileInputStream);
+                            c.a.d.f.p.o.f(byteArrayOutputStream);
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    byteArrayOutputStream = null;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                byteArrayOutputStream = null;
+                fileInputStream = null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static final Object c(Class<?> cls, HashSet<Class<?>> hashSet) {
+        InterceptResult invokeLL;
+        Field[] declaredFields;
+        Type[] actualTypeArguments;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, hashSet)) == null) {
+            if (hashSet != null && !hashSet.contains(cls)) {
+                hashSet.add(cls);
+                try {
+                    Class<?> cls2 = Class.forName(cls.getName() + "$Builder");
+                    Method declaredMethod = cls2.getDeclaredMethod("build", Boolean.TYPE);
+                    Object newInstance = cls2.newInstance();
+                    for (Field field : cls2.getDeclaredFields()) {
+                        Class<?> type = field.getType();
+                        if (type != null) {
+                            if (c.a.d.f.b.a.a.e(type, Message.class)) {
+                                Object c2 = c(type, hashSet);
+                                if (c2 != null) {
+                                    if (c.a.d.f.b.a.a.e(c2.getClass(), Message.class)) {
+                                        field.setAccessible(true);
+                                        field.set(newInstance, c2);
+                                    } else {
+                                        BdLog.e("");
                                     }
                                 }
-                                i3++;
+                            } else if (c.a.d.f.b.a.a.e(type, List.class)) {
+                                Type genericType = field.getGenericType();
+                                if ((genericType instanceof ParameterizedType) && (actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments()) != null && actualTypeArguments.length > 0) {
+                                    try {
+                                        Class cls3 = (Class) actualTypeArguments[0];
+                                        if (c.a.d.f.b.a.a.e(cls3, Message.class)) {
+                                            ArrayList arrayList = new ArrayList();
+                                            Object c3 = c(cls3, hashSet);
+                                            if (c3 != null) {
+                                                if (c.a.d.f.b.a.a.e(c3.getClass(), Message.class)) {
+                                                    arrayList.add(c3);
+                                                } else {
+                                                    BdLog.e("");
+                                                }
+                                                field.setAccessible(true);
+                                                field.set(newInstance, arrayList);
+                                            }
+                                        }
+                                    } catch (Throwable unused) {
+                                    }
+                                }
                             }
                         }
                     }
+                    return declaredMethod.invoke(newInstance, Boolean.TRUE);
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
                 }
             }
-            return str3;
+            return null;
         }
-        return (String) invokeLL.objValue;
+        return invokeLL.objValue;
     }
 
-    @Deprecated
-    public static String e() {
-        InterceptResult invokeV;
+    public static final boolean d(File file, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            f();
-            BaseWebView baseWebView = a;
-            if (baseWebView == null || baseWebView.getSettings() == null) {
-                return null;
-            }
-            return a.getSettings().getUserAgentString();
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, file, bArr)) != null) {
+            return invokeLL.booleanValue;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            try {
-                if (a == null) {
-                    a = new BaseWebView(TbadkCoreApplication.getInst());
+        if (file == null || bArr == null) {
+            return false;
+        }
+        FileOutputStream fileOutputStream = null;
+        try {
+            if (!file.exists() || file.delete()) {
+                if (file.createNewFile()) {
+                    FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                    try {
+                        fileOutputStream2.write(bArr, 0, bArr.length);
+                        fileOutputStream2.flush();
+                        c.a.d.f.p.o.f(fileOutputStream2);
+                        return true;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = fileOutputStream2;
+                        try {
+                            BdLog.e(th.getMessage());
+                            return false;
+                        } finally {
+                            c.a.d.f.p.o.f(fileOutputStream);
+                        }
+                    }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void g(BaseWebView baseWebView, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, baseWebView, bdUniqueId) == null) || baseWebView == null) {
-            return;
-        }
-        a aVar = new a(2921024, baseWebView);
-        if (bdUniqueId != null) {
-            aVar.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(aVar);
-        }
-    }
-
-    public static boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return str.toLowerCase().startsWith("http://") || str.toLowerCase().startsWith("https://");
+            return false;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static Bundle i(String str) {
-        InterceptResult invokeL;
-        URL url;
-        String query;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            Bundle bundle = new Bundle();
-            try {
-                url = new URL(str);
-                query = url.getQuery();
-            } catch (MalformedURLException e2) {
-                e2.printStackTrace();
-            }
-            if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
-                return null;
-            }
-            bundle.putString("path", url.getPath());
-            for (String str2 : split) {
-                String[] split2 = str2.split("=");
-                if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
-                    bundle.putString(split2[0], split2[1]);
-                }
-            }
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
     }
 }

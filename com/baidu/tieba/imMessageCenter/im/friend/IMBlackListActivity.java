@@ -108,7 +108,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IMBlackListActivity f46955e;
+        public final /* synthetic */ IMBlackListActivity f45217e;
 
         public b(IMBlackListActivity iMBlackListActivity) {
             Interceptable interceptable = $ic;
@@ -125,17 +125,17 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
                     return;
                 }
             }
-            this.f46955e = iMBlackListActivity;
+            this.f45217e = iMBlackListActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f46955e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f45217e.mModel == null) {
                 return;
             }
-            this.f46955e.mModel.cancelLoadData();
-            this.f46955e.mNeedRemovedData = null;
+            this.f45217e.mModel.cancelLoadData();
+            this.f45217e.mNeedRemovedData = null;
         }
     }
 
@@ -145,7 +145,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IMBlackListActivity f46956e;
+        public final /* synthetic */ IMBlackListActivity f45218e;
 
         public c(IMBlackListActivity iMBlackListActivity) {
             Interceptable interceptable = $ic;
@@ -162,7 +162,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
                     return;
                 }
             }
-            this.f46956e = iMBlackListActivity;
+            this.f45218e = iMBlackListActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -170,9 +170,9 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.show();
-                if (this.f46956e.mNeedRemovedData != null) {
-                    this.f46956e.showLoadingDialog();
-                    this.f46956e.mModel.removeFromBlackList(this.f46956e.mNeedRemovedData.getUserId());
+                if (this.f45218e.mNeedRemovedData != null) {
+                    this.f45218e.showLoadingDialog();
+                    this.f45218e.mModel.removeFromBlackList(this.f45218e.mNeedRemovedData.getUserId());
                 }
             }
         }
@@ -184,7 +184,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IMBlackListActivity f46957e;
+        public final /* synthetic */ IMBlackListActivity f45219e;
 
         public d(IMBlackListActivity iMBlackListActivity) {
             Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
                     return;
                 }
             }
-            this.f46957e = iMBlackListActivity;
+            this.f45219e = iMBlackListActivity;
         }
 
         @Override // c.a.s0.s.s.a.e

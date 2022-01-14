@@ -14,10 +14,10 @@ public abstract class a extends w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29929b;
+    public final int f29007b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final q f29930c;
+    public final q f29008c;
 
     public a(q qVar) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public abstract class a extends w {
                 return;
             }
         }
-        this.f29930c = qVar;
-        this.f29929b = qVar.getLength();
+        this.f29008c = qVar;
+        this.f29007b = qVar.getLength();
     }
 
     @Override // c.i.b.a.w
@@ -43,10 +43,10 @@ public abstract class a extends w {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            if (this.f29929b == 0) {
+            if (this.f29007b == 0) {
                 return -1;
             }
-            int d2 = z ? this.f29930c.d() : 0;
+            int d2 = z ? this.f29008c.d() : 0;
             while (z(d2).p()) {
                 d2 = x(d2, z);
                 if (d2 == -1) {
@@ -84,11 +84,11 @@ public abstract class a extends w {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            int i2 = this.f29929b;
+            int i2 = this.f29007b;
             if (i2 == 0) {
                 return -1;
             }
-            int c2 = z ? this.f29930c.c() : i2 - 1;
+            int c2 = z ? this.f29008c.c() : i2 - 1;
             while (z(c2).p()) {
                 c2 = y(c2, z);
                 if (c2 == -1) {
@@ -134,9 +134,9 @@ public abstract class a extends w {
             int s = s(i2);
             int w = w(s);
             z(s).g(i2 - v(s), bVar, z);
-            bVar.f30808c += w;
+            bVar.f29842c += w;
             if (z) {
-                bVar.f30807b = Pair.create(u(s), bVar.f30807b);
+                bVar.f29841b = Pair.create(u(s), bVar.f29841b);
             }
             return bVar;
         }
@@ -150,9 +150,9 @@ public abstract class a extends w {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
             int t = t(i2);
             int w = w(t);
-            int k2 = z(t).k(i2 - w, i3 == 2 ? 0 : i3, z);
-            if (k2 != -1) {
-                return w + k2;
+            int k = z(t).k(i2 - w, i3 == 2 ? 0 : i3, z);
+            if (k != -1) {
+                return w + k;
             }
             int y = y(t, z);
             while (y != -1 && z(y).p()) {
@@ -178,8 +178,8 @@ public abstract class a extends w {
             int w = w(t);
             int v = v(t);
             z(t).n(i2 - w, cVar, z, j2);
-            cVar.f30821f += v;
-            cVar.f30822g += v;
+            cVar.f29854f += v;
+            cVar.f29855g += v;
             return cVar;
         }
         return (w.c) invokeCommon.objValue;
@@ -202,9 +202,9 @@ public abstract class a extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (z) {
-                return this.f29930c.b(i2);
+                return this.f29008c.b(i2);
             }
-            if (i2 < this.f29929b - 1) {
+            if (i2 < this.f29007b - 1) {
                 return i2 + 1;
             }
             return -1;
@@ -217,7 +217,7 @@ public abstract class a extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (z) {
-                return this.f29930c.a(i2);
+                return this.f29008c.a(i2);
             }
             if (i2 > 0) {
                 return i2 - 1;

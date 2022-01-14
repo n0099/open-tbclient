@@ -17,48 +17,46 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11714b;
+    public String f11449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f11715c;
+    public Map<String, String> f11450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RequestBody f11716d;
+    public RequestBody f11451d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ResponseCallback f11717e;
+    public ResponseCallback f11452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f11718f;
+    public boolean f11453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11719g;
+    public boolean f11454g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11720h;
+    public boolean f11455h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Object f11721i;
+    public Object f11456i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f11722j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f11723k;
-    public C0782a l;
+    public int f11457j;
+    public int k;
+    public C0791a l;
 
     /* renamed from: c.a.r0.p.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0782a {
+    public static class C0791a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f11724b;
+        public int f11458b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f11725c;
+        public int f11459c;
     }
 
     public a() {
@@ -74,12 +72,12 @@ public class a {
                 return;
             }
         }
-        this.f11714b = "GET";
-        this.f11718f = false;
-        this.f11719g = false;
-        this.f11720h = false;
-        this.f11722j = 6;
-        this.f11723k = 0;
+        this.f11449b = "GET";
+        this.f11453f = false;
+        this.f11454g = false;
+        this.f11455h = false;
+        this.f11457j = 6;
+        this.k = 0;
     }
 
     public a a(MediaType mediaType, String str) {
@@ -87,17 +85,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaType, str)) == null) {
             if (mediaType != null && str != null) {
-                this.f11716d = RequestBody.create(mediaType, str);
+                this.f11451d = RequestBody.create(mediaType, str);
             }
             return this;
         }
         return (a) invokeLL.objValue;
     }
 
-    public C0782a b() {
+    public C0791a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (C0782a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (C0791a) invokeV.objValue;
     }
 
     public a(String str, ResponseCallback responseCallback) {
@@ -115,14 +113,14 @@ public class a {
                 return;
             }
         }
-        this.f11714b = "GET";
-        this.f11718f = false;
-        this.f11719g = false;
-        this.f11720h = false;
-        this.f11722j = 6;
-        this.f11723k = 0;
+        this.f11449b = "GET";
+        this.f11453f = false;
+        this.f11454g = false;
+        this.f11455h = false;
+        this.f11457j = 6;
+        this.k = 0;
         this.a = str;
-        this.f11717e = responseCallback;
+        this.f11452e = responseCallback;
     }
 
     public a(String str, RequestBody requestBody, ResponseCallback responseCallback) {
@@ -140,14 +138,14 @@ public class a {
                 return;
             }
         }
-        this.f11714b = "GET";
-        this.f11718f = false;
-        this.f11719g = false;
-        this.f11720h = false;
-        this.f11722j = 6;
-        this.f11723k = 0;
+        this.f11449b = "GET";
+        this.f11453f = false;
+        this.f11454g = false;
+        this.f11455h = false;
+        this.f11457j = 6;
+        this.k = 0;
         this.a = str;
-        this.f11716d = requestBody;
-        this.f11717e = responseCallback;
+        this.f11451d = requestBody;
+        this.f11452e = responseCallback;
     }
 }

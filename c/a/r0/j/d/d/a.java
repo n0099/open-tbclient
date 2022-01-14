@@ -21,10 +21,10 @@ public final class a extends EventTargetImpl {
     public final String domain;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f11182e;
+    public c f10934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.j.a0.c f11183f;
+    public c.a.r0.j.a0.c f10935f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(c cVar) {
@@ -45,17 +45,17 @@ public final class a extends EventTargetImpl {
             }
         }
         this.domain = "openData";
-        this.f11182e = cVar;
+        this.f10934e = cVar;
     }
 
     @JavascriptInterface
     public void getFriendCloudStorage(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
-            if (this.f11183f == null) {
-                this.f11183f = new c.a.r0.j.a0.c(this.f11182e);
+            if (this.f10935f == null) {
+                this.f10935f = new c.a.r0.j.a0.c(this.f10934e);
             }
-            this.f11183f.getFriendCloudStorage(jsObject);
+            this.f10935f.getFriendCloudStorage(jsObject);
         }
     }
 
@@ -70,10 +70,10 @@ public final class a extends EventTargetImpl {
     public void getUserCloudStorage(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            if (this.f11183f == null) {
-                this.f11183f = new c.a.r0.j.a0.c(this.f11182e);
+            if (this.f10935f == null) {
+                this.f10935f = new c.a.r0.j.a0.c(this.f10934e);
             }
-            this.f11183f.getUserCloudStorage(jsObject);
+            this.f10935f.getUserCloudStorage(jsObject);
         }
     }
 
@@ -81,18 +81,18 @@ public final class a extends EventTargetImpl {
     public void getUserInfo(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
-            if (this.f11183f == null) {
-                this.f11183f = new c.a.r0.j.a0.c(this.f11182e);
+            if (this.f10935f == null) {
+                this.f10935f = new c.a.r0.j.a0.c(this.f10934e);
             }
-            this.f11183f.getUserInfo(jsObject);
+            this.f10935f.getUserInfo(jsObject);
         }
     }
 
     @JavascriptInterface
     public void initSharedCanvas(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) && (this.f11182e.o() instanceof b)) {
-            ((b) this.f11182e.o()).z(jsObject);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) && (this.f10934e.o() instanceof b)) {
+            ((b) this.f10934e.o()).z(jsObject);
         }
     }
 
@@ -100,10 +100,10 @@ public final class a extends EventTargetImpl {
     public void removeUserCloudStorage(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
-            if (this.f11183f == null) {
-                this.f11183f = new c.a.r0.j.a0.c(this.f11182e);
+            if (this.f10935f == null) {
+                this.f10935f = new c.a.r0.j.a0.c(this.f10934e);
             }
-            this.f11183f.removeUserCloudStorage(jsObject);
+            this.f10935f.removeUserCloudStorage(jsObject);
         }
     }
 
@@ -111,10 +111,10 @@ public final class a extends EventTargetImpl {
     public void setUserCloudStorage(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
-            if (this.f11183f == null) {
-                this.f11183f = new c.a.r0.j.a0.c(this.f11182e);
+            if (this.f10935f == null) {
+                this.f10935f = new c.a.r0.j.a0.c(this.f10934e);
             }
-            this.f11183f.setUserCloudStorage(jsObject);
+            this.f10935f.setUserCloudStorage(jsObject);
         }
     }
 }

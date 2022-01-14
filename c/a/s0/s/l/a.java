@@ -19,7 +19,7 @@ public abstract class a {
 
     /* renamed from: c.a.s0.s.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0864a {
+    public interface InterfaceC0877a {
         void onBeforeLogin(String str);
 
         void onFailure(String str, int i2, String str2);
@@ -34,7 +34,7 @@ public abstract class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13537b;
+        public String f13222b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public abstract class a {
                 }
             }
             this.a = null;
-            this.f13537b = null;
+            this.f13222b = null;
         }
     }
 
@@ -100,7 +100,7 @@ public abstract class a {
         return (a) invokeV.objValue;
     }
 
-    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0864a interfaceC0864a);
+    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0877a interfaceC0877a);
 
     public abstract b c(String str);
 

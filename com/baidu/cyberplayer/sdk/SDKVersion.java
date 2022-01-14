@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes10.dex */
 public class SDKVersion {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String VERSION = "7.32.9.39";
+    public static final String VERSION = "7.32.10.41";
     public static final int VERSION_CODE = 6;
     public transient /* synthetic */ FieldHolder $fh;
 

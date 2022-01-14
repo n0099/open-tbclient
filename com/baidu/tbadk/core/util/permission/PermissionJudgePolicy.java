@@ -146,7 +146,7 @@ public class PermissionJudgePolicy {
                 return;
             }
         }
-        NEED_EXTRA_DIALOG_PERMISSIONS = new ArrayList<>(Arrays.asList(PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE, s.f57424h));
+        NEED_EXTRA_DIALOG_PERMISSIONS = new ArrayList<>(Arrays.asList(PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE, s.f55247h));
     }
 
     public PermissionJudgePolicy() {
@@ -314,14 +314,14 @@ public class PermissionJudgePolicy {
             if ("android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
                 return R.string.request_permission_default_text;
             }
-            if (!s.f57423g.equals(str) && !s.f57424h.equals(str)) {
+            if (!s.f55246g.equals(str) && !s.f55247h.equals(str)) {
                 if (PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(str)) {
                     return R.string.request_permission_camera;
                 }
                 if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(str)) {
                     return R.string.request_permission_microphone;
                 }
-                if (s.f57419c.equals(str)) {
+                if (s.f55242c.equals(str)) {
                     return R.string.request_permission_contacts;
                 }
                 if ("android.permission.SEND_SMS".equals(str)) {

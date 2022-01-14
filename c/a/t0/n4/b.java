@@ -13,26 +13,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f20356f;
+    public static b f19812f;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.s0.g1.n.f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f20357b;
+    public int f19813b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20358c;
+    public int f19814c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f20359d;
+    public long f19815d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20360e;
+    public int f19816e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -47,17 +47,17 @@ public class b extends LinkMovementMethod {
                 return;
             }
         }
-        this.f20360e = -1;
+        this.f19816e = -1;
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f20356f == null) {
-                f20356f = new b();
+            if (f19812f == null) {
+                f19812f = new b();
             }
-            return f20356f;
+            return f19812f;
         }
         return (b) invokeV.objValue;
     }
@@ -101,7 +101,7 @@ public class b extends LinkMovementMethod {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f20360e = i2;
+            this.f19816e = i2;
         }
     }
 
@@ -122,14 +122,14 @@ public class b extends LinkMovementMethod {
             if (b2 != null) {
                 this.a = b2;
             }
-            int i2 = this.f20360e;
+            int i2 = this.f19816e;
             if (i2 > -1) {
                 this.a.g(i2);
             }
             if (motionEvent.getAction() == 0) {
-                this.f20357b = (int) motionEvent.getX();
-                this.f20358c = (int) motionEvent.getY();
-                this.f20359d = System.currentTimeMillis();
+                this.f19813b = (int) motionEvent.getX();
+                this.f19814c = (int) motionEvent.getY();
+                this.f19815d = System.currentTimeMillis();
                 c.a.s0.g1.n.f fVar = this.a;
                 if (fVar != null) {
                     fVar.h(1);
@@ -137,7 +137,7 @@ public class b extends LinkMovementMethod {
                 }
                 textView.invalidate();
             } else if (motionEvent.getAction() == 2) {
-                if (this.a != null && (Math.abs(this.f20357b - motionEvent.getX()) > 20.0f || Math.abs(this.f20358c - motionEvent.getY()) > 20.0f)) {
+                if (this.a != null && (Math.abs(this.f19813b - motionEvent.getX()) > 20.0f || Math.abs(this.f19814c - motionEvent.getY()) > 20.0f)) {
                     this.a.h(2);
                     textView.invalidate();
                     Selection.removeSelection(spannable);
@@ -149,7 +149,7 @@ public class b extends LinkMovementMethod {
                     textView.invalidate();
                     Selection.removeSelection(spannable);
                 }
-                if (c(this.f20357b, this.f20358c, motionEvent.getX(), motionEvent.getY(), this.f20359d, System.currentTimeMillis(), 500L)) {
+                if (c(this.f19813b, this.f19814c, motionEvent.getX(), motionEvent.getY(), this.f19815d, System.currentTimeMillis(), 500L)) {
                     return true;
                 }
             }

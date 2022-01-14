@@ -28,24 +28,24 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile c f3177g;
+    public static volatile c f3140g;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Class<?>, Class<?>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<Class<?>, Class<?>> f3178b;
+    public Map<Class<?>, Class<?>> f3141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Class<?>, Class<?>> f3179c;
+    public Map<Class<?>, Class<?>> f3142c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3180d;
+    public int f3143d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3181e;
+    public int f3144e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3182f;
+    public int f3145f;
 
     static {
         InterceptResult invokeClinit;
@@ -76,28 +76,28 @@ public class c {
             }
         }
         this.a = null;
-        this.f3178b = null;
-        this.f3179c = null;
-        this.f3180d = 0;
-        this.f3181e = 0;
-        this.f3182f = 0;
+        this.f3141b = null;
+        this.f3142c = null;
+        this.f3143d = 0;
+        this.f3144e = 0;
+        this.f3145f = 0;
         this.a = new HashMap();
-        this.f3178b = new HashMap();
-        this.f3179c = new HashMap();
+        this.f3141b = new HashMap();
+        this.f3142c = new HashMap();
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f3177g == null) {
+            if (f3140g == null) {
                 synchronized (c.class) {
-                    if (f3177g == null) {
-                        f3177g = new c();
+                    if (f3140g == null) {
+                        f3140g = new c();
                     }
                 }
             }
-            return f3177g;
+            return f3140g;
         }
         return (c) invokeV.objValue;
     }
@@ -114,14 +114,14 @@ public class c {
                 if (cls2 != null) {
                     return cls2;
                 }
-                int i2 = this.f3181e;
+                int i2 = this.f3144e;
                 if (i2 == 20) {
                     BdLog.e("can not find singletaskactivity,Has started 20 singletaskactivity");
                     return null;
                 }
-                this.f3181e = i2 + 1;
+                this.f3144e = i2 + 1;
                 try {
-                    cls2 = Class.forName("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy" + this.f3181e);
+                    cls2 = Class.forName("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy" + this.f3144e);
                     this.a.put(cls, cls2);
                     return cls2;
                 } catch (Exception e2) {
@@ -129,19 +129,19 @@ public class c {
                     return cls2;
                 }
             } else if (PluginBaseRemoteSingleTaskActivity.class.isAssignableFrom(cls)) {
-                Class<?> cls3 = this.f3178b.get(cls);
+                Class<?> cls3 = this.f3141b.get(cls);
                 if (cls3 != null) {
                     return cls3;
                 }
-                int i3 = this.f3182f;
+                int i3 = this.f3145f;
                 if (i3 == 10) {
                     BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
                     return null;
                 }
-                this.f3182f = i3 + 1;
+                this.f3145f = i3 + 1;
                 try {
-                    cls3 = Class.forName("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy" + this.f3182f);
-                    this.f3178b.put(cls, cls3);
+                    cls3 = Class.forName("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy" + this.f3145f);
+                    this.f3141b.put(cls, cls3);
                     return cls3;
                 } catch (Exception e3) {
                     BdLog.e(e3);
@@ -151,19 +151,19 @@ public class c {
                 return RemoteActivityProxy.class;
             } else {
                 if (PluginBaseThirdSingleTaskActivity.class.isAssignableFrom(cls)) {
-                    Class<?> cls4 = this.f3179c.get(cls);
+                    Class<?> cls4 = this.f3142c.get(cls);
                     if (cls4 != null) {
                         return cls4;
                     }
-                    int i4 = this.f3180d;
+                    int i4 = this.f3143d;
                     if (i4 == 10) {
                         BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
                         return null;
                     }
-                    this.f3180d = i4 + 1;
+                    this.f3143d = i4 + 1;
                     try {
-                        cls4 = Class.forName("com.baidu.adp.plugin.proxy.activity.ThirdSingleTaskActivityProxy" + this.f3180d);
-                        this.f3179c.put(cls, cls4);
+                        cls4 = Class.forName("com.baidu.adp.plugin.proxy.activity.ThirdSingleTaskActivityProxy" + this.f3143d);
+                        this.f3142c.put(cls, cls4);
                         return cls4;
                     } catch (Exception e4) {
                         BdLog.e(e4);

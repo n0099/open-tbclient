@@ -49,15 +49,15 @@ public class g extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String string = ResUtils.getString(this.a, "ebpay_submit_pay");
-            PayRequest payRequest = this.f54180d;
+            PayRequest payRequest = this.f52116d;
             if (payRequest != null) {
                 if (payRequest.mMktSolution != null) {
-                    string = String.format(ResUtils.getString(this.a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f54180d.mMktSolution.easypay_amount));
+                    string = String.format(ResUtils.getString(this.a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f52116d.mMktSolution.easypay_amount));
                 } else {
-                    string = String.format(ResUtils.getString(this.a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f54180d.getFinalPayAmount()));
+                    string = String.format(ResUtils.getString(this.a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f52116d.getFinalPayAmount()));
                 }
             }
-            this.f54178b.initSMSActivityView("ebpay_sms_top_tip_voice_verify", "", string, SecurePay.unicodeDecode(SecurePay.getInstance().localDecryptProxy(this.f54181e)), true);
+            this.f52114b.initSMSActivityView("ebpay_sms_top_tip_voice_verify", "", string, SecurePay.unicodeDecode(SecurePay.getInstance().localDecryptProxy(this.f52117e)), true);
         }
     }
 

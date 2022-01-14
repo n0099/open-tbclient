@@ -14,6 +14,7 @@ import c.a.r0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,7 +67,7 @@ public class a implements c.a.r0.f.a.b.a {
     public String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? Settings.Secure.getString(context.getContentResolver(), "android_id") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID) : (String) invokeL.objValue;
     }
 
     @Override // c.a.r0.f.a.b.a
@@ -130,7 +131,7 @@ public class a implements c.a.r0.f.a.b.a {
                 return "";
             }
             Application c2 = c.a.r0.a.c1.a.c();
-            if (ContextCompat.checkSelfPermission(c2, s.f57419c) != 0) {
+            if (ContextCompat.checkSelfPermission(c2, s.f55242c) != 0) {
                 return "";
             }
             try {

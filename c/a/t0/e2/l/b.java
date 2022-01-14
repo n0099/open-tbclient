@@ -23,7 +23,7 @@ public class b implements LiveLocationService {
         public final /* synthetic */ LocationCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f17577b;
+        public final /* synthetic */ b f17149b;
 
         public a(b bVar, LocationCallback locationCallback) {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class b implements LiveLocationService {
                     return;
                 }
             }
-            this.f17577b = bVar;
+            this.f17149b = bVar;
             this.a = locationCallback;
         }
 
@@ -52,7 +52,7 @@ public class b implements LiveLocationService {
                     if (this.a == null || address == null) {
                         return;
                     }
-                    this.a.onReceiveLocation(this.f17577b.b(address));
+                    this.a.onReceiveLocation(this.f17149b.b(address));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

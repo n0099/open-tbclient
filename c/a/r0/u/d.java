@@ -20,34 +20,32 @@ public class d {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashSet<String> f12091b;
+    public final HashSet<String> f11812b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashSet<String> f12092c;
+    public final HashSet<String> f11813c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashSet<String> f12093d;
+    public final HashSet<String> f11814d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashSet<String> f12094e;
+    public final HashSet<String> f11815e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<String, String> f12095f;
+    public final HashMap<String, String> f11816f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HashMap<String, String> f12096g;
+    public final HashMap<String, String> f11817g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HashMap<String, h> f12097h;
+    public final HashMap<String, h> f11818h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HashSet<String> f12098i;
+    public final HashSet<String> f11819i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f12099j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f12100k;
+    public int f11820j;
+    public int k;
     public int l;
 
     public d() {
@@ -63,14 +61,14 @@ public class d {
                 return;
             }
         }
-        this.f12091b = new HashSet<>();
-        this.f12092c = new HashSet<>();
-        this.f12093d = new HashSet<>();
-        this.f12094e = new HashSet<>();
-        this.f12095f = new HashMap<>();
-        this.f12096g = new HashMap<>();
-        this.f12097h = new HashMap<>();
-        this.f12098i = new HashSet<>();
+        this.f11812b = new HashSet<>();
+        this.f11813c = new HashSet<>();
+        this.f11814d = new HashSet<>();
+        this.f11815e = new HashSet<>();
+        this.f11816f = new HashMap<>();
+        this.f11817g = new HashMap<>();
+        this.f11818h = new HashMap<>();
+        this.f11819i = new HashSet<>();
     }
 
     public static d g() {
@@ -92,7 +90,7 @@ public class d {
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f12093d.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f11814d.contains(str) : invokeL.booleanValue;
     }
 
     public boolean b(String str) {
@@ -102,7 +100,7 @@ public class d {
             if (e.g().s()) {
                 return true;
             }
-            return this.f12092c.contains(str);
+            return this.f11813c.contains(str);
         }
         return invokeL.booleanValue;
     }
@@ -111,13 +109,13 @@ public class d {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) {
-            if (this.f12091b.contains(str)) {
+            if (this.f11812b.contains(str)) {
                 return false;
             }
             if ((i2 & 16) == 0 && (i2 & 32) == 0) {
                 return true;
             }
-            return this.f12094e.contains(str);
+            return this.f11815e.contains(str);
         }
         return invokeLI.booleanValue;
     }
@@ -125,13 +123,13 @@ public class d {
     public String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f12096g.containsKey(str) ? this.f12096g.get(str) : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f11817g.containsKey(str) ? this.f11817g.get(str) : "" : (String) invokeL.objValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12100k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public int f() {
@@ -143,17 +141,17 @@ public class d {
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12099j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11820j : invokeV.intValue;
     }
 
     public int i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (e.g().r() || TextUtils.isEmpty(str) || !this.f12095f.containsKey(str)) {
+            if (e.g().r() || TextUtils.isEmpty(str) || !this.f11816f.containsKey(str)) {
                 return 0;
             }
-            return Integer.parseInt(this.f12095f.get(str));
+            return Integer.parseInt(this.f11816f.get(str));
         }
         return invokeL.intValue;
     }
@@ -161,18 +159,18 @@ public class d {
     public String j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? (TextUtils.isEmpty(str) || !this.f12098i.contains(str)) ? "0" : "1" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? (TextUtils.isEmpty(str) || !this.f11819i.contains(str)) ? "0" : "1" : (String) invokeL.objValue;
     }
 
     public void k(c cVar, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, cVar, context) == null) {
             this.a = context;
-            this.f12099j = 360000;
+            this.f11820j = 360000;
             t f2 = t.f();
-            this.f12100k = f2.getInt("ubc_data_expire_time", 259200000);
+            this.k = f2.getInt("ubc_data_expire_time", 259200000);
             this.l = f2.getInt("ubc_database_limit", 4000);
-            cVar.e().w(this.f12091b, this.f12094e, this.f12092c, this.f12093d, this.f12095f, this.f12096g, this.f12097h, this.f12098i);
+            cVar.e().w(this.f11812b, this.f11815e, this.f11813c, this.f11814d, this.f11816f, this.f11817g, this.f11818h, this.f11819i);
         }
     }
 
@@ -180,7 +178,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            h hVar = this.f12097h.get(str);
+            h hVar = this.f11818h.get(str);
             return hVar != null && hVar.b();
         }
         return invokeL.booleanValue;
@@ -190,7 +188,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            h hVar = this.f12097h.get(str);
+            h hVar = this.f11818h.get(str);
             return hVar != null && hVar.c();
         }
         return invokeL.booleanValue;
@@ -198,10 +196,10 @@ public class d {
 
     public void n(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || i2 < this.f12100k) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || i2 < this.k) {
             return;
         }
-        this.f12100k = i2;
+        this.k = i2;
         t.f().putInt("ubc_data_expire_time", i2);
     }
 
@@ -217,10 +215,10 @@ public class d {
     public void p(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (i3 = i2 * 60000) < this.f12099j) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (i3 = i2 * 60000) < this.f11820j) {
             return;
         }
-        this.f12099j = i3;
+        this.f11820j = i3;
     }
 
     public void q(List<g> list) {
@@ -228,41 +226,41 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
             for (g gVar : list) {
-                if ("0".equals(gVar.f12104b)) {
-                    this.f12091b.add(gVar.a);
+                if ("0".equals(gVar.f11824b)) {
+                    this.f11812b.add(gVar.a);
                 } else {
-                    this.f12091b.remove(gVar.a);
+                    this.f11812b.remove(gVar.a);
                 }
-                if ("1".equals(gVar.f12105c)) {
-                    this.f12092c.add(gVar.a);
+                if ("1".equals(gVar.f11825c)) {
+                    this.f11813c.add(gVar.a);
                 } else {
-                    this.f12092c.remove(gVar.a);
+                    this.f11813c.remove(gVar.a);
                 }
-                if ("1".equals(gVar.f12108f)) {
-                    this.f12093d.add(gVar.a);
+                if ("1".equals(gVar.f11828f)) {
+                    this.f11814d.add(gVar.a);
                 } else {
-                    this.f12093d.remove(gVar.a);
+                    this.f11814d.remove(gVar.a);
                 }
-                int i3 = gVar.f12109g;
+                int i3 = gVar.f11829g;
                 if (i3 >= 1 && i3 <= 100) {
-                    this.f12095f.put(gVar.a, String.valueOf(i3));
+                    this.f11816f.put(gVar.a, String.valueOf(i3));
                 } else {
-                    this.f12095f.remove(gVar.a);
+                    this.f11816f.remove(gVar.a);
                 }
-                if (!TextUtils.isEmpty(gVar.f12110h)) {
-                    this.f12096g.put(gVar.a, gVar.f12110h);
+                if (!TextUtils.isEmpty(gVar.f11830h)) {
+                    this.f11817g.put(gVar.a, gVar.f11830h);
                 } else {
-                    this.f12096g.remove(gVar.a);
+                    this.f11817g.remove(gVar.a);
                 }
-                int i4 = gVar.f12112j;
-                if (i4 != 0 && (i2 = gVar.f12111i) != 0) {
+                int i4 = gVar.f11832j;
+                if (i4 != 0 && (i2 = gVar.f11831i) != 0) {
                     h hVar = new h(gVar.a, i4, i2);
-                    this.f12097h.put(hVar.a(), hVar);
+                    this.f11818h.put(hVar.a(), hVar);
                 }
-                if (TextUtils.equals(gVar.f12113k, "1")) {
-                    this.f12098i.add(gVar.a);
+                if (TextUtils.equals(gVar.k, "1")) {
+                    this.f11819i.add(gVar.a);
                 } else {
-                    this.f12098i.remove(gVar.a);
+                    this.f11819i.remove(gVar.a);
                 }
             }
         }

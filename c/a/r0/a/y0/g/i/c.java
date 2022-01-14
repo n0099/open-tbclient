@@ -14,13 +14,13 @@ public class c {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9844b;
+    public String f9630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9845c;
+    public String f9631c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9846d;
+    public int f9632d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class c {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("userId", this.a);
-                jSONObject.put("displayName", this.f9844b);
-                jSONObject.put("attribute", this.f9845c);
-                jSONObject.put("role", this.f9846d);
+                jSONObject.put("displayName", this.f9630b);
+                jSONObject.put("attribute", this.f9631c);
+                jSONObject.put("role", this.f9632d);
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;

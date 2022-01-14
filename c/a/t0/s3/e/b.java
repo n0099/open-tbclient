@@ -32,7 +32,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.s3.f.b, CardViewHolder<c>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f24134b;
+        public final /* synthetic */ b f23460b;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.s3.f.b, CardViewHolder<c>> {
                     return;
                 }
             }
-            this.f24134b = bVar;
+            this.f23460b = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -57,19 +57,19 @@ public class b extends c.a.d.n.e.a<c.a.t0.s3.f.b, CardViewHolder<c>> {
         /* renamed from: d */
         public void a(View view, c.a.t0.s3.f.b bVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, bVar) == null) && bVar != null && (this.f24134b.m.getPageActivity() instanceof ForumSquareActivity)) {
-                String h2 = ((ForumSquareActivity) this.f24134b.m.getPageActivity()).getDelegate().h();
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, bVar) == null) && bVar != null && (this.f23460b.m.getPageActivity() instanceof ForumSquareActivity)) {
+                String h2 = ((ForumSquareActivity) this.f23460b.m.getPageActivity()).getDelegate().h();
                 if (!"推荐".equals(h2)) {
                     StatisticItem statisticItem = new StatisticItem("c13652");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", bVar.f24136e);
+                    statisticItem.param("fid", bVar.f23462e);
                     statisticItem.param(TiebaStatic.Params.RESOURCE_ID, h2);
                     TiebaStatic.log(statisticItem);
                     return;
                 }
                 StatisticItem statisticItem2 = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_FORUM_SHOW);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem2.param("fid", bVar.f24136e);
+                statisticItem2.param("fid", bVar.f23462e);
                 statisticItem2.param("obj_locate", 3);
                 TiebaStatic.log(statisticItem2);
             }
@@ -107,7 +107,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.s3.f.b, CardViewHolder<c>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             c cVar = new c(this.m);
-            cVar.n(this.f3303i);
+            cVar.n(this.f3262i);
             return new CardViewHolder<>(cVar);
         }
         return (CardViewHolder) invokeL.objValue;
@@ -130,7 +130,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.s3.f.b, CardViewHolder<c>> {
                 if (!"推荐".equals(h2)) {
                     StatisticItem statisticItem = new StatisticItem("c13651");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", bVar.f24136e);
+                    statisticItem.param("fid", bVar.f23462e);
                     statisticItem.param(TiebaStatic.Params.RESOURCE_ID, h2);
                     TiebaStatic.log(statisticItem);
                 } else {

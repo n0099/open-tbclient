@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class StopWatch {
@@ -167,7 +168,7 @@ public class StopWatch {
                     return invokeV.booleanValue;
                 }
             };
-            RUNNING = new State("RUNNING", 1) { // from class: org.apache.commons.lang3.time.StopWatch.State.2
+            RUNNING = new State(TornadoLiteRuntime.STATE_RUNNING, 1) { // from class: org.apache.commons.lang3.time.StopWatch.State.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

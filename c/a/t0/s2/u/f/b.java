@@ -36,35 +36,33 @@ public class b implements c.a.s0.j0.e.a {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public ForumManageModel f23278b;
+    public ForumManageModel f22635b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.d.a.e f23279c;
+    public final c.a.d.a.e f22636c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<CustomBlueCheckRadioButton> f23280d;
+    public List<CustomBlueCheckRadioButton> f22637d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Dialog f23281e;
+    public Dialog f22638e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f23282f;
+    public View f22639f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f23283g;
+    public LinearLayout f22640g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CompoundButton.OnCheckedChangeListener f23284h;
+    public CompoundButton.OnCheckedChangeListener f22641h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f23285i;
+    public TextView f22642i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f23286j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f23287k;
+    public TextView f22643j;
+    public String k;
     public ScrollView l;
     public String m;
     public String n;
@@ -100,32 +98,32 @@ public class b implements c.a.s0.j0.e.a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null || this.a.a.getPageActivity().isDestroyed()) {
                 return;
             }
-            int loadDataMode = this.a.f23278b.getLoadDataMode();
+            int loadDataMode = this.a.f22635b.getLoadDataMode();
             if (loadDataMode != 2 && loadDataMode != 3 && loadDataMode != 4 && loadDataMode != 5) {
                 if (loadDataMode != 6) {
                     return;
                 }
-                this.a.m(((ForumManageModel.g) obj).f50085c);
+                this.a.m(((ForumManageModel.g) obj).f48200c);
                 return;
             }
             ForumManageModel.g gVar = (ForumManageModel.g) obj;
-            if (TextUtils.isEmpty(gVar.f50084b)) {
-                gVar.f50084b = this.a.a.getString(gVar.a ? c.a.t0.s2.l.operation_success : c.a.t0.s2.l.operation_failed);
+            if (TextUtils.isEmpty(gVar.f48199b)) {
+                gVar.f48199b = this.a.a.getString(gVar.a ? c.a.t0.s2.l.operation_success : c.a.t0.s2.l.operation_failed);
             }
-            BarManageResultListener.sendMessage(this.a.f23278b.N(this.a.f23278b.getLoadDataMode(), gVar));
+            BarManageResultListener.sendMessage(this.a.f22635b.N(this.a.f22635b.getLoadDataMode(), gVar));
         }
     }
 
     /* renamed from: c.a.t0.s2.u.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1383b implements CompoundButton.OnCheckedChangeListener {
+    public class C1398b implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f23288e;
+        public final /* synthetic */ b f22644e;
 
-        public C1383b(b bVar) {
+        public C1398b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,18 +138,18 @@ public class b implements c.a.s0.j0.e.a {
                     return;
                 }
             }
-            this.f23288e = bVar;
+            this.f22644e = bVar;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) && z) {
-                this.f23288e.f23287k = (String) compoundButton.getTag();
-                if (this.f23288e.f23280d != null) {
-                    for (CustomBlueCheckRadioButton customBlueCheckRadioButton : this.f23288e.f23280d) {
+                this.f22644e.k = (String) compoundButton.getTag();
+                if (this.f22644e.f22637d != null) {
+                    for (CustomBlueCheckRadioButton customBlueCheckRadioButton : this.f22644e.f22637d) {
                         String str = (String) customBlueCheckRadioButton.getTag();
-                        if (str != null && this.f23288e.f23287k != null && !str.equals(this.f23288e.f23287k)) {
+                        if (str != null && this.f22644e.k != null && !str.equals(this.f22644e.k)) {
                             customBlueCheckRadioButton.setChecked(false);
                         }
                     }
@@ -166,7 +164,7 @@ public class b implements c.a.s0.j0.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f23289e;
+        public final /* synthetic */ b f22645e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -183,14 +181,14 @@ public class b implements c.a.s0.j0.e.a {
                     return;
                 }
             }
-            this.f23289e = bVar;
+            this.f22645e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f23289e.f23281e instanceof Dialog)) {
-                c.a.d.f.m.g.b(this.f23289e.f23281e, this.f23289e.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f22645e.f22638e instanceof Dialog)) {
+                c.a.d.f.m.g.b(this.f22645e.f22638e, this.f22645e.a);
             }
         }
     }
@@ -201,7 +199,7 @@ public class b implements c.a.s0.j0.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f23290e;
+        public final /* synthetic */ b f22646e;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -218,16 +216,16 @@ public class b implements c.a.s0.j0.e.a {
                     return;
                 }
             }
-            this.f23290e = bVar;
+            this.f22646e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f23290e.f23278b.T(this.f23290e.m, this.f23290e.n, this.f23290e.o, 2, this.f23290e.f23287k);
-                if (this.f23290e.f23281e instanceof Dialog) {
-                    c.a.d.f.m.g.b(this.f23290e.f23281e, this.f23290e.a);
+                this.f22646e.f22635b.T(this.f22646e.m, this.f22646e.n, this.f22646e.o, 2, this.f22646e.k);
+                if (this.f22646e.f22638e instanceof Dialog) {
+                    c.a.d.f.m.g.b(this.f22646e.f22638e, this.f22646e.a);
                 }
             }
         }
@@ -248,43 +246,43 @@ public class b implements c.a.s0.j0.e.a {
                 return;
             }
         }
-        this.f23279c = new a(this);
-        this.f23281e = null;
-        this.f23282f = null;
-        this.f23283g = null;
-        this.f23284h = null;
-        this.f23285i = null;
-        this.f23286j = null;
-        this.f23287k = null;
+        this.f22636c = new a(this);
+        this.f22638e = null;
+        this.f22639f = null;
+        this.f22640g = null;
+        this.f22641h = null;
+        this.f22642i = null;
+        this.f22643j = null;
+        this.k = null;
         this.l = null;
         this.m = null;
         this.n = null;
         this.o = null;
         this.a = tbPageContext;
         ForumManageModel forumManageModel = new ForumManageModel(tbPageContext);
-        this.f23278b = forumManageModel;
-        forumManageModel.setLoadDataCallBack(this.f23279c);
+        this.f22635b = forumManageModel;
+        forumManageModel.setLoadDataCallBack(this.f22636c);
     }
 
     @Override // c.a.s0.j0.e.a
     public void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || this.f23278b.P()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || this.f22635b.P()) {
             return;
         }
         this.m = str;
         this.n = str2;
         this.o = str3;
-        this.f23278b.T(str, str2, str3, z ? 3 : 6, null);
+        this.f22635b.T(str, str2, str3, z ? 3 : 6, null);
     }
 
     @Override // c.a.s0.j0.e.a
     public void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || this.f23278b.P()) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || this.f22635b.P()) {
             return;
         }
-        this.f23278b.T(str, str2, str3, z ? 5 : 4, null);
+        this.f22635b.T(str, str2, str3, z ? 5 : 4, null);
     }
 
     public final CustomBlueCheckRadioButton l(String str, String str2) {
@@ -294,7 +292,7 @@ public class b implements c.a.s0.j0.e.a {
             Activity pageActivity = this.a.getPageActivity();
             CustomBlueCheckRadioButton customBlueCheckRadioButton = new CustomBlueCheckRadioButton(pageActivity);
             RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(-1, c.a.d.f.p.n.f(pageActivity, c.a.t0.s2.g.ds100));
-            customBlueCheckRadioButton.setOnCheckedChangeListener(this.f23284h);
+            customBlueCheckRadioButton.setOnCheckedChangeListener(this.f22641h);
             customBlueCheckRadioButton.setTag(str);
             customBlueCheckRadioButton.setText(str2);
             customBlueCheckRadioButton.setLayoutParams(layoutParams);
@@ -306,46 +304,46 @@ public class b implements c.a.s0.j0.e.a {
     public final void m(ArrayList<c.a.s0.s.q.m0> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            if (this.f23282f == null) {
-                this.f23282f = LayoutInflater.from(this.a.getPageActivity()).inflate(c.a.t0.s2.j.commit_good, (ViewGroup) null);
+            if (this.f22639f == null) {
+                this.f22639f = LayoutInflater.from(this.a.getPageActivity()).inflate(c.a.t0.s2.j.commit_good, (ViewGroup) null);
             }
-            if (this.f23281e == null) {
+            if (this.f22638e == null) {
                 Dialog dialog = new Dialog(this.a.getPageActivity());
-                this.f23281e = dialog;
+                this.f22638e = dialog;
                 dialog.setCanceledOnTouchOutside(true);
-                this.f23281e.setCancelable(true);
-                this.l = (ScrollView) this.f23282f.findViewById(c.a.t0.s2.i.good_scroll);
-                this.f23281e.setContentView(this.f23282f);
-                WindowManager.LayoutParams attributes = this.f23281e.getWindow().getAttributes();
+                this.f22638e.setCancelable(true);
+                this.l = (ScrollView) this.f22639f.findViewById(c.a.t0.s2.i.good_scroll);
+                this.f22638e.setContentView(this.f22639f);
+                WindowManager.LayoutParams attributes = this.f22638e.getWindow().getAttributes();
                 attributes.width = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.ds540);
-                this.f23281e.getWindow().setAttributes(attributes);
-                this.f23284h = new C1383b(this);
-                this.f23283g = (LinearLayout) this.f23282f.findViewById(c.a.t0.s2.i.good_class_group);
-                TextView textView = (TextView) this.f23282f.findViewById(c.a.t0.s2.i.dialog_button_cancel);
-                this.f23286j = textView;
+                this.f22638e.getWindow().setAttributes(attributes);
+                this.f22641h = new C1398b(this);
+                this.f22640g = (LinearLayout) this.f22639f.findViewById(c.a.t0.s2.i.good_class_group);
+                TextView textView = (TextView) this.f22639f.findViewById(c.a.t0.s2.i.dialog_button_cancel);
+                this.f22643j = textView;
                 textView.setOnClickListener(new c(this));
-                TextView textView2 = (TextView) this.f23282f.findViewById(c.a.t0.s2.i.dialog_button_ok);
-                this.f23285i = textView2;
+                TextView textView2 = (TextView) this.f22639f.findViewById(c.a.t0.s2.i.dialog_button_ok);
+                this.f22642i = textView2;
                 textView2.setOnClickListener(new d(this));
             }
-            this.f23283g.removeAllViews();
-            this.f23280d = new ArrayList();
+            this.f22640g.removeAllViews();
+            this.f22637d = new ArrayList();
             CustomBlueCheckRadioButton l = l("0", this.a.getString(c.a.t0.s2.l.thread_good_class));
-            this.f23280d.add(l);
+            this.f22637d.add(l);
             l.setChecked(true);
-            this.f23283g.addView(l);
+            this.f22640g.addView(l);
             if (arrayList != null) {
                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
                     c.a.s0.s.q.m0 m0Var = arrayList.get(i2);
                     if (m0Var != null && !TextUtils.isEmpty(m0Var.b()) && m0Var.a() > 0) {
                         CustomBlueCheckRadioButton l2 = l(String.valueOf(m0Var.a()), m0Var.b());
-                        this.f23280d.add(l2);
+                        this.f22637d.add(l2);
                         View view = new View(this.a.getPageActivity());
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.ds1));
                         SkinManager.setBackgroundColor(view, c.a.t0.s2.f.CAM_X0204);
                         view.setLayoutParams(layoutParams);
-                        this.f23283g.addView(view);
-                        this.f23283g.addView(l2);
+                        this.f22640g.addView(view);
+                        this.f22640g.addView(l2);
                     }
                 }
                 ViewGroup.LayoutParams layoutParams2 = this.l.getLayoutParams();
@@ -359,12 +357,12 @@ public class b implements c.a.s0.j0.e.a {
                 }
                 this.l.setLayoutParams(layoutParams2);
                 this.l.removeAllViews();
-                LinearLayout linearLayout = this.f23283g;
+                LinearLayout linearLayout = this.f22640g;
                 if (linearLayout != null && linearLayout.getParent() == null) {
-                    this.l.addView(this.f23283g);
+                    this.l.addView(this.f22640g);
                 }
             }
-            c.a.d.f.m.g.j(this.f23281e, this.a);
+            c.a.d.f.m.g.j(this.f22638e, this.a);
         }
     }
 }

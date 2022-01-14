@@ -17,10 +17,10 @@ public abstract class c {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10497b;
+    public int f10271b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10498c;
+    public String f10272c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -36,13 +36,13 @@ public abstract class c {
             }
         }
         this.a = false;
-        this.f10497b = 0;
+        this.f10271b = 0;
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f10497b = 0;
+            this.f10271b = 0;
             c.a.r0.c.a.d.b().a(str, this);
         }
     }
@@ -50,7 +50,7 @@ public abstract class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10498c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10272c : (String) invokeV.objValue;
     }
 
     public boolean c() {
@@ -62,7 +62,7 @@ public abstract class c {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f10498c = str;
+            this.f10272c = str;
         }
     }
 
@@ -84,12 +84,12 @@ public abstract class c {
                     if (!TextUtils.isEmpty(c2.a())) {
                         str = c2.a();
                     }
-                    this.f10497b = c2.b().intValue();
+                    this.f10271b = c2.b().intValue();
                 } else {
-                    this.f10497b = -1;
+                    this.f10271b = -1;
                 }
-                c.a.r0.c.a.g.l().m().s(this.f10497b);
-                if (this.f10497b == -1) {
+                c.a.r0.c.a.g.l().m().s(this.f10271b);
+                if (this.f10271b == -1) {
                     c.a.r0.c.a.d.b().f(false);
                 }
             }

@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -43,7 +42,7 @@ public final class NetUtils {
             if (context != null && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null && wifiManager.isWifiEnabled() && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(BaseStatisContent.MAC, connectionInfo.getBSSID());
+                    jSONObject.put("mac", connectionInfo.getBSSID());
                     jSONObject.put("rssi", connectionInfo.getRssi());
                     jSONObject.put("ssid", connectionInfo.getSSID());
                     return jSONObject;
@@ -76,7 +75,7 @@ public final class NetUtils {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 if (connectionInfo != null) {
-                    jSONObject2.put(BaseStatisContent.MAC, connectionInfo.getBSSID());
+                    jSONObject2.put("mac", connectionInfo.getBSSID());
                     jSONObject2.put("rssi", connectionInfo.getRssi());
                     jSONObject2.put("ssid", connectionInfo.getSSID());
                     jSONObject.put("wifi_conn", jSONObject2);
@@ -88,7 +87,7 @@ public final class NetUtils {
                     JSONArray jSONArray = new JSONArray();
                     for (ScanResult scanResult : scanResults) {
                         JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put(BaseStatisContent.MAC, scanResult.BSSID);
+                        jSONObject3.put("mac", scanResult.BSSID);
                         jSONObject3.put("rssi", scanResult.level);
                         jSONObject3.put("ssid", scanResult.SSID);
                         jSONArray.put(jSONObject3);

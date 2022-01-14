@@ -12,13 +12,13 @@ public class e0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25507b;
+    public String f24793b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25508c;
+    public String f24794c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Integer f25509d;
+    public Integer f24795d;
 
     public e0() {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class e0 {
         }
         String str = smartApp.avatar;
         this.a = smartApp.name;
-        this.f25507b = smartApp.id;
-        this.f25508c = smartApp.link;
-        this.f25509d = smartApp.is_game;
+        this.f24793b = smartApp.id;
+        this.f24794c = smartApp.link;
+        this.f24795d = smartApp.is_game;
     }
 }

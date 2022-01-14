@@ -50,10 +50,10 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.t1.b.e f46921h;
+    public c.a.t0.t1.b.e f45183h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext f46922i;
+    public TbPageContext f45184i;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -61,13 +61,13 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterShowItemData f46923e;
+        public final /* synthetic */ ImMessageCenterShowItemData f45185e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g f46924f;
+        public final /* synthetic */ g f45186f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterListAdapter f46925g;
+        public final /* synthetic */ ImMessageCenterListAdapter f45187g;
 
         public a(ImMessageCenterListAdapter imMessageCenterListAdapter, ImMessageCenterShowItemData imMessageCenterShowItemData, g gVar) {
             Interceptable interceptable = $ic;
@@ -84,22 +84,22 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
                     return;
                 }
             }
-            this.f46925g = imMessageCenterListAdapter;
-            this.f46923e = imMessageCenterShowItemData;
-            this.f46924f = gVar;
+            this.f45187g = imMessageCenterListAdapter;
+            this.f45185e = imMessageCenterShowItemData;
+            this.f45186f = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f46923e.getIsLike() != 1) {
-                    this.f46925g.B(this.f46924f, this.f46923e);
-                    this.f46925g.A(this.f46923e, 1);
+                if (this.f45185e.getIsLike() != 1) {
+                    this.f45187g.B(this.f45186f, this.f45185e);
+                    this.f45187g.A(this.f45185e, 1);
                     return;
                 }
-                this.f46925g.C(this.f46924f, this.f46923e);
-                this.f46925g.A(this.f46923e, 2);
+                this.f45187g.C(this.f45186f, this.f45185e);
+                this.f45187g.A(this.f45185e, 2);
             }
         }
     }
@@ -111,13 +111,13 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
         public final /* synthetic */ LikeModel a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterShowItemData f46926b;
+        public final /* synthetic */ ImMessageCenterShowItemData f45188b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ g f46927c;
+        public final /* synthetic */ g f45189c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterListAdapter f46928d;
+        public final /* synthetic */ ImMessageCenterListAdapter f45190d;
 
         public b(ImMessageCenterListAdapter imMessageCenterListAdapter, LikeModel likeModel, ImMessageCenterShowItemData imMessageCenterShowItemData, g gVar) {
             Interceptable interceptable = $ic;
@@ -134,10 +134,10 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
                     return;
                 }
             }
-            this.f46928d = imMessageCenterListAdapter;
+            this.f45190d = imMessageCenterListAdapter;
             this.a = likeModel;
-            this.f46926b = imMessageCenterShowItemData;
-            this.f46927c = gVar;
+            this.f45188b = imMessageCenterShowItemData;
+            this.f45189c = gVar;
         }
 
         @Override // c.a.d.a.e
@@ -145,16 +145,16 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (this.a.getErrorCode() == 22) {
-                    n.M(this.f46928d.f22580e, this.f46928d.f22580e.getString(R.string.had_liked_forum));
+                    n.N(this.f45190d.f21962e, this.f45190d.f21962e.getString(R.string.had_liked_forum));
                 } else if (obj == null) {
                 } else {
                     if (this.a.getErrorCode() != 0) {
-                        n.M(this.f46928d.f22580e, this.a.getErrorString());
+                        n.N(this.f45190d.f21962e, this.a.getErrorString());
                         return;
                     }
-                    this.f46926b.setIsLike(1);
-                    this.f46928d.N(this.f46927c, true);
-                    n.M(this.f46928d.f22580e, this.f46928d.f22580e.getString(R.string.attention_success));
+                    this.f45188b.setIsLike(1);
+                    this.f45190d.N(this.f45189c, true);
+                    n.N(this.f45190d.f21962e, this.f45190d.f21962e.getString(R.string.attention_success));
                 }
             }
         }
@@ -167,10 +167,10 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
         public final /* synthetic */ ImMessageCenterShowItemData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f46929b;
+        public final /* synthetic */ g f45191b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterListAdapter f46930c;
+        public final /* synthetic */ ImMessageCenterListAdapter f45192c;
 
         public c(ImMessageCenterListAdapter imMessageCenterListAdapter, ImMessageCenterShowItemData imMessageCenterShowItemData, g gVar) {
             Interceptable interceptable = $ic;
@@ -187,9 +187,9 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
                     return;
                 }
             }
-            this.f46930c = imMessageCenterListAdapter;
+            this.f45192c = imMessageCenterListAdapter;
             this.a = imMessageCenterShowItemData;
-            this.f46929b = gVar;
+            this.f45191b = gVar;
         }
 
         @Override // c.a.t0.w3.h0.a
@@ -204,8 +204,8 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
                 this.a.setIsLike(0);
-                this.f46930c.N(this.f46929b, false);
-                n.M(this.f46930c.f22580e, this.f46930c.f22580e.getString(R.string.un_attention_success));
+                this.f45192c.N(this.f45191b, false);
+                n.N(this.f45192c.f21962e, this.f45192c.f21962e.getString(R.string.un_attention_success));
             }
         }
     }
@@ -217,13 +217,13 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
         public TbImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f46931b;
+        public TextView f45193b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f46932c;
+        public TextView f45194c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f46933d;
+        public View f45195d;
 
         public d(ImMessageCenterListAdapter imMessageCenterListAdapter) {
             Interceptable interceptable = $ic;
@@ -303,28 +303,28 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
         public LinearLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BarImageView f46934b;
+        public BarImageView f45196b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f46935c;
+        public TextView f45197c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f46936d;
+        public TextView f45198d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f46937e;
+        public TextView f45199e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f46938f;
+        public TextView f45200f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f46939g;
+        public TextView f45201g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View f46940h;
+        public View f45202h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TBSpecificationBtn f46941i;
+        public TBSpecificationBtn f45203i;
 
         public g(ImMessageCenterListAdapter imMessageCenterListAdapter) {
             Interceptable interceptable = $ic;
@@ -365,8 +365,8 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
                 return;
             }
         }
-        this.f46921h = null;
-        this.f46922i = null;
+        this.f45183h = null;
+        this.f45184i = null;
     }
 
     public final void A(ImMessageCenterShowItemData imMessageCenterShowItemData, int i2) {
@@ -384,11 +384,11 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
     public final void B(g gVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, imMessageCenterShowItemData) == null) {
-            LikeModel likeModel = new LikeModel(this.f46922i);
+            LikeModel likeModel = new LikeModel(this.f45184i);
             if (!n.C()) {
-                Context context = this.f22580e;
+                Context context = this.f21962e;
                 UtilHelper.showToast(context, context.getString(R.string.neterror));
-            } else if (imMessageCenterShowItemData == null || StringUtils.isNull(imMessageCenterShowItemData.getForumName()) || imMessageCenterShowItemData.getForumId() <= 0 || !ViewHelper.checkUpIsLogin(this.f22580e)) {
+            } else if (imMessageCenterShowItemData == null || StringUtils.isNull(imMessageCenterShowItemData.getForumName()) || imMessageCenterShowItemData.getForumId() <= 0 || !ViewHelper.checkUpIsLogin(this.f21962e)) {
             } else {
                 likeModel.setLoadDataCallBack(new b(this, likeModel, imMessageCenterShowItemData, gVar));
                 if (m.isForumName(imMessageCenterShowItemData.getForumName())) {
@@ -402,9 +402,9 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, gVar, imMessageCenterShowItemData) == null) {
             if (!n.C()) {
-                Context context = this.f22580e;
+                Context context = this.f21962e;
                 UtilHelper.showToast(context, context.getString(R.string.neterror));
-            } else if (imMessageCenterShowItemData == null || StringUtils.isNull(imMessageCenterShowItemData.getForumName()) || imMessageCenterShowItemData.getForumId() <= 0 || !ViewHelper.checkUpIsLogin(this.f22580e)) {
+            } else if (imMessageCenterShowItemData == null || StringUtils.isNull(imMessageCenterShowItemData.getForumName()) || imMessageCenterShowItemData.getForumId() <= 0 || !ViewHelper.checkUpIsLogin(this.f21962e)) {
             } else {
                 h0 h0Var = new h0();
                 h0Var.b(new c(this, imMessageCenterShowItemData, gVar));
@@ -419,9 +419,9 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) {
             d dVar = new d(this, null);
             dVar.a = (TbImageView) view.findViewById(R.id.im_no_data_image);
-            dVar.f46931b = (TextView) view.findViewById(R.id.im_no_data_text);
-            dVar.f46932c = (TextView) view.findViewById(R.id.im_no_data_text2);
-            dVar.f46933d = view.findViewById(R.id.im_no_data_dev);
+            dVar.f45193b = (TextView) view.findViewById(R.id.im_no_data_text);
+            dVar.f45194c = (TextView) view.findViewById(R.id.im_no_data_text2);
+            dVar.f45195d = view.findViewById(R.id.im_no_data_dev);
             return dVar;
         }
         return (d) invokeL.objValue;
@@ -433,14 +433,14 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view)) == null) {
             g gVar = new g(this, null);
             gVar.a = (LinearLayout) view.findViewById(R.id.rootview);
-            gVar.f46934b = (BarImageView) view.findViewById(R.id.im_rec_forum_bar_icon);
-            gVar.f46935c = (TextView) view.findViewById(R.id.im_rec_forum_ranking);
-            gVar.f46936d = (TextView) view.findViewById(R.id.im_rec_forum_title);
-            gVar.f46937e = (TextView) view.findViewById(R.id.im_rec_forum_introduce);
-            gVar.f46938f = (TextView) view.findViewById(R.id.im_rec_forum_attention_content);
-            gVar.f46939g = (TextView) view.findViewById(R.id.im_rec_forum_pb_content);
-            gVar.f46940h = view.findViewById(R.id.im_rec_item_line);
-            gVar.f46941i = (TBSpecificationBtn) view.findViewById(R.id.im_rec_forum_attention_btn);
+            gVar.f45196b = (BarImageView) view.findViewById(R.id.im_rec_forum_bar_icon);
+            gVar.f45197c = (TextView) view.findViewById(R.id.im_rec_forum_ranking);
+            gVar.f45198d = (TextView) view.findViewById(R.id.im_rec_forum_title);
+            gVar.f45199e = (TextView) view.findViewById(R.id.im_rec_forum_introduce);
+            gVar.f45200f = (TextView) view.findViewById(R.id.im_rec_forum_attention_content);
+            gVar.f45201g = (TextView) view.findViewById(R.id.im_rec_forum_pb_content);
+            gVar.f45202h = view.findViewById(R.id.im_rec_item_line);
+            gVar.f45203i = (TBSpecificationBtn) view.findViewById(R.id.im_rec_forum_attention_btn);
             return gVar;
         }
         return (g) invokeL.objValue;
@@ -451,21 +451,21 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
             SkinManager.setImageResource(dVar.a, R.drawable.im_no_data_icon);
             dVar.a.setUseNightOrDarkMask(false);
-            dVar.f46931b.setText(this.f22580e.getString(R.string.im_no_data_text));
-            dVar.f46932c.setText(this.f22580e.getString(R.string.im_no_data_text2));
+            dVar.f45193b.setText(this.f21962e.getString(R.string.im_no_data_text));
+            dVar.f45194c.setText(this.f21962e.getString(R.string.im_no_data_text2));
         }
     }
 
     public final void G(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(dVar.f46931b);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(dVar.f45193b);
             d2.v(R.color.CAM_X0107);
             d2.z(R.dimen.T_X07);
-            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(dVar.f46932c);
+            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(dVar.f45194c);
             d3.v(R.color.CAM_X0110);
             d3.z(R.dimen.T_X08);
-            c.a.s0.s.u.c.d(dVar.f46933d).f(R.color.CAM_X0204);
+            c.a.s0.s.u.c.d(dVar.f45195d).f(R.color.CAM_X0204);
         }
     }
 
@@ -491,24 +491,24 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
     public final void J(g gVar, int i2, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048585, this, gVar, i2, imMessageCenterShowItemData) == null) {
-            gVar.f46934b.setShowOval(true);
-            gVar.f46934b.setAutoChangeStyle(true);
-            gVar.f46934b.setStrokeWith(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            gVar.f46934b.setStrokeColorResId(R.color.CAM_X0401);
-            gVar.f46934b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            gVar.f46934b.setPlaceHolder(1);
-            gVar.f46934b.startLoad(imMessageCenterShowItemData.getAvatar(), 10, false);
-            gVar.f46936d.setText(imMessageCenterShowItemData.getForumName() + this.f22580e.getString(R.string.forum));
+            gVar.f45196b.setShowOval(true);
+            gVar.f45196b.setAutoChangeStyle(true);
+            gVar.f45196b.setStrokeWith(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            gVar.f45196b.setStrokeColorResId(R.color.CAM_X0401);
+            gVar.f45196b.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            gVar.f45196b.setPlaceHolder(1);
+            gVar.f45196b.startLoad(imMessageCenterShowItemData.getAvatar(), 10, false);
+            gVar.f45198d.setText(imMessageCenterShowItemData.getForumName() + this.f21962e.getString(R.string.forum));
             if (!StringUtils.isNull(imMessageCenterShowItemData.getSlogan())) {
-                gVar.f46937e.setText(this.f22580e.getString(R.string.im_rec_forum_introduce, imMessageCenterShowItemData.getSlogan()));
+                gVar.f45199e.setText(this.f21962e.getString(R.string.im_rec_forum_introduce, imMessageCenterShowItemData.getSlogan()));
             } else {
-                gVar.f46937e.setText(this.f22580e.getString(R.string.im_rec_forum_no_introduce_content));
+                gVar.f45199e.setText(this.f21962e.getString(R.string.im_rec_forum_no_introduce_content));
             }
-            gVar.f46938f.setText(String.format(this.f22580e.getString(R.string.concern), StringHelper.numberUniformFormatExtraWithRoundInt(imMessageCenterShowItemData.getMemberCount())));
-            gVar.f46939g.setText(String.format(this.f22580e.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(imMessageCenterShowItemData.getThreadCount())));
-            gVar.f46935c.setText(String.valueOf(i2 - 1));
+            gVar.f45200f.setText(String.format(this.f21962e.getString(R.string.concern), StringHelper.numberUniformFormatExtraWithRoundInt(imMessageCenterShowItemData.getMemberCount())));
+            gVar.f45201g.setText(String.format(this.f21962e.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(imMessageCenterShowItemData.getThreadCount())));
+            gVar.f45197c.setText(String.valueOf(i2 - 1));
             N(gVar, imMessageCenterShowItemData.getIsLike() == 1);
-            gVar.f46941i.setOnClickListener(new a(this, imMessageCenterShowItemData, gVar));
+            gVar.f45203i.setOnClickListener(new a(this, imMessageCenterShowItemData, gVar));
         }
     }
 
@@ -525,21 +525,21 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
             } else {
                 i3 = R.color.CAM_X0315;
             }
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(gVar.f46935c);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(gVar.f45197c);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0101);
             d2.n(R.string.J_X04);
             d2.f(i3);
-            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(gVar.f46936d);
+            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(gVar.f45198d);
             d3.v(R.color.CAM_X0105);
             d3.z(R.dimen.T_X06);
-            c.a.s0.s.u.c d4 = c.a.s0.s.u.c.d(gVar.f46937e);
+            c.a.s0.s.u.c d4 = c.a.s0.s.u.c.d(gVar.f45199e);
             d4.v(R.color.CAM_X0109);
             d4.z(R.dimen.T_X09);
-            c.a.s0.s.u.c d5 = c.a.s0.s.u.c.d(gVar.f46938f);
+            c.a.s0.s.u.c d5 = c.a.s0.s.u.c.d(gVar.f45200f);
             d5.v(R.color.CAM_X0109);
             d5.z(R.dimen.T_X09);
-            c.a.s0.s.u.c d6 = c.a.s0.s.u.c.d(gVar.f46939g);
+            c.a.s0.s.u.c d6 = c.a.s0.s.u.c.d(gVar.f45201g);
             d6.v(R.color.CAM_X0109);
             d6.z(R.dimen.T_X09);
             TBSelector.setViewBackgroundColorWithPressedState(gVar.a, R.color.CAM_X0205, R.color.CAM_X0204);
@@ -549,7 +549,7 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
     public void L(c.a.t0.t1.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) {
-            this.f46921h = eVar;
+            this.f45183h = eVar;
         }
     }
 
@@ -568,19 +568,19 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048589, this, gVar, z) == null) {
             if (z) {
-                c.a.s0.s.i0.n.b bVar = new c.a.s0.s.i0.n.b();
+                c.a.s0.s.j0.n.b bVar = new c.a.s0.s.j0.n.b();
                 bVar.s(R.color.CAM_X0109);
-                gVar.f46941i.setConfig(bVar);
-                gVar.f46941i.setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
-                gVar.f46941i.setClickState(false);
+                gVar.f45203i.setConfig(bVar);
+                gVar.f45203i.setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
+                gVar.f45203i.setClickState(false);
             } else {
-                c.a.s0.s.i0.n.b bVar2 = new c.a.s0.s.i0.n.b();
+                c.a.s0.s.j0.n.b bVar2 = new c.a.s0.s.j0.n.b();
                 bVar2.r(R.color.CAM_X0302);
-                gVar.f46941i.setConfig(bVar2);
-                gVar.f46941i.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
-                gVar.f46941i.setClickState(true);
+                gVar.f45203i.setConfig(bVar2);
+                gVar.f45203i.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+                gVar.f45203i.setClickState(true);
             }
-            gVar.f46941i.changeSkinType();
+            gVar.f45203i.changeSkinType();
         }
     }
 
@@ -614,123 +614,123 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
     public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.f22583b.setDrawerType(1);
-            aVar.f22583b.setRadius(n.d(this.f22580e, 4.0f));
-            aVar.f22584c.setClickable(false);
+            aVar.f21965b.setDrawerType(1);
+            aVar.f21965b.setRadius(n.d(this.f21962e, 4.0f));
+            aVar.f21966c.setClickable(false);
             if (String.valueOf(2).equals(imMessageCenterShowItemData.getOwnerName())) {
-                aVar.f22583b.setDrawBorder(false);
-                aVar.f22583b.setAutoChangeStyle(true);
-                aVar.f22583b.setTag(imMessageCenterShowItemData.getOwnerName());
-                aVar.f22583b.setVisibility(0);
-                aVar.f22584c.setVisibility(8);
+                aVar.f21965b.setDrawBorder(false);
+                aVar.f21965b.setAutoChangeStyle(true);
+                aVar.f21965b.setTag(imMessageCenterShowItemData.getOwnerName());
+                aVar.f21965b.setVisibility(0);
+                aVar.f21966c.setVisibility(8);
                 if (MessageManager.getInstance().runTask(2001287, Integer.class) != null) {
-                    SkinManager.setImageResource(aVar.f22583b, R.drawable.icon_new_test);
+                    SkinManager.setImageResource(aVar.f21965b, R.drawable.icon_new_test);
                 }
-                aVar.f22583b.setUserName(String.valueOf(2));
-                aVar.f22583b.setUserId(imMessageCenterShowItemData.getFriendId());
-                aVar.f22583b.setIsRound(false);
-                aVar.f22583b.invalidate();
+                aVar.f21965b.setUserName(String.valueOf(2));
+                aVar.f21965b.setUserId(imMessageCenterShowItemData.getFriendId());
+                aVar.f21965b.setIsRound(false);
+                aVar.f21965b.invalidate();
             } else if (String.valueOf(3).equals(imMessageCenterShowItemData.getOwnerName())) {
-                aVar.f22583b.setDrawBorder(false);
-                aVar.f22583b.setAutoChangeStyle(true);
-                aVar.f22583b.setTag(imMessageCenterShowItemData.getOwnerName());
-                aVar.f22583b.setUserName(String.valueOf(3));
-                aVar.f22583b.setUserId(imMessageCenterShowItemData.getFriendId());
-                aVar.f22583b.setVisibility(0);
-                aVar.f22584c.setVisibility(8);
+                aVar.f21965b.setDrawBorder(false);
+                aVar.f21965b.setAutoChangeStyle(true);
+                aVar.f21965b.setTag(imMessageCenterShowItemData.getOwnerName());
+                aVar.f21965b.setUserName(String.valueOf(3));
+                aVar.f21965b.setUserId(imMessageCenterShowItemData.getFriendId());
+                aVar.f21965b.setVisibility(0);
+                aVar.f21966c.setVisibility(8);
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001286, Integer.class);
                 if (runTask != null) {
-                    SkinManager.setImageResource(aVar.f22583b, ((Integer) runTask.getData()).intValue());
+                    SkinManager.setImageResource(aVar.f21965b, ((Integer) runTask.getData()).intValue());
                 }
-                aVar.f22583b.setIsRound(false);
-                aVar.f22583b.invalidate();
+                aVar.f21965b.setIsRound(false);
+                aVar.f21965b.invalidate();
             } else if (String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName())) {
-                aVar.f22583b.setDrawBorder(true);
-                aVar.f22583b.setAutoChangeStyle(true);
-                aVar.f22583b.setUserId(imMessageCenterShowItemData.getFriendId());
+                aVar.f21965b.setDrawBorder(true);
+                aVar.f21965b.setAutoChangeStyle(true);
+                aVar.f21965b.setUserId(imMessageCenterShowItemData.getFriendId());
                 String friendBjhAvatar = imMessageCenterShowItemData.getFriendBjhAvatar();
                 if (TextUtils.isEmpty(friendBjhAvatar)) {
                     friendBjhAvatar = imMessageCenterShowItemData.getFriendPortrait();
                 }
-                aVar.f22583b.setImageDrawable(null);
-                aVar.f22583b.setVisibility(0);
-                aVar.f22584c.setVisibility(8);
+                aVar.f21965b.setImageDrawable(null);
+                aVar.f21965b.setVisibility(0);
+                aVar.f21966c.setVisibility(8);
                 if (TextUtils.isEmpty(friendBjhAvatar)) {
-                    aVar.f22583b.startLoad(String.valueOf(R.drawable.icon_default_avatar100), 24, false);
+                    aVar.f21965b.startLoad(String.valueOf(R.drawable.icon_default_avatar100), 24, false);
                 } else {
-                    aVar.f22583b.startLoad(friendBjhAvatar, 10, false);
+                    aVar.f21965b.startLoad(friendBjhAvatar, 10, false);
                 }
-                aVar.f22583b.setClickable(false);
-                aVar.f22583b.setTag(imMessageCenterShowItemData.getFriendPortrait());
-                aVar.f22583b.setUserId(imMessageCenterShowItemData.getFriendId());
-                aVar.f22583b.setUserName(String.valueOf(1));
-                aVar.f22583b.setIsRound(false);
-                aVar.f22583b.invalidate();
+                aVar.f21965b.setClickable(false);
+                aVar.f21965b.setTag(imMessageCenterShowItemData.getFriendPortrait());
+                aVar.f21965b.setUserId(imMessageCenterShowItemData.getFriendId());
+                aVar.f21965b.setUserName(String.valueOf(1));
+                aVar.f21965b.setIsRound(false);
+                aVar.f21965b.invalidate();
             } else if (String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName())) {
-                aVar.f22583b.setDrawBorder(false);
-                aVar.f22583b.setAutoChangeStyle(true);
-                aVar.f22583b.setTag(imMessageCenterShowItemData.getOwnerName());
-                aVar.f22583b.setUserName(String.valueOf(5));
-                aVar.f22583b.setUserId(imMessageCenterShowItemData.getFriendId());
-                aVar.f22583b.setVisibility(4);
-                aVar.f22584c.setVisibility(0);
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(aVar.f22584c, R.drawable.ic_icon_mask_broadcast_svg, SvgManager.SvgResourceStateType.NORMAL);
-                aVar.f22583b.setIsRound(false);
-                aVar.f22583b.invalidate();
+                aVar.f21965b.setDrawBorder(false);
+                aVar.f21965b.setAutoChangeStyle(true);
+                aVar.f21965b.setTag(imMessageCenterShowItemData.getOwnerName());
+                aVar.f21965b.setUserName(String.valueOf(5));
+                aVar.f21965b.setUserId(imMessageCenterShowItemData.getFriendId());
+                aVar.f21965b.setVisibility(4);
+                aVar.f21966c.setVisibility(0);
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(aVar.f21966c, R.drawable.ic_icon_mask_broadcast_svg, SvgManager.SvgResourceStateType.NORMAL);
+                aVar.f21965b.setIsRound(false);
+                aVar.f21965b.invalidate();
             } else if (String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName())) {
-                aVar.f22583b.setDrawBorder(true);
-                aVar.f22583b.setAutoChangeStyle(true);
+                aVar.f21965b.setDrawBorder(true);
+                aVar.f21965b.setAutoChangeStyle(true);
                 String friendBjhAvatar2 = imMessageCenterShowItemData.getFriendBjhAvatar();
                 if (TextUtils.isEmpty(friendBjhAvatar2)) {
                     friendBjhAvatar2 = imMessageCenterShowItemData.getFriendPortrait();
                 }
-                aVar.f22583b.setVisibility(0);
-                aVar.f22584c.setVisibility(8);
-                aVar.f22583b.setImageDrawable(null);
+                aVar.f21965b.setVisibility(0);
+                aVar.f21966c.setVisibility(8);
+                aVar.f21965b.setImageDrawable(null);
                 if (TextUtils.isEmpty(friendBjhAvatar2)) {
                     CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2001289, Integer.class);
                     if (runTask2 != null && runTask2.getData() != null) {
-                        aVar.f22583b.startLoad(((Integer) runTask2.getData()).toString(), 24, false);
+                        aVar.f21965b.startLoad(((Integer) runTask2.getData()).toString(), 24, false);
                     }
                 } else {
-                    aVar.f22583b.startLoad(friendBjhAvatar2, 12, false);
+                    aVar.f21965b.startLoad(friendBjhAvatar2, 12, false);
                 }
-                aVar.f22583b.setTag(imMessageCenterShowItemData.getFriendPortrait());
-                aVar.f22583b.setUserId(imMessageCenterShowItemData.getFriendId());
-                aVar.f22583b.setUserName(imMessageCenterShowItemData.getFriendName());
-                aVar.f22583b.setIsRound(false);
-                aVar.f22583b.invalidate();
+                aVar.f21965b.setTag(imMessageCenterShowItemData.getFriendPortrait());
+                aVar.f21965b.setUserId(imMessageCenterShowItemData.getFriendId());
+                aVar.f21965b.setUserName(imMessageCenterShowItemData.getFriendName());
+                aVar.f21965b.setIsRound(false);
+                aVar.f21965b.invalidate();
             } else if (String.valueOf(7).equals(imMessageCenterShowItemData.getOwnerName())) {
-                aVar.f22583b.setDrawBorder(false);
-                aVar.f22583b.setAutoChangeStyle(true);
-                aVar.f22583b.setTag(imMessageCenterShowItemData.getOwnerName());
-                aVar.f22583b.setUserName(String.valueOf(7));
-                aVar.f22583b.setUserId(imMessageCenterShowItemData.getFriendId());
-                aVar.f22583b.setVisibility(4);
-                aVar.f22584c.setVisibility(0);
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(aVar.f22584c, R.drawable.ic_icon_mask_stranger_svg, SvgManager.SvgResourceStateType.NORMAL);
-                aVar.f22583b.setIsRound(false);
-                aVar.f22583b.invalidate();
+                aVar.f21965b.setDrawBorder(false);
+                aVar.f21965b.setAutoChangeStyle(true);
+                aVar.f21965b.setTag(imMessageCenterShowItemData.getOwnerName());
+                aVar.f21965b.setUserName(String.valueOf(7));
+                aVar.f21965b.setUserId(imMessageCenterShowItemData.getFriendId());
+                aVar.f21965b.setVisibility(4);
+                aVar.f21966c.setVisibility(0);
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(aVar.f21966c, R.drawable.ic_icon_mask_stranger_svg, SvgManager.SvgResourceStateType.NORMAL);
+                aVar.f21965b.setIsRound(false);
+                aVar.f21965b.invalidate();
             } else {
-                aVar.f22583b.setDrawBorder(true);
-                aVar.f22583b.setAutoChangeStyle(true);
+                aVar.f21965b.setDrawBorder(true);
+                aVar.f21965b.setAutoChangeStyle(true);
                 String friendBjhAvatar3 = imMessageCenterShowItemData.getFriendBjhAvatar();
                 if (TextUtils.isEmpty(friendBjhAvatar3)) {
                     friendBjhAvatar3 = imMessageCenterShowItemData.getFriendPortrait();
                 }
-                aVar.f22583b.setImageDrawable(null);
-                aVar.f22583b.setVisibility(0);
-                aVar.f22584c.setVisibility(8);
+                aVar.f21965b.setImageDrawable(null);
+                aVar.f21965b.setVisibility(0);
+                aVar.f21966c.setVisibility(8);
                 if (!TextUtils.isEmpty(friendBjhAvatar3)) {
-                    aVar.f22583b.startLoad(friendBjhAvatar3, 12, false);
+                    aVar.f21965b.startLoad(friendBjhAvatar3, 12, false);
                 } else {
-                    aVar.f22583b.startLoad(String.valueOf(R.drawable.person_photo), 24, false);
+                    aVar.f21965b.startLoad(String.valueOf(R.drawable.person_photo), 24, false);
                 }
-                aVar.f22583b.setTag(imMessageCenterShowItemData.getFriendPortrait());
-                aVar.f22583b.setUserId(imMessageCenterShowItemData.getFriendId());
-                aVar.f22583b.setUserName(imMessageCenterShowItemData.getFriendName());
-                aVar.f22583b.setIsRound(false);
-                aVar.f22583b.invalidate();
+                aVar.f21965b.setTag(imMessageCenterShowItemData.getFriendPortrait());
+                aVar.f21965b.setUserId(imMessageCenterShowItemData.getFriendId());
+                aVar.f21965b.setUserName(imMessageCenterShowItemData.getFriendName());
+                aVar.f21965b.setIsRound(false);
+                aVar.f21965b.invalidate();
             }
         }
     }
@@ -750,7 +750,7 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
                     if (view != null && (view.getTag() instanceof d)) {
                         D = (d) view.getTag();
                     } else {
-                        view = LayoutInflater.from(this.f22580e).inflate(R.layout.im_no_data_item_layout, viewGroup, false);
+                        view = LayoutInflater.from(this.f21962e).inflate(R.layout.im_no_data_item_layout, viewGroup, false);
                         D = D(view);
                         view.setTag(D);
                     }
@@ -761,7 +761,7 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
                     if (view != null && (view.getTag() instanceof g)) {
                         E = (g) view.getTag();
                     } else {
-                        view = LayoutInflater.from(this.f22580e).inflate(R.layout.im_rec_forum_item_layout, viewGroup, false);
+                        view = LayoutInflater.from(this.f21962e).inflate(R.layout.im_rec_forum_item_layout, viewGroup, false);
                         E = E(view);
                         view.setTag(E);
                     }
@@ -773,7 +773,7 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
                     if (view != null && (view.getTag() instanceof f)) {
                         fVar = (f) view.getTag();
                     } else {
-                        view = LayoutInflater.from(this.f22580e).inflate(R.layout.im_rec_forum_title_layout, viewGroup, false);
+                        view = LayoutInflater.from(this.f21962e).inflate(R.layout.im_rec_forum_title_layout, viewGroup, false);
                         fVar = new f(this, view);
                         view.setTag(fVar);
                     }
@@ -783,7 +783,7 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
                     if (view != null && (view.getTag() instanceof e)) {
                         eVar = (e) view.getTag();
                     } else {
-                        view = LayoutInflater.from(this.f22580e).inflate(R.layout.im_rec_forum_no_more_layout, viewGroup, false);
+                        view = LayoutInflater.from(this.f21962e).inflate(R.layout.im_rec_forum_no_more_layout, viewGroup, false);
                         eVar = new e(this, view);
                         view.setTag(eVar);
                     }
@@ -793,12 +793,12 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
             }
             if (item != null && String.valueOf(2).equals(item.getOwnerName())) {
                 if (item.getUnReadCount() >= 30) {
-                    c.a.t0.t1.b.e eVar2 = this.f46921h;
+                    c.a.t0.t1.b.e eVar2 = this.f45183h;
                     if (eVar2 != null) {
                         eVar2.q0(true);
                     }
                 } else {
-                    c.a.t0.t1.b.e eVar3 = this.f46921h;
+                    c.a.t0.t1.b.e eVar3 = this.f45183h;
                     if (eVar3 != null) {
                         eVar3.q0(false);
                     }
@@ -815,10 +815,10 @@ public class ImMessageCenterListAdapter extends c.a.t0.s1.f.i.c {
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
             super.n(list);
             if (TbadkCoreApplication.isLogin()) {
-                if (this.f22581f.size() <= 0) {
-                    this.f46921h.r0(true, true);
+                if (this.f21963f.size() <= 0) {
+                    this.f45183h.r0(true, true);
                 } else {
-                    this.f46921h.r0(true, false);
+                    this.f45183h.r0(true, false);
                 }
             }
             notifyDataSetChanged();

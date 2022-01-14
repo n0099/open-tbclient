@@ -22,28 +22,26 @@ public class a extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11198i;
+    public int f10950i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f11199j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f11200k;
+    public String f10951j;
+    public boolean k;
     public ArrayList<c.a.r0.j.e0.h.b> l;
     public List<String> m;
     public List<String> n;
 
     /* renamed from: c.a.r0.j.e0.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0733a implements c.a.r0.j.e0.h.c {
+    public class C0742a implements c.a.r0.j.e0.h.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.y.b.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f11201b;
+        public final /* synthetic */ a f10952b;
 
-        public C0733a(a aVar, c.a.r0.a.y.b.a aVar2) {
+        public C0742a(a aVar, c.a.r0.a.y.b.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +56,7 @@ public class a extends f {
                     return;
                 }
             }
-            this.f11201b = aVar;
+            this.f10952b = aVar;
             this.a = aVar2;
         }
 
@@ -66,7 +64,7 @@ public class a extends f {
         public void a(c.a.r0.j.e0.h.d dVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, str) == null) {
-                this.f11201b.B(this.a, str);
+                this.f10952b.B(this.a, str);
             }
         }
     }
@@ -89,7 +87,7 @@ public class a extends f {
                 return;
             }
         }
-        this.f11200k = false;
+        this.k = false;
         this.l = new ArrayList<>();
         this.m = new ArrayList(3);
         this.n = new ArrayList(3);
@@ -98,7 +96,7 @@ public class a extends f {
     public final void B(c.a.r0.a.y.b.a aVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, aVar, str) == null) {
-            if (f.f11202h) {
+            if (f.f10953h) {
                 String str2 = "callFailureCallback: errMsg=" + str;
             }
             c.a.r0.j.n0.c.call(aVar, false, new b(str));
@@ -113,7 +111,7 @@ public class a extends f {
             if (list.size() >= i2) {
                 String remove = list.remove(0);
                 c.a.r0.w.d.k(n.N(remove));
-                if (f.f11202h) {
+                if (f.f10953h) {
                     String str2 = "deleteFile: " + remove;
                 }
             }
@@ -127,12 +125,12 @@ public class a extends f {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (f.f11202h) {
-                String str = "doStartRecorder:" + this.f11198i + "," + this.f11199j;
+            if (f.f10953h) {
+                String str = "doStartRecorder:" + this.f10950i + "," + this.f10951j;
             }
             this.l.clear();
-            this.f11200k = false;
-            g.a().b().t(this.f11198i, this.f11199j);
+            this.k = false;
+            g.a().b().t(this.f10950i, this.f10951j);
         }
     }
 
@@ -155,7 +153,7 @@ public class a extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, recorderStateArr)) == null) {
             GameRecorderController.RecorderState l = g.a().b().l();
-            if (f.f11202h) {
+            if (f.f10953h) {
                 String str = "RecorderState:" + l;
             }
             if (recorderStateArr == null) {
@@ -196,10 +194,10 @@ public class a extends f {
         if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
             c.a.r0.a.y.b.a G = G(jsObject);
             String B = G.B("path");
-            if (f.f11202h) {
-                String str = "clipPath:" + B + "，hasExecutedClip：" + this.f11200k;
+            if (f.f10953h) {
+                String str = "clipPath:" + B + "，hasExecutedClip：" + this.k;
             }
-            if (this.f11200k) {
+            if (this.k) {
                 return;
             }
             if (F(GameRecorderController.RecorderState.STOP)) {
@@ -207,11 +205,11 @@ public class a extends f {
             } else if (this.l.isEmpty()) {
                 B(G, "range is illegal");
             } else {
-                new c.a.r0.j.e0.h.e(this.l, n.B(B), n.N(C("bdfile://tmp/SwanVideoRecorder/videoClip_%d.mp4", this.n, 3))).c(new C0733a(this, G));
+                new c.a.r0.j.e0.h.e(this.l, n.B(B), n.N(C("bdfile://tmp/SwanVideoRecorder/videoClip_%d.mp4", this.n, 3))).c(new C0742a(this, G));
                 this.l.clear();
-                this.f11200k = true;
+                this.k = true;
                 c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-                eVar.f8157b = "clipVideo";
+                eVar.f7977b = "clipVideo";
                 c.a.r0.a.n2.n.h(eVar);
             }
         }
@@ -221,7 +219,7 @@ public class a extends f {
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            boolean z = f.f11202h;
+            boolean z = f.f10953h;
             if (F(GameRecorderController.RecorderState.RECORDING)) {
                 return;
             }
@@ -243,12 +241,12 @@ public class a extends f {
                 o = new double[]{3.0d, 3.0d};
             }
             c.a.r0.j.e0.h.b b2 = c.a.r0.j.e0.h.b.b(g.a().b().k(), o[0], o[1]);
-            if (f.f11202h) {
+            if (f.f10953h) {
                 String str = "recordClip:" + b2.toString();
             }
             this.l.add(b2);
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f8157b = "recordClip";
+            eVar.f7977b = "recordClip";
             c.a.r0.a.n2.n.h(eVar);
         }
     }
@@ -257,7 +255,7 @@ public class a extends f {
     public void resume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            boolean z = f.f11202h;
+            boolean z = f.f10953h;
             if (F(GameRecorderController.RecorderState.PAUSE) || g.a().c()) {
                 return;
             }
@@ -277,7 +275,7 @@ public class a extends f {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            boolean z = f.f11202h;
+            boolean z = f.f10953h;
             if (F(GameRecorderController.RecorderState.RECORDING, GameRecorderController.RecorderState.PAUSE)) {
                 return;
             }
@@ -289,18 +287,18 @@ public class a extends f {
     public void start(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, jsObject) == null) {
-            boolean z = f.f11202h;
+            boolean z = f.f10953h;
             if (F(GameRecorderController.RecorderState.IDLE, GameRecorderController.RecorderState.STOP) || g.a().c()) {
                 return;
             }
             c.a.r0.a.y.b.a G = G(jsObject);
             int r = G.r("duration", 10);
-            this.f11198i = r;
+            this.f10950i = r;
             if (r <= 0) {
-                this.f11198i = 10;
+                this.f10950i = 10;
             }
-            if (this.f11198i > 120) {
-                this.f11198i = 120;
+            if (this.f10950i > 120) {
+                this.f10950i = 120;
             }
             if (this.m.size() == 0) {
                 c.a.r0.w.d.k(n.N("bdfile://tmp/SwanVideoRecorder/"));
@@ -308,9 +306,9 @@ public class a extends f {
             String C = C("bdfile://tmp/SwanVideoRecorder/video_%d.mp4", this.m, 3);
             z(C);
             String N = n.N(C);
-            this.f11199j = N;
+            this.f10951j = N;
             if (N == null) {
-                boolean z2 = f.f11202h;
+                boolean z2 = f.f10953h;
                 return;
             }
             if (G.m("microphoneEnabled", false)) {

@@ -25,7 +25,7 @@ public class b extends c.a.r0.a.u.e.p.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c.a.r0.a.k0.a f6184f;
+    public static c.a.r0.a.k0.a f6046f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -36,38 +36,38 @@ public class b extends c.a.r0.a.u.e.p.a {
 
         /* renamed from: c.a.r0.a.f2.f.m0.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0321a implements Runnable {
+        public class RunnableC0330a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f6185e;
+            public final /* synthetic */ JSONObject f6047e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f6186f;
+            public final /* synthetic */ String f6048f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ String f6187g;
+            public final /* synthetic */ String f6049g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ a f6188h;
+            public final /* synthetic */ a f6050h;
 
             /* renamed from: c.a.r0.a.f2.f.m0.b$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class C0322a implements c {
+            public class C0331a implements c {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ RunnableC0321a f6189b;
+                public final /* synthetic */ RunnableC0330a f6051b;
 
-                public C0322a(RunnableC0321a runnableC0321a, String str) {
+                public C0331a(RunnableC0330a runnableC0330a, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0321a, str};
+                        Object[] objArr = {runnableC0330a, str};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -77,7 +77,7 @@ public class b extends c.a.r0.a.u.e.p.a {
                             return;
                         }
                     }
-                    this.f6189b = runnableC0321a;
+                    this.f6051b = runnableC0330a;
                     this.a = str;
                 }
 
@@ -97,13 +97,13 @@ public class b extends c.a.r0.a.u.e.p.a {
                             c.a.r0.a.e0.d.c("PreloadPackageApi", "preloadPackage keyMap null");
                             return;
                         }
-                        RunnableC0321a runnableC0321a = this.f6189b;
-                        runnableC0321a.f6188h.a.z(map.get(this.f6189b.f6186f), this.a, runnableC0321a.f6187g);
+                        RunnableC0330a runnableC0330a = this.f6051b;
+                        runnableC0330a.f6050h.a.z(map.get(this.f6051b.f6048f), this.a, runnableC0330a.f6049g);
                     }
                 }
             }
 
-            public RunnableC0321a(a aVar, JSONObject jSONObject, String str, String str2) {
+            public RunnableC0330a(a aVar, JSONObject jSONObject, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,10 +118,10 @@ public class b extends c.a.r0.a.u.e.p.a {
                         return;
                     }
                 }
-                this.f6188h = aVar;
-                this.f6185e = jSONObject;
-                this.f6186f = str;
-                this.f6187g = str2;
+                this.f6050h = aVar;
+                this.f6047e = jSONObject;
+                this.f6048f = str;
+                this.f6049g = str2;
             }
 
             @Override // java.lang.Runnable
@@ -129,11 +129,11 @@ public class b extends c.a.r0.a.u.e.p.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     boolean g2 = c.a.r0.q.k.j.b.e().g(!q0.G());
-                    String optString = this.f6185e.optString("pageUrl");
+                    String optString = this.f6047e.optString("pageUrl");
                     if (!g2) {
-                        this.f6188h.a.z(this.f6186f, optString, this.f6187g);
+                        this.f6050h.a.z(this.f6048f, optString, this.f6049g);
                     } else {
-                        c.a.r0.q.b.e(Collections.singletonList(this.f6186f), b.f6184f.c(), new C0322a(this, optString));
+                        c.a.r0.q.b.e(Collections.singletonList(this.f6048f), b.f6046f.c(), new C0331a(this, optString));
                     }
                 }
             }
@@ -164,10 +164,10 @@ public class b extends c.a.r0.a.u.e.p.a {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, eVar, jSONObject, str)) == null) {
                 String optString = jSONObject.optString("appKey");
                 if (!TextUtils.isEmpty(optString)) {
-                    if (!b.f6184f.a(1)) {
+                    if (!b.f6046f.a(1)) {
                         return new c.a.r0.a.u.h.b(402, "over single max limit");
                     }
-                    q.h().execute(new RunnableC0321a(this, jSONObject, optString, str), "PreloadPackageApi");
+                    q.h().execute(new RunnableC0330a(this, jSONObject, optString, str), "PreloadPackageApi");
                     return c.a.r0.a.u.h.b.f();
                 }
                 return new c.a.r0.a.u.h.b(202, "appKey must not empty");
@@ -178,11 +178,11 @@ public class b extends c.a.r0.a.u.e.p.a {
 
     /* renamed from: c.a.r0.a.f2.f.m0.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0323b extends ProviderDelegation {
+    public static class C0332b extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0323b() {
+        public C0332b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,14 +244,14 @@ public class b extends c.a.r0.a.u.e.p.a {
             if (TextUtils.isEmpty(a2)) {
                 return new c.a.r0.a.u.h.b(101, "runtime parameter error");
             }
-            c.a.r0.a.k0.a aVar = f6184f;
+            c.a.r0.a.k0.a aVar = f6046f;
             if (aVar == null || !aVar.d(a2)) {
-                f6184f = new c.a.r0.a.k0.a(a2, c.a.r0.q.k.i.t.a.b(a2));
+                f6046f = new c.a.r0.a.k0.a(a2, c.a.r0.q.k.i.t.a.b(a2));
             }
-            if (f6184f.e()) {
+            if (f6046f.e()) {
                 return new c.a.r0.a.u.h.b(402, "over max limit");
             }
-            if (!f6184f.b()) {
+            if (!f6046f.b()) {
                 return new c.a.r0.a.u.h.b(402, "over time interval limit");
             }
             return l(str, false, new a(this));
@@ -272,7 +272,7 @@ public class b extends c.a.r0.a.u.e.p.a {
             Bundle bundle = new Bundle();
             bundle.putString("appKey", str);
             bundle.putString("pageUrl", str2);
-            c.a.r0.a.y1.b.e.b(C0323b.class, bundle);
+            c.a.r0.a.y1.b.e.b(C0332b.class, bundle);
         }
     }
 }

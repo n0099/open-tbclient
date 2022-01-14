@@ -22,34 +22,32 @@ public class f {
     public c.a.d.a.f<GiftTabActivity> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DefaultGiftListModel f18479b;
+    public DefaultGiftListModel f18022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CategoryGiftListModel f18480c;
+    public CategoryGiftListModel f18023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FreeGiftChanceModel f18481d;
+    public FreeGiftChanceModel f18024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<c.a.t0.h1.b.c> f18482e;
+    public ArrayList<c.a.t0.h1.b.c> f18025e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<c.a.t0.h1.b.a> f18483f;
+    public ArrayList<c.a.t0.h1.b.a> f18026f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<c.a.t0.h1.b.e> f18484g;
+    public ArrayList<c.a.t0.h1.b.e> f18027g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<Integer, ArrayList<j0>> f18485h;
+    public HashMap<Integer, ArrayList<j0>> f18028h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18486i;
+    public int f18029i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f18487j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f18488k;
+    public String f18030j;
+    public int k;
     public k0 l;
     public e m;
     public d n;
@@ -90,21 +88,21 @@ public class f {
                     if (arrayList != null && arrayList.size() >= 1 && arrayList.get(0) != null) {
                         i5 = arrayList.get(0).a();
                     }
-                    this.a.f18483f = arrayList;
-                    this.a.f18485h.put(Integer.valueOf(i5), arrayList2);
-                    this.a.f18484g = arrayList3;
-                    this.a.f18487j = str2;
-                    this.a.f18486i = i3;
+                    this.a.f18026f = arrayList;
+                    this.a.f18028h.put(Integer.valueOf(i5), arrayList2);
+                    this.a.f18027g = arrayList3;
+                    this.a.f18030j = str2;
+                    this.a.f18029i = i3;
                     f fVar = this.a;
-                    fVar.f18488k = i4;
+                    fVar.k = i4;
                     fVar.l = k0Var;
                     fVar.q();
                 }
                 if (this.a.m != null) {
                     e eVar = this.a.m;
-                    String str3 = this.a.f18487j;
+                    String str3 = this.a.f18030j;
                     f fVar2 = this.a;
-                    eVar.a(i2, str, true, str3, fVar2.f18488k, fVar2.l, fVar2.f18482e, this.a.f18483f, this.a.f18484g);
+                    eVar.a(i2, str, true, str3, fVar2.k, fVar2.l, fVar2.f18025e, this.a.f18026f, this.a.f18027g);
                 }
             }
         }
@@ -139,14 +137,14 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), arrayList}) == null) {
                 if (i2 == 0) {
-                    this.a.f18485h.put(Integer.valueOf(i3), arrayList);
+                    this.a.f18028h.put(Integer.valueOf(i3), arrayList);
                     this.a.q();
                 }
                 if (this.a.m != null) {
                     e eVar = this.a.m;
-                    String str2 = this.a.f18487j;
+                    String str2 = this.a.f18030j;
                     f fVar = this.a;
-                    eVar.a(i2, str, false, str2, fVar.f18488k, fVar.l, fVar.f18482e, this.a.f18483f, this.a.f18484g);
+                    eVar.a(i2, str, false, str2, fVar.k, fVar.l, fVar.f18025e, this.a.f18026f, this.a.f18027g);
                 }
             }
         }
@@ -180,9 +178,9 @@ public class f {
         public void a(int i2, String str, int i3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) && i2 == 0) {
-                this.a.f18486i = i3;
+                this.a.f18029i = i3;
                 if (this.a.n != null) {
-                    this.a.n.a(this.a.f18486i);
+                    this.a.n.a(this.a.f18029i);
                 }
             }
         }
@@ -213,55 +211,55 @@ public class f {
                 return;
             }
         }
-        this.f18485h = new HashMap<>();
+        this.f18028h = new HashMap<>();
         this.o = new a(this);
         this.p = new b(this);
         this.q = new c(this);
         this.a = fVar;
         DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(fVar);
-        this.f18479b = defaultGiftListModel;
+        this.f18022b = defaultGiftListModel;
         defaultGiftListModel.I(this.o);
         CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.a);
-        this.f18480c = categoryGiftListModel;
+        this.f18023c = categoryGiftListModel;
         categoryGiftListModel.A(this.p);
         FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.a);
-        this.f18481d = freeGiftChanceModel;
+        this.f18024d = freeGiftChanceModel;
         freeGiftChanceModel.A(this.q);
     }
 
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.f18481d == null) {
+            if (this.f18024d == null) {
                 FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.a);
-                this.f18481d = freeGiftChanceModel;
+                this.f18024d = freeGiftChanceModel;
                 freeGiftChanceModel.A(this.q);
             }
-            this.f18481d.z(str);
+            this.f18024d.z(str);
         }
     }
 
     public void o(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
-            if (this.f18479b == null) {
+            if (this.f18022b == null) {
                 DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(this.a);
-                this.f18479b = defaultGiftListModel;
+                this.f18022b = defaultGiftListModel;
                 defaultGiftListModel.I(this.o);
             }
-            this.f18479b.H(str, j2);
+            this.f18022b.H(str, j2);
         }
     }
 
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f18480c == null) {
+            if (this.f18023c == null) {
                 CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.a);
-                this.f18480c = categoryGiftListModel;
+                this.f18023c = categoryGiftListModel;
                 categoryGiftListModel.A(this.p);
             }
-            this.f18480c.z(i2);
+            this.f18023c.z(i2);
         }
     }
 
@@ -269,25 +267,25 @@ public class f {
         HashMap<Integer, ArrayList<j0>> hashMap;
         ArrayList<c.a.t0.h1.b.a> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (hashMap = this.f18485h) == null || hashMap.size() <= 0 || (arrayList = this.f18483f) == null || arrayList.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (hashMap = this.f18028h) == null || hashMap.size() <= 0 || (arrayList = this.f18026f) == null || arrayList.size() <= 0) {
             return;
         }
-        if (this.f18482e == null) {
-            this.f18482e = new ArrayList<>();
+        if (this.f18025e == null) {
+            this.f18025e = new ArrayList<>();
         }
-        this.f18482e.clear();
-        Iterator<c.a.t0.h1.b.a> it = this.f18483f.iterator();
+        this.f18025e.clear();
+        Iterator<c.a.t0.h1.b.a> it = this.f18026f.iterator();
         while (it.hasNext()) {
             c.a.t0.h1.b.a next = it.next();
             if (next != null && !StringUtils.isNull(next.b())) {
                 c.a.t0.h1.b.c cVar = new c.a.t0.h1.b.c();
                 cVar.c(next.a());
                 cVar.d(next.b());
-                ArrayList<j0> arrayList2 = this.f18485h.get(Integer.valueOf(next.a()));
+                ArrayList<j0> arrayList2 = this.f18028h.get(Integer.valueOf(next.a()));
                 if (arrayList2 != null) {
                     cVar.e(arrayList2);
                 }
-                this.f18482e.add(cVar);
+                this.f18025e.add(cVar);
             }
         }
     }

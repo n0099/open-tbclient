@@ -24,10 +24,10 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<InstallmentEntity> f3731e;
+    public List<InstallmentEntity> f3677e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f3732f;
+    public Context f3678f;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -36,10 +36,10 @@ public class b extends BaseAdapter {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f3733b;
+        public TextView f3679b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f3734c;
+        public View f3680c;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -56,9 +56,9 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f3734c = view.findViewById(g.period_item_view);
+            this.f3680c = view.findViewById(g.period_item_view);
             this.a = (TextView) view.findViewById(g.period_title);
-            this.f3733b = (TextView) view.findViewById(g.period_sub_title);
+            this.f3679b = (TextView) view.findViewById(g.period_sub_title);
         }
     }
 
@@ -77,7 +77,7 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f3732f = context;
+        this.f3678f = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -87,8 +87,8 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 < this.f3731e.size()) {
-                return this.f3731e.get(i2);
+            if (i2 < this.f3677e.size()) {
+                return this.f3677e.get(i2);
             }
             return null;
         }
@@ -98,7 +98,7 @@ public class b extends BaseAdapter {
     public void b(List<InstallmentEntity> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f3731e = list;
+            this.f3677e = list;
             notifyDataSetChanged();
         }
     }
@@ -108,7 +108,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<InstallmentEntity> list = this.f3731e;
+            List<InstallmentEntity> list = this.f3677e;
             if (list == null) {
                 return 0;
             }
@@ -137,25 +137,25 @@ public class b extends BaseAdapter {
                 return view;
             }
             if (view == null) {
-                view = LayoutInflater.from(this.f3732f).inflate(h.period_list_item, (ViewGroup) null, false);
+                view = LayoutInflater.from(this.f3678f).inflate(h.period_list_item, (ViewGroup) null, false);
                 view.setTag(new a(view));
             }
             if (view.getTag() != null && (view.getTag() instanceof a)) {
                 a aVar = (a) view.getTag();
                 aVar.a.setText(item.getTitle());
-                aVar.f3733b.setText(item.getPayText());
+                aVar.f3679b.setText(item.getPayText());
                 if (item.isChecked()) {
                     aVar.a.setTextSize(1, 14.0f);
-                    aVar.a.setTextColor(this.f3732f.getResources().getColor(d.period_item_checked_color));
-                    aVar.f3733b.setTextSize(1, 10.0f);
-                    aVar.f3733b.setTextColor(this.f3732f.getResources().getColor(d.period_item_checked_color));
-                    aVar.f3734c.setBackground(this.f3732f.getResources().getDrawable(f.period_item_checked_background_shape));
+                    aVar.a.setTextColor(this.f3678f.getResources().getColor(d.period_item_checked_color));
+                    aVar.f3679b.setTextSize(1, 10.0f);
+                    aVar.f3679b.setTextColor(this.f3678f.getResources().getColor(d.period_item_checked_color));
+                    aVar.f3680c.setBackground(this.f3678f.getResources().getDrawable(f.period_item_checked_background_shape));
                 } else {
                     aVar.a.setTextSize(1, 14.0f);
-                    aVar.a.setTextColor(this.f3732f.getResources().getColor(d.title_color));
-                    aVar.f3733b.setTextSize(1, 10.0f);
-                    aVar.f3733b.setTextColor(this.f3732f.getResources().getColor(d.period_item_sub_title_color));
-                    aVar.f3734c.setBackground(this.f3732f.getResources().getDrawable(f.period_background_shape));
+                    aVar.a.setTextColor(this.f3678f.getResources().getColor(d.title_color));
+                    aVar.f3679b.setTextSize(1, 10.0f);
+                    aVar.f3679b.setTextColor(this.f3678f.getResources().getColor(d.period_item_sub_title_color));
+                    aVar.f3680c.setBackground(this.f3678f.getResources().getDrawable(f.period_background_shape));
                 }
             }
             return view;

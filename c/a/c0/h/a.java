@@ -1,7 +1,10 @@
 package c.a.c0.h;
 
-import c.a.c0.h.j;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Application;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,91 +12,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
-public class a implements h, Runnable {
+public class a {
     public static /* synthetic */ Interceptable $ic;
+    public static Application a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static f f1901b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final h f1902c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final ConcurrentLinkedQueue<j.b<?>> f2080e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f2081f;
-
-    /* renamed from: c.a.c0.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0073a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(863203296, "Lc/a/c0/h/a$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(863203296, "Lc/a/c0/h/a$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1062787715, "Lc/a/c0/h/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new a();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1062787715, "Lc/a/c0/h/a;");
+                return;
+            }
         }
+        f1902c = new e();
     }
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f2080e = new ConcurrentLinkedQueue<>();
-        this.f2081f = new AtomicBoolean(false);
     }
 
-    public static h b() {
+    @Deprecated
+    public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0073a.a : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1902c : (h) invokeV.objValue;
     }
 
-    @Override // c.a.c0.h.h
-    public <T extends f> void a(k kVar, i<T> iVar, T t) {
+    public static Context b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, kVar, iVar, t) == null) {
-            this.f2080e.offer(new j.b<>(kVar, iVar, t));
-            if (this.f2081f.compareAndSet(false, true)) {
-                c.a.c0.a0.b.c(this, "AsyncDeliver", 3);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : (Context) invokeV.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static f c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-            return;
-        }
-        while (true) {
-            j.b<?> poll = this.f2080e.poll();
-            if (poll != null) {
-                poll.a.onEvent(poll.f2087b);
-            } else {
-                this.f2081f.set(false);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f1901b == null) {
+                synchronized (a.class) {
+                    if (f1901b == null) {
+                        f1901b = (f) ServiceManager.getService(f.a);
+                    }
+                    if (f1901b == null) {
+                        f1901b = f.f1906b;
+                    }
+                }
             }
+            return f1901b;
         }
+        return (f) invokeV.objValue;
+    }
+
+    public static h d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f1902c : (h) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? c.c().b() : (String) invokeV.objValue;
     }
 }

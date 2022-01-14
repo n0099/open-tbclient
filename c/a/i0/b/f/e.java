@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import androidx.annotation.Nullable;
-import c.a.c0.r.n;
+import c.a.c0.u.n;
 import c.a.i0.a.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -28,6 +28,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,7 +38,10 @@ public class e {
     public static d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<g> f3832b;
+    public static List<g> f3771b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static g f3772c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -46,25 +50,25 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ File f3833e;
+        public final /* synthetic */ File f3773e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f3834f;
+        public final /* synthetic */ String f3774f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f3835g;
+        public final /* synthetic */ String f3775g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f3836h;
+        public final /* synthetic */ File f3776h;
 
         /* renamed from: c.a.i0.b.f.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0150a implements e.b {
+        public class C0158a implements e.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0150a(a aVar) {
+            public C0158a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,12 +90,12 @@ public class e {
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (f.d() && !TextUtils.isEmpty(this.a.f3835g) && !TextUtils.equals(c.a.i0.a.c.f.b(this.a.f3833e), this.a.f3835g)) {
-                        this.a.f3833e.delete();
+                    if (f.i() && !TextUtils.isEmpty(this.a.f3775g) && !TextUtils.equals(c.a.i0.a.c.f.b(this.a.f3773e), this.a.f3775g)) {
+                        this.a.f3773e.delete();
                         return;
                     }
                     a aVar = this.a;
-                    e.w(aVar.f3833e, aVar.f3836h);
+                    e.w(aVar.f3773e, aVar.f3776h);
                 }
             }
         }
@@ -111,10 +115,10 @@ public class e {
                     return;
                 }
             }
-            this.f3833e = file;
-            this.f3834f = str;
-            this.f3835g = str2;
-            this.f3836h = file2;
+            this.f3773e = file;
+            this.f3774f = str;
+            this.f3775g = str2;
+            this.f3776h = file2;
         }
 
         @Override // java.lang.Runnable
@@ -122,7 +126,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    c.a.i0.a.c.e.b(this.f3833e, this.f3834f, new C0150a(this));
+                    c.a.i0.a.c.e.b(this.f3773e, this.f3774f, new C0158a(this));
                 } catch (Exception unused) {
                 }
             }
@@ -135,7 +139,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f3837e;
+        public final /* synthetic */ g f3777e;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -152,14 +156,14 @@ public class e {
                     return;
                 }
             }
-            this.f3837e = gVar;
+            this.f3777e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.y(this.f3837e);
+                e.y(this.f3777e);
             }
         }
     }
@@ -170,7 +174,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f3838e;
+        public final /* synthetic */ List f3778e;
 
         public c(List list) {
             Interceptable interceptable = $ic;
@@ -187,7 +191,7 @@ public class e {
                     return;
                 }
             }
-            this.f3838e = list;
+            this.f3778e = list;
         }
 
         @Override // java.lang.Runnable
@@ -195,11 +199,11 @@ public class e {
             List list;
             g gVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f3838e) == null || list.size() == 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f3778e) == null || list.size() == 0) {
                 return;
             }
             ArrayList arrayList = new ArrayList(3);
-            Iterator it = this.f3838e.iterator();
+            Iterator it = this.f3778e.iterator();
             while (it.hasNext() && (gVar = (g) it.next()) != null) {
                 if (e.s(gVar.v)) {
                     e.h(gVar);
@@ -210,7 +214,7 @@ public class e {
             if (arrayList.size() > 0) {
                 if (e.a == null) {
                     d unused = e.a = new d(arrayList, null);
-                    c.a.c0.e.a.b().registerReceiver(e.a, e.a.getIntentFilter());
+                    c.a.c0.h.a.b().registerReceiver(e.a, e.a.getIntentFilter());
                     return;
                 }
                 e.a.setNeedDownloadList(arrayList);
@@ -288,7 +292,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65536, null, list) == null) || list == null || list.size() == 0) {
             return;
         }
-        f3832b = Collections.synchronizedList(list);
+        f3771b = Collections.synchronizedList(list);
         v(list, n());
     }
 
@@ -319,7 +323,7 @@ public class e {
             if (currentTimeMillis - a2 < gVar.t * 60000) {
                 i2 |= 16;
             }
-            File o = o(gVar.f3844g);
+            File o = o(gVar.f3786g);
             return (o == null || !o.exists()) ? i2 | 4 : i2;
         }
         return invokeLZ.intValue;
@@ -336,10 +340,16 @@ public class e {
                 ArrayList arrayList = new ArrayList(list.size());
                 for (g gVar : list) {
                     if (gVar != null) {
-                        arrayList.add(k(gVar.f3844g));
+                        arrayList.add(k(gVar.f3786g));
                         arrayList.add(k(gVar.y));
                         arrayList.add(k(gVar.G));
                     }
+                }
+                g gVar2 = f3772c;
+                if (gVar2 != null) {
+                    arrayList.add(k(gVar2.f3786g));
+                    arrayList.add(k(f3772c.y));
+                    arrayList.add(k(f3772c.G));
                 }
                 for (File file : listFiles) {
                     if (!arrayList.contains(file.getName())) {
@@ -354,8 +364,8 @@ public class e {
 
     public static void h(g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, gVar) == null) && URLUtil.isNetworkUrl(gVar.f3844g)) {
-            i(gVar.f3844g, gVar.f3847j);
+        if ((interceptable == null || interceptable.invokeL(65544, null, gVar) == null) && URLUtil.isNetworkUrl(gVar.f3786g)) {
+            i(gVar.f3786g, gVar.f3789j);
             if (!TextUtils.isEmpty(gVar.y)) {
                 i(gVar.y, "");
             }
@@ -375,7 +385,7 @@ public class e {
                 if (r.exists()) {
                     r.delete();
                 }
-                c.a.c0.a0.b.d(new a(r, str, str2, o), "download splash resource");
+                c.a.c0.d0.b.d(new a(r, str, str2, o), "download splash resource");
             }
         }
     }
@@ -447,24 +457,29 @@ public class e {
     }
 
     @Nullable
-    public static g l() {
-        InterceptResult invokeV;
+    public static g l(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65548, null, z)) == null) {
             List<g> u = u(true);
-            if (u == null || u.size() <= 0) {
+            if (c.a.c0.x.a.g(u)) {
                 return null;
             }
-            return u.get(0);
+            for (int i2 = 0; i2 < u.size(); i2++) {
+                if (u.get(i2) != null && ((z && u.get(i2).h()) || (!z && u.get(i2).f()))) {
+                    return u.get(i2);
+                }
+            }
+            return null;
         }
-        return (g) invokeV.objValue;
+        return (g) invokeZ.objValue;
     }
 
     public static File m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            File file = new File(c.a.c0.e.a.b().getFilesDir(), SpeedStatsUtils.UBC_VALUE_SPLASH);
+            File file = new File(c.a.c0.h.a.b().getFilesDir(), SpeedStatsUtils.UBC_VALUE_SPLASH);
             file.mkdirs();
             return file;
         }
@@ -481,11 +496,11 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
-            String k2 = k(str);
-            if (TextUtils.isEmpty(k2)) {
+            String k = k(str);
+            if (TextUtils.isEmpty(k)) {
                 return null;
             }
-            return new File(m(), k2);
+            return new File(m(), k);
         }
         return (File) invokeL.objValue;
     }
@@ -495,22 +510,22 @@ public class e {
         String j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            List<g> list = f3832b;
+            List<g> list = f3771b;
             if (list != null) {
                 return list;
             }
-            f3832b = Collections.synchronizedList(new ArrayList());
+            f3771b = new CopyOnWriteArrayList();
             File n = n();
             if (n.exists() && (j2 = j(n)) != null) {
                 try {
                     JSONArray jSONArray = new JSONArray(j2);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        f3832b.add(g.b(jSONArray.optJSONObject(i2)));
+                        f3771b.add(g.b(jSONArray.optJSONObject(i2)));
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                return f3832b;
+                return f3771b;
             }
             return null;
         }
@@ -528,7 +543,7 @@ public class e {
                     JSONArray jSONArray = new JSONArray(j(n));
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         g b2 = g.b((JSONObject) jSONArray.get(i2));
-                        hashMap.put(b2.f3839b, b2);
+                        hashMap.put(b2.f3781b, b2);
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -555,7 +570,7 @@ public class e {
     public static boolean s(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i2)) == null) ? new n(c.a.c0.e.a.b()).a() || i2 == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i2)) == null) ? new n(c.a.c0.h.a.b()).a() || i2 == 0 : invokeI.booleanValue;
     }
 
     public static List<g> t() {
@@ -581,18 +596,18 @@ public class e {
                     } else {
                         i2 |= f2;
                         try {
-                            jSONObject.put(gVar.f3840c, f2);
+                            jSONObject.put(gVar.f3782c, f2);
                         } catch (JSONException unused) {
                         }
                     }
                 }
                 if (arrayList.size() == 0) {
-                    BaseVM.h(i2, jSONObject.toString());
+                    BaseVM.i(i2, jSONObject.toString());
                     return null;
                 }
                 return arrayList;
             }
-            BaseVM.g(1);
+            BaseVM.h(1);
             return null;
         }
         return (List) invokeZ.objValue;
@@ -677,7 +692,7 @@ public class e {
     public static void x(List<g> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, null, list) == null) {
-            c.a.c0.a0.b.d(new c(list), "ScheduleDownloadSplashSourceThread");
+            c.a.c0.d0.b.d(new c(list), "ScheduleDownloadSplashSourceThread");
         }
     }
 
@@ -692,7 +707,7 @@ public class e {
             }
             for (int i2 = 0; i2 < p.size(); i2++) {
                 g gVar2 = p.get(i2);
-                if (TextUtils.equals(gVar.f3839b, gVar2.f3839b)) {
+                if (TextUtils.equals(gVar.f3781b, gVar2.f3781b)) {
                     g.l(gVar2, gVar);
                     arrayList.add(gVar2);
                 } else {
@@ -712,6 +727,6 @@ public class e {
         if (i2 < Integer.MAX_VALUE) {
             gVar.w = i2 + 1;
         }
-        c.a.c0.a0.b.d(new b(gVar), "updateSplashDataItemRate");
+        c.a.c0.d0.b.d(new b(gVar), "updateSplashDataItemRate");
     }
 }

@@ -14,13 +14,13 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f15361b;
+    public int f14980b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f15362c;
+    public int f14981c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f15363d;
+    public String f14982d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -45,19 +45,19 @@ public class d {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15363d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14982d : (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15362c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14981c : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15361b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14980b : invokeV.intValue;
     }
 
     public void e(JSONObject jSONObject) {
@@ -66,9 +66,9 @@ public class d {
             return;
         }
         this.a = jSONObject.optString("mark_name");
-        this.f15363d = jSONObject.optString("mark_pic");
-        this.f15362c = jSONObject.optInt("mark_rank");
-        this.f15361b = jSONObject.optInt("mark_score");
+        this.f14982d = jSONObject.optString("mark_pic");
+        this.f14981c = jSONObject.optInt("mark_rank");
+        this.f14980b = jSONObject.optInt("mark_score");
     }
 
     public void f(String str) {
@@ -81,7 +81,7 @@ public class d {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f15363d = str;
+            this.f14982d = str;
         }
     }
 }

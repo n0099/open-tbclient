@@ -28,30 +28,30 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f9008h;
+    public static final String f8811h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final MediaType f9009i;
+    public static final MediaType f8812i;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f9010b;
+    public Map<String, String> f8813b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f9011c;
+    public Map<String, String> f8814c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9012d;
+    public boolean f8815d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f9013e;
+    public JSONObject f8816e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterfaceC0549b f9014f;
+    public InterfaceC0558b f8817f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ResponseCallback<JSONObject> f9015g;
+    public ResponseCallback<JSONObject> f8818g;
 
     /* loaded from: classes.dex */
     public class a extends ResponseCallback<JSONObject> {
@@ -83,19 +83,19 @@ public class b {
         public void onSuccess(JSONObject jSONObject, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
-                if (this.a.f9014f == null) {
+                if (this.a.f8817f == null) {
                     c.a.r0.a.e0.d.i("PayCheckRequest", "paycheck request success, but PayCheckRequestCallback is empty.");
                 } else if (jSONObject == null) {
-                    this.a.f9014f.onFail("response is empty");
+                    this.a.f8817f.onFail("response is empty");
                 } else if (jSONObject.optInt("errno", -1) == 0) {
-                    this.a.f9014f.a(jSONObject.optJSONObject("data"));
+                    this.a.f8817f.a(jSONObject.optJSONObject("data"));
                 } else {
                     String optString = jSONObject.optString("tipmsg", "");
-                    InterfaceC0549b interfaceC0549b = this.a.f9014f;
+                    InterfaceC0558b interfaceC0558b = this.a.f8817f;
                     if (TextUtils.isEmpty(optString)) {
                         optString = "errno is non-zero";
                     }
-                    interfaceC0549b.onFail(optString);
+                    interfaceC0558b.onFail(optString);
                 }
             }
         }
@@ -119,8 +119,8 @@ public class b {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                if (this.a.f9014f != null) {
-                    this.a.f9014f.onFail(exc.getMessage());
+                if (this.a.f8817f != null) {
+                    this.a.f8817f.onFail(exc.getMessage());
                     return;
                 }
                 c.a.r0.a.e0.d.i("PayCheckRequest", "PayCheckRequestCallback is empty and paycheck request failed : \n" + Log.getStackTraceString(exc));
@@ -130,7 +130,7 @@ public class b {
 
     /* renamed from: c.a.r0.a.t1.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0549b {
+    public interface InterfaceC0558b {
         void a(JSONObject jSONObject);
 
         void onFail(String str);
@@ -150,8 +150,8 @@ public class b {
             }
         }
         boolean z = c.a.r0.a.k.a;
-        f9008h = String.format("%s/ma/pay_check", c.a.r0.a.d0.a.b());
-        f9009i = c.a.r0.a.p1.f.a;
+        f8811h = String.format("%s/ma/pay_check", c.a.r0.a.d0.a.b());
+        f8812i = c.a.r0.a.p1.f.a;
     }
 
     public b() {
@@ -167,12 +167,12 @@ public class b {
                 return;
             }
         }
-        this.a = f9008h;
-        this.f9010b = new HashMap();
-        this.f9011c = new HashMap();
-        this.f9012d = false;
-        this.f9013e = new JSONObject();
-        this.f9015g = new a(this);
+        this.a = f8811h;
+        this.f8813b = new HashMap();
+        this.f8814c = new HashMap();
+        this.f8815d = false;
+        this.f8816e = new JSONObject();
+        this.f8818g = new a(this);
         e();
         f();
         g();
@@ -183,37 +183,37 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str) || str2 == null) {
             return;
         }
-        this.f9010b.put(str, str2);
+        this.f8813b.put(str, str2);
     }
 
     public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
-            if (!this.f9012d) {
+            if (!this.f8815d) {
                 responseCallback.onFail(new InvalidParameterException("error: invalid url"));
                 return;
             }
-            this.a = o0.b(this.a, this.f9011c);
-            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(this.a, RequestBody.create(f9009i, this.f9013e.toString()), responseCallback);
-            aVar.f11715c = this.f9010b;
-            aVar.f11719g = true;
-            c.a.r0.a.e0.d.b("PayCheckRequest", "start paycheck request : " + this.f9013e);
+            this.a = o0.b(this.a, this.f8814c);
+            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(this.a, RequestBody.create(f8812i, this.f8816e.toString()), responseCallback);
+            aVar.f11450c = this.f8813b;
+            aVar.f11454g = true;
+            c.a.r0.a.e0.d.b("PayCheckRequest", "start paycheck request : " + this.f8816e);
             c.a.r0.p.e.a.g().e(aVar);
         }
     }
 
-    public void d(@NonNull InterfaceC0549b interfaceC0549b) {
+    public void d(@NonNull InterfaceC0558b interfaceC0558b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0549b) == null) {
-            this.f9014f = interfaceC0549b;
-            c(this.f9015g);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0558b) == null) {
+            this.f8817f = interfaceC0558b;
+            c(this.f8818g);
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String i2 = c.a.r0.q.j.f.i(f9008h);
+            String i2 = c.a.r0.q.j.f.i(f8811h);
             this.a = i2;
             this.a = c.a.r0.a.d0.c.b(i2);
         }
@@ -231,7 +231,7 @@ public class b {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             String N = c.a.r0.a.d2.d.J().r().N();
             try {
-                JSONObject jSONObject = this.f9013e;
+                JSONObject jSONObject = this.f8816e;
                 if (TextUtils.isEmpty(N)) {
                     N = "";
                 }
@@ -248,8 +248,8 @@ public class b {
             return;
         }
         try {
-            this.f9013e.put("order_info", jSONObject);
-            this.f9012d = true;
+            this.f8816e.put("order_info", jSONObject);
+            this.f8815d = true;
         } catch (JSONException e2) {
             c.a.r0.a.e0.d.i("PayCheckRequest", "set order info failed: \n" + Log.getStackTraceString(e2));
         }

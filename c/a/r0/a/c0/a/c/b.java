@@ -52,11 +52,11 @@ public abstract class b<V extends TextView, M extends c> extends c.a.r0.a.c0.a.d
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            c.a.r0.a.c0.f.b k2 = super.k(m, m2);
+            c.a.r0.a.c0.f.b k = super.k(m, m2);
             if (!TextUtils.equals(m.x, m2.x)) {
-                k2.b(6);
+                k.b(6);
             }
-            return k2;
+            return k;
         }
         return (c.a.r0.a.c0.f.b) invokeLL.objValue;
     }
@@ -82,7 +82,7 @@ public abstract class b<V extends TextView, M extends c> extends c.a.r0.a.c0.a.d
     public void U(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            boolean z = c.a.r0.a.c0.b.a.f5409h;
+            boolean z = c.a.r0.a.c0.b.a.f5296h;
             boolean z2 = !TextUtils.isEmpty(m.x) && m.B >= 0;
             String str = m.x;
             if (z2) {
@@ -100,7 +100,7 @@ public abstract class b<V extends TextView, M extends c> extends c.a.r0.a.c0.a.d
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, v, m) == null) || m.n == null) {
             return;
         }
-        boolean z = c.a.r0.a.c0.b.a.f5409h;
+        boolean z = c.a.r0.a.c0.b.a.f5296h;
         if (m.z) {
             v.setTextColor(m.y);
         }
@@ -135,7 +135,7 @@ public abstract class b<V extends TextView, M extends c> extends c.a.r0.a.c0.a.d
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, v, m) == null) || m.n == null) {
             return;
         }
-        boolean z = c.a.r0.a.c0.b.a.f5409h;
+        boolean z = c.a.r0.a.c0.b.a.f5296h;
         String str = m.E;
         char c2 = 65535;
         int hashCode = str.hashCode();
@@ -169,7 +169,7 @@ public abstract class b<V extends TextView, M extends c> extends c.a.r0.a.c0.a.d
         if (!(interceptable == null || interceptable.invokeLLI(1048585, this, v, m, i2) == null) || m.n == null) {
             return;
         }
-        boolean z = c.a.r0.a.c0.b.a.f5409h;
+        boolean z = c.a.r0.a.c0.b.a.f5296h;
         String str = m.D;
         char c2 = 65535;
         int hashCode = str.hashCode();

@@ -13,7 +13,7 @@ public abstract class c implements a<c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4823e;
+    public int f4718e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c() {
@@ -39,7 +39,7 @@ public abstract class c implements a<c> {
     public int compareTo(c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar.f4823e - this.f4823e : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar.f4718e - this.f4718e : invokeL.intValue;
     }
 
     public abstract void b();
@@ -67,6 +67,6 @@ public abstract class c implements a<c> {
                 return;
             }
         }
-        this.f4823e = i2;
+        this.f4718e = i2;
     }
 }

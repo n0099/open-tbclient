@@ -17,26 +17,26 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class LogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String a = "apollon_rest";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f33781b;
+    public static final boolean f32709b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f33782c;
+    public static final boolean f32710c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f33783d;
+    public static final boolean f32711d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f33784e;
+    public static final boolean f32712e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f33785f;
+    public static final boolean f32713f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,11 +54,11 @@ public final class LogUtil {
         }
         boolean z = ApollonConstants.DEBUG;
         DEBUG = z;
-        f33781b = z;
-        f33782c = z;
-        f33783d = z;
-        f33784e = z;
-        f33785f = z;
+        f32709b = z;
+        f32710c = z;
+        f32711d = z;
+        f32712e = z;
+        f32713f = z;
     }
 
     public LogUtil() {
@@ -77,7 +77,7 @@ public final class LogUtil {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f33782c) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f32710c) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -85,7 +85,7 @@ public final class LogUtil {
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f33785f) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f32713f) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -119,7 +119,7 @@ public final class LogUtil {
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && f33783d) {
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && f32711d) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -142,7 +142,7 @@ public final class LogUtil {
     public static void saveLog(Context context, String str) {
         String absolutePath;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) && f33782c) {
+        if ((interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) && f32710c) {
             String str2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS    ", Locale.ENGLISH).format(new Date()) + str + org.apache.commons.lang3.StringUtils.LF;
             try {
                 File externalFilesDir = context.getExternalFilesDir(null);
@@ -188,7 +188,7 @@ public final class LogUtil {
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && f33781b) {
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && f32709b) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -196,7 +196,7 @@ public final class LogUtil {
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && f33784e) {
+        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && f32712e) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }

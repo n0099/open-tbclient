@@ -34,34 +34,32 @@ public final class WorkPublishViewModel extends ViewModel {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MutableLiveData<VideoInfo> f51949b;
+    public MutableLiveData<VideoInfo> f49943b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MutableLiveData<Integer> f51950c;
+    public MutableLiveData<Integer> f49944c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MutableLiveData<String> f51951d;
+    public MutableLiveData<String> f49945d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51952e;
+    public String f49946e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MutableLiveData<String> f51953f;
+    public MutableLiveData<String> f49947f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MutableLiveData<VideoCategoryClassData> f51954g;
+    public MutableLiveData<VideoCategoryClassData> f49948g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MutableLiveData<SelectForumData> f51955h;
+    public MutableLiveData<SelectForumData> f49949h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SelectForumData f51956i;
+    public SelectForumData f49950i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MutableLiveData<ArrayList<String>> f51957j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public MutableLiveData<ResponsedSelectLocation> f51958k;
+    public MutableLiveData<ArrayList<String>> f49951j;
+    public MutableLiveData<ResponsedSelectLocation> k;
     public MutableLiveData<ArrayList<String>> l;
     public MutableLiveData<Boolean> m;
     public boolean n;
@@ -81,16 +79,16 @@ public final class WorkPublishViewModel extends ViewModel {
             }
         }
         this.a = 2;
-        this.f51949b = new MutableLiveData<>();
-        this.f51950c = new MutableLiveData<>();
-        this.f51951d = new MutableLiveData<>();
-        this.f51952e = "";
-        this.f51953f = new MutableLiveData<>();
-        this.f51954g = new MutableLiveData<>();
-        this.f51955h = new MutableLiveData<>();
-        this.f51956i = new SelectForumData();
-        this.f51957j = new MutableLiveData<>();
-        this.f51958k = new MutableLiveData<>();
+        this.f49943b = new MutableLiveData<>();
+        this.f49944c = new MutableLiveData<>();
+        this.f49945d = new MutableLiveData<>();
+        this.f49946e = "";
+        this.f49947f = new MutableLiveData<>();
+        this.f49948g = new MutableLiveData<>();
+        this.f49949h = new MutableLiveData<>();
+        this.f49950i = new SelectForumData();
+        this.f49951j = new MutableLiveData<>();
+        this.k = new MutableLiveData<>();
         this.l = new MutableLiveData<>();
         this.m = new MutableLiveData<>();
         this.n = true;
@@ -117,13 +115,13 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList<String> value = this.l.getValue();
-            if (!(value == null || value.isEmpty()) && this.f51954g.getValue() != null) {
-                if (this.f51954g.getValue() != null) {
-                    VideoCategoryClassData value2 = this.f51954g.getValue();
+            if (!(value == null || value.isEmpty()) && this.f49948g.getValue() != null) {
+                if (this.f49948g.getValue() != null) {
+                    VideoCategoryClassData value2 = this.f49948g.getValue();
                     Intrinsics.checkNotNull(value2);
                     String firstClass = value2.getFirstClass();
                     if (!(firstClass == null || firstClass.length() == 0)) {
-                        VideoCategoryClassData value3 = this.f51954g.getValue();
+                        VideoCategoryClassData value3 = this.f49948g.getValue();
                         Intrinsics.checkNotNull(value3);
                         String secondClass = value3.getSecondClass();
                         if (secondClass == null || secondClass.length() == 0) {
@@ -142,7 +140,7 @@ public final class WorkPublishViewModel extends ViewModel {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String value = this.f51951d.getValue();
+            String value = this.f49945d.getValue();
             return !(value == null || value.length() == 0) && (i2 = this.o) >= 5 && i2 <= 80;
         }
         return invokeV.booleanValue;
@@ -151,18 +149,18 @@ public final class WorkPublishViewModel extends ViewModel {
     public final boolean checkIsVideoLegal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51949b.getValue() != null && checkIsVideoMixStatusLegal() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49943b.getValue() != null && checkIsVideoMixStatusLegal() : invokeV.booleanValue;
     }
 
     public final boolean checkIsVideoMixStatusLegal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f51950c.getValue() == null) {
+            if (this.f49944c.getValue() == null) {
                 return true;
             }
-            if (this.f51950c.getValue() != null) {
-                Integer value = this.f51950c.getValue();
+            if (this.f49944c.getValue() != null) {
+                Integer value = this.f49944c.getValue();
                 return value != null && value.intValue() == this.a;
             }
             return false;
@@ -173,7 +171,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void clearDraft() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            a0.u("");
+            a0.x("");
         }
     }
 
@@ -183,13 +181,13 @@ public final class WorkPublishViewModel extends ViewModel {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("mTitle", this.f51951d.getValue());
-                jSONObject.put("mDesc", this.f51953f.getValue());
-                jSONObject.put("mClass", this.f51954g.getValue());
-                VideoCategoryClassData value = this.f51954g.getValue();
+                jSONObject.put("mTitle", this.f49945d.getValue());
+                jSONObject.put("mDesc", this.f49947f.getValue());
+                jSONObject.put("mClass", this.f49948g.getValue());
+                VideoCategoryClassData value = this.f49948g.getValue();
                 String str = null;
                 jSONObject.put("mFirstClass", value == null ? null : value.getFirstClass());
-                VideoCategoryClassData value2 = this.f51954g.getValue();
+                VideoCategoryClassData value2 = this.f49948g.getValue();
                 jSONObject.put("mSecondClass", value2 == null ? null : value2.getSecondClass());
                 JSONArray jSONArray = new JSONArray();
                 if (this.l.getValue() != null) {
@@ -201,13 +199,13 @@ public final class WorkPublishViewModel extends ViewModel {
                     }
                     jSONObject.put("mTag", jSONArray);
                 }
-                if (this.f51949b.getValue() != null) {
-                    jSONObject.put("new_video_info", new Gson().toJson(this.f51949b.getValue()));
+                if (this.f49943b.getValue() != null) {
+                    jSONObject.put("new_video_info", new Gson().toJson(this.f49943b.getValue()));
                 }
-                if (this.f51955h.getValue() != null) {
-                    SelectForumData value4 = this.f51955h.getValue();
+                if (this.f49949h.getValue() != null) {
+                    SelectForumData value4 = this.f49949h.getValue();
                     jSONObject.put("forum_id", value4 == null ? null : value4.forumId);
-                    SelectForumData value5 = this.f51955h.getValue();
+                    SelectForumData value5 = this.f49949h.getValue();
                     if (value5 != null) {
                         str = value5.forumName;
                     }
@@ -226,7 +224,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final MutableLiveData<SelectForumData> getBarInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f51955h : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f49949h : (MutableLiveData) invokeV.objValue;
     }
 
     public final boolean getCanChangeBarName() {
@@ -238,25 +236,25 @@ public final class WorkPublishViewModel extends ViewModel {
     public final MutableLiveData<VideoCategoryClassData> getClassInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f51954g : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f49948g : (MutableLiveData) invokeV.objValue;
     }
 
     public final MutableLiveData<String> getDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f51953f : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f49947f : (MutableLiveData) invokeV.objValue;
     }
 
     public final SelectForumData getIntentBarInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f51956i : (SelectForumData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f49950i : (SelectForumData) invokeV.objValue;
     }
 
     public final MutableLiveData<ResponsedSelectLocation> getPosInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f51958k : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.k : (MutableLiveData) invokeV.objValue;
     }
 
     public final int getSTATE_SUCCESS() {
@@ -274,7 +272,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final MutableLiveData<String> getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f51951d : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f49945d : (MutableLiveData) invokeV.objValue;
     }
 
     public final int getTitleLength() {
@@ -286,25 +284,25 @@ public final class WorkPublishViewModel extends ViewModel {
     public final String getTopicFromLastPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f51952e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f49946e : (String) invokeV.objValue;
     }
 
     public final MutableLiveData<ArrayList<String>> getTopicInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f51957j : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f49951j : (MutableLiveData) invokeV.objValue;
     }
 
     public final MutableLiveData<VideoInfo> getVideoInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f51949b : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f49943b : (MutableLiveData) invokeV.objValue;
     }
 
     public final MutableLiveData<Integer> getVideoMixStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f51950c : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f49944c : (MutableLiveData) invokeV.objValue;
     }
 
     public final MutableLiveData<Boolean> isLegal() {
@@ -316,11 +314,11 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void loadDraft() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            a0.l(new a0.f() { // from class: c.a.t0.o4.e0.p.y.a
+            a0.n(new a0.g() { // from class: c.a.t0.p4.e0.p.y.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // c.a.t0.w3.a0.f
+                @Override // c.a.t0.w3.a0.g
                 public final void a(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -337,24 +335,24 @@ public final class WorkPublishViewModel extends ViewModel {
             Intrinsics.checkNotNullParameter(json, "json");
             JSONObject jSONObject = new JSONObject(json);
             try {
-                this.f51951d.setValue(jSONObject.optString("mTitle"));
-                this.f51953f.setValue(jSONObject.optString("mDesc"));
+                this.f49945d.setValue(jSONObject.optString("mTitle"));
+                this.f49947f.setValue(jSONObject.optString("mDesc"));
                 VideoCategoryClassData videoCategoryClassData = new VideoCategoryClassData();
                 videoCategoryClassData.setFirstClass(jSONObject.optString("mFirstClass"));
                 videoCategoryClassData.setSecondClass(jSONObject.optString("mSecondClass"));
-                this.f51954g.setValue(videoCategoryClassData);
+                this.f49948g.setValue(videoCategoryClassData);
                 String optString = jSONObject.optString("new_video_info");
                 Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(VideoInfo.DRAFT_JSON_NAME)");
                 if (!TextUtils.isEmpty(optString)) {
-                    this.f51949b.setValue(new Gson().fromJson(optString, (Class<Object>) VideoInfo.class));
+                    this.f49943b.setValue(new Gson().fromJson(optString, (Class<Object>) VideoInfo.class));
                 }
                 SelectForumData selectForumData = new SelectForumData();
                 selectForumData.forumId = jSONObject.optString("forum_id");
                 selectForumData.forumName = jSONObject.optString("forum_name");
-                if (this.f51956i != null && !this.n) {
-                    this.f51955h.setValue(this.f51956i);
+                if (this.f49950i != null && !this.n) {
+                    this.f49949h.setValue(this.f49950i);
                 } else {
-                    this.f51955h.setValue(selectForumData);
+                    this.f49949h.setValue(selectForumData);
                 }
                 if (jSONObject.optJSONArray("mTag") != null) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("mTag");
@@ -384,18 +382,18 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, writeData) == null) {
             Intrinsics.checkNotNullParameter(writeData, "writeData");
-            this.f51951d.setValue(writeData.getTitle());
-            this.f51953f.setValue(writeData.getContent());
-            this.f51949b.setValue(writeData.getVideoInfo());
+            this.f49945d.setValue(writeData.getTitle());
+            this.f49947f.setValue(writeData.getContent());
+            this.f49943b.setValue(writeData.getVideoInfo());
             VideoCategoryClassData videoCategoryClassData = new VideoCategoryClassData();
             videoCategoryClassData.setFirstClass(writeData.getClassAndTagData().getFirstClass());
             videoCategoryClassData.setSecondClass(writeData.getClassAndTagData().getSecondClass());
-            this.f51954g.setValue(videoCategoryClassData);
+            this.f49948g.setValue(videoCategoryClassData);
             this.l.setValue(writeData.getClassAndTagData().getTags());
             SelectForumData selectForumData = new SelectForumData();
             selectForumData.forumId = writeData.getForumId();
             selectForumData.forumName = writeData.getForumName();
-            this.f51955h.setValue(selectForumData);
+            this.f49949h.setValue(selectForumData);
             checkIsAllLegal();
         }
     }
@@ -403,7 +401,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void saveDraft() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            a0.u(generateDraftString());
+            a0.x(generateDraftString());
         }
     }
 
@@ -411,7 +409,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, mutableLiveData) == null) {
             Intrinsics.checkNotNullParameter(mutableLiveData, "<set-?>");
-            this.f51955h = mutableLiveData;
+            this.f49949h = mutableLiveData;
         }
     }
 
@@ -426,7 +424,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, mutableLiveData) == null) {
             Intrinsics.checkNotNullParameter(mutableLiveData, "<set-?>");
-            this.f51954g = mutableLiveData;
+            this.f49948g = mutableLiveData;
         }
     }
 
@@ -434,7 +432,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, mutableLiveData) == null) {
             Intrinsics.checkNotNullParameter(mutableLiveData, "<set-?>");
-            this.f51953f = mutableLiveData;
+            this.f49947f = mutableLiveData;
         }
     }
 
@@ -442,7 +440,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, selectForumData) == null) {
             Intrinsics.checkNotNullParameter(selectForumData, "<set-?>");
-            this.f51956i = selectForumData;
+            this.f49950i = selectForumData;
         }
     }
 
@@ -458,7 +456,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, mutableLiveData) == null) {
             Intrinsics.checkNotNullParameter(mutableLiveData, "<set-?>");
-            this.f51958k = mutableLiveData;
+            this.k = mutableLiveData;
         }
     }
 
@@ -474,7 +472,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, mutableLiveData) == null) {
             Intrinsics.checkNotNullParameter(mutableLiveData, "<set-?>");
-            this.f51951d = mutableLiveData;
+            this.f49945d = mutableLiveData;
         }
     }
 
@@ -489,7 +487,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.f51952e = str;
+            this.f49946e = str;
         }
     }
 
@@ -497,7 +495,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, mutableLiveData) == null) {
             Intrinsics.checkNotNullParameter(mutableLiveData, "<set-?>");
-            this.f51957j = mutableLiveData;
+            this.f49951j = mutableLiveData;
         }
     }
 
@@ -505,7 +503,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, mutableLiveData) == null) {
             Intrinsics.checkNotNullParameter(mutableLiveData, "<set-?>");
-            this.f51949b = mutableLiveData;
+            this.f49943b = mutableLiveData;
         }
     }
 
@@ -513,14 +511,14 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, mutableLiveData) == null) {
             Intrinsics.checkNotNullParameter(mutableLiveData, "<set-?>");
-            this.f51950c = mutableLiveData;
+            this.f49944c = mutableLiveData;
         }
     }
 
     public final void updateMixStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.f51950c.setValue(Integer.valueOf(i2));
+            this.f49944c.setValue(Integer.valueOf(i2));
             checkIsAllLegal();
         }
     }
@@ -529,7 +527,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048617, this, newTitle, i2) == null) {
             Intrinsics.checkNotNullParameter(newTitle, "newTitle");
-            this.f51951d.setValue(newTitle);
+            this.f49945d.setValue(newTitle);
             this.o = i2;
             checkIsAllLegal();
         }
@@ -539,7 +537,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, newVideo) == null) {
             Intrinsics.checkNotNullParameter(newVideo, "newVideo");
-            this.f51949b.setValue(newVideo);
+            this.f49943b.setValue(newVideo);
             checkIsAllLegal();
         }
     }

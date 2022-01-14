@@ -25,22 +25,22 @@ public class e {
     public BdListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity<?> f18150b;
+    public BaseActivity<?> f17709b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f18151c;
+    public NavigationBar f17710c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f18152d;
+    public View f17711d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f18153e;
+    public NoNetworkView f17712e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f18154f;
+    public TextView f17713f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18155g;
+    public TextView f17714g;
 
     public e(BaseActivity<?> baseActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
@@ -57,25 +57,25 @@ public class e {
                 return;
             }
         }
-        this.f18150b = baseActivity;
-        this.f18152d = baseActivity.findViewById(R.id.tail_management_root);
+        this.f17709b = baseActivity;
+        this.f17711d = baseActivity.findViewById(R.id.tail_management_root);
         this.a = (BdListView) baseActivity.findViewById(R.id.tail_management_listview);
         NavigationBar navigationBar = (NavigationBar) baseActivity.findViewById(R.id.tail_management_navigation_bar);
-        this.f18151c = navigationBar;
+        this.f17710c = navigationBar;
         navigationBar.setCenterTextTitle(baseActivity.getPageContext().getString(R.string.tail_management));
-        this.f18154f = this.f18151c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.f18150b.getString(R.string.cancel), onClickListener);
-        TextView addTextButton = this.f18151c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getPageContext().getString(R.string.edit), onClickListener);
-        this.f18155g = addTextButton;
+        this.f17713f = this.f17710c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.f17709b.getString(R.string.cancel), onClickListener);
+        TextView addTextButton = this.f17710c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getPageContext().getString(R.string.edit), onClickListener);
+        this.f17714g = addTextButton;
         addTextButton.setGravity(17);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f18154f.getLayoutParams();
-        layoutParams.leftMargin = n.f(this.f18150b, R.dimen.ds16);
-        this.f18154f.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f18155g.getLayoutParams();
-        layoutParams2.rightMargin = n.f(this.f18150b, R.dimen.ds16);
-        this.f18155g.setLayoutParams(layoutParams2);
-        int f2 = n.f(this.f18150b, R.dimen.tbds27);
-        this.f18155g.setPadding(f2, 0, f2, 0);
-        this.f18153e = (NoNetworkView) baseActivity.findViewById(R.id.tail_view_no_network);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f17713f.getLayoutParams();
+        layoutParams.leftMargin = n.f(this.f17709b, R.dimen.ds16);
+        this.f17713f.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f17714g.getLayoutParams();
+        layoutParams2.rightMargin = n.f(this.f17709b, R.dimen.ds16);
+        this.f17714g.setLayoutParams(layoutParams2);
+        int f2 = n.f(this.f17709b, R.dimen.tbds27);
+        this.f17714g.setPadding(f2, 0, f2, 0);
+        this.f17712e = (NoNetworkView) baseActivity.findViewById(R.id.tail_view_no_network);
         View view = new View(baseActivity.getPageContext().getPageActivity());
         view.setLayoutParams(new AbsListView.LayoutParams(-1, (int) baseActivity.getResources().getDimension(R.dimen.ds70)));
         View view2 = new View(baseActivity.getPageContext().getPageActivity());
@@ -87,25 +87,25 @@ public class e {
     public TextView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18154f : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17713f : (TextView) invokeV.objValue;
     }
 
     public TextView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18155g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17714g : (TextView) invokeV.objValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f18150b.getLayoutMode().k(i2 == 1);
-            this.f18150b.getLayoutMode().j(this.f18152d);
-            this.f18153e.onChangeSkinType(this.f18150b.getPageContext(), i2);
-            this.f18151c.onChangeSkinType(this.f18150b.getPageContext(), i2);
-            SkinManager.setViewTextColor(this.f18155g, R.color.navbar_btn_color);
-            SkinManager.setViewTextColor(this.f18154f, R.color.navi_back_text_color);
-            SkinManager.setBackgroundResource(this.f18155g, R.drawable.s_navbar_button_bg);
+            this.f17709b.getLayoutMode().k(i2 == 1);
+            this.f17709b.getLayoutMode().j(this.f17711d);
+            this.f17712e.onChangeSkinType(this.f17709b.getPageContext(), i2);
+            this.f17710c.onChangeSkinType(this.f17709b.getPageContext(), i2);
+            SkinManager.setViewTextColor(this.f17714g, R.color.navbar_btn_color);
+            SkinManager.setViewTextColor(this.f17713f, R.color.navi_back_text_color);
+            SkinManager.setBackgroundResource(this.f17714g, R.drawable.s_navbar_button_bg);
         }
     }
 
@@ -120,11 +120,11 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
-                this.f18155g.setText(this.f18150b.getPageContext().getString(R.string.done));
+                this.f17714g.setText(this.f17709b.getPageContext().getString(R.string.done));
                 return;
             }
-            this.f18155g.setText(this.f18150b.getPageContext().getString(R.string.edit));
-            this.f18155g.setEnabled(!z2);
+            this.f17714g.setText(this.f17709b.getPageContext().getString(R.string.edit));
+            this.f17714g.setEnabled(!z2);
         }
     }
 }

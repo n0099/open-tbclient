@@ -9,6 +9,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +35,7 @@ public final class d {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f63940b = "";
+    public static String f61541b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -71,7 +72,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f57419c})) {
+                if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f55242c})) {
                     String str = "";
                     if (Build.VERSION.SDK_INT < 29) {
                         try {
@@ -137,7 +138,7 @@ public final class d {
             return invokeV.longValue;
         }
         try {
-            bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
+            bufferedReader = new BufferedReader(new FileReader(HardwareInfoUtils.MEM_INFO_FILE), 8192);
             try {
                 long parseLong = Long.parseLong(bufferedReader.readLine().split("\\s+")[1]) << 10;
                 try {
@@ -181,7 +182,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             try {
-                if (!com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f57419c}) || Build.VERSION.SDK_INT >= 29) {
+                if (!com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f55242c}) || Build.VERSION.SDK_INT >= 29) {
                     return "";
                 }
                 try {
@@ -278,7 +279,7 @@ public final class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (d.class) {
                 try {
-                    if (TextUtils.isEmpty(f63940b)) {
+                    if (TextUtils.isEmpty(f61541b)) {
                         String gMas = Orange.getInstance().gMas();
                         new StringBuilder("user dis :").append(gMas);
                         if (!TextUtils.isEmpty(gMas)) {
@@ -286,15 +287,15 @@ public final class d {
                             for (int i2 = 0; i2 < bytes.length; i2++) {
                                 bytes[i2] = (byte) (bytes[i2] ^ 165);
                             }
-                            f63940b = "fuels:" + Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "");
+                            f61541b = "fuels:" + Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "");
                         }
-                        if (TextUtils.isEmpty(f63940b)) {
-                            f63940b = "KWE_N";
+                        if (TextUtils.isEmpty(f61541b)) {
+                            f61541b = "KWE_N";
                             return "KWE_N";
                         }
-                        return f63940b;
+                        return f61541b;
                     }
-                    return f63940b;
+                    return f61541b;
                 }
             }
         }
@@ -335,7 +336,7 @@ public final class d {
                 String a3 = a(context, "k_w_o_d_out_dtt");
                 String str2 = "";
                 if (TextUtils.isEmpty(a3)) {
-                    boolean b2 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f57425i, "android.permission.WRITE_EXTERNAL_STORAGE"});
+                    boolean b2 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f55248i, "android.permission.WRITE_EXTERNAL_STORAGE"});
                     com.yxcorp.kuaishou.addfp.android.b.b.a();
                     if (!b2) {
                         str = "KWE_PN";
@@ -371,7 +372,7 @@ public final class d {
                         a(context, "k_w_o_d_out_dtt", str2);
                     }
                 } else {
-                    boolean b3 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f57425i, "android.permission.WRITE_EXTERNAL_STORAGE"});
+                    boolean b3 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f55248i, "android.permission.WRITE_EXTERNAL_STORAGE"});
                     com.yxcorp.kuaishou.addfp.android.b.b.a();
                     if (b3) {
                         str2 = c.a(context).b("Lm91a2R0ZnQ=");

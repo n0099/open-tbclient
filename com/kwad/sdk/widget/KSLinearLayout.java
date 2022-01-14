@@ -20,41 +20,41 @@ public class KSLinearLayout extends LinearLayout implements j {
     public final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f60295b;
+    public h f58006b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f60296c;
+    public j f58007c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f60297d;
+    public i f58008d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f60298e;
+    public float f58009e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final z.a f60299f;
+    public final z.a f58010f;
 
     public KSLinearLayout(@NonNull Context context) {
         super(context);
         this.a = new AtomicBoolean(true);
-        this.f60298e = 0.0f;
-        this.f60299f = new z.a();
+        this.f58009e = 0.0f;
+        this.f58010f = new z.a();
         a(context, null);
     }
 
     public KSLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = new AtomicBoolean(true);
-        this.f60298e = 0.0f;
-        this.f60299f = new z.a();
+        this.f58009e = 0.0f;
+        this.f58010f = new z.a();
         a(context, attributeSet);
     }
 
     public KSLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         this.a = new AtomicBoolean(true);
-        this.f60298e = 0.0f;
-        this.f60299f = new z.a();
+        this.f58009e = 0.0f;
+        this.f58010f = new z.a();
         a(context, attributeSet);
     }
 
@@ -64,14 +64,14 @@ public class KSLinearLayout extends LinearLayout implements j {
             int[] iArr = {i2};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.f60298e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
+            this.f58009e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
             obtainStyledAttributes.recycle();
         }
         h hVar = new h(this, this);
-        this.f60295b = hVar;
+        this.f58006b = hVar;
         hVar.a(c());
         i iVar = new i();
-        this.f60297d = iVar;
+        this.f58008d = iVar;
         iVar.a(context, attributeSet);
     }
 
@@ -92,13 +92,13 @@ public class KSLinearLayout extends LinearLayout implements j {
 
     @CallSuper
     public void a() {
-        this.f60295b.b();
+        this.f58006b.b();
     }
 
     @Override // com.kwad.sdk.widget.j
     @CallSuper
     public void a(View view) {
-        j jVar = this.f60296c;
+        j jVar = this.f58007c;
         if (jVar != null) {
             jVar.a(view);
         }
@@ -106,7 +106,7 @@ public class KSLinearLayout extends LinearLayout implements j {
 
     @CallSuper
     public void b() {
-        this.f60295b.c();
+        this.f58006b.c();
     }
 
     public boolean c() {
@@ -115,37 +115,37 @@ public class KSLinearLayout extends LinearLayout implements j {
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        this.f60297d.c(canvas);
+        this.f58008d.c(canvas);
         super.dispatchDraw(canvas);
-        this.f60297d.d(canvas);
+        this.f58008d.d(canvas);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f60299f.a(getWidth(), getHeight());
-            this.f60299f.a(motionEvent.getX(), motionEvent.getY());
+            this.f58010f.a(getWidth(), getHeight());
+            this.f58010f.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            this.f60299f.b(motionEvent.getX(), motionEvent.getY());
+            this.f58010f.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        this.f60297d.a(canvas);
+        this.f58008d.a(canvas);
         super.draw(canvas);
-        this.f60297d.b(canvas);
+        this.f58008d.b(canvas);
     }
 
     @MainThread
     public z.a getTouchCoords() {
-        return this.f60299f;
+        return this.f58010f;
     }
 
     public float getVisiblePercent() {
-        return this.f60295b.a();
+        return this.f58006b.a();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -170,18 +170,18 @@ public class KSLinearLayout extends LinearLayout implements j {
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        if (this.f60298e != 0.0f) {
-            i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f60298e), 1073741824);
+        if (this.f58009e != 0.0f) {
+            i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f58009e), 1073741824);
         }
         super.onMeasure(i2, i3);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        this.f60295b.a(i2, i3, i4, i5);
+        this.f58006b.a(i2, i3, i4, i5);
         super.onSizeChanged(i2, i3, i4, i5);
-        this.f60295b.b(i2, i3, i4, i5);
-        this.f60297d.a(i2, i3);
+        this.f58006b.b(i2, i3, i4, i5);
+        this.f58008d.a(i2, i3);
     }
 
     @Override // android.view.View
@@ -191,19 +191,19 @@ public class KSLinearLayout extends LinearLayout implements j {
     }
 
     public void setRadius(float f2) {
-        this.f60297d.a(f2);
+        this.f58008d.a(f2);
         postInvalidate();
     }
 
     public void setRatio(float f2) {
-        this.f60298e = f2;
+        this.f58009e = f2;
     }
 
     public void setViewVisibleListener(j jVar) {
-        this.f60296c = jVar;
+        this.f58007c = jVar;
     }
 
     public void setVisiblePercent(float f2) {
-        this.f60295b.a(f2);
+        this.f58006b.a(f2);
     }
 }

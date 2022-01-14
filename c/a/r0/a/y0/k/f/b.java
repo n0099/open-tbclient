@@ -20,7 +20,7 @@ public class b {
     public static final d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f9894b;
+    public static volatile d f9680b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -68,7 +68,7 @@ public class b {
         }
         e eVar = new e();
         a = eVar;
-        f9894b = eVar;
+        f9680b = eVar;
     }
 
     public static void a() {
@@ -82,7 +82,7 @@ public class b {
     public static d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f9894b : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f9680b : (d) invokeV.objValue;
     }
 
     public static void c(int i2) {
@@ -114,7 +114,7 @@ public class b {
     public static void f(@NonNull d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, dVar) == null) {
-            f9894b = dVar;
+            f9680b = dVar;
         }
     }
 }

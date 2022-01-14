@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f20503b;
+    public static a f19954b;
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<CloudMusicData.MusicTagList.MusicList> a;
 
@@ -56,10 +56,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f20503b == null) {
-                    f20503b = new a();
+                if (f19954b == null) {
+                    f19954b = new a();
                 }
-                aVar = f20503b;
+                aVar = f19954b;
             }
             return aVar;
         }
@@ -76,7 +76,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = null;
-            f20503b = null;
+            f19954b = null;
         }
     }
 

@@ -36,19 +36,19 @@ public class f {
     public static int a = 65536;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f60575b = 2000;
+    public static long f58279b = 2000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f60576c;
+    public static String f58280c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Boolean f60577d;
+    public static Boolean f58281d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Boolean f60578e;
+    public static Boolean f58282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f60579f;
+    public static final Pattern f58283f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,7 +64,7 @@ public class f {
                 return;
             }
         }
-        f60579f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+        f58283f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
     }
 
     public f() {
@@ -177,7 +177,7 @@ public class f {
             if (!a(c.a())) {
                 throw new IllegalAccessException("This value is used in the :filedownloader process, so set this value in your process is without effect. You can add 'process.non-separate=true' in 'filedownloader.properties' to share the main process to FileDownloadService. Or you can configure this value in 'filedownloader.properties' by 'download.min-progress-time'.");
             }
-            f60575b = j2;
+            f58279b = j2;
         }
     }
 
@@ -268,12 +268,12 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            Boolean bool = f60577d;
+            Boolean bool = f58281d;
             if (bool != null) {
                 return bool.booleanValue();
             }
             boolean z = false;
-            if (!e.a().f60571d) {
+            if (!e.a().f58275d) {
                 int myPid = Process.myPid();
                 ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
                 if (activityManager != null) {
@@ -302,7 +302,7 @@ public class f {
                 z = true;
             }
             Boolean valueOf = Boolean.valueOf(z);
-            f60577d = valueOf;
+            f58281d = valueOf;
             return valueOf.booleanValue();
         }
         return invokeL.booleanValue;
@@ -326,18 +326,18 @@ public class f {
     public static long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f60575b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f58279b : invokeV.longValue;
     }
 
     public static long b(int i2, com.kwai.filedownloader.kwai.b bVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65555, null, i2, bVar)) == null) {
-            long k2 = k(bVar.a("Content-Length"));
+            long k = k(bVar.a("Content-Length"));
             String a2 = bVar.a("Transfer-Encoding");
-            if (k2 < 0) {
+            if (k < 0) {
                 if (!(a2 != null && a2.equals("chunked"))) {
-                    if (!e.a().f60570c) {
+                    if (!e.a().f58274c) {
                         throw new FileDownloadGiveUpRetryException("can't know the size of the download file, and its Transfer-Encoding is not Chunked either.\nyou can ignore such exception by add http.lenient=true to the filedownloader.properties");
                     }
                     if (d.a) {
@@ -346,7 +346,7 @@ public class f {
                 }
                 return -1L;
             }
-            return k2;
+            return k;
         }
         return invokeIL.longValue;
     }
@@ -383,10 +383,10 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            if (TextUtils.isEmpty(f60576c)) {
+            if (TextUtils.isEmpty(f58280c)) {
                 return (c.a().getExternalCacheDir() == null ? Environment.getDownloadCacheDirectory() : c.a().getExternalCacheDir()).getAbsolutePath();
             }
-            return f60576c;
+            return f58280c;
         }
         return (String) invokeV.objValue;
     }
@@ -474,7 +474,7 @@ public class f {
                 return null;
             }
             try {
-                Matcher matcher = f60579f.matcher(str);
+                Matcher matcher = f58283f.matcher(str);
                 if (matcher.find()) {
                     return matcher.group(1);
                 }

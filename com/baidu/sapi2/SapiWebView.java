@@ -2289,7 +2289,7 @@ public class SapiWebView extends WebView {
             return (String) invokeV.objValue;
         }
         TelephonyManager telephonyManager = (TelephonyManager) getContext().getSystemService("phone");
-        if (SapiUtils.checkRequestPermission(s.f57419c, getContext())) {
+        if (SapiUtils.checkRequestPermission(s.f55242c, getContext())) {
             try {
                 line1Number = telephonyManager.getLine1Number();
             } catch (Exception unused) {
@@ -4135,7 +4135,7 @@ public class SapiWebView extends WebView {
                                         SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(this, cookieBduss, cookiePtoken) { // from class: com.baidu.sapi2.SapiWebView.2.2.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ RunnableC18282 this$2;
+                                            public final /* synthetic */ RunnableC18442 this$2;
                                             public final /* synthetic */ String val$bduss;
                                             public final /* synthetic */ String val$ptoken;
 

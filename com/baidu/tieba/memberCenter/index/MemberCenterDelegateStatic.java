@@ -31,7 +31,7 @@ public class MemberCenterDelegateStatic extends c.a.s0.i0.b {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f47646b;
+    public CustomMessageListener f45874b;
 
     /* loaded from: classes12.dex */
     public static class a extends CustomMessageListener {
@@ -113,8 +113,8 @@ public class MemberCenterDelegateStatic extends c.a.s0.i0.b {
                     this.a.a.setVisibility(8);
                 } else {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-                    if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > j2.l("maintab_member_center_red_tip_" + currentAccount, 0L)) {
+                    c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                    if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > k.m("maintab_member_center_red_tip_" + currentAccount, 0L)) {
                         this.a.a.setVisibility(0);
                     } else {
                         this.a.a.setVisibility(8);
@@ -161,8 +161,8 @@ public class MemberCenterDelegateStatic extends c.a.s0.i0.b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
             cVar.a = new MemberCenterFragment();
-            cVar.f13111e = 14;
-            cVar.f13108b = R.string.member;
+            cVar.f12789e = 14;
+            cVar.f12786b = R.string.member;
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -176,11 +176,11 @@ public class MemberCenterDelegateStatic extends c.a.s0.i0.b {
             this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
             this.a = new ImageView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f42537f = this.mIndicator;
-            aVar.f42534c = n.d(context, 3.0f);
+            aVar.f41044f = this.mIndicator;
+            aVar.f41041c = n.d(context, 3.0f);
             ImageView imageView = this.a;
             aVar.a = imageView;
-            aVar.f42535d = R.drawable.icon_news_down_bar_one;
+            aVar.f41042d = R.drawable.icon_news_down_bar_one;
             imageView.setVisibility(8);
             this.mIndicator.addTip("member_center_red_tip", aVar);
             return this.mIndicator;
@@ -200,7 +200,7 @@ public class MemberCenterDelegateStatic extends c.a.s0.i0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAdd();
-            this.f47646b = new b(this, 2016459);
+            this.f45874b = new b(this, 2016459);
         }
     }
 
@@ -210,7 +210,7 @@ public class MemberCenterDelegateStatic extends c.a.s0.i0.b {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onRemove();
             this.a = null;
-            MessageManager.getInstance().unRegisterListener(this.f47646b);
+            MessageManager.getInstance().unRegisterListener(this.f45874b);
         }
     }
 }

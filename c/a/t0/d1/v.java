@@ -24,19 +24,19 @@ public class v {
     public c.a.s0.s.s.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f16957b;
+    public TextView f16652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f16958c;
+    public TextView f16653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f16959d;
+    public ImageView f16654d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16960e;
+    public TextView f16655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f16961f;
+    public boolean f16656f;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -44,7 +44,7 @@ public class v {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ v f16962e;
+        public final /* synthetic */ v f16657e;
 
         public a(v vVar) {
             Interceptable interceptable = $ic;
@@ -61,16 +61,16 @@ public class v {
                     return;
                 }
             }
-            this.f16962e = vVar;
+            this.f16657e = vVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                v vVar = this.f16962e;
-                vVar.f16961f = !vVar.f16961f;
-                this.f16962e.h();
+                v vVar = this.f16657e;
+                vVar.f16656f = !vVar.f16656f;
+                this.f16657e.h();
             }
         }
     }
@@ -81,13 +81,13 @@ public class v {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f16963e;
+        public final /* synthetic */ String f16658e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f16964f;
+        public final /* synthetic */ String f16659f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ v f16965g;
+        public final /* synthetic */ v f16660g;
 
         public b(v vVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -104,19 +104,19 @@ public class v {
                     return;
                 }
             }
-            this.f16965g = vVar;
-            this.f16963e = str;
-            this.f16964f = str2;
+            this.f16660g = vVar;
+            this.f16658e = str;
+            this.f16659f = str2;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                c.a.s0.s.g0.b.j().t("key_frs_recommend_tip", !this.f16965g.f16961f);
-                c.a.t0.d1.c.c().d(this.f16963e, this.f16964f);
-                this.f16965g.a.dismiss();
-                this.f16965g.a = null;
+                c.a.s0.s.h0.b.k().u("key_frs_recommend_tip", !this.f16660g.f16656f);
+                c.a.t0.d1.c.c().d(this.f16658e, this.f16659f);
+                this.f16660g.a.dismiss();
+                this.f16660g.a = null;
             }
         }
     }
@@ -127,7 +127,7 @@ public class v {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ v f16966e;
+        public final /* synthetic */ v f16661e;
 
         public c(v vVar) {
             Interceptable interceptable = $ic;
@@ -144,16 +144,16 @@ public class v {
                     return;
                 }
             }
-            this.f16966e = vVar;
+            this.f16661e = vVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f16966e.f16961f = false;
-                this.f16966e.a.dismiss();
-                this.f16966e.a = null;
+                this.f16661e.f16656f = false;
+                this.f16661e.a.dismiss();
+                this.f16661e.a = null;
             }
         }
     }
@@ -175,16 +175,16 @@ public class v {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = this.f16957b;
+            TextView textView = this.f16652b;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
             }
-            TextView textView2 = this.f16958c;
+            TextView textView2 = this.f16653c;
             if (textView2 != null) {
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0107);
             }
             h();
-            TextView textView3 = this.f16960e;
+            TextView textView3 = this.f16655e;
             if (textView3 != null) {
                 SkinManager.setViewTextColor(textView3, R.color.CAM_X0107);
             }
@@ -195,10 +195,10 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = null;
-            this.f16957b = null;
-            this.f16958c = null;
-            this.f16959d = null;
-            this.f16960e = null;
+            this.f16652b = null;
+            this.f16653c = null;
+            this.f16654d = null;
+            this.f16655e = null;
         }
     }
 
@@ -206,10 +206,10 @@ public class v {
         ImageView imageView;
         Drawable maskDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageView = this.f16959d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageView = this.f16654d) == null) {
             return;
         }
-        if (this.f16961f) {
+        if (this.f16656f) {
             maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
         } else {
             maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
@@ -228,20 +228,20 @@ public class v {
                 this.a.setNegativeTextColor(R.color.CAM_X0105);
                 View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
                 TextView textView = (TextView) inflate.findViewById(R.id.title);
-                this.f16957b = textView;
+                this.f16652b = textView;
                 textView.setText(R.string.frs_recommend_thread_sure_title);
-                this.f16958c = (TextView) inflate.findViewById(R.id.call_fans_intro);
+                this.f16653c = (TextView) inflate.findViewById(R.id.call_fans_intro);
                 BawuThrones b2 = c.a.t0.d1.c.c().b();
                 if (b2 != null) {
-                    TextView textView2 = this.f16958c;
+                    TextView textView2 = this.f16653c;
                     String string = tbPageContext.getString(R.string.frs_recommend_thread_sure_content);
                     Integer num = b2.total_recommend_num;
                     textView2.setText(String.format(string, b2.bazhu_level, num, Integer.valueOf(num.intValue() - b2.used_recommend_num.intValue())));
                 } else {
-                    this.f16958c.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), "D", 2, 2));
+                    this.f16653c.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), "D", 2, 2));
                 }
-                this.f16959d = (ImageView) inflate.findViewById(R.id.checkbox);
-                this.f16960e = (TextView) inflate.findViewById(R.id.no_tip_again_text);
+                this.f16654d = (ImageView) inflate.findViewById(R.id.checkbox);
+                this.f16655e = (TextView) inflate.findViewById(R.id.no_tip_again_text);
                 inflate.findViewById(R.id.no_tip_again_group).setOnClickListener(new a(this));
                 f();
                 this.a.setContentView(inflate);

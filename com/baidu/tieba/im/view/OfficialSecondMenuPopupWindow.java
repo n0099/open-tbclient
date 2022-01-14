@@ -31,25 +31,23 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46836e;
+    public int f45104e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46837f;
+    public int f45105f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46838g;
+    public int f45106g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46839h;
+    public int f45107h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f46840i;
+    public Context f45108i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f46841j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f46842k;
+    public b f45109j;
+    public int k;
     public int l;
     public c m;
 
@@ -59,7 +57,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialSecondMenuPopupWindow f46843e;
+        public final /* synthetic */ OfficialSecondMenuPopupWindow f45110e;
 
         public a(OfficialSecondMenuPopupWindow officialSecondMenuPopupWindow) {
             Interceptable interceptable = $ic;
@@ -76,18 +74,18 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     return;
                 }
             }
-            this.f46843e = officialSecondMenuPopupWindow;
+            this.f45110e = officialSecondMenuPopupWindow;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                Object item = this.f46843e.f46841j.getItem(i2);
+                Object item = this.f45110e.f45109j.getItem(i2);
                 if (item instanceof c.a.t0.s1.g.b) {
                     c.a.t0.s1.g.b bVar = (c.a.t0.s1.g.b) item;
-                    if (this.f46843e.m != null) {
-                        this.f46843e.m.onItemClick(this.f46843e.f46842k, bVar);
+                    if (this.f45110e.m != null) {
+                        this.f45110e.m.onItemClick(this.f45110e.k, bVar);
                     }
                 }
             }
@@ -100,10 +98,10 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Context f46844e;
+        public Context f45111e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<c.a.t0.s1.g.b> f46845f;
+        public List<c.a.t0.s1.g.b> f45112f;
 
         /* loaded from: classes12.dex */
         public class a {
@@ -143,8 +141,8 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     return;
                 }
             }
-            this.f46844e = context;
-            this.f46845f = list;
+            this.f45111e = context;
+            this.f45112f = list;
         }
 
         @Override // android.widget.Adapter
@@ -152,7 +150,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<c.a.t0.s1.g.b> list = this.f46845f;
+                List<c.a.t0.s1.g.b> list = this.f45112f;
                 if (list == null) {
                     return 0;
                 }
@@ -167,9 +165,9 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
                 int itemId = (int) getItemId(i2);
-                List<c.a.t0.s1.g.b> list = this.f46845f;
+                List<c.a.t0.s1.g.b> list = this.f45112f;
                 if (list != null && itemId >= 0 && itemId < list.size()) {
-                    return this.f46845f.get(itemId);
+                    return this.f45112f.get(itemId);
                 }
                 return null;
             }
@@ -207,10 +205,10 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                 if (view == null) {
                     a aVar = new a(this);
                     if (itemViewType == 0) {
-                        TextView textView = new TextView(this.f46844e);
-                        textView.setLayoutParams(new AbsListView.LayoutParams(-1, c.a.t0.s1.w.c.d(this.f46844e, R.dimen.ds96)));
-                        textView.setTextSize(0, c.a.t0.s1.w.c.d(this.f46844e, R.dimen.ds32));
-                        textView.setTextColor(this.f46844e.getResources().getColor(R.color.CAM_X0105));
+                        TextView textView = new TextView(this.f45111e);
+                        textView.setLayoutParams(new AbsListView.LayoutParams(-1, c.a.t0.s1.w.c.d(this.f45111e, R.dimen.ds96)));
+                        textView.setTextSize(0, c.a.t0.s1.w.c.d(this.f45111e, R.dimen.ds32));
+                        textView.setTextColor(this.f45111e.getResources().getColor(R.color.CAM_X0105));
                         textView.setGravity(17);
                         textView.setBackgroundResource(R.drawable.official_bar_menu_text_bg);
                         textView.setSingleLine();
@@ -220,13 +218,13 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     } else {
                         linearLayout = view;
                         if (itemViewType == 1) {
-                            LinearLayout linearLayout2 = new LinearLayout(this.f46844e);
-                            linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, c.a.t0.s1.w.c.d(this.f46844e, R.dimen.ds1)));
-                            ImageView imageView = new ImageView(this.f46844e);
+                            LinearLayout linearLayout2 = new LinearLayout(this.f45111e);
+                            linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, c.a.t0.s1.w.c.d(this.f45111e, R.dimen.ds1)));
+                            ImageView imageView = new ImageView(this.f45111e);
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-                            layoutParams.setMargins(c.a.t0.s1.w.c.d(this.f46844e, R.dimen.ds30), 0, c.a.t0.s1.w.c.d(this.f46844e, R.dimen.ds30), 0);
+                            layoutParams.setMargins(c.a.t0.s1.w.c.d(this.f45111e, R.dimen.ds30), 0, c.a.t0.s1.w.c.d(this.f45111e, R.dimen.ds30), 0);
                             imageView.setLayoutParams(layoutParams);
-                            imageView.setBackgroundColor(this.f46844e.getResources().getColor(R.color.CAM_X0204));
+                            imageView.setBackgroundColor(this.f45111e.getResources().getColor(R.color.CAM_X0204));
                             linearLayout2.addView(imageView);
                             linearLayout = linearLayout2;
                         }
@@ -277,25 +275,25 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                 return;
             }
         }
-        this.f46840i = context;
+        this.f45108i = context;
         addView(d(new ArrayList<>(), -2));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        layoutParams.bottomMargin = c.a.t0.s1.w.c.d(this.f46840i, R.dimen.ds14);
+        layoutParams.bottomMargin = c.a.t0.s1.w.c.d(this.f45108i, R.dimen.ds14);
         setLayoutParams(layoutParams);
         setBackgroundResource(R.drawable.bg_bottombar_meun_float);
-        this.f46836e = c.a.t0.s1.w.c.d(this.f46840i, R.dimen.ds36);
-        this.f46838g = c.a.t0.s1.w.c.d(this.f46840i, R.dimen.ds200);
-        this.f46837f = c.a.t0.s1.w.c.d(this.f46840i, R.dimen.ds504);
+        this.f45104e = c.a.t0.s1.w.c.d(this.f45108i, R.dimen.ds36);
+        this.f45106g = c.a.t0.s1.w.c.d(this.f45108i, R.dimen.ds200);
+        this.f45105f = c.a.t0.s1.w.c.d(this.f45108i, R.dimen.ds504);
     }
 
     public void applyAniamtion(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                startAnimation(AnimationUtils.loadAnimation(this.f46840i, R.anim.sub_menu_up));
+                startAnimation(AnimationUtils.loadAnimation(this.f45108i, R.anim.sub_menu_up));
             } else {
-                startAnimation(AnimationUtils.loadAnimation(this.f46840i, R.anim.sub_menu_down));
+                startAnimation(AnimationUtils.loadAnimation(this.f45108i, R.anim.sub_menu_down));
             }
         }
     }
@@ -304,13 +302,13 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, i2)) == null) {
-            ListView listView = new ListView(this.f46840i);
+            ListView listView = new ListView(this.f45108i);
             listView.setLayoutParams(new RelativeLayout.LayoutParams(i2, -2));
-            listView.setCacheColorHint(this.f46840i.getResources().getColor(17170445));
+            listView.setCacheColorHint(this.f45108i.getResources().getColor(17170445));
             listView.setDivider(null);
             listView.setDividerHeight(0);
-            b bVar = new b(this.f46840i, list);
-            this.f46841j = bVar;
+            b bVar = new b(this.f45108i, list);
+            this.f45109j = bVar;
             listView.setAdapter((ListAdapter) bVar);
             listView.setOnItemClickListener(new a(this));
             return listView;
@@ -323,8 +321,8 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
             Paint paint = new Paint(1);
-            paint.setColor(this.f46840i.getResources().getColor(17170443));
-            paint.setTextSize(c.a.t0.s1.w.c.d(this.f46840i, R.dimen.ds32));
+            paint.setColor(this.f45108i.getResources().getColor(17170443));
+            paint.setTextSize(c.a.t0.s1.w.c.d(this.f45108i, R.dimen.ds32));
             float f2 = 0.0f;
             for (int i2 = 0; i2 < list.size(); i2++) {
                 float measureText = paint.measureText(list.get(i2).d());
@@ -332,7 +330,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     f2 = measureText;
                 }
             }
-            return (int) Math.min(Math.max((this.f46836e * 2) + f2, this.f46838g), this.f46837f);
+            return (int) Math.min(Math.max((this.f45104e * 2) + f2, this.f45106g), this.f45105f);
         }
         return invokeL.intValue;
     }
@@ -358,10 +356,10 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             return;
         }
         this.l = i2;
-        this.f46842k = i3;
-        this.f46839h = e(list);
+        this.k = i3;
+        this.f45107h = e(list);
         removeAllViews();
-        addView(d(list, this.f46839h));
+        addView(d(list, this.f45107h));
     }
 
     public void setOnItemClickListener(c cVar) {
@@ -379,12 +377,12 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         }
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);
-        int width = (iArr[0] + (view.getWidth() / 2)) - (this.f46839h / 2);
-        if (this.f46842k == this.l - 1) {
-            width = ((iArr[0] + view.getWidth()) - c.a.t0.s1.w.c.d(this.f46840i, R.dimen.ds20)) - this.f46839h;
+        int width = (iArr[0] + (view.getWidth() / 2)) - (this.f45107h / 2);
+        if (this.k == this.l - 1) {
+            width = ((iArr[0] + view.getWidth()) - c.a.t0.s1.w.c.d(this.f45108i, R.dimen.ds20)) - this.f45107h;
         }
         if (width <= 0) {
-            width = c.a.t0.s1.w.c.d(this.f46840i, R.dimen.ds20);
+            width = c.a.t0.s1.w.c.d(this.f45108i, R.dimen.ds20);
         }
         layoutParams.leftMargin = width;
         setLayoutParams(layoutParams);

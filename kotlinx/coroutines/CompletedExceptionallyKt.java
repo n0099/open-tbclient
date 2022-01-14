@@ -16,25 +16,25 @@ public final class CompletedExceptionallyKt {
             if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
                 th = StackTraceRecoveryKt.access$recoverFromStackFrame(th, (CoroutineStackFrame) continuation);
             }
-            return Result.m702constructorimpl(ResultKt.createFailure(th));
+            return Result.m714constructorimpl(ResultKt.createFailure(th));
         }
         Result.Companion companion2 = Result.Companion;
-        return Result.m702constructorimpl(obj);
+        return Result.m714constructorimpl(obj);
     }
 
     public static final <T> Object toState(Object obj) {
-        Throwable m705exceptionOrNullimpl = Result.m705exceptionOrNullimpl(obj);
-        return m705exceptionOrNullimpl == null ? obj : new CompletedExceptionally(m705exceptionOrNullimpl, false, 2, null);
+        Throwable m717exceptionOrNullimpl = Result.m717exceptionOrNullimpl(obj);
+        return m717exceptionOrNullimpl == null ? obj : new CompletedExceptionally(m717exceptionOrNullimpl, false, 2, null);
     }
 
     public static final <T> Object toState(Object obj, CancellableContinuation<?> cancellableContinuation) {
-        Throwable m705exceptionOrNullimpl = Result.m705exceptionOrNullimpl(obj);
-        if (m705exceptionOrNullimpl == null) {
+        Throwable m717exceptionOrNullimpl = Result.m717exceptionOrNullimpl(obj);
+        if (m717exceptionOrNullimpl == null) {
             return obj;
         }
         if (DebugKt.getRECOVER_STACK_TRACES() && (cancellableContinuation instanceof CoroutineStackFrame)) {
-            m705exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m705exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
+            m717exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m717exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
         }
-        return new CompletedExceptionally(m705exceptionOrNullimpl, false, 2, null);
+        return new CompletedExceptionally(m717exceptionOrNullimpl, false, 2, null);
     }
 }

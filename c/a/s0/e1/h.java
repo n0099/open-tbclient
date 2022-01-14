@@ -30,13 +30,13 @@ public class h {
     public static JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<Long> f12674b;
+    public static ArrayList<Long> f12376b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> f12675c;
+    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> f12377c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f12676d;
+    public static boolean f12378d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -45,7 +45,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12677e;
+        public final /* synthetic */ String f12379e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class h {
                     return;
                 }
             }
-            this.f12677e = str;
+            this.f12379e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,8 +70,8 @@ public class h {
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                String p = c.a.s0.s.g0.b.j().p("old_sniff_url", "");
-                if (TextUtils.isEmpty(this.f12677e) || this.f12677e.equals(p)) {
+                String q = c.a.s0.s.h0.b.k().q("old_sniff_url", "");
+                if (TextUtils.isEmpty(this.f12379e) || this.f12379e.equals(q)) {
                     h.q(false);
                     return;
                 }
@@ -79,8 +79,8 @@ public class h {
                 if (!file.exists()) {
                     file.mkdir();
                 }
-                if (f.c().a(new File(file, "sniff.json"), this.f12677e) > 0) {
-                    c.a.s0.s.g0.b.j().x("old_sniff_url", "");
+                if (f.c().a(new File(file, "sniff.json"), this.f12379e) > 0) {
+                    c.a.s0.s.h0.b.k().y("old_sniff_url", "");
                 }
                 h.q(true);
             }
@@ -93,7 +93,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f12678e;
+        public final /* synthetic */ boolean f12380e;
 
         public b(boolean z) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class h {
                     return;
                 }
             }
-            this.f12678e = z;
+            this.f12380e = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,7 +118,7 @@ public class h {
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (h.a == null || this.f12678e) {
+                if (h.a == null || this.f12380e) {
                     h.h();
                 }
                 h.p();
@@ -133,7 +133,7 @@ public class h {
         public final X a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Y f12679b;
+        public final Y f12381b;
 
         public c(X x, Y y) {
             Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public class h {
                 }
             }
             this.a = x;
-            this.f12679b = y;
+            this.f12381b = y;
         }
     }
 
@@ -168,9 +168,9 @@ public class h {
                 return;
             }
         }
-        f12674b = new ArrayList<>();
-        f12675c = new Hashtable<>();
-        f12676d = true;
+        f12376b = new ArrayList<>();
+        f12377c = new Hashtable<>();
+        f12378d = true;
     }
 
     public h() {
@@ -192,9 +192,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             if (c.a.t0.a.h().y()) {
-                return c.a.c0.b.m.a.e();
+                return c.a.c0.d.l.a.e();
             }
-            if (f12674b.size() > 0) {
+            if (f12376b.size() > 0) {
                 return j();
             }
             return g();
@@ -218,17 +218,17 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String p = c.a.s0.s.g0.b.j().p("AD_SNIFF_RESULT_KEY", "");
-            if (!TextUtils.isEmpty(p)) {
+            String q = c.a.s0.s.h0.b.k().q("AD_SNIFF_RESULT_KEY", "");
+            if (!TextUtils.isEmpty(q)) {
                 ArrayList<Long> arrayList = new ArrayList<>();
-                for (String str : p.split(",")) {
+                for (String str : q.split(",")) {
                     arrayList.add(Long.valueOf(str));
                 }
-                f12674b = arrayList;
+                f12376b = arrayList;
             } else {
                 q(false);
             }
-            return p;
+            return q;
         }
         return (String) invokeV.objValue;
     }
@@ -267,7 +267,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            ArrayList<Long> arrayList = f12674b;
+            ArrayList<Long> arrayList = f12376b;
             if (arrayList == null || arrayList.size() == 0) {
                 return "";
             }
@@ -284,7 +284,7 @@ public class h {
     public static void k(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65548, null, i2, i3) == null) {
-            ArrayList<Long> arrayList = f12674b;
+            ArrayList<Long> arrayList = f12376b;
             if (i2 < arrayList.size()) {
                 arrayList.set(i2, Long.valueOf(arrayList.get(i2).longValue() | (1 << i3)));
             }
@@ -294,7 +294,7 @@ public class h {
     public static void l(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65549, null, i2, i3) == null) {
-            ArrayList<Long> arrayList = f12674b;
+            ArrayList<Long> arrayList = f12376b;
             if (i2 < arrayList.size()) {
                 arrayList.set(i2, Long.valueOf(arrayList.get(i2).longValue() & (~(1 << i3))));
             }
@@ -317,7 +317,7 @@ public class h {
 
     public static void o(int i2, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65552, null, i2, jSONArray) == null) || i2 >= f12674b.size()) {
+        if (!(interceptable == null || interceptable.invokeIL(65552, null, i2, jSONArray) == null) || i2 >= f12376b.size()) {
             return;
         }
         PackageManager packageManager = BdBaseApplication.getInst().getApp().getApplicationContext().getPackageManager();
@@ -327,16 +327,16 @@ public class h {
             String optString = jSONArray.optString(i3);
             i3++;
             c<Integer, Integer> cVar = new c<>(Integer.valueOf(i2), Integer.valueOf(i3));
-            ArrayList<c<Integer, Integer>> arrayList = f12675c.get(optString);
+            ArrayList<c<Integer, Integer>> arrayList = f12377c.get(optString);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
             arrayList.add(cVar);
-            f12675c.put(optString, arrayList);
+            f12377c.put(optString, arrayList);
             f(packageManager, optString, i2, i3);
         }
         n(i2);
-        c.a.s0.s.g0.b.j().x("AD_SNIFF_RESULT_KEY", j());
+        c.a.s0.s.h0.b.k().y("AD_SNIFF_RESULT_KEY", j());
     }
 
     public static void p() {
@@ -347,25 +347,25 @@ public class h {
             return;
         }
         int length = optJSONArray.length();
-        int size = f12674b.size();
+        int size = f12376b.size();
         ArrayList<Long> arrayList = new ArrayList<>();
         for (int i2 = 0; i2 < length; i2++) {
             if (i2 < size) {
-                arrayList.add(f12674b.get(i2));
+                arrayList.add(f12376b.get(i2));
             } else {
                 arrayList.add(0L);
             }
         }
-        f12674b = arrayList;
+        f12376b = arrayList;
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             if (optJSONObject == null) {
                 return;
             }
-            r(i3, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), f12676d);
+            r(i3, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), f12378d);
         }
-        if (f12676d) {
-            f12676d = false;
+        if (f12378d) {
+            f12378d = false;
         }
     }
 
@@ -383,14 +383,14 @@ public class h {
         }
         long time = new Date().getTime();
         String str2 = "AD_SNIFF_RESULT_KEY_" + str + "_TS";
-        long l = c.a.s0.s.g0.b.j().l(str2, 0L);
+        long m = c.a.s0.s.h0.b.k().m(str2, 0L);
         long millis = TimeUnit.MINUTES.toMillis(i3);
         boolean z2 = true;
-        int i4 = (l > 0L ? 1 : (l == 0L ? 0 : -1));
+        int i4 = (m > 0L ? 1 : (m == 0L ? 0 : -1));
         boolean z3 = i4 == 0;
-        z2 = (i4 <= 0 || time - l <= millis) ? false : false;
+        z2 = (i4 <= 0 || time - m <= millis) ? false : false;
         if (z || z3 || z2) {
-            c.a.s0.s.g0.b.j().w(str2, time);
+            c.a.s0.s.h0.b.k().x(str2, time);
             o(i2, jSONArray);
         }
     }
@@ -402,7 +402,7 @@ public class h {
         }
         String substring = intent.getDataString().length() > 8 ? intent.getDataString().substring(8) : "";
         String action = intent.getAction();
-        ArrayList<c<Integer, Integer>> arrayList = f12675c.get(substring);
+        ArrayList<c<Integer, Integer>> arrayList = f12377c.get(substring);
         if (arrayList == null || arrayList.size() == 0) {
             return;
         }
@@ -411,7 +411,7 @@ public class h {
             c<Integer, Integer> next = it.next();
             if (next != null) {
                 int intValue = next.a.intValue();
-                int intValue2 = next.f12679b.intValue();
+                int intValue2 = next.f12381b.intValue();
                 if (PackageChangedReceiver.ACTION_INSTALL.equals(action)) {
                     k(intValue, intValue2);
                 } else {

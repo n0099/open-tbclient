@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import com.baidu.ar.arplay.core.engine.ARPDataInteraction;
 import com.baidu.ar.arplay.core.renderer.TakePictureCallback;
 import com.baidu.ar.arplay.representation.Matrixf4x4;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface l extends IRenderer {
     void a(long j2, String str);
 

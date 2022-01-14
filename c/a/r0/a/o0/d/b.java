@@ -24,7 +24,7 @@ public abstract class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f8208b;
+    public static final boolean f8026b;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -34,10 +34,10 @@ public abstract class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.f.a f8209g;
+        public final /* synthetic */ c.a.r0.a.h0.f.a f8027g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f8210h;
+        public final /* synthetic */ String f8028h;
 
         public a(b bVar, c.a.r0.a.h0.f.a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -54,22 +54,22 @@ public abstract class b {
                     return;
                 }
             }
-            this.f8209g = aVar;
-            this.f8210h = str;
+            this.f8027g = aVar;
+            this.f8028h = str;
         }
 
         @Override // c.a.r0.a.o0.c
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f8209g.isDestroyed()) {
-                    if (b.f8208b) {
-                        Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + this.f8210h));
+                if (this.f8027g.isDestroyed()) {
+                    if (b.f8026b) {
+                        Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + this.f8028h));
                         return;
                     }
                     return;
                 }
-                this.f8209g.evaluateJavascript(this.f8210h, null);
+                this.f8027g.evaluateJavascript(this.f8028h, null);
                 c.a.r0.a.u1.g.a("postMessage", "dispatchJSEvent evaluateJavascript");
             }
         }
@@ -77,20 +77,20 @@ public abstract class b {
 
     /* renamed from: c.a.r0.a.o0.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0477b extends c.a.r0.a.o0.c {
+    public class C0486b extends c.a.r0.a.o0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.f.a f8211g;
+        public final /* synthetic */ c.a.r0.a.h0.f.a f8029g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f8212h;
+        public final /* synthetic */ String f8030h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f8213i;
+        public final /* synthetic */ b f8031i;
 
-        public C0477b(b bVar, c.a.r0.a.h0.f.a aVar, String str) {
+        public C0486b(b bVar, c.a.r0.a.h0.f.a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,16 +105,16 @@ public abstract class b {
                     return;
                 }
             }
-            this.f8213i = bVar;
-            this.f8211g = aVar;
-            this.f8212h = str;
+            this.f8031i = bVar;
+            this.f8029g = aVar;
+            this.f8030h = str;
         }
 
         @Override // c.a.r0.a.o0.c
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8213i.l(this.f8211g, this.f8212h);
+                this.f8031i.l(this.f8029g, this.f8030h);
             }
         }
     }
@@ -132,7 +132,7 @@ public abstract class b {
                 return;
             }
         }
-        f8208b = k.a;
+        f8026b = k.a;
     }
 
     public b() {
@@ -155,7 +155,7 @@ public abstract class b {
             try {
                 jSONObject.put("type", this.a);
             } catch (JSONException e2) {
-                if (f8208b) {
+                if (f8026b) {
                     e2.printStackTrace();
                 }
             }
@@ -205,7 +205,7 @@ public abstract class b {
             try {
                 n(jSONObject);
             } catch (Exception e2) {
-                if (f8208b) {
+                if (f8026b) {
                     e2.printStackTrace();
                 }
             }
@@ -228,7 +228,7 @@ public abstract class b {
             return;
         }
         c.a.r0.a.u1.g.a("postMessage", "dispatchJSEvent start.");
-        if (c.a.r0.a.o0.d.a.f8207b) {
+        if (c.a.r0.a.o0.d.a.f8025b) {
             r(aVar);
         } else {
             q(aVar);
@@ -242,7 +242,7 @@ public abstract class b {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (f8208b) {
+        if (f8026b) {
             r0 = "dispatch event - " + this.a + " on v8";
         }
         JSEvent e2 = e(aVar);
@@ -250,7 +250,7 @@ public abstract class b {
             return;
         }
         j(aVar, e2);
-        if (f8208b) {
+        if (f8026b) {
             str = "dispatchJSEvent action - " + e2.type + " on v8 : " + e2.data;
         }
     }
@@ -260,7 +260,7 @@ public abstract class b {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (f8208b) {
+        if (f8026b) {
             String str = "dispatch event - " + this.a + " on webView";
         }
         String c2 = c(aVar);
@@ -269,7 +269,7 @@ public abstract class b {
         }
         String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c2);
         k(aVar, format);
-        if (f8208b) {
+        if (f8026b) {
             String str2 = "dispatchJSEvent action on webView: " + format;
         }
     }
@@ -297,7 +297,7 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, aVar, str) == null) {
             if (aVar.isDestroyed()) {
-                if (f8208b) {
+                if (f8026b) {
                     Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str));
                     return;
                 }
@@ -377,11 +377,11 @@ public abstract class b {
                 return;
             }
             String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c2);
-            if (f8208b) {
+            if (f8026b) {
                 String str = "dispatchJSEvent action: " + format;
             }
             if (aVar.isWebView()) {
-                c.a.r0.a.o0.b.b().c(new C0477b(this, aVar, format), null);
+                c.a.r0.a.o0.b.b().c(new C0486b(this, aVar, format), null);
             } else {
                 l(aVar, format);
             }

@@ -63,9 +63,9 @@ public abstract class i implements b.a.a.b.a.b {
         this.f1037f = cVar;
         this.f1038g = eVar;
         this.f1039h = aVar;
-        String k2 = k();
-        this.f1036e = k2;
-        if (TextUtils.isEmpty(k2)) {
+        String k = k();
+        this.f1036e = k;
+        if (TextUtils.isEmpty(k)) {
             this.f1036e = getClass().getSimpleName();
         }
     }

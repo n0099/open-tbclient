@@ -14,10 +14,10 @@ public final class u implements r {
     public c.i.b.a.i0.s a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.i.b.a.a0.m f29877b;
+    public c.i.b.a.a0.m f28956b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29878c;
+    public boolean f28957c;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class u implements r {
             this.a = sVar;
             dVar.a();
             c.i.b.a.a0.m a = gVar.a(dVar.c(), 4);
-            this.f29877b = a;
+            this.f28956b = a;
             a.b(Format.createSampleFormat(dVar.b(), "application/x-scte35", null, -1, null));
         }
     }
@@ -49,16 +49,16 @@ public final class u implements r {
     public void c(c.i.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
-            if (!this.f29878c) {
+            if (!this.f28957c) {
                 if (this.a.e() == -9223372036854775807L) {
                     return;
                 }
-                this.f29877b.b(Format.createSampleFormat(null, "application/x-scte35", this.a.e()));
-                this.f29878c = true;
+                this.f28956b.b(Format.createSampleFormat(null, "application/x-scte35", this.a.e()));
+                this.f28957c = true;
             }
             int a = lVar.a();
-            this.f29877b.a(lVar, a);
-            this.f29877b.c(this.a.d(), 1, a, 0, null);
+            this.f28956b.a(lVar, a);
+            this.f28956b.c(this.a.d(), 1, a, 0, null);
         }
     }
 }

@@ -7,34 +7,32 @@ public class c implements DownloadEventConfig {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61632b;
+    public boolean f59298b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61633c;
+    public String f59299c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61634d;
+    public String f59300d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61635e;
+    public String f59301e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61636f;
+    public String f59302f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61637g;
+    public String f59303g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61638h;
+    public String f59304h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f61639i;
+    public String f59305i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f61640j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f61641k;
+    public String f59306j;
+    public String k;
     public Object l;
     public boolean m;
     public boolean n;
@@ -47,34 +45,32 @@ public class c implements DownloadEventConfig {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f61642b;
+        public boolean f59307b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f61643c;
+        public String f59308c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f61644d;
+        public String f59309d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f61645e;
+        public String f59310e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f61646f;
+        public String f59311f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f61647g;
+        public String f59312g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f61648h;
+        public String f59313h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f61649i;
+        public String f59314i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f61650j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public String f61651k;
+        public String f59315j;
+        public String k;
         public Object l;
         public boolean m;
         public boolean n;
@@ -94,12 +90,12 @@ public class c implements DownloadEventConfig {
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickContinueLabel() {
-        return this.f61636f;
+        return this.f59302f;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickInstallLabel() {
-        return this.f61637g;
+        return this.f59303g;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -109,17 +105,17 @@ public class c implements DownloadEventConfig {
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickLabel() {
-        return this.f61633c;
+        return this.f59299c;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickPauseLabel() {
-        return this.f61635e;
+        return this.f59301e;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickStartLabel() {
-        return this.f61634d;
+        return this.f59300d;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -149,12 +145,12 @@ public class c implements DownloadEventConfig {
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getStorageDenyLabel() {
-        return this.f61640j;
+        return this.f59306j;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public boolean isEnableClickEvent() {
-        return this.f61632b;
+        return this.f59298b;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -175,16 +171,16 @@ public class c implements DownloadEventConfig {
 
     public c(a aVar) {
         this.a = aVar.a;
-        this.f61632b = aVar.f61642b;
-        this.f61633c = aVar.f61643c;
-        this.f61634d = aVar.f61644d;
-        this.f61635e = aVar.f61645e;
-        this.f61636f = aVar.f61646f;
-        this.f61637g = aVar.f61647g;
-        this.f61638h = aVar.f61648h;
-        this.f61639i = aVar.f61649i;
-        this.f61640j = aVar.f61650j;
-        this.f61641k = aVar.f61651k;
+        this.f59298b = aVar.f59307b;
+        this.f59299c = aVar.f59308c;
+        this.f59300d = aVar.f59309d;
+        this.f59301e = aVar.f59310e;
+        this.f59302f = aVar.f59311f;
+        this.f59303g = aVar.f59312g;
+        this.f59304h = aVar.f59313h;
+        this.f59305i = aVar.f59314i;
+        this.f59306j = aVar.f59315j;
+        this.k = aVar.k;
         this.l = aVar.l;
         this.m = aVar.m;
         this.n = aVar.n;

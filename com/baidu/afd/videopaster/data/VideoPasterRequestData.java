@@ -109,7 +109,7 @@ public class VideoPasterRequestData extends HttpMessage {
             addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
             addParam("net_type", String.valueOf(l.I()));
             addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
-            addParam("android_id", androidId());
+            addParam(HttpRequest.ANDROID_ID, androidId());
         }
     }
 
@@ -119,7 +119,7 @@ public class VideoPasterRequestData extends HttpMessage {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (TextUtils.isEmpty(_ANDROID_ID)) {
                 try {
-                    _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), "android_id");
+                    _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), HttpRequest.ANDROID_ID);
                 } catch (Exception unused) {
                 }
             }

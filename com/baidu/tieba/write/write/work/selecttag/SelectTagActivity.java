@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import c.a.s0.s.u.c;
-import c.a.t0.o4.d;
-import c.a.t0.o4.e;
-import c.a.t0.o4.g;
-import c.a.t0.o4.j;
+import c.a.t0.p4.d;
+import c.a.t0.p4.e;
+import c.a.t0.p4.g;
+import c.a.t0.p4.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -35,7 +35,7 @@ public class SelectTagActivity extends SuspendedActivity {
     public boolean isKeybordVisible;
     public c.a.d.c.g.a mGetSelectTagListener;
     public int mMaxSelectTagNum;
-    public c.a.t0.o4.e0.p.v.a mSelectClassTagsModel;
+    public c.a.t0.p4.e0.p.v.a mSelectClassTagsModel;
     public List<String> mShowSelectTagData;
     public VideoCategoryClassData mVideoCategoryClassData;
     public SelectTagListView selectTagListView;
@@ -48,14 +48,14 @@ public class SelectTagActivity extends SuspendedActivity {
 
         /* renamed from: com.baidu.tieba.write.write.work.selecttag.SelectTagActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes13.dex */
-        public class View$OnClickListenerC1951a implements View.OnClickListener {
+        public class View$OnClickListenerC1968a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f51959e;
+            public final /* synthetic */ a f49952e;
 
-            public View$OnClickListenerC1951a(a aVar) {
+            public View$OnClickListenerC1968a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,19 +70,19 @@ public class SelectTagActivity extends SuspendedActivity {
                         return;
                     }
                 }
-                this.f51959e = aVar;
+                this.f49952e = aVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51959e.a.mSelectClassTagsModel == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49952e.a.mSelectClassTagsModel == null) {
                     return;
                 }
-                this.f51959e.a.mSelectClassTagsModel.f();
-                SelectTagActivity selectTagActivity = this.f51959e.a;
+                this.f49952e.a.mSelectClassTagsModel.f();
+                SelectTagActivity selectTagActivity = this.f49952e.a;
                 selectTagActivity.hideNetRefreshView(selectTagActivity.contentView);
-                SelectTagActivity selectTagActivity2 = this.f51959e.a;
+                SelectTagActivity selectTagActivity2 = this.f49952e.a;
                 selectTagActivity2.showLoadingView(selectTagActivity2.contentView);
             }
         }
@@ -117,7 +117,7 @@ public class SelectTagActivity extends SuspendedActivity {
             }
             if (responsedMessage.hasError()) {
                 SelectTagActivity selectTagActivity = this.a;
-                selectTagActivity.showNetRefreshView(selectTagActivity.contentView, null, this.a.getString(j.data_load_fail), null, false, new View$OnClickListenerC1951a(this));
+                selectTagActivity.showNetRefreshView(selectTagActivity.contentView, null, this.a.getString(j.data_load_fail), null, false, new View$OnClickListenerC1968a(this));
                 return;
             }
             if (responsedMessage instanceof GetSelectClassHttpResMessage) {
@@ -137,7 +137,7 @@ public class SelectTagActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTagActivity f51960e;
+        public final /* synthetic */ SelectTagActivity f49953e;
 
         public b(SelectTagActivity selectTagActivity) {
             Interceptable interceptable = $ic;
@@ -154,15 +154,15 @@ public class SelectTagActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f51960e = selectTagActivity;
+            this.f49953e = selectTagActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f51960e.selectTagListView.isCanSelectFinish()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921604, this.f51960e.selectTagListView.getHadSelectTagList()));
-                this.f51960e.close();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f49953e.selectTagListView.isCanSelectFinish()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921604, this.f49953e.selectTagListView.getHadSelectTagList()));
+                this.f49953e.close();
             }
         }
     }
@@ -242,7 +242,7 @@ public class SelectTagActivity extends SuspendedActivity {
             super.onCreate(bundle);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.mSelectClassTagsModel = new c.a.t0.o4.e0.p.v.a(getUniqueId());
+            this.mSelectClassTagsModel = new c.a.t0.p4.e0.p.v.a(getUniqueId());
             this.selectTagListView.mRootView = findViewById(g.suspend_root_view);
             this.selectTagListView.hideSoftKeyAndCursor();
             this.mGetSelectTagListener.getHttpMessageListener().setSelfListener(true);

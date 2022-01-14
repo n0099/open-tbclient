@@ -32,19 +32,19 @@ public class e {
     public BawuTeam a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f15487b;
+    public boolean f15101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ManagerApplyInfo f15488c;
+    public ManagerApplyInfo f15102c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f15489d;
+    public c f15103d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.c.g.a f15490e;
+    public c.a.d.c.g.a f15104e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f15491f;
+    public CustomMessageListener f15105f;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
@@ -85,23 +85,23 @@ public class e {
                 if (z) {
                     BawuTeamHttpResponseMessage bawuTeamHttpResponseMessage = (BawuTeamHttpResponseMessage) responsedMessage;
                     this.a.a = bawuTeamHttpResponseMessage.getBawuTeamInfo();
-                    this.a.f15487b = bawuTeamHttpResponseMessage.isPrivateForum() != 0;
-                    this.a.f15488c = bawuTeamHttpResponseMessage.getManagerApplyInfo();
+                    this.a.f15101b = bawuTeamHttpResponseMessage.isPrivateForum() != 0;
+                    this.a.f15102c = bawuTeamHttpResponseMessage.getManagerApplyInfo();
                 } else if (responsedMessage instanceof BawuTeamSocketResponseMessage) {
                     BawuTeamSocketResponseMessage bawuTeamSocketResponseMessage = (BawuTeamSocketResponseMessage) responsedMessage;
                     this.a.a = bawuTeamSocketResponseMessage.getBawuTeamInfo();
-                    this.a.f15487b = bawuTeamSocketResponseMessage.isPrivateForum() != 0;
-                    this.a.f15488c = bawuTeamSocketResponseMessage.getManagerApplyInfo();
+                    this.a.f15101b = bawuTeamSocketResponseMessage.isPrivateForum() != 0;
+                    this.a.f15102c = bawuTeamSocketResponseMessage.getManagerApplyInfo();
                 }
                 l lVar = new l();
-                if (this.a.f15488c != null) {
-                    lVar.l(this.a.f15488c.manager_left_num.intValue());
-                    lVar.k(this.a.f15488c.manager_apply_url);
-                    lVar.h(this.a.f15488c.assist_left_num.intValue());
-                    lVar.g(this.a.f15488c.assist_apply_url);
+                if (this.a.f15102c != null) {
+                    lVar.l(this.a.f15102c.manager_left_num.intValue());
+                    lVar.k(this.a.f15102c.manager_apply_url);
+                    lVar.h(this.a.f15102c.assist_left_num.intValue());
+                    lVar.g(this.a.f15102c.assist_apply_url);
                 }
-                if (this.a.f15489d != null) {
-                    c cVar = this.a.f15489d;
+                if (this.a.f15103d != null) {
+                    c cVar = this.a.f15103d;
                     e eVar = this.a;
                     cVar.a(eVar.j(eVar.a), lVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
                 }
@@ -143,17 +143,17 @@ public class e {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BawuTeamReadCacheResponseMessage)) {
                 BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = (BawuTeamReadCacheResponseMessage) customResponsedMessage;
                 this.a.a = bawuTeamReadCacheResponseMessage.getBawuTeamInfo();
-                this.a.f15487b = bawuTeamReadCacheResponseMessage.isPrivateForum() != 0;
-                this.a.f15488c = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
+                this.a.f15101b = bawuTeamReadCacheResponseMessage.isPrivateForum() != 0;
+                this.a.f15102c = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
                 l lVar = new l();
-                if (this.a.f15488c != null) {
-                    lVar.l(this.a.f15488c.manager_left_num.intValue());
-                    lVar.k(this.a.f15488c.manager_apply_url);
-                    lVar.h(this.a.f15488c.assist_left_num.intValue());
-                    lVar.g(this.a.f15488c.assist_apply_url);
+                if (this.a.f15102c != null) {
+                    lVar.l(this.a.f15102c.manager_left_num.intValue());
+                    lVar.k(this.a.f15102c.manager_apply_url);
+                    lVar.h(this.a.f15102c.assist_left_num.intValue());
+                    lVar.g(this.a.f15102c.assist_apply_url);
                 }
-                if (this.a.f15489d != null) {
-                    c cVar = this.a.f15489d;
+                if (this.a.f15103d != null) {
+                    c cVar = this.a.f15103d;
                     e eVar = this.a;
                     cVar.a(eVar.j(eVar.a), lVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
                 }
@@ -179,18 +179,18 @@ public class e {
                 return;
             }
         }
-        this.f15489d = null;
-        this.f15490e = new a(this, CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007);
-        this.f15491f = new b(this, 2003005);
-        MessageManager.getInstance().registerListener(this.f15491f);
-        MessageManager.getInstance().registerListener(this.f15490e);
+        this.f15103d = null;
+        this.f15104e = new a(this, CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007);
+        this.f15105f = new b(this, 2003005);
+        MessageManager.getInstance().registerListener(this.f15105f);
+        MessageManager.getInstance().registerListener(this.f15104e);
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f15490e);
-            MessageManager.getInstance().unRegisterListener(this.f15491f);
+            MessageManager.getInstance().unRegisterListener(this.f15104e);
+            MessageManager.getInstance().unRegisterListener(this.f15105f);
         }
     }
 
@@ -242,7 +242,7 @@ public class e {
                         }
                         i3 += 2;
                         if (i3 >= size2) {
-                            if (this.f15487b) {
+                            if (this.f15101b) {
                                 bVar.f(false);
                             } else {
                                 bVar.f(true);
@@ -267,7 +267,7 @@ public class e {
     public void k(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f15489d = cVar;
+            this.f15103d = cVar;
         }
     }
 }

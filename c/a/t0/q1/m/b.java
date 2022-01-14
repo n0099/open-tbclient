@@ -1,6 +1,6 @@
 package c.a.t0.q1.m;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.d1.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -41,8 +41,8 @@ public class b {
         if (runTask != null && (kVar = (k) runTask.getData()) != null) {
             this.a.add(kVar);
         }
-        this.a.add(new c(tbPageContext, d2.Q3));
-        this.a.add(new a(tbPageContext, d2.R3));
+        this.a.add(new c(tbPageContext, e2.Q3));
+        this.a.add(new a(tbPageContext, e2.R3));
         bdTypeRecyclerView.addAdapters(this.a);
     }
 

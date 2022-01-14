@@ -37,34 +37,32 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f59995b;
+    public TextView f57721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppScoreView f59996c;
+    public AppScoreView f57722c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f59997d;
+    public TextView f57723d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f59998e;
+    public TextView f57724e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextProgressBar f59999f;
+    public TextProgressBar f57725f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ValueAnimator f60000g;
+    public ValueAnimator f57726g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f60001h;
+    public LinearLayout f57727h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f60002i;
+    public View f57728i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Button f60003j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public Button f60004k;
+    public Button f57729j;
+    public Button k;
     @Nullable
     public Animator l;
     public View m;
@@ -168,54 +166,54 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
     private void a(LinearLayout linearLayout, String str) {
         TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.ksad_reward_apk_info_card_tag_item, (ViewGroup) linearLayout, false);
         textView.setText(str);
-        this.f60001h.addView(textView);
+        this.f57727h.addView(textView);
     }
 
     private void c() {
         this.m = LinearLayout.inflate(getContext(), R.layout.ksad_video_tf_bar_app_portrait_horizontal, this);
         this.a = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f59995b = (TextView) findViewById(R.id.ksad_app_name);
-        this.f59996c = (AppScoreView) findViewById(R.id.ksad_app_score);
-        this.f59997d = (TextView) findViewById(R.id.ksad_app_download_count);
-        this.f59998e = (TextView) findViewById(R.id.ksad_app_introduce);
+        this.f57721b = (TextView) findViewById(R.id.ksad_app_name);
+        this.f57722c = (AppScoreView) findViewById(R.id.ksad_app_score);
+        this.f57723d = (TextView) findViewById(R.id.ksad_app_download_count);
+        this.f57724e = (TextView) findViewById(R.id.ksad_app_introduce);
         TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_download_bar);
-        this.f59999f = textProgressBar;
+        this.f57725f = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
-        this.f59999f.setTextColor(-1);
-        this.f60001h = (LinearLayout) findViewById(R.id.ksad_reward_apk_info_tags);
-        this.f60003j = (Button) findViewById(R.id.ksad_reward_apk_info_install_action);
-        this.f60004k = (Button) findViewById(R.id.ksad_reward_apk_info_install_start);
-        this.f60002i = findViewById(R.id.ksad_reward_apk_info_install_container);
+        this.f57725f.setTextColor(-1);
+        this.f57727h = (LinearLayout) findViewById(R.id.ksad_reward_apk_info_tags);
+        this.f57729j = (Button) findViewById(R.id.ksad_reward_apk_info_install_action);
+        this.k = (Button) findViewById(R.id.ksad_reward_apk_info_install_start);
+        this.f57728i = findViewById(R.id.ksad_reward_apk_info_install_container);
     }
 
     private void d() {
-        ValueAnimator valueAnimator = this.f60000g;
+        ValueAnimator valueAnimator = this.f57726g;
         if (valueAnimator == null || !valueAnimator.isRunning()) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-            this.f60000g = ofFloat;
+            this.f57726g = ofFloat;
             ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-            this.f60000g.setRepeatCount(-1);
-            this.f60000g.setRepeatMode(1);
-            this.f60000g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitHorizontal.5
+            this.f57726g.setRepeatCount(-1);
+            this.f57726g.setRepeatMode(1);
+            this.f57726g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitHorizontal.5
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator2) {
                     float floatValue = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
-                    TailFrameBarAppPortraitHorizontal.this.f59999f.setScaleY(floatValue);
-                    TailFrameBarAppPortraitHorizontal.this.f59999f.setScaleX(floatValue);
+                    TailFrameBarAppPortraitHorizontal.this.f57725f.setScaleY(floatValue);
+                    TailFrameBarAppPortraitHorizontal.this.f57725f.setScaleX(floatValue);
                 }
             });
-            this.f60000g.start();
+            this.f57726g.start();
         }
     }
 
     public void a() {
-        int height = this.f60002i.getHeight();
-        int width = this.f60002i.getWidth();
+        int height = this.f57728i.getHeight();
+        int width = this.f57728i.getWidth();
         if (height == 0 || width == 0) {
             return;
         }
         if (this.l == null) {
-            Animator a2 = a(this.f60004k, this.f60003j, width, height);
+            Animator a2 = a(this.k, this.f57729j, width, height);
             this.l = a2;
             a2.addListener(new a() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitHorizontal.2
                 @Override // com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitHorizontal.a, android.animation.Animator.AnimatorListener
@@ -251,8 +249,8 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
         String t;
         if (d.v(adTemplate)) {
             this.m.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.ksad_translucent));
-            this.f59995b.setTextColor(Color.parseColor("#FFFFFF"));
-            this.f59998e.setTextColor(Color.parseColor("#FFFFFF"));
+            this.f57721b.setTextColor(Color.parseColor("#FFFFFF"));
+            this.f57724e.setTextColor(Color.parseColor("#FFFFFF"));
         } else {
             this.m.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
@@ -266,10 +264,10 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
         }
         KSImageLoader.loadAppIcon(imageView, au, adTemplate, 12);
         if (d.v(adTemplate)) {
-            textView = this.f59995b;
+            textView = this.f57721b;
             t = com.kwad.sdk.core.response.a.a.u(j2);
         } else {
-            textView = this.f59995b;
+            textView = this.f57721b;
             t = com.kwad.sdk.core.response.a.a.t(j2);
         }
         textView.setText(t);
@@ -277,64 +275,64 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
         if (!d.v(adTemplate)) {
             float x = com.kwad.sdk.core.response.a.a.x(j2);
             if (x >= 3.0f) {
-                this.f59996c.setScore(x);
-                this.f59996c.setVisibility(0);
+                this.f57722c.setScore(x);
+                this.f57722c.setVisibility(0);
             } else {
-                this.f59996c.setVisibility(8);
+                this.f57722c.setVisibility(8);
             }
             String w = com.kwad.sdk.core.response.a.a.w(j2);
             if (TextUtils.isEmpty(w)) {
-                this.f59997d.setVisibility(8);
+                this.f57723d.setVisibility(8);
             } else {
-                this.f59997d.setText(w);
-                this.f59997d.setVisibility(0);
+                this.f57723d.setText(w);
+                this.f57723d.setVisibility(0);
             }
         }
-        this.f59998e.setText(com.kwad.sdk.core.response.a.a.s(j2));
+        this.f57724e.setText(com.kwad.sdk.core.response.a.a.s(j2));
         if (d.v(adTemplate)) {
-            this.f59999f.setVisibility(8);
-            this.f60002i.setVisibility(0);
-            this.f60004k.setText("查看详情");
-            Button button = this.f60003j;
+            this.f57725f.setVisibility(8);
+            this.f57728i.setVisibility(0);
+            this.k.setText("查看详情");
+            Button button = this.f57729j;
             button.setText(String.format("浏览详情页%s秒，领取奖励", b.aA() + ""));
-            this.f60002i.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitHorizontal.1
+            this.f57728i.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitHorizontal.1
                 @Override // java.lang.Runnable
                 public void run() {
                     TailFrameBarAppPortraitHorizontal.this.a();
                 }
             }, 1600L);
         } else {
-            this.f59999f.setVisibility(0);
-            this.f60002i.setVisibility(8);
+            this.f57725f.setVisibility(0);
+            this.f57728i.setVisibility(8);
             a(d.j(adTemplate));
         }
         if (d.v(adTemplate)) {
             List<String> i3 = c.i(adTemplate);
             if (i3 == null || i3.size() <= 0) {
-                this.f60001h.setVisibility(8);
+                this.f57727h.setVisibility(8);
             } else {
-                this.f60001h.setVisibility(0);
+                this.f57727h.setVisibility(0);
             }
             for (String str : i3) {
                 i2++;
                 if (i2 > 3) {
                     return;
                 }
-                a(this.f60001h, str);
+                a(this.f57727h, str);
             }
         }
     }
 
     public void b() {
-        ValueAnimator valueAnimator = this.f60000g;
+        ValueAnimator valueAnimator = this.f57726g;
         if (valueAnimator == null || !valueAnimator.isRunning()) {
             return;
         }
-        this.f60000g.cancel();
-        this.f60000g.end();
+        this.f57726g.cancel();
+        this.f57726g.end();
     }
 
     public TextProgressBar getTextProgressBar() {
-        return this.f59999f;
+        return this.f57725f;
     }
 }

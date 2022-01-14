@@ -35,19 +35,19 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f42533b;
+        public boolean f41040b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f42534c;
+        public int f41041c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f42535d;
+        public int f41042d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f42536e;
+        public int f41043e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbFragmentTabIndicator f42537f;
+        public TbFragmentTabIndicator f41044f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -62,8 +62,8 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                     return;
                 }
             }
-            this.f42533b = true;
-            this.f42536e = R.color.common_color_10225;
+            this.f41040b = true;
+            this.f41043e = R.color.common_color_10225;
         }
 
         public final int a(TextView textView) {
@@ -85,13 +85,13 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                int i3 = this.f42535d;
+                int i3 = this.f41042d;
                 if (i3 != 0) {
                     SkinManager.setBackgroundResource(this.a, i3);
                 }
                 View view = this.a;
                 if (view instanceof TextView) {
-                    int i4 = this.f42536e;
+                    int i4 = this.f41043e;
                     if (i4 != 0) {
                         SkinManager.setViewTextColor(view, i4, 1);
                     }

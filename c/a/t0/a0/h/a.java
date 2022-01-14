@@ -70,9 +70,9 @@ public class a extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             c cVar = new c();
-            cVar.f13111e = 2;
-            cVar.f13108b = R.string.ala_live;
-            cVar.f13115i = c.f13107k;
+            cVar.f12789e = 2;
+            cVar.f12786b = R.string.ala_live;
+            cVar.f12793i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;

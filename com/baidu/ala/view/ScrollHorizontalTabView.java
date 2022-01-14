@@ -514,7 +514,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             if (z) {
                 int[] iArr = new int[2];
                 ((View) ListUtils.getItem(this.mTabItemView, i2)).getLocationOnScreen(iArr);
-                int k2 = n.k(getContext()) - iArr[0];
+                int k = n.k(getContext()) - iArr[0];
                 int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds160);
                 if (iArr[0] < 0) {
                     post(new Runnable(this, dimensionPixelSize) { // from class: com.baidu.ala.view.ScrollHorizontalTabView.3
@@ -550,7 +550,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                             }
                         }
                     });
-                } else if (k2 < dimensionPixelSize) {
+                } else if (k < dimensionPixelSize) {
                     post(new Runnable(this) { // from class: com.baidu.ala.view.ScrollHorizontalTabView.4
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;

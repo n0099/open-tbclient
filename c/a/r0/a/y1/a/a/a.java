@@ -17,18 +17,18 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f9896e;
+    public static final boolean f9682e;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9897b;
+    public int f9683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9898c;
+    public String f9684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Bundle f9899d;
+    public Bundle f9685d;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public abstract class a {
                 return;
             }
         }
-        f9896e = k.a;
+        f9682e = k.a;
     }
 
     public a() {
@@ -60,8 +60,8 @@ public abstract class a {
             }
         }
         this.a = new Bundle();
-        this.f9898c = "";
-        this.f9899d = new Bundle();
+        this.f9684c = "";
+        this.f9685d = new Bundle();
     }
 
     public abstract void b(@NonNull Bundle bundle);
@@ -69,21 +69,21 @@ public abstract class a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d(this.f9899d);
+            d(this.f9685d);
         }
     }
 
     public void d(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            boolean z = f9896e;
-            if (c.a.r0.a.y1.a.b.d.a.a(this.f9898c)) {
+            boolean z = f9682e;
+            if (c.a.r0.a.y1.a.b.d.a.a(this.f9684c)) {
                 return;
             }
-            if (f9896e) {
-                String str = "messenger delegation finish with send result to client: " + this.f9897b + " observer: " + this.f9898c;
+            if (f9682e) {
+                String str = "messenger delegation finish with send result to client: " + this.f9683b + " observer: " + this.f9684c;
             }
-            b.c(this.f9897b, this.f9898c, bundle);
+            b.c(this.f9683b, this.f9684c, bundle);
         }
     }
 }

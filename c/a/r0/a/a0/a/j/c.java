@@ -16,13 +16,13 @@ public class c extends a {
     public RectF a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f5185b;
+    public float f5076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f5186c;
+    public float f5077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5187d;
+    public boolean f5078d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,22 +44,22 @@ public class c extends a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.a == null) {
             return;
         }
-        if (!this.f5187d && Math.abs(this.f5186c) >= 360.0f) {
-            Path path = bVar.f5183j;
+        if (!this.f5078d && Math.abs(this.f5077c) >= 360.0f) {
+            Path path = bVar.f5075j;
             RectF rectF = this.a;
             float f2 = rectF.bottom;
             float f3 = rectF.top;
             path.addCircle((rectF.right + rectF.left) / 2.0f, (f2 + f3) / 2.0f, (f2 - f3) / 2.0f, Path.Direction.CW);
-            bVar.f5183j.arcTo(this.a, 0.0f, this.f5185b);
+            bVar.f5075j.arcTo(this.a, 0.0f, this.f5076b);
             return;
         }
-        float f4 = this.f5186c % 360.0f;
-        if (f4 < 0.0f && !this.f5187d) {
+        float f4 = this.f5077c % 360.0f;
+        if (f4 < 0.0f && !this.f5078d) {
             f4 += 360.0f;
-        } else if (f4 > 0.0f && this.f5187d) {
+        } else if (f4 > 0.0f && this.f5078d) {
             f4 -= 360.0f;
         }
-        bVar.f5183j.arcTo(this.a, this.f5185b, f4);
+        bVar.f5075j.arcTo(this.a, this.f5076b, f4);
     }
 
     @Override // c.a.r0.a.a0.a.j.a
@@ -73,11 +73,11 @@ public class c extends a {
                 float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
                 float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
                 this.a = new RectF(g2 - g4, g3 - g4, g2 + g4, g3 + g4);
-                this.f5185b = degrees;
-                this.f5186c = degrees2 - degrees;
+                this.f5076b = degrees;
+                this.f5077c = degrees2 - degrees;
             }
             if (jSONArray.length() > 5) {
-                this.f5187d = jSONArray.optBoolean(5);
+                this.f5078d = jSONArray.optBoolean(5);
             }
         }
     }

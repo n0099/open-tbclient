@@ -22,19 +22,19 @@ public class a extends c.a.s0.s.l.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f22319c;
+    public static a f21705c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a.InterfaceC0864a f22320b;
+    public final a.InterfaceC0877a f21706b;
 
     /* renamed from: c.a.t0.q2.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1334a implements a.InterfaceC0864a {
+    public class C1348a implements a.InterfaceC0877a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1334a(a aVar) {
+        public C1348a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,14 +50,14 @@ public class a extends c.a.s0.s.l.a {
             }
         }
 
-        @Override // c.a.s0.s.l.a.InterfaceC0864a
+        @Override // c.a.s0.s.l.a.InterfaceC0877a
         public void onBeforeLogin(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             }
         }
 
-        @Override // c.a.s0.s.l.a.InterfaceC0864a
+        @Override // c.a.s0.s.l.a.InterfaceC0877a
         public void onFailure(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, str2) == null) && i2 == 1) {
@@ -65,7 +65,7 @@ public class a extends c.a.s0.s.l.a {
             }
         }
 
-        @Override // c.a.s0.s.l.a.InterfaceC0864a
+        @Override // c.a.s0.s.l.a.InterfaceC0877a
         public void onSuccess(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
@@ -102,26 +102,26 @@ public class a extends c.a.s0.s.l.a {
                 return;
             }
         }
-        this.f22320b = new C1334a(this);
+        this.f21706b = new C1348a(this);
     }
 
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f22319c == null) {
-                f22319c = new a();
+            if (f21705c == null) {
+                f21705c = new a();
             }
-            return f22319c;
+            return f21705c;
         }
         return (a) invokeV.objValue;
     }
 
     @Override // c.a.s0.s.l.a
-    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0864a interfaceC0864a) {
+    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0877a interfaceC0877a) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, interfaceC0864a)) == null) ? c.a.t0.g2.b.a(str, str2, str3, str4, interfaceC0864a) : (BdAsyncTask) invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, interfaceC0877a)) == null) ? c.a.t0.g2.b.a(str, str2, str3, str4, interfaceC0877a) : (BdAsyncTask) invokeLLLLL.objValue;
     }
 
     @Override // c.a.s0.s.l.a
@@ -144,7 +144,7 @@ public class a extends c.a.s0.s.l.a {
             try {
                 bVar2.a = split[0];
                 if (split.length >= 2) {
-                    bVar2.f13537b = split[1];
+                    bVar2.f13222b = split[1];
                 }
                 return bVar2;
             } catch (Exception e2) {
@@ -166,7 +166,7 @@ public class a extends c.a.s0.s.l.a {
             if (currentAccountObj != null) {
                 a.b c2 = c(currentAccountObj.getBDUSS());
                 if (c2 != null) {
-                    c.a.t0.g2.b.a(currentAccountObj.getAccount(), c2.a, c2.f13537b, currentAccountObj.getStoken(), this.f22320b);
+                    c.a.t0.g2.b.a(currentAccountObj.getAccount(), c2.a, c2.f13222b, currentAccountObj.getStoken(), this.f21706b);
                     return;
                 }
                 return;

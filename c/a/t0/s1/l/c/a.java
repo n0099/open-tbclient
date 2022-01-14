@@ -24,45 +24,43 @@ public class a {
 
     /* renamed from: c.a.t0.s1.l.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1354a {
+    public static class C1369a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f22779b;
+        public String f22153b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f22780c;
+        public String f22154c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f22781d;
+        public String f22155d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22782e;
+        public String f22156e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f22783f;
+        public String f22157f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f22784g;
+        public int f22158g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f22785h;
+        public long f22159h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f22786i;
+        public String f22160i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f22787j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public long f22788k;
+        public int f22161j;
+        public long k;
         public long l;
         public long m;
         public String n;
 
-        public C1354a() {
+        public C1369a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,13 +91,13 @@ public class a {
         a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
     }
 
-    public static List<C1354a> a(String str, String str2, long j2, long j3) {
+    public static List<C1369a> a(String str, String str2, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3)})) == null) ? b(str, str2, null, 0L, j2, j3) : (List) invokeCommon.objValue;
     }
 
-    public static List<C1354a> b(String str, String str2, UserData userData, long j2, long j3, long j4) {
+    public static List<C1369a> b(String str, String str2, UserData userData, long j2, long j3, long j4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, userData, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
@@ -121,31 +119,31 @@ public class a {
                     String optString4 = optJSONObject.optString("text");
                     optJSONObject.optLong("picId");
                     String optString5 = optJSONObject.optString("msg_src");
-                    C1354a c1354a = new C1354a();
+                    C1369a c1369a = new C1369a();
                     if (!TextUtils.isEmpty(optString2)) {
                         optString2 = optString2.trim();
                         Matcher matcher = a.matcher(optString2);
                         if (matcher.find()) {
-                            c1354a.n = matcher.group(1);
+                            c1369a.n = matcher.group(1);
                         }
                     }
-                    c1354a.f22781d = optString2;
-                    c1354a.a = optString;
-                    c1354a.f22779b = optString4;
-                    c1354a.f22780c = optString3;
-                    c1354a.f22782e = str2;
-                    c1354a.f22788k = j3;
-                    c1354a.l = j4;
-                    c1354a.f22783f = optString5;
+                    c1369a.f22155d = optString2;
+                    c1369a.a = optString;
+                    c1369a.f22153b = optString4;
+                    c1369a.f22154c = optString3;
+                    c1369a.f22156e = str2;
+                    c1369a.k = j3;
+                    c1369a.l = j4;
+                    c1369a.f22157f = optString5;
                     if (userType > i2) {
-                        c1354a.f22784g = userType;
+                        c1369a.f22158g = userType;
                     }
                     if (userData != null) {
-                        c1354a.f22785h = j2;
-                        c1354a.f22786i = userData.getUserId();
-                        c1354a.f22787j = userData.getUserType();
+                        c1369a.f22159h = j2;
+                        c1369a.f22160i = userData.getUserId();
+                        c1369a.f22161j = userData.getUserType();
                     }
-                    linkedList.add(c1354a);
+                    linkedList.add(c1369a);
                     i3++;
                     i2 = -1;
                 }

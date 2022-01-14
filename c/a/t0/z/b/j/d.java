@@ -39,11 +39,11 @@ public class d extends z {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f26729d = "com.baidu.tieba://";
+    public static String f25936d = "com.baidu.tieba://";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26730c;
+    public String f25937c;
 
     /* loaded from: classes9.dex */
     public class a implements c.a.r0.a.z2.g1.c<i<b.e>> {
@@ -51,25 +51,23 @@ public class d extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f26731e;
+        public final /* synthetic */ CallbackHandler f25938e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f26732f;
+        public final /* synthetic */ Context f25939f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f26733g;
+        public final /* synthetic */ String f25940g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f26734h;
+        public final /* synthetic */ String f25941h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f26735i;
+        public final /* synthetic */ String f25942i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f26736j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ String f26737k;
+        public final /* synthetic */ String f25943j;
+        public final /* synthetic */ String k;
         public final /* synthetic */ d l;
 
         public a(d dVar, CallbackHandler callbackHandler, Context context, String str, String str2, String str3, String str4, String str5) {
@@ -88,13 +86,13 @@ public class d extends z {
                 }
             }
             this.l = dVar;
-            this.f26731e = callbackHandler;
-            this.f26732f = context;
-            this.f26733g = str;
-            this.f26734h = str2;
-            this.f26735i = str3;
-            this.f26736j = str4;
-            this.f26737k = str5;
+            this.f25938e = callbackHandler;
+            this.f25939f = context;
+            this.f25940g = str;
+            this.f25941h = str2;
+            this.f25942i = str3;
+            this.f25943j = str4;
+            this.k = str5;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -104,13 +102,13 @@ public class d extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f26731e, this.l.f26730c);
-                } else if (!this.l.l(this.f26732f, this.f26733g, this.f26734h, this.f26735i, this.f26736j, this.f26737k)) {
+                    c.a.r0.a.h2.c.d.q(iVar, this.f25938e, this.l.f25937c);
+                } else if (!this.l.l(this.f25939f, this.f25940g, this.f25941h, this.f25942i, this.f25943j, this.k)) {
                     c.a.r0.a.e0.d.c("PageTransitionAction", "page transition fail");
-                    this.f26731e.handleSchemeDispatchCallback(this.l.f26730c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    this.f25938e.handleSchemeDispatchCallback(this.l.f25937c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 } else {
                     c.a.r0.a.e0.d.i("PageTransitionAction", "page transition success");
-                    this.f26731e.handleSchemeDispatchCallback(this.l.f26730c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    this.f25938e.handleSchemeDispatchCallback(this.l.f25937c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             }
         }
@@ -219,7 +217,7 @@ public class d extends z {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = str6 + str4;
                 }
-                String str8 = f26729d;
+                String str8 = f25936d;
                 if (TextUtils.isEmpty(str2)) {
                     if (!TextUtils.isEmpty(str)) {
                         str8 = str8 + str;
@@ -235,12 +233,12 @@ public class d extends z {
                 }
                 StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
                 String str9 = str8 + "?" + ((Object) sb2);
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str10 = "encodeParams: " + ((Object) sb2);
                 }
                 return str9;
             } catch (JSONException e2) {
-                if (z.f6340b) {
+                if (z.f6201b) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -295,7 +293,7 @@ public class d extends z {
             }
             JSONObject d2 = w.d(param);
             String optString = d2.optString("cb");
-            this.f26730c = optString;
+            this.f25937c = optString;
             if (TextUtils.isEmpty(optString)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
@@ -308,7 +306,7 @@ public class d extends z {
             try {
                 optJSONObject.put("launchMode", "standard");
             } catch (JSONException e2) {
-                if (z.f6340b) {
+                if (z.f6201b) {
                     e2.printStackTrace();
                 }
             }
@@ -345,7 +343,7 @@ public class d extends z {
                     str6 = m(str, str2, str3, str4, str5);
                     z = n(context, str6);
                 }
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str7 = "result = " + z + org.apache.commons.lang3.StringUtils.LF + "拼接后的uri is: " + str6;
                 }
             }

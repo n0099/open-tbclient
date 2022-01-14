@@ -59,22 +59,22 @@ public class d {
     public static volatile String a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ITTDownloadVisitor f55356c;
+    public static ITTDownloadVisitor f53255c;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Context f55358e;
+    public static Context f53257e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<Integer, ITTDownloadAdapter.OnEventLogHandler> f55359f;
+    public static Map<Integer, ITTDownloadAdapter.OnEventLogHandler> f53258f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final com.ss.android.download.api.download.a.a f55360g;
+    public static final com.ss.android.download.api.download.a.a f53259g;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final AtomicBoolean f55357d = new AtomicBoolean(false);
+    public static final AtomicBoolean f53256d = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f55355b = true;
+    public static boolean f53254b = true;
 
     /* loaded from: classes2.dex */
     public static class e implements IDownloadHttpService {
@@ -90,7 +90,7 @@ public class d {
 
                     @Override // com.ss.android.socialbase.downloader.network.g
                     public int b() {
-                        return a.f55351c;
+                        return a.f53250c;
                     }
 
                     @Override // com.ss.android.socialbase.downloader.network.g
@@ -100,14 +100,14 @@ public class d {
                     @Override // com.ss.android.socialbase.downloader.network.i
                     public void d() {
                         try {
-                            a.f55352d.disconnect();
+                            a.f53251d.disconnect();
                         } catch (Exception unused) {
                         }
                     }
 
                     @Override // com.ss.android.socialbase.downloader.network.g
                     public String a(String str2) {
-                        Map<String, String> map = a.f55350b;
+                        Map<String, String> map = a.f53249b;
                         if (map != null) {
                             return map.get(str2);
                         }
@@ -124,7 +124,7 @@ public class d {
             a = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
         } catch (Throwable unused) {
         }
-        f55360g = new com.ss.android.download.api.download.a.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.6
+        f53259g = new com.ss.android.download.api.download.a.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.6
             @Override // com.ss.android.download.api.download.a.a
             public void a(DownloadModel downloadModel, DownloadController downloadController, DownloadEventConfig downloadEventConfig) {
                 com.bytedance.sdk.openadsdk.api.b.d.a("TTDownloadVisitor", "completeListener: onDownloadStart");
@@ -163,12 +163,12 @@ public class d {
     }
 
     public static ITTDownloadVisitor e() {
-        ITTDownloadVisitor iTTDownloadVisitor = f55356c;
+        ITTDownloadVisitor iTTDownloadVisitor = f53255c;
         return iTTDownloadVisitor == null ? (ITTDownloadVisitor) TTAdSdk.getAdManager().getExtra(ITTDownloadVisitor.class, com.bytedance.sdk.openadsdk.downloadnew.b.a(1)) : iTTDownloadVisitor;
     }
 
     public static Context getContext() {
-        Context context = f55358e;
+        Context context = f53257e;
         return context == null ? TTAppContextHolder.getContext() : context;
     }
 
@@ -256,19 +256,19 @@ public class d {
         if (context == null) {
             context = TTAppContextHolder.getContext();
         }
-        if (context == null || f55357d.get()) {
+        if (context == null || f53256d.get()) {
             return;
         }
         synchronized (d.class) {
-            if (!f55357d.get()) {
-                f55358e = context.getApplicationContext();
+            if (!f53256d.get()) {
+                f53257e = context.getApplicationContext();
                 if (e() != null) {
-                    String initPath = e().initPath(f55355b);
+                    String initPath = e().initPath(f53254b);
                     if (!TextUtils.isEmpty(initPath)) {
                         a = initPath;
                     }
                 }
-                f55357d.set(b(f55358e));
+                f53256d.set(b(f53257e));
             }
         }
     }
@@ -349,29 +349,29 @@ public class d {
 
     /* renamed from: com.bytedance.sdk.openadsdk.downloadnew.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C2029d implements k {
+    public static class C2046d implements k {
         public final WeakReference<Context> a;
 
-        public C2029d(Context context) {
+        public C2046d(Context context) {
             this.a = new WeakReference<>(context);
         }
 
         private DialogBuilder c(final com.ss.android.download.api.model.b bVar) {
-            return DialogBuilder.builder().setTitle(bVar.f61660b).setMessage(bVar.f61661c).setNegativeBtnText(bVar.f61663e).setPositiveBtnText(bVar.f61662d).setIcon(bVar.f61665g).setDialogStatusChangedListener(new IDialogStatusChangedListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.d.1
+            return DialogBuilder.builder().setTitle(bVar.f59324b).setMessage(bVar.f59325c).setNegativeBtnText(bVar.f59327e).setPositiveBtnText(bVar.f59326d).setIcon(bVar.f59329g).setDialogStatusChangedListener(new IDialogStatusChangedListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.d.1
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.InterfaceC2162b interfaceC2162b = bVar.f61666h;
-                    if (interfaceC2162b != null) {
-                        interfaceC2162b.c(dialogInterface);
+                    b.InterfaceC2179b interfaceC2179b = bVar.f59330h;
+                    if (interfaceC2179b != null) {
+                        interfaceC2179b.c(dialogInterface);
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onNegativeBtnClick(DialogInterface dialogInterface) {
-                    b.InterfaceC2162b interfaceC2162b = bVar.f61666h;
-                    if (interfaceC2162b != null) {
+                    b.InterfaceC2179b interfaceC2179b = bVar.f59330h;
+                    if (interfaceC2179b != null) {
                         try {
-                            interfaceC2162b.b(dialogInterface);
+                            interfaceC2179b.b(dialogInterface);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -380,9 +380,9 @@ public class d {
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onPositiveBtnClick(DialogInterface dialogInterface) {
-                    b.InterfaceC2162b interfaceC2162b = bVar.f61666h;
-                    if (interfaceC2162b != null) {
-                        interfaceC2162b.a(dialogInterface);
+                    b.InterfaceC2179b interfaceC2179b = bVar.f59330h;
+                    if (interfaceC2179b != null) {
+                        interfaceC2179b.a(dialogInterface);
                     }
                 }
             });
@@ -407,9 +407,9 @@ public class d {
             if (bVar != null && d.e() != null) {
                 Context context = bVar.a;
                 if (context != null && (context instanceof Activity)) {
-                    return d.e().showDialogBySelf((Activity) bVar.a, bVar.f61668j == 1, c(bVar));
+                    return d.e().showDialogBySelf((Activity) bVar.a, bVar.f59332j == 1, c(bVar));
                 }
-                d.e().showDialogByDelegate(this.a, bVar.f61668j == 1, c(bVar));
+                d.e().showDialogByDelegate(this.a, bVar.f59332j == 1, c(bVar));
             }
             return null;
         }
@@ -428,7 +428,7 @@ public class d {
         if (a2 == null) {
             return false;
         }
-        com.ss.android.download.api.a a3 = a2.a(new c()).a(new a()).a(new C2029d(applicationContext)).a(new b()).a(new com.ss.android.download.api.config.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.3
+        com.ss.android.download.api.a a3 = a2.a(new c()).a(new a()).a(new C2046d(applicationContext)).a(new b()).a(new com.ss.android.download.api.config.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.3
             @Override // com.ss.android.download.api.config.i
             public JSONObject a() {
                 if (d.e() != null) {
@@ -444,7 +444,7 @@ public class d {
                 }
                 return false;
             }
-        }).a(new a.C2161a().b("143").a(TTAdConstant.APP_NAME).c("4.0.2.2").d(String.valueOf(4022)).a()).a(new p() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.1
+        }).a(new a.C2178a().b("143").a(TTAdConstant.APP_NAME).c("4.0.2.2").d(String.valueOf(4022)).a()).a(new p() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.1
             @Override // com.ss.android.download.api.config.p
             public byte[] a(byte[] bArr, int i2) {
                 return new byte[0];
@@ -453,7 +453,7 @@ public class d {
         a3.a(packageName + ".TTFileProvider").a(a(applicationContext, e() != null ? e().getDownloadSettings() : new JSONObject())).a();
         com.ss.android.downloadlib.g.a.a();
         com.ss.android.downloadlib.g.a(applicationContext).d().a(1);
-        com.ss.android.downloadlib.g.a(applicationContext).a(f55360g);
+        com.ss.android.downloadlib.g.a(applicationContext).a(f53259g);
         com.ss.android.socialbase.appdownloader.d.j().a(new ad() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.4
             @Override // com.ss.android.socialbase.downloader.depend.ad
             public boolean a(Intent intent) {
@@ -464,7 +464,7 @@ public class d {
     }
 
     public static Map<Integer, ITTDownloadAdapter.OnEventLogHandler> c() {
-        return f55359f;
+        return f53258f;
     }
 
     public static void a(String str) {
@@ -488,7 +488,7 @@ public class d {
     }
 
     public static void a(int i2) {
-        Map<Integer, ITTDownloadAdapter.OnEventLogHandler> map = f55359f;
+        Map<Integer, ITTDownloadAdapter.OnEventLogHandler> map = f53258f;
         if (map != null) {
             map.remove(Integer.valueOf(i2));
         }
@@ -496,10 +496,10 @@ public class d {
 
     public static void a(int i2, ITTDownloadAdapter.OnEventLogHandler onEventLogHandler) {
         if (onEventLogHandler != null) {
-            if (f55359f == null) {
-                f55359f = Collections.synchronizedMap(new WeakHashMap());
+            if (f53258f == null) {
+                f53258f = Collections.synchronizedMap(new WeakHashMap());
             }
-            f55359f.put(Integer.valueOf(i2), onEventLogHandler);
+            f53258f.put(Integer.valueOf(i2), onEventLogHandler);
         }
     }
 
@@ -572,8 +572,8 @@ public class d {
     }
 
     public static boolean a(Activity activity, final ExitInstallListener exitInstallListener) {
-        return com.ss.android.downloadlib.addownload.a.a.a().a(activity, false, new a.InterfaceC2167a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.7
-            @Override // com.ss.android.downloadlib.addownload.a.a.InterfaceC2167a
+        return com.ss.android.downloadlib.addownload.a.a.a().a(activity, false, new a.InterfaceC2184a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.7
+            @Override // com.ss.android.downloadlib.addownload.a.a.InterfaceC2184a
             public void a() {
                 ExitInstallListener exitInstallListener2 = ExitInstallListener.this;
                 if (exitInstallListener2 != null) {

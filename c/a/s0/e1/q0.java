@@ -20,7 +20,7 @@ public class q0 {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c.a.t0.g0.f0.c> f12714b;
+    public List<c.a.t0.g0.f0.c> f12415b;
 
     /* loaded from: classes6.dex */
     public class a implements Comparator<c.a.t0.g0.f0.c> {
@@ -66,7 +66,7 @@ public class q0 {
                 return;
             }
         }
-        this.f12714b = new LinkedList();
+        this.f12415b = new LinkedList();
     }
 
     public List<c.a.t0.g0.f0.c> a(List<PbLinkData> list, List<PbGoodsData> list2) {
@@ -79,17 +79,17 @@ public class q0 {
                     if (pbLinkData.urlType == 2 && !this.a) {
                         this.a = true;
                     }
-                    this.f12714b.add(pbLinkData);
+                    this.f12415b.add(pbLinkData);
                 }
             }
             if (!ListUtils.isEmpty(list2)) {
                 this.a = true;
                 for (int i3 = 0; i3 < list2.size(); i3++) {
-                    this.f12714b.add(list2.get(i3));
+                    this.f12415b.add(list2.get(i3));
                 }
             }
-            Collections.sort(this.f12714b, new a(this));
-            return this.f12714b;
+            Collections.sort(this.f12415b, new a(this));
+            return this.f12415b;
         }
         return (List) invokeLL.objValue;
     }

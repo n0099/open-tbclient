@@ -34,7 +34,7 @@ public class g implements g1 {
     public void c(boolean z, long j2) {
         g1 g1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) || (g1Var = this.a.f31295b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) || (g1Var = this.a.f30317b) == null) {
             return;
         }
         g1Var.c(z, j2);
@@ -44,7 +44,7 @@ public class g implements g1 {
     public void d(String str) {
         g1 g1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (g1Var = this.a.f31295b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (g1Var = this.a.f30317b) == null) {
             return;
         }
         g1Var.d(str);
@@ -54,7 +54,7 @@ public class g implements g1 {
     public void f() {
         g1 g1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (g1Var = this.a.f31295b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (g1Var = this.a.f30317b) == null) {
             return;
         }
         g1Var.f();
@@ -64,7 +64,7 @@ public class g implements g1 {
     public void g() {
         g1 g1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (g1Var = this.a.f31295b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (g1Var = this.a.f30317b) == null) {
             return;
         }
         g1Var.g();
@@ -74,7 +74,7 @@ public class g implements g1 {
     public void onClicked() {
         g1 g1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (g1Var = this.a.f31295b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (g1Var = this.a.f30317b) == null) {
             return;
         }
         g1Var.onClicked();
@@ -84,7 +84,7 @@ public class g implements g1 {
     public void onFail(PBError pBError) {
         g1 g1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, pBError) == null) || (g1Var = this.a.f31295b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, pBError) == null) || (g1Var = this.a.f30317b) == null) {
             return;
         }
         g1Var.onFail(pBError);
@@ -94,7 +94,7 @@ public class g implements g1 {
     public void onLoaded() {
         g1 g1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (g1Var = this.a.f31295b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (g1Var = this.a.f30317b) == null) {
             return;
         }
         g1Var.onLoaded();

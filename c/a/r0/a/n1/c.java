@@ -48,12 +48,12 @@ public class c {
 
         /* renamed from: c.a.r0.a.n1.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0467a implements e0.a {
+        public class C0476a implements e0.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File[] a;
 
-            public C0467a(a aVar, File[] fileArr) {
+            public C0476a(a aVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class c {
                     fileArr = new File[]{b2};
                 }
                 if (u != null) {
-                    u.d(p, null, fileArr, new C0467a(this, fileArr));
+                    u.d(p, null, fileArr, new C0476a(this, fileArr));
                 }
             }
         }
@@ -206,7 +206,7 @@ public class c {
             if (fVar != null) {
                 c.a.r0.a.d2.n.g A1 = fVar.A1();
                 if (A1 != null) {
-                    return A1.f5702e;
+                    return A1.f5577e;
                 }
                 FrameLayout r3 = fVar.r3();
                 if (r3 != null) {

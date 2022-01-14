@@ -24,7 +24,7 @@ public class u extends a<v, NoDataItemViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), v.f3395g);
+        super(tbPageContext.getPageActivity(), v.f3349g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,16 +57,16 @@ public class u extends a<v, NoDataItemViewHolder> {
     public NoDataItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new NoDataItemViewHolder(LayoutInflater.from(this.f3299e).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false)) : (NoDataItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new NoDataItemViewHolder(LayoutInflater.from(this.f3258e).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false)) : (NoDataItemViewHolder) invokeL.objValue;
     }
 
     public View a0(int i2, View view, ViewGroup viewGroup, v vVar, NoDataItemViewHolder noDataItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, vVar, noDataItemViewHolder})) == null) {
-            noDataItemViewHolder.mTextView.setText(vVar.f3396e);
+            noDataItemViewHolder.mTextView.setText(vVar.f3350e);
             if (this.m != TbadkCoreApplication.getInst().getSkinType()) {
-                SkinManager.setImageResource(noDataItemViewHolder.mImageView, vVar.f3397f);
+                SkinManager.setImageResource(noDataItemViewHolder.mImageView, vVar.f3351f);
                 SkinManager.setViewTextColor(noDataItemViewHolder.mTextView, R.color.CAM_X0109);
                 this.m = TbadkCoreApplication.getInst().getSkinType();
             }

@@ -49,7 +49,7 @@ public class h {
         public FileOutputStream a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f19468b;
+        public final /* synthetic */ String f18968b;
 
         public a(h hVar, String str) throws FileNotFoundException {
             Interceptable interceptable = $ic;
@@ -66,8 +66,8 @@ public class h {
                     return;
                 }
             }
-            this.f19468b = str;
-            this.a = new FileOutputStream(this.f19468b);
+            this.f18968b = str;
+            this.a = new FileOutputStream(this.f18968b);
         }
 
         @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
@@ -343,7 +343,7 @@ public class h {
                             a2.b(fileArr);
                             d a3 = d.a(str3);
                             a3.d(d2.a);
-                            a3.c(d2.f19465b);
+                            a3.c(d2.f18965b);
                             a3.b(str);
                             return true;
                         } catch (Exception e2) {
@@ -377,12 +377,12 @@ public class h {
                 try {
                     e c2 = c(str, linkedList, null);
                     if (c2.a == -1) {
-                        if (c2.f19461b == 1) {
+                        if (c2.f18961b == 1) {
                             i2 = 218;
                         } else {
-                            i2 = c2.f19461b == 2 ? 219 : 220;
+                            i2 = c2.f18961b == 2 ? 219 : 220;
                         }
-                        return new i(i2, c2.f19462c);
+                        return new i(i2, c2.f18962c);
                     }
                     BdLog.e("mixingVideoByAudio videoTracks = " + linkedList.size());
                     j(str2, linkedList, null);
@@ -413,7 +413,7 @@ public class h {
         }
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             long currentTimeMillis = System.currentTimeMillis();
-            String str5 = c.a.t0.k4.c.f19295f + (TbMd5.getNameMd5FromUrl(str + str2 + str3) + "/");
+            String str5 = c.a.t0.k4.c.f18799f + (TbMd5.getNameMd5FromUrl(str + str2 + str3) + "/");
             new File(str5).mkdirs();
             File file = new File(str3);
             file.mkdirs();
@@ -428,23 +428,23 @@ public class h {
                 e c2 = c(str, linkedList2, linkedList3);
                 long j2 = c2.a;
                 if (j2 == -1) {
-                    if (c2.f19461b == 1) {
+                    if (c2.f18961b == 1) {
                         i3 = 210;
                     } else {
-                        i3 = c2.f19461b == 2 ? w0.A : w0.f57477h;
+                        i3 = c2.f18961b == 2 ? w0.A : w0.f55297h;
                     }
-                    iVar = new i(i3, c2.f19462c);
+                    iVar = new i(i3, c2.f18962c);
                     FileHelper.deleteFileOrDir(new File(str5));
                     sb = new StringBuilder();
                 } else {
                     long b2 = b(str2, linkedList4);
                     if (b2 == -1) {
-                        if (c2.f19461b == 1) {
+                        if (c2.f18961b == 1) {
                             i2 = 213;
                         } else {
-                            i2 = c2.f19461b == 2 ? w0.c0 : JfifUtil.MARKER_RST7;
+                            i2 = c2.f18961b == 2 ? w0.c0 : JfifUtil.MARKER_RST7;
                         }
-                        iVar = new i(i2, c2.f19462c);
+                        iVar = new i(i2, c2.f18962c);
                         FileHelper.deleteFileOrDir(new File(str5));
                         sb = new StringBuilder();
                     } else {

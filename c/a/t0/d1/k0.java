@@ -17,16 +17,16 @@ public class k0 {
     public final List<c.a.s0.i0.b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f16533b;
+    public Context f16227b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f16534c;
+    public String f16228c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f16535d;
+    public String f16229d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16536e;
+    public String f16230e;
 
     public k0(Context context) {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class k0 {
             }
         }
         this.a = new LinkedList();
-        this.f16533b = context;
+        this.f16227b = context;
     }
 
     public void a(c.a.s0.i0.b bVar) {
@@ -53,7 +53,7 @@ public class k0 {
             return;
         }
         for (c.a.s0.i0.b bVar2 : this.a) {
-            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f13111e == bVar.getFragmentTabStructure().f13111e) {
+            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f12789e == bVar.getFragmentTabStructure().f12789e) {
                 return;
             }
         }
@@ -63,19 +63,19 @@ public class k0 {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16536e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16230e : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16534c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16228c : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16535d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16229d : (String) invokeV.objValue;
     }
 
     public List<c.a.s0.i0.b> e() {
@@ -87,27 +87,27 @@ public class k0 {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f16536e = str;
+            this.f16230e = str;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f16534c = str;
+            this.f16228c = str;
         }
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16533b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16227b : (Context) invokeV.objValue;
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f16535d = str;
+            this.f16229d = str;
         }
     }
 }

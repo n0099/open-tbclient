@@ -27,43 +27,43 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f19733h;
+    public static final c f19222h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final b f19734i;
+    public static final b f19223i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final a f19735j;
+    public static final a f19224j;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.a.t0.m0.i.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.t0.m0.k.b f19736b;
+    public final c.a.t0.m0.k.b f19225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final CacheManager f19737c;
+    public final CacheManager f19226c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.m0.a f19738d;
+    public c.a.t0.m0.a f19227d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.t0.m0.f.d.e.d f19739e;
+    public final c.a.t0.m0.f.d.e.d f19228e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<c.a.t0.m0.e.a> f19740f;
+    public List<c.a.t0.m0.e.a> f19229f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.t0.m0.j.b f19741g;
+    public c.a.t0.m0.j.b f19230g;
 
     /* renamed from: c.a.t0.m0.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class HandlerC1190a extends Handler {
+    public final class HandlerC1204a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC1190a(a this$0, Looper looper) {
+        public HandlerC1204a(a this$0, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -168,7 +168,7 @@ public final class a {
         public final a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f19735j : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f19224j : (a) invokeV.objValue;
         }
     }
 
@@ -179,19 +179,19 @@ public final class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19742b;
+        public int f19231b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f19743c;
+        public final int f19232c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f19744d;
+        public final float f19233d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final float f19745e;
+        public final float f19234e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f19746f;
+        public final int f19235f;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -206,30 +206,30 @@ public final class a {
                     return;
                 }
             }
-            this.f19743c = 4;
-            this.f19745e = 1.0f;
-            this.f19746f = 200;
+            this.f19232c = 4;
+            this.f19234e = 1.0f;
+            this.f19235f = 200;
         }
 
         @Override // c.a.t0.m0.j.b
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19746f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19235f : invokeV.intValue;
         }
 
         @Override // c.a.t0.m0.j.b
         public float b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19745e : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19234e : invokeV.floatValue;
         }
 
         @Override // c.a.t0.m0.j.b
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19743c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19232c : invokeV.intValue;
         }
 
         @Override // c.a.t0.m0.j.b
@@ -243,7 +243,7 @@ public final class a {
         public float e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19744d : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19233d : invokeV.floatValue;
         }
 
         @Override // c.a.t0.m0.j.b
@@ -257,7 +257,7 @@ public final class a {
         public int getWidth() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19742b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19231b : invokeV.intValue;
         }
 
         @Override // c.a.t0.m0.j.b
@@ -272,7 +272,7 @@ public final class a {
         public void setWidth(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                this.f19742b = i2;
+                this.f19231b = i2;
             }
         }
     }
@@ -290,10 +290,10 @@ public final class a {
                 return;
             }
         }
-        f19733h = new c(null);
+        f19222h = new c(null);
         b bVar = new b();
-        f19734i = bVar;
-        f19735j = new a(bVar);
+        f19223i = bVar;
+        f19224j = new a(bVar);
     }
 
     public a(c.a.t0.m0.i.a renderer) {
@@ -313,18 +313,18 @@ public final class a {
         }
         Intrinsics.checkNotNullParameter(renderer, "renderer");
         this.a = renderer;
-        this.f19736b = new c.a.t0.m0.k.b();
+        this.f19225b = new c.a.t0.m0.k.b();
         Looper myLooper = Looper.myLooper();
         Intrinsics.checkNotNull(myLooper);
         Intrinsics.checkNotNullExpressionValue(myLooper, "myLooper()!!");
-        this.f19737c = new CacheManager(new HandlerC1190a(this, myLooper), this.a);
-        this.f19738d = new c.a.t0.m0.a(0, 0L, 0L, 0L, 0.0f, 0.0f, 0.0f, 0.0f, false, 0, false, false, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 4194303, null);
-        this.f19739e = new c.a.t0.m0.f.d.e.d();
+        this.f19226c = new CacheManager(new HandlerC1204a(this, myLooper), this.a);
+        this.f19227d = new c.a.t0.m0.a(0, 0L, 0L, 0L, 0.0f, 0.0f, 0.0f, 0.0f, false, 0, false, false, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 4194303, null);
+        this.f19228e = new c.a.t0.m0.f.d.e.d();
         new c.a.t0.m0.d.a();
-        this.f19740f = new ArrayList();
+        this.f19229f = new ArrayList();
         new c.a.t0.m0.d.a();
-        this.f19741g = new d();
-        this.f19740f.iterator();
+        this.f19230g = new d();
+        this.f19229f.iterator();
         new ArrayList();
         new ArrayList();
     }
@@ -332,38 +332,38 @@ public final class a {
     public final CacheManager b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19737c : (CacheManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19226c : (CacheManager) invokeV.objValue;
     }
 
     public final c.a.t0.m0.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19738d : (c.a.t0.m0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19227d : (c.a.t0.m0.a) invokeV.objValue;
     }
 
     public final c.a.t0.m0.j.b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19741g : (c.a.t0.m0.j.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19230g : (c.a.t0.m0.j.b) invokeV.objValue;
     }
 
     public final c.a.t0.m0.f.d.e.d e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19739e : (c.a.t0.m0.f.d.e.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19228e : (c.a.t0.m0.f.d.e.d) invokeV.objValue;
     }
 
     public final c.a.t0.m0.k.b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19736b : (c.a.t0.m0.k.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19225b : (c.a.t0.m0.k.b) invokeV.objValue;
     }
 
     public final void g(c.a.t0.m0.j.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             Intrinsics.checkNotNullParameter(bVar, "<set-?>");
-            this.f19741g = bVar;
+            this.f19230g = bVar;
         }
     }
 
@@ -371,12 +371,12 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, config) == null) {
             Intrinsics.checkNotNullParameter(config, "config");
-            this.f19738d = config;
-            if (this.f19739e.b().size() != config.i().size()) {
-                this.f19739e.d(CollectionsKt___CollectionsKt.toList(config.i()));
+            this.f19227d = config;
+            if (this.f19228e.b().size() != config.i().size()) {
+                this.f19228e.d(CollectionsKt___CollectionsKt.toList(config.i()));
             }
-            if (this.f19739e.c().size() != config.n().size()) {
-                this.f19739e.e(CollectionsKt___CollectionsKt.toList(config.n()));
+            if (this.f19228e.c().size() != config.n().size()) {
+                this.f19228e.e(CollectionsKt___CollectionsKt.toList(config.n()));
             }
         }
     }

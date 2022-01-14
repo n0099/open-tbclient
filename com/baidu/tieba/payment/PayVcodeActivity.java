@@ -36,6 +36,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
@@ -236,7 +237,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PayVcodeActivity f48152e;
+                public final /* synthetic */ PayVcodeActivity f46354e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -253,14 +254,14 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                             return;
                         }
                     }
-                    this.f48152e = this;
+                    this.f46354e = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f48152e.getInputVcode();
+                        this.f46354e.getInputVcode();
                     }
                 }
             });
@@ -269,7 +270,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PayVcodeActivity f48153e;
+                public final /* synthetic */ PayVcodeActivity f46355e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -286,18 +287,18 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                             return;
                         }
                     }
-                    this.f48153e = this;
+                    this.f46355e = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f48153e.mVcodeLoadSuccess) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f46355e.mVcodeLoadSuccess) {
                         return;
                     }
-                    this.f48153e.mView.j(true);
-                    this.f48153e.mView.g().stopLoading();
-                    this.f48153e.mView.g().loadUrl(this.f48153e.mUrl);
+                    this.f46355e.mView.j(true);
+                    this.f46355e.mView.g().stopLoading();
+                    this.f46355e.mView.g().loadUrl(this.f46355e.mUrl);
                 }
             });
             b bVar = new b(this);
@@ -341,7 +342,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PayVcodeActivity f48154e;
+                public final /* synthetic */ PayVcodeActivity f46356e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -358,14 +359,14 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                             return;
                         }
                     }
-                    this.f48154e = this;
+                    this.f46356e = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f48154e.hideAnimation(false);
+                        this.f46356e.hideAnimation(false);
                     }
                 }
             });
@@ -414,7 +415,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public final /* synthetic */ boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PayVcodeActivity f48155b;
+                public final /* synthetic */ PayVcodeActivity f46357b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -431,7 +432,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                             return;
                         }
                     }
-                    this.f48155b = this;
+                    this.f46357b = this;
                     this.a = z;
                 }
 
@@ -439,13 +440,13 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public void onAnimationEnd(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        if (this.a && !StringUtils.isNull(this.f48155b.mVcodeResult)) {
+                        if (this.a && !StringUtils.isNull(this.f46357b.mVcodeResult)) {
                             Intent intent = new Intent();
-                            intent.putExtra(PayVcodeActivityConfig.VCODE_RESULT, this.f48155b.mVcodeResult);
-                            intent.putExtra(PayVcodeActivityConfig.VCODE_MD5, this.f48155b.mVcodeMd5);
-                            this.f48155b.setResult(-1, intent);
+                            intent.putExtra(PayVcodeActivityConfig.VCODE_RESULT, this.f46357b.mVcodeResult);
+                            intent.putExtra(PayVcodeActivityConfig.VCODE_MD5, this.f46357b.mVcodeMd5);
+                            this.f46357b.setResult(-1, intent);
                         }
-                        this.f48155b.closeActivity();
+                        this.f46357b.closeActivity();
                     }
                 }
 
@@ -521,7 +522,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                                 return true;
                             } else if (PayVcodeActivity.JS_CHANGE_VCODE.equalsIgnoreCase(str2)) {
                                 try {
-                                    String string = new JSONObject(str3).getString("callback");
+                                    String string = new JSONObject(str3).getString(WebChromeClient.KEY_ARG_CALLBACK);
                                     if (!StringUtils.isNull(string)) {
                                         this.this$0.mVcodeChangeCallBack = string;
                                         this.this$0.mHandler.removeMessages(1);
@@ -542,7 +543,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                                 try {
                                     JSONObject jSONObject = new JSONObject(str3);
                                     this.this$0.mVcodeLoadSuccess = jSONObject.optBoolean("canpost");
-                                    this.this$0.mVcodeInputCallback = jSONObject.optString("callback");
+                                    this.this$0.mVcodeInputCallback = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK);
                                 } catch (JSONException e3) {
                                     e3.printStackTrace();
                                 }
@@ -553,7 +554,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                                     JSONObject jSONObject2 = new JSONObject(str3);
                                     boolean optBoolean = jSONObject2.optBoolean("canpost");
                                     String optString = jSONObject2.optString("val");
-                                    String optString2 = jSONObject2.optString("callback");
+                                    String optString2 = jSONObject2.optString(WebChromeClient.KEY_ARG_CALLBACK);
                                     if (!optBoolean) {
                                         this.this$0.mHandler.removeMessages(2);
                                         this.this$0.mHandler.sendMessage(this.this$0.mHandler.obtainMessage(2));

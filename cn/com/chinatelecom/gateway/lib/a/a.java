@@ -18,10 +18,10 @@ public class a {
     public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f31564b;
+    public static byte[] f30573b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static byte[] f31565c;
+    public static byte[] f30574c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,8 +37,8 @@ public class a {
                 return;
             }
         }
-        f31564b = "0000000000000000".getBytes();
-        f31565c = "vrf5g7h0tededwx3".getBytes();
+        f30573b = "0000000000000000".getBytes();
+        f30574c = "vrf5g7h0tededwx3".getBytes();
     }
 
     public a() {
@@ -60,7 +60,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f31564b);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f30573b);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 byte[] bytes = str.getBytes("utf-8");
@@ -92,7 +92,7 @@ public class a {
                         bArr[i2] = 0;
                     }
                 }
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f31565c);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f30574c);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
                 cipher.init(1, secretKeySpec, ivParameterSpec);
@@ -110,7 +110,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f31564b);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f30573b);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 cipher.init(2, secretKeySpec, ivParameterSpec);

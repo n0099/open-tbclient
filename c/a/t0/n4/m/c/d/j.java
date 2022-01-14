@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.utils.FileUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f20556e;
+    public Bitmap f20007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f20557f;
+    public String f20008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20558g;
+    public String f20009g;
 
     public j(String str, String str2, Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -36,18 +36,18 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f20557f = str;
-        this.f20558g = str2;
-        this.f20556e = bitmap;
+        this.f20008f = str;
+        this.f20009g = str2;
+        this.f20007e = bitmap;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f20557f) || TextUtils.isEmpty(this.f20558g) || (bitmap = this.f20556e) == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f20008f) || TextUtils.isEmpty(this.f20009g) || (bitmap = this.f20007e) == null || bitmap.isRecycled()) {
             return;
         }
-        FileUtils.saveBitmap2JPG(this.f20557f, a.a(this.f20558g), this.f20556e, 100);
+        FileUtils.saveBitmap2JPG(this.f20008f, a.a(this.f20009g), this.f20007e, 100);
     }
 }

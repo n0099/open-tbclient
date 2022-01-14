@@ -20,16 +20,16 @@ public class PersonInfoMoreDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f48893e;
+    public Context f47060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f48894f;
+    public View f47061f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f48895g;
+    public LinearLayout f47062g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f48896h;
+    public float f47063h;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -37,7 +37,7 @@ public class PersonInfoMoreDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonInfoMoreDialog f48897e;
+        public final /* synthetic */ PersonInfoMoreDialog f47064e;
 
         public a(PersonInfoMoreDialog personInfoMoreDialog) {
             Interceptable interceptable = $ic;
@@ -54,14 +54,14 @@ public class PersonInfoMoreDialog extends Dialog {
                     return;
                 }
             }
-            this.f48897e = personInfoMoreDialog;
+            this.f47064e = personInfoMoreDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48897e.dismiss();
+                this.f47064e.dismiss();
             }
         }
     }
@@ -85,8 +85,8 @@ public class PersonInfoMoreDialog extends Dialog {
                 return;
             }
         }
-        this.f48896h = 0.33f;
-        this.f48893e = context;
+        this.f47063h = 0.33f;
+        this.f47060e = context;
     }
 
     @Override // android.app.Dialog
@@ -96,32 +96,32 @@ public class PersonInfoMoreDialog extends Dialog {
             super.onCreate(bundle);
             requestWindowFeature(1);
             setContentView(R.layout.person_info_more_dialog);
-            Display defaultDisplay = ((WindowManager) this.f48893e.getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) this.f47060e.getSystemService("window")).getDefaultDisplay();
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.width = defaultDisplay.getWidth();
             getWindow().setAttributes(attributes);
             getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.f48896h);
+            getWindow().setDimAmount(this.f47063h);
             getWindow().setGravity(80);
             getWindow().setWindowAnimations(R.style.pb_more_pop_anim);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.root_view);
-            this.f48895g = linearLayout;
+            this.f47062g = linearLayout;
             linearLayout.setOnClickListener(new a(this));
-            if (this.f48894f == null) {
+            if (this.f47061f == null) {
                 return;
             }
-            this.f48895g.removeAllViews();
-            if (this.f48894f.getParent() != null) {
-                if (this.f48894f.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.f48894f.getParent()).removeView(this.f48894f);
-                    this.f48895g.addView(this.f48894f);
+            this.f47062g.removeAllViews();
+            if (this.f47061f.getParent() != null) {
+                if (this.f47061f.getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.f47061f.getParent()).removeView(this.f47061f);
+                    this.f47062g.addView(this.f47061f);
                     return;
                 }
                 return;
             }
-            this.f48895g.addView(this.f48894f);
+            this.f47062g.addView(this.f47061f);
         }
     }
 
@@ -129,19 +129,19 @@ public class PersonInfoMoreDialog extends Dialog {
     public void setContentView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f48894f = view;
-            LinearLayout linearLayout = this.f48895g;
+            this.f47061f = view;
+            LinearLayout linearLayout = this.f47062g;
             if (linearLayout != null) {
                 linearLayout.removeAllViews();
-                if (this.f48894f.getParent() != null) {
-                    if (this.f48894f.getParent() instanceof ViewGroup) {
-                        ((ViewGroup) this.f48894f.getParent()).removeView(this.f48894f);
-                        this.f48895g.addView(this.f48894f);
+                if (this.f47061f.getParent() != null) {
+                    if (this.f47061f.getParent() instanceof ViewGroup) {
+                        ((ViewGroup) this.f47061f.getParent()).removeView(this.f47061f);
+                        this.f47062g.addView(this.f47061f);
                         return;
                     }
                     return;
                 }
-                this.f48895g.addView(this.f48894f);
+                this.f47062g.addView(this.f47061f);
             }
         }
     }
@@ -149,7 +149,7 @@ public class PersonInfoMoreDialog extends Dialog {
     public void setWindowDimAmount(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f48896h = f2;
+            this.f47063h = f2;
         }
     }
 
@@ -172,8 +172,8 @@ public class PersonInfoMoreDialog extends Dialog {
                 return;
             }
         }
-        this.f48896h = 0.33f;
-        this.f48893e = context;
-        this.f48894f = view;
+        this.f47063h = 0.33f;
+        this.f47060e = context;
+        this.f47061f = view;
     }
 }

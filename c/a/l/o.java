@@ -33,7 +33,7 @@ public class o extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f4288e;
+        public final /* synthetic */ o f4208e;
 
         public a(o oVar) {
             Interceptable interceptable = $ic;
@@ -50,18 +50,18 @@ public class o extends h {
                     return;
                 }
             }
-            this.f4288e = oVar;
+            this.f4208e = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o oVar;
-            a.InterfaceC0184a interfaceC0184a;
+            a.InterfaceC0193a interfaceC0193a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0184a = (oVar = this.f4288e).f4214i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0193a = (oVar = this.f4208e).f4148i) == null) {
                 return;
             }
-            interfaceC0184a.a(oVar.m);
+            interfaceC0193a.a(oVar.m);
         }
     }
 
@@ -90,10 +90,10 @@ public class o extends h {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0186a c0186a) {
+        public boolean a(a.C0195a c0195a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0186a)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0195a)) == null) {
                 if (this.a.m != null && this.a.m.getThreadData() != null && !this.a.e().booleanValue()) {
                     c.a.t0.g0.m.a(this.a.m.getThreadData().g0());
                     c.a.t0.g0.m.l(this.a.l.mTitle, this.a.m.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
@@ -257,10 +257,10 @@ public class o extends h {
         }
     }
 
-    public void z(a.InterfaceC0184a interfaceC0184a) {
+    public void z(a.InterfaceC0193a interfaceC0193a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, interfaceC0184a) == null) {
-            this.f4214i = interfaceC0184a;
+        if (interceptable == null || interceptable.invokeL(1048592, this, interfaceC0193a) == null) {
+            this.f4148i = interfaceC0193a;
         }
     }
 }

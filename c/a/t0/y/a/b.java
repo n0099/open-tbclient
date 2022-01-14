@@ -34,41 +34,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements c.a.t0.y.a.g.b {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static String f26371j = "6021002119-1732188456";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static volatile boolean f26372k;
-    public static volatile a.h l;
+    public static String l = "6021002119-1732188456";
+    public static volatile boolean m;
+    public static volatile a.h n;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<ViewGroup> f26373b;
+    public WeakReference<ViewGroup> f25586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f26374c;
+    public ViewGroup f25587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameLayout f26375d;
+    public FrameLayout f25588d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f26376e;
+    public ViewGroup f25589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdLoadState f26377f;
+    public AdLoadState f25590f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.s0.l.a f26378g;
+    public c.a.s0.l.a f25591g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup.OnHierarchyChangeListener f26379h;
+    public ViewGroup.OnHierarchyChangeListener f25592h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final a.i f26380i;
+    public boolean f25593i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public long f25594j;
+    public final a.i k;
 
     /* loaded from: classes8.dex */
     public class a extends a.k {
@@ -102,8 +102,8 @@ public class b implements c.a.t0.y.a.g.b {
                     String str4 = "BEAR ad onAdClicked : " + str;
                 }
                 FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.CLICK_AD_RECORD, "a064", "0", null, null, null, null, null, null, null);
-                if (this.a.f26378g != null) {
-                    this.a.f26378g.a(false, false, 6, str2, str3);
+                if (this.a.f25591g != null) {
+                    this.a.f25591g.d(false, false, 6, str, str2, str3);
                 }
             }
         }
@@ -114,11 +114,11 @@ public class b implements c.a.t0.y.a.g.b {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_SPLASH_SKIP).param("obj_source", 6).param("obj_type", 1));
                 FunAdRecordHttpMessage.uploadSplashSkipRecord("1");
-                if (this.a.f26378g != null) {
-                    this.a.f26378g.onAdDismiss();
+                if (this.a.f25591g != null) {
+                    this.a.f25591g.onAdDismiss();
                 }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f26378g == null ? 0 : this.a.f26378g.hashCode()));
-                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 6).param("obj_type", "a064").param("obj_param1", 4).eventStat();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f25591g == null ? 0 : this.a.f25591g.hashCode()));
+                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 6).param("obj_type", "a064").param("obj_param1", 4).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("fid", this.a.f25594j).eventStat();
                 boolean z = c.a.t0.y.a.g.b.a;
             }
         }
@@ -130,10 +130,10 @@ public class b implements c.a.t0.y.a.g.b {
                 if (c.a.t0.y.a.g.b.a) {
                     String str2 = "BEAR ad onAdError : " + str;
                 }
-                c.a.t0.y.a.i.a.k(c.a.t0.y.a.i.a.f26426c, "1");
+                c.a.t0.y.a.i.a.j(c.a.t0.y.a.i.a.f25642c, "1", null, null, str, null, this.a.f25594j);
                 FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.SHOW_AD_RECORD, "a064", "1", null, null, null, null, null, null, null);
-                if (this.a.f26378g != null) {
-                    this.a.f26378g.onAdDismiss();
+                if (this.a.f25591g != null) {
+                    this.a.f25591g.onAdDismiss();
                 }
             }
         }
@@ -143,22 +143,22 @@ public class b implements c.a.t0.y.a.g.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
                 boolean z = c.a.t0.y.a.g.b.a;
-                this.a.f26378g.e(false, false, 6);
-                c.a.t0.y.a.i.a.l(c.a.t0.y.a.i.a.f26426c, "0", str2, str3);
+                this.a.f25591g.f(false, false, 6);
+                c.a.t0.y.a.i.a.j(c.a.t0.y.a.i.a.f25642c, "0", null, str2, str, str3, this.a.f25594j);
                 FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.SHOW_AD_RECORD, "a064", "0", null, null, null, null, null, null, null);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 0).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f26378g != null ? this.a.f26378g.hashCode() : 0));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 0).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f25591g != null ? this.a.f25591g.hashCode() : 0));
             }
         }
     }
 
     /* renamed from: c.a.t0.y.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1528b implements a.h {
+    public class C1544b implements a.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C1528b(b bVar) {
+        public C1544b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,15 +183,19 @@ public class b implements c.a.t0.y.a.g.b {
                 if (c.a.t0.y.a.g.b.a) {
                     String str2 = "BEAR ad onAdLoaded successed: " + str;
                 }
-                FunAdRecordHttpMessage.uploadRequestRecord("a064", "0", null, null, null);
-                c.a.t0.y.a.i.a.j(c.a.t0.y.a.i.a.f26426c, "0", i2);
-                if (c.a.t0.e1.a.i().m(str)) {
-                    this.a.f26377f = AdLoadState.SUCCEED;
-                } else {
-                    this.a.f26377f = AdLoadState.FAILED;
-                    ((ViewGroup) this.a.f26373b.get()).removeView(this.a.f26374c);
+                if (this.a.f25591g != null) {
+                    this.a.f25591g.e(c.a.t0.y.a.i.a.f25642c);
                 }
-                c.a.t0.y.a.g.a.c().i(this.a.f26378g);
+                FunAdRecordHttpMessage.uploadRequestRecord("a064", "0", null, null, null);
+                if (c.a.t0.e1.a.i().m(str)) {
+                    this.a.f25590f = AdLoadState.SUCCEED;
+                    c.a.t0.y.a.i.a.i(c.a.t0.y.a.i.a.f25642c, "0", null, 0, i2, this.a.f25593i, this.a.f25594j);
+                } else {
+                    this.a.f25590f = AdLoadState.FAILED;
+                    c.a.t0.y.a.i.a.i(c.a.t0.y.a.i.a.f25642c, "1", str, 2, i2, this.a.f25593i, this.a.f25594j);
+                    ((ViewGroup) this.a.f25586b.get()).removeView(this.a.f25587c);
+                }
+                c.a.t0.y.a.g.a.c().j(this.a.f25591g);
             }
         }
 
@@ -202,11 +206,14 @@ public class b implements c.a.t0.y.a.g.b {
                 if (c.a.t0.y.a.g.b.a) {
                     String str2 = "BEAR ad onLoadError: " + str;
                 }
+                if (this.a.f25591g != null) {
+                    this.a.f25591g.e(c.a.t0.y.a.i.a.f25642c);
+                }
                 FunAdRecordHttpMessage.uploadRequestRecord("a064", "1", null, null, "0");
-                c.a.t0.y.a.i.a.j(c.a.t0.y.a.i.a.f26426c, "1", 0);
-                this.a.f26377f = AdLoadState.FAILED;
-                ((ViewGroup) this.a.f26373b.get()).removeView(this.a.f26374c);
-                c.a.t0.y.a.g.a.c().i(this.a.f26378g);
+                c.a.t0.y.a.i.a.i(c.a.t0.y.a.i.a.f25642c, "1", str, 1, 0, this.a.f25593i, this.a.f25594j);
+                this.a.f25590f = AdLoadState.FAILED;
+                ((ViewGroup) this.a.f25586b.get()).removeView(this.a.f25587c);
+                c.a.t0.y.a.g.a.c().j(this.a.f25591g);
             }
         }
     }
@@ -223,10 +230,10 @@ public class b implements c.a.t0.y.a.g.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f26381e;
+            public final /* synthetic */ String f25595e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f26382f;
+            public final /* synthetic */ int f25596f;
 
             public a(c cVar, String str, int i2) {
                 Interceptable interceptable = $ic;
@@ -243,30 +250,30 @@ public class b implements c.a.t0.y.a.g.b {
                         return;
                     }
                 }
-                this.f26381e = str;
-                this.f26382f = i2;
+                this.f25595e = str;
+                this.f25596f = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || b.l == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || b.n == null) {
                     return;
                 }
-                b.l.a(this.f26381e, this.f26382f);
+                b.n.a(this.f25595e, this.f25596f);
             }
         }
 
         /* renamed from: c.a.t0.y.a.b$c$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC1529b implements Runnable {
+        public class RunnableC1545b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f26383e;
+            public final /* synthetic */ String f25597e;
 
-            public RunnableC1529b(c cVar, String str) {
+            public RunnableC1545b(c cVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -281,16 +288,16 @@ public class b implements c.a.t0.y.a.g.b {
                         return;
                     }
                 }
-                this.f26383e = str;
+                this.f25597e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || b.l == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || b.n == null) {
                     return;
                 }
-                b.l.onError(this.f26383e);
+                b.n.onError(this.f25597e);
             }
         }
 
@@ -316,13 +323,13 @@ public class b implements c.a.t0.y.a.g.b {
         public void a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                if (b.l == null) {
+                if (b.n == null) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("sid", str);
                     hashMap.put("loadSize", Integer.valueOf(i2));
                     c.a.t0.v.d.c().a(this.a.e(), "onAdLoaded", hashMap);
                 } else if (n.B()) {
-                    b.l.a(str, i2);
+                    b.n.a(str, i2);
                 } else {
                     e.a().post(new a(this, str, i2));
                 }
@@ -333,14 +340,14 @@ public class b implements c.a.t0.y.a.g.b {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (b.l == null) {
+                if (b.n == null) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("sid", str);
                     c.a.t0.v.d.c().a(this.a.e(), "onError", hashMap);
                 } else if (n.B()) {
-                    b.l.onError(str);
+                    b.n.onError(str);
                 } else {
-                    e.a().post(new RunnableC1529b(this, str));
+                    e.a().post(new RunnableC1545b(this, str));
                 }
             }
         }
@@ -352,7 +359,7 @@ public class b implements c.a.t0.y.a.g.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f26384e;
+        public final /* synthetic */ b f25598e;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -369,16 +376,16 @@ public class b implements c.a.t0.y.a.g.b {
                     return;
                 }
             }
-            this.f26384e = bVar;
+            this.f25598e = bVar;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewAdded(View view, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) || this.f26384e.f26376e == null || this.f26384e.f26376e.getVisibility() == 0) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) || this.f25598e.f25589e == null || this.f25598e.f25589e.getVisibility() == 0) {
                 return;
             }
-            this.f26384e.f26376e.setVisibility(0);
+            this.f25598e.f25589e.setVisibility(0);
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -417,27 +424,29 @@ public class b implements c.a.t0.y.a.g.b {
                 return;
             }
         }
-        this.f26377f = AdLoadState.INIT;
-        this.f26378g = null;
-        this.f26379h = null;
-        this.f26380i = new a(this);
-        int k2 = c.a.s0.s.g0.b.j().k("splash_bear_sid_type_key", 0);
-        if (c.a.s0.b.d.i()) {
-            f26371j = k2 == 1 ? "6021002538-255943035" : "6021002533-210422477";
+        this.f25590f = AdLoadState.INIT;
+        this.f25591g = null;
+        this.f25592h = null;
+        this.f25593i = false;
+        this.f25594j = -1L;
+        this.k = new a(this);
+        int l2 = c.a.s0.s.h0.b.k().l("splash_bear_sid_type_key", 0);
+        if (c.a.s0.b.d.h()) {
+            l = l2 == 1 ? "6021002538-255943035" : "6021002533-210422477";
         } else {
-            f26371j = k2 == 1 ? "6021002118-283136489" : "6021002119-1732188456";
+            l = l2 == 1 ? "6021002118-283136489" : "6021002119-1732188456";
         }
     }
 
-    public static void o(int i2) {
+    public static void q(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, null, i2) == null) {
-            if (c.a.s0.b.d.i()) {
-                f26371j = i2 == 1 ? "6021002538-255943035" : "6021002533-210422477";
+        if (interceptable == null || interceptable.invokeI(65546, null, i2) == null) {
+            if (c.a.s0.b.d.h()) {
+                l = i2 == 1 ? "6021002538-255943035" : "6021002533-210422477";
             } else {
-                f26371j = i2 == 1 ? "6021002118-283136489" : "6021002119-1732188456";
+                l = i2 == 1 ? "6021002118-283136489" : "6021002119-1732188456";
             }
-            c.a.s0.s.g0.b.j().v("splash_bear_sid_type_key", i2);
+            c.a.s0.s.h0.b.k().w("splash_bear_sid_type_key", i2);
         }
     }
 
@@ -447,10 +456,10 @@ public class b implements c.a.t0.y.a.g.b {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
             c.a.t0.e1.a i2 = c.a.t0.e1.a.i();
-            String str = f26371j;
+            String str = l;
             c cVar = new c(this);
             i2.n(context, str, cVar, c.a.t0.e1.a.b("spalsh", c.a.t0.y.a.g.a.c().b() + ""));
-            f26372k = true;
+            m = true;
         }
     }
 
@@ -459,7 +468,7 @@ public class b implements c.a.t0.y.a.g.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = this.f26375d;
+            FrameLayout frameLayout = this.f25588d;
             return frameLayout != null && frameLayout.getChildCount() > 0;
         }
         return invokeV.booleanValue;
@@ -469,7 +478,7 @@ public class b implements c.a.t0.y.a.g.b {
     public AdLoadState c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26377f : (AdLoadState) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25590f : (AdLoadState) invokeV.objValue;
     }
 
     @Override // c.a.t0.y.a.g.b
@@ -480,32 +489,33 @@ public class b implements c.a.t0.y.a.g.b {
             if (!(context instanceof Activity) || dVar.b() == null) {
                 return;
             }
-            this.f26373b = new WeakReference<>(dVar.b());
+            this.f25593i = dVar.d();
+            this.f25594j = dVar.c();
+            this.f25586b = new WeakReference<>(dVar.b());
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.splash_fun_layout, (ViewGroup) null, false);
-            this.f26374c = viewGroup;
+            this.f25587c = viewGroup;
             if (viewGroup == null) {
                 return;
             }
-            this.f26375d = (FrameLayout) viewGroup.findViewById(R.id.splash_fun_container);
-            l();
-            this.f26378g = dVar.a();
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(n.k(context), (int) (n.i(this.f26373b.get().getContext()) * 0.8125d));
+            this.f25588d = (FrameLayout) viewGroup.findViewById(R.id.splash_fun_container);
+            n();
+            this.f25591g = dVar.a();
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(n.k(context), (int) (n.i(this.f25586b.get().getContext()) * 0.8125d));
             layoutParams.addRule(14, -1);
-            this.f26373b.get().addView(this.f26374c, layoutParams);
+            this.f25586b.get().addView(this.f25587c, layoutParams);
             boolean z = c.a.t0.y.a.g.b.a;
-            l = new C1528b(this);
-            if (f26372k) {
-                n();
-                f26372k = false;
+            n = new C1544b(this);
+            if (m) {
+                p();
+                m = false;
             } else {
-                String str = f26371j;
-                a.h hVar = l;
+                String str = l;
+                a.h hVar = n;
                 c.a.t0.e1.a.i().n((Activity) context, str, hVar, c.a.t0.e1.a.b("spalsh", c.a.t0.y.a.g.a.c().b() + ""));
             }
-            if (this.f26377f == AdLoadState.INIT) {
-                this.f26377f = AdLoadState.LOADING;
+            if (this.f25590f == AdLoadState.INIT) {
+                this.f25590f = AdLoadState.LOADING;
             }
-            c.a.t0.y.a.i.a.i(c.a.t0.y.a.i.a.f26426c);
             FunAdRecordHttpMessage.uploadRequestRecord("a064", null, null, null, null);
         }
     }
@@ -514,8 +524,8 @@ public class b implements c.a.t0.y.a.g.b {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.t0.e1.a.i().d(f26371j);
-            l = null;
+            c.a.t0.e1.a.i().d(l);
+            n = null;
         }
     }
 
@@ -526,36 +536,36 @@ public class b implements c.a.t0.y.a.g.b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "bear" : (String) invokeV.objValue;
     }
 
-    public final void l() {
+    public final void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f26374c != null && FunAdSplashClickRegionSwitch.isOpen()) {
-            ViewGroup viewGroup = (ViewGroup) this.f26374c.findViewById(R.id.splash_fun_click_region);
-            this.f26376e = viewGroup;
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f26376e);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f25587c != null && FunAdSplashClickRegionSwitch.isOpen()) {
+            ViewGroup viewGroup = (ViewGroup) this.f25587c.findViewById(R.id.splash_fun_click_region);
+            this.f25589e = viewGroup;
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f25589e);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0608);
             c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d((TextView) viewGroup.findViewById(R.id.splash_fun_textview));
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0101);
-            WebPManager.setPureDrawable((ImageView) this.f26376e.findViewById(R.id.splash_fun_go), R.drawable.icon_pure_go, R.color.CAM_X0201, null);
+            WebPManager.setPureDrawable((ImageView) this.f25589e.findViewById(R.id.splash_fun_go), R.drawable.icon_pure_go, R.color.CAM_X0201, null);
         }
     }
 
-    public final void m() {
+    public final void o() {
         WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (weakReference = this.f26373b) == null || weakReference.get().getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (weakReference = this.f25586b) == null || weakReference.get().getParent() == null) {
             return;
         }
-        ViewGroup.LayoutParams layoutParams = this.f26373b.get().getLayoutParams();
-        layoutParams.width = n.k(this.f26373b.get().getContext());
-        layoutParams.height = (int) (n.i(this.f26373b.get().getContext()) * 0.8125d);
-        this.f26373b.get().setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams = this.f25586b.get().getLayoutParams();
+        layoutParams.width = n.k(this.f25586b.get().getContext());
+        layoutParams.height = (int) (n.i(this.f25586b.get().getContext()) * 0.8125d);
+        this.f25586b.get().setLayoutParams(layoutParams);
     }
 
-    public final void n() {
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || l == null || c.a.t0.v.d.c().d(e()).isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || n == null || c.a.t0.v.d.c().d(e()).isEmpty()) {
             return;
         }
         for (d.a aVar : c.a.t0.v.d.c().d(e())) {
@@ -570,32 +580,32 @@ public class b implements c.a.t0.y.a.g.b {
                 c2 = 1;
             }
             if (c2 == 0) {
-                l.a((String) aVar.f25158b.get("sid"), ((Integer) aVar.f25158b.get("loadSize")).intValue());
+                n.a((String) aVar.f24455b.get("sid"), ((Integer) aVar.f24455b.get("loadSize")).intValue());
             } else if (c2 == 1) {
-                l.onError((String) aVar.f25158b.get("sid"));
+                n.onError((String) aVar.f24455b.get("sid"));
             }
         }
         c.a.t0.v.d.c().b(e());
     }
 
-    public boolean p() {
+    public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f26374c != null && this.f26375d != null) {
-                if (this.f26379h == null) {
-                    this.f26379h = new d(this);
+            if (this.f25587c != null && this.f25588d != null) {
+                if (this.f25592h == null) {
+                    this.f25592h = new d(this);
                 }
-                this.f26375d.setOnHierarchyChangeListener(this.f26379h);
-                if (this.f26373b.get() != null) {
-                    Context context = this.f26373b.get().getContext();
+                this.f25588d.setOnHierarchyChangeListener(this.f25592h);
+                if (this.f25586b.get() != null) {
+                    Context context = this.f25586b.get().getContext();
                     if (context instanceof Activity) {
                         c.a.s0.s.b0.a.a("homePage", -1L, 0, "logo_splash", 0, "", "bear show");
                         if (c.a.t0.y.a.g.b.a) {
-                            String str = "BEAR ad showSplash: " + f26371j;
+                            String str = "BEAR ad showSplash: " + l;
                         }
-                        c.a.t0.e1.a.i().y((Activity) context, f26371j, this.f26375d, this.f26380i, c.a.t0.e1.a.b("spalsh", c.a.t0.y.a.g.a.c().b() + ""));
-                        SkinManager.setBackgroundColor(this.f26374c, R.color.CAM_X0101, 0);
+                        c.a.t0.e1.a.i().y((Activity) context, l, this.f25588d, this.k, c.a.t0.e1.a.b("spalsh", c.a.t0.y.a.g.a.c().b() + ""));
+                        SkinManager.setBackgroundColor(this.f25587c, R.color.CAM_X0101, 0);
                         return true;
                     }
                 }
@@ -608,14 +618,14 @@ public class b implements c.a.t0.y.a.g.b {
     @Override // c.a.t0.y.a.g.b
     public void show() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f26373b != null && this.f26377f == AdLoadState.SUCCEED) {
-            c.a.s0.l.a aVar = this.f26378g;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f25586b != null && this.f25590f == AdLoadState.SUCCEED) {
+            c.a.s0.l.a aVar = this.f25591g;
             if (aVar != null) {
-                aVar.d();
+                aVar.a(c.a.t0.y.a.i.a.f25642c);
             }
-            m();
-            this.f26377f = AdLoadState.SHOWED;
-            p();
+            o();
+            this.f25590f = AdLoadState.SHOWED;
+            r();
         }
     }
 }

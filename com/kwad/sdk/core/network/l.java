@@ -8,7 +8,7 @@ public class l {
     public static volatile l a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, String> f58101b = new ConcurrentHashMap();
+    public final Map<String, String> f55904b = new ConcurrentHashMap();
 
     public static l a() {
         if (a == null) {
@@ -22,13 +22,13 @@ public class l {
     }
 
     public String a(String str) {
-        return this.f58101b.get(str);
+        return this.f55904b.get(str);
     }
 
     public void a(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f58101b.put(str, str2);
+        this.f55904b.put(str, str2);
     }
 }

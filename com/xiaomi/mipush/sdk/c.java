@@ -38,13 +38,13 @@ public class c implements ee {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, hashMap) == null) {
             ie ieVar = new ie();
-            ieVar.b(ea.a(context).m336a());
+            ieVar.b(ea.a(context).m348a());
             ieVar.d(ea.a(context).b());
             ieVar.c(hp.I.f514a);
             ieVar.a(com.xiaomi.push.service.at.a());
             ieVar.f655a = hashMap;
-            an.a(context).a((an) ieVar, hf.f63551i, true, (hs) null, true);
-            com.xiaomi.channel.commonutils.logger.b.m122a("MoleInfo：\u3000send data in app layer");
+            an.a(context).a((an) ieVar, hf.f61166i, true, (hs) null, true);
+            com.xiaomi.channel.commonutils.logger.b.m134a("MoleInfo：\u3000send data in app layer");
         }
     }
 
@@ -53,7 +53,7 @@ public class c implements ee {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hashMap) == null) {
             MiTinyDataClient.upload("category_awake_app", "wake_up_app", 1L, dv.a(hashMap));
-            com.xiaomi.channel.commonutils.logger.b.m122a("MoleInfo：\u3000send data in app layer");
+            com.xiaomi.channel.commonutils.logger.b.m134a("MoleInfo：\u3000send data in app layer");
         }
     }
 
@@ -61,7 +61,7 @@ public class c implements ee {
     public void c(Context context, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, context, hashMap) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m122a("MoleInfo：\u3000" + dv.b(hashMap));
+            com.xiaomi.channel.commonutils.logger.b.m134a("MoleInfo：\u3000" + dv.b(hashMap));
             String str = hashMap.get("awake_info");
             if (String.valueOf(1007).equals(hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY))) {
                 o.a(context, str);

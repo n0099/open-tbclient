@@ -22,20 +22,20 @@ public class b implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f18349i;
+    public static final BdUniqueId f17898i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18350e;
+    public int f17899e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<a> f18351f;
+    public List<a> f17900f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18352g;
+    public String f17901g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18353h;
+    public String f17902h;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public class b implements n {
                 return;
             }
         }
-        f18349i = BdUniqueId.gen();
+        f17898i = BdUniqueId.gen();
     }
 
     public b() {
@@ -70,13 +70,13 @@ public class b implements n {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18350e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17899e : invokeV.intValue;
     }
 
     public List<a> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18351f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17900f : (List) invokeV.objValue;
     }
 
     public void e(Esport esport) {
@@ -84,18 +84,18 @@ public class b implements n {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, esport) == null) || esport == null) {
             return;
         }
-        this.f18350e = esport.floor_no.intValue();
+        this.f17899e = esport.floor_no.intValue();
         EsportStatic esportStatic = esport._static;
         if (esportStatic != null) {
-            this.f18352g = esportStatic.img;
-            this.f18353h = esportStatic.url;
+            this.f17901g = esportStatic.img;
+            this.f17902h = esportStatic.url;
         }
-        this.f18351f = new ArrayList();
-        if (!StringUtils.isNull(this.f18352g)) {
+        this.f17900f = new ArrayList();
+        if (!StringUtils.isNull(this.f17901g)) {
             a aVar = new a();
-            aVar.i(this.f18352g);
-            aVar.j(this.f18353h);
-            this.f18351f.add(aVar);
+            aVar.i(this.f17901g);
+            aVar.j(this.f17902h);
+            this.f17900f.add(aVar);
         }
         if (ListUtils.isEmpty(esport.billboard)) {
             return;
@@ -103,7 +103,7 @@ public class b implements n {
         for (EsportRank esportRank : esport.billboard) {
             a aVar2 = new a();
             aVar2.h(esportRank);
-            this.f18351f.add(aVar2);
+            this.f17900f.add(aVar2);
         }
     }
 
@@ -111,6 +111,6 @@ public class b implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f18349i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f17898i : (BdUniqueId) invokeV.objValue;
     }
 }

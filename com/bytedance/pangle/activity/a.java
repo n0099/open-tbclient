@@ -16,13 +16,13 @@ public final class a implements View.OnClickListener {
     public final Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f55042b;
+    public final String f52949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f55043c;
+    public final int f52950c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f55044d;
+    public Method f52951d;
 
     public a(@NonNull Activity activity, int i2, @NonNull String str) {
         Interceptable interceptable = $ic;
@@ -40,26 +40,26 @@ public final class a implements View.OnClickListener {
             }
         }
         this.a = activity;
-        this.f55042b = str;
-        this.f55043c = i2;
+        this.f52949b = str;
+        this.f52950c = i2;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(@NonNull View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            if (this.f55044d == null) {
+            if (this.f52951d == null) {
                 try {
-                    Method method = this.a.getClass().getMethod(this.f55042b, View.class);
+                    Method method = this.a.getClass().getMethod(this.f52949b, View.class);
                     if (method != null) {
-                        this.f55044d = method;
+                        this.f52951d = method;
                     }
                 } catch (NoSuchMethodException unused) {
                 }
-                throw new IllegalStateException("Could not find method " + this.f55042b + "(View) in a parent or ancestor Context for android:onClick attribute defined on view " + this.f55043c);
+                throw new IllegalStateException("Could not find method " + this.f52949b + "(View) in a parent or ancestor Context for android:onClick attribute defined on view " + this.f52950c);
             }
             try {
-                this.f55044d.invoke(this.a, view);
+                this.f52951d.invoke(this.a, view);
             } catch (IllegalAccessException e2) {
                 throw new IllegalStateException("Could not execute non-public method for android:onClick", e2);
             } catch (InvocationTargetException e3) {

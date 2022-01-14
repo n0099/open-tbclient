@@ -3,14 +3,14 @@ package com.baidu.nadcore.model;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.p.b;
-import c.a.c0.p.c;
-import c.a.c0.p.f;
-import c.a.c0.p.h;
-import c.a.c0.p.j;
-import c.a.c0.p.l;
-import c.a.c0.p.o;
-import c.a.c0.p.p;
+import c.a.c0.s.b;
+import c.a.c0.s.c;
+import c.a.c0.s.e;
+import c.a.c0.s.g;
+import c.a.c0.s.i;
+import c.a.c0.s.l;
+import c.a.c0.s.o;
+import c.a.c0.s.p;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,42 +26,40 @@ public class AdBaseModel {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38217b;
+    public boolean f37014b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f38218c;
+    public final boolean f37015c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f38219d;
+    public final i f37016d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f38220e;
+    public final b f37017e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public final AdOperator f38221f;
+    public final AdOperator f37018f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public final p f38222g;
+    public final p f37019g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final l f38223h;
+    public final l f37020h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final c f38224i;
+    public final c f37021i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public h f38225j;
+    public g f37022j;
     @Nullable
-
-    /* renamed from: k  reason: collision with root package name */
-    public f f38226k;
+    public e k;
     public o l;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -71,7 +69,10 @@ public class AdBaseModel {
         public static /* synthetic */ Interceptable $ic;
         public static final STYLE BIG_IMAGE;
         public static final STYLE FLOAT;
+        public static final STYLE MAX;
         public static final STYLE PORTRAIT_VIDEO;
+        public static final STYLE REWARD_VIDEO_LP;
+        public static final STYLE REWARD_VIDEO_LP_IMPL;
         public static final STYLE SMALL_IMAGE;
         public static final STYLE THREE_IMAGE;
         public static final STYLE VIDEO;
@@ -96,9 +97,12 @@ public class AdBaseModel {
             THREE_IMAGE = new STYLE("THREE_IMAGE", 2, "three_image");
             VIDEO = new STYLE("VIDEO", 3, "video");
             PORTRAIT_VIDEO = new STYLE("PORTRAIT_VIDEO", 4, "portrait_video");
-            STYLE style = new STYLE("FLOAT", 5, ShaderParams.VALUE_TYPE_FLOAT);
-            FLOAT = style;
-            $VALUES = new STYLE[]{BIG_IMAGE, SMALL_IMAGE, THREE_IMAGE, VIDEO, PORTRAIT_VIDEO, style};
+            FLOAT = new STYLE("FLOAT", 5, ShaderParams.VALUE_TYPE_FLOAT);
+            REWARD_VIDEO_LP = new STYLE("REWARD_VIDEO_LP", 6, "reward_video_lp");
+            REWARD_VIDEO_LP_IMPL = new STYLE("REWARD_VIDEO_LP_IMPL", 7, "reward_video_lp_impl");
+            STYLE style = new STYLE("MAX", 8, "max");
+            MAX = style;
+            $VALUES = new STYLE[]{BIG_IMAGE, SMALL_IMAGE, THREE_IMAGE, VIDEO, PORTRAIT_VIDEO, FLOAT, REWARD_VIDEO_LP, REWARD_VIDEO_LP_IMPL, style};
         }
 
         public STYLE(String str, int i2, String str2) {

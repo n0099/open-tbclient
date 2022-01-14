@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.net.Uri;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.o4.s;
+import c.a.t0.p4.s;
 import c.a.t0.z3.q;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -48,7 +48,7 @@ public class MainTabActivityStatic {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f50212b;
+    public static boolean f48320b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes12.dex */
@@ -370,11 +370,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                s.k(tbPageContext, "", forumWriteData);
+                                s.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                s.k(tbPageContext, str2, forumWriteData2);
+                                s.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));
@@ -562,11 +562,11 @@ public class MainTabActivityStatic {
         }
         int b2 = b(newsRemindMessage);
         boolean c2 = c(newsRemindMessage);
-        if (b2 == a && c2 == f50212b) {
+        if (b2 == a && c2 == f48320b) {
             return;
         }
         a = b2;
-        f50212b = c2;
+        f48320b = c2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
     }
 

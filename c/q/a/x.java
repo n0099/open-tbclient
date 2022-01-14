@@ -12,7 +12,7 @@ public class x implements ViewTreeObserver.OnGlobalFocusChangeListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ p0 f31496e;
+    public final /* synthetic */ p0 f30506e;
 
     public x(s0 s0Var, p0 p0Var) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class x implements ViewTreeObserver.OnGlobalFocusChangeListener {
                 return;
             }
         }
-        this.f31496e = p0Var;
+        this.f30506e = p0Var;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalFocusChangeListener
@@ -37,7 +37,7 @@ public class x implements ViewTreeObserver.OnGlobalFocusChangeListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) {
             String str = "onGlobalFocusChanged:" + view + ",newFocus:" + view2;
-            p0 p0Var = this.f31496e;
+            p0 p0Var = this.f30506e;
             if (p0Var != null) {
                 p0Var.b();
             }

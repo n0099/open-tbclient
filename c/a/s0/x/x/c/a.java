@@ -14,10 +14,10 @@ public class a {
     public final View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f14558b;
+    public boolean f14217b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f14559c;
+    public View f14218c;
 
     public a(View view) {
         Interceptable interceptable = $ic;
@@ -40,15 +40,15 @@ public class a {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f14558b = z;
+            this.f14217b = z;
             if (!z && this.a.getVisibility() == 4) {
                 this.a.setVisibility(8);
             }
-            if (z || this.f14559c == null) {
+            if (z || this.f14218c == null) {
                 return;
             }
             c();
-            this.f14559c = null;
+            this.f14218c = null;
         }
     }
 
@@ -58,7 +58,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, window) == null) || (currentFocus = window.getCurrentFocus()) == null) {
             return;
         }
-        if (this.f14558b) {
+        if (this.f14217b) {
             d(currentFocus);
         } else {
             currentFocus.clearFocus();
@@ -69,14 +69,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setVisibility(4);
-            c.a.s0.x.x.d.b.j(this.f14559c);
+            c.a.s0.x.x.d.b.j(this.f14218c);
         }
     }
 
     public final void d(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f14559c = view;
+            this.f14218c = view;
             view.clearFocus();
             this.a.setVisibility(8);
         }

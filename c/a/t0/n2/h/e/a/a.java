@@ -1,5 +1,5 @@
 package c.a.t0.n2.h.e.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a<E> {
     void onFail();
 

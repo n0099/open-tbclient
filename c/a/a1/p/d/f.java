@@ -18,34 +18,32 @@ public class f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1378b;
+    public int f1370b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1379c;
+    public int f1371c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1380d;
+    public int f1372d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f1381e;
+    public float f1373e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f1382f;
+    public float f1374f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.a1.p.f.a f1383g;
+    public c.a.a1.p.f.a f1375g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.f f1384h;
+    public a.f f1376h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a.b f1385i;
+    public a.b f1377i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a.e f1386j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.a1.p.g.b f1387k;
+    public a.e f1378j;
+    public c.a.a1.p.g.b k;
     public String l;
     public int m;
     public SurfaceTexture n;
@@ -72,11 +70,11 @@ public class f {
             }
         }
         this.a = RecordConstants.VIDEO_CONSTANT_WIDTH;
-        this.f1378b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
-        this.f1379c = RecordConstants.DEFAULT_BIT_RATE_GTE_API18;
-        this.f1380d = 1;
-        this.f1381e = 1.0f;
-        this.f1382f = 0.0f;
+        this.f1370b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+        this.f1371c = RecordConstants.DEFAULT_BIT_RATE_GTE_API18;
+        this.f1372d = 1;
+        this.f1373e = 1.0f;
+        this.f1374f = 0.0f;
         this.p = -100;
         this.s = false;
         this.t = 10000;
@@ -87,10 +85,10 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.a1.p.f.a aVar = this.f1383g;
+            c.a.a1.p.f.a aVar = this.f1375g;
             if (aVar != null) {
                 aVar.c();
-                this.f1383g.l(null);
+                this.f1375g.l(null);
             }
             return this.l;
         }
@@ -100,7 +98,7 @@ public class f {
     public void b(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f1382f = f2;
+            this.f1374f = f2;
         }
     }
 
@@ -120,7 +118,7 @@ public class f {
             this.o = RecordConstants.VIDEO_CONSTANT_WIDTH;
         }
         this.a = i2;
-        this.f1378b = i3;
+        this.f1370b = i3;
         if (i3 > i2) {
             int i4 = this.o;
             i3 = ((i3 * i4) / i2) - (((i4 * i3) / i2) % 16);
@@ -131,7 +129,7 @@ public class f {
             i3 = i5;
         }
         this.a = i2;
-        this.f1378b = i3;
+        this.f1370b = i3;
     }
 
     public void e(SurfaceTexture surfaceTexture) {
@@ -144,21 +142,21 @@ public class f {
     public void f(a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f1385i = bVar;
+            this.f1377i = bVar;
         }
     }
 
     public void g(a.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
-            this.f1386j = eVar;
+            this.f1378j = eVar;
         }
     }
 
     public void h(c.a.a1.p.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f1387k = bVar;
+            this.k = bVar;
         }
     }
 
@@ -175,19 +173,19 @@ public class f {
             this.l = str;
             try {
                 c.a.a1.p.f.a aVar = new c.a.a1.p.f.a();
-                this.f1383g = aVar;
-                aVar.d(this.f1381e);
-                this.f1383g.B(this.p);
-                if (this.f1382f != 0.0f) {
-                    this.f1383g.A(this.f1382f);
+                this.f1375g = aVar;
+                aVar.d(this.f1373e);
+                this.f1375g.B(this.p);
+                if (this.f1374f != 0.0f) {
+                    this.f1375g.A(this.f1374f);
                 }
-                this.f1383g.l(this.f1384h);
-                this.f1383g.i(this.f1385i);
-                this.f1383g.k(this.f1386j);
-                this.f1383g.r(this.q);
-                this.f1383g.E(this.r);
-                this.f1383g.I(this.s);
-                this.f1383g.s(this.v);
+                this.f1375g.l(this.f1376h);
+                this.f1375g.i(this.f1377i);
+                this.f1375g.k(this.f1378j);
+                this.f1375g.r(this.q);
+                this.f1375g.E(this.r);
+                this.f1375g.I(this.s);
+                this.f1375g.s(this.v);
             } catch (Throwable th) {
                 c.a.a1.t.c.c("VideoRecorder", th.toString());
             }
@@ -204,7 +202,7 @@ public class f {
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f1379c = i2;
+            this.f1371c = i2;
         }
     }
 
@@ -220,22 +218,22 @@ public class f {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.m++;
             try {
-                if (this.f1383g != null && this.f1383g.u(2)) {
+                if (this.f1375g != null && this.f1375g.u(2)) {
                     File file = new File(this.l);
                     if (!file.getParentFile().exists()) {
                         file.getParentFile().mkdirs();
                     }
-                    if (this.f1382f == 90.0f || this.f1382f == 270.0f) {
+                    if (this.f1374f == 90.0f || this.f1374f == 270.0f) {
                         int i2 = this.a;
-                        this.a = this.f1378b;
-                        this.f1378b = i2;
+                        this.a = this.f1370b;
+                        this.f1370b = i2;
                     }
-                    this.f1383g.j(new a.d(file, this.a, this.f1378b, this.f1379c, this.u, null, this.n.getTimestamp(), this.t));
+                    this.f1375g.j(new a.d(file, this.a, this.f1370b, this.f1371c, this.u, null, this.n.getTimestamp(), this.t));
                 }
-                if (this.f1383g == null || this.m % this.f1380d != 0 || this.f1387k == null) {
+                if (this.f1375g == null || this.m % this.f1372d != 0 || this.k == null) {
                     return;
                 }
-                this.f1387k.a(this.f1383g, this.n);
+                this.k.a(this.f1375g, this.n);
             } catch (Throwable th) {
                 c.a.a1.t.c.c("VideoRecorder", th.toString());
             }
@@ -267,7 +265,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            c.a.a1.p.f.a aVar = this.f1383g;
+            c.a.a1.p.f.a aVar = this.f1375g;
             if (aVar != null) {
                 return aVar.u(1);
             }
@@ -286,13 +284,13 @@ public class f {
     public void t(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
-            this.f1381e = f2;
+            this.f1373e = f2;
             if (Math.abs(f2 - 3.0f) < 0.01f) {
-                this.f1380d = 2;
+                this.f1372d = 2;
                 return;
             }
-            int i2 = (Math.abs(this.f1381e - 2.0f) > 0.01f ? 1 : (Math.abs(this.f1381e - 2.0f) == 0.01f ? 0 : -1));
-            this.f1380d = 1;
+            int i2 = (Math.abs(this.f1373e - 2.0f) > 0.01f ? 1 : (Math.abs(this.f1373e - 2.0f) == 0.01f ? 0 : -1));
+            this.f1372d = 1;
         }
     }
 }

@@ -16,7 +16,7 @@ public class e {
     public c.a.r0.a.l0.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f11279b;
+    public c f11029b;
 
     public e(c.a.r0.a.l0.c cVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class e {
             }
         }
         this.a = cVar;
-        this.f11279b = new c();
+        this.f11029b = new c();
     }
 
     @NonNull
@@ -42,8 +42,8 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f11279b.j();
-            c.a.r0.a.u2.d.f9668h.update();
+            this.f11029b.j();
+            c.a.r0.a.u2.d.f9459h.update();
             return c.a.r0.j.h0.f.d.i(null);
         }
         return (c.a.r0.j.h0.f.d) invokeV.objValue;
@@ -54,11 +54,11 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String[] n = this.f11279b.n();
+            String[] n = this.f11029b.n();
             c.a.r0.j.h0.f.c cVar = new c.a.r0.j.h0.f.c();
             cVar.keys = n;
-            cVar.currentSize = this.f11279b.m() / 1024;
-            cVar.limitSize = this.f11279b.s() / 1024;
+            cVar.currentSize = this.f11029b.m() / 1024;
+            cVar.limitSize = this.f11029b.s() / 1024;
             cVar.errMsg = c.a.r0.j.h0.f.a.b("getStorageInfoSync");
             return cVar;
         }
@@ -73,7 +73,7 @@ public class e {
             if (str == null) {
                 return c.a.r0.j.h0.f.d.b("parameter error: the key cannot be null.");
             }
-            String p = this.f11279b.p(str, null);
+            String p = this.f11029b.p(str, null);
             Object C = p != null ? this.a.C(Base64.decode(p, 2), true) : null;
             if (C == null) {
                 C = c.a.r0.j.h0.f.d.h();
@@ -99,8 +99,8 @@ public class e {
             if (str == null) {
                 return c.a.r0.j.h0.f.d.b("parameter error: the key cannot be null.");
             }
-            this.f11279b.u(str);
-            c.a.r0.a.u2.d.f9668h.update();
+            this.f11029b.u(str);
+            c.a.r0.a.u2.d.f9459h.update();
             return c.a.r0.j.h0.f.d.i(null);
         }
         return (c.a.r0.j.h0.f.d) invokeL.objValue;
@@ -123,13 +123,13 @@ public class e {
                     return c.a.r0.j.h0.f.d.b("parameter error: the data parse failed.");
                 }
                 String encodeToString = Base64.encodeToString(N, 2);
-                String p = this.f11279b.p(str, null);
+                String p = this.f11029b.p(str, null);
                 int length = str.getBytes().length;
-                if (this.f11279b.s() - this.f11279b.m() < (encodeToString.length() + length) - (p == null ? 0 : p.length() + length)) {
+                if (this.f11029b.s() - this.f11029b.m() < (encodeToString.length() + length) - (p == null ? 0 : p.length() + length)) {
                     return c.a.r0.j.h0.f.d.b("storage error: the storage space insufficient.");
                 }
-                boolean t = this.f11279b.t(str, encodeToString);
-                c.a.r0.a.u2.d.f9668h.update();
+                boolean t = this.f11029b.t(str, encodeToString);
+                c.a.r0.a.u2.d.f9459h.update();
                 return t ? c.a.r0.j.h0.f.d.i(null) : c.a.r0.j.h0.f.d.b("storage error: the storage is invalid.");
             }
         }

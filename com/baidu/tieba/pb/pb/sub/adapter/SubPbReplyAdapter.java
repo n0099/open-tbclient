@@ -33,10 +33,10 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f48608b;
+        public View f46793b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f48609c;
+        public int f46794c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SubPbReplyViewHolder(View view) {
@@ -56,27 +56,27 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
                     return;
                 }
             }
-            this.f48609c = 3;
+            this.f46794c = 3;
             this.a = (TextView) view.findViewById(i.floor_reply_text);
-            this.f48608b = view.findViewById(i.floor_reply_top_line);
+            this.f46793b = view.findViewById(i.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f48609c != TbadkApplication.getInst().getSkinType()) {
+                if (this.f46794c != TbadkApplication.getInst().getSkinType()) {
                     SkinManager.setViewTextColor(this.a, f.CAM_X0105);
-                    SkinManager.setBackgroundColor(this.f48608b, f.CAM_X0204);
+                    SkinManager.setBackgroundColor(this.f46793b, f.CAM_X0204);
                     SkinManager.setBackgroundColor(this.a, f.CAM_X0201);
                 }
-                this.f48609c = TbadkApplication.getInst().getSkinType();
+                this.f46794c = TbadkApplication.getInst().getSkinType();
             }
         }
 
         public void showTopLine(boolean z) {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (view = this.f48608b) == null) {
+            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (view = this.f46793b) == null) {
                 return;
             }
             view.setVisibility(z ? 0 : 8);
@@ -111,7 +111,7 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
     public SubPbReplyViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.f3299e).inflate(j.sub_pb_reply_num_layout, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.f3258e).inflate(j.sub_pb_reply_num_layout, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -123,8 +123,8 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, subPbReplyViewHolder})) == null) {
             String format = String.format(TbadkApplication.getInst().getString(l.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.a()));
             subPbReplyViewHolder.showTopLine(this.o);
-            ((SubPbReplyViewHolder) this.f3305k).a.setText(format);
-            ((SubPbReplyViewHolder) this.f3305k).onChangeSkinType();
+            ((SubPbReplyViewHolder) this.k).a.setText(format);
+            ((SubPbReplyViewHolder) this.k).onChangeSkinType();
             return subPbReplyViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

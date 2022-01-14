@@ -22,34 +22,32 @@ public class a {
     public DragLayer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f25628b;
+    public Context f24911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Vibrator f25629c;
+    public Vibrator f24912c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f25630d;
+    public d f24913d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f25631e;
+    public c f24914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f25632f;
+    public boolean f24915f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f25633g;
+    public float f24916g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f25634h;
+    public float f24917h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f25635i;
+    public b f24918i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Rect f25636j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public Rect f25637k;
+    public Rect f24919j;
+    public Rect k;
     public int l;
     public int m;
 
@@ -68,19 +66,19 @@ public class a {
                 return;
             }
         }
-        this.f25636j = new Rect();
-        this.f25628b = context;
-        this.f25629c = (Vibrator) context.getSystemService("vibrator");
-        this.f25634h = this.f25628b.getResources().getDisplayMetrics().density * 20.0f;
+        this.f24919j = new Rect();
+        this.f24911b = context;
+        this.f24912c = (Vibrator) context.getSystemService("vibrator");
+        this.f24917h = this.f24911b.getResources().getDisplayMetrics().density * 20.0f;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f25632f) {
-            this.f25632f = false;
-            this.f25635i = null;
-            this.f25630d.stopMove();
-            this.f25630d.onDrop();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f24915f) {
+            this.f24915f = false;
+            this.f24918i = null;
+            this.f24913d.stopMove();
+            this.f24913d.onDrop();
             this.a.destroyDragObject();
             this.a.invalidate();
         }
@@ -89,8 +87,8 @@ public class a {
     public final void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            bVar.f25642f = false;
-            bVar.f25643g = false;
+            bVar.f24924f = false;
+            bVar.f24925g = false;
             Rect rect = bVar.a;
             int width = rect.width();
             int width2 = this.a.getWidth();
@@ -107,13 +105,13 @@ public class a {
                 rect.right = i6;
                 rect.left = i6 - width;
             }
-            if (rect.left < this.l + this.f25634h) {
-                bVar.f25642f = true;
-                bVar.f25643g = false;
+            if (rect.left < this.l + this.f24917h) {
+                bVar.f24924f = true;
+                bVar.f24925g = false;
             }
-            if (rect.right > (this.l + i3) - this.f25634h) {
-                bVar.f25642f = false;
-                bVar.f25643g = true;
+            if (rect.right > (this.l + i3) - this.f24917h) {
+                bVar.f24924f = false;
+                bVar.f24925g = true;
             }
         }
     }
@@ -124,11 +122,11 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             int action = motionEvent.getAction() & 255;
             if (action == 0) {
-                this.f25633g = motionEvent.getX(0);
+                this.f24916g = motionEvent.getX(0);
             } else if (action == 1 || action == 3 || action == 4 || action == 6) {
                 a();
             }
-            return this.f25632f;
+            return this.f24915f;
         }
         return invokeL.booleanValue;
     }
@@ -143,13 +141,13 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (this.f25632f) {
-                if (this.f25637k == null) {
+            if (this.f24915f) {
+                if (this.k == null) {
                     Rect rect = new Rect();
-                    this.f25637k = rect;
+                    this.k = rect;
                     this.a.getDrawingRect(rect);
-                    Rect rect2 = this.f25637k;
-                    float f2 = this.f25634h;
+                    Rect rect2 = this.k;
+                    float f2 = this.f24917h;
                     rect2.top = (int) (rect2.top - f2);
                     rect2.bottom = (int) (rect2.bottom + f2);
                 }
@@ -158,9 +156,9 @@ public class a {
                     if (action != 1) {
                         if (action == 2) {
                             float x = motionEvent.getX(0);
-                            this.f25633g = x;
-                            this.f25635i.a.offset((int) (x - this.f25633g), 0);
-                            b(this.f25635i);
+                            this.f24916g = x;
+                            this.f24918i.a.offset((int) (x - this.f24916g), 0);
+                            b(this.f24918i);
                             i();
                         } else if (action != 3) {
                             if (action != 4) {
@@ -169,7 +167,7 @@ public class a {
                     }
                     a();
                 } else {
-                    this.f25633g = motionEvent.getX(0);
+                    this.f24916g = motionEvent.getX(0);
                 }
                 return true;
             }
@@ -191,7 +189,7 @@ public class a {
     public void f(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f25631e = cVar;
+            this.f24914e = cVar;
             cVar.setDragController(this);
         }
     }
@@ -199,7 +197,7 @@ public class a {
     public void g(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            this.f25630d = dVar;
+            this.f24913d = dVar;
         }
     }
 
@@ -208,39 +206,39 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, view, bundle) == null) || this.a == null || view == null || view.getDrawingCache() == null) {
             return;
         }
-        this.f25632f = true;
-        this.f25635i = new b(this.f25628b);
+        this.f24915f = true;
+        this.f24918i = new b(this.f24911b);
         Rect rect = new Rect();
         view.getDrawingRect(rect);
         this.a.offsetDescendantRectToMyCoords(view, rect);
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
-        this.f25635i.f25638b = Bitmap.createBitmap(view.getDrawingCache());
+        this.f24918i.f24920b = Bitmap.createBitmap(view.getDrawingCache());
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
-        b bVar = this.f25635i;
+        b bVar = this.f24918i;
         bVar.a = rect;
-        bVar.f25641e = bundle;
+        bVar.f24923e = bundle;
         view.setVisibility(4);
-        b(this.f25635i);
-        this.a.setDragObject(this.f25635i);
-        this.f25629c.vibrate(300L);
+        b(this.f24918i);
+        this.a.setDragObject(this.f24918i);
+        this.f24912c.vibrate(300L);
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f25636j.set(this.f25635i.a);
-            this.a.offsetRectIntoDescendantCoords((View) this.f25630d, this.f25636j);
-            this.f25630d.onSwap(this.f25636j);
+            this.f24919j.set(this.f24918i.a);
+            this.a.offsetRectIntoDescendantCoords((View) this.f24913d, this.f24919j);
+            this.f24913d.onSwap(this.f24919j);
             this.a.invalidate();
-            b bVar = this.f25635i;
-            if (bVar.f25642f) {
-                this.f25630d.moveLeft();
-            } else if (bVar.f25643g) {
-                this.f25630d.moveRight();
+            b bVar = this.f24918i;
+            if (bVar.f24924f) {
+                this.f24913d.moveLeft();
+            } else if (bVar.f24925g) {
+                this.f24913d.moveRight();
             } else {
-                this.f25630d.stopMove();
+                this.f24913d.stopMove();
             }
         }
     }

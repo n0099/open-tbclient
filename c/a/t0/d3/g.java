@@ -40,26 +40,24 @@ public class g extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonPostModel.c f17488e;
+    public PersonPostModel.c f17065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PersonPostModel f17489f;
+    public PersonPostModel f17066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f17490g;
+    public final String f17067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f17491h;
+    public BdUniqueId f17068h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f17492i;
+    public String f17069i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f17493j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final PersonPostModel.c f17494k;
-    public final a.InterfaceC1067a l;
+    public TbPageContext<BaseFragmentActivity> f17070j;
+    public final PersonPostModel.c k;
+    public final a.InterfaceC1081a l;
 
     /* loaded from: classes7.dex */
     public class a implements PersonPostModel.c {
@@ -67,7 +65,7 @@ public class g extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f17495e;
+        public final /* synthetic */ g f17071e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -84,7 +82,7 @@ public class g extends BaseAdapter {
                     return;
                 }
             }
-            this.f17495e = gVar;
+            this.f17071e = gVar;
         }
 
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
@@ -92,31 +90,31 @@ public class g extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) {
                 if (z) {
-                    this.f17495e.f17489f = personPostModel;
-                    Iterator<n> it = this.f17495e.f17489f.postList.iterator();
+                    this.f17071e.f17066f = personPostModel;
+                    Iterator<n> it = this.f17071e.f17066f.postList.iterator();
                     while (it.hasNext()) {
                         n next = it.next();
                         if (next != null && !(next instanceof PersonPostModel.PostInfoList)) {
                             it.remove();
                         }
                     }
-                } else if (this.f17495e.f17489f != null) {
+                } else if (this.f17071e.f17066f != null) {
                     for (int i2 = 0; i2 < personPostModel.postList.size(); i2++) {
                         if (personPostModel.postList.get(i2) instanceof PersonPostModel.PostInfoList) {
-                            this.f17495e.f17489f.postList.add(personPostModel.postList.get(i2));
+                            this.f17071e.f17066f.postList.add(personPostModel.postList.get(i2));
                         }
                     }
                 }
-                if (this.f17495e.f17488e != null) {
-                    this.f17495e.f17488e.onResult(personPostModel, z);
+                if (this.f17071e.f17065e != null) {
+                    this.f17071e.f17065e.onResult(personPostModel, z);
                 }
-                this.f17495e.notifyDataSetChanged();
+                this.f17071e.notifyDataSetChanged();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements a.InterfaceC1067a {
+    public class b implements a.InterfaceC1081a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g a;
@@ -139,24 +137,24 @@ public class g extends BaseAdapter {
             this.a = gVar;
         }
 
-        @Override // c.a.t0.d3.a.InterfaceC1067a
+        @Override // c.a.t0.d3.a.InterfaceC1081a
         public void a(View view) {
             String[] strArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int id = view.getId();
                 if (id == c.a.t0.y2.d.portrait) {
-                    ((BaseFragmentActivity) this.a.f17493j.getOrignalPage()).finish();
+                    ((BaseFragmentActivity) this.a.f17070j.getOrignalPage()).finish();
                 } else if (id == c.a.t0.y2.d.username) {
-                    ((BaseFragmentActivity) this.a.f17493j.getOrignalPage()).finish();
+                    ((BaseFragmentActivity) this.a.f17070j.getOrignalPage()).finish();
                 } else if ((id == c.a.t0.y2.d.item_header || id == c.a.t0.y2.d.original_post_title || id == c.a.t0.y2.d.item_footer || id == c.a.t0.y2.d.reply_count) && (strArr = (String[]) view.getTag()) != null) {
                     if (!"0".equals(strArr[2]) && strArr[1] != null) {
-                        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.a.f17493j.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
+                        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.a.f17070j.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
                         createSubPbActivityConfig.setKeyPageStartFrom(4);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
                         return;
                     }
-                    PbActivityConfig createNormalCfg = new PbActivityConfig(this.a.f17493j.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
+                    PbActivityConfig createNormalCfg = new PbActivityConfig(this.a.f17070j.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                     createNormalCfg.setStartFrom(4);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
                 }
@@ -172,7 +170,6 @@ public class g extends BaseAdapter {
         public ReplyLinearLayout v;
         public TextView w;
         public View x;
-        public View y;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(View view, TbPageContext<BaseFragmentActivity> tbPageContext) {
@@ -193,11 +190,15 @@ public class g extends BaseAdapter {
                     return;
                 }
             }
-            this.v = (ReplyLinearLayout) view.findViewById(c.a.t0.y2.d.content_container);
-            this.w = (TextView) view.findViewById(c.a.t0.y2.d.original_post_title);
-            this.x = view.findViewById(c.a.t0.y2.d.reply_top_line);
-            this.y = view.findViewById(c.a.t0.y2.d.reply_bottom_line);
-            this.w.setOnClickListener(this);
+            this.x = view.findViewById(c.a.t0.y2.d.person_child);
+            this.m.setIsRound(true);
+            ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view.findViewById(c.a.t0.y2.d.content_container);
+            this.v = replyLinearLayout;
+            replyLinearLayout.setPageContext(tbPageContext);
+            TextView textView = (TextView) view.findViewById(c.a.t0.y2.d.original_post_title);
+            this.w = textView;
+            textView.setOnClickListener(this);
+            this.f17060i.setVisibility(8);
         }
 
         @Override // c.a.t0.d3.a
@@ -205,10 +206,13 @@ public class g extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 super.a(i2);
-                SkinManager.setBackgroundResource(this.w, c.a.t0.y2.a.CAM_X0205);
-                SkinManager.setViewTextColor(this.w, c.a.t0.y2.a.CAM_X0105, 1);
-                SkinManager.setBackgroundResource(this.x, c.a.t0.y2.a.CAM_X0204);
-                SkinManager.setBackgroundResource(this.y, c.a.t0.y2.a.CAM_X0204);
+                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.w);
+                d2.v(c.a.t0.y2.a.CAM_X0107);
+                d2.n(c.a.t0.y2.g.J_X05);
+                d2.f(c.a.t0.y2.a.CAM_X0206);
+                c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.x);
+                d3.n(c.a.t0.y2.g.J_X05);
+                d3.f(c.a.t0.y2.a.CAM_X0201);
             }
         }
     }
@@ -228,17 +232,17 @@ public class g extends BaseAdapter {
                 return;
             }
         }
-        this.f17494k = new a(this);
+        this.k = new a(this);
         this.l = new b(this);
-        this.f17493j = tbPageContext;
-        this.f17490g = str;
-        this.f17491h = bdUniqueId;
+        this.f17070j = tbPageContext;
+        this.f17067g = str;
+        this.f17068h = bdUniqueId;
     }
 
     public void e() {
         PersonPostModel personPostModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (personPostModel = this.f17489f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (personPostModel = this.f17066f) == null) {
             return;
         }
         personPostModel.cancelLoadData();
@@ -247,12 +251,12 @@ public class g extends BaseAdapter {
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (this.f17489f == null) {
-                PersonPostModel personPostModel = new PersonPostModel(this.f17493j, this.f17491h, null, true, PersonPostModel.FROM_PERSON_POST);
-                this.f17489f = personPostModel;
-                personPostModel.setUniqueId(this.f17491h);
+            if (this.f17066f == null) {
+                PersonPostModel personPostModel = new PersonPostModel(this.f17070j, this.f17068h, null, true, PersonPostModel.FROM_PERSON_POST);
+                this.f17066f = personPostModel;
+                personPostModel.setUniqueId(this.f17068h);
             }
-            this.f17489f.fetchPost(this.f17493j, this.f17494k, z, this.f17490g, false, true, false, null);
+            this.f17066f.fetchPost(this.f17070j, this.k, z, this.f17067g, false, true, false, null);
         }
     }
 
@@ -260,10 +264,10 @@ public class g extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, cVar, viewGroup) == null) {
             PersonPostModel.PostInfoList h2 = h(i2);
-            if (this.f17492i == null) {
-                this.f17492i = h2.user_portrait;
+            if (this.f17069i == null) {
+                this.f17069i = h2.user_portrait;
             }
-            cVar.d(h2, false, this.f17492i);
+            cVar.d(h2, false, this.f17069i);
             ArrayList<String[]> arrayList = new ArrayList<>();
             int length = h2.content.length;
             for (int i3 = 0; i3 < length; i3++) {
@@ -279,6 +283,7 @@ public class g extends BaseAdapter {
                     arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(h2.thread_id), String.valueOf(h2.content[i3].post_id), String.valueOf(h2.content[i3].post_type), StringHelper.getFormatTime(h2.content[i3].create_time * 1000) + (h2.content[i3].is_author_view == 1 ? " " + viewGroup.getContext().getString(c.a.t0.y2.g.not_open_read) : ""), String.valueOf(h2.thread_type)});
                 }
             }
+            cVar.v.setPost(h2);
             cVar.v.setContent(arrayList);
             if (Pattern.compile("^回复：").matcher(h2.title).find()) {
                 cVar.w.setText(h2.title.replaceFirst("回复：", "原贴："));
@@ -286,8 +291,8 @@ public class g extends BaseAdapter {
                 cVar.w.setText(h2.title);
             }
             OriginalThreadInfo originalThreadInfo = h2.originalThreadInfo;
-            if (originalThreadInfo != null && !StringUtils.isNull(originalThreadInfo.f41550b)) {
-                cVar.w.setText("分享：" + h2.originalThreadInfo.f41550b);
+            if (originalThreadInfo != null && !StringUtils.isNull(originalThreadInfo.f40128b)) {
+                cVar.w.setText("分享：" + h2.originalThreadInfo.f40128b);
             }
             cVar.w.setTag(new String[]{String.valueOf(h2.thread_id), null, null, String.valueOf(h2.thread_type)});
             if (h2.thread_type == 33) {
@@ -310,7 +315,7 @@ public class g extends BaseAdapter {
         ArrayList<n> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            PersonPostModel personPostModel = this.f17489f;
+            PersonPostModel personPostModel = this.f17066f;
             if (personPostModel == null || (arrayList = personPostModel.postList) == null) {
                 return 0;
             }
@@ -347,7 +352,7 @@ public class g extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(c.a.t0.y2.e.person_post_item_reply, viewGroup, false);
-                cVar = new c(view, this.f17493j);
+                cVar = new c(view, this.f17070j);
                 view.setTag(cVar);
             } else {
                 cVar = (c) view.getTag();
@@ -366,13 +371,13 @@ public class g extends BaseAdapter {
     public PersonPostModel.PostInfoList h(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? (PersonPostModel.PostInfoList) this.f17489f.postList.get(i2) : (PersonPostModel.PostInfoList) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? (PersonPostModel.PostInfoList) this.f17066f.postList.get(i2) : (PersonPostModel.PostInfoList) invokeI.objValue;
     }
 
     public void i(PersonPostModel.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.f17488e = cVar;
+            this.f17065e = cVar;
         }
     }
 }

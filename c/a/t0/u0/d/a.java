@@ -12,7 +12,7 @@ public class a extends x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f24635h;
+    public boolean f23953h;
 
     public a(boolean z) {
         Interceptable interceptable = $ic;
@@ -30,12 +30,12 @@ public class a extends x {
             }
         }
         i(10);
-        this.f24635h = z;
+        this.f23953h = z;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24635h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23953h : invokeV.booleanValue;
     }
 }

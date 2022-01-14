@@ -48,16 +48,16 @@ public class InstallActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f41103e;
+        public String f39718e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f41104f;
+        public String f39719f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f41105g;
+        public String f39720g;
 
         /* renamed from: h  reason: collision with root package name */
-        public WeakReference<Activity> f41106h;
+        public WeakReference<Activity> f39721h;
 
         public /* synthetic */ b(Activity activity, String str, String str2, String str3, a aVar) {
             this(activity, str, str2, str3);
@@ -66,11 +66,11 @@ public class InstallActivity extends Activity {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f41103e) || TextUtils.isEmpty(this.f41104f)) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f39718e) || TextUtils.isEmpty(this.f39719f)) {
                 return;
             }
-            boolean handleInstallApp = InstallActivity.handleInstallApp(this.f41106h, this.f41103e, this.f41104f, this.f41105g);
-            Activity activity = this.f41106h.get();
+            boolean handleInstallApp = InstallActivity.handleInstallApp(this.f39721h, this.f39718e, this.f39719f, this.f39720g);
+            Activity activity = this.f39721h.get();
             if (handleInstallApp || activity == null || activity.isDestroyed() || activity.isFinishing()) {
                 return;
             }
@@ -92,10 +92,10 @@ public class InstallActivity extends Activity {
                     return;
                 }
             }
-            this.f41103e = str;
-            this.f41104f = str2;
-            this.f41105g = str3;
-            this.f41106h = new WeakReference<>(activity);
+            this.f39718e = str;
+            this.f39719f = str2;
+            this.f39720g = str3;
+            this.f39721h = new WeakReference<>(activity);
         }
     }
 

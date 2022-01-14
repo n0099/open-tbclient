@@ -1,7 +1,7 @@
 package com.baidu.nadcore.sweetsqlite;
 
-import c.a.c0.z.b;
-import c.a.c0.z.h;
+import c.a.c0.c0.b;
+import c.a.c0.c0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

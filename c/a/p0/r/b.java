@@ -14,7 +14,7 @@ public class b implements c.a.p0.n.a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f4861b;
+    public a f4756b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class b implements c.a.p0.n.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = this.f4861b;
-            return aVar.a(this.a, aVar.f4860c);
+            a aVar = this.f4756b;
+            return aVar.a(this.a, aVar.f4755c);
         }
         return (String) invokeV.objValue;
     }
@@ -47,24 +47,24 @@ public class b implements c.a.p0.n.a {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             this.a = context;
             a aVar = new a();
-            this.f4861b = aVar;
-            aVar.f4860c = null;
+            this.f4756b = aVar;
+            aVar.f4755c = null;
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                aVar.f4859b = cls;
+                aVar.f4754b = cls;
                 aVar.a = cls.newInstance();
             } catch (Throwable unused) {
             }
             try {
-                aVar.f4860c = aVar.f4859b.getMethod("getOAID", Context.class);
+                aVar.f4755c = aVar.f4754b.getMethod("getOAID", Context.class);
             } catch (Throwable unused2) {
             }
             try {
-                aVar.f4859b.getMethod("getVAID", Context.class);
+                aVar.f4754b.getMethod("getVAID", Context.class);
             } catch (Throwable unused3) {
             }
             try {
-                aVar.f4859b.getMethod("getAAID", Context.class);
+                aVar.f4754b.getMethod("getAAID", Context.class);
             } catch (Throwable unused4) {
             }
             if (bVar != null) {

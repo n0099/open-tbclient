@@ -31,6 +31,6 @@ public class a extends c.a {
         allocate.order(bVar.a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
         long j3 = j2 + (i2 * 8);
         this.a = fVar.c(allocate, j3);
-        this.f57526b = fVar.c(allocate, j3 + 4);
+        this.f55342b = fVar.c(allocate, j3 + 4);
     }
 }

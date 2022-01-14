@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,7 +102,7 @@ public final class CommonUtils implements INoProGuard {
             return false;
         }
         try {
-            if (!checkPermissionGranted(context, "android.permission.CALL_PHONE") && !checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") && !checkPermissionGranted(context, s.f57419c) && !checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+            if (!checkPermissionGranted(context, "android.permission.CALL_PHONE") && !checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") && !checkPermissionGranted(context, s.f55242c) && !checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
                 z = false;
                 if (Build.VERSION.SDK_INT < 16) {
                     if (!z) {
@@ -181,7 +182,7 @@ public final class CommonUtils implements INoProGuard {
                     long[] jArr = new long[length];
                     jArr[0] = 30;
                     jArr[1] = -30;
-                    method.invoke(null, "/proc/meminfo", sFiledsSysMemInfo, jArr);
+                    method.invoke(null, HardwareInfoUtils.MEM_INFO_FILE, sFiledsSysMemInfo, jArr);
                     for (int i2 = 0; i2 < length; i2++) {
                         hashMap.put(sFiledsSysMemInfo[i2], Long.valueOf(jArr[i2]));
                     }

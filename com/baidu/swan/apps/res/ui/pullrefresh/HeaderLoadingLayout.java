@@ -29,13 +29,11 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f40474i;
+    public RelativeLayout f39129i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f40475j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ProgressBar f40476k;
+    public ImageView f39130j;
+    public ProgressBar k;
     public TextView l;
     public TextView m;
     public TextView n;
@@ -66,10 +64,10 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f40474i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
-            this.f40475j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
+            this.f39129i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+            this.f39130j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
             this.l = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
-            this.f40476k = (ProgressBar) findViewById(f.pull_to_refresh_header_progressbar);
+            this.k = (ProgressBar) findViewById(f.pull_to_refresh_header_progressbar);
             this.m = (TextView) findViewById(f.pull_to_refresh_header_time);
             this.n = (TextView) findViewById(f.pull_to_refresh_last_update_time_text);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
@@ -95,7 +93,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RelativeLayout relativeLayout = this.f40474i;
+            RelativeLayout relativeLayout = this.f39129i;
             if (relativeLayout != null) {
                 return relativeLayout.getHeight();
             }
@@ -109,8 +107,8 @@ public class HeaderLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (ILoadingLayout$State.RELEASE_TO_REFRESH == getPreState()) {
-                this.f40475j.clearAnimation();
-                this.f40475j.startAnimation(this.p);
+                this.f39130j.clearAnimation();
+                this.f39130j.startAnimation(this.p);
             }
             this.l.setText(h.aiapps_pull_to_refresh_header_hint_normal);
         }
@@ -120,9 +118,9 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onRefreshing() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f40475j.clearAnimation();
-            this.f40475j.setVisibility(4);
-            this.f40476k.setVisibility(0);
+            this.f39130j.clearAnimation();
+            this.f39130j.setVisibility(4);
+            this.k.setVisibility(0);
             this.l.setText(h.aiapps_pull_to_refresh_header_hint_loading);
         }
     }
@@ -131,8 +129,8 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onReleaseToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f40475j.clearAnimation();
-            this.f40475j.startAnimation(this.o);
+            this.f39130j.clearAnimation();
+            this.f39130j.startAnimation(this.o);
             this.l.setText(h.aiapps_pull_to_refresh_header_hint_ready);
         }
     }
@@ -141,7 +139,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onReset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f40475j.clearAnimation();
+            this.f39130j.clearAnimation();
             this.l.setText(h.aiapps_pull_to_refresh_header_hint_normal);
         }
     }
@@ -150,8 +148,8 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onStateChanged(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
-            this.f40475j.setVisibility(0);
-            this.f40476k.setVisibility(4);
+            this.f39130j.setVisibility(0);
+            this.k.setVisibility(4);
             super.onStateChanged(iLoadingLayout$State, iLoadingLayout$State2);
         }
     }

@@ -24,10 +24,10 @@ public class a implements c {
     public c.a.t0.v.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f18999b;
+    public TbPageContext<BaseFragmentActivity> f18519b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<AdvertAppInfo, AdVideoFlowView> f19000c;
+    public Map<AdvertAppInfo, AdVideoFlowView> f18520c;
 
     public a(IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class a implements c {
         c.a.t0.v.e.a aVar2 = new c.a.t0.v.e.a(PlaceId.VIDEO_FLOW, "VIDEO_FLOW", aVar);
         this.a = aVar2;
         aVar2.f(false);
-        this.f19000c = new HashMap();
+        this.f18520c = new HashMap();
     }
 
     @Override // c.a.t0.j3.e0.c
     public void a(TbPageContext<BaseFragmentActivity> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.f18999b = tbPageContext;
+            this.f18519b = tbPageContext;
         }
     }
 
@@ -62,11 +62,11 @@ public class a implements c {
     public void b(AdvertAppInfo advertAppInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z) == null) {
-            AdVideoFlowView adVideoFlowView = this.f19000c.get(advertAppInfo);
+            AdVideoFlowView adVideoFlowView = this.f18520c.get(advertAppInfo);
             if (adVideoFlowView != null) {
                 adVideoFlowView.onPageSelected(z);
             }
-            for (AdVideoFlowView adVideoFlowView2 : this.f19000c.values()) {
+            for (AdVideoFlowView adVideoFlowView2 : this.f18520c.values()) {
                 if (adVideoFlowView2 != adVideoFlowView) {
                     adVideoFlowView2.onPageSelected(false);
                 }
@@ -80,15 +80,15 @@ public class a implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo)) == null) {
-            if (this.f18999b == null) {
+            if (this.f18519b == null) {
                 return null;
             }
-            AdVideoFlowView adVideoFlowView = this.f19000c.get(advertAppInfo);
+            AdVideoFlowView adVideoFlowView = this.f18520c.get(advertAppInfo);
             if (adVideoFlowView == null) {
-                adVideoFlowView = new AdVideoFlowView(this.f18999b.getPageActivity());
-                this.f19000c.put(advertAppInfo, adVideoFlowView);
+                adVideoFlowView = new AdVideoFlowView(this.f18519b.getPageActivity());
+                this.f18520c.put(advertAppInfo, adVideoFlowView);
             }
-            adVideoFlowView.setPageContext(this.f18999b);
+            adVideoFlowView.setPageContext(this.f18519b);
             adVideoFlowView.setData(advertAppInfo);
             return adVideoFlowView;
         }
@@ -107,7 +107,7 @@ public class a implements c {
     public void n(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, advertAppInfo) == null) {
-            this.f19000c.remove(advertAppInfo);
+            this.f18520c.remove(advertAppInfo);
         }
     }
 }

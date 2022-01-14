@@ -24,34 +24,32 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7447b;
+    public String f7283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7448c;
+    public String f7284c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7449d;
+    public String f7285d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7450e;
+    public String f7286e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7451f;
+    public String f7287f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7452g;
+    public String f7288g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f7453h;
+    public String f7289h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f7454i;
+    public boolean f7290i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f7455j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f7456k;
+    public String f7291j;
+    public int k;
     public int l;
     public String m;
     public int n;
@@ -93,16 +91,16 @@ public class a {
             }
         }
         this.a = "";
-        this.f7447b = "";
-        this.f7448c = "";
-        this.f7449d = "";
-        this.f7450e = "";
-        this.f7451f = "";
-        this.f7452g = "";
-        this.f7453h = "";
-        this.f7454i = false;
-        this.f7455j = "";
-        this.f7456k = 0;
+        this.f7283b = "";
+        this.f7284c = "";
+        this.f7285d = "";
+        this.f7286e = "";
+        this.f7287f = "";
+        this.f7288g = "";
+        this.f7289h = "";
+        this.f7290i = false;
+        this.f7291j = "";
+        this.k = 0;
         this.l = 0;
         this.m = "";
         this.q = false;
@@ -115,17 +113,17 @@ public class a {
             a aVar2 = new a();
             if (jSONObject != null) {
                 aVar2.a = jSONObject.optString("audioId", aVar.a);
-                aVar2.f7447b = jSONObject.optString("slaveId", aVar.f7447b);
-                aVar2.f7448c = jSONObject.optString("src", aVar.f7448c);
-                aVar2.q = e.L() != null && c.a.r0.a.o2.b.E(aVar2.f7448c);
-                aVar2.f7449d = jSONObject.optString("title", aVar.f7449d);
-                aVar2.f7450e = jSONObject.optString("epname", aVar.f7450e);
-                aVar2.f7451f = jSONObject.optString("singer", aVar.f7451f);
-                aVar2.f7452g = jSONObject.optString("coverImgUrl", aVar.f7452g);
-                aVar2.f7453h = jSONObject.optString("lrcURL", aVar.f7453h);
-                aVar2.f7454i = jSONObject.optBoolean("showFloatView", aVar.f7454i);
-                aVar2.f7455j = jSONObject.optString("floatPosition", aVar.f7455j);
-                aVar2.f7456k = jSONObject.optInt("startTime", aVar.f7456k);
+                aVar2.f7283b = jSONObject.optString("slaveId", aVar.f7283b);
+                aVar2.f7284c = jSONObject.optString("src", aVar.f7284c);
+                aVar2.q = e.L() != null && c.a.r0.a.o2.b.E(aVar2.f7284c);
+                aVar2.f7285d = jSONObject.optString("title", aVar.f7285d);
+                aVar2.f7286e = jSONObject.optString("epname", aVar.f7286e);
+                aVar2.f7287f = jSONObject.optString("singer", aVar.f7287f);
+                aVar2.f7288g = jSONObject.optString("coverImgUrl", aVar.f7288g);
+                aVar2.f7289h = jSONObject.optString("lrcURL", aVar.f7289h);
+                aVar2.f7290i = jSONObject.optBoolean("showFloatView", aVar.f7290i);
+                aVar2.f7291j = jSONObject.optString("floatPosition", aVar.f7291j);
+                aVar2.k = jSONObject.optInt("startTime", aVar.k);
                 aVar2.l = jSONObject.optInt("position", aVar.l);
                 aVar2.p = jSONObject.optString("cb", aVar.p);
                 aVar2.m = jSONObject.optString("param", aVar.m);
@@ -135,10 +133,10 @@ public class a {
                     aVar2.s = g0;
                 }
                 String b2 = d0.b();
-                if (!TextUtils.isEmpty(b2) && d0.c(aVar2.f7448c)) {
+                if (!TextUtils.isEmpty(b2) && d0.c(aVar2.f7284c)) {
                     aVar2.t = b2;
                 }
-                String j2 = c.a.r0.a.p2.b.l().j(aVar2.f7448c);
+                String j2 = c.a.r0.a.p2.b.l().j(aVar2.f7284c);
                 if (!TextUtils.isEmpty(j2)) {
                     aVar2.u = j2;
                     if (v) {
@@ -164,11 +162,11 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("src", str);
-                jSONObject.putOpt("title", this.f7449d);
-                jSONObject.putOpt("epname", this.f7450e);
-                jSONObject.putOpt("singer", this.f7451f);
-                jSONObject.putOpt("coverImgUrl", this.f7452g);
-                jSONObject.putOpt("lrcURL", this.f7453h);
+                jSONObject.putOpt("title", this.f7285d);
+                jSONObject.putOpt("epname", this.f7286e);
+                jSONObject.putOpt("singer", this.f7287f);
+                jSONObject.putOpt("coverImgUrl", this.f7288g);
+                jSONObject.putOpt("lrcURL", this.f7289h);
                 jSONObject.putOpt("isLocal", Boolean.valueOf(this.q));
                 jSONObject.putOpt("appid", e.f0());
                 jSONObject.putOpt("user-agent", this.s);
@@ -188,7 +186,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "AudioBGPlayerParams{ playerId=" + this.a + " slaveId=" + this.f7447b + " url=" + this.f7448c + " startTime=" + this.f7456k + " pos=" + this.l + " canPlay=" + this.r + " }";
+            return "AudioBGPlayerParams{ playerId=" + this.a + " slaveId=" + this.f7283b + " url=" + this.f7284c + " startTime=" + this.k + " pos=" + this.l + " canPlay=" + this.r + " }";
         }
         return (String) invokeV.objValue;
     }

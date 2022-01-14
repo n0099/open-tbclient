@@ -14,16 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends c.a.l.a<v1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public ConcernRecommendLayout f20791j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f20792k;
+    public ConcernRecommendLayout f20235j;
+    public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -43,18 +41,18 @@ public class a extends c.a.l.a<v1> {
                 return;
             }
         }
-        this.f20792k = 3;
+        this.k = 3;
         ConcernRecommendLayout concernRecommendLayout = new ConcernRecommendLayout(tbPageContext.getPageActivity());
-        this.f20791j = concernRecommendLayout;
+        this.f20235j = concernRecommendLayout;
         concernRecommendLayout.setPageContext(tbPageContext);
-        this.f20791j.setPageUniqueId(bdUniqueId);
+        this.f20235j.setPageUniqueId(bdUniqueId);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20791j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20235j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,14 +61,14 @@ public class a extends c.a.l.a<v1> {
     public void onBindDataToView(v1 v1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v1Var) == null) {
-            this.f20791j.setData(v1Var);
+            this.f20235j.setData(v1Var);
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f20791j.setHasBorder(z);
+            this.f20235j.setHasBorder(z);
         }
     }
 
@@ -78,18 +76,18 @@ public class a extends c.a.l.a<v1> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            if (this.f20792k != i2) {
-                this.f20791j.onChangeSkinType(tbPageContext, i2);
-                l(this.f20791j, 3);
+            if (this.k != i2) {
+                this.f20235j.onChangeSkinType(tbPageContext, i2);
+                l(this.f20235j, 3);
             }
-            this.f20792k = i2;
+            this.k = i2;
         }
     }
 
     public void p(f<MetaData> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.f20791j.setOnItemCoverListener(fVar);
+            this.f20235j.setOnItemCoverListener(fVar);
         }
     }
 }

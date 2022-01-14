@@ -26,34 +26,32 @@ public class b {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24687b;
+    public int f24003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24688c;
+    public int f24004c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f24689d;
+    public Context f24005d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.u0.m.a f24690e;
+    public c.a.t0.u0.m.a f24006e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f24691f;
+    public d f24007f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.t0.u0.m.e f24692g;
+    public c.a.t0.u0.m.e f24008g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f24693h;
+    public boolean f24009h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a.d f24694i;
+    public a.d f24010i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f24695j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public PopupWindow.OnDismissListener f24696k;
+    public View.OnClickListener f24011j;
+    public PopupWindow.OnDismissListener k;
 
     /* loaded from: classes8.dex */
     public class a implements a.d {
@@ -83,11 +81,11 @@ public class b {
         public void onItemClick(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.a.f24688c = i2;
+                this.a.f24004c = i2;
                 TiebaStatic.log(new StatisticItem("c13369").param("obj_type", i2 == 1 ? 2 : 1));
                 this.a.r();
-                if (this.a.f24691f != null) {
-                    this.a.f24691f.a(this.a.f24688c);
+                if (this.a.f24007f != null) {
+                    this.a.f24007f.a(this.a.f24004c);
                 }
             }
         }
@@ -95,14 +93,14 @@ public class b {
 
     /* renamed from: c.a.t0.u0.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1444b implements View.OnClickListener {
+    public class View$OnClickListenerC1459b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f24697e;
+        public final /* synthetic */ b f24012e;
 
-        public View$OnClickListenerC1444b(b bVar) {
+        public View$OnClickListenerC1459b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,31 +115,31 @@ public class b {
                     return;
                 }
             }
-            this.f24697e = bVar;
+            this.f24012e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f24697e.f24692g.r()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f24012e.f24008g.r()) {
                 return;
             }
-            if (view == this.f24697e.a) {
-                if (this.f24697e.f24690e == null) {
-                    this.f24697e.f24690e = new c.a.t0.u0.m.a(this.f24697e.f24689d);
-                    this.f24697e.f24690e.setOnDismissListener(this.f24697e.f24696k);
-                    this.f24697e.f24690e.l(this.f24697e.f24694i);
-                    this.f24697e.f24690e.m(this.f24697e.f24687b);
+            if (view == this.f24012e.a) {
+                if (this.f24012e.f24006e == null) {
+                    this.f24012e.f24006e = new c.a.t0.u0.m.a(this.f24012e.f24005d);
+                    this.f24012e.f24006e.setOnDismissListener(this.f24012e.k);
+                    this.f24012e.f24006e.l(this.f24012e.f24010i);
+                    this.f24012e.f24006e.m(this.f24012e.f24003b);
                 }
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new h(this.f24697e.f24689d.getString(R.string.level_sort), 1));
-                arrayList.add(new h(this.f24697e.f24689d.getString(R.string.update_sort), 2));
-                this.f24697e.f24690e.k(arrayList, this.f24697e.f24688c);
-                this.f24697e.f24690e.o(this.f24697e.a);
+                arrayList.add(new h(this.f24012e.f24005d.getString(R.string.level_sort), 1));
+                arrayList.add(new h(this.f24012e.f24005d.getString(R.string.update_sort), 2));
+                this.f24012e.f24006e.k(arrayList, this.f24012e.f24004c);
+                this.f24012e.f24006e.o(this.f24012e.a);
             }
-            this.f24697e.f24693h = true;
-            b bVar = this.f24697e;
-            bVar.s(bVar.f24693h);
+            this.f24012e.f24009h = true;
+            b bVar = this.f24012e;
+            bVar.s(bVar.f24009h);
         }
     }
 
@@ -151,7 +149,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f24698e;
+        public final /* synthetic */ b f24013e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -168,16 +166,16 @@ public class b {
                     return;
                 }
             }
-            this.f24698e = bVar;
+            this.f24013e = bVar;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f24698e.f24693h = false;
-                b bVar = this.f24698e;
-                bVar.s(bVar.f24693h);
+                this.f24013e.f24009h = false;
+                b bVar = this.f24013e;
+                bVar.s(bVar.f24009h);
             }
         }
     }
@@ -202,21 +200,21 @@ public class b {
                 return;
             }
         }
-        this.f24693h = false;
-        this.f24694i = new a(this);
-        this.f24695j = new View$OnClickListenerC1444b(this);
-        this.f24696k = new c(this);
-        this.f24689d = context;
-        this.f24688c = i2;
-        this.f24687b = i3;
-        this.f24692g = eVar;
+        this.f24009h = false;
+        this.f24010i = new a(this);
+        this.f24011j = new View$OnClickListenerC1459b(this);
+        this.k = new c(this);
+        this.f24005d = context;
+        this.f24004c = i2;
+        this.f24003b = i3;
+        this.f24008g = eVar;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f24688c;
+            int i2 = this.f24004c;
             return i2 == 1 || i2 == 2;
         }
         return invokeV.booleanValue;
@@ -225,7 +223,7 @@ public class b {
     public void p() {
         c.a.t0.u0.m.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f24690e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f24006e) == null) {
             return;
         }
         aVar.i();
@@ -237,11 +235,11 @@ public class b {
             if (o()) {
                 SkinManager.setViewTextColor(this.a, R.color.CAM_X0105, i2);
                 if (this.a != null) {
-                    s(this.f24693h);
+                    s(this.f24009h);
                 }
             }
-            c.a.t0.u0.m.a aVar = this.f24690e;
-            if (aVar == null || !this.f24693h) {
+            c.a.t0.u0.m.a aVar = this.f24006e;
+            if (aVar == null || !this.f24009h) {
                 return;
             }
             aVar.j();
@@ -252,14 +250,14 @@ public class b {
         TextView textView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && o() && (textView = this.a) != null) {
-            int i2 = this.f24688c;
+            int i2 = this.f24004c;
             if (i2 == 1) {
                 textView.setText(R.string.level_sort);
             } else if (i2 == 2) {
                 textView.setText(R.string.update_sort);
             }
-            this.a.setOnClickListener(this.f24695j);
-            s(this.f24693h);
+            this.a.setOnClickListener(this.f24011j);
+            s(this.f24009h);
         }
     }
 
@@ -267,10 +265,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             int i2 = z ? R.drawable.icon_pure_fold12_svg : R.drawable.icon_pure_unfold12_svg;
-            c.a.t0.u0.m.e eVar = this.f24692g;
+            c.a.t0.u0.m.e eVar = this.f24008g;
             c.a.t0.u0.d.c n = eVar != null ? eVar.n() : null;
             if (n != null && n.a) {
-                c.a.t0.u0.m.e eVar2 = this.f24692g;
+                c.a.t0.u0.m.e eVar2 = this.f24008g;
                 if (eVar2 != null && eVar2.t()) {
                     SkinManager.setViewTextColor(this.a, R.color.CAM_X0107);
                     this.a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(i2, R.color.CAM_X0108, null), (Drawable) null);
@@ -288,7 +286,7 @@ public class b {
     public void t(int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048581, this, i2) == null) && o()) {
-            this.f24688c = i2;
+            this.f24004c = i2;
             r();
         }
     }
@@ -296,7 +294,7 @@ public class b {
     public void u(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            this.f24691f = dVar;
+            this.f24007f = dVar;
         }
     }
 

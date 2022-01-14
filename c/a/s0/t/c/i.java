@@ -12,7 +12,7 @@ public class i {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14171b;
+    public int f13839b;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class i {
         }
         try {
             this.a = jSONObject.optInt("logined");
-            this.f14171b = jSONObject.optInt("unlogin");
+            this.f13839b = jSONObject.optInt("unlogin");
         } catch (Exception e2) {
             e2.printStackTrace();
         }

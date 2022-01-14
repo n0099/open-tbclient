@@ -16,19 +16,19 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26353b;
+    public int f25568b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f26354c;
+    public long f25569c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f26355d;
+    public int f25570d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26356e;
+    public String f25571e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26357f;
+    public String f25572f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class b {
                 return;
             }
         }
-        this.f26354c = 3000L;
+        this.f25569c = 3000L;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f26355d;
+            int i2 = this.f25570d;
             return i2 == 2 || i2 == 4;
         }
         return invokeV.booleanValue;
@@ -59,14 +59,14 @@ public class b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26355d == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25570d == 1 : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.f26355d;
+            int i2 = this.f25570d;
             return i2 == 3 || i2 == 4;
         }
         return invokeV.booleanValue;
@@ -81,9 +81,9 @@ public class b {
         jSONObject.optLong("update_time", 0L);
         jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, 0L);
         jSONObject.optLong("end_time", 0L);
-        this.f26355d = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE, 0);
-        this.f26353b = jSONObject.optInt("show_status", 0);
-        this.f26356e = jSONObject.optString("resource_url");
-        this.f26357f = jSONObject.optString("link_url");
+        this.f25570d = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE, 0);
+        this.f25568b = jSONObject.optInt("show_status", 0);
+        this.f25571e = jSONObject.optString("resource_url");
+        this.f25572f = jSONObject.optString("link_url");
     }
 }

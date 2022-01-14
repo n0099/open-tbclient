@@ -21,10 +21,10 @@ public class c0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f12648b;
+    public static final byte[] f12351b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c0 f12649c;
+    public static c0 f12352c;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener a;
 
@@ -78,7 +78,7 @@ public class c0 {
                 return;
             }
         }
-        f12648b = new byte[1];
+        f12351b = new byte[1];
     }
 
     public c0() {
@@ -101,14 +101,14 @@ public class c0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f12649c == null) {
-                synchronized (f12648b) {
-                    if (f12649c == null) {
-                        f12649c = new c0();
+            if (f12352c == null) {
+                synchronized (f12351b) {
+                    if (f12352c == null) {
+                        f12352c = new c0();
                     }
                 }
             }
-            return f12649c;
+            return f12352c;
         }
         return (c0) invokeV.objValue;
     }

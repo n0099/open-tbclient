@@ -21,38 +21,36 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f11349c = null;
+    public static d f11096c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f11350d = "banner_ad_close_btn_show_key";
+    public static String f11097d = "banner_ad_close_btn_show_key";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f11351e = "banner_ad_close_duration_key";
+    public static String f11098e = "banner_ad_close_duration_key";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f11352f = "gdt_banner_ad_app_id_key";
+    public static String f11099f = "gdt_banner_ad_app_id_key";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f11353g = "gdt_video_ad_app_id_key";
+    public static String f11100g = "gdt_video_ad_app_id_key";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f11354h = "gdt_banner_ad_id_key";
+    public static String f11101h = "gdt_banner_ad_id_key";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f11355i = "gdt_video_ad_id_key";
+    public static String f11102i = "gdt_video_ad_id_key";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f11356j = "gdt_video_ad_config_time";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static String f11357k = "video_interaction_optimization";
+    public static String f11103j = "gdt_video_ad_config_time";
+    public static String k = "video_interaction_optimization";
     public static String l = "video_request_optimization";
     public static String m = "first_request_optimization";
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11358b;
+    public long f11104b;
 
     /* loaded from: classes6.dex */
     public class a extends StringResponseCallback {
@@ -192,7 +190,7 @@ public class d {
                 return;
             }
         }
-        f11349c = new d();
+        f11096c = new d();
     }
 
     public d() {
@@ -212,7 +210,7 @@ public class d {
     public static d A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f11349c : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f11096c : (d) invokeV.objValue;
     }
 
     public boolean B() {
@@ -224,7 +222,7 @@ public class d {
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? h.a().getBoolean(f11357k, false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? h.a().getBoolean(k, false) : invokeV.booleanValue;
     }
 
     public void D() {
@@ -237,7 +235,7 @@ public class d {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f11358b = System.currentTimeMillis();
+            this.f11104b = System.currentTimeMillis();
         }
     }
 
@@ -274,7 +272,7 @@ public class d {
     public final void J(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            h.a().putBoolean(f11350d, "1".equals(str));
+            h.a().putBoolean(f11097d, "1".equals(str));
         }
     }
 
@@ -288,7 +286,7 @@ public class d {
     public final void L(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            h.a().putString(f11351e, str);
+            h.a().putString(f11098e, str);
         }
     }
 
@@ -302,35 +300,35 @@ public class d {
     public final void N(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            h.a().putString(f11354h, str);
+            h.a().putString(f11101h, str);
         }
     }
 
     public final void O(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            h.a().putLong(f11356j, j2);
+            h.a().putLong(f11103j, j2);
         }
     }
 
     public final void P(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            h.a().putString(f11355i, str);
+            h.a().putString(f11102i, str);
         }
     }
 
     public final void Q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            h.a().putString(f11352f, str);
+            h.a().putString(f11099f, str);
         }
     }
 
     public final void R(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            h.a().putString(f11353g, str);
+            h.a().putString(f11100g, str);
         }
     }
 
@@ -344,7 +342,7 @@ public class d {
     public void T(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            h.a().putBoolean(f11357k, z);
+            h.a().putBoolean(k, z);
         }
     }
 
@@ -357,7 +355,7 @@ public class d {
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f11358b != 0 && System.currentTimeMillis() - this.f11358b <= o() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f11104b != 0 && System.currentTimeMillis() - this.f11104b <= o() : invokeV.booleanValue;
     }
 
     public void m() {
@@ -390,7 +388,7 @@ public class d {
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? h.a().getBoolean(f11350d, true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? h.a().getBoolean(f11097d, true) : invokeV.booleanValue;
     }
 
     public final long r(String str) {
@@ -410,7 +408,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            String string = h.a().getString(f11351e, "1");
+            String string = h.a().getString(f11098e, "1");
             if (string != null) {
                 return Long.valueOf(string).longValue() * 60 * 60 * 1000;
             }
@@ -434,30 +432,30 @@ public class d {
     public String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? h.a().getString(f11354h, "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? h.a().getString(f11101h, "") : (String) invokeV.objValue;
     }
 
     public Long w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? Long.valueOf(h.a().getLong(f11356j, 0L)) : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? Long.valueOf(h.a().getLong(f11103j, 0L)) : (Long) invokeV.objValue;
     }
 
     public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? h.a().getString(f11355i, "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? h.a().getString(f11102i, "") : (String) invokeV.objValue;
     }
 
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? h.a().getString(f11352f, "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? h.a().getString(f11099f, "") : (String) invokeV.objValue;
     }
 
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? h.a().getString(f11353g, "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? h.a().getString(f11100g, "") : (String) invokeV.objValue;
     }
 }

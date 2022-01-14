@@ -25,13 +25,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKKeyframeAnimation extends TKBasicAnimation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<KeyFrame> keyframes;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class KeyFrame {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

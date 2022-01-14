@@ -25,16 +25,16 @@ public class LocalBannerLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CoverFlowLocalView<h> f44783e;
+    public CoverFlowLocalView<h> f43134e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d<h> f44784f;
+    public d<h> f43135f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<h> f44785g;
+    public List<h> f43136g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d<h> f44786h;
+    public d<h> f43137h;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.s0.s.w.b.b {
@@ -131,10 +131,10 @@ public class LocalBannerLayout extends RelativeLayout {
         @Override // c.a.s0.s.w.b.d
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || i2 < 0 || this.a.f44785g == null || i2 > this.a.f44785g.size() + 1 || this.a.f44784f == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || i2 < 0 || this.a.f43136g == null || i2 > this.a.f43136g.size() + 1 || this.a.f43135f == null) {
                 return;
             }
-            this.a.f44784f.b(i2, str);
+            this.a.f43135f.b(i2, str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -142,10 +142,10 @@ public class LocalBannerLayout extends RelativeLayout {
         /* renamed from: c */
         public void a(int i2, h hVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, hVar) == null) || i2 < 0 || this.a.f44785g == null || i2 > this.a.f44785g.size() + 1 || this.a.f44784f == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, hVar) == null) || i2 < 0 || this.a.f43136g == null || i2 > this.a.f43136g.size() + 1 || this.a.f43135f == null) {
                 return;
             }
-            this.a.f44784f.a(i2, hVar);
+            this.a.f43135f.a(i2, hVar);
         }
     }
 
@@ -173,31 +173,31 @@ public class LocalBannerLayout extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f44783e = new CoverFlowLocalView<>(getContext());
+            this.f43134e = new CoverFlowLocalView<>(getContext());
             a aVar = new a(this);
-            this.f44783e.setIndicatorNoOffet(false);
-            this.f44783e.setDisableParentEvent(false);
-            this.f44783e.setCoverFlowFactory(aVar);
-            this.f44783e.setIndicatorVisible(0);
-            this.f44783e.setIsAutoPlayDragging(false);
-            this.f44783e.setAutoPlay(false);
-            this.f44783e.setCallback(this.f44786h);
-            addView(this.f44783e);
+            this.f43134e.setIndicatorNoOffet(false);
+            this.f43134e.setDisableParentEvent(false);
+            this.f43134e.setCoverFlowFactory(aVar);
+            this.f43134e.setIndicatorVisible(0);
+            this.f43134e.setIsAutoPlayDragging(false);
+            this.f43134e.setAutoPlay(false);
+            this.f43134e.setCallback(this.f43137h);
+            addView(this.f43134e);
         }
     }
 
     public void setData(List<h> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f44785g = list;
-            this.f44783e.setData(list);
+            this.f43136g = list;
+            this.f43134e.setData(list);
         }
     }
 
     public void setOnCoverViewCallback(d<h> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f44784f = dVar;
+            this.f43135f = dVar;
         }
     }
 
@@ -241,7 +241,7 @@ public class LocalBannerLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f44786h = new b(this);
+        this.f43137h = new b(this);
         c();
     }
 }

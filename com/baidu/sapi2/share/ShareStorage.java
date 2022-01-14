@@ -494,7 +494,7 @@ public class ShareStorage {
             } catch (Exception e2) {
                 Log.e(ShareUtils.TAG, e2.getMessage());
             }
-            if (!SapiUtils.checkRequestPermission(s.f57425i, this.context)) {
+            if (!SapiUtils.checkRequestPermission(s.f55248i, this.context)) {
                 Log.d(ShareUtils.TAG, "getSd is not has READ_EXTERNAL_STORAGE permission");
                 return null;
             }

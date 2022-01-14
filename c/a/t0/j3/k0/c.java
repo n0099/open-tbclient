@@ -26,19 +26,19 @@ public class c implements c.a.t0.j3.e0.b {
     public final c.a.t0.v.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, AdvertAppInfo> f18939b;
+    public Map<String, AdvertAppInfo> f18465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f18940c;
+    public d f18466c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18941d;
+    public int f18467d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18942e;
+    public boolean f18468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f18943f;
+    public boolean f18469f;
 
     public c(IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
@@ -55,20 +55,20 @@ public class c implements c.a.t0.j3.e0.b {
                 return;
             }
         }
-        this.f18942e = true;
-        this.f18943f = false;
+        this.f18468e = true;
+        this.f18469f = false;
         c.a.t0.v.e.a aVar2 = new c.a.t0.v.e.a(PlaceId.PIC_PAGE_INSERT, "PIC_PAGE", aVar);
         this.a = aVar2;
         aVar2.f(false);
-        this.f18939b = new HashMap();
-        this.f18941d = c.a.t0.a.h().j();
+        this.f18465b = new HashMap();
+        this.f18467d = c.a.t0.a.h().j();
     }
 
     @Override // c.a.t0.j3.e0.b
     public void d(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, advertAppInfo) == null) {
-            this.f18939b.put(str, advertAppInfo);
+            this.f18465b.put(str, advertAppInfo);
         }
     }
 
@@ -77,7 +77,7 @@ public class c implements c.a.t0.j3.e0.b {
         InterceptResult invokeL;
         AdvertAppInfo advertAppInfo;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? (TextUtils.isEmpty(str) || (advertAppInfo = this.f18939b.get(str)) == null || c.a.t0.j3.a.n(advertAppInfo)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? (TextUtils.isEmpty(str) || (advertAppInfo = this.f18465b.get(str)) == null || c.a.t0.j3.a.n(advertAppInfo)) ? false : true : invokeL.booleanValue;
     }
 
     @Override // c.a.t0.j3.e0.b
@@ -87,7 +87,7 @@ public class c implements c.a.t0.j3.e0.b {
             HashMap hashMap = new HashMap();
             hashMap.put("forum_id", gVar.l);
             hashMap.put("forum_name", gVar.m);
-            this.a.d(this.f18941d, hashMap);
+            this.a.d(this.f18467d, hashMap);
         }
     }
 
@@ -96,9 +96,9 @@ public class c implements c.a.t0.j3.e0.b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            this.f18942e = z;
-            this.f18943f = z2;
-            return this.f18940c.b(this.f18939b.get(str), z, z2);
+            this.f18468e = z;
+            this.f18469f = z2;
+            return this.f18466c.b(this.f18465b.get(str), z, z2);
         }
         return (View) invokeCommon.objValue;
     }
@@ -109,10 +109,10 @@ public class c implements c.a.t0.j3.e0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int i2 = 0;
-            if (this.f18939b.isEmpty()) {
+            if (this.f18465b.isEmpty()) {
                 return 0;
             }
-            for (AdvertAppInfo advertAppInfo : this.f18939b.values()) {
+            for (AdvertAppInfo advertAppInfo : this.f18465b.values()) {
                 if (!c.a.t0.j3.a.n(advertAppInfo)) {
                     i2++;
                 }
@@ -126,7 +126,7 @@ public class c implements c.a.t0.j3.e0.b {
     public void i(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048581, this, tbPageContext, hVar, z) == null) {
-            this.f18940c = new d(tbPageContext, z, hVar);
+            this.f18466c = new d(tbPageContext, z, hVar);
         }
     }
 
@@ -134,17 +134,17 @@ public class c implements c.a.t0.j3.e0.b {
     public void k(@NonNull String str) {
         AdvertAppInfo advertAppInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (advertAppInfo = this.f18939b.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (advertAppInfo = this.f18465b.get(str)) == null) {
             return;
         }
         c.a.t0.j3.l0.d.q(advertAppInfo);
         c.a.t0.x1.o.h.c.g(c.a.t0.x1.o.h.c.e(advertAppInfo));
-        if (!this.f18943f && this.f18942e) {
-            this.f18940c.d();
+        if (!this.f18469f && this.f18468e) {
+            this.f18466c.d();
         } else {
-            this.f18940c.c();
+            this.f18466c.c();
         }
-        this.f18942e = false;
+        this.f18468e = false;
     }
 
     @Override // c.a.t0.j3.e0.b
@@ -159,7 +159,7 @@ public class c implements c.a.t0.j3.e0.b {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f18939b.clear();
+            this.f18465b.clear();
         }
     }
 
@@ -167,14 +167,14 @@ public class c implements c.a.t0.j3.e0.b {
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !this.f18939b.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !this.f18465b.isEmpty() : invokeV.booleanValue;
     }
 
     @Override // c.a.t0.j3.e0.b
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f18940c.e();
+            this.f18466c.e();
             this.a.b();
         }
     }
@@ -183,7 +183,7 @@ public class c implements c.a.t0.j3.e0.b {
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f18940c.f(this.f18939b.get(str));
+            this.f18466c.f(this.f18465b.get(str));
         }
     }
 }

@@ -30,10 +30,10 @@ public class g extends c.a.d.n.e.a<c.a.t0.a0.l.d.j, CardViewHolder<c.a.t0.a0.l.h
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.a0.l.d.j f15279e;
+        public final /* synthetic */ c.a.t0.a0.l.d.j f14901e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g f15280f;
+        public final /* synthetic */ g f14902f;
 
         public a(g gVar, c.a.t0.a0.l.d.j jVar) {
             Interceptable interceptable = $ic;
@@ -50,22 +50,22 @@ public class g extends c.a.d.n.e.a<c.a.t0.a0.l.d.j, CardViewHolder<c.a.t0.a0.l.h
                     return;
                 }
             }
-            this.f15280f = gVar;
-            this.f15279e = jVar;
+            this.f14902f = gVar;
+            this.f14901e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f15280f.b0(this.f15279e);
+                this.f14902f.b0(this.f14901e);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.j.f15315f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.j.f14936f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +91,7 @@ public class g extends c.a.d.n.e.a<c.a.t0.a0.l.d.j, CardViewHolder<c.a.t0.a0.l.h
             return;
         }
         aVar.v(8);
-        aVar.w(this.f3299e.getResources().getString(R.string.ala_person_live_my_fans_family));
+        aVar.w(this.f3258e.getResources().getString(R.string.ala_person_live_my_fans_family));
         aVar.l(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -101,7 +101,7 @@ public class g extends c.a.d.n.e.a<c.a.t0.a0.l.d.j, CardViewHolder<c.a.t0.a0.l.h
             return;
         }
         TiebaStatic.log("c13134");
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaFansFamilyActivityConfig(this.f3299e, jVar.g().b().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaFansFamilyActivityConfig(this.f3258e, jVar.g().b().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

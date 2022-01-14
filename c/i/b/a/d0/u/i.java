@@ -70,7 +70,7 @@ public class i extends a {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30115i + this.l : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29179i + this.l : invokeV.intValue;
     }
 
     @Override // c.i.b.a.d0.u.l
@@ -86,23 +86,23 @@ public class i extends a {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             c.i.b.a.h0.g b2 = this.a.b(this.o);
             try {
-                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f30085h, b2.f30588c, this.f30085h.a(b2));
+                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f29153h, b2.f29628c, this.f29153h.a(b2));
                 if (this.o == 0) {
                     b g2 = g();
                     g2.c(this.m);
                     this.n.d(g2);
                 }
-                c.i.b.a.a0.e eVar = this.n.f30086e;
+                c.i.b.a.a0.e eVar = this.n.f29154e;
                 int i2 = 0;
                 while (i2 == 0 && !this.p) {
                     i2 = eVar.e(bVar, null);
                 }
                 c.i.b.a.i0.a.f(i2 != 1);
-                this.o = (int) (bVar.getPosition() - this.a.f30588c);
-                v.h(this.f30085h);
+                this.o = (int) (bVar.getPosition() - this.a.f29628c);
+                v.h(this.f29153h);
                 this.q = true;
             } catch (Throwable th) {
-                v.h(this.f30085h);
+                v.h(this.f29153h);
                 throw th;
             }
         }

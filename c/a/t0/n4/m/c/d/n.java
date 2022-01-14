@@ -5,23 +5,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f20559b;
+    public float f20010b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20560c;
+    public int f20011c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20561d;
+    public int f20012d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<h> f20562e;
+    public List<h> f20013e;
 
     public n() {
         Interceptable interceptable = $ic;

@@ -14,13 +14,11 @@ public class w0<K> extends v0<K> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public transient long[] f31071i;
+    public transient long[] f30100i;
 
     /* renamed from: j  reason: collision with root package name */
-    public transient int f31072j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public transient int f31073k;
+    public transient int f30101j;
+    public transient int k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public w0(int i2) {
@@ -46,19 +44,19 @@ public class w0<K> extends v0<K> {
     public final int E(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (int) (this.f31071i[i2] >>> 32) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (int) (this.f30100i[i2] >>> 32) : invokeI.intValue;
     }
 
     public final int F(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (int) this.f31071i[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (int) this.f30100i[i2] : invokeI.intValue;
     }
 
     public final void G(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            long[] jArr = this.f31071i;
+            long[] jArr = this.f30100i;
             jArr[i2] = (jArr[i2] & 4294967295L) | (i3 << 32);
         }
     }
@@ -67,12 +65,12 @@ public class w0<K> extends v0<K> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             if (i2 == -2) {
-                this.f31072j = i3;
+                this.f30101j = i3;
             } else {
                 I(i2, i3);
             }
             if (i3 == -2) {
-                this.f31073k = i2;
+                this.k = i2;
             } else {
                 G(i3, i2);
             }
@@ -82,7 +80,7 @@ public class w0<K> extends v0<K> {
     public final void I(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            long[] jArr = this.f31071i;
+            long[] jArr = this.f30100i;
             jArr[i2] = (jArr[i2] & (-4294967296L)) | (i3 & 4294967295L);
         }
     }
@@ -92,8 +90,8 @@ public class w0<K> extends v0<K> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.a();
-            this.f31072j = -2;
-            this.f31073k = -2;
+            this.f30101j = -2;
+            this.k = -2;
         }
     }
 
@@ -102,7 +100,7 @@ public class w0<K> extends v0<K> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i2 = this.f31072j;
+            int i2 = this.f30101j;
             if (i2 == -2) {
                 return -1;
             }
@@ -116,20 +114,20 @@ public class w0<K> extends v0<K> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
             super.n(i2, f2);
-            this.f31072j = -2;
-            this.f31073k = -2;
+            this.f30101j = -2;
+            this.k = -2;
             long[] jArr = new long[i2];
-            this.f31071i = jArr;
+            this.f30100i = jArr;
             Arrays.fill(jArr, -1L);
         }
     }
 
     @Override // c.i.d.c.v0
-    public void o(int i2, K k2, int i3, int i4) {
+    public void o(int i2, K k, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), k2, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.o(i2, k2, i3, i4);
-            H(this.f31073k, i2);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), k, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.o(i2, k, i3, i4);
+            H(this.k, i2);
             H(i2, -2);
         }
     }
@@ -174,10 +172,10 @@ public class w0<K> extends v0<K> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             super.y(i2);
-            long[] jArr = this.f31071i;
+            long[] jArr = this.f30100i;
             int length = jArr.length;
             long[] copyOf = Arrays.copyOf(jArr, i2);
-            this.f31071i = copyOf;
+            this.f30100i = copyOf;
             Arrays.fill(copyOf, length, i2, -1L);
         }
     }

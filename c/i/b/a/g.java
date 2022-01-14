@@ -20,10 +20,10 @@ public interface g extends q {
         public final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30566b;
+        public final int f29607b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Object f30567c;
+        public final Object f29608c;
 
         public b(a aVar, int i2, Object obj) {
             Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public interface g extends q {
                 }
             }
             this.a = aVar;
-            this.f30566b = i2;
-            this.f30567c = obj;
+            this.f29607b = i2;
+            this.f29608c = obj;
         }
     }
 

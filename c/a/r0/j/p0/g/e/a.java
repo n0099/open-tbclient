@@ -13,7 +13,7 @@ public class a {
     public RecommendItemModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendItemModel> f11456b;
+    public List<RecommendItemModel> f11199b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -45,6 +45,6 @@ public class a {
             }
         }
         this.a = recommendItemModel;
-        this.f11456b = list;
+        this.f11199b = list;
     }
 }

@@ -19,18 +19,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f16641b;
+    public static a f16350b;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsLinkHashMap<String, Long> a;
 
     /* renamed from: c.a.t0.d1.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1022a extends BdAsyncTask<Void, Void, Void> {
+    public class C1045a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1022a(a aVar) {
+        public C1045a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,14 +134,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f16641b == null) {
+            if (f16350b == null) {
                 synchronized (a.class) {
-                    if (f16641b == null) {
-                        f16641b = new a();
+                    if (f16350b == null) {
+                        f16350b = new a();
                     }
                 }
             }
-            return f16641b;
+            return f16350b;
         }
         return (a) invokeV.objValue;
     }
@@ -183,9 +183,9 @@ public class a {
     public final void e(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
-            C1022a c1022a = new C1022a(this);
-            c1022a.setPriority(3);
-            c1022a.execute(new Void[0]);
+            C1045a c1045a = new C1045a(this);
+            c1045a.setPriority(3);
+            c1045a.execute(new Void[0]);
         }
     }
 

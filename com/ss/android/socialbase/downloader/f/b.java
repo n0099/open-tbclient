@@ -6,66 +6,64 @@ public class b implements c, d, e {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f62354b;
+    public final int f60004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f62355c = new Object();
+    public final Object f60005c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f62356d = new Object();
+    public final Object f60006d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public a f62357e;
+    public a f60007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f62358f;
+    public a f60008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f62359g;
+    public a f60009g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f62360h;
+    public a f60010h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f62361i;
+    public a f60011i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f62362j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f62363k;
+    public volatile boolean f60012j;
+    public int k;
 
     public b(int i2, int i3) {
         i2 = i2 < 64 ? 64 : i2;
         i3 = i3 < 8192 ? 8192 : i3;
         this.a = i2;
-        this.f62354b = i3;
+        this.f60004b = i3;
     }
 
     @Override // com.ss.android.socialbase.downloader.f.d
     @NonNull
     public a a() throws p, InterruptedException {
         a aVar;
-        a aVar2 = this.f62361i;
+        a aVar2 = this.f60011i;
         if (aVar2 != null) {
-            this.f62361i = aVar2.f62353d;
-            aVar2.f62353d = null;
+            this.f60011i = aVar2.f60003d;
+            aVar2.f60003d = null;
             return aVar2;
         }
-        synchronized (this.f62356d) {
-            aVar = this.f62359g;
+        synchronized (this.f60006d) {
+            aVar = this.f60009g;
             while (aVar == null) {
-                if (!this.f62362j) {
-                    this.f62356d.wait();
-                    aVar = this.f62359g;
+                if (!this.f60012j) {
+                    this.f60006d.wait();
+                    aVar = this.f60009g;
                 } else {
                     throw new p("read");
                 }
             }
-            this.f62361i = aVar.f62353d;
-            this.f62360h = null;
-            this.f62359g = null;
-            aVar.f62353d = null;
+            this.f60011i = aVar.f60003d;
+            this.f60010h = null;
+            this.f60009g = null;
+            aVar.f60003d = null;
         }
         return aVar;
     }
@@ -73,28 +71,28 @@ public class b implements c, d, e {
     @Override // com.ss.android.socialbase.downloader.f.c
     @NonNull
     public a b() throws p, InterruptedException {
-        synchronized (this.f62355c) {
-            if (!this.f62362j) {
-                a aVar = this.f62357e;
+        synchronized (this.f60005c) {
+            if (!this.f60012j) {
+                a aVar = this.f60007e;
                 if (aVar == null) {
-                    if (this.f62363k < this.a) {
-                        this.f62363k++;
-                        return new a(this.f62354b);
+                    if (this.k < this.a) {
+                        this.k++;
+                        return new a(this.f60004b);
                     }
                     do {
-                        this.f62355c.wait();
-                        if (!this.f62362j) {
-                            aVar = this.f62357e;
+                        this.f60005c.wait();
+                        if (!this.f60012j) {
+                            aVar = this.f60007e;
                         } else {
                             throw new p("obtain");
                         }
                     } while (aVar == null);
                 }
-                this.f62357e = aVar.f62353d;
-                if (aVar == this.f62358f) {
-                    this.f62358f = null;
+                this.f60007e = aVar.f60003d;
+                if (aVar == this.f60008f) {
+                    this.f60008f = null;
                 }
-                aVar.f62353d = null;
+                aVar.f60003d = null;
                 return aVar;
             }
             throw new p("obtain");
@@ -102,41 +100,41 @@ public class b implements c, d, e {
     }
 
     public void c() {
-        this.f62362j = true;
-        synchronized (this.f62355c) {
-            this.f62355c.notifyAll();
+        this.f60012j = true;
+        synchronized (this.f60005c) {
+            this.f60005c.notifyAll();
         }
-        synchronized (this.f62356d) {
-            this.f62356d.notifyAll();
+        synchronized (this.f60006d) {
+            this.f60006d.notifyAll();
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.f.c
     public void a(@NonNull a aVar) {
-        synchronized (this.f62355c) {
-            a aVar2 = this.f62358f;
+        synchronized (this.f60005c) {
+            a aVar2 = this.f60008f;
             if (aVar2 == null) {
-                this.f62358f = aVar;
-                this.f62357e = aVar;
+                this.f60008f = aVar;
+                this.f60007e = aVar;
             } else {
-                aVar2.f62353d = aVar;
-                this.f62358f = aVar;
+                aVar2.f60003d = aVar;
+                this.f60008f = aVar;
             }
-            this.f62355c.notify();
+            this.f60005c.notify();
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.f.e
     public void b(@NonNull a aVar) {
-        synchronized (this.f62356d) {
-            a aVar2 = this.f62360h;
+        synchronized (this.f60006d) {
+            a aVar2 = this.f60010h;
             if (aVar2 == null) {
-                this.f62360h = aVar;
-                this.f62359g = aVar;
-                this.f62356d.notify();
+                this.f60010h = aVar;
+                this.f60009g = aVar;
+                this.f60006d.notify();
             } else {
-                aVar2.f62353d = aVar;
-                this.f62360h = aVar;
+                aVar2.f60003d = aVar;
+                this.f60010h = aVar;
             }
         }
     }

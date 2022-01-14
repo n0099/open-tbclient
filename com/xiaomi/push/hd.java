@@ -96,7 +96,7 @@ public class hd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, he> m423a() {
+    public Map<String, he> m435a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f475a : (Map) invokeV.objValue;
@@ -110,7 +110,7 @@ public class hd {
             } else if (TextUtils.isEmpty(str)) {
                 com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
             } else {
-                m423a().put(str, heVar);
+                m435a().put(str, heVar);
             }
         }
     }
@@ -120,7 +120,7 @@ public class hd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, hjVar, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m122a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+                com.xiaomi.channel.commonutils.logger.b.m134a("pkgName is null or empty, upload ClientUploadDataItem failed.");
                 return false;
             } else if (com.xiaomi.push.service.bm.a(hjVar, false)) {
                 return false;

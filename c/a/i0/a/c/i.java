@@ -33,7 +33,7 @@ public final class i {
     public static Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.a.c0.e.a.b() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.a.c0.h.a.b() : (Context) invokeV.objValue;
     }
 
     public static float b(String str, float f2) {

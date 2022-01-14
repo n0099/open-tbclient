@@ -66,43 +66,41 @@ public class a implements c.a.s0.g1.e.c {
     public k a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f12834b;
+    public Point f12529b;
     public m b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f12835c;
+    public Point f12530c;
     public l c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12836d;
+    public int f12531d;
     public h d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12837e;
+    public boolean f12532e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public DataSetObserver f12838f;
+    public DataSetObserver f12533f;
     public float f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f12839g;
+    public float f12534g;
     public ListView g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f12840h;
+    public float f12535h;
     public c.a.s0.g1.e.d h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12841i;
+    public int f12536i;
     public c.a.s0.g1.e.b i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f12842j;
+    public int f12537j;
     public boolean j0;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f12843k;
+    public int k;
     public boolean l;
     public int m;
     public int n;
@@ -121,12 +119,12 @@ public class a implements c.a.s0.g1.e.c {
 
     /* renamed from: c.a.s0.g1.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0824a implements e {
+    public class C0834a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0824a(a aVar) {
+        public C0834a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,19 +204,19 @@ public class a implements c.a.s0.g1.e.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public ListAdapter f12844e;
+        public ListAdapter f12538e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f12845f;
+        public final /* synthetic */ a f12539f;
 
         /* renamed from: c.a.s0.g1.e.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0825a extends DataSetObserver {
+        public class C0835a extends DataSetObserver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
 
-            public C0825a(c cVar, a aVar) {
+            public C0835a(c cVar, a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -268,44 +266,44 @@ public class a implements c.a.s0.g1.e.c {
                     return;
                 }
             }
-            this.f12845f = aVar;
-            this.f12844e = listAdapter;
-            listAdapter.registerDataSetObserver(new C0825a(this, aVar));
+            this.f12539f = aVar;
+            this.f12538e = listAdapter;
+            listAdapter.registerDataSetObserver(new C0835a(this, aVar));
         }
 
         @Override // android.widget.BaseAdapter, android.widget.ListAdapter
         public boolean areAllItemsEnabled() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12844e.areAllItemsEnabled() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12538e.areAllItemsEnabled() : invokeV.booleanValue;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12844e.getCount() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12538e.getCount() : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f12844e.getItem(i2) : invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f12538e.getItem(i2) : invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
         public long getItemId(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f12844e.getItemId(i2) : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f12538e.getItemId(i2) : invokeI.longValue;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public int getItemViewType(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f12844e.getItemViewType(i2) : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f12538e.getItemViewType(i2) : invokeI.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -318,7 +316,7 @@ public class a implements c.a.s0.g1.e.c {
                 if (view != null) {
                     dragSortItemView2 = (DragSortItemView) view;
                     View childAt = dragSortItemView2.getChildAt(0);
-                    View view2 = this.f12844e.getView(i2, childAt, this.f12845f.g0);
+                    View view2 = this.f12538e.getView(i2, childAt, this.f12539f.g0);
                     if (view2 != childAt) {
                         if (childAt != null) {
                             dragSortItemView2.removeViewAt(0);
@@ -326,17 +324,17 @@ public class a implements c.a.s0.g1.e.c {
                         dragSortItemView2.addView(view2);
                     }
                 } else {
-                    View view3 = this.f12844e.getView(i2, null, this.f12845f.g0);
+                    View view3 = this.f12538e.getView(i2, null, this.f12539f.g0);
                     if (view3 instanceof Checkable) {
-                        dragSortItemView = new DragSortItemViewCheckable(this.f12845f.g0.getContext());
+                        dragSortItemView = new DragSortItemViewCheckable(this.f12539f.g0.getContext());
                     } else {
-                        dragSortItemView = new DragSortItemView(this.f12845f.g0.getContext());
+                        dragSortItemView = new DragSortItemView(this.f12539f.g0.getContext());
                     }
                     dragSortItemView.setLayoutParams(new AbsListView.LayoutParams(-1, -2));
                     dragSortItemView.addView(view3);
                     dragSortItemView2 = dragSortItemView;
                 }
-                a aVar = this.f12845f;
+                a aVar = this.f12539f;
                 aVar.M(i2 + aVar.g0.getHeaderViewsCount(), dragSortItemView2, true);
                 return dragSortItemView2;
             }
@@ -347,28 +345,28 @@ public class a implements c.a.s0.g1.e.c {
         public int getViewTypeCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12844e.getViewTypeCount() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12538e.getViewTypeCount() : invokeV.intValue;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public boolean hasStableIds() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12844e.hasStableIds() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12538e.hasStableIds() : invokeV.booleanValue;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12844e.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12538e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.ListAdapter
         public boolean isEnabled(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f12844e.isEnabled(i2) : invokeI.booleanValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f12538e.isEnabled(i2) : invokeI.booleanValue;
         }
     }
 
@@ -388,25 +386,23 @@ public class a implements c.a.s0.g1.e.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f12846e;
+        public boolean f12540e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f12847f;
+        public long f12541f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f12848g;
+        public long f12542g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f12849h;
+        public int f12543h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f12850i;
+        public float f12544i;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f12851j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public int f12852k;
+        public long f12545j;
+        public int k;
         public float l;
         public boolean m;
         public final /* synthetic */ a n;
@@ -435,7 +431,7 @@ public class a implements c.a.s0.g1.e.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.m) {
-                    return this.f12852k;
+                    return this.k;
                 }
                 return -1;
             }
@@ -453,12 +449,12 @@ public class a implements c.a.s0.g1.e.c {
             if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.m) {
                 return;
             }
-            this.f12846e = false;
+            this.f12540e = false;
             this.m = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f12851j = uptimeMillis;
-            this.f12847f = uptimeMillis;
-            this.f12852k = i2;
+            this.f12545j = uptimeMillis;
+            this.f12541f = uptimeMillis;
+            this.k = i2;
             this.n.g0.post(this);
         }
 
@@ -470,7 +466,7 @@ public class a implements c.a.s0.g1.e.c {
                     this.m = false;
                     return;
                 }
-                this.f12846e = true;
+                this.f12540e = true;
             }
         }
 
@@ -478,15 +474,15 @@ public class a implements c.a.s0.g1.e.c {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                if (!this.f12846e) {
+                if (!this.f12540e) {
                     int firstVisiblePosition = this.n.g0.getFirstVisiblePosition();
                     int lastVisiblePosition = this.n.g0.getLastVisiblePosition();
                     int count = this.n.g0.getCount();
                     int paddingTop = this.n.g0.getPaddingTop();
                     int height = (this.n.g0.getHeight() - paddingTop) - this.n.g0.getPaddingBottom();
-                    int min = Math.min(this.n.L, this.n.f12836d + this.n.w);
-                    int max = Math.max(this.n.L, this.n.f12836d - this.n.w);
-                    if (this.f12852k == 0) {
+                    int min = Math.min(this.n.L, this.n.f12531d + this.n.w);
+                    int max = Math.max(this.n.L, this.n.f12531d - this.n.w);
+                    if (this.k == 0) {
                         View childAt = this.n.g0.getChildAt(0);
                         if (childAt == null) {
                             this.m = false;
@@ -495,7 +491,7 @@ public class a implements c.a.s0.g1.e.c {
                             this.m = false;
                             return;
                         } else {
-                            this.l = this.n.J.a((this.n.F - max) / this.n.G, this.f12847f);
+                            this.l = this.n.J.a((this.n.F - max) / this.n.G, this.f12541f);
                         }
                     } else {
                         View childAt2 = this.n.g0.getChildAt(lastVisiblePosition - firstVisiblePosition);
@@ -506,23 +502,23 @@ public class a implements c.a.s0.g1.e.c {
                             this.m = false;
                             return;
                         } else {
-                            this.l = -this.n.J.a((min - this.n.E) / this.n.H, this.f12847f);
+                            this.l = -this.n.J.a((min - this.n.E) / this.n.H, this.f12541f);
                         }
                     }
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    this.f12848g = uptimeMillis;
-                    float f2 = (float) (uptimeMillis - this.f12847f);
-                    this.f12850i = f2;
+                    this.f12542g = uptimeMillis;
+                    float f2 = (float) (uptimeMillis - this.f12541f);
+                    this.f12544i = f2;
                     int round = Math.round(this.l * f2);
-                    this.f12849h = round;
+                    this.f12543h = round;
                     if (round >= 0) {
-                        this.f12849h = Math.min(height, round);
+                        this.f12543h = Math.min(height, round);
                         lastVisiblePosition = firstVisiblePosition;
                     } else {
-                        this.f12849h = Math.max(-height, round);
+                        this.f12543h = Math.max(-height, round);
                     }
                     View childAt3 = this.n.g0.getChildAt(lastVisiblePosition - firstVisiblePosition);
-                    int top = childAt3.getTop() + this.f12849h;
+                    int top = childAt3.getTop() + this.f12543h;
                     if (lastVisiblePosition == 0 && top > paddingTop) {
                         top = paddingTop;
                     }
@@ -532,7 +528,7 @@ public class a implements c.a.s0.g1.e.c {
                     this.n.g0.invalidate();
                     this.n.Y = false;
                     this.n.W(lastVisiblePosition, childAt3, false);
-                    this.f12847f = this.f12848g;
+                    this.f12541f = this.f12542g;
                     this.n.g0.post(this);
                     return;
                 }
@@ -548,19 +544,19 @@ public class a implements c.a.s0.g1.e.c {
         public StringBuilder a;
 
         /* renamed from: b  reason: collision with root package name */
-        public File f12853b;
+        public File f12546b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f12854c;
+        public int f12547c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f12855d;
+        public int f12548d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f12856e;
+        public boolean f12549e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f12857f;
+        public final /* synthetic */ a f12550f;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -577,18 +573,18 @@ public class a implements c.a.s0.g1.e.c {
                     return;
                 }
             }
-            this.f12857f = aVar;
+            this.f12550f = aVar;
             this.a = new StringBuilder();
-            this.f12854c = 0;
-            this.f12855d = 0;
-            this.f12856e = false;
+            this.f12547c = 0;
+            this.f12548d = 0;
+            this.f12549e = false;
             File file = new File(Environment.getExternalStorageDirectory(), "dslv_state.txt");
-            this.f12853b = file;
+            this.f12546b = file;
             if (file.exists()) {
                 return;
             }
             try {
-                this.f12853b.createNewFile();
+                this.f12546b.createNewFile();
             } catch (IOException e2) {
                 e2.getMessage();
             }
@@ -596,10 +592,10 @@ public class a implements c.a.s0.g1.e.c {
 
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f12856e) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f12549e) {
                 this.a.append("<DSLVState>\n");
-                int childCount = this.f12857f.g0.getChildCount();
-                int firstVisiblePosition = this.f12857f.g0.getFirstVisiblePosition();
+                int childCount = this.f12550f.g0.getChildCount();
+                int firstVisiblePosition = this.f12550f.g0.getFirstVisiblePosition();
                 this.a.append("    <Positions>");
                 for (int i2 = 0; i2 < childCount; i2++) {
                     StringBuilder sb = this.a;
@@ -610,87 +606,87 @@ public class a implements c.a.s0.g1.e.c {
                 this.a.append("    <Tops>");
                 for (int i3 = 0; i3 < childCount; i3++) {
                     StringBuilder sb2 = this.a;
-                    sb2.append(this.f12857f.g0.getChildAt(i3).getTop());
+                    sb2.append(this.f12550f.g0.getChildAt(i3).getTop());
                     sb2.append(",");
                 }
                 this.a.append("</Tops>\n");
                 this.a.append("    <Bottoms>");
                 for (int i4 = 0; i4 < childCount; i4++) {
                     StringBuilder sb3 = this.a;
-                    sb3.append(this.f12857f.g0.getChildAt(i4).getBottom());
+                    sb3.append(this.f12550f.g0.getChildAt(i4).getBottom());
                     sb3.append(",");
                 }
                 this.a.append("</Bottoms>\n");
                 StringBuilder sb4 = this.a;
                 sb4.append("    <FirstExpPos>");
-                sb4.append(this.f12857f.f12842j);
+                sb4.append(this.f12550f.f12537j);
                 sb4.append("</FirstExpPos>\n");
                 StringBuilder sb5 = this.a;
                 sb5.append("    <FirstExpBlankHeight>");
-                a aVar = this.f12857f;
-                int e0 = aVar.e0(aVar.f12842j);
-                a aVar2 = this.f12857f;
-                sb5.append(e0 - aVar2.c0(aVar2.f12842j));
+                a aVar = this.f12550f;
+                int e0 = aVar.e0(aVar.f12537j);
+                a aVar2 = this.f12550f;
+                sb5.append(e0 - aVar2.c0(aVar2.f12537j));
                 sb5.append("</FirstExpBlankHeight>\n");
                 StringBuilder sb6 = this.a;
                 sb6.append("    <SecondExpPos>");
-                sb6.append(this.f12857f.f12843k);
+                sb6.append(this.f12550f.k);
                 sb6.append("</SecondExpPos>\n");
                 StringBuilder sb7 = this.a;
                 sb7.append("    <SecondExpBlankHeight>");
-                a aVar3 = this.f12857f;
-                int e02 = aVar3.e0(aVar3.f12843k);
-                a aVar4 = this.f12857f;
-                sb7.append(e02 - aVar4.c0(aVar4.f12843k));
+                a aVar3 = this.f12550f;
+                int e02 = aVar3.e0(aVar3.k);
+                a aVar4 = this.f12550f;
+                sb7.append(e02 - aVar4.c0(aVar4.k));
                 sb7.append("</SecondExpBlankHeight>\n");
                 StringBuilder sb8 = this.a;
                 sb8.append("    <SrcPos>");
-                sb8.append(this.f12857f.m);
+                sb8.append(this.f12550f.m);
                 sb8.append("</SrcPos>\n");
                 StringBuilder sb9 = this.a;
                 sb9.append("    <SrcHeight>");
-                sb9.append(this.f12857f.v + this.f12857f.g0.getDividerHeight());
+                sb9.append(this.f12550f.v + this.f12550f.g0.getDividerHeight());
                 sb9.append("</SrcHeight>\n");
                 StringBuilder sb10 = this.a;
                 sb10.append("    <ViewHeight>");
-                sb10.append(this.f12857f.g0.getHeight());
+                sb10.append(this.f12550f.g0.getHeight());
                 sb10.append("</ViewHeight>\n");
                 StringBuilder sb11 = this.a;
                 sb11.append("    <LastY>");
-                sb11.append(this.f12857f.M);
+                sb11.append(this.f12550f.M);
                 sb11.append("</LastY>\n");
                 StringBuilder sb12 = this.a;
                 sb12.append("    <FloatY>");
-                sb12.append(this.f12857f.f12836d);
+                sb12.append(this.f12550f.f12531d);
                 sb12.append("</FloatY>\n");
                 this.a.append("    <ShuffleEdges>");
                 for (int i5 = 0; i5 < childCount; i5++) {
                     StringBuilder sb13 = this.a;
-                    a aVar5 = this.f12857f;
+                    a aVar5 = this.f12550f;
                     sb13.append(aVar5.f0(firstVisiblePosition + i5, aVar5.g0.getChildAt(i5).getTop()));
                     sb13.append(",");
                 }
                 this.a.append("</ShuffleEdges>\n");
                 this.a.append("</DSLVState>\n");
-                int i6 = this.f12854c + 1;
-                this.f12854c = i6;
+                int i6 = this.f12547c + 1;
+                this.f12547c = i6;
                 if (i6 > 1000) {
                     b();
-                    this.f12854c = 0;
+                    this.f12547c = 0;
                 }
             }
         }
 
         public void b() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f12856e) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f12549e) {
                 try {
-                    FileWriter fileWriter = new FileWriter(this.f12853b, this.f12855d != 0);
+                    FileWriter fileWriter = new FileWriter(this.f12546b, this.f12548d != 0);
                     fileWriter.write(this.a.toString());
                     this.a.delete(0, this.a.length());
                     fileWriter.flush();
                     fileWriter.close();
-                    this.f12855d++;
+                    this.f12548d++;
                 } catch (IOException unused) {
                 }
             }
@@ -700,17 +696,17 @@ public class a implements c.a.s0.g1.e.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.a.append("<DSLVStates>\n");
-                this.f12855d = 0;
-                this.f12856e = true;
+                this.f12548d = 0;
+                this.f12549e = true;
             }
         }
 
         public void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f12856e) {
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f12549e) {
                 this.a.append("</DSLVStates>\n");
                 b();
-                this.f12856e = false;
+                this.f12549e = false;
             }
         }
     }
@@ -751,11 +747,11 @@ public class a implements c.a.s0.g1.e.c {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.n = this.r.f12841i;
+                this.n = this.r.f12536i;
                 this.o = this.r.m;
                 this.r.t = 2;
-                this.p = this.r.f12834b.y - f();
-                this.q = this.r.f12834b.x - this.r.g0.getPaddingLeft();
+                this.p = this.r.f12529b.y - f();
+                this.q = this.r.f12529b.x - this.r.g0.getPaddingLeft();
             }
         }
 
@@ -772,11 +768,11 @@ public class a implements c.a.s0.g1.e.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
                 int f4 = f();
-                float paddingLeft = this.r.f12834b.x - this.r.g0.getPaddingLeft();
+                float paddingLeft = this.r.f12529b.x - this.r.g0.getPaddingLeft();
                 float f5 = 1.0f - f3;
-                if (f5 < Math.abs((this.r.f12834b.y - f4) / this.p) || f5 < Math.abs(paddingLeft / this.q)) {
-                    this.r.f12834b.y = f4 + ((int) (this.p * f5));
-                    this.r.f12834b.x = this.r.g0.getPaddingLeft() + ((int) (this.q * f5));
+                if (f5 < Math.abs((this.r.f12529b.y - f4) / this.p) || f5 < Math.abs(paddingLeft / this.q)) {
+                    this.r.f12529b.y = f4 + ((int) (this.p * f5));
+                    this.r.f12529b.x = this.r.g0.getPaddingLeft() + ((int) (this.q * f5));
                     this.r.X(true);
                 }
             }
@@ -832,10 +828,10 @@ public class a implements c.a.s0.g1.e.c {
         public SparseIntArray a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<Integer> f12858b;
+        public ArrayList<Integer> f12551b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f12859c;
+        public int f12552c;
 
         public k(a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -853,8 +849,8 @@ public class a implements c.a.s0.g1.e.c {
                 }
             }
             this.a = new SparseIntArray(i2);
-            this.f12858b = new ArrayList<>(i2);
-            this.f12859c = i2;
+            this.f12551b = new ArrayList<>(i2);
+            this.f12552c = i2;
         }
 
         public void a(int i2, int i3) {
@@ -864,21 +860,21 @@ public class a implements c.a.s0.g1.e.c {
                 return;
             }
             if (i4 == -1) {
-                if (this.a.size() == this.f12859c) {
-                    this.a.delete(this.f12858b.remove(0).intValue());
+                if (this.a.size() == this.f12552c) {
+                    this.a.delete(this.f12551b.remove(0).intValue());
                 }
             } else {
-                this.f12858b.remove(Integer.valueOf(i2));
+                this.f12551b.remove(Integer.valueOf(i2));
             }
             this.a.put(i2, i3);
-            this.f12858b.add(Integer.valueOf(i2));
+            this.f12551b.add(Integer.valueOf(i2));
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.a.clear();
-                this.f12858b.clear();
+                this.f12551b.clear();
             }
         }
 
@@ -938,11 +934,11 @@ public class a implements c.a.s0.g1.e.c {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.q = -1;
                 this.r = -1;
-                this.s = this.u.f12842j;
-                this.t = this.u.f12843k;
+                this.s = this.u.f12537j;
+                this.t = this.u.k;
                 int unused = this.u.m;
                 this.u.t = 1;
-                this.n = this.u.f12834b.x;
+                this.n = this.u.f12529b.x;
                 if (this.u.e0) {
                     float width = this.u.g0.getWidth() * 2.0f;
                     if (this.u.f0 == 0.0f) {
@@ -984,7 +980,7 @@ public class a implements c.a.s0.g1.e.c {
                 int firstVisiblePosition = this.u.g0.getFirstVisiblePosition();
                 View childAt2 = this.u.g0.getChildAt(this.s - firstVisiblePosition);
                 if (this.u.e0) {
-                    float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f12860e)) / 1000.0f;
+                    float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f12553e)) / 1000.0f;
                     if (uptimeMillis == 0.0f) {
                         return;
                     }
@@ -995,11 +991,11 @@ public class a implements c.a.s0.g1.e.c {
                     float f7 = width;
                     aVar.f0 = aVar.f0 + (f6 * f7);
                     this.n += f5;
-                    Point point = this.u.f12834b;
+                    Point point = this.u.f12529b;
                     float f8 = this.n;
                     point.x = (int) f8;
                     if (f8 < f7 && f8 > (-width)) {
-                        this.f12860e = SystemClock.uptimeMillis();
+                        this.f12553e = SystemClock.uptimeMillis();
                         this.u.X(true);
                         return;
                     }
@@ -1040,25 +1036,23 @@ public class a implements c.a.s0.g1.e.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f12860e;
+        public long f12553e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f12861f;
+        public float f12554f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f12862g;
+        public float f12555g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f12863h;
+        public float f12556h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f12864i;
+        public float f12557i;
 
         /* renamed from: j  reason: collision with root package name */
-        public float f12865j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public float f12866k;
+        public float f12558j;
+        public float k;
         public boolean l;
         public final /* synthetic */ a m;
 
@@ -1078,13 +1072,13 @@ public class a implements c.a.s0.g1.e.c {
                 }
             }
             this.m = aVar;
-            this.f12862g = f2;
-            this.f12861f = i2;
+            this.f12555g = f2;
+            this.f12554f = i2;
             float f3 = 1.0f / ((f2 * 2.0f) * (1.0f - f2));
-            this.f12866k = f3;
-            this.f12863h = f3;
-            this.f12864i = f2 / ((f2 - 1.0f) * 2.0f);
-            this.f12865j = 1.0f / (1.0f - f2);
+            this.k = f3;
+            this.f12556h = f3;
+            this.f12557i = f2 / ((f2 - 1.0f) * 2.0f);
+            this.f12558j = 1.0f / (1.0f - f2);
         }
 
         public abstract void a();
@@ -1103,7 +1097,7 @@ public class a implements c.a.s0.g1.e.c {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f12860e = SystemClock.uptimeMillis();
+                this.f12553e = SystemClock.uptimeMillis();
                 this.l = false;
                 a();
                 this.m.g0.post(this);
@@ -1114,15 +1108,15 @@ public class a implements c.a.s0.g1.e.c {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f2)) == null) {
-                float f3 = this.f12862g;
+                float f3 = this.f12555g;
                 if (f2 < f3) {
-                    return this.f12863h * f2 * f2;
+                    return this.f12556h * f2 * f2;
                 }
                 if (f2 < 1.0f - f3) {
-                    return this.f12864i + (this.f12865j * f2);
+                    return this.f12557i + (this.f12558j * f2);
                 }
                 float f4 = f2 - 1.0f;
-                return 1.0f - ((this.f12866k * f4) * f4);
+                return 1.0f - ((this.k * f4) * f4);
             }
             return invokeF.floatValue;
         }
@@ -1133,7 +1127,7 @@ public class a implements c.a.s0.g1.e.c {
             if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.l) {
                 return;
             }
-            float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f12860e)) / this.f12861f;
+            float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f12553e)) / this.f12554f;
             if (uptimeMillis >= 1.0f) {
                 c(1.0f, 1.0f);
                 b();
@@ -1159,11 +1153,11 @@ public class a implements c.a.s0.g1.e.c {
                 return;
             }
         }
-        this.f12834b = new Point();
-        this.f12835c = new Point();
-        this.f12837e = false;
-        this.f12839g = 1.0f;
-        this.f12840h = 1.0f;
+        this.f12529b = new Point();
+        this.f12530c = new Point();
+        this.f12532e = false;
+        this.f12534g = 1.0f;
+        this.f12535h = 1.0f;
         this.l = false;
         this.s = true;
         this.t = 0;
@@ -1173,7 +1167,7 @@ public class a implements c.a.s0.g1.e.c {
         this.A = 0.33333334f;
         this.B = 0.33333334f;
         this.I = 0.5f;
-        this.J = new C0824a(this);
+        this.J = new C0834a(this);
         this.N = 0;
         this.O = false;
         this.P = false;
@@ -1207,17 +1201,17 @@ public class a implements c.a.s0.g1.e.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.Q != null) {
-                this.f12835c.set(this.K, this.L);
-                this.Q.d(this.a, this.f12834b, this.f12835c);
+                this.f12530c.set(this.K, this.L);
+                this.Q.d(this.a, this.f12529b, this.f12530c);
             }
-            Point point = this.f12834b;
+            Point point = this.f12529b;
             int i4 = point.x;
             int i5 = point.y;
             int paddingLeft = this.g0.getPaddingLeft();
             if ((this.N & 1) == 0 && i4 > paddingLeft) {
-                this.f12834b.x = paddingLeft;
+                this.f12529b.x = paddingLeft;
             } else if ((this.N & 2) == 0 && i4 < paddingLeft) {
-                this.f12834b.x = paddingLeft;
+                this.f12529b.x = paddingLeft;
             }
             int headerViewsCount = this.g0.getHeaderViewsCount();
             int footerViewsCount = this.g0.getFooterViewsCount();
@@ -1239,14 +1233,14 @@ public class a implements c.a.s0.g1.e.c {
                 height = Math.min(this.g0.getChildAt(i2 - firstVisiblePosition).getBottom(), height);
             }
             if (i5 < paddingTop) {
-                this.f12834b.y = paddingTop;
+                this.f12529b.y = paddingTop;
             } else {
                 int i6 = this.v;
                 if (i5 + i6 > height) {
-                    this.f12834b.y = height - i6;
+                    this.f12529b.y = height - i6;
                 }
             }
-            this.f12836d = this.f12834b.y + this.w;
+            this.f12531d = this.f12529b.y + this.w;
         }
     }
 
@@ -1257,7 +1251,7 @@ public class a implements c.a.s0.g1.e.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int firstVisiblePosition = this.g0.getFirstVisiblePosition();
-            int i4 = this.f12842j;
+            int i4 = this.f12537j;
             View childAt = this.g0.getChildAt(i4 - firstVisiblePosition);
             if (childAt == null) {
                 i4 = (this.g0.getChildCount() / 2) + firstVisiblePosition;
@@ -1267,7 +1261,7 @@ public class a implements c.a.s0.g1.e.c {
             int height = childAt.getHeight();
             int f0 = f0(i4, top);
             int dividerHeight = this.g0.getDividerHeight();
-            if (this.f12836d < f0) {
+            if (this.f12531d < f0) {
                 while (i4 >= 0) {
                     i4--;
                     int e0 = e0(i4);
@@ -1280,7 +1274,7 @@ public class a implements c.a.s0.g1.e.c {
                     }
                     top -= e0 + dividerHeight;
                     int f02 = f0(i4, top);
-                    if (this.f12836d >= f02) {
+                    if (this.f12531d >= f02) {
                         i3 = f0;
                         f0 = f02;
                         break;
@@ -1302,7 +1296,7 @@ public class a implements c.a.s0.g1.e.c {
                     int i6 = i4 + 1;
                     int e02 = e0(i6);
                     int f03 = f0(i6, top);
-                    if (this.f12836d < f03) {
+                    if (this.f12531d < f03) {
                         i3 = f0;
                         f0 = f03;
                         break;
@@ -1316,12 +1310,12 @@ public class a implements c.a.s0.g1.e.c {
             int headerViewsCount = this.g0.getHeaderViewsCount();
             int footerViewsCount = this.g0.getFooterViewsCount();
             boolean z = false;
-            int i7 = this.f12842j;
-            int i8 = this.f12843k;
+            int i7 = this.f12537j;
+            int i8 = this.k;
             float f2 = this.U;
             if (this.l) {
                 int abs = Math.abs(f0 - i3);
-                if (this.f12836d < f0) {
+                if (this.f12531d < f0) {
                     int i9 = f0;
                     f0 = i3;
                     i3 = i9;
@@ -1330,40 +1324,40 @@ public class a implements c.a.s0.g1.e.c {
                 float f3 = i10;
                 int i11 = f0 + i10;
                 int i12 = i3 - i10;
-                int i13 = this.f12836d;
+                int i13 = this.f12531d;
                 if (i13 < i11) {
-                    this.f12842j = i4 - 1;
-                    this.f12843k = i4;
+                    this.f12537j = i4 - 1;
+                    this.k = i4;
                     this.U = ((i11 - i13) * 0.5f) / f3;
                 } else if (i13 < i12) {
-                    this.f12842j = i4;
-                    this.f12843k = i4;
+                    this.f12537j = i4;
+                    this.k = i4;
                 } else {
-                    this.f12842j = i4;
-                    this.f12843k = i4 + 1;
+                    this.f12537j = i4;
+                    this.k = i4 + 1;
                     this.U = (((i3 - i13) / f3) + 1.0f) * 0.5f;
                 }
             } else {
-                this.f12842j = i4;
-                this.f12843k = i4;
+                this.f12537j = i4;
+                this.k = i4;
             }
-            if (this.f12842j < headerViewsCount) {
-                this.f12842j = headerViewsCount;
-                this.f12843k = headerViewsCount;
+            if (this.f12537j < headerViewsCount) {
+                this.f12537j = headerViewsCount;
+                this.k = headerViewsCount;
                 i4 = headerViewsCount;
-            } else if (this.f12843k >= this.g0.getCount() - footerViewsCount) {
+            } else if (this.k >= this.g0.getCount() - footerViewsCount) {
                 i4 = (this.g0.getCount() - footerViewsCount) - 1;
-                this.f12842j = i4;
-                this.f12843k = i4;
+                this.f12537j = i4;
+                this.k = i4;
             }
-            z = (this.f12842j == i7 && this.f12843k == i8 && this.U == f2) ? true : true;
-            int i14 = this.f12841i;
+            z = (this.f12537j == i7 && this.k == i8 && this.U == f2) ? true : true;
+            int i14 = this.f12536i;
             if (i4 != i14) {
                 d dVar = this.p;
                 if (dVar != null) {
                     dVar.a(i14 - headerViewsCount, i4 - headerViewsCount);
                 }
-                this.f12841i = i4;
+                this.f12536i = i4;
                 return true;
             }
             return z;
@@ -1408,12 +1402,12 @@ public class a implements c.a.s0.g1.e.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, Boolean.valueOf(z)}) == null) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-            int Q = (i2 == this.m || i2 == this.f12842j || i2 == this.f12843k) ? Q(i2, view, z) : -2;
+            int Q = (i2 == this.m || i2 == this.f12537j || i2 == this.k) ? Q(i2, view, z) : -2;
             if (Q != layoutParams.height) {
                 layoutParams.height = Q;
                 view.setLayoutParams(layoutParams);
             }
-            if (i2 == this.f12842j || i2 == this.f12843k) {
+            if (i2 == this.f12537j || i2 == this.k) {
                 int i3 = this.m;
                 if (i2 < i3) {
                     ((DragSortItemView) view).setGravity(80);
@@ -1462,25 +1456,25 @@ public class a implements c.a.s0.g1.e.c {
             }
             int i7 = this.v;
             int i8 = this.m;
-            if (i8 != this.f12842j && i8 != this.f12843k) {
+            if (i8 != this.f12537j && i8 != this.k) {
                 i7 -= this.u;
             }
             if (i2 <= i3) {
-                if (i2 > this.f12842j) {
+                if (i2 > this.f12537j) {
                     return 0 + (i7 - i6);
                 }
                 return 0;
             } else if (i2 == i4) {
-                if (i2 <= this.f12842j) {
+                if (i2 <= this.f12537j) {
                     i5 -= i7;
-                } else if (i2 == this.f12843k) {
+                } else if (i2 == this.k) {
                     return 0 + (height - P);
                 }
                 return 0 + i5;
-            } else if (i2 <= this.f12842j) {
+            } else if (i2 <= this.f12537j) {
                 return 0 - i7;
             } else {
-                if (i2 == this.f12843k) {
+                if (i2 == this.k) {
                     return 0 - i6;
                 }
                 return 0;
@@ -1494,13 +1488,13 @@ public class a implements c.a.s0.g1.e.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
             this.g0.getDividerHeight();
-            boolean z = this.l && this.f12842j != this.f12843k;
+            boolean z = this.l && this.f12537j != this.k;
             int i4 = this.v;
             int i5 = this.u;
             int i6 = i4 - i5;
             int i7 = (int) (this.U * i6);
             int i8 = this.m;
-            return i2 == i8 ? i8 == this.f12842j ? z ? i7 + i5 : i4 : i8 == this.f12843k ? i4 - i7 : i5 : i2 == this.f12842j ? z ? i3 + i7 : i3 + i6 : i2 == this.f12843k ? (i3 + i6) - i7 : i3;
+            return i2 == i8 ? i8 == this.f12537j ? z ? i7 + i5 : i4 : i8 == this.k ? i4 - i7 : i5 : i2 == this.f12537j ? z ? i3 + i7 : i3 + i6 : i2 == this.k ? (i3 + i6) - i7 : i3;
         }
         return invokeII.intValue;
     }
@@ -1530,21 +1524,21 @@ public class a implements c.a.s0.g1.e.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.m = -1;
-            this.f12842j = -1;
-            this.f12843k = -1;
-            this.f12841i = -1;
+            this.f12537j = -1;
+            this.k = -1;
+            this.f12536i = -1;
         }
     }
 
     public final void T(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
-            Point point = this.f12834b;
+            Point point = this.f12529b;
             point.x = i2 - this.n;
             point.y = i3 - this.o;
             X(true);
-            int min = Math.min(i3, this.f12836d + this.w);
-            int max = Math.max(i3, this.f12836d - this.w);
+            int min = Math.min(i3, this.f12531d + this.w);
+            int max = Math.max(i3, this.f12531d - this.w);
             int a = this.z.a();
             if (min > this.M && min > this.D && a != 1) {
                 if (a != -1) {
@@ -1586,7 +1580,7 @@ public class a implements c.a.s0.g1.e.c {
             if (this.t == 3) {
                 this.t = 0;
             }
-            this.f12840h = this.f12839g;
+            this.f12535h = this.f12534g;
             this.j0 = false;
             this.a0.b();
         }
@@ -1597,8 +1591,8 @@ public class a implements c.a.s0.g1.e.c {
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), view, Boolean.valueOf(z)}) == null) {
             this.Y = true;
             B0();
-            int i3 = this.f12842j;
-            int i4 = this.f12843k;
+            int i3 = this.f12537j;
+            int i4 = this.k;
             boolean C0 = C0();
             if (C0) {
                 L();
@@ -1658,12 +1652,12 @@ public class a implements c.a.s0.g1.e.c {
             this.h0.a();
             View view = this.a;
             if (view != null) {
-                if (view.isLayoutRequested() && !this.f12837e) {
+                if (view.isLayoutRequested() && !this.f12532e) {
                     i0();
                 }
                 View view2 = this.a;
                 view2.layout(0, 0, view2.getMeasuredWidth(), this.a.getMeasuredHeight());
-                this.f12837e = false;
+                this.f12532e = false;
             }
         }
     }
@@ -1709,12 +1703,12 @@ public class a implements c.a.s0.g1.e.c {
         if (interceptable == null || interceptable.invokeL(1048597, this, canvas) == null) {
             this.h0.b(canvas);
             if (this.t != 0) {
-                int i2 = this.f12842j;
+                int i2 = this.f12537j;
                 if (i2 != this.m) {
                     a0(i2, canvas);
                 }
-                int i3 = this.f12843k;
-                if (i3 != this.f12842j && i3 != this.m) {
+                int i3 = this.k;
+                if (i3 != this.f12537j && i3 != this.m) {
                     a0(i3, canvas);
                 }
             }
@@ -1722,7 +1716,7 @@ public class a implements c.a.s0.g1.e.c {
             if (view != null) {
                 int width = view.getWidth();
                 int height = this.a.getHeight();
-                int i4 = this.f12834b.x;
+                int i4 = this.f12529b.x;
                 int width2 = this.g0.getWidth();
                 if (i4 < 0) {
                     i4 = -i4;
@@ -1734,10 +1728,10 @@ public class a implements c.a.s0.g1.e.c {
                     f2 = 0.0f;
                 }
                 canvas.save();
-                Point point = this.f12834b;
+                Point point = this.f12529b;
                 canvas.translate(point.x, point.y);
                 canvas.clipRect(0, 0, width, height);
-                canvas.saveLayerAlpha(0.0f, 0.0f, width, height, (int) (this.f12840h * 255.0f * f2), 31);
+                canvas.saveLayerAlpha(0.0f, 0.0f, width, height, (int) (this.f12535h * 255.0f * f2), 31);
                 this.a.draw(canvas);
                 canvas.restore();
                 canvas.restore();
@@ -1750,9 +1744,9 @@ public class a implements c.a.s0.g1.e.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             this.t = 2;
-            if (this.q != null && (i2 = this.f12841i) >= 0 && i2 < this.g0.getCount()) {
+            if (this.q != null && (i2 = this.f12536i) >= 0 && i2 < this.g0.getCount()) {
                 int headerViewsCount = this.g0.getHeaderViewsCount();
-                this.q.a(this.m - headerViewsCount, this.f12841i - headerViewsCount);
+                this.q.a(this.m - headerViewsCount, this.f12536i - headerViewsCount);
             }
             U();
             N();
@@ -1781,9 +1775,9 @@ public class a implements c.a.s0.g1.e.c {
                 if (z) {
                     this.X = new g(this);
                 }
-                float f2 = obtainStyledAttributes.getFloat(R$styleable.DragSort_float_alpha, this.f12839g);
-                this.f12839g = f2;
-                this.f12840h = f2;
+                float f2 = obtainStyledAttributes.getFloat(R$styleable.DragSort_float_alpha, this.f12534g);
+                this.f12534g = f2;
+                this.f12535h = f2;
                 this.s = obtainStyledAttributes.getBoolean(R$styleable.DragSort_drag_enabled, this.s);
                 float max = Math.max(0.0f, Math.min(1.0f, 1.0f - obtainStyledAttributes.getFloat(R$styleable.DragSort_slide_shuffle_speed, 0.75f)));
                 this.T = max;
@@ -1823,7 +1817,7 @@ public class a implements c.a.s0.g1.e.c {
                 this.d0 = new h(this, 0.5f, i2);
             }
             this.R = MotionEvent.obtain(0L, 0L, 3, 0.0f, 0.0f, 0.0f, 0.0f, 0, 0.0f, 0.0f, 0, 0);
-            this.f12838f = new b(this);
+            this.f12533f = new b(this);
         }
     }
 
@@ -1926,11 +1920,11 @@ public class a implements c.a.s0.g1.e.c {
             int i4 = this.v - this.u;
             int c0 = c0(i2);
             int e0 = e0(i2);
-            int i5 = this.f12843k;
+            int i5 = this.k;
             int i6 = this.m;
             if (i5 <= i6) {
-                if (i2 != i5 || this.f12842j == i5) {
-                    if (i2 > this.f12843k) {
+                if (i2 != i5 || this.f12537j == i5) {
+                    if (i2 > this.k) {
                     }
                 } else if (i2 == i6) {
                     i3 += e0;
@@ -1939,9 +1933,9 @@ public class a implements c.a.s0.g1.e.c {
                     i3 += e0 - c0;
                 }
                 i3 -= i4;
-            } else if (i2 <= i6 || i2 > this.f12842j) {
-                int i7 = this.f12843k;
-                if (i2 == i7 && this.f12842j != i7) {
+            } else if (i2 <= i6 || i2 > this.f12537j) {
+                int i7 = this.k;
+                if (i2 == i7 && this.f12537j != i7) {
                     i3 += e0 - c0;
                 }
             } else {
@@ -2039,9 +2033,9 @@ public class a implements c.a.s0.g1.e.c {
                 if (this.t == 0) {
                     int headerViewsCount = this.g0.getHeaderViewsCount() + i2;
                     this.m = headerViewsCount;
-                    this.f12842j = headerViewsCount;
-                    this.f12843k = headerViewsCount;
-                    this.f12841i = headerViewsCount;
+                    this.f12537j = headerViewsCount;
+                    this.k = headerViewsCount;
+                    this.f12536i = headerViewsCount;
                     ListView listView = this.g0;
                     View childAt = listView.getChildAt(headerViewsCount - listView.getFirstVisiblePosition());
                     if (childAt != null) {
@@ -2162,7 +2156,7 @@ public class a implements c.a.s0.g1.e.c {
                 if (view.isLayoutRequested()) {
                     i0();
                 }
-                this.f12837e = true;
+                this.f12532e = true;
             }
             this.x = i2;
         }
@@ -2270,7 +2264,7 @@ public class a implements c.a.s0.g1.e.c {
         if (interceptable == null || interceptable.invokeL(1048623, this, listAdapter) == null) {
             if (listAdapter != null) {
                 this.V = new c(this, listAdapter);
-                listAdapter.registerDataSetObserver(this.f12838f);
+                listAdapter.registerDataSetObserver(this.f12533f);
                 if (listAdapter instanceof i) {
                     t0((i) listAdapter);
                 }
@@ -2331,10 +2325,10 @@ public class a implements c.a.s0.g1.e.c {
                     this.g0.getParent().requestDisallowInterceptTouchEvent(true);
                 }
                 int headerViewsCount = i2 + this.g0.getHeaderViewsCount();
-                this.f12842j = headerViewsCount;
-                this.f12843k = headerViewsCount;
+                this.f12537j = headerViewsCount;
+                this.k = headerViewsCount;
                 this.m = headerViewsCount;
-                this.f12841i = headerViewsCount;
+                this.f12536i = headerViewsCount;
                 this.t = 4;
                 this.N = 0;
                 this.N = i3 | 0;
@@ -2343,7 +2337,7 @@ public class a implements c.a.s0.g1.e.c {
                 this.n = i4;
                 this.o = i5;
                 int i6 = this.L;
-                Point point = this.f12834b;
+                Point point = this.f12529b;
                 point.x = this.K - i4;
                 point.y = i6 - i5;
                 ListView listView = this.g0;

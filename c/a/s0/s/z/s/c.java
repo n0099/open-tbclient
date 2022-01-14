@@ -28,7 +28,7 @@ public class c extends n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public l f14050c;
+    public l f13722c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(l lVar) {
@@ -48,7 +48,7 @@ public class c extends n {
                 return;
             }
         }
-        this.f14050c = lVar;
+        this.f13722c = lVar;
     }
 
     @Override // c.a.s0.s.z.n
@@ -93,7 +93,7 @@ public class c extends n {
         bVar.F(true);
         bVar.w(concurrentHashMap);
         bVar.H(true);
-        c(new CustomMessage(2010000, bVar.v(this.f14050c.getContext())));
+        c(new CustomMessage(2010000, bVar.v(this.f13722c.getContext())));
     }
 
     @o("selectPhotos")

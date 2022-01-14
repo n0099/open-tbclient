@@ -15,14 +15,14 @@ public class c extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f24782g;
+    public static final BdUniqueId f24095g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f24783e;
+    public b f24096e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f24784f;
+    public b f24097f;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class c extends BaseCardInfo {
                 return;
             }
         }
-        f24782g = BdUniqueId.gen();
+        f24095g = BdUniqueId.gen();
     }
 
     public c() {
@@ -57,7 +57,7 @@ public class c extends BaseCardInfo {
     public void g(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f24783e = bVar;
+            this.f24096e = bVar;
         }
     }
 
@@ -65,13 +65,13 @@ public class c extends BaseCardInfo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f24782g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f24095g : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f24784f = bVar;
+            this.f24097f = bVar;
         }
     }
 }

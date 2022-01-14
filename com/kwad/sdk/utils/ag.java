@@ -68,7 +68,7 @@ public class ag {
         if (context == null || str == null) {
             return -1;
         }
-        if ((context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29 || Environment.isExternalStorageLegacy()) && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f57425i) == 0) {
+        if ((context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29 || Environment.isExternalStorageLegacy()) && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55248i) == 0) {
             String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             File file = new File(absolutePath + "/Android/data/" + str);
             return (file.exists() && file.isDirectory()) ? 1 : 0;

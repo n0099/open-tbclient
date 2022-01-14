@@ -18,25 +18,23 @@ public class i implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22155e;
+    public String f21551e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22156f;
+    public String f21552f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22157g;
+    public String f21553g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f22158h;
+    public long f21554h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f22159i;
+    public String f21555i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f22160j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f22161k;
+    public long f21556j;
+    public int k;
     public long l;
     public long m;
     public long n;
@@ -77,28 +75,28 @@ public class i implements c.a.d.n.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) || pkModule == null) {
             return;
         }
-        this.f22155e = pkModule.module_name;
-        this.f22156f = pkModule.ques_desc;
+        this.f21551e = pkModule.module_name;
+        this.f21552f = pkModule.ques_desc;
         PkView pkView = pkModule.pk_1;
-        this.f22157g = pkView.pk_desc;
-        this.f22158h = pkView.pk_num.longValue();
+        this.f21553g = pkView.pk_desc;
+        this.f21554h = pkView.pk_num.longValue();
         pkModule.pk_1.pk_index.intValue();
         PkView pkView2 = pkModule.pk_2;
-        this.f22159i = pkView2.pk_desc;
-        this.f22160j = pkView2.pk_num.longValue();
+        this.f21555i = pkView2.pk_desc;
+        this.f21556j = pkView2.pk_num.longValue();
         pkModule.pk_2.pk_index.intValue();
-        this.f22161k = pkModule.pk_1.has_clicked.intValue() == 1 ? 1 : pkModule.pk_2.has_clicked.intValue() == 1 ? 2 : 0;
+        this.k = pkModule.pk_1.has_clicked.intValue() == 1 ? 1 : pkModule.pk_2.has_clicked.intValue() == 1 ? 2 : 0;
         pkModule.pk_type.intValue();
         pkModule.user_pk_index.intValue();
         this.l = pkModule.pk_id.longValue();
         this.m = pkModule.user_pk_id.longValue();
-        int i2 = this.f22161k;
-        long j2 = this.f22158h;
+        int i2 = this.k;
+        long j2 = this.f21554h;
         if (i2 == 1) {
             j2--;
         }
         this.n = j2;
-        this.o = this.f22161k == 2 ? this.f22160j - 1 : this.f22160j;
+        this.o = this.k == 2 ? this.f21556j - 1 : this.f21556j;
     }
 
     @Override // c.a.d.n.e.n

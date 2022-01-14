@@ -14,14 +14,14 @@ public class x extends a implements c.a.s0.l0.b.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f13837f;
+    public static final BdUniqueId f13523f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int[] f13838g;
+    public static final int[] f13524g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13839e;
+    public int f13525e;
 
     static {
         InterceptResult invokeClinit;
@@ -36,8 +36,8 @@ public class x extends a implements c.a.s0.l0.b.a {
                 return;
             }
         }
-        f13837f = BdUniqueId.gen();
-        f13838g = new int[]{0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11};
+        f13523f = BdUniqueId.gen();
+        f13524g = new int[]{0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11};
     }
 
     public x() {
@@ -53,13 +53,13 @@ public class x extends a implements c.a.s0.l0.b.a {
                 return;
             }
         }
-        this.f13839e = 6;
+        this.f13525e = 6;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13839e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13525e : invokeV.intValue;
     }
 
     @Override // c.a.s0.s.q.a
@@ -73,19 +73,19 @@ public class x extends a implements c.a.s0.l0.b.a {
     }
 
     @Override // c.a.s0.s.q.a
-    public d2 getThreadData() {
+    public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (d2) invokeV.objValue;
+        return (e2) invokeV.objValue;
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f13839e = i2;
+            this.f13525e = i2;
         }
     }
 }

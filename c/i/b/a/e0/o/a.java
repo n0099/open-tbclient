@@ -75,17 +75,17 @@ public final class a extends c {
             g gVar = new g();
             l lVar = new l(bArr, i2);
             while (true) {
-                String k2 = lVar.k();
-                if (k2 == null) {
+                String k = lVar.k();
+                if (k == null) {
                     break;
-                } else if (k2.length() != 0) {
+                } else if (k.length() != 0) {
                     try {
-                        Integer.parseInt(k2);
-                        String k3 = lVar.k();
-                        if (k3 == null) {
+                        Integer.parseInt(k);
+                        String k2 = lVar.k();
+                        if (k2 == null) {
                             break;
                         }
-                        Matcher matcher = o.matcher(k3);
+                        Matcher matcher = o.matcher(k2);
                         if (matcher.matches()) {
                             boolean z2 = true;
                             gVar.a(A(matcher, 1));
@@ -96,24 +96,24 @@ public final class a extends c {
                             }
                             this.n.setLength(0);
                             while (true) {
-                                String k4 = lVar.k();
-                                if (TextUtils.isEmpty(k4)) {
+                                String k3 = lVar.k();
+                                if (TextUtils.isEmpty(k3)) {
                                     break;
                                 }
                                 if (this.n.length() > 0) {
                                     this.n.append("<br>");
                                 }
-                                this.n.append(k4.trim());
+                                this.n.append(k3.trim());
                             }
                             arrayList.add(new c.i.b.a.e0.b(Html.fromHtml(this.n.toString())));
                             if (z2) {
                                 arrayList.add(null);
                             }
                         } else {
-                            String str = "Skipping invalid timing: " + k3;
+                            String str = "Skipping invalid timing: " + k2;
                         }
                     } catch (NumberFormatException unused) {
-                        String str2 = "Skipping invalid index: " + k2;
+                        String str2 = "Skipping invalid index: " + k;
                     }
                 }
             }

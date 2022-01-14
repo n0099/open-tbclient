@@ -14,10 +14,10 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10975b;
+    public String f10732b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10976c;
+    public int f10733c;
 
     public b(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class b {
             }
         }
         this.a = str;
-        this.f10975b = str2;
-        this.f10976c = i2;
+        this.f10732b = str2;
+        this.f10733c = i2;
     }
 
     public String a() {
@@ -48,13 +48,13 @@ public class b {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10975b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10732b : (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10976c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10733c : invokeV.intValue;
     }
 
     public boolean d() {

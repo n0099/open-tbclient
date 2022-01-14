@@ -99,7 +99,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
-            this.a.f13012e = calendar;
+            this.a.f12696e = calendar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -147,7 +147,7 @@ public class a {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, aVar)) == null) {
             c.a.s0.g1.q.a.c.a aVar2 = this.a;
             aVar2.x = i2;
-            aVar2.f13010c = aVar;
+            aVar2.f12694c = aVar;
             return this;
         }
         return (a) invokeIL.objValue;
@@ -203,7 +203,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
-            this.a.f13011d = zArr;
+            this.a.f12695d = zArr;
             return this;
         }
         return (a) invokeL.objValue;

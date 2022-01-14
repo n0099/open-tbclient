@@ -27,16 +27,16 @@ public class a {
     public ArrayList<BasicNameValuePair> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2913b;
+    public String f2886b;
 
     /* renamed from: c  reason: collision with root package name */
-    public StringBuilder f2914c;
+    public StringBuilder f2887c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2915d;
+    public long f2888d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f2916e;
+    public h f2889e;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -53,9 +53,9 @@ public class a {
                 return;
             }
         }
-        this.f2913b = null;
-        this.f2914c = new StringBuilder(100);
-        this.f2913b = str;
+        this.f2886b = null;
+        this.f2887c = new StringBuilder(100);
+        this.f2886b = str;
     }
 
     public static String i(String str) {
@@ -83,16 +83,16 @@ public class a {
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        if (this.f2914c.length() > 0) {
-            this.f2914c.append(Typography.amp);
+        if (this.f2887c.length() > 0) {
+            this.f2887c.append(Typography.amp);
         }
-        this.f2914c.append(str);
-        this.f2914c.append("=");
+        this.f2887c.append(str);
+        this.f2887c.append("=");
         try {
-            this.f2914c.append(URLEncoder.encode(i(str2), "utf-8"));
+            this.f2887c.append(URLEncoder.encode(i(str2), "utf-8"));
         } catch (Throwable th) {
             BdLog.e(th);
-            this.f2914c.append(i(str2));
+            this.f2887c.append(i(str2));
         }
     }
 
@@ -113,31 +113,31 @@ public class a {
     public void d(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            if (this.f2916e == null) {
-                this.f2916e = new h();
+            if (this.f2889e == null) {
+                this.f2889e = new h();
             }
-            this.f2916e.f(dVar);
+            this.f2889e.f(dVar);
             ArrayList<BasicNameValuePair> arrayList = this.a;
             if (arrayList != null && arrayList.size() > 0) {
                 Iterator<BasicNameValuePair> it = this.a.iterator();
                 while (it.hasNext()) {
                     BasicNameValuePair next = it.next();
                     if ("module".equals(next.getName())) {
-                        this.f2916e.i(next.getValue());
+                        this.f2889e.i(next.getValue());
                     } else if ("st".equals(next.getName())) {
-                        this.f2916e.e(next.getValue());
+                        this.f2889e.e(next.getValue());
                     } else if ("errNo".equals(next.getName())) {
-                        this.f2916e.g(next.getValue());
+                        this.f2889e.g(next.getValue());
                     } else if ("errMsg".equals(next.getName())) {
-                        this.f2916e.h(next.getValue());
+                        this.f2889e.h(next.getValue());
                     } else {
-                        this.f2916e.b(next.getName(), next.getValue());
+                        this.f2889e.b(next.getName(), next.getValue());
                     }
                 }
             }
-            StringBuilder sb = this.f2914c;
+            StringBuilder sb = this.f2887c;
             if (sb != null) {
-                this.f2916e.a(sb.toString());
+                this.f2889e.a(sb.toString());
             }
         }
     }
@@ -145,26 +145,26 @@ public class a {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? System.currentTimeMillis() - this.f2915d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? System.currentTimeMillis() - this.f2888d : invokeV.longValue;
     }
 
     public h f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2916e : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2889e : (h) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f2915d = System.currentTimeMillis();
+            this.f2888d = System.currentTimeMillis();
         }
     }
 
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2913b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2886b : (String) invokeV.objValue;
     }
 
     public JSONObject h() {
@@ -174,7 +174,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (this.f2914c.length() > 0 && (split = this.f2914c.toString().split("&")) != null && split.length > 0) {
+            if (this.f2887c.length() > 0 && (split = this.f2887c.toString().split("&")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str) && (split2 = str.split("=")) != null && split2.length == 2) {
                         try {
@@ -209,8 +209,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             StringBuilder sb = new StringBuilder(200);
-            if (this.f2914c.length() > 0) {
-                sb.append((CharSequence) this.f2914c);
+            if (this.f2887c.length() > 0) {
+                sb.append((CharSequence) this.f2887c);
             }
             ArrayList<BasicNameValuePair> arrayList = this.a;
             if (arrayList != null) {
@@ -222,7 +222,7 @@ public class a {
                             sb.append(Typography.amp);
                         }
                         sb.append(next.getName());
-                        sb.append(com.alipay.sdk.encrypt.a.f31864h);
+                        sb.append(com.alipay.sdk.encrypt.a.f30865h);
                         try {
                             sb.append(URLEncoder.encode(i(next.getValue()), "utf-8"));
                         } catch (UnsupportedEncodingException e2) {
@@ -250,7 +250,7 @@ public class a {
                 return;
             }
         }
-        this.f2913b = null;
-        this.f2914c = new StringBuilder(100);
+        this.f2886b = null;
+        this.f2887c = new StringBuilder(100);
     }
 }

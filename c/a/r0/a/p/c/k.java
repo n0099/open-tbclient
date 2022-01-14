@@ -39,25 +39,23 @@ public class k implements c.a.r0.a.p.d.x {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Context f8290e;
+        public Context f8108e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ArrayList<MediaModel> f8291f;
+        public ArrayList<MediaModel> f8109f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f8292g;
+        public boolean f8110g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f8293h;
+        public String f8111h;
 
         /* renamed from: i  reason: collision with root package name */
-        public c.a.r0.a.j1.d.d.d f8294i;
+        public c.a.r0.a.j1.d.d.d f8112i;
 
         /* renamed from: j  reason: collision with root package name */
-        public HandlerC0483b f8295j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public a f8296k;
+        public HandlerC0492b f8113j;
+        public a k;
 
         /* loaded from: classes.dex */
         public class a extends c.a.r0.a.g1.a {
@@ -65,17 +63,17 @@ public class k implements c.a.r0.a.p.d.x {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public HandlerC0483b f8297e;
+            public HandlerC0492b f8114e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f8298f;
+            public final /* synthetic */ b f8115f;
 
-            public a(b bVar, HandlerC0483b handlerC0483b) {
+            public a(b bVar, HandlerC0492b handlerC0492b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, handlerC0483b};
+                    Object[] objArr = {bVar, handlerC0492b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -85,8 +83,8 @@ public class k implements c.a.r0.a.p.d.x {
                         return;
                     }
                 }
-                this.f8298f = bVar;
-                this.f8297e = handlerC0483b;
+                this.f8115f = bVar;
+                this.f8114e = handlerC0492b;
             }
 
             @Override // c.a.r0.a.g1.a, android.app.Application.ActivityLifecycleCallbacks
@@ -94,17 +92,17 @@ public class k implements c.a.r0.a.p.d.x {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
                     if ((activity instanceof SwanAppActivity) || (activity instanceof SwanAppAlbumActivity) || (activity instanceof SwanAppAlbumPreviewActivity)) {
-                        if (this.f8297e.f8299b != null && this.f8297e.f8299b.isShowing()) {
-                            this.f8297e.f8299b.cancel();
-                            this.f8297e.f8299b = null;
+                        if (this.f8114e.f8116b != null && this.f8114e.f8116b.isShowing()) {
+                            this.f8114e.f8116b.cancel();
+                            this.f8114e.f8116b = null;
                         }
-                        HandlerC0483b handlerC0483b = this.f8297e;
-                        if (handlerC0483b != null) {
-                            handlerC0483b.removeMessages(1);
-                            this.f8297e.removeMessages(2);
-                            this.f8297e = null;
+                        HandlerC0492b handlerC0492b = this.f8114e;
+                        if (handlerC0492b != null) {
+                            handlerC0492b.removeMessages(1);
+                            this.f8114e.removeMessages(2);
+                            this.f8114e = null;
                         }
-                        this.f8298f.f();
+                        this.f8115f.f();
                     }
                 }
             }
@@ -112,15 +110,15 @@ public class k implements c.a.r0.a.p.d.x {
 
         /* renamed from: c.a.r0.a.p.c.k$b$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class HandlerC0483b extends Handler {
+        public static class HandlerC0492b extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public WeakReference<Context> a;
 
             /* renamed from: b  reason: collision with root package name */
-            public Dialog f8299b;
+            public Dialog f8116b;
 
-            public /* synthetic */ HandlerC0483b(Context context, a aVar) {
+            public /* synthetic */ HandlerC0492b(Context context, a aVar) {
                 this(context);
             }
 
@@ -131,12 +129,12 @@ public class k implements c.a.r0.a.p.d.x {
                 if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                     int i2 = message.what;
                     if (i2 != 1) {
-                        if (i2 == 2 && (dialog = this.f8299b) != null && dialog.isShowing()) {
+                        if (i2 == 2 && (dialog = this.f8116b) != null && dialog.isShowing()) {
                             Context context = this.a.get();
                             if ((context instanceof Activity) && !((Activity) context).isFinishing()) {
-                                this.f8299b.cancel();
+                                this.f8116b.cancel();
                             }
-                            this.f8299b = null;
+                            this.f8116b = null;
                             return;
                         }
                         return;
@@ -146,15 +144,15 @@ public class k implements c.a.r0.a.p.d.x {
                         return;
                     }
                     Dialog dialog2 = new Dialog(this.a.get(), c.a.r0.a.i.SwanAppCompressDialog);
-                    this.f8299b = dialog2;
+                    this.f8116b = dialog2;
                     dialog2.setContentView(c.a.r0.a.g.swanapp_progress_dialog);
-                    this.f8299b.findViewById(c.a.r0.a.f.layer_night).setVisibility(c.a.r0.a.c1.a.M().a() ? 0 : 8);
-                    this.f8299b.setCancelable(false);
-                    this.f8299b.show();
+                    this.f8116b.findViewById(c.a.r0.a.f.layer_night).setVisibility(c.a.r0.a.c1.a.M().a() ? 0 : 8);
+                    this.f8116b.setCancelable(false);
+                    this.f8116b.show();
                 }
             }
 
-            public HandlerC0483b(Context context) {
+            public HandlerC0492b(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,13 +186,13 @@ public class k implements c.a.r0.a.p.d.x {
                     return;
                 }
             }
-            this.f8290e = context;
-            this.f8291f = bundle.getParcelableArrayList("mediaModels");
+            this.f8108e = context;
+            this.f8109f = bundle.getParcelableArrayList("mediaModels");
             c.a.r0.a.z2.v.g(bundle, "swanAppId");
-            this.f8292g = c.a.r0.a.z2.v.c(bundle, "compressed", false);
-            this.f8293h = c.a.r0.a.z2.v.g(bundle, "swanTmpPath");
-            this.f8294i = dVar;
-            this.f8295j = new HandlerC0483b(context, null);
+            this.f8110g = c.a.r0.a.z2.v.c(bundle, "compressed", false);
+            this.f8111h = c.a.r0.a.z2.v.g(bundle, "swanTmpPath");
+            this.f8112i = dVar;
+            this.f8113j = new HandlerC0492b(context, null);
         }
 
         public final void b(MediaModel mediaModel, int i2) {
@@ -206,7 +204,7 @@ public class k implements c.a.r0.a.p.d.x {
                 String str = "compressImg : " + mediaModel.getPath();
             }
             File file = new File(mediaModel.getPath());
-            File l = c.a.r0.a.z2.u.l(this.f8293h, file.getName());
+            File l = c.a.r0.a.z2.u.l(this.f8111h, file.getName());
             if (l == null) {
                 return;
             }
@@ -223,7 +221,7 @@ public class k implements c.a.r0.a.p.d.x {
             if (c.a.r0.a.j1.d.c.c.a) {
                 String str = "compressVideo : " + videoModel.getPath();
             }
-            File l = c.a.r0.a.z2.u.l(this.f8293h, new File(videoModel.getPath()).getName());
+            File l = c.a.r0.a.z2.u.l(this.f8111h, new File(videoModel.getPath()).getName());
             if (l == null) {
                 return;
             }
@@ -238,7 +236,7 @@ public class k implements c.a.r0.a.p.d.x {
                 return;
             }
             File file = new File(mediaModel.getPath());
-            File l = c.a.r0.a.z2.u.l(this.f8293h, file.getName());
+            File l = c.a.r0.a.z2.u.l(this.f8111h, file.getName());
             if (l == null || !l.exists() || c.a.r0.w.d.f(file, l) == 0) {
                 return;
             }
@@ -248,18 +246,18 @@ public class k implements c.a.r0.a.p.d.x {
         public final void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f8296k = new a(this, this.f8295j);
-                c.a.r0.a.c1.a.c().registerActivityLifecycleCallbacks(this.f8296k);
+                this.k = new a(this, this.f8113j);
+                c.a.r0.a.c1.a.c().registerActivityLifecycleCallbacks(this.k);
             }
         }
 
         public final void f() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f8296k == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.k == null) {
                 return;
             }
-            c.a.r0.a.c1.a.c().unregisterActivityLifecycleCallbacks(this.f8296k);
-            this.f8296k = null;
+            c.a.r0.a.c1.a.c().unregisterActivityLifecycleCallbacks(this.k);
+            this.k = null;
         }
 
         @Override // java.lang.Runnable
@@ -267,12 +265,12 @@ public class k implements c.a.r0.a.p.d.x {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 e();
-                HandlerC0483b handlerC0483b = this.f8295j;
-                if (handlerC0483b != null) {
-                    handlerC0483b.sendEmptyMessage(1);
+                HandlerC0492b handlerC0492b = this.f8113j;
+                if (handlerC0492b != null) {
+                    handlerC0492b.sendEmptyMessage(1);
                 }
-                if (this.f8292g) {
-                    Iterator<MediaModel> it = this.f8291f.iterator();
+                if (this.f8110g) {
+                    Iterator<MediaModel> it = this.f8109f.iterator();
                     while (it.hasNext()) {
                         MediaModel next = it.next();
                         if (next != null) {
@@ -288,7 +286,7 @@ public class k implements c.a.r0.a.p.d.x {
                         }
                     }
                 } else {
-                    Iterator<MediaModel> it2 = this.f8291f.iterator();
+                    Iterator<MediaModel> it2 = this.f8109f.iterator();
                     while (it2.hasNext()) {
                         MediaModel next2 = it2.next();
                         if (next2 != null) {
@@ -300,13 +298,13 @@ public class k implements c.a.r0.a.p.d.x {
                         }
                     }
                 }
-                HandlerC0483b handlerC0483b2 = this.f8295j;
-                if (handlerC0483b2 != null) {
-                    handlerC0483b2.sendEmptyMessage(2);
+                HandlerC0492b handlerC0492b2 = this.f8113j;
+                if (handlerC0492b2 != null) {
+                    handlerC0492b2.sendEmptyMessage(2);
                 }
-                c.a.r0.a.j1.d.d.d dVar = this.f8294i;
+                c.a.r0.a.j1.d.d.d dVar = this.f8112i;
                 if (dVar != null) {
-                    dVar.a(true, null, this.f8291f);
+                    dVar.a(true, null, this.f8109f);
                 }
                 f();
             }

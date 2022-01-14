@@ -16,9 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class g extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public Surface f27628k;
+    public Surface k;
 
     static {
         InterceptResult invokeClinit;
@@ -53,22 +51,22 @@ public class g extends b {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f27615h == 0) {
-                this.f27615h = this.f27612e.presentationTimeUs;
-                b.f27607i = 0L;
+            if (this.f26785h == 0) {
+                this.f26785h = this.f26782e.presentationTimeUs;
+                b.f26777i = 0L;
             }
-            MediaCodec.BufferInfo bufferInfo = this.f27612e;
-            long j2 = bufferInfo.presentationTimeUs - this.f27615h;
+            MediaCodec.BufferInfo bufferInfo = this.f26782e;
+            long j2 = bufferInfo.presentationTimeUs - this.f26785h;
             bufferInfo.presentationTimeUs = j2;
-            b.f27607i = j2;
-            c.a.y.c.d.x().V(b.f27607i / 1000);
+            b.f26777i = j2;
+            c.a.y.c.d.x().V(b.f26777i / 1000);
         }
     }
 
     public Surface k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27628k : (Surface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (Surface) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
@@ -84,7 +82,7 @@ public class g extends b {
         }
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.f27610c = eVar;
+            this.f26780c = eVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.j(), dVar.n(), dVar.l());
             createVideoFormat.setInteger("color-format", 2130708361);
             createVideoFormat.setInteger("bitrate", dVar.i());
@@ -92,14 +90,14 @@ public class g extends b {
             createVideoFormat.setInteger("i-frame-interval", dVar.m());
             try {
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(dVar.j());
-                this.f27611d = createEncoderByType;
+                this.f26781d = createEncoderByType;
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.f27628k = this.f27611d.createInputSurface();
-                this.f27614g = true;
+                this.k = this.f26781d.createInputSurface();
+                this.f26784g = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            cVar = this.f27613f;
+            cVar = this.f26783f;
             if (cVar == null) {
                 cVar.b(z);
                 return;
@@ -107,7 +105,7 @@ public class g extends b {
             return;
         }
         z = false;
-        cVar = this.f27613f;
+        cVar = this.f26783f;
         if (cVar == null) {
         }
     }

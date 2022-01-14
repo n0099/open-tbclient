@@ -30,25 +30,23 @@ public final class SubtitleView extends View implements j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<g> f56478e;
+    public final List<g> f54334e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b> f56479f;
+    public List<b> f54335f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56480g;
+    public int f54336g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f56481h;
+    public float f54337h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f56482i;
+    public boolean f54338i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f56483j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public a f56484k;
+    public boolean f54339j;
+    public a k;
     public float l;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -89,11 +87,11 @@ public final class SubtitleView extends View implements j {
     public final void a(int i2, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            if (this.f56480g == i2 && this.f56481h == f2) {
+            if (this.f54336g == i2 && this.f54337h == f2) {
                 return;
             }
-            this.f56480g = i2;
-            this.f56481h = f2;
+            this.f54336g = i2;
+            this.f54337h = f2;
             invalidate();
         }
     }
@@ -103,7 +101,7 @@ public final class SubtitleView extends View implements j {
         float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            List<b> list = this.f56479f;
+            List<b> list = this.f54335f;
             int i2 = 0;
             int size = list == null ? 0 : list.size();
             int top = getTop();
@@ -115,11 +113,11 @@ public final class SubtitleView extends View implements j {
             if (paddingBottom <= paddingTop || right <= left) {
                 return;
             }
-            int i3 = this.f56480g;
+            int i3 = this.f54336g;
             if (i3 == 2) {
-                f2 = this.f56481h;
+                f2 = this.f54337h;
             } else {
-                f2 = (i3 == 0 ? paddingBottom - paddingTop : bottom - top) * this.f56481h;
+                f2 = (i3 == 0 ? paddingBottom - paddingTop : bottom - top) * this.f54337h;
             }
             if (f2 <= 0.0f) {
                 return;
@@ -127,7 +125,7 @@ public final class SubtitleView extends View implements j {
             while (i2 < size) {
                 int i4 = paddingBottom;
                 int i5 = right;
-                this.f56478e.get(i2).b(this.f56479f.get(i2), this.f56482i, this.f56483j, this.f56484k, f2, this.l, canvas, left, paddingTop, i5, i4);
+                this.f54334e.get(i2).b(this.f54335f.get(i2), this.f54338i, this.f54339j, this.k, f2, this.l, canvas, left, paddingTop, i5, i4);
                 i2++;
                 paddingBottom = i4;
                 right = i5;
@@ -145,21 +143,21 @@ public final class SubtitleView extends View implements j {
 
     public void setApplyEmbeddedFontSizes(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.f56483j == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.f54339j == z) {
             return;
         }
-        this.f56483j = z;
+        this.f54339j = z;
         invalidate();
     }
 
     public void setApplyEmbeddedStyles(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (this.f56482i == z && this.f56483j == z) {
+            if (this.f54338i == z && this.f54339j == z) {
                 return;
             }
-            this.f56482i = z;
-            this.f56483j = z;
+            this.f54338i = z;
+            this.f54339j = z;
             invalidate();
         }
     }
@@ -175,13 +173,13 @@ public final class SubtitleView extends View implements j {
 
     public void setCues(List<b> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || this.f56479f == list) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || this.f54335f == list) {
             return;
         }
-        this.f56479f = list;
+        this.f54335f = list;
         int size = list == null ? 0 : list.size();
-        while (this.f56478e.size() < size) {
-            this.f56478e.add(new g(getContext()));
+        while (this.f54334e.size() < size) {
+            this.f54334e.add(new g(getContext()));
         }
         invalidate();
     }
@@ -209,17 +207,17 @@ public final class SubtitleView extends View implements j {
 
     public void setStyle(a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) || this.f56484k == aVar) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) || this.k == aVar) {
             return;
         }
-        this.f56484k = aVar;
+        this.k = aVar;
         invalidate();
     }
 
     public void setUserDefaultStyle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            setStyle((v.a < 19 || isInEditMode()) ? a.f30340g : getUserCaptionStyleV19());
+            setStyle((v.a < 19 || isInEditMode()) ? a.f29391g : getUserCaptionStyleV19());
         }
     }
 
@@ -249,12 +247,12 @@ public final class SubtitleView extends View implements j {
                 return;
             }
         }
-        this.f56478e = new ArrayList();
-        this.f56480g = 0;
-        this.f56481h = 0.0533f;
-        this.f56482i = true;
-        this.f56483j = true;
-        this.f56484k = a.f30340g;
+        this.f54334e = new ArrayList();
+        this.f54336g = 0;
+        this.f54337h = 0.0533f;
+        this.f54338i = true;
+        this.f54339j = true;
+        this.k = a.f29391g;
         this.l = 0.08f;
     }
 

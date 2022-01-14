@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.UserCouponStore;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -43,7 +44,7 @@ public class GetUserCouponStoreResponse implements IBaseJsonResponse {
                 return;
             }
         }
-        this.cmd = 2047;
+        this.cmd = RevenueServerConst.GetUserCouponStoreResponse;
         this.userCouponStoreList = new ArrayList();
         parserResponse(str);
     }

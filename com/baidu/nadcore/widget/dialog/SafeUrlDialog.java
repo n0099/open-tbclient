@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.c0.d0.f;
-import c.a.c0.h0.o;
-import c.a.c0.h0.r;
-import c.a.c0.h0.s;
+import c.a.c0.g0.f;
+import c.a.c0.k0.j;
+import c.a.c0.k0.m;
+import c.a.c0.k0.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.dialog.AutoOrientationBtnDialog;
 import com.baidu.nadcore.widget.txt.SelectorTextView;
@@ -33,7 +33,7 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SafeUrlDialog f38524e;
+        public final /* synthetic */ SafeUrlDialog f37304e;
 
         public a(SafeUrlDialog safeUrlDialog) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
                     return;
                 }
             }
-            this.f38524e = safeUrlDialog;
+            this.f37304e = safeUrlDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38524e.o.f38530k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37304e.o.k == null) {
                 return;
             }
-            this.f38524e.o.f38530k.a(view);
+            this.f37304e.o.k.a(view);
         }
     }
 
@@ -69,7 +69,7 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SafeUrlDialog f38525e;
+        public final /* synthetic */ SafeUrlDialog f37305e;
 
         public b(SafeUrlDialog safeUrlDialog) {
             Interceptable interceptable = $ic;
@@ -86,16 +86,16 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
                     return;
                 }
             }
-            this.f38525e = safeUrlDialog;
+            this.f37305e = safeUrlDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38525e.o.f38529j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37305e.o.f37309j == null) {
                 return;
             }
-            this.f38525e.o.f38529j.a(view);
+            this.f37305e.o.f37309j.a(view);
         }
     }
 
@@ -105,19 +105,17 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f38526g;
+        public int f37306g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f38527h;
+        public int f37307h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f38528i;
+        public int f37308i;
 
         /* renamed from: j  reason: collision with root package name */
-        public AutoOrientationBtnDialog.c f38529j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public AutoOrientationBtnDialog.c f38530k;
+        public AutoOrientationBtnDialog.c f37309j;
+        public AutoOrientationBtnDialog.c k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(Context context) {
@@ -172,8 +170,8 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, cVar)) == null) {
-                this.f38526g = i2;
-                this.f38530k = cVar;
+                this.f37306g = i2;
+                this.k = cVar;
                 return this;
             }
             return (c) invokeIL.objValue;
@@ -205,14 +203,14 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(s.nad_view_safe_dialog, viewGroup, false);
+            View inflate = LayoutInflater.from(this.mContext).inflate(n.nad_view_safe_dialog, viewGroup, false);
             this.l = inflate;
-            TextView textView = (TextView) inflate.findViewById(r.safe_dialog_content);
+            TextView textView = (TextView) inflate.findViewById(m.safe_dialog_content);
             this.m = textView;
-            textView.setTextColor(getContext().getResources().getColor(o.nad_safe_dialog_message));
-            SelectorTextView selectorTextView = (SelectorTextView) this.l.findViewById(r.safe_dialog_sub_content);
+            textView.setTextColor(getContext().getResources().getColor(j.nad_safe_dialog_message));
+            SelectorTextView selectorTextView = (SelectorTextView) this.l.findViewById(m.safe_dialog_sub_content);
             this.n = selectorTextView;
-            selectorTextView.setTextColor(getContext().getResources().getColor(o.nad_safe_dialog_btn_blue));
+            selectorTextView.setTextColor(getContext().getResources().getColor(j.nad_safe_dialog_btn_blue));
             k();
             return this.l;
         }
@@ -225,18 +223,18 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.o) == null) {
             return;
         }
-        this.m.setText(this.mContext.getText(cVar.f38526g));
+        this.m.setText(this.mContext.getText(cVar.f37306g));
         this.m.setOnClickListener(new a(this));
-        if (this.o.f38527h > 0) {
+        if (this.o.f37307h > 0) {
             this.n.setVisibility(0);
-            this.n.setText(this.mContext.getText(this.o.f38527h));
+            this.n.setText(this.mContext.getText(this.o.f37307h));
             this.n.setOnClickListener(new b(this));
         } else {
             this.n.setVisibility(8);
         }
-        if (this.o.f38528i > 0) {
-            Drawable drawable = this.mContext.getResources().getDrawable(this.o.f38528i);
-            c.a.c0.h0.f0.a.c(getContext(), drawable);
+        if (this.o.f37308i > 0) {
+            Drawable drawable = this.mContext.getResources().getDrawable(this.o.f37308i);
+            c.a.c0.k0.b0.a.c(getContext(), drawable);
             drawable.setBounds(0, 0, f.c.a(this.mContext, 12.0f), f.c.a(this.mContext, 12.0f));
             this.n.setCompoundDrawables(drawable, null, null, null);
         }

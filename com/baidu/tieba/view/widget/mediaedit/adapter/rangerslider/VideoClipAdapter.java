@@ -33,26 +33,24 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f51439e;
+    public double f49461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51440f;
+    public int f49462f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51441g;
+    public int f49463g;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f51442h;
+    public double f49464h;
     @IntRange(from = 0, to = 2)
 
     /* renamed from: i  reason: collision with root package name */
-    public int f51443i;
+    public int f49465i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f51444j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f51445k;
+    public int f49466j;
+    public int k;
     public final Context l;
     public SparseArray<Bitmap> m;
     public boolean n;
@@ -94,7 +92,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51443i == 1 ? this.f51445k : this.f51445k + 2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49465i == 1 ? this.k : this.k + 2 : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -102,13 +100,13 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f51443i == 1) {
+            if (this.f49465i == 1) {
                 return o;
             }
             if (i2 == 0) {
                 return q;
             }
-            int i3 = this.f51445k;
+            int i3 = this.k;
             if (i2 == i3 + 1) {
                 return r;
             }
@@ -132,7 +130,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 if (sparseArray == null) {
                     return;
                 }
-                if (this.f51443i == 1) {
+                if (this.f49465i == 1) {
                     bitmap = sparseArray.get(i2);
                 } else {
                     bitmap = sparseArray.get(i2 - 1);
@@ -142,18 +140,18 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 }
                 commonRangerSliderHolder.bind(bitmap);
                 if (getItemViewType(i2) == p) {
-                    commonRangerSliderHolder.getView().setLayoutParams(new ViewGroup.LayoutParams((int) this.f51442h, this.f51444j));
-                    i3 = (int) this.f51442h;
+                    commonRangerSliderHolder.getView().setLayoutParams(new ViewGroup.LayoutParams((int) this.f49464h, this.f49466j));
+                    i3 = (int) this.f49464h;
                 } else {
-                    i3 = this.f51440f;
+                    i3 = this.f49462f;
                 }
                 ViewGroup.LayoutParams layoutParams = commonRangerSliderHolder.mItemView.getLayoutParams();
                 layoutParams.width = i3;
-                layoutParams.height = this.f51441g;
+                layoutParams.height = this.f49463g;
                 commonRangerSliderHolder.mItemView.setLayoutParams(layoutParams);
             } else if (viewHolder instanceof TransparentRangerSliderHolder) {
                 ViewGroup.LayoutParams layoutParams2 = viewHolder.itemView.getLayoutParams();
-                layoutParams2.width = (int) this.f51439e;
+                layoutParams2.width = (int) this.f49461e;
                 viewHolder.itemView.setLayoutParams(layoutParams2);
             }
         }
@@ -167,18 +165,18 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             if (i2 != q && i2 != r) {
                 if (i2 == o) {
                     View inflate = LayoutInflater.from(this.l).inflate(R.layout.ugc_video_ranger_slider_item, viewGroup, false);
-                    inflate.setLayoutParams(new ViewGroup.LayoutParams(this.f51440f, this.f51444j));
+                    inflate.setLayoutParams(new ViewGroup.LayoutParams(this.f49462f, this.f49466j));
                     return new CommonRangerSliderHolder(inflate);
                 } else if (i2 == p) {
                     View inflate2 = LayoutInflater.from(this.l).inflate(R.layout.ugc_video_ranger_slider_item, viewGroup, false);
-                    inflate2.setLayoutParams(new ViewGroup.LayoutParams((int) this.f51442h, this.f51444j));
+                    inflate2.setLayoutParams(new ViewGroup.LayoutParams((int) this.f49464h, this.f49466j));
                     return new CommonRangerSliderHolder(inflate2);
                 } else {
                     return null;
                 }
             }
             View view = new View(viewGroup.getContext());
-            view.setLayoutParams(new ViewGroup.LayoutParams((int) this.f51439e, -1));
+            view.setLayoutParams(new ViewGroup.LayoutParams((int) this.f49461e, -1));
             view.setBackgroundColor(0);
             return new TransparentRangerSliderHolder(view);
         }
@@ -195,7 +193,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             this.m = new SparseArray<>();
         }
         this.m.put(i2, bitmap);
-        if (this.f51443i == 1) {
+        if (this.f49465i == 1) {
             notifyItemChanged(i2);
         } else {
             notifyItemChanged(i2 + 1);
@@ -217,13 +215,13 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, vlogEditManager, i2) == null) {
-            int i4 = this.f51440f;
-            int i5 = this.f51441g;
+            int i4 = this.f49462f;
+            int i5 = this.f49463g;
             MultiMediaData multiMediaData = (vlogEditManager == null || vlogEditManager.getMultiMediaData(0) == null) ? null : vlogEditManager.getMultiMediaData(0);
             if (multiMediaData != null && (i3 = multiMediaData.height) != 0) {
                 i4 = (int) (((multiMediaData.width * 1.0f) / i3) * i5);
             }
-            this.f51445k = i2;
+            this.k = i2;
             d.b(vlogEditManager, TbadkCoreApplication.getInst().getContext(), i2, i4, i5, this);
             notifyDataSetChanged();
         }
@@ -232,12 +230,12 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void setImageConfig(int i2, double d2, double d3, double d4, double d5, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Integer.valueOf(i3)}) == null) {
-            this.f51443i = i2;
-            this.f51439e = d2;
-            this.f51440f = (int) d3;
-            this.f51441g = (int) d4;
-            this.f51442h = d5;
-            this.f51444j = i3;
+            this.f49465i = i2;
+            this.f49461e = d2;
+            this.f49462f = (int) d3;
+            this.f49463g = (int) d4;
+            this.f49464h = d5;
+            this.f49466j = i3;
         }
     }
 
@@ -245,12 +243,12 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, multiMediaData, i2) == null) {
-            int i4 = this.f51440f;
-            int i5 = this.f51441g;
+            int i4 = this.f49462f;
+            int i5 = this.f49463g;
             if (multiMediaData != null && (i3 = multiMediaData.height) != 0) {
                 i4 = (int) (((multiMediaData.width * 1.0f) / i3) * i5);
             }
-            this.f51445k = i2;
+            this.k = i2;
             d.c(multiMediaData, TbadkCoreApplication.getInst().getContext(), i2, i4, i5, this);
             notifyDataSetChanged();
         }

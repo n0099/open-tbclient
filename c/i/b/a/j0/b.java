@@ -17,7 +17,7 @@ public final class b {
     public final List<byte[]> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30734b;
+    public final int f29770b;
 
     public b(List<byte[]> list, int i2) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public final class b {
             }
         }
         this.a = list;
-        this.f30734b = i2;
+        this.f29770b = i2;
     }
 
     public static b a(l lVar) throws ParserException {

@@ -18,13 +18,13 @@ public class f extends c.a.r0.a.y1.a.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10885f;
+    public String f10642f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f10886g;
+    public JSONObject f10643g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f10887h;
+    public i f10644h;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -32,10 +32,10 @@ public class f extends c.a.r0.a.y1.a.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f10888e;
+        public final /* synthetic */ JSONObject f10645e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f10889f;
+        public final /* synthetic */ f f10646f;
 
         public a(f fVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class f extends c.a.r0.a.y1.a.a.a {
                     return;
                 }
             }
-            this.f10889f = fVar;
-            this.f10888e = jSONObject;
+            this.f10646f = fVar;
+            this.f10645e = jSONObject;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -62,8 +62,8 @@ public class f extends c.a.r0.a.y1.a.a.a {
             char c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.t().I(this.f10889f.f10886g);
-                String str = this.f10889f.f10885f;
+                e.t().I(this.f10646f.f10643g);
+                String str = this.f10646f.f10642f;
                 switch (str.hashCode()) {
                     case -1261560102:
                         if (str.equals("queryStatus")) {
@@ -134,31 +134,31 @@ public class f extends c.a.r0.a.y1.a.a.a {
                 }
                 switch (c2) {
                     case 0:
-                        this.f10889f.w(this.f10888e);
+                        this.f10646f.w(this.f10645e);
                         return;
                     case 1:
-                        this.f10889f.u(this.f10888e);
+                        this.f10646f.u(this.f10645e);
                         return;
                     case 2:
-                        this.f10889f.t(this.f10888e);
+                        this.f10646f.t(this.f10645e);
                         return;
                     case 3:
-                        this.f10889f.v(this.f10888e);
+                        this.f10646f.v(this.f10645e);
                         return;
                     case 4:
-                        this.f10889f.p(this.f10888e);
+                        this.f10646f.p(this.f10645e);
                         return;
                     case 5:
-                        this.f10889f.q(this.f10888e);
+                        this.f10646f.q(this.f10645e);
                         return;
                     case 6:
-                        this.f10889f.s(this.f10888e);
+                        this.f10646f.s(this.f10645e);
                         return;
                     case 7:
-                        this.f10889f.r(this.f10888e);
+                        this.f10646f.r(this.f10645e);
                         return;
                     case '\b':
-                        this.f10889f.x(this.f10888e);
+                        this.f10646f.x(this.f10645e);
                         return;
                     default:
                         return;
@@ -185,13 +185,13 @@ public class f extends c.a.r0.a.y1.a.a.a {
     public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            this.f10885f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
-            this.f10886g = w.d(bundle.getString("ubc_params", ""));
+            this.f10642f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
+            this.f10643g = w.d(bundle.getString("ubc_params", ""));
             JSONObject d2 = w.d(bundle.getString("data", ""));
-            if (this.f10887h == null) {
-                this.f10887h = new i(this);
+            if (this.f10644h == null) {
+                this.f10644h = new i(this);
             }
-            e.t().H(this.f10887h);
+            e.t().H(this.f10644h);
             e.m.execute(new a(this, d2));
         }
     }
@@ -209,7 +209,7 @@ public class f extends c.a.r0.a.y1.a.a.a {
             String optString = jSONObject.optString("key_download_url");
             String optString2 = jSONObject.optString("key_download_package_name");
             String optString3 = jSONObject.optString("download_params");
-            c.a.r0.h.j.r.b.n().h("manualInstall", new c.a.r0.h.j.r.a(this.f10886g), optString2, optString3, optString);
+            c.a.r0.h.j.r.b.n().h("manualInstall", new c.a.r0.h.j.r.a(this.f10643g), optString2, optString3, optString);
             e.t().L(optString, optString2, optString3);
         }
     }
@@ -259,7 +259,7 @@ public class f extends c.a.r0.a.y1.a.a.a {
     public final void x(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            e.t().K(jSONObject.optString("key_download_url"), jSONObject.optString(c.a.r0.h.j.m.c.f10840b), jSONObject.optString(c.a.r0.h.j.m.c.f10841c));
+            e.t().K(jSONObject.optString("key_download_url"), jSONObject.optString(c.a.r0.h.j.m.c.f10600b), jSONObject.optString(c.a.r0.h.j.m.c.f10601c));
         }
     }
 }

@@ -44,7 +44,7 @@ public class s0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s0 f4295e;
+        public final /* synthetic */ s0 f4213e;
 
         public a(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -61,18 +61,18 @@ public class s0 extends h {
                     return;
                 }
             }
-            this.f4295e = s0Var;
+            this.f4213e = s0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             s0 s0Var;
-            a.InterfaceC0184a interfaceC0184a;
+            a.InterfaceC0193a interfaceC0193a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0184a = (s0Var = this.f4295e).f4214i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0193a = (s0Var = this.f4213e).f4148i) == null) {
                 return;
             }
-            interfaceC0184a.a(s0Var.p);
+            interfaceC0193a.a(s0Var.p);
         }
     }
 
@@ -210,8 +210,8 @@ public class s0 extends h {
     public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            int k2 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
-            if (k2 != this.r) {
+            int k = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
+            if (k != this.r) {
                 w = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
                 if (!"pb".equals(this.s)) {
                     this.l = w - v;
@@ -221,10 +221,10 @@ public class s0 extends h {
                 int i2 = this.l;
                 this.m = i2 / 2;
                 this.n = i2 / 3;
-                this.r = k2;
+                this.r = k;
             }
             this.p = aVar;
-            if (aVar != null && aVar.getThreadData() != null && this.p.getThreadData().A1 != null && !this.p.getThreadData().A1.m && !this.p.getThreadData().P4()) {
+            if (aVar != null && aVar.getThreadData() != null && this.p.getThreadData().z1 != null && !this.p.getThreadData().z1.m && !this.p.getThreadData().P4()) {
                 this.q.setVisibility(0);
                 this.q.onBindDataToView(aVar);
                 ViewGroup.LayoutParams layoutParams = this.q.getLayoutParams();
@@ -232,8 +232,8 @@ public class s0 extends h {
                 int i3 = layoutParams.width;
                 int i4 = layoutParams.height;
                 boolean z = true;
-                if (this.p.getThreadData().A1.r.is_vertical.intValue() == 1) {
-                    VideoInfo videoInfo = this.p.getThreadData().A1.r;
+                if (this.p.getThreadData().z1.r.is_vertical.intValue() == 1) {
+                    VideoInfo videoInfo = this.p.getThreadData().z1.r;
                     if (videoInfo == null) {
                         return;
                     }
@@ -287,10 +287,10 @@ public class s0 extends h {
         }
     }
 
-    public void w(a.InterfaceC0184a interfaceC0184a) {
+    public void w(a.InterfaceC0193a interfaceC0193a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0184a) == null) {
-            this.f4214i = interfaceC0184a;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0193a) == null) {
+            this.f4148i = interfaceC0193a;
         }
     }
 

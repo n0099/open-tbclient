@@ -42,30 +42,30 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f22769h;
+    public static volatile b f22143h;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.t0.s1.k.a f22770b;
+    public final c.a.t0.s1.k.a f22144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.t0.s1.k.a f22771c;
+    public final c.a.t0.s1.k.a f22145c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.t0.s1.k.a f22772d;
+    public final c.a.t0.s1.k.a f22146d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessage<String> f22773e;
+    public CustomMessage<String> f22147e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f22774f;
+    public BdUniqueId f22148f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f22775g;
+    public CustomMessageListener f22149g;
 
     /* loaded from: classes8.dex */
-    public class a implements a.InterfaceC1352a {
+    public class a implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
@@ -88,7 +88,7 @@ public class b {
             this.a = list;
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -101,12 +101,12 @@ public class b {
 
     /* renamed from: c.a.t0.s1.k.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1353b implements a.InterfaceC1352a {
+    public class C1368b implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
 
-        public C1353b(b bVar, List list) {
+        public C1368b(b bVar, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class b {
             this.a = list;
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -139,7 +139,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class c implements a.InterfaceC1352a {
+    public class c implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
@@ -162,7 +162,7 @@ public class b {
             this.a = list;
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -177,7 +177,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class d implements a.InterfaceC1352a {
+    public class d implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImMessageCenterPojo a;
@@ -200,7 +200,7 @@ public class b {
             this.a = imMessageCenterPojo;
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -229,7 +229,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f22776e;
+        public final /* synthetic */ ImMessageCenterPojo f22150e;
 
         public e(b bVar, ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
@@ -246,7 +246,7 @@ public class b {
                     return;
                 }
             }
-            this.f22776e = imMessageCenterPojo;
+            this.f22150e = imMessageCenterPojo;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -254,7 +254,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                c.a.t0.s1.h.j.f().j(this.f22776e);
+                c.a.t0.s1.h.j.f().j(this.f22150e);
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -262,7 +262,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class f implements a.InterfaceC1352a {
+    public class f implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImMessageCenterPojo a;
@@ -285,7 +285,7 @@ public class b {
             this.a = imMessageCenterPojo;
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -345,13 +345,13 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class h implements a.InterfaceC1352a {
+    public class h implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LongSparseArray a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f22777b;
+        public final /* synthetic */ b f22151b;
 
         public h(b bVar, LongSparseArray longSparseArray) {
             Interceptable interceptable = $ic;
@@ -368,17 +368,17 @@ public class b {
                     return;
                 }
             }
-            this.f22777b = bVar;
+            this.f22151b = bVar;
             this.a = longSparseArray;
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
                     ImMessageCenterPojo next = it.next();
-                    if (this.f22777b.A(next)) {
+                    if (this.f22151b.A(next)) {
                         this.a.put(c.a.d.f.m.b.g(next.getGid(), 0L), Long.valueOf(c.a.t0.s1.w.b.c(next.getPulled_msgId())));
                     }
                 }
@@ -387,13 +387,13 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class i implements a.InterfaceC1352a {
+    public class i implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewpushRepair.Builder f22778b;
+        public final /* synthetic */ NewpushRepair.Builder f22152b;
 
         public i(b bVar, List list, NewpushRepair.Builder builder) {
             Interceptable interceptable = $ic;
@@ -411,10 +411,10 @@ public class b {
                 }
             }
             this.a = list;
-            this.f22778b = builder;
+            this.f22152b = builder;
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -427,10 +427,10 @@ public class b {
                     }
                 }
                 if (this.a.size() <= 10) {
-                    this.f22778b.groups = this.a;
+                    this.f22152b.groups = this.a;
                     return;
                 }
-                this.f22778b.followType = "0";
+                this.f22152b.followType = "0";
             }
         }
     }
@@ -562,7 +562,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class l implements a.InterfaceC1352a {
+    public class l implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -582,7 +582,7 @@ public class b {
             }
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -600,7 +600,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class m implements a.InterfaceC1352a {
+    public class m implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -620,7 +620,7 @@ public class b {
             }
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -638,7 +638,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class n implements a.InterfaceC1352a {
+    public class n implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -658,7 +658,7 @@ public class b {
             }
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -676,7 +676,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class o implements a.InterfaceC1352a {
+    public class o implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
@@ -699,7 +699,7 @@ public class b {
             this.a = list;
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -711,7 +711,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class p implements a.InterfaceC1352a {
+    public class p implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
@@ -734,7 +734,7 @@ public class b {
             this.a = list;
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -746,7 +746,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class q implements a.InterfaceC1352a {
+    public class q implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
@@ -769,7 +769,7 @@ public class b {
             this.a = list;
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -781,7 +781,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class r implements a.InterfaceC1352a {
+    public class r implements a.InterfaceC1367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
@@ -804,7 +804,7 @@ public class b {
             this.a = list;
         }
 
-        @Override // c.a.t0.s1.k.a.InterfaceC1352a
+        @Override // c.a.t0.s1.k.a.InterfaceC1367a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -829,29 +829,29 @@ public class b {
             }
         }
         this.a = new AtomicBoolean(false);
-        this.f22770b = new c.a.t0.s1.k.a();
-        this.f22771c = new c.a.t0.s1.k.a();
-        this.f22772d = new c.a.t0.s1.k.a();
-        this.f22775g = new k(this, 2016008);
-        MessageManager.getInstance().registerListener(this.f22775g);
-        this.f22773e = new CustomMessage<>(2016008, TbadkCoreApplication.getCurrentAccount());
+        this.f22144b = new c.a.t0.s1.k.a();
+        this.f22145c = new c.a.t0.s1.k.a();
+        this.f22146d = new c.a.t0.s1.k.a();
+        this.f22149g = new k(this, 2016008);
+        MessageManager.getInstance().registerListener(this.f22149g);
+        this.f22147e = new CustomMessage<>(2016008, TbadkCoreApplication.getCurrentAccount());
         BdUniqueId gen = BdUniqueId.gen();
-        this.f22774f = gen;
-        this.f22773e.setTag(gen);
+        this.f22148f = gen;
+        this.f22147e.setTag(gen);
     }
 
     public static b o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f22769h == null) {
+            if (f22143h == null) {
                 synchronized (b.class) {
-                    if (f22769h == null) {
-                        f22769h = new b();
+                    if (f22143h == null) {
+                        f22143h = new b();
                     }
                 }
             }
-            return f22769h;
+            return f22143h;
         }
         return (b) invokeV.objValue;
     }
@@ -958,7 +958,7 @@ public class b {
         }
         for (ImMessageCenterPojo imMessageCenterPojo : list) {
             if (imMessageCenterPojo != null) {
-                this.f22770b.e(imMessageCenterPojo.getGid());
+                this.f22144b.e(imMessageCenterPojo.getGid());
             }
         }
     }
@@ -966,9 +966,9 @@ public class b {
     public void J() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a.get()) {
-            this.f22770b.d(new l(this));
-            this.f22771c.d(new m(this));
-            this.f22772d.d(new n(this));
+            this.f22144b.d(new l(this));
+            this.f22145c.d(new m(this));
+            this.f22146d.d(new n(this));
             K();
         }
     }
@@ -1268,9 +1268,9 @@ public class b {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.f22770b.b();
-            this.f22771c.b();
-            this.f22772d.b();
+            this.f22144b.b();
+            this.f22145c.b();
+            this.f22146d.b();
             K();
         }
     }
@@ -1303,7 +1303,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            this.f22770b.d(new r(this, linkedList));
+            this.f22144b.d(new r(this, linkedList));
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -1314,9 +1314,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            this.f22770b.d(new o(this, linkedList));
-            this.f22771c.d(new p(this, linkedList));
-            this.f22772d.d(new q(this, linkedList));
+            this.f22144b.d(new o(this, linkedList));
+            this.f22145c.d(new p(this, linkedList));
+            this.f22146d.d(new q(this, linkedList));
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -1327,7 +1327,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            this.f22772d.d(new a(this, linkedList));
+            this.f22146d.d(new a(this, linkedList));
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -1338,7 +1338,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            this.f22771c.d(new C1353b(this, linkedList));
+            this.f22145c.d(new C1368b(this, linkedList));
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -1349,12 +1349,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i2)) == null) {
             if (i2 == 2) {
-                return this.f22771c;
+                return this.f22145c;
             }
             if (i2 == 4) {
-                return this.f22772d;
+                return this.f22146d;
             }
-            return this.f22770b;
+            return this.f22144b;
         }
         return (c.a.t0.s1.k.a) invokeI.objValue;
     }
@@ -1386,7 +1386,7 @@ public class b {
             }
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setIs_hidden(1);
-            this.f22772d.d(new f(this, imMessageCenterPojo));
+            this.f22146d.d(new f(this, imMessageCenterPojo));
             c2.setUserType(imMessageCenterPojo.getUserType());
             c2.setLast_content(imMessageCenterPojo.getLast_content());
             c2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
@@ -1423,7 +1423,7 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
             if (this.a.get()) {
-                this.f22770b.d(new h(this, longSparseArray));
+                this.f22144b.d(new h(this, longSparseArray));
             }
             return longSparseArray;
         }
@@ -1437,7 +1437,7 @@ public class b {
             NewpushRepair.Builder builder = new NewpushRepair.Builder();
             ArrayList arrayList = new ArrayList();
             if (this.a.get()) {
-                this.f22772d.d(new i(this, arrayList, builder));
+                this.f22146d.d(new i(this, arrayList, builder));
             }
             return builder.build(false);
         }
@@ -1465,7 +1465,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            this.f22771c.d(new c(this, linkedList));
+            this.f22145c.d(new c(this, linkedList));
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -1485,7 +1485,7 @@ public class b {
             }
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setIs_hidden(1);
-            this.f22771c.d(new d(this, imMessageCenterPojo));
+            this.f22145c.d(new d(this, imMessageCenterPojo));
             c2.setLast_content(imMessageCenterPojo.getLast_content());
             c2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
             c2.setLast_rid(imMessageCenterPojo.getLast_rid());
@@ -1526,13 +1526,13 @@ public class b {
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             this.a.set(false);
             g();
-            MessageManager.getInstance().removeMessage(2016008, this.f22774f);
-            this.f22773e.setData(TbadkCoreApplication.getCurrentAccount());
+            MessageManager.getInstance().removeMessage(2016008, this.f22148f);
+            this.f22147e.setData(TbadkCoreApplication.getCurrentAccount());
             CustomMessageTask customMessageTask = new CustomMessageTask(2016008, new j(this));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             customMessageTask.setPriority(4);
-            MessageManager.getInstance().sendMessage(this.f22773e, customMessageTask);
+            MessageManager.getInstance().sendMessage(this.f22147e, customMessageTask);
         }
     }
 
@@ -1585,7 +1585,7 @@ public class b {
                 str2 = "";
                 str = str2;
             }
-            ImMessageCenterPojo c3 = this.f22770b.c(str3);
+            ImMessageCenterPojo c3 = this.f22144b.c(str3);
             if (c3 != null) {
                 str2 = c3.getGroup_name();
             }

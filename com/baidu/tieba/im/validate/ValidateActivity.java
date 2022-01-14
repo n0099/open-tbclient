@@ -175,7 +175,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     }
 
     /* loaded from: classes12.dex */
-    public class d implements c.InterfaceC0871c {
+    public class d implements c.InterfaceC0884c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ValidateActivity a;
@@ -198,7 +198,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
             this.a = validateActivity;
         }
 
-        @Override // c.a.s0.s.s.c.InterfaceC0871c
+        @Override // c.a.s0.s.s.c.InterfaceC0884c
         public void a(c.a.s0.s.s.c cVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, cVar, i2, view) == null) {

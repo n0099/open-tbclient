@@ -20,16 +20,16 @@ public final class DriverPosition implements Parcelable {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f37207b;
+    public LatLng f35983b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f37208c;
+    public double f35984c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f37209d;
+    public double f35985d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37210e;
+    public int f35986e;
 
     static {
         InterceptResult invokeClinit;
@@ -61,10 +61,10 @@ public final class DriverPosition implements Parcelable {
             }
         }
         this.a = null;
-        this.f37207b = null;
-        this.f37208c = 0.0d;
-        this.f37209d = 0.0d;
-        this.f37210e = 0;
+        this.f35983b = null;
+        this.f35984c = 0.0d;
+        this.f35985d = 0.0d;
+        this.f35986e = 0;
     }
 
     public DriverPosition(Parcel parcel) {
@@ -83,10 +83,10 @@ public final class DriverPosition implements Parcelable {
             }
         }
         this.a = parcel.readString();
-        this.f37207b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.f37208c = parcel.readDouble();
-        this.f37209d = parcel.readDouble();
-        this.f37210e = parcel.readInt();
+        this.f35983b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f35984c = parcel.readDouble();
+        this.f35985d = parcel.readDouble();
+        this.f35986e = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -102,25 +102,25 @@ public final class DriverPosition implements Parcelable {
     public double getAngle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37208c : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35984c : invokeV.doubleValue;
     }
 
     public int getOrderStateInPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37210e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35986e : invokeV.intValue;
     }
 
     public LatLng getPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37207b : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35983b : (LatLng) invokeV.objValue;
     }
 
     public double getSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37209d : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35985d : invokeV.doubleValue;
     }
 
     public String getTimeStamp() {
@@ -136,32 +136,32 @@ public final class DriverPosition implements Parcelable {
             if (d2 >= 0.0d) {
                 d3 = 360.0d;
                 if (d2 < 360.0d) {
-                    this.f37208c = d2;
+                    this.f35984c = d2;
                     return;
                 }
             }
-            this.f37208c = d3;
+            this.f35984c = d3;
         }
     }
 
     public void setOrderStateInPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f37210e = i2;
+            this.f35986e = i2;
         }
     }
 
     public void setPoint(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, latLng) == null) {
-            this.f37207b = latLng;
+            this.f35983b = latLng;
         }
     }
 
     public void setSpeed(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f37209d = d2;
+            this.f35985d = d2;
         }
     }
 
@@ -177,10 +177,10 @@ public final class DriverPosition implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
             parcel.writeString(this.a);
-            parcel.writeParcelable(this.f37207b, i2);
-            parcel.writeDouble(this.f37208c);
-            parcel.writeDouble(this.f37209d);
-            parcel.writeInt(this.f37210e);
+            parcel.writeParcelable(this.f35983b, i2);
+            parcel.writeDouble(this.f35984c);
+            parcel.writeDouble(this.f35985d);
+            parcel.writeInt(this.f35986e);
         }
     }
 }

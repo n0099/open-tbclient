@@ -21,20 +21,20 @@ public class w implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f17002i;
+    public static final BdUniqueId f16700i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17003e;
+    public int f16701e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<MetaData> f17004f;
+    public List<MetaData> f16702f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17005g;
+    public String f16703g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f17006h;
+    public boolean f16704h;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class w implements c.a.d.n.e.n {
                 return;
             }
         }
-        f17002i = BdUniqueId.gen();
+        f16700i = BdUniqueId.gen();
     }
 
     public w() {
@@ -65,40 +65,40 @@ public class w implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f17003e = 0;
-        this.f17005g = "本吧都在关注";
-        this.f17006h = false;
+        this.f16701e = 0;
+        this.f16703g = "本吧都在关注";
+        this.f16704h = false;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17003e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16701e : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17005g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16703g : (String) invokeV.objValue;
     }
 
     public List<MetaData> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17004f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16702f : (List) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17006h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16704h : invokeV.booleanValue;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f17002i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f16700i : (BdUniqueId) invokeV.objValue;
     }
 
     public void h(FeatureCardGod featureCardGod) {
@@ -106,9 +106,9 @@ public class w implements c.a.d.n.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, featureCardGod) == null) || featureCardGod == null || ListUtils.isEmpty(featureCardGod.sub_nodes)) {
             return;
         }
-        this.f17003e = featureCardGod.floor.intValue();
-        this.f17004f = featureCardGod.sub_nodes;
-        this.f17005g = featureCardGod.title;
+        this.f16701e = featureCardGod.floor.intValue();
+        this.f16702f = featureCardGod.sub_nodes;
+        this.f16703g = featureCardGod.title;
     }
 
     public void i(FrsPageUserExtend frsPageUserExtend) {
@@ -117,23 +117,23 @@ public class w implements c.a.d.n.e.n {
             return;
         }
         List<User> list = frsPageUserExtend.data;
-        this.f17003e = frsPageUserExtend.user_extend_storey.intValue();
-        this.f17004f = new ArrayList(list.size());
+        this.f16701e = frsPageUserExtend.user_extend_storey.intValue();
+        this.f16702f = new ArrayList(list.size());
         for (int i2 = 0; i2 < list.size(); i2++) {
             User user = list.get(i2);
             if (user != null && user.id.longValue() != 0) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i2));
-                this.f17004f.add(metaData);
+                this.f16702f.add(metaData);
             }
         }
-        this.f17005g = frsPageUserExtend.tips;
+        this.f16703g = frsPageUserExtend.tips;
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f17006h = z;
+            this.f16704h = z;
         }
     }
 }

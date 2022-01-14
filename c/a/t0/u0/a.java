@@ -1,7 +1,7 @@
 package c.a.t0.u0;
 
 import android.view.View;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.v;
 import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -19,7 +19,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLL(65536, null, view, aVar, str) == null) || aVar == null || aVar.getThreadData() == null) {
             return;
         }
-        d2 threadData = aVar.getThreadData();
+        e2 threadData = aVar.getThreadData();
         if (threadData.H2()) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
             return;

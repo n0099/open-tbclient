@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class b implements com.baidu.sofire.k.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public final class b implements com.baidu.sofire.k.b {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
             a aVar = new a(context, cVar);
             this.a = aVar;
-            aVar.f39797c = new ServiceConnection(aVar) { // from class: com.baidu.sofire.l.a.1
+            aVar.f38479c = new ServiceConnection(aVar) { // from class: com.baidu.sofire.l.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
@@ -66,7 +66,7 @@ public final class b implements com.baidu.sofire.k.b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                         synchronized (this) {
-                            this.a.f39796b = c.a.a(iBinder);
+                            this.a.f38478b = c.a.a(iBinder);
                         }
                     }
                 }
@@ -75,13 +75,13 @@ public final class b implements com.baidu.sofire.k.b {
                 public final void onServiceDisconnected(ComponentName componentName) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                        this.a.f39796b = null;
+                        this.a.f38478b = null;
                     }
                 }
             };
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            aVar.a.bindService(intent, aVar.f39797c, 1);
+            aVar.a.bindService(intent, aVar.f38479c, 1);
         }
     }
 

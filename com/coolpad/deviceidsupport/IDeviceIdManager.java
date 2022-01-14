@@ -20,15 +20,15 @@ public interface IDeviceIdManager extends IInterface {
 
         /* renamed from: com.coolpad.deviceidsupport.IDeviceIdManager$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C2033a implements IDeviceIdManager {
+        public static class C2050a implements IDeviceIdManager {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: b  reason: collision with root package name */
-            public static IDeviceIdManager f55575b;
+            public static IDeviceIdManager f53467b;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C2033a(IBinder iBinder) {
+            public C2050a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -234,7 +234,7 @@ public interface IDeviceIdManager extends IInterface {
         public static IDeviceIdManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C2033a.f55575b : (IDeviceIdManager) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C2050a.f53467b : (IDeviceIdManager) invokeV.objValue;
         }
 
         public static IDeviceIdManager a(IBinder iBinder) {
@@ -245,7 +245,7 @@ public interface IDeviceIdManager extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.coolpad.deviceidsupport.IDeviceIdManager");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceIdManager)) ? new C2033a(iBinder) : (IDeviceIdManager) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceIdManager)) ? new C2050a(iBinder) : (IDeviceIdManager) queryLocalInterface;
             }
             return (IDeviceIdManager) invokeL.objValue;
         }

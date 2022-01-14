@@ -17,36 +17,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements c.a.t0.o1.g.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f20969b;
+    public BdUniqueId f20407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.c.g.a f20970c;
+    public c.a.d.c.g.a f20408c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f20971d;
+    public boolean f20409d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20972e;
+    public b f20410e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<String, List<n>> f20973f;
+    public final HashMap<String, List<n>> f20411f;
 
     /* renamed from: c.a.t0.o1.g.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1266a extends c.a.d.c.g.a {
+    /* loaded from: classes8.dex */
+    public class C1280a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1266a(a aVar, int i2, int i3) {
+        public C1280a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -71,26 +71,26 @@ public class a implements c.a.t0.o1.g.a {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f20971d = false;
-                if (this.a.f20972e == null) {
+                this.a.f20409d = false;
+                if (this.a.f20410e == null) {
                     return;
                 }
                 if (!(responsedMessage instanceof c.a.t0.o1.g.e.a)) {
-                    this.a.f20972e.c(-1);
-                } else if (responsedMessage.getOrginalMessage() == null || this.a.f20969b != responsedMessage.getOrginalMessage().getTag()) {
-                    this.a.f20972e.c(-1);
+                    this.a.f20410e.c(-1);
+                } else if (responsedMessage.getOrginalMessage() == null || this.a.f20407b != responsedMessage.getOrginalMessage().getTag()) {
+                    this.a.f20410e.c(-1);
                 } else if (responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    this.a.f20972e.c(responsedMessage.getError());
+                    this.a.f20410e.c(responsedMessage.getError());
                 } else {
                     c.a.t0.o1.g.e.a aVar = (c.a.t0.o1.g.e.a) responsedMessage;
                     if (aVar.getDataList() == null || aVar.getDataList().size() <= 0) {
-                        this.a.f20972e.c(-1);
+                        this.a.f20410e.c(-1);
                         return;
                     }
                     if (!StringUtils.isNull(this.a.a)) {
-                        this.a.f20973f.put(this.a.a, aVar.getDataList());
+                        this.a.f20411f.put(this.a.a, aVar.getDataList());
                     }
-                    this.a.f20972e.b(responsedMessage.getError(), aVar);
+                    this.a.f20410e.b(responsedMessage.getError(), aVar);
                 }
             }
         }
@@ -111,9 +111,9 @@ public class a implements c.a.t0.o1.g.a {
                 return;
             }
         }
-        this.f20969b = null;
-        this.f20973f = new HashMap<>();
-        this.f20972e = bVar;
+        this.f20407b = null;
+        this.f20411f = new HashMap<>();
+        this.f20410e = bVar;
         g();
     }
 
@@ -123,12 +123,12 @@ public class a implements c.a.t0.o1.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
             if (l.A() && bdUniqueId != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                if (this.f20971d) {
+                if (this.f20409d) {
                     return false;
                 }
                 String str4 = this.a;
-                if (str4 != null && str4.equals(str) && this.f20973f.size() > 0) {
-                    this.f20972e.setData(this.f20973f.get(str));
+                if (str4 != null && str4.equals(str) && this.f20411f.size() > 0) {
+                    this.f20410e.setData(this.f20411f.get(str));
                     return true;
                 }
                 k(bdUniqueId);
@@ -141,10 +141,10 @@ public class a implements c.a.t0.o1.g.a {
                 moreTreasureTroveReqMsg.setLfUser(str2);
                 moreTreasureTroveReqMsg.setTaskId(str3);
                 boolean sendMessage = MessageManager.getInstance().sendMessage(moreTreasureTroveReqMsg);
-                this.f20971d = sendMessage;
+                this.f20409d = sendMessage;
                 return sendMessage;
             }
-            b bVar = this.f20972e;
+            b bVar = this.f20410e;
             if (bVar != null) {
                 bVar.c(-1);
             }
@@ -156,8 +156,8 @@ public class a implements c.a.t0.o1.g.a {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f20970c = new C1266a(this, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, 309691);
-            MessageManager.getInstance().registerListener(this.f20970c);
+            this.f20408c = new C1280a(this, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, 309691);
+            MessageManager.getInstance().registerListener(this.f20408c);
         }
     }
 
@@ -183,7 +183,7 @@ public class a implements c.a.t0.o1.g.a {
     public void k(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.f20969b = bdUniqueId;
+            this.f20407b = bdUniqueId;
         }
     }
 }

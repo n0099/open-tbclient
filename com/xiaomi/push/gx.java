@@ -88,11 +88,11 @@ public class gx {
                 }
                 return null;
             }
-            ex m417a = m417a();
-            m417a.a(ew.f63441k.a());
-            m417a.c(aVar.f158a);
-            m417a.c(aVar.f160a);
-            return m417a;
+            ex m429a = m429a();
+            m429a.a(ew.k.a());
+            m429a.c(aVar.f158a);
+            m429a.c(aVar.f160a);
+            return m429a;
         }
         return (ex) invokeL.objValue;
     }
@@ -112,10 +112,10 @@ public class gx {
                 eyVar.b(a2);
             } catch (iv unused) {
             }
-            LinkedList<bi.a> m231a = this.f467a.m231a();
-            while (m231a.size() > 0) {
+            LinkedList<bi.a> m243a = this.f467a.m243a();
+            while (m243a.size() > 0) {
                 try {
-                    ex a3 = a(m231a.getLast());
+                    ex a3 = a(m243a.getLast());
                     if (a3 != null) {
                         a3.b(a2);
                     }
@@ -125,7 +125,7 @@ public class gx {
                     if (a3 != null) {
                         arrayList.add(a3);
                     }
-                    m231a.removeLast();
+                    m243a.removeLast();
                 } catch (iv | NoSuchElementException unused2) {
                 }
             }
@@ -148,14 +148,14 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gx m415a() {
+    public static gx m427a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.a : (gx) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m416a() {
+    private void m428a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.f470a && System.currentTimeMillis() - this.f466a > this.a) {
             this.f470a = false;
@@ -164,14 +164,14 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ex m417a() {
+    public synchronized ex m429a() {
         InterceptResult invokeV;
         ex exVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 exVar = new ex();
-                exVar.a(bg.m224a((Context) this.f468a.f463a));
+                exVar.a(bg.m236a((Context) this.f468a.f463a));
                 exVar.f349a = (byte) 0;
                 exVar.f353b = 1;
                 exVar.d((int) (System.currentTimeMillis() / 1000));
@@ -182,7 +182,7 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ey m418a() {
+    public synchronized ey m430a() {
         InterceptResult invokeV;
         ey eyVar;
         Interceptable interceptable = $ic;
@@ -199,7 +199,7 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m419a(int i2) {
+    public void m431a(int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 <= 0) {
             return;
@@ -238,7 +238,7 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m420a() {
+    public boolean m432a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f470a : invokeV.booleanValue;
@@ -248,8 +248,8 @@ public class gx {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            m416a();
-            return this.f470a && this.f467a.m230a() > 0;
+            m428a();
+            return this.f470a && this.f467a.m242a() > 0;
         }
         return invokeV.booleanValue;
     }

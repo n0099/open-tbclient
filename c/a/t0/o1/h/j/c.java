@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.Resource;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class c extends p {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, resource) == null) || resource == null) {
             return;
         }
-        this.f18255e = resource.res_id.longValue();
-        this.f18256f = resource.user_name;
-        this.f18257g = resource.user_image;
-        this.f18258h = resource.user_link;
-        this.f18259i = resource.res_title;
-        this.f18260j = resource.res_image;
-        this.f18261k = resource.res_link;
+        this.f17809e = resource.res_id.longValue();
+        this.f17810f = resource.user_name;
+        this.f17811g = resource.user_image;
+        this.f17812h = resource.user_link;
+        this.f17813i = resource.res_title;
+        this.f17814j = resource.res_image;
+        this.k = resource.res_link;
         this.l = resource.position.longValue();
         this.m = resource.icon_text;
     }

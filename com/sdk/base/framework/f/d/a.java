@@ -30,7 +30,7 @@ public class a {
     public static final String a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f61589b;
+    public static final Boolean f59255b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class a {
                 return;
             }
         }
-        f61589b = Boolean.valueOf(f.f61569b);
+        f59255b = Boolean.valueOf(f.f59236b);
     }
 
     public a() {
@@ -198,7 +198,7 @@ public class a {
                         }
                     }
                 } catch (Throwable th) {
-                    c.b(a, th.getMessage(), f61589b);
+                    c.b(a, th.getMessage(), f59255b);
                 }
             }
             return null;

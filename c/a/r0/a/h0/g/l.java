@@ -88,7 +88,7 @@ public class l extends c.a.r0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ l f6561c;
+        public final /* synthetic */ l f6420c;
 
         public b(l lVar) {
             Interceptable interceptable = $ic;
@@ -105,19 +105,19 @@ public class l extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6561c = lVar;
+            this.f6420c = lVar;
         }
 
         @Override // c.a.r0.a.h0.j.a, c.a.r0.a.h0.j.d
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (this.f6561c.R2(str) && this.f6561c.N0 != null) {
-                    l lVar = this.f6561c;
+                if (this.f6420c.R2(str) && this.f6420c.N0 != null) {
+                    l lVar = this.f6420c;
                     lVar.k0.setTitle(lVar.N0);
                     return;
                 }
-                this.f6561c.k0.setTitle(str);
+                this.f6420c.k0.setTitle(str);
             }
         }
     }
@@ -128,7 +128,7 @@ public class l extends c.a.r0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f6562e;
+        public final /* synthetic */ l f6421e;
 
         public c(l lVar) {
             Interceptable interceptable = $ic;
@@ -145,17 +145,17 @@ public class l extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6562e = lVar;
+            this.f6421e = lVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f6562e.K0.canGoBack()) {
-                    this.f6562e.K0.goBack();
+                if (this.f6421e.K0.canGoBack()) {
+                    this.f6421e.K0.goBack();
                 } else {
-                    this.f6562e.b2();
+                    this.f6421e.b2();
                 }
             }
         }
@@ -168,7 +168,7 @@ public class l extends c.a.r0.a.h0.g.d {
         public c.a.r0.a.m1.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f6563b;
+        public JSONObject f6422b;
 
         public d(String str) {
             Interceptable interceptable = $ic;
@@ -185,7 +185,7 @@ public class l extends c.a.r0.a.h0.g.d {
                     return;
                 }
             }
-            this.f6563b = new JSONObject();
+            this.f6422b = new JSONObject();
             this.a = c.a.r0.a.m1.b.e(str, str);
         }
 
@@ -194,7 +194,7 @@ public class l extends c.a.r0.a.h0.g.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
                 try {
-                    this.f6563b.put("should_check_domain", z);
+                    this.f6422b.put("should_check_domain", z);
                 } catch (JSONException e2) {
                     if (l.P0) {
                         e2.printStackTrace();
@@ -208,7 +208,7 @@ public class l extends c.a.r0.a.h0.g.d {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.f7844f = this.f6563b.toString();
+                this.a.f7673f = this.f6422b.toString();
                 l.X2("default_webview", this.a);
             }
         }
@@ -218,7 +218,7 @@ public class l extends c.a.r0.a.h0.g.d {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) || mVar == null) {
                 return;
             }
-            this.a.f7844f = this.f6563b.toString();
+            this.a.f7673f = this.f6422b.toString();
             l W2 = l.W2(this.a, "default_webview");
             o a = mVar.a();
             a.a(c.a.r0.a.f.ai_apps_error_layout, W2);
@@ -270,7 +270,7 @@ public class l extends c.a.r0.a.h0.g.d {
             }
             c.a.r0.a.e0.d.i("SwanAppWebViewFragment", "page closed! ");
             g.b h2 = V.h();
-            h2.n(g.f6542i, g.f6541h);
+            h2.n(g.f6401i, g.f6400h);
             h2.g();
             h2.a();
             return true;
@@ -389,9 +389,9 @@ public class l extends c.a.r0.a.h0.g.d {
                 c.a.r0.a.e0.d.i("SwanAppWebViewFragment", "open page failed");
                 return false;
             }
-            c.a.r0.a.e0.d.i("SwanAppWebViewFragment", "open page url=" + bVar.f7845g);
+            c.a.r0.a.e0.d.i("SwanAppWebViewFragment", "open page url=" + bVar.f7674g);
             g.b h2 = V.h();
-            h2.n(g.f6540g, g.f6542i);
+            h2.n(g.f6399g, g.f6401i);
             h2.k(str, bVar).b();
             return true;
         }
@@ -505,8 +505,8 @@ public class l extends c.a.r0.a.h0.g.d {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putString("url", bVar.f7845g);
-        bundle.putString("params", bVar.f7844f);
+        bundle.putString("url", bVar.f7674g);
+        bundle.putString("params", bVar.f7673f);
         d1(bundle);
     }
 

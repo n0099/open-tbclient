@@ -35,10 +35,8 @@ public class Market3Dialog extends MarketBaseDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f55608j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public Handler f55609k;
+    public Context f53499j;
+    public Handler k;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -46,16 +44,16 @@ public class Market3Dialog extends MarketBaseDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Market3Dialog f55610e;
+        public final /* synthetic */ Market3Dialog f53500e;
 
         /* renamed from: com.dxm.credit.marketdialog.ui.Market3Dialog$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C2034a implements SDKJumpManager.OnJumpListener {
+        public class C2051a implements SDKJumpManager.OnJumpListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C2034a(a aVar) {
+            public C2051a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,7 +75,7 @@ public class Market3Dialog extends MarketBaseDialog {
             public void beforeJump(Context context, String str, String str2, String str3, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, Boolean.valueOf(z)}) == null) {
-                    MarketDialogResponse.Dialog dialog = this.a.f55610e.mData;
+                    MarketDialogResponse.Dialog dialog = this.a.f53500e.mData;
                     DXMSdkSAUtils.onEventWithValues("sdk_market_dialog_click_jump", Arrays.asList(dialog.group_name, dialog.group_limit));
                 }
             }
@@ -98,7 +96,7 @@ public class Market3Dialog extends MarketBaseDialog {
                     return;
                 }
             }
-            this.f55610e = market3Dialog;
+            this.f53500e = market3Dialog;
         }
 
         @Override // android.view.View.OnClickListener
@@ -108,10 +106,10 @@ public class Market3Dialog extends MarketBaseDialog {
                 return;
             }
             SDKJumpManager sDKJumpManager = SDKJumpManager.getInstance();
-            Context context = this.f55610e.getContext();
-            MarketDialogResponse.Dialog dialog = this.f55610e.mData;
-            sDKJumpManager.doSDKJump(context, dialog.group_name, dialog.group_link_type, dialog.group_link_addr, false, new C2034a(this));
-            this.f55610e.dismissOnly();
+            Context context = this.f53500e.getContext();
+            MarketDialogResponse.Dialog dialog = this.f53500e.mData;
+            sDKJumpManager.doSDKJump(context, dialog.group_name, dialog.group_link_type, dialog.group_link_addr, false, new C2051a(this));
+            this.f53500e.dismissOnly();
         }
     }
 
@@ -122,7 +120,7 @@ public class Market3Dialog extends MarketBaseDialog {
         public final /* synthetic */ RoundRectNetImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Market3Dialog f55611b;
+        public final /* synthetic */ Market3Dialog f53501b;
 
         /* loaded from: classes2.dex */
         public class a implements Runnable {
@@ -130,10 +128,10 @@ public class Market3Dialog extends MarketBaseDialog {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f55612e;
+            public final /* synthetic */ Bitmap f53502e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f55613f;
+            public final /* synthetic */ b f53503f;
 
             public a(b bVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
@@ -150,30 +148,30 @@ public class Market3Dialog extends MarketBaseDialog {
                         return;
                     }
                 }
-                this.f55613f = bVar;
-                this.f55612e = bitmap;
+                this.f53503f = bVar;
+                this.f53502e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f55613f.a.setImageBitmap(this.f55612e);
-                    this.f55613f.f55611b.showOnly();
+                    this.f53503f.a.setImageBitmap(this.f53502e);
+                    this.f53503f.f53501b.showOnly();
                 }
             }
         }
 
         /* renamed from: com.dxm.credit.marketdialog.ui.Market3Dialog$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC2035b implements Runnable {
+        public class RunnableC2052b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f55614e;
+            public final /* synthetic */ b f53504e;
 
-            public RunnableC2035b(b bVar) {
+            public RunnableC2052b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,14 +186,14 @@ public class Market3Dialog extends MarketBaseDialog {
                         return;
                     }
                 }
-                this.f55614e = bVar;
+                this.f53504e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f55614e.f55611b.dismiss();
+                    this.f53504e.f53501b.dismiss();
                 }
             }
         }
@@ -215,7 +213,7 @@ public class Market3Dialog extends MarketBaseDialog {
                     return;
                 }
             }
-            this.f55611b = market3Dialog;
+            this.f53501b = market3Dialog;
             this.a = roundRectNetImageView;
         }
 
@@ -233,7 +231,7 @@ public class Market3Dialog extends MarketBaseDialog {
         public void onError(String str, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-                this.f55611b.f55609k.post(new RunnableC2035b(this));
+                this.f53501b.k.post(new RunnableC2052b(this));
             }
         }
 
@@ -243,7 +241,7 @@ public class Market3Dialog extends MarketBaseDialog {
             if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, obj, bitmap) == null) || bitmap == null || this.a == null) {
                 return;
             }
-            this.f55611b.f55609k.post(new a(this, bitmap));
+            this.f53501b.k.post(new a(this, bitmap));
         }
     }
 
@@ -280,7 +278,7 @@ public class Market3Dialog extends MarketBaseDialog {
                 return;
             }
         }
-        this.f55608j = context;
+        this.f53499j = context;
         c();
     }
 
@@ -309,7 +307,7 @@ public class Market3Dialog extends MarketBaseDialog {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(ResUtils.layout(this.f55608j, "credit_market_dialog_layout_3"), (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(ResUtils.layout(this.f53499j, "credit_market_dialog_layout_3"), (ViewGroup) null);
             this.mRootView = inflate;
             setContentView(inflate);
         }
@@ -321,20 +319,20 @@ public class Market3Dialog extends MarketBaseDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                RoundRectNetImageView roundRectNetImageView = (RoundRectNetImageView) findViewById(ResUtils.id(this.f55608j, "image"));
+                RoundRectNetImageView roundRectNetImageView = (RoundRectNetImageView) findViewById(ResUtils.id(this.f53499j, "image"));
                 if (roundRectNetImageView != null) {
                     roundRectNetImageView.setCornerSize(DisplayUtils.dip2px(getContext(), 20.0f));
                 }
-                this.close = findViewById(ResUtils.id(this.f55608j, IntentConfig.CLOSE));
+                this.close = findViewById(ResUtils.id(this.f53499j, IntentConfig.CLOSE));
                 if (this.mData.isClickable()) {
                     roundRectNetImageView.setOnClickListener(new a(this));
                 }
                 setCancelable(true);
                 roundRectNetImageView.setImageUrl(this.mData.group_img, true);
-                if (this.f55609k == null) {
-                    this.f55609k = new Handler(Looper.getMainLooper());
+                if (this.k == null) {
+                    this.k = new Handler(Looper.getMainLooper());
                 }
-                ImageLoader.getInstance(this.f55608j).getBitmapFromDiskOrNet(this.mData.group_img, new b(this, roundRectNetImageView), null, 0);
+                ImageLoader.getInstance(this.f53499j).getBitmapFromDiskOrNet(this.mData.group_img, new b(this, roundRectNetImageView), null, 0);
                 return true;
             } catch (Exception e2) {
                 e2.printStackTrace();

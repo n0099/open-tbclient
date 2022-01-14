@@ -79,14 +79,14 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gVar)) == null) {
             d dVar = new d();
-            dVar.a = gVar.f11095f;
-            dVar.f11085e = gVar.autoplay;
-            dVar.f11086f = gVar.loop;
-            dVar.f11083c = gVar.src;
-            dVar.f11084d = gVar.startTime;
-            dVar.f11087g = gVar.obeyMuteSwitch;
-            dVar.f11089i = gVar.volume;
-            dVar.f11090j = i().toString();
+            dVar.a = gVar.f10849f;
+            dVar.f10839e = gVar.autoplay;
+            dVar.f10840f = gVar.loop;
+            dVar.f10837c = gVar.src;
+            dVar.f10838d = gVar.startTime;
+            dVar.f10841g = gVar.obeyMuteSwitch;
+            dVar.f10843i = gVar.volume;
+            dVar.f10844j = i().toString();
             return dVar;
         }
         return (d) invokeL.objValue;

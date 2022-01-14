@@ -18,10 +18,10 @@ public class m<T> implements l.c<T> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final k<T> f2751b;
+    public final k<T> f2730b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f2752c;
+    public final String f2731c;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -29,13 +29,13 @@ public class m<T> implements l.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f2753e;
+        public final /* synthetic */ String f2732e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ l.a f2754f;
+        public final /* synthetic */ l.a f2733f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ m f2755g;
+        public final /* synthetic */ m f2734g;
 
         public a(m mVar, String str, l.a aVar) {
             Interceptable interceptable = $ic;
@@ -52,9 +52,9 @@ public class m<T> implements l.c<T> {
                     return;
                 }
             }
-            this.f2755g = mVar;
-            this.f2753e = str;
-            this.f2754f = aVar;
+            this.f2734g = mVar;
+            this.f2732e = str;
+            this.f2733f = aVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: c.a.d.f.d.l$a */
@@ -63,7 +63,7 @@ public class m<T> implements l.c<T> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2754f.a(this.f2753e, this.f2755g.get(this.f2753e));
+                this.f2733f.a(this.f2732e, this.f2734g.get(this.f2732e));
             }
         }
     }
@@ -74,16 +74,16 @@ public class m<T> implements l.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f2756e;
+        public final /* synthetic */ String f2735e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f2757f;
+        public final /* synthetic */ Object f2736f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f2758g;
+        public final /* synthetic */ long f2737g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ m f2759h;
+        public final /* synthetic */ m f2738h;
 
         public b(m mVar, String str, Object obj, long j2) {
             Interceptable interceptable = $ic;
@@ -100,10 +100,10 @@ public class m<T> implements l.c<T> {
                     return;
                 }
             }
-            this.f2759h = mVar;
-            this.f2756e = str;
-            this.f2757f = obj;
-            this.f2758g = j2;
+            this.f2738h = mVar;
+            this.f2735e = str;
+            this.f2736f = obj;
+            this.f2737g = j2;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: c.a.d.f.d.m */
@@ -112,7 +112,7 @@ public class m<T> implements l.c<T> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2759h.e(this.f2756e, this.f2757f, this.f2758g);
+                this.f2738h.e(this.f2735e, this.f2736f, this.f2737g);
             }
         }
     }
@@ -123,10 +123,10 @@ public class m<T> implements l.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f2760e;
+        public final /* synthetic */ String f2739e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f2761f;
+        public final /* synthetic */ m f2740f;
 
         public c(m mVar, String str) {
             Interceptable interceptable = $ic;
@@ -143,15 +143,15 @@ public class m<T> implements l.c<T> {
                     return;
                 }
             }
-            this.f2761f = mVar;
-            this.f2760e = str;
+            this.f2740f = mVar;
+            this.f2739e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2761f.remove(this.f2760e);
+                this.f2740f.remove(this.f2739e);
             }
         }
     }
@@ -172,8 +172,8 @@ public class m<T> implements l.c<T> {
             }
         }
         this.a = false;
-        this.f2752c = str;
-        this.f2751b = kVar;
+        this.f2731c = str;
+        this.f2730b = kVar;
     }
 
     @Override // c.a.d.f.d.l
@@ -188,7 +188,7 @@ public class m<T> implements l.c<T> {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f2751b.g(this.f2752c);
+            this.f2730b.g(this.f2731c);
             l();
         }
     }
@@ -197,7 +197,7 @@ public class m<T> implements l.c<T> {
     public k<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2751b : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2730b : (k) invokeV.objValue;
     }
 
     @Override // c.a.d.f.d.l
@@ -217,18 +217,11 @@ public class m<T> implements l.c<T> {
                     j2 += System.currentTimeMillis();
                 }
                 long j3 = j2;
-                if (BdBaseApplication.getInst().isDebugMode() && c.a.d.f.p.n.B()) {
-                    if (!this.a) {
-                        BdLog.detailException("access db in main thread!", new Exception(), true);
-                    } else {
-                        throw new RuntimeException("access db in main thread!");
-                    }
-                }
                 if (j3 <= System.currentTimeMillis()) {
                     remove(str);
                     return;
                 } else {
-                    this.f2751b.f(this.f2752c, str, t, j3);
+                    this.f2730b.f(this.f2731c, str, t, j3);
                     return;
                 }
             }
@@ -264,7 +257,7 @@ public class m<T> implements l.c<T> {
                     throw new RuntimeException("access db in main thread!");
                 }
             }
-            return this.f2751b.a(this.f2752c, str);
+            return this.f2730b.a(this.f2731c, str);
         }
         return (T) invokeL.objValue;
     }
@@ -281,7 +274,7 @@ public class m<T> implements l.c<T> {
                     throw new RuntimeException("access db in main thread!");
                 }
             }
-            return this.f2751b.e(this.f2752c, str);
+            return this.f2730b.e(this.f2731c, str);
         }
         return (l.b) invokeL.objValue;
     }
@@ -298,13 +291,13 @@ public class m<T> implements l.c<T> {
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2752c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2731c : (String) invokeV.objValue;
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f2751b.b(this.f2752c);
+            this.f2730b.b(this.f2731c);
         }
     }
 
@@ -322,14 +315,7 @@ public class m<T> implements l.c<T> {
     public void remove(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            if (BdBaseApplication.getInst().isDebugMode() && c.a.d.f.p.n.B()) {
-                if (!this.a) {
-                    BdLog.detailException("access db in main thread!", new Exception());
-                } else {
-                    throw new RuntimeException("access db in main thread!");
-                }
-            }
-            this.f2751b.d(this.f2752c, str);
+            this.f2730b.d(this.f2731c, str);
         }
     }
 }

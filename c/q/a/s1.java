@@ -17,25 +17,23 @@ public class s1 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f31425e;
+    public int f30438e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31426f;
+    public String f30439f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f31427g;
+    public String f30440g;
 
     /* renamed from: h  reason: collision with root package name */
-    public y1 f31428h;
+    public y1 f30441h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a1 f31429i;
+    public a1 f30442i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f31430j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f31431k;
+    public boolean f30443j;
+    public long k;
 
     public s1(String str, String str2, y1 y1Var) {
         Interceptable interceptable = $ic;
@@ -52,13 +50,13 @@ public class s1 implements Runnable {
                 return;
             }
         }
-        this.f31425e = 0;
-        this.f31430j = false;
-        this.f31426f = str;
-        this.f31427g = str2;
-        this.f31428h = y1Var;
-        this.f31429i = new a1(this);
-        this.f31430j = true;
+        this.f30438e = 0;
+        this.f30443j = false;
+        this.f30439f = str;
+        this.f30440g = str2;
+        this.f30441h = y1Var;
+        this.f30442i = new a1(this);
+        this.f30443j = true;
     }
 
     public final void a() {
@@ -67,22 +65,22 @@ public class s1 implements Runnable {
             return;
         }
         try {
-            URL url = new URL(this.f31426f);
+            URL url = new URL(this.f30439f);
             HttpURLConnection httpURLConnection = url.toString().startsWith("https://") ? (HttpsURLConnection) url.openConnection() : (HttpURLConnection) url.openConnection();
             httpURLConnection.setConnectTimeout(3000);
             httpURLConnection.setReadTimeout(3000);
             httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.setRequestProperty("Range", "bytes=" + this.f31425e + "-");
+            httpURLConnection.setRequestProperty("Range", "bytes=" + this.f30438e + "-");
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             httpURLConnection.connect();
-            this.f31431k = (long) httpURLConnection.getContentLength();
+            this.k = (long) httpURLConnection.getContentLength();
             if (Thread.currentThread().isInterrupted()) {
                 return;
             }
-            if (this.f31429i != null && this.f31431k > 10) {
-                this.f31429i.c(httpURLConnection.getInputStream());
-            } else if (this.f31428h != null) {
-                this.f31428h.a();
+            if (this.f30442i != null && this.k > 10) {
+                this.f30442i.c(httpURLConnection.getInputStream());
+            } else if (this.f30441h != null) {
+                this.f30441h.a();
             }
         } catch (IOException e2) {
             if (!Thread.currentThread().isInterrupted()) {
@@ -98,9 +96,9 @@ public class s1 implements Runnable {
             try {
                 a();
             } catch (Exception unused) {
-                a1 a1Var = this.f31429i;
+                a1 a1Var = this.f30442i;
                 if (a1Var != null) {
-                    a1Var.d(a1Var.a(1, new Object[]{Q.f63185b}));
+                    a1Var.d(a1Var.a(1, new Object[]{Q.f60806b}));
                 }
             }
         }

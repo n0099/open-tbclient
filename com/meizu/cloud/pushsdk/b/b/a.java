@@ -6,42 +6,42 @@ public class a extends Exception {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60826b;
+    public int f58520b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60827c;
+    public String f58521c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f60828d;
+    public k f58522d;
 
     public a() {
-        this.f60826b = 0;
+        this.f58520b = 0;
     }
 
     public a(k kVar) {
-        this.f60826b = 0;
-        this.f60828d = kVar;
+        this.f58520b = 0;
+        this.f58522d = kVar;
     }
 
     public a(Throwable th) {
         super(th);
-        this.f60826b = 0;
+        this.f58520b = 0;
     }
 
     public k a() {
-        return this.f60828d;
+        return this.f58522d;
     }
 
     public void a(int i2) {
-        this.f60826b = i2;
+        this.f58520b = i2;
     }
 
     public void a(String str) {
-        this.f60827c = str;
+        this.f58521c = str;
     }
 
     public int b() {
-        return this.f60826b;
+        return this.f58520b;
     }
 
     public void b(String str) {

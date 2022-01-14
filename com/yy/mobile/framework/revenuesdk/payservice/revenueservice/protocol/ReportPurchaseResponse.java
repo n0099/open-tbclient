@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -36,7 +37,7 @@ public class ReportPurchaseResponse implements IBaseJsonResponse {
                 return;
             }
         }
-        this.cmd = 2045;
+        this.cmd = RevenueServerConst.ReportPurchaseResponse;
         parserResponse(str);
     }
 

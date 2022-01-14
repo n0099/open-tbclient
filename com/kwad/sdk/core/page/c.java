@@ -37,34 +37,32 @@ public class c implements p.b {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f58125b;
+    public AdTemplate f55928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58126c;
+    public int f55929c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f58127d;
+    public View f55930d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KsAdWebView f58128e;
+    public KsAdWebView f55931e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f58129f;
+    public ImageView f55932f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f58130g;
+    public ImageView f55933g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f58131h;
+    public LinearLayout f55934h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f58132i;
+    public TextView f55935i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f58133j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f58134k;
+    public TextView f55936j;
+    public TextView k;
     public TextView l;
     public LinearLayout o;
     public TextView p;
@@ -94,57 +92,57 @@ public class c implements p.b {
         public final boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f58136b;
+        public final boolean f55938b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f58137c;
+        public final String f55939c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f58138d;
+        public final String f55940d;
 
-        public b(C2091c c2091c) {
-            this.a = c2091c.a;
-            this.f58136b = c2091c.f58139b;
-            this.f58137c = c2091c.f58141d;
-            this.f58138d = c2091c.f58140c;
+        public b(C2108c c2108c) {
+            this.a = c2108c.a;
+            this.f55938b = c2108c.f55941b;
+            this.f55939c = c2108c.f55943d;
+            this.f55940d = c2108c.f55942c;
         }
     }
 
     /* renamed from: com.kwad.sdk.core.page.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2091c {
+    public static class C2108c {
         public boolean a = true;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f58139b = true;
+        public boolean f55941b = true;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f58140c;
+        public String f55942c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f58141d;
+        public String f55943d;
 
         public b a() {
             return new b(this);
         }
 
-        public C2091c a(String str) {
-            this.f58140c = str;
+        public C2108c a(String str) {
+            this.f55942c = str;
             return this;
         }
 
-        public C2091c a(boolean z) {
+        public C2108c a(boolean z) {
             this.a = z;
             return this;
         }
 
-        public C2091c b(String str) {
-            this.f58141d = str;
+        public C2108c b(String str) {
+            this.f55943d = str;
             return this;
         }
 
-        public C2091c b(boolean z) {
-            this.f58139b = z;
+        public C2108c b(boolean z) {
+            this.f55941b = z;
             return this;
         }
     }
@@ -152,14 +150,14 @@ public class c implements p.b {
     public c(Context context, AdTemplate adTemplate, int i2, boolean z) {
         this.z = false;
         this.a = context;
-        this.f58125b = adTemplate;
-        this.f58126c = i2;
+        this.f55928b = adTemplate;
+        this.f55929c = i2;
         this.z = z;
-        this.f58127d = LayoutInflater.from(context).inflate(R.layout.ksad_activity_ad_webview, (ViewGroup) null);
+        this.f55930d = LayoutInflater.from(context).inflate(R.layout.ksad_activity_ad_webview, (ViewGroup) null);
     }
 
     private <T extends View> T a(int i2) {
-        View view = this.f58127d;
+        View view = this.f55930d;
         if (view == null) {
             return null;
         }
@@ -182,7 +180,7 @@ public class c implements p.b {
         this.x = sVar;
         gVar.a(sVar);
         gVar.a(new p(this));
-        com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(this.f58125b);
+        com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(this.f55928b);
         gVar.a(new com.kwad.sdk.core.webview.jshandler.b(this.u, bVar, n(), true));
         gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.u, bVar, n(), true));
         gVar.a(new t(this.u, bVar));
@@ -193,11 +191,11 @@ public class c implements p.b {
         gVar.a(new y(new y.a() { // from class: com.kwad.sdk.core.page.c.7
             @Override // com.kwad.sdk.core.webview.jshandler.y.a
             public void a() {
-                String a2 = com.kwad.sdk.core.response.a.a.a(c.this.a, com.kwad.sdk.core.response.a.d.j(c.this.f58125b));
+                String a2 = com.kwad.sdk.core.response.a.a.a(c.this.a, com.kwad.sdk.core.response.a.d.j(c.this.f55928b));
                 if (at.a(a2)) {
                     return;
                 }
-                com.kwad.sdk.core.download.kwai.b.a(c.this.a, c.this.f58125b, a2);
+                com.kwad.sdk.core.download.kwai.b.a(c.this.a, c.this.f55928b, a2);
             }
         }));
         final r rVar = new r();
@@ -219,11 +217,11 @@ public class c implements p.b {
         if (bVar == null) {
             return;
         }
-        if (this.f58130g != null) {
-            this.f58130g.setVisibility(bVar.f58136b ? 0 : 8);
+        if (this.f55933g != null) {
+            this.f55933g.setVisibility(bVar.f55938b ? 0 : 8);
         }
-        if (this.f58129f != null) {
-            this.f58129f.setVisibility(bVar.a ? 0 : 8);
+        if (this.f55932f != null) {
+            this.f55932f.setVisibility(bVar.a ? 0 : 8);
         }
     }
 
@@ -239,13 +237,13 @@ public class c implements p.b {
     private void c(KsAdWebView ksAdWebView) {
         p.a aVar = new p.a();
         aVar.n = 0;
-        aVar.w = this.f58126c;
+        aVar.w = this.f55929c;
         ksAdWebView.setClientParams(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        this.f58133j.setText(i());
+        this.f55936j.setText(i());
         this.l.setText(j());
     }
 
@@ -293,7 +291,7 @@ public class c implements p.b {
                 c.this.o.setVisibility(8);
             }
         });
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f58125b);
+        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f55928b);
         boolean af = com.kwad.sdk.core.response.a.a.af(j2);
         String ab = com.kwad.sdk.core.response.a.a.ab(j2);
         if (!af) {
@@ -308,11 +306,11 @@ public class c implements p.b {
     private void l() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
         this.u = aVar;
-        aVar.a(this.f58125b);
+        aVar.a(this.f55928b);
         com.kwad.sdk.core.webview.a aVar2 = this.u;
         aVar2.a = 0;
-        aVar2.f58539e = this.f58128e;
-        aVar2.f58538d = this.r;
+        aVar2.f56330e = this.f55931e;
+        aVar2.f56329d = this.r;
     }
 
     private void m() {
@@ -344,7 +342,7 @@ public class c implements p.b {
     }
 
     public View a() {
-        return this.f58127d;
+        return this.f55930d;
     }
 
     public void a(a aVar) {
@@ -359,16 +357,16 @@ public class c implements p.b {
     public void a(b bVar) {
         AdInfo.AdBaseInfo adBaseInfo;
         String str;
-        this.B = (TextUtils.isEmpty(bVar.f58138d) || TextUtils.isEmpty(bVar.f58137c)) ? false : true;
-        this.f58128e = (KsAdWebView) a(R.id.ksad_video_webview);
+        this.B = (TextUtils.isEmpty(bVar.f55940d) || TextUtils.isEmpty(bVar.f55939c)) ? false : true;
+        this.f55931e = (KsAdWebView) a(R.id.ksad_video_webview);
         TextView textView = (TextView) a(R.id.ksad_kwad_titlebar_title);
-        this.f58129f = (ImageView) a(R.id.ksad_kwad_web_navi_back);
-        a((WebView) this.f58128e);
-        c(this.f58128e);
-        this.f58128e.setTemplateData(this.f58125b);
-        this.f58128e.loadUrl(bVar.f58137c);
-        this.f58128e.b();
-        this.f58128e.setOnWebViewScrollChangeListener(new KsAdWebView.c() { // from class: com.kwad.sdk.core.page.c.1
+        this.f55932f = (ImageView) a(R.id.ksad_kwad_web_navi_back);
+        a((WebView) this.f55931e);
+        c(this.f55931e);
+        this.f55931e.setTemplateData(this.f55928b);
+        this.f55931e.loadUrl(bVar.f55939c);
+        this.f55931e.b();
+        this.f55931e.setOnWebViewScrollChangeListener(new KsAdWebView.c() { // from class: com.kwad.sdk.core.page.c.1
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.c
             public void a(View view, int i2, int i3, int i4, int i5) {
                 if (c.this.B && c.this.o.getVisibility() == 0) {
@@ -376,7 +374,7 @@ public class c implements p.b {
                 }
             }
         });
-        this.f58128e.setHttpErrorListener(new KsAdWebView.d() { // from class: com.kwad.sdk.core.page.c.2
+        this.f55931e.setHttpErrorListener(new KsAdWebView.d() { // from class: com.kwad.sdk.core.page.c.2
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
             public void a() {
             }
@@ -394,57 +392,57 @@ public class c implements p.b {
                 }
             }
         });
-        this.f58130g = (ImageView) a(R.id.ksad_kwad_web_navi_close);
+        this.f55933g = (ImageView) a(R.id.ksad_kwad_web_navi_close);
         this.r = (ViewGroup) a(R.id.ksad_landing_page_root);
         if (this.B) {
-            str = bVar.f58138d;
+            str = bVar.f55940d;
         } else {
-            List<AdInfo> list = this.f58125b.adInfoList;
-            if (list == null || list.size() <= 0 || this.f58125b.adInfoList.get(0) == null || (adBaseInfo = this.f58125b.adInfoList.get(0).adBaseInfo) == null || TextUtils.isEmpty(adBaseInfo.productName)) {
+            List<AdInfo> list = this.f55928b.adInfoList;
+            if (list == null || list.size() <= 0 || this.f55928b.adInfoList.get(0) == null || (adBaseInfo = this.f55928b.adInfoList.get(0).adBaseInfo) == null || TextUtils.isEmpty(adBaseInfo.productName)) {
                 textView.setText("详情页面");
-                this.f58130g.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.c.3
+                this.f55933g.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.c.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.f58128e != null && c.this.f58128e.canGoBack()) {
-                            c.this.f58128e.goBack();
-                            com.kwad.sdk.core.report.a.l(c.this.f58125b);
+                        if (c.this.f55931e != null && c.this.f55931e.canGoBack()) {
+                            c.this.f55931e.goBack();
+                            com.kwad.sdk.core.report.a.l(c.this.f55928b);
                         } else if (c.this.w != null) {
                             c.this.w.onCloseBtnClicked(view);
                         }
                     }
                 });
-                this.f58129f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.c.4
+                this.f55932f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.c.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.f58128e != null && c.this.f58128e.canGoBack()) {
-                            c.this.f58128e.goBack();
-                            com.kwad.sdk.core.report.a.l(c.this.f58125b);
+                        if (c.this.f55931e != null && c.this.f55931e.canGoBack()) {
+                            c.this.f55931e.goBack();
+                            com.kwad.sdk.core.report.a.l(c.this.f55928b);
                         } else if (c.this.w != null) {
                             c.this.w.onBackBtnClicked(view);
                         }
                     }
                 });
-                if (this.f58125b != null) {
+                if (this.f55928b != null) {
                     return;
                 }
                 k();
-                if (com.kwad.sdk.core.response.a.a.d(com.kwad.sdk.core.response.a.d.j(this.f58125b))) {
+                if (com.kwad.sdk.core.response.a.a.d(com.kwad.sdk.core.response.a.d.j(this.f55928b))) {
                     l();
-                    a(this.f58128e);
-                } else if (this.f58126c == 4) {
-                    this.f58125b.interactLandingPageShowing = true;
+                    a(this.f55931e);
+                } else if (this.f55929c == 4) {
+                    this.f55928b.interactLandingPageShowing = true;
                     l();
-                    b(this.f58128e);
+                    b(this.f55931e);
                 }
                 b(bVar);
-                this.f58131h = (LinearLayout) a(R.id.ksad_reward_land_page_open_tip);
-                this.f58132i = (TextView) a(R.id.ksad_reward_land_page_open_desc);
-                this.f58133j = (TextView) a(R.id.ksad_reward_land_page_open_minute);
-                this.f58134k = (TextView) a(R.id.ksad_reward_land_page_open_colon);
+                this.f55934h = (LinearLayout) a(R.id.ksad_reward_land_page_open_tip);
+                this.f55935i = (TextView) a(R.id.ksad_reward_land_page_open_desc);
+                this.f55936j = (TextView) a(R.id.ksad_reward_land_page_open_minute);
+                this.k = (TextView) a(R.id.ksad_reward_land_page_open_colon);
                 this.l = (TextView) a(R.id.ksad_reward_land_page_open_second);
-                if (com.kwad.sdk.core.response.a.d.v(this.f58125b)) {
-                    this.f58131h.setVisibility(0);
-                    if (!this.f58125b.mRewardVerifyCalled) {
+                if (com.kwad.sdk.core.response.a.d.v(this.f55928b)) {
+                    this.f55934h.setVisibility(0);
+                    if (!this.f55928b.mRewardVerifyCalled) {
                         h();
                         this.m.postDelayed(new Runnable() { // from class: com.kwad.sdk.core.page.c.5
                             @Override // java.lang.Runnable
@@ -455,9 +453,9 @@ public class c implements p.b {
                                     return;
                                 }
                                 if (c.this.v <= 0) {
-                                    c.this.f58132i.setText("任务已完成");
-                                    c.this.f58133j.setVisibility(8);
-                                    c.this.f58134k.setVisibility(8);
+                                    c.this.f55935i.setText("任务已完成");
+                                    c.this.f55936j.setVisibility(8);
+                                    c.this.k.setVisibility(8);
                                     c.this.l.setVisibility(8);
                                     com.kwad.sdk.reward.d.a().b();
                                 } else {
@@ -469,9 +467,9 @@ public class c implements p.b {
                         }, 1000L);
                         return;
                     }
-                    this.f58132i.setText("任务已完成");
-                    this.f58133j.setVisibility(8);
-                    this.f58134k.setVisibility(8);
+                    this.f55935i.setText("任务已完成");
+                    this.f55936j.setVisibility(8);
+                    this.k.setVisibility(8);
                     this.l.setVisibility(8);
                     return;
                 }
@@ -480,29 +478,29 @@ public class c implements p.b {
             str = adBaseInfo.productName;
         }
         textView.setText(str);
-        this.f58130g.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.c.3
+        this.f55933g.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.f58128e != null && c.this.f58128e.canGoBack()) {
-                    c.this.f58128e.goBack();
-                    com.kwad.sdk.core.report.a.l(c.this.f58125b);
+                if (c.this.f55931e != null && c.this.f55931e.canGoBack()) {
+                    c.this.f55931e.goBack();
+                    com.kwad.sdk.core.report.a.l(c.this.f55928b);
                 } else if (c.this.w != null) {
                     c.this.w.onCloseBtnClicked(view);
                 }
             }
         });
-        this.f58129f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.c.4
+        this.f55932f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.c.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.f58128e != null && c.this.f58128e.canGoBack()) {
-                    c.this.f58128e.goBack();
-                    com.kwad.sdk.core.report.a.l(c.this.f58125b);
+                if (c.this.f55931e != null && c.this.f55931e.canGoBack()) {
+                    c.this.f55931e.goBack();
+                    com.kwad.sdk.core.report.a.l(c.this.f55928b);
                 } else if (c.this.w != null) {
                     c.this.w.onBackBtnClicked(view);
                 }
             }
         });
-        if (this.f58125b != null) {
+        if (this.f55928b != null) {
         }
     }
 
@@ -512,11 +510,11 @@ public class c implements p.b {
     }
 
     public View b() {
-        return this.f58129f;
+        return this.f55932f;
     }
 
     public View c() {
-        return this.f58130g;
+        return this.f55933g;
     }
 
     public boolean d() {
@@ -529,7 +527,7 @@ public class c implements p.b {
             if (sVar != null) {
                 sVar.c();
             }
-            View view = this.f58127d;
+            View view = this.f55930d;
             if (view != null) {
                 view.setVisibility(0);
             }
@@ -537,7 +535,7 @@ public class c implements p.b {
             if (sVar2 != null) {
                 sVar2.d();
             }
-            if (com.kwad.sdk.core.response.a.d.v(this.f58125b)) {
+            if (com.kwad.sdk.core.response.a.d.v(this.f55928b)) {
                 this.n = false;
             }
         }
@@ -548,7 +546,7 @@ public class c implements p.b {
         if (sVar != null) {
             sVar.e();
         }
-        View view = this.f58127d;
+        View view = this.f55930d;
         if (view != null) {
             view.setVisibility(8);
         }
@@ -556,18 +554,18 @@ public class c implements p.b {
         if (sVar2 != null) {
             sVar2.f();
         }
-        if (com.kwad.sdk.core.response.a.d.v(this.f58125b)) {
+        if (com.kwad.sdk.core.response.a.d.v(this.f55928b)) {
             this.n = true;
         }
     }
 
     public void g() {
-        KsAdWebView ksAdWebView = this.f58128e;
+        KsAdWebView ksAdWebView = this.f55931e;
         if (ksAdWebView != null) {
             ksAdWebView.c();
-            this.f58128e = null;
+            this.f55931e = null;
         }
-        if (com.kwad.sdk.core.response.a.d.v(this.f58125b)) {
+        if (com.kwad.sdk.core.response.a.d.v(this.f55928b)) {
             this.m.removeCallbacksAndMessages(null);
         }
     }

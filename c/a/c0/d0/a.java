@@ -1,110 +1,100 @@
 package c.a.c0.d0;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
-import android.text.TextUtils;
-import android.widget.Toast;
-import androidx.core.content.FileProvider;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f1810b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static long f1811c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f1812d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static int f1813e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static int f1814f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static int f1815g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static int f1816h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static int f1817i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static double f1818j;
+    public static double k;
+    public static double l;
+    public static long m;
+    public static long n;
+    public static double o;
+    public static double p;
+    public static double q;
+    public static double r;
+    public static double[] s;
+    public static AtomicBoolean t;
+    public static final Object u;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, file, intent)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                try {
-                    if (TextUtils.isEmpty(c.a.c0.e.a.a().m())) {
-                        return false;
-                    }
-                    Uri uriForFile = FileProvider.getUriForFile(context, c.a.c0.e.a.a().m(), file);
-                    if (uriForFile == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(uriForFile, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        ActivityInfo activityInfo = resolveInfo.activityInfo;
-                        if (activityInfo != null && !TextUtils.isEmpty(activityInfo.packageName)) {
-                            context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException unused) {
-                    return false;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1409608097, "Lc/a/c0/d0/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void b(Dialog dialog) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, dialog) == null) || dialog == null) {
-            return;
-        }
-        try {
-            dialog.show();
-        } catch (Exception unused) {
-        }
-    }
-
-    public static boolean c(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) ? d(context, intent, false) : invokeLL.booleanValue;
-    }
-
-    public static boolean d(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, context, intent, z)) == null) ? e(context, intent, z, false) : invokeLLZ.booleanValue;
-    }
-
-    public static boolean e(Context context, Intent intent, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z || !(context instanceof Activity)) {
-                intent.addFlags(268435456);
-            }
-            try {
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException unused) {
-                if (z2) {
-                    Toast.makeText(context, c.a.c0.e.h.nad_activity_not_found, 0).show();
-                    return false;
-                }
-                return false;
-            } catch (SecurityException unused2) {
-                if (z2) {
-                    Toast.makeText(context, c.a.c0.e.h.nad_activity_not_found, 0).show();
-                    return false;
-                }
-                return false;
-            } catch (Exception unused3) {
-                return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1409608097, "Lc/a/c0/d0/a;");
+                return;
             }
         }
-        return invokeCommon.booleanValue;
+        a = new int[]{0, 1, 2, 3};
+        f1810b = true;
+        f1811c = 2000L;
+        f1812d = 2;
+        f1813e = 2;
+        f1814f = 6;
+        f1815g = 4;
+        f1816h = 6;
+        f1817i = 30;
+        f1818j = 10.0d;
+        k = 30.0d;
+        l = 2.0d;
+        m = 500L;
+        n = 3000L;
+        o = 999.0d;
+        p = 8.0d;
+        q = 3.0d;
+        r = 1.0d;
+        s = new double[]{999.0d, 8.0d, 3.0d, 1.0d};
+        t = new AtomicBoolean(false);
+        u = new Object();
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? t.get() : invokeV.booleanValue;
+    }
+
+    public static Object b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? u : invokeV.objValue;
     }
 }

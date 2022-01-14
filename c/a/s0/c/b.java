@@ -22,7 +22,7 @@ public class b {
 
     /* renamed from: c.a.s0.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0815b {
+    public static class C0825b {
         public static /* synthetic */ Interceptable $ic;
         public static b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0815b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0825b.a : (b) invokeV.objValue;
     }
 
     public b() {

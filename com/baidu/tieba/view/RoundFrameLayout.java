@@ -20,10 +20,10 @@ public class RoundFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Path f51128e;
+    public Path f49172e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f51129f;
+    public RectF f49173f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundFrameLayout(Context context) {
@@ -50,8 +50,8 @@ public class RoundFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setWillNotDraw(false);
-            this.f51128e = new Path();
-            this.f51129f = new RectF();
+            this.f49172e = new Path();
+            this.f49173f = new RectF();
         }
     }
 
@@ -65,7 +65,7 @@ public class RoundFrameLayout extends FrameLayout {
             int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             super.dispatchDraw(canvas);
             paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-            canvas.drawPath(this.f51128e, paint);
+            canvas.drawPath(this.f49172e, paint);
             if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
                 canvas.restoreToCount(saveLayer);
             }
@@ -78,8 +78,8 @@ public class RoundFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            this.f51129f.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-            this.f51128e.addOval(this.f51129f, Path.Direction.CW);
+            this.f49173f.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.f49172e.addOval(this.f49173f, Path.Direction.CW);
         }
     }
 

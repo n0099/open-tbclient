@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -171,7 +172,7 @@ public class ShieldMsg extends NormalMsg {
                 return;
             }
         }
-        setMsgType(z ? 2012 : 2011);
+        setMsgType(z ? IMConstants.IM_MSG_TYPE_SHIELD_ME : 2011);
         this.text = str;
         setText(str);
     }
@@ -189,7 +190,7 @@ public class ShieldMsg extends NormalMsg {
                 return;
             }
         }
-        setMsgType(2012);
+        setMsgType(IMConstants.IM_MSG_TYPE_SHIELD_ME);
         this.text = "";
         setText("");
     }

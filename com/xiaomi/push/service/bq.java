@@ -32,39 +32,39 @@ public /* synthetic */ class bq {
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[hf.f63544b.ordinal()] = 2;
+            a[hf.f61159b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            a[hf.f63545c.ordinal()] = 3;
+            a[hf.f61160c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            a[hf.f63546d.ordinal()] = 4;
+            a[hf.f61161d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            a[hf.f63547e.ordinal()] = 5;
+            a[hf.f61162e.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            a[hf.f63548f.ordinal()] = 6;
+            a[hf.f61163f.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            a[hf.f63549g.ordinal()] = 7;
+            a[hf.f61164g.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
         try {
-            a[hf.f63550h.ordinal()] = 8;
+            a[hf.f61165h.ordinal()] = 8;
         } catch (NoSuchFieldError unused8) {
         }
         try {
-            a[hf.f63551i.ordinal()] = 9;
+            a[hf.f61166i.ordinal()] = 9;
         } catch (NoSuchFieldError unused9) {
         }
         try {
-            a[hf.f63552j.ordinal()] = 10;
+            a[hf.f61167j.ordinal()] = 10;
         } catch (NoSuchFieldError unused10) {
         }
     }

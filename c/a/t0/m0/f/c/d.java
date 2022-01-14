@@ -22,13 +22,11 @@ public abstract class d extends b implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final g f19750i;
+    public final g f19238i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Comparator<c.b.a.a.d> f19751j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final List<c.b.a.a.d> f19752k;
+    public final Comparator<c.b.a.a.d> f19239j;
+    public final List<c.b.a.a.d> k;
     public boolean l;
 
     public /* synthetic */ d(c.a.t0.m0.f.a aVar, g gVar, Comparator comparator, int i2, DefaultConstructorMarker defaultConstructorMarker) {
@@ -40,7 +38,7 @@ public abstract class d extends b implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
             Intrinsics.checkNotNullParameter(entity, "entity");
-            this.f19752k.remove(entity);
+            this.k.remove(entity);
             this.l = true;
         }
     }
@@ -50,7 +48,7 @@ public abstract class d extends b implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity) == null) {
             Intrinsics.checkNotNullParameter(entity, "entity");
-            this.f19752k.add(entity);
+            this.k.add(entity);
             this.l = true;
         }
     }
@@ -60,16 +58,16 @@ public abstract class d extends b implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, engine) == null) {
             Intrinsics.checkNotNullParameter(engine, "engine");
-            this.f19752k.clear();
-            c.b.a.c.b<c.b.a.a.d> newEntities = engine.j(this.f19750i);
+            this.k.clear();
+            c.b.a.c.b<c.b.a.a.d> newEntities = engine.j(this.f19238i);
             if (newEntities.size() > 0) {
-                List<c.b.a.a.d> list = this.f19752k;
+                List<c.b.a.a.d> list = this.k;
                 Intrinsics.checkNotNullExpressionValue(newEntities, "newEntities");
                 CollectionsKt__MutableCollectionsKt.addAll(list, newEntities);
             }
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.f19752k, this.f19751j);
+            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.k, this.f19239j);
             this.l = false;
-            engine.f(this.f19750i, this);
+            engine.f(this.f19238i, this);
         }
     }
 
@@ -80,7 +78,7 @@ public abstract class d extends b implements e {
             Intrinsics.checkNotNullParameter(engine, "engine");
             super.g(engine);
             engine.o(this);
-            this.f19752k.clear();
+            this.k.clear();
             this.l = false;
         }
     }
@@ -97,7 +95,7 @@ public abstract class d extends b implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             m();
-            return this.f19752k;
+            return this.k;
         }
         return (List) invokeV.objValue;
     }
@@ -107,7 +105,7 @@ public abstract class d extends b implements e {
     public final void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.l) {
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.f19752k, this.f19751j);
+            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.k, this.f19239j);
             this.l = false;
         }
     }
@@ -117,7 +115,7 @@ public abstract class d extends b implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
             m();
-            for (c.b.a.a.d dVar : this.f19752k) {
+            for (c.b.a.a.d dVar : this.k) {
                 l(dVar, f2);
             }
         }
@@ -144,8 +142,8 @@ public abstract class d extends b implements e {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(family, "family");
         Intrinsics.checkNotNullParameter(comparator, "comparator");
-        this.f19750i = family;
-        this.f19751j = comparator;
-        this.f19752k = new ArrayList();
+        this.f19238i = family;
+        this.f19239j = comparator;
+        this.k = new ArrayList();
     }
 }

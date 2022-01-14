@@ -41,16 +41,16 @@ public class g extends c.a.s0.x.c {
     public ForumData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14591b;
+    public String f14248b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14592c;
+    public String f14249c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f14593d;
+    public boolean f14250d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DataModel<?> f14594e;
+    public DataModel<?> f14251e;
 
     /* loaded from: classes6.dex */
     public class a implements c.a.s0.x.b {
@@ -58,13 +58,13 @@ public class g extends c.a.s0.x.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f14595e;
+        public final /* synthetic */ e f14252e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f14596f;
+        public final /* synthetic */ EditorTools f14253f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f14597g;
+        public final /* synthetic */ g f14254g;
 
         public a(g gVar, e eVar, EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -81,9 +81,9 @@ public class g extends c.a.s0.x.c {
                     return;
                 }
             }
-            this.f14597g = gVar;
-            this.f14595e = eVar;
-            this.f14596f = editorTools;
+            this.f14254g = gVar;
+            this.f14252e = eVar;
+            this.f14253f = editorTools;
         }
 
         @Override // c.a.s0.x.b
@@ -91,115 +91,115 @@ public class g extends c.a.s0.x.c {
             e eVar;
             int size;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (eVar = this.f14595e) == null || eVar.a() == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (eVar = this.f14252e) == null || eVar.a() == null || aVar == null) {
                 return;
             }
             int i2 = aVar.a;
             if (i2 == 4) {
-                this.f14595e.m0(aVar.f14519c.toString());
-                Object obj = aVar.f14519c;
+                this.f14252e.m0(aVar.f14180c.toString());
+                Object obj = aVar.f14180c;
                 if (obj instanceof SpanGroupManager) {
-                    this.f14595e.q0((SpanGroupManager) obj);
+                    this.f14252e.q0((SpanGroupManager) obj);
                 }
-                this.f14597g.f14593d = false;
+                this.f14254g.f14250d = false;
             } else if (i2 == 5) {
-                if (this.f14596f.isToolVisible()) {
+                if (this.f14253f.isToolVisible()) {
                     return;
                 }
-                TiebaStatic.eventStat(this.f14596f.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                TiebaStatic.eventStat(this.f14253f.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
             } else if (i2 == 7) {
-                this.f14595e.getContext().showToast(R.string.over_limit_tip);
-                this.f14597g.f14593d = true;
+                this.f14252e.getContext().showToast(R.string.over_limit_tip);
+                this.f14254g.f14250d = true;
             } else if (i2 == 8) {
-                if (this.f14597g.k(this.f14595e.getContext(), 11001)) {
-                    this.f14595e.L(null, null);
+                if (this.f14254g.k(this.f14252e.getContext(), 11001)) {
+                    this.f14252e.L(null, null);
                 }
             } else if (i2 == 10) {
-                Object obj2 = aVar.f14519c;
+                Object obj2 = aVar.f14180c;
                 if (obj2 instanceof VoiceData$VoiceModel) {
-                    this.f14595e.t0((VoiceData$VoiceModel) obj2);
-                    this.f14595e.z(true, null);
+                    this.f14252e.t0((VoiceData$VoiceModel) obj2);
+                    this.f14252e.z(true, null);
                 }
             } else if (i2 == 11) {
-                this.f14595e.t0(null);
+                this.f14252e.t0(null);
             } else if (i2 == 18) {
-                boolean g2 = c.a.s0.s.g0.b.j().g("key_post_thread_has_request_location", false);
-                if (aVar.f14519c != null) {
-                    if (g2) {
-                        this.f14595e.Q();
+                boolean h2 = c.a.s0.s.h0.b.k().h("key_post_thread_has_request_location", false);
+                if (aVar.f14180c != null) {
+                    if (h2) {
+                        this.f14252e.Q();
                         return;
                     }
                     return;
                 }
-                int t = this.f14595e.t();
+                int t = this.f14252e.t();
                 if (t == 0) {
-                    this.f14595e.J(g2);
+                    this.f14252e.J(h2);
                 } else if (t != 2) {
                 } else {
-                    this.f14595e.A();
+                    this.f14252e.A();
                 }
             } else if (i2 == 20) {
-                this.f14595e.a().sendAction(new c.a.s0.x.a(2, 7, null));
+                this.f14252e.a().sendAction(new c.a.s0.x.a(2, 7, null));
                 c.a.t0.w3.o0.b.a().f(true);
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             } else if (i2 == 29) {
-                this.f14595e.a().sendAction(new c.a.s0.x.a(2, 19, null));
-                this.f14595e.a().sendAction(new c.a.s0.x.a(1, 2, null));
-                this.f14595e.m();
+                this.f14252e.a().sendAction(new c.a.s0.x.a(2, 19, null));
+                this.f14252e.a().sendAction(new c.a.s0.x.a(1, 2, null));
+                this.f14252e.m();
             } else if (i2 == 32) {
-                this.f14595e.a().sendAction(new c.a.s0.x.a(1, 11, null));
+                this.f14252e.a().sendAction(new c.a.s0.x.a(1, 11, null));
             } else if (i2 == 36) {
-                if (this.f14597g.k(this.f14595e.getContext(), 11040)) {
-                    this.f14595e.Z();
+                if (this.f14254g.k(this.f14252e.getContext(), 11040)) {
+                    this.f14252e.Z();
                 }
             } else if (i2 != 43) {
                 switch (i2) {
                     case 14:
-                        AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.f14595e.getContext().getPageActivity(), this.f14595e.y().toJsonString(), true, true);
-                        if (!StringUtils.isNull(this.f14597g.f14592c, true)) {
-                            albumFloatActivityConfig.getIntent().putExtra("from", this.f14597g.f14592c);
+                        AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.f14252e.getContext().getPageActivity(), this.f14252e.y().toJsonString(), true, true);
+                        if (!StringUtils.isNull(this.f14254g.f14249c, true)) {
+                            albumFloatActivityConfig.getIntent().putExtra("from", this.f14254g.f14249c);
                         }
-                        if (this.f14597g.a != null && !StringUtils.isNull(this.f14597g.a.getId(), true)) {
-                            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.f14597g.a.getId());
+                        if (this.f14254g.a != null && !StringUtils.isNull(this.f14254g.a.getId(), true)) {
+                            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.f14254g.a.getId());
                         }
                         albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
                         if (c.a.s0.x.y.a.a().b() == 1) {
                             albumFloatActivityConfig.setRequestFrom(2);
-                            if (this.f14595e.y() != null) {
-                                this.f14595e.y().setMaxImagesAllowed(1);
+                            if (this.f14252e.y() != null) {
+                                this.f14252e.y().setMaxImagesAllowed(1);
                             }
-                        } else if (this.f14595e.y() != null) {
-                            this.f14595e.y().setMaxImagesAllowed(9);
+                        } else if (this.f14252e.y() != null) {
+                            this.f14252e.y().setMaxImagesAllowed(9);
                         }
-                        n.w(this.f14595e.getContext().getPageActivity(), this.f14595e.getContext().getPageActivity().getCurrentFocus());
+                        n.w(this.f14252e.getContext().getPageActivity(), this.f14252e.getContext().getPageActivity().getCurrentFocus());
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
                         return;
                     case 15:
-                        int intValue = ((Integer) aVar.f14519c).intValue();
-                        if (this.f14595e.y() != null && this.f14595e.y().getChosedFiles() != null && (size = this.f14595e.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f14595e.getContext().getPageActivity(), 12012, this.f14595e.y(), intValue)));
+                        int intValue = ((Integer) aVar.f14180c).intValue();
+                        if (this.f14252e.y() != null && this.f14252e.y().getChosedFiles() != null && (size = this.f14252e.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f14252e.getContext().getPageActivity(), 12012, this.f14252e.y(), intValue)));
                             return;
                         }
                         return;
                     case 16:
-                        if (this.f14597g.f14593d) {
-                            this.f14595e.getContext().showToast(R.string.over_limit_tip);
+                        if (this.f14254g.f14250d) {
+                            this.f14252e.getContext().showToast(R.string.over_limit_tip);
                         }
-                        if (this.f14597g.k(this.f14595e.getContext(), 11025)) {
-                            AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.f14595e.getContext().getPageActivity(), 12004, true);
-                            if (this.f14595e.x() != null) {
-                                atListActivityConfig.setSelectedAtList(this.f14595e.x().u());
+                        if (this.f14254g.k(this.f14252e.getContext(), 11025)) {
+                            AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.f14252e.getContext().getPageActivity(), 12004, true);
+                            if (this.f14252e.x() != null) {
+                                atListActivityConfig.setSelectedAtList(this.f14252e.x().u());
                             }
-                            if (this.f14597g.f14594e != null) {
-                                atListActivityConfig.setFromTid(this.f14597g.f14594e.z());
-                                atListActivityConfig.setFromFid(this.f14597g.f14594e.getForumId());
+                            if (this.f14254g.f14251e != null) {
+                                atListActivityConfig.setFromTid(this.f14254g.f14251e.z());
+                                atListActivityConfig.setFromFid(this.f14254g.f14251e.getForumId());
                             }
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
                             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
                             statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-                            if (this.f14597g.f14594e != null) {
-                                statisticItem.addParam("tid", this.f14597g.f14594e.z());
-                                statisticItem.addParam("fid", this.f14597g.f14594e.getForumId());
+                            if (this.f14254g.f14251e != null) {
+                                statisticItem.addParam("tid", this.f14254g.f14251e.z());
+                                statisticItem.addParam("fid", this.f14254g.f14251e.getForumId());
                             }
                             TiebaStatic.log(statisticItem);
                             return;
@@ -208,11 +208,11 @@ public class g extends c.a.s0.x.c {
                     default:
                         return;
                 }
-            } else if (c.a.s0.u0.a.c(this.f14595e.getContext(), true, false)) {
+            } else if (c.a.s0.u0.a.c(this.f14252e.getContext(), true, false)) {
             } else {
-                HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.f14595e.getContext().getPageActivity(), 25004, HotSelectActivityConfig.FROM_PB);
-                if (this.f14597g.a != null) {
-                    hotSelectActivityConfig.setForumExtra(c.a.d.f.m.b.g(this.f14597g.a.getId(), 0L), this.f14597g.a.getFirst_class(), this.f14597g.a.getSecond_class());
+                HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.f14252e.getContext().getPageActivity(), 25004, HotSelectActivityConfig.FROM_PB);
+                if (this.f14254g.a != null) {
+                    hotSelectActivityConfig.setForumExtra(c.a.d.f.m.b.g(this.f14254g.a.getId(), 0L), this.f14254g.a.getFirst_class(), this.f14254g.a.getSecond_class());
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotSelectActivityConfig));
             }
@@ -232,9 +232,9 @@ public class g extends c.a.s0.x.c {
                 return;
             }
         }
-        this.f14591b = null;
-        this.f14592c = null;
-        this.f14593d = false;
+        this.f14248b = null;
+        this.f14249c = null;
+        this.f14250d = false;
     }
 
     @Override // c.a.s0.x.c
@@ -251,7 +251,7 @@ public class g extends c.a.s0.x.c {
             editorTools.showLinePositionTop(false);
             editorTools.setMoreButtonAtEnd(true);
             e eVar = new e(editorTools);
-            eVar.j0(this.f14594e);
+            eVar.j0(this.f14251e);
             return eVar;
         }
         return (c.a.s0.x.e) invokeL.objValue;
@@ -295,24 +295,24 @@ public class g extends c.a.s0.x.c {
             arrayList.add(6);
             arrayList.add(9);
             a2.addTool(new c.a.s0.x.r.d(a2.getContext(), 1));
-            if (c.a.t0.w3.r0.c.a() && v.a(this.f14591b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
-                mVar.f14537j = 2;
+            if (c.a.t0.w3.r0.c.a() && v.a(this.f14248b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
+                mVar.f14197j = 2;
                 a2.addTool(mVar);
             }
             c.a.s0.x.o.a aVar = new c.a.s0.x.o.a(a2.getContext(), 4);
-            aVar.f14534g = false;
+            aVar.f14194g = false;
             a2.addTool(aVar);
             CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), m.class);
             if (runTask2 != null && runTask2.getData() != null) {
                 m mVar2 = (m) runTask2.getData();
-                mVar2.f14537j = 6;
+                mVar2.f14197j = 6;
                 a2.addTool(mVar2);
             }
             a2.addTool(new f(a2.getContext(), false, true, 12004));
             CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, a2.getContext()), m.class);
             if (runTask3 != null && runTask3.getData() != null) {
                 m mVar3 = (m) runTask3.getData();
-                mVar3.f14537j = 7;
+                mVar3.f14197j = 7;
                 a2.addTool(mVar3);
             }
             if (!"PbChosenActivity".equals(a2.getContext().getClass().getSimpleName())) {
@@ -321,7 +321,7 @@ public class g extends c.a.s0.x.c {
             a2.collect(arrayList);
             m findToolById = a2.findToolById(5);
             if (findToolById != null) {
-                findToolById.f14537j = 3;
+                findToolById.f14197j = 3;
             }
             a2.build();
         }
@@ -350,13 +350,13 @@ public class g extends c.a.s0.x.c {
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14592c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14249c : (String) invokeV.objValue;
     }
 
     public DataModel<?> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14594e : (DataModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14251e : (DataModel) invokeV.objValue;
     }
 
     public void o(ForumData forumData) {
@@ -369,21 +369,21 @@ public class g extends c.a.s0.x.c {
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f14591b = str;
+            this.f14248b = str;
         }
     }
 
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f14592c = str;
+            this.f14249c = str;
         }
     }
 
     public void r(DataModel<?> dataModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, dataModel) == null) {
-            this.f14594e = dataModel;
+            this.f14251e = dataModel;
         }
     }
 }

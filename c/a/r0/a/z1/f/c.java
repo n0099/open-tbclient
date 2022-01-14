@@ -31,7 +31,7 @@ public final class c extends z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f10098c;
+    public static final boolean f9875c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -41,13 +41,13 @@ public final class c extends z {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10099b;
+        public final /* synthetic */ UnitedSchemeEntity f9876b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10100c;
+        public final /* synthetic */ CallbackHandler f9877c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Context f10101d;
+        public final /* synthetic */ Context f9878d;
 
         public a(String str, c cVar, e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, Context context) {
             Interceptable interceptable = $ic;
@@ -65,9 +65,9 @@ public final class c extends z {
                 }
             }
             this.a = str;
-            this.f10099b = unitedSchemeEntity;
-            this.f10100c = callbackHandler;
-            this.f10101d = context;
+            this.f9876b = unitedSchemeEntity;
+            this.f9877c = callbackHandler;
+            this.f9878d = context;
         }
 
         @Override // c.a.r0.a.z1.a
@@ -75,9 +75,9 @@ public final class c extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 if (jSONObject != null) {
-                    UnitedSchemeUtility.safeCallback(this.f10100c, this.f10099b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.a);
+                    UnitedSchemeUtility.safeCallback(this.f9877c, this.f9876b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.a);
                 } else {
-                    UnitedSchemeUtility.safeCallback(this.f10100c, this.f10099b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.a);
+                    UnitedSchemeUtility.safeCallback(this.f9877c, this.f9876b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.a);
                 }
             }
         }
@@ -86,7 +86,7 @@ public final class c extends z {
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UnitedSchemeUtility.safeCallback(this.f10100c, this.f10099b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.a);
+                UnitedSchemeUtility.safeCallback(this.f9877c, this.f9876b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.a);
             }
         }
     }
@@ -96,7 +96,7 @@ public final class c extends z {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f10102e;
+        public static final b f9879e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -112,7 +112,7 @@ public final class c extends z {
                     return;
                 }
             }
-            f10102e = new b();
+            f9879e = new b();
         }
 
         public b() {
@@ -150,7 +150,7 @@ public final class c extends z {
                 return;
             }
         }
-        f10098c = k.a;
+        f9875c = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -184,7 +184,7 @@ public final class c extends z {
             Intrinsics.checkNotNullParameter(entity, "entity");
             if (eVar != null) {
                 if (eVar.m0()) {
-                    boolean z = f10098c;
+                    boolean z = f9875c;
                     entity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                     return false;
                 }
@@ -202,7 +202,7 @@ public final class c extends z {
                     entity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                if (f10098c) {
+                if (f9875c) {
                     String str = "调起参数:" + d2;
                 }
                 a aVar = new a(optString, this, eVar, entity, callbackHandler, context);
@@ -218,7 +218,7 @@ public final class c extends z {
                     g V2 = controller.V();
                     if (V2 != null) {
                         g.b i2 = V2.i("navigateTo");
-                        i2.n(g.f6540g, g.f6542i);
+                        i2.n(g.f6399g, g.f6401i);
                         i2.j(cVar);
                         i2.a();
                         UnitedSchemeUtility.callCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -227,7 +227,7 @@ public final class c extends z {
                     UnitedSchemeUtility.safeCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(1, "can get fragment manager").toString(), optString);
                     return false;
                 }
-                boolean z2 = f10098c;
+                boolean z2 = f9875c;
                 j(context);
                 return false;
             }
@@ -244,7 +244,7 @@ public final class c extends z {
             aVar.m(false);
             aVar.U(h.swanapp_publisher_error_title);
             aVar.v(h.swanapp_publisher_params_error);
-            aVar.O(h.aiapps_confirm, b.f10102e);
+            aVar.O(h.aiapps_confirm, b.f9879e);
             aVar.X();
         }
     }

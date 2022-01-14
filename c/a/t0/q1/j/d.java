@@ -22,28 +22,28 @@ public class d {
     public BdTypeListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f22048b;
+    public i f21448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f22049c;
+    public g f21449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelateCardForumAdapter f22050d;
+    public RelateCardForumAdapter f21450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f22051e;
+    public e f21451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f22052f;
+    public f f21452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HomePageVideoThreadAdapter f22053g;
+    public HomePageVideoThreadAdapter f21453g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h f22054h;
+    public h f21454h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f22055i;
+    public List<c.a.d.n.e.a> f21455i;
 
     public d(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -60,30 +60,30 @@ public class d {
                 return;
             }
         }
-        this.f22055i = new ArrayList();
+        this.f21455i = new ArrayList();
         a(hotTopicActivity, bdTypeListView);
     }
 
     public final void a(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hotTopicActivity, bdTypeListView) == null) {
-            this.f22051e = new e(hotTopicActivity, c.a.t0.q1.l.g.f22153f);
-            this.f22048b = new i(hotTopicActivity, m.p);
-            this.f22049c = new g(hotTopicActivity, c.a.t0.q1.l.i.p);
-            this.f22050d = new RelateCardForumAdapter(hotTopicActivity, n.f22178g);
+            this.f21451e = new e(hotTopicActivity, c.a.t0.q1.l.g.f21549f);
+            this.f21448b = new i(hotTopicActivity, m.p);
+            this.f21449c = new g(hotTopicActivity, c.a.t0.q1.l.i.p);
+            this.f21450d = new RelateCardForumAdapter(hotTopicActivity, n.f21572g);
             TbPageContext<HotTopicActivity> pageContext = hotTopicActivity.getPageContext();
-            this.f22052f = new f(pageContext, c.a.t0.g0.f0.k.v0);
-            this.f22053g = new HomePageVideoThreadAdapter(pageContext, l.Z);
-            this.f22054h = new h(pageContext, c.a.t0.g0.f0.k.y0);
-            this.f22055i.add(this.f22048b);
-            this.f22055i.add(this.f22049c);
-            this.f22055i.add(this.f22050d);
-            this.f22055i.add(this.f22051e);
-            this.f22055i.add(this.f22052f);
-            this.f22055i.add(this.f22053g);
-            this.f22055i.add(this.f22054h);
+            this.f21452f = new f(pageContext, c.a.t0.g0.f0.k.v0);
+            this.f21453g = new HomePageVideoThreadAdapter(pageContext, l.Z);
+            this.f21454h = new h(pageContext, c.a.t0.g0.f0.k.y0);
+            this.f21455i.add(this.f21448b);
+            this.f21455i.add(this.f21449c);
+            this.f21455i.add(this.f21450d);
+            this.f21455i.add(this.f21451e);
+            this.f21455i.add(this.f21452f);
+            this.f21455i.add(this.f21453g);
+            this.f21455i.add(this.f21454h);
             this.a = bdTypeListView;
-            bdTypeListView.addAdapters(this.f22055i);
+            bdTypeListView.addAdapters(this.f21455i);
         }
     }
 
@@ -97,7 +97,7 @@ public class d {
     public void c(boolean z) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (fVar = this.f22052f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (fVar = this.f21452f) == null) {
             return;
         }
         fVar.setFromCDN(z);

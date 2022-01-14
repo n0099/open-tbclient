@@ -9,8 +9,8 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.c0.h0.d;
-import c.a.c0.h0.o;
+import c.a.c0.k0.b;
+import c.a.c0.k0.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,19 +27,19 @@ public class ArrowView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f38475e;
+    public Paint f37258e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f38476f;
+    public Path f37259f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38477g;
+    public int f37260g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38478h;
+    public int f37261h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f38479i;
+    public boolean f37262i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ArrowView(Context context) {
@@ -181,13 +181,13 @@ public class ArrowView extends View {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f38478h = d.a().getResources().getColor(o.NAD_UC29);
-            this.f38476f = new Path();
+            this.f37261h = b.a().getResources().getColor(j.NAD_UC29);
+            this.f37259f = new Path();
             Paint paint = new Paint();
-            this.f38475e = paint;
+            this.f37258e = paint;
             paint.setAntiAlias(true);
-            this.f38475e.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.f38475e.setColor(this.f38478h);
+            this.f37258e.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.f37258e.setColor(this.f37261h);
         }
     }
 
@@ -200,7 +200,7 @@ public class ArrowView extends View {
     public void enableNewTemplate(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f38479i = z;
+            this.f37262i = z;
         }
     }
 
@@ -209,20 +209,20 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f38479i) {
-                this.f38476f = b(this.f38476f, this.f38477g);
+            if (this.f37262i) {
+                this.f37259f = b(this.f37259f, this.f37260g);
             } else {
-                this.f38476f = a(this.f38476f, this.f38477g);
+                this.f37259f = a(this.f37259f, this.f37260g);
             }
-            canvas.drawPath(this.f38476f, this.f38475e);
+            canvas.drawPath(this.f37259f, this.f37258e);
         }
     }
 
     public void setArrowViewColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f38478h = i2;
-            this.f38475e.setColor(i2);
+            this.f37261h = i2;
+            this.f37258e.setColor(i2);
             invalidate();
         }
     }
@@ -230,7 +230,7 @@ public class ArrowView extends View {
     public void setDirection(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f38477g = i2;
+            this.f37260g = i2;
             invalidate();
         }
     }
@@ -275,9 +275,9 @@ public class ArrowView extends View {
                 return;
             }
         }
-        this.f38477g = 4;
-        this.f38478h = Color.argb(204, 0, 0, 0);
-        this.f38479i = true;
+        this.f37260g = 4;
+        this.f37261h = Color.argb(204, 0, 0, 0);
+        this.f37262i = true;
         c();
     }
 
@@ -301,9 +301,9 @@ public class ArrowView extends View {
                 return;
             }
         }
-        this.f38477g = 4;
-        this.f38478h = Color.argb(204, 0, 0, 0);
-        this.f38479i = true;
+        this.f37260g = 4;
+        this.f37261h = Color.argb(204, 0, 0, 0);
+        this.f37262i = true;
         c();
     }
 }

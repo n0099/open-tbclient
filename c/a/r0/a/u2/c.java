@@ -14,10 +14,10 @@ public final class c<ValueT> {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ValueT f9660b;
+    public ValueT f9451b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<ValueT> f9661c;
+    public a<ValueT> f9452c;
 
     /* loaded from: classes.dex */
     public interface a<ValueT> {
@@ -49,7 +49,7 @@ public final class c<ValueT> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ValueT valuet = this.f9660b;
+            ValueT valuet = this.f9451b;
             return valuet == null ? "" : valuet.toString();
         }
         return (CharSequence) invokeV.objValue;
@@ -59,7 +59,7 @@ public final class c<ValueT> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            this.f9661c = aVar;
+            this.f9452c = aVar;
             update();
             return this;
         }
@@ -75,7 +75,7 @@ public final class c<ValueT> {
     public boolean update() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? update((a) this.f9661c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? update((a) this.f9452c) : invokeV.booleanValue;
     }
 
     public boolean update(a<ValueT> aVar) {
@@ -101,7 +101,7 @@ public final class c<ValueT> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, valuet)) == null) {
-            this.f9660b = valuet;
+            this.f9451b = valuet;
             e.a().e(this);
             return true;
         }

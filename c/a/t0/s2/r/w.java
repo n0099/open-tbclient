@@ -15,13 +15,13 @@ public class w {
     public final List<PostData> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<Long> f23100b;
+    public final List<Long> f22463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23101c;
+    public String f22464c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23102d;
+    public int f22465d;
 
     public w() {
         Interceptable interceptable = $ic;
@@ -37,13 +37,13 @@ public class w {
             }
         }
         this.a = new ArrayList();
-        this.f23100b = new ArrayList();
-        this.f23102d = 0;
+        this.f22463b = new ArrayList();
+        this.f22465d = 0;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23102d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22465d : invokeV.intValue;
     }
 }

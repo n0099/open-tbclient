@@ -289,7 +289,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             this.mView.stopPullRefresh();
             if (i2 == 0 && eVar != null) {
                 if (eVar.h() != null) {
-                    resetTopicId(eVar.h().f22146e, eVar.h().f22147f);
+                    resetTopicId(eVar.h().f21543e, eVar.h().f21544f);
                 }
                 if (eVar.h() != null && eVar.h().t) {
                     this.mView.showHasDeleteEmpty(true);
@@ -298,7 +298,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                 this.mView.showHasDeleteEmpty(false);
                 this.mView.showHeadView(eVar);
                 this.mView.initViewPage();
-                loadMoreCallback(i2, eVar.f22145k, true);
+                loadMoreCallback(i2, eVar.k, true);
             } else if (this.mView.curHeadData() == null) {
                 this.mView.showFullEmpty(false);
             }
@@ -360,7 +360,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             boolean z = true;
             if (initParamsByTopicDetail(getIntent())) {
                 this.topicId = "" + this.topicIdLong;
-                if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.g().i("MainTabActivity")) {
+                if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.f().h("MainTabActivity")) {
                     this.mIsFromSchema = true;
                 }
             } else {
@@ -486,6 +486,6 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (!TextUtils.isEmpty(this.topicName)) {
             str = str + "&topic_name=" + URLEncoder.encode(this.topicName);
         }
-        this.hotTopicShareModel.f(h2.f22146e, h2.f22147f, str, h2.l, h2.f22152k, h2.f22150i, true, h2.f22149h);
+        this.hotTopicShareModel.f(h2.f21543e, h2.f21544f, str, h2.l, h2.k, h2.f21547i, true, h2.f21546h);
     }
 }

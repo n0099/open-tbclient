@@ -11,13 +11,13 @@ public final class c {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29578b;
+    public final int f28676b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f29579c;
+    public final int f28677c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f29580d;
+    public final int f28678d;
 
     public c(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public final class c {
             }
         }
         this.a = i2;
-        this.f29578b = i3;
-        this.f29579c = i4;
-        this.f29580d = i5;
+        this.f28676b = i3;
+        this.f28677c = i4;
+        this.f28678d = i5;
     }
 }

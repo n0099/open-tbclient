@@ -3,9 +3,9 @@ package com.baidu.nadcore.stats.request;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.u.b;
-import c.a.c0.x.c.c;
-import c.a.c0.x.c.d;
+import c.a.c0.a0.c.c;
+import c.a.c0.a0.c.d;
+import c.a.c0.x.b;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.adp.ApsConstants;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,7 +29,7 @@ public class ClogBuilder extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final JSONObject f38322c;
+    public final JSONObject f37110c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -183,6 +183,8 @@ public class ClogBuilder extends c {
         public static final LogType PHONE_STATE_LISTEN;
         public static final LogType PLACEHOLDER;
         public static final LogType PLAY_ZERO_SEC;
+        public static final LogType REWARD_COIN_FAIL;
+        public static final LogType REWARD_TOKEN_FAIL;
         public static final LogType SHOW;
         public static final LogType SKIP;
         public static final LogType STOCK;
@@ -278,9 +280,11 @@ public class ClogBuilder extends c {
             DEEPLINK_STAY_TIME = new LogType("DEEPLINK_STAY_TIME", 60, "752");
             INTERACTION_COLLECT = new LogType("INTERACTION_COLLECT", 61, "805");
             PHONE_STATE_LISTEN = new LogType("PHONE_STATE_LISTEN", 62, "807");
-            LogType logType = new LogType("PLACEHOLDER", 63, "-1");
+            REWARD_TOKEN_FAIL = new LogType("REWARD_TOKEN_FAIL", 63, "781");
+            REWARD_COIN_FAIL = new LogType("REWARD_COIN_FAIL", 64, "782");
+            LogType logType = new LogType("PLACEHOLDER", 65, "-1");
             PLACEHOLDER = logType;
-            $VALUES = new LogType[]{CLICK, SHOW, DISCARD, FAIL, CLOSE, FREE_SHOW, FREE_CLICK, VIDEO_LP_BT, VIDEO_LP_PV, VIDEO_LP_VIDEO_HIDE, CHAN_MORE, DEEP_LINK, VISIBLE_SHOW, VIDEO_LP_TAIL_CLICK, DOWNLOAD_START, DOWNLOAD_PAUSE, DOWNLOAD_CONTINUE, DOWNLOAD_COMPLETE, DOWNLOAD_INSTALL, DOWNLOAD_RETRY, DOWNLOAD_FAILED, INSTALL_COMPLETE, OPEN_APP, AD_CALL, VISIBLE_TWO_SEC, TAIL_FRAME_SHOW_TIME, DURATION, TRUE_VIEW, DAZZLE_IN, DAZZLE_OUT, DAZZLE_TRANS_SLIDING_COUNT, DAZZLE_CLICK, DAZZLE_CARD_SHOW, PLAY_ZERO_SEC, VIDEO_START, VIDEO_PAUSE, VIDEO_RESUME, VIDEO_COMPLETED, EXCEPTION, CHECK, TOP_VIEW_SPEED_STATE, NAVIDEO_POP_CLOSE, INTERACTION_PRAISE, INTERACTION_SHARE, INTERACTION_COMMENT, SKIP, STOCK, GESTURE_MATCH_SUCCESS, GESTURE_MATCH_FAILURE, INTERACTION_FOLLOW, AD_NOTIFICATION_NOTIFY_FAILED, LOTTIE_LONG_PRESS, LOTTIE_SHOW, LOTTIE_DISMISS, LOTTIE_CLICK, LOTTIE_RES_PREFETCH_FAIL, LOTTIE_LOAD_FAIL, HOME_PAGE_FIRST_SCREEN_AD_SHOW, HW_API_REQUEST, DEEPLINK_STAY_TRANS, DEEPLINK_STAY_TIME, INTERACTION_COLLECT, PHONE_STATE_LISTEN, logType};
+            $VALUES = new LogType[]{CLICK, SHOW, DISCARD, FAIL, CLOSE, FREE_SHOW, FREE_CLICK, VIDEO_LP_BT, VIDEO_LP_PV, VIDEO_LP_VIDEO_HIDE, CHAN_MORE, DEEP_LINK, VISIBLE_SHOW, VIDEO_LP_TAIL_CLICK, DOWNLOAD_START, DOWNLOAD_PAUSE, DOWNLOAD_CONTINUE, DOWNLOAD_COMPLETE, DOWNLOAD_INSTALL, DOWNLOAD_RETRY, DOWNLOAD_FAILED, INSTALL_COMPLETE, OPEN_APP, AD_CALL, VISIBLE_TWO_SEC, TAIL_FRAME_SHOW_TIME, DURATION, TRUE_VIEW, DAZZLE_IN, DAZZLE_OUT, DAZZLE_TRANS_SLIDING_COUNT, DAZZLE_CLICK, DAZZLE_CARD_SHOW, PLAY_ZERO_SEC, VIDEO_START, VIDEO_PAUSE, VIDEO_RESUME, VIDEO_COMPLETED, EXCEPTION, CHECK, TOP_VIEW_SPEED_STATE, NAVIDEO_POP_CLOSE, INTERACTION_PRAISE, INTERACTION_SHARE, INTERACTION_COMMENT, SKIP, STOCK, GESTURE_MATCH_SUCCESS, GESTURE_MATCH_FAILURE, INTERACTION_FOLLOW, AD_NOTIFICATION_NOTIFY_FAILED, LOTTIE_LONG_PRESS, LOTTIE_SHOW, LOTTIE_DISMISS, LOTTIE_CLICK, LOTTIE_RES_PREFETCH_FAIL, LOTTIE_LOAD_FAIL, HOME_PAGE_FIRST_SCREEN_AD_SHOW, HW_API_REQUEST, DEEPLINK_STAY_TRANS, DEEPLINK_STAY_TIME, INTERACTION_COLLECT, PHONE_STATE_LISTEN, REWARD_TOKEN_FAIL, REWARD_COIN_FAIL, logType};
         }
 
         public LogType(String str, int i2, String str2) {
@@ -329,15 +333,20 @@ public class ClogBuilder extends c {
         public static final Page AD_TAIL;
         public static final Page DOWNLOAD_RECTIFY;
         public static final Page INVALID;
+        public static final Page NAVIDEO_POP;
         public static final Page NA_SPLASH;
         public static final Page PAGE_NA;
         public static final Page PAGE_SEARCHBOX;
+        public static final Page PAGE_VIDEO_IMMERSIVE_LP;
         public static final Page PAGE_VIDEO_LANDING;
         public static final Page PAGE_VIDEO_TAIL;
         public static final Page POPUP;
         public static final Page RETARGET;
         public static final Page REWARD_VIDEO;
         public static final Page VIDEO_LIST;
+        public static final Page WELFAREMAXLP;
+        public static final Page WELFAREPANEL;
+        public static final Page WELFARETAIL;
         public transient /* synthetic */ FieldHolder $fh;
         public final String type;
 
@@ -369,9 +378,14 @@ public class ClogBuilder extends c {
             NA_SPLASH = new Page("NA_SPLASH", 12, "NA_SPLASH");
             DOWNLOAD_RECTIFY = new Page("DOWNLOAD_RECTIFY", 13, "DOWNLOAD_RECTIFY");
             VIDEO_LIST = new Page("VIDEO_LIST", 14, "VIDEOLIST");
-            Page page = new Page("INVALID", 15, "INVALID");
+            WELFAREPANEL = new Page("WELFAREPANEL", 15, "WELFAREPANEL");
+            WELFAREMAXLP = new Page("WELFAREMAXLP", 16, "WELFAREMAXLP");
+            WELFARETAIL = new Page("WELFARETAIL", 17, "WELFARETAIL");
+            PAGE_VIDEO_IMMERSIVE_LP = new Page("PAGE_VIDEO_IMMERSIVE_LP", 18, "IMMERSIVE_VIDEOADDETAIL");
+            NAVIDEO_POP = new Page("NAVIDEO_POP", 19, "NAVIDEO_POP");
+            Page page = new Page("INVALID", 20, "INVALID");
             INVALID = page;
-            $VALUES = new Page[]{AD_CALL, AD_NOTIFICATION, RETARGET, AD_START_INSTALL_TIPS, AD_INSTALL_TIPS, POPUP, PAGE_NA, PAGE_SEARCHBOX, AD_TAIL, PAGE_VIDEO_LANDING, PAGE_VIDEO_TAIL, REWARD_VIDEO, NA_SPLASH, DOWNLOAD_RECTIFY, VIDEO_LIST, page};
+            $VALUES = new Page[]{AD_CALL, AD_NOTIFICATION, RETARGET, AD_START_INSTALL_TIPS, AD_INSTALL_TIPS, POPUP, PAGE_NA, PAGE_SEARCHBOX, AD_TAIL, PAGE_VIDEO_LANDING, PAGE_VIDEO_TAIL, REWARD_VIDEO, NA_SPLASH, DOWNLOAD_RECTIFY, VIDEO_LIST, WELFAREPANEL, WELFAREMAXLP, WELFARETAIL, PAGE_VIDEO_IMMERSIVE_LP, NAVIDEO_POP, page};
         }
 
         public Page(String str, int i2, String str2) {
@@ -421,11 +435,11 @@ public class ClogBuilder extends c {
                 return;
             }
         }
-        this.f38322c = b.b(null);
+        this.f37110c = b.b(null);
         c("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // c.a.c0.x.c.a, c.a.c0.x.c.d
+    @Override // c.a.c0.a0.c.a, c.a.c0.a0.c.d
     public <T extends d> T a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -436,7 +450,7 @@ public class ClogBuilder extends c {
         return (T) invokeLL.objValue;
     }
 
-    @Override // c.a.c0.x.c.a
+    @Override // c.a.c0.a0.c.a
     public <T extends d> T c(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -444,7 +458,7 @@ public class ClogBuilder extends c {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            b.d(this.f38322c, str, obj);
+            b.e(this.f37110c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -490,12 +504,12 @@ public class ClogBuilder extends c {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // c.a.c0.x.c.c, c.a.c0.x.c.d
+    @Override // c.a.c0.a0.c.c, c.a.c0.a0.c.d
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (TextUtils.isEmpty(this.f38322c.optString("da_type"))) {
+            if (TextUtils.isEmpty(this.f37110c.optString("da_type"))) {
                 return false;
             }
             return super.isValid();
@@ -603,7 +617,7 @@ public class ClogBuilder extends c {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // c.a.c0.x.c.c, c.a.c0.x.c.a, c.a.c0.x.c.d
+    @Override // c.a.c0.a0.c.c, c.a.c0.a0.c.a, c.a.c0.a0.c.d
     @NonNull
     public String toString() {
         InterceptResult invokeV;
@@ -615,14 +629,14 @@ public class ClogBuilder extends c {
             }
             try {
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.f38322c);
+                jSONArray.put(this.f37110c);
                 String encode = URLEncoder.encode(jSONArray.toString(), "utf-8");
                 if (this.a.length() > 0) {
                     this.a.append(Typography.amp);
                 }
                 StringBuilder sb = this.a;
                 sb.append("ad");
-                sb.append(a.f31864h);
+                sb.append(a.f30865h);
                 sb.append(encode);
                 return sb.toString();
             } catch (Exception unused) {

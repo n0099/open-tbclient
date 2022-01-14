@@ -13,10 +13,10 @@ import java.util.concurrent.TimeUnit;
 public class g0<KEY> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayMap<KEY, Long> a;
+    public final ArrayMap<KEY, Long> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12673b;
+    public final long f12375b;
 
     public g0(int i2, @NonNull TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class g0<KEY> {
             }
         }
         this.a = new ArrayMap<>();
-        this.f12673b = timeUnit.toMillis(i2);
+        this.f12375b = timeUnit.toMillis(i2);
     }
 
     public static <T> g0<T> b() {
@@ -53,7 +53,7 @@ public class g0<KEY> {
                 if (l == null) {
                     this.a.put(key, Long.valueOf(uptimeMillis));
                     return true;
-                } else if (uptimeMillis - l.longValue() > this.f12673b) {
+                } else if (uptimeMillis - l.longValue() > this.f12375b) {
                     this.a.put(key, Long.valueOf(uptimeMillis));
                     return true;
                 } else {

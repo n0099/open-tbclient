@@ -50,7 +50,7 @@ public class b implements RouterService {
         sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
         sb.append("=1");
         sb.append("&page_from=live");
-        Activity b2 = c.a.d.a.b.g().b();
+        Activity b2 = c.a.d.a.b.f().b();
         if (b2 != null) {
             UrlManager.getInstance().dealOneLink((TbPageContext) j.a(b2), new String[]{sb.toString()}, true);
         }
@@ -72,7 +72,7 @@ public class b implements RouterService {
         sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
         sb.append("=1");
         sb.append("&page_from=live");
-        Activity b2 = c.a.d.a.b.g().b();
+        Activity b2 = c.a.d.a.b.f().b();
         if (b2 != null) {
             UrlManager.getInstance().dealOneLink((TbPageContext) j.a(b2), new String[]{sb.toString()}, true);
         }
@@ -104,7 +104,7 @@ public class b implements RouterService {
         sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
         sb.append("=1");
         sb.append("&page_from=live");
-        Activity b2 = c.a.d.a.b.g().b();
+        Activity b2 = c.a.d.a.b.f().b();
         if (b2 != null) {
             UrlManager.getInstance().dealOneLink((TbPageContext) j.a(b2), new String[]{sb.toString()}, true);
         }

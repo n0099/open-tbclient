@@ -32,10 +32,8 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f31895j = "\"&";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final String f31896k = "&";
+    public static final String f30895j = "\"&";
+    public static final String k = "&";
     public static final String l = "bizcontext=\"";
     public static final String m = "bizcontext=";
     public static final String n = "\"";
@@ -54,28 +52,28 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31897b;
+    public String f30896b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f31898c;
+    public Context f30897c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f31899d;
+    public final String f30898d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f31900e;
+    public final long f30899e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f31901f;
+    public final int f30900f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f31902g;
+    public final String f30901g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ActivityInfo f31903h;
+    public final ActivityInfo f30902h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final com.alipay.sdk.app.statistic.b f31904i;
+    public final com.alipay.sdk.app.statistic.b f30903i;
 
     public a(Context context, String str, String str2) {
         String str3;
@@ -94,19 +92,19 @@ public class a {
             }
         }
         this.a = "";
-        this.f31897b = "";
-        this.f31898c = null;
+        this.f30896b = "";
+        this.f30897c = null;
         boolean isEmpty = TextUtils.isEmpty(str2);
-        this.f31904i = new com.alipay.sdk.app.statistic.b(context, isEmpty);
-        this.f31899d = c(str, this.f31897b);
-        this.f31900e = SystemClock.elapsedRealtime();
-        this.f31901f = l.f();
-        this.f31903h = l.a(context);
-        this.f31902g = str2;
+        this.f30903i = new com.alipay.sdk.app.statistic.b(context, isEmpty);
+        this.f30898d = c(str, this.f30896b);
+        this.f30899e = SystemClock.elapsedRealtime();
+        this.f30900f = l.f();
+        this.f30902h = l.a(context);
+        this.f30901g = str2;
         if (!isEmpty) {
-            com.alipay.sdk.app.statistic.a.a(this, "biz", "eptyp", str2 + "|" + this.f31899d);
-            if (this.f31903h != null) {
-                str3 = this.f31903h.name + "|" + this.f31903h.launchMode;
+            com.alipay.sdk.app.statistic.a.a(this, "biz", "eptyp", str2 + "|" + this.f30898d);
+            if (this.f30902h != null) {
+                str3 = this.f30902h.name + "|" + this.f30902h.launchMode;
             } else {
                 str3 = StringUtil.NULL_STRING;
             }
@@ -114,28 +112,28 @@ public class a {
             com.alipay.sdk.app.statistic.a.a(this, "biz", "sys", l.a(this));
         }
         try {
-            this.f31898c = context.getApplicationContext();
+            this.f30897c = context.getApplicationContext();
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
             this.a = packageInfo.versionName;
-            this.f31897b = packageInfo.packageName;
+            this.f30896b = packageInfo.packageName;
         } catch (Exception e2) {
             c.a(e2);
         }
         if (!isEmpty) {
             com.alipay.sdk.app.statistic.a.a(this, "biz", x.o + l.f());
             com.alipay.sdk.app.statistic.a.a(this, "biz", com.alipay.sdk.app.statistic.b.U, "" + SystemClock.elapsedRealtime());
-            com.alipay.sdk.app.statistic.a.a(context, this, str, this.f31899d);
+            com.alipay.sdk.app.statistic.a.a(context, this, str, this.f30898d);
         }
         if (isEmpty || !com.alipay.sdk.data.a.u().q()) {
             return;
         }
-        com.alipay.sdk.data.a.u().a(this, this.f31898c);
+        com.alipay.sdk.data.a.u().a(this, this.f30897c);
     }
 
     private boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) ? !str.contains(f31895j) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) ? !str.contains(f30895j) : invokeL.booleanValue;
     }
 
     public static a e() {
@@ -150,13 +148,13 @@ public class a {
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31898c : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30897c : (Context) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31897b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30896b : (String) invokeV.objValue;
     }
 
     public String c() {
@@ -189,7 +187,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             try {
-                String a = a(str, f31895j, l);
+                String a = a(str, f30895j, l);
                 if (TextUtils.isEmpty(a)) {
                     return str + "&" + b(l, "\"");
                 }
@@ -211,7 +209,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(w, this.f31899d);
+                jSONObject.put(w, this.f30898d);
             } catch (Throwable unused) {
             }
             return jSONObject;
@@ -236,15 +234,15 @@ public class a {
 
     /* renamed from: com.alipay.sdk.sys.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class C1686a {
+    public static final class C1702a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final HashMap<UUID, a> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final HashMap<String, a> f31905b;
+        public static final HashMap<String, a> f30904b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f31906c = "i_uuid_b_c";
+        public static final String f30905c = "i_uuid_b_c";
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -261,10 +259,10 @@ public class a {
                 }
             }
             a = new HashMap<>();
-            f31905b = new HashMap<>();
+            f30904b = new HashMap<>();
         }
 
-        public C1686a() {
+        public C1702a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -285,7 +283,7 @@ public class a {
             }
             UUID randomUUID = UUID.randomUUID();
             a.put(randomUUID, aVar);
-            intent.putExtra(f31906c, randomUUID);
+            intent.putExtra(f30905c, randomUUID);
         }
 
         public static a a(Intent intent) {
@@ -295,7 +293,7 @@ public class a {
                 if (intent == null) {
                     return null;
                 }
-                Serializable serializableExtra = intent.getSerializableExtra(f31906c);
+                Serializable serializableExtra = intent.getSerializableExtra(f30905c);
                 if (serializableExtra instanceof UUID) {
                     return a.remove((UUID) serializableExtra);
                 }
@@ -309,7 +307,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeLL(65541, null, aVar, str) == null) || aVar == null || TextUtils.isEmpty(str)) {
                 return;
             }
-            f31905b.put(str, aVar);
+            f30904b.put(str, aVar);
         }
 
         public static a a(String str) {
@@ -319,7 +317,7 @@ public class a {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                return f31905b.remove(str);
+                return f30904b.remove(str);
             }
             return (a) invokeL.objValue;
         }
@@ -385,17 +383,17 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("appkey", com.alipay.sdk.cons.a.f31809f);
+                jSONObject.put("appkey", com.alipay.sdk.cons.a.f30814f);
                 jSONObject.put("ty", "and_lite");
                 jSONObject.put("sv", "h.a.3.8.02");
-                if (!this.f31897b.contains(s) || !l.h(this.f31898c)) {
-                    jSONObject.put(r, this.f31897b);
+                if (!this.f30896b.contains(s) || !l.h(this.f30897c)) {
+                    jSONObject.put(r, this.f30896b);
                 }
                 jSONObject.put(t, this.a);
                 jSONObject.put(u, System.currentTimeMillis());
                 jSONObject.put(v, d());
-                if (this.f31903h != null) {
-                    str3 = this.f31903h.name + "|" + this.f31903h.launchMode;
+                if (this.f30902h != null) {
+                    str3 = this.f30902h.name + "|" + this.f30902h.launchMode;
                 } else {
                     str3 = StringUtil.NULL_STRING;
                 }
@@ -427,7 +425,7 @@ public class a {
                 jSONObject = new JSONObject(substring2);
             }
             if (!jSONObject.has("appkey")) {
-                jSONObject.put("appkey", com.alipay.sdk.cons.a.f31809f);
+                jSONObject.put("appkey", com.alipay.sdk.cons.a.f30814f);
             }
             if (!jSONObject.has("ty")) {
                 jSONObject.put("ty", "and_lite");
@@ -435,8 +433,8 @@ public class a {
             if (!jSONObject.has("sv")) {
                 jSONObject.put("sv", "h.a.3.8.02");
             }
-            if (!jSONObject.has(r) && (!this.f31897b.contains(s) || !l.h(this.f31898c))) {
-                jSONObject.put(r, this.f31897b);
+            if (!jSONObject.has(r) && (!this.f30896b.contains(s) || !l.h(this.f30897c))) {
+                jSONObject.put(r, this.f30896b);
             }
             if (!jSONObject.has(t)) {
                 jSONObject.put(t, this.a);
@@ -463,10 +461,10 @@ public class a {
             HashMap<String, String> hashMap = new HashMap<>();
             if (aVar != null) {
                 hashMap.put("sdk_ver", "15.8.02");
-                hashMap.put("app_name", aVar.f31897b);
-                hashMap.put("token", aVar.f31899d);
-                hashMap.put(ShareCallPacking.StatModel.KEY_CALL_TYPE, aVar.f31902g);
-                hashMap.put("ts_api_invoke", String.valueOf(aVar.f31900e));
+                hashMap.put("app_name", aVar.f30896b);
+                hashMap.put("token", aVar.f30898d);
+                hashMap.put(ShareCallPacking.StatModel.KEY_CALL_TYPE, aVar.f30901g);
+                hashMap.put("ts_api_invoke", String.valueOf(aVar.f30899e));
             }
             return hashMap;
         }

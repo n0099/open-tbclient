@@ -26,13 +26,11 @@ public class b extends c.a.a1.p.d.a implements IDataSourceView.IPlayerDataSource
     public int E;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f1359i;
+    public int f1352i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f1360j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f1361k;
+    public int f1353j;
+    public int k;
     public int l;
     public int m;
     public int n;
@@ -64,14 +62,14 @@ public class b extends c.a.a1.p.d.a implements IDataSourceView.IPlayerDataSource
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             float x = motionEvent.getX();
             float y = motionEvent.getY();
-            int i4 = this.f1360j;
-            int i5 = this.f1361k;
+            int i4 = this.f1353j;
+            int i5 = this.k;
             int i6 = (this.D ? this.l : this.n) + i4;
             if (this.D) {
-                i2 = this.f1361k;
+                i2 = this.k;
                 i3 = this.m;
             } else {
-                i2 = this.f1361k;
+                i2 = this.k;
                 i3 = this.o;
             }
             return (x <= ((float) i4) || x >= ((float) i6) || y <= ((float) i5) || y >= ((float) (i2 + i3))) ? !this.D : this.D;
@@ -255,7 +253,7 @@ public class b extends c.a.a1.p.d.a implements IDataSourceView.IPlayerDataSource
         if (!(interceptable == null || interceptable.invokeII(1048594, this, i2, i3) == null) || i2 == 0 || i3 == 0) {
             return;
         }
-        int i6 = this.f1359i;
+        int i6 = this.f1352i;
         if (i6 == 90 || i6 == 270) {
             i3 = i2;
             i2 = i3;

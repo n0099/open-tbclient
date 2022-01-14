@@ -35,12 +35,12 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
     public final Queue<Object> queue;
     public final AtomicLong requested;
 
-    public OperatorGroupBy$State(int i2, l<?, K, T> lVar, K k2, boolean z) {
+    public OperatorGroupBy$State(int i2, l<?, K, T> lVar, K k, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), lVar, k2, Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i2), lVar, k, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -52,7 +52,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         }
         this.queue = new ConcurrentLinkedQueue();
         this.parent = lVar;
-        this.key = k2;
+        this.key = k;
         this.delayError = z;
         this.cancelled = new AtomicBoolean();
         this.actual = new AtomicReference<>();
@@ -137,7 +137,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                     if (j2 != Long.MAX_VALUE) {
                         a.g(this.requested, j3);
                     }
-                    this.parent.f64280i.request(j3);
+                    this.parent.f61871i.request(j3);
                 }
             }
             i2 = addAndGet(-i2);

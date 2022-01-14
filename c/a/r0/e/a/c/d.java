@@ -16,10 +16,10 @@ public class d {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f10520b;
+    public Method f10293b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f10521c;
+    public Object f10294c;
 
     public d(Class<?> cls) {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class d {
             return;
         }
         try {
-            Object k2 = c.a.r0.k.a.a.c.a.k(cls, "getInstance", new Object[0]);
-            this.f10521c = k2;
-            if (k2 != null) {
-                Object h2 = c.a.r0.k.a.a.c.a.h(k2, "UNIPERF_EVENT_APP_START");
+            Object k = c.a.r0.k.a.a.c.a.k(cls, "getInstance", new Object[0]);
+            this.f10294c = k;
+            if (k != null) {
+                Object h2 = c.a.r0.k.a.a.c.a.h(k, "UNIPERF_EVENT_APP_START");
                 this.a = h2 == null ? this.a : ((Integer) h2).intValue();
             }
             Method i4 = c.a.r0.k.a.a.c.a.i(cls, "uniPerfEvent", Integer.TYPE, String.class, int[].class);
-            this.f10520b = i4;
+            this.f10293b = i4;
             if (i4 != null) {
                 i4.setAccessible(true);
             }
@@ -80,7 +80,7 @@ public class d {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f10521c == null || this.f10520b == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f10294c == null || this.f10293b == null) ? false : true : invokeV.booleanValue;
     }
 
     public int d(int i2, String str, int... iArr) {
@@ -89,7 +89,7 @@ public class d {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, str, iArr)) == null) {
             if (c()) {
                 try {
-                    Object invoke = this.f10520b.invoke(this.f10521c, Integer.valueOf(i2), str, iArr);
+                    Object invoke = this.f10293b.invoke(this.f10294c, Integer.valueOf(i2), str, iArr);
                     if (invoke == null) {
                         return -1;
                     }

@@ -390,7 +390,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                             mediaMetadataRetriever.setDataSource(this.mSourcePath);
                             int c2 = ((int) (g.c(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                            if (t.f1491b) {
+                            if (t.f1479b) {
                                 trackFormat.setInteger("rotation-degrees", c2);
                             } else {
                                 trackFormat.setInteger("rotation-degrees", c2);

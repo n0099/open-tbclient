@@ -76,7 +76,7 @@ public class m extends z {
         try {
             c.a.r0.a.c1.a.a().b(context, intent, c.a.r0.a.d2.d.J().r().N(), null, resolveInfo.activityInfo.packageName);
         } catch (Exception e2) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 e2.printStackTrace();
             }
         }

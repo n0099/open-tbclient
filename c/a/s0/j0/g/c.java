@@ -19,10 +19,10 @@ public class c {
     public static c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f13145b;
+    public static boolean f12823b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f13146c;
+    public static boolean f12824c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -85,7 +85,7 @@ public class c {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f13145b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f12823b : invokeV.booleanValue;
     }
 
     public boolean e(String str) {
@@ -97,13 +97,13 @@ public class c {
     public boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? b.f13144d.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? b.f12822d.contains(str) : invokeL.booleanValue;
     }
 
     public boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? b.f13143c.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? b.f12821c.contains(str) : invokeL.booleanValue;
     }
 
     public boolean h(Activity activity) {
@@ -116,7 +116,7 @@ public class c {
             if (activity instanceof SuspendedActivity) {
                 return true;
             }
-            return b.f13142b.contains(activity.getClass().getName());
+            return b.f12820b.contains(activity.getClass().getName());
         }
         return invokeL.booleanValue;
     }
@@ -139,7 +139,7 @@ public class c {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? f13146c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? f12824c : invokeV.booleanValue;
     }
 
     public void l(boolean z) {
@@ -151,14 +151,14 @@ public class c {
     public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            f13146c = z;
+            f12824c = z;
         }
     }
 
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            f13145b = z;
+            f12823b = z;
         }
     }
 

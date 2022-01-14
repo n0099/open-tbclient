@@ -19,31 +19,31 @@ public final class SyncResponseResult implements Parcelable {
     public RouteLineInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TrafficInfo f37214b;
+    public TrafficInfo f35990b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DriverPosition f37215c;
+    public DriverPosition f35991c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f37216d;
+    public float f35992d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f37217e;
+    public long f35993e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f37218f;
+    public float f35994f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f37219g;
+    public long f35995g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37220h;
+    public int f35996h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f37221i;
+    public String f35997i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f37222j;
+    public String f35998j;
 
     static {
         InterceptResult invokeClinit;
@@ -75,15 +75,15 @@ public final class SyncResponseResult implements Parcelable {
             }
         }
         this.a = new RouteLineInfo();
-        this.f37214b = new TrafficInfo();
-        this.f37215c = new DriverPosition();
-        this.f37216d = 0.0f;
-        this.f37217e = 0L;
-        this.f37218f = 0.0f;
-        this.f37219g = 0L;
-        this.f37220h = 0;
-        this.f37221i = null;
-        this.f37222j = null;
+        this.f35990b = new TrafficInfo();
+        this.f35991c = new DriverPosition();
+        this.f35992d = 0.0f;
+        this.f35993e = 0L;
+        this.f35994f = 0.0f;
+        this.f35995g = 0L;
+        this.f35996h = 0;
+        this.f35997i = null;
+        this.f35998j = null;
     }
 
     public SyncResponseResult(Parcel parcel) {
@@ -102,15 +102,15 @@ public final class SyncResponseResult implements Parcelable {
             }
         }
         this.a = (RouteLineInfo) parcel.readParcelable(RouteLineInfo.class.getClassLoader());
-        this.f37214b = (TrafficInfo) parcel.readParcelable(TrafficInfo.class.getClassLoader());
-        this.f37215c = (DriverPosition) parcel.readParcelable(DriverPosition.class.getClassLoader());
-        this.f37216d = (float) parcel.readLong();
-        this.f37217e = parcel.readLong();
-        this.f37218f = (float) parcel.readLong();
-        this.f37219g = parcel.readLong();
-        this.f37220h = parcel.readInt();
-        this.f37221i = parcel.readString();
-        this.f37222j = parcel.readString();
+        this.f35990b = (TrafficInfo) parcel.readParcelable(TrafficInfo.class.getClassLoader());
+        this.f35991c = (DriverPosition) parcel.readParcelable(DriverPosition.class.getClassLoader());
+        this.f35992d = (float) parcel.readLong();
+        this.f35993e = parcel.readLong();
+        this.f35994f = (float) parcel.readLong();
+        this.f35995g = parcel.readLong();
+        this.f35996h = parcel.readInt();
+        this.f35997i = parcel.readString();
+        this.f35998j = parcel.readString();
     }
 
     public RouteLineInfo a() {
@@ -122,68 +122,68 @@ public final class SyncResponseResult implements Parcelable {
     public void a(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f37216d = f2;
+            this.f35992d = f2;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f37220h = i2;
+            this.f35996h = i2;
         }
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f37217e = j2;
+            this.f35993e = j2;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f37221i = str;
+            this.f35997i = str;
         }
     }
 
     public TrafficInfo b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37214b : (TrafficInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35990b : (TrafficInfo) invokeV.objValue;
     }
 
     public void b(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.f37218f = f2;
+            this.f35994f = f2;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f37219g = j2;
+            this.f35995g = j2;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f37222j = str;
+            this.f35998j = str;
         }
     }
 
     public DriverPosition c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f37215c : (DriverPosition) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f35991c : (DriverPosition) invokeV.objValue;
     }
 
     public float d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f37218f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f35994f : invokeV.floatValue;
     }
 
     @Override // android.os.Parcelable
@@ -199,7 +199,7 @@ public final class SyncResponseResult implements Parcelable {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f37219g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f35995g : invokeV.longValue;
     }
 
     @Override // android.os.Parcelable
@@ -207,15 +207,15 @@ public final class SyncResponseResult implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
             parcel.writeParcelable(this.a, 1);
-            parcel.writeParcelable(this.f37214b, 1);
-            parcel.writeParcelable(this.f37215c, 1);
-            parcel.writeFloat(this.f37216d);
-            parcel.writeLong(this.f37217e);
-            parcel.writeFloat(this.f37218f);
-            parcel.writeLong(this.f37219g);
-            parcel.writeInt(this.f37220h);
-            parcel.writeString(this.f37221i);
-            parcel.writeString(this.f37222j);
+            parcel.writeParcelable(this.f35990b, 1);
+            parcel.writeParcelable(this.f35991c, 1);
+            parcel.writeFloat(this.f35992d);
+            parcel.writeLong(this.f35993e);
+            parcel.writeFloat(this.f35994f);
+            parcel.writeLong(this.f35995g);
+            parcel.writeInt(this.f35996h);
+            parcel.writeString(this.f35997i);
+            parcel.writeString(this.f35998j);
         }
     }
 }

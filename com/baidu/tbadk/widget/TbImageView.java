@@ -163,7 +163,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     if (fVar != null) {
                         c.a.d.f.l.a.d(i2 == 1, i2 == 2, i2 == 3);
                         if (i2 == 3) {
-                            c.a.d.f.l.a.e(true, System.currentTimeMillis() - fVar.f42753c);
+                            c.a.d.f.l.a.e(true, System.currentTimeMillis() - fVar.f41244c);
                         }
                         this.a.mLogMap.remove(g2);
                     }
@@ -417,13 +417,13 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f42752b;
+        public int f41243b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f42753c;
+        public long f41244c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ TbImageView f42754d;
+        public final /* synthetic */ TbImageView f41245d;
 
         public f(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -440,7 +440,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     return;
                 }
             }
-            this.f42754d = tbImageView;
+            this.f41245d = tbImageView;
         }
     }
 
@@ -610,9 +610,9 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             if (this.G == null || (drawerArgs = this.mArgs) == null) {
                 return;
             }
-            if (drawerArgs.f32221i && (this.mIsGifPic || isGif())) {
+            if (drawerArgs.f31208i && (this.mIsGifPic || isGif())) {
                 this.G.a(canvas, getContext().getString(R.string.icon_tag_gif), true);
-            } else if (this.mArgs.f32220h && isLongPic()) {
+            } else if (this.mArgs.f31207h && isLongPic()) {
                 this.G.a(canvas, getContext().getString(R.string.icon_tag_long), true);
             } else {
                 String str = this.H;
@@ -620,10 +620,10 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     this.G.a(canvas, str, false);
                 }
             }
-            int i2 = this.mArgs.f32222j;
-            if (i2 == c.a.d.g.a.b.f3148c) {
+            int i2 = this.mArgs.f31209j;
+            if (i2 == c.a.d.g.a.b.f3112c) {
                 this.G.b(canvas, getContext().getString(R.string.wonderful_comment), R.color.CAM_X0305);
-            } else if (i2 == c.a.d.g.a.b.f3147b) {
+            } else if (i2 == c.a.d.g.a.b.f3111b) {
                 this.G.b(canvas, getContext().getString(R.string.god_level_comment), R.color.CAM_X0310);
             }
         }
@@ -840,24 +840,24 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     this.E.set(0.0f, 0.0f, getWidth(), getHeight());
                     if ((i2 & 1) != 0) {
                         float[] fArr = this.mArgs.a;
-                        canvas.drawRect(0.0f, 0.0f, fArr[0], fArr[1], this.mDrawer.f3137b);
+                        canvas.drawRect(0.0f, 0.0f, fArr[0], fArr[1], this.mDrawer.f3102b);
                     }
                     if ((i2 & 2) != 0) {
                         float f2 = this.E.right;
                         float[] fArr2 = this.mArgs.a;
-                        canvas.drawRect(f2 - fArr2[2], 0.0f, f2, fArr2[3], this.mDrawer.f3137b);
+                        canvas.drawRect(f2 - fArr2[2], 0.0f, f2, fArr2[3], this.mDrawer.f3102b);
                     }
                     if ((i2 & 4) != 0) {
                         float f3 = this.E.bottom;
                         float[] fArr3 = this.mArgs.a;
-                        canvas.drawRect(0.0f, f3 - fArr3[5], fArr3[4], f3, this.mDrawer.f3137b);
+                        canvas.drawRect(0.0f, f3 - fArr3[5], fArr3[4], f3, this.mDrawer.f3102b);
                     }
                     if ((i2 & 8) != 0) {
                         RectF rectF = this.E;
                         float f4 = rectF.right;
                         float[] fArr4 = this.mArgs.a;
                         float f5 = rectF.bottom;
-                        canvas.drawRect(f4 - fArr4[6], f5 - fArr4[7], f4, f5, this.mDrawer.f3137b);
+                        canvas.drawRect(f4 - fArr4[6], f5 - fArr4[7], f4, f5, this.mDrawer.f3102b);
                     }
                 }
             }
@@ -940,7 +940,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     next.getKey();
                     f value = next.getValue();
                     it.remove();
-                    c.a.d.f.l.d.h().k(value.a, value.f42752b, this.mCallback, this.mWidth, this.mHeight, this.mPageId, new Object[0]);
+                    c.a.d.f.l.d.h().k(value.a, value.f41243b, this.mCallback, this.mWidth, this.mHeight, this.mPageId, new Object[0]);
                 }
                 return true;
             }
@@ -979,32 +979,32 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     setDrawerType(1);
                     int i2 = this.mConrers ^ 15;
                     this.E.set(0.0f, 0.0f, getWidth(), getHeight());
-                    this.mDrawer.f3138c.setStrokeWidth(this.mDrawer.f3138c.getStrokeWidth());
+                    this.mDrawer.f3103c.setStrokeWidth(this.mDrawer.f3103c.getStrokeWidth());
                     if ((i2 & 1) != 0) {
-                        canvas.drawLine(0.0f, 0.0f, this.mArgs.a[0], 0.0f, this.mDrawer.f3138c);
-                        canvas.drawLine(0.0f, 0.0f, 0.0f, this.mArgs.a[1], this.mDrawer.f3138c);
+                        canvas.drawLine(0.0f, 0.0f, this.mArgs.a[0], 0.0f, this.mDrawer.f3103c);
+                        canvas.drawLine(0.0f, 0.0f, 0.0f, this.mArgs.a[1], this.mDrawer.f3103c);
                     }
                     if ((i2 & 2) != 0) {
                         float f2 = this.E.right;
-                        canvas.drawLine(f2 - this.mArgs.a[2], 0.0f, f2, 0.0f, this.mDrawer.f3138c);
+                        canvas.drawLine(f2 - this.mArgs.a[2], 0.0f, f2, 0.0f, this.mDrawer.f3103c);
                         float f3 = this.E.right;
-                        canvas.drawLine(f3, 0.0f, f3, this.mArgs.a[3], this.mDrawer.f3138c);
+                        canvas.drawLine(f3, 0.0f, f3, this.mArgs.a[3], this.mDrawer.f3103c);
                     }
                     if ((i2 & 4) != 0) {
                         float f4 = this.E.bottom;
-                        canvas.drawLine(0.0f, f4 - this.mArgs.a[5], 0.0f, f4, this.mDrawer.f3138c);
+                        canvas.drawLine(0.0f, f4 - this.mArgs.a[5], 0.0f, f4, this.mDrawer.f3103c);
                         float f5 = this.E.bottom;
-                        canvas.drawLine(0.0f, f5, this.mArgs.a[4], f5, this.mDrawer.f3138c);
+                        canvas.drawLine(0.0f, f5, this.mArgs.a[4], f5, this.mDrawer.f3103c);
                     }
                     if ((i2 & 8) != 0) {
                         RectF rectF = this.E;
                         float f6 = rectF.right;
                         float f7 = rectF.bottom;
-                        canvas.drawLine(f6 - this.mArgs.a[6], f7, f6, f7, this.mDrawer.f3138c);
+                        canvas.drawLine(f6 - this.mArgs.a[6], f7, f6, f7, this.mDrawer.f3103c);
                         RectF rectF2 = this.E;
                         float f8 = rectF2.right;
                         float f9 = rectF2.bottom;
-                        canvas.drawLine(f8, f9, f8, f9 - this.mArgs.a[7], this.mDrawer.f3138c);
+                        canvas.drawLine(f8, f9, f8, f9 - this.mArgs.a[7], this.mDrawer.f3103c);
                     }
                 }
             }
@@ -1025,14 +1025,14 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             if (this.v && this.w) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
                 if (skinType == 1) {
-                    this.mArgs.f32218f = DrawerArgs.SkinType.NIGHT;
+                    this.mArgs.f31205f = DrawerArgs.SkinType.NIGHT;
                 } else if (skinType != 4) {
-                    this.mArgs.f32218f = DrawerArgs.SkinType.DAY;
+                    this.mArgs.f31205f = DrawerArgs.SkinType.DAY;
                 } else {
-                    this.mArgs.f32218f = DrawerArgs.SkinType.DARK;
+                    this.mArgs.f31205f = DrawerArgs.SkinType.DARK;
                 }
             } else {
-                this.mArgs.f32218f = DrawerArgs.SkinType.DAY;
+                this.mArgs.f31205f = DrawerArgs.SkinType.DAY;
             }
             int i2 = this.p ? this.s : this.mDefaultId;
             if (i2 != this.u) {
@@ -1495,8 +1495,8 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 String g2 = c.a.d.f.l.d.h().g(str, i2);
                 f fVar = new f(this);
                 fVar.a = str;
-                fVar.f42752b = i2;
-                fVar.f42753c = System.currentTimeMillis();
+                fVar.f41243b = i2;
+                fVar.f41244c = System.currentTimeMillis();
                 this.mLogMap.put(g2, fVar);
                 if (TbadkCoreApplication.getInst().isPicReqSwitchOn()) {
                     String g3 = c.a.d.f.l.d.h().g(str, i2);
@@ -1505,7 +1505,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     }
                     f fVar2 = new f(this);
                     fVar2.a = str;
-                    fVar2.f42752b = i2;
+                    fVar2.f41243b = i2;
                     this.mRequestMap.put(g3, fVar2);
                     return;
                 }

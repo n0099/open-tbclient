@@ -591,7 +591,7 @@ public class MultiMediaPreProcessor {
                 fullFrameRect.setVertexPoint(fArr);
             }
             Matrix.setIdentityM(fArr, 0);
-            float[] fArr7 = g.f1695b;
+            float[] fArr7 = g.f1675b;
             GLES20.glBindFramebuffer(36160, 0);
             int[] iArr = this.mFboTexture2DIds;
             int i6 = this.mCurrentFboIndex;

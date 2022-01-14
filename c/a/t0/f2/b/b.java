@@ -40,15 +40,15 @@ public class b extends m {
             BdLog.e(e2.getMessage());
             i2 = 0;
         }
-        this.f14531d = i2;
-        this.f14533f = R.drawable.icon_pure_post_more_bubble64;
-        this.f14532e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.f14191d = i2;
+        this.f14193f = R.drawable.icon_pure_post_more_bubble64;
+        this.f14192e = R.drawable.icon_mask_post_keyboard24_selection;
         this.p = R.drawable.icon_pure_pic_vip64;
-        this.f14534g = false;
-        this.f14535h = true;
+        this.f14194g = false;
+        this.f14195h = true;
         this.m = true;
         CommonTabHost commonTabHost = new CommonTabHost(context);
-        this.f14538k = commonTabHost;
+        this.k = commonTabHost;
         commonTabHost.addTab(new a());
         this.l = 6;
         this.n = new int[]{1};

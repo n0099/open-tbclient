@@ -15,16 +15,16 @@ public class g implements c.a.r0.a.m1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7403e;
+    public int f7240e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7404f;
+    public int f7241f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7405g;
+    public int f7242g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7406h;
+    public int f7243h;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -39,20 +39,20 @@ public class g implements c.a.r0.a.m1.a {
                 return;
             }
         }
-        this.f7403e = Integer.MIN_VALUE;
-        this.f7404f = Integer.MIN_VALUE;
-        this.f7405g = -1;
-        this.f7406h = -1;
+        this.f7240e = Integer.MIN_VALUE;
+        this.f7241f = Integer.MIN_VALUE;
+        this.f7242g = -1;
+        this.f7243h = -1;
     }
 
     @Override // c.a.r0.a.m1.a
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("left") && jSONObject.has("top")) {
-            this.f7403e = n0.g(jSONObject.optInt("left"));
-            this.f7404f = n0.g(jSONObject.optInt("top"));
-            this.f7405g = jSONObject.has("width") ? Math.abs(n0.g(jSONObject.optInt("width"))) : -1;
-            this.f7406h = jSONObject.has("height") ? Math.abs(n0.g(jSONObject.optInt("height"))) : -1;
+            this.f7240e = n0.g(jSONObject.optInt("left"));
+            this.f7241f = n0.g(jSONObject.optInt("top"));
+            this.f7242g = jSONObject.has("width") ? Math.abs(n0.g(jSONObject.optInt("width"))) : -1;
+            this.f7243h = jSONObject.has("height") ? Math.abs(n0.g(jSONObject.optInt("height"))) : -1;
         }
     }
 
@@ -60,6 +60,6 @@ public class g implements c.a.r0.a.m1.a {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f7403e == Integer.MIN_VALUE || this.f7404f == Integer.MIN_VALUE) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f7240e == Integer.MIN_VALUE || this.f7241f == Integer.MIN_VALUE) ? false : true : invokeV.booleanValue;
     }
 }

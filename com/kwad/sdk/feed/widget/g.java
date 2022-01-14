@@ -18,13 +18,13 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     public TextView a;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f59123f;
+    public ImageView f56897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f59124g;
+    public ImageView f56898g;
 
     /* renamed from: h  reason: collision with root package name */
-    public KsLogoView f59125h;
+    public KsLogoView f56899h;
 
     public g(@NonNull Context context) {
         super(context);
@@ -33,15 +33,15 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     @Override // com.kwad.sdk.feed.widget.base.a
     public void a(@NonNull AdTemplate adTemplate) {
         super.a(adTemplate);
-        this.a.setText(com.kwad.sdk.core.response.a.a.s(((com.kwad.sdk.feed.widget.base.a) this).f59110c));
-        List<String> O = com.kwad.sdk.core.response.a.a.O(((com.kwad.sdk.feed.widget.base.a) this).f59110c);
-        this.f59125h.a(adTemplate);
+        this.a.setText(com.kwad.sdk.core.response.a.a.s(((com.kwad.sdk.feed.widget.base.a) this).f56884c));
+        List<String> O = com.kwad.sdk.core.response.a.a.O(((com.kwad.sdk.feed.widget.base.a) this).f56884c);
+        this.f56899h.a(adTemplate);
         if (O.size() >= 1) {
-            KSImageLoader.loadFeeImage(this.f59123f, O.get(0), ((com.kwad.sdk.feed.widget.base.a) this).f59109b);
+            KSImageLoader.loadFeeImage(this.f56897f, O.get(0), ((com.kwad.sdk.feed.widget.base.a) this).f56883b);
         } else {
             com.kwad.sdk.core.d.a.e("FeedTextImmerseImageView", "getImageUrlList size less than one");
         }
-        this.f59124g.setOnClickListener(this);
+        this.f56898g.setOnClickListener(this);
         setOnClickListener(this);
     }
 
@@ -49,9 +49,9 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     public void c() {
         ((RatioFrameLayout) findViewById(R.id.ksad_container)).setRatio(0.56f);
         this.a = (TextView) findViewById(R.id.ksad_ad_desc);
-        this.f59123f = (ImageView) findViewById(R.id.ksad_ad_image);
-        this.f59124g = (ImageView) findViewById(R.id.ksad_ad_dislike);
-        this.f59125h = (KsLogoView) findViewById(R.id.ksad_feed_logo);
+        this.f56897f = (ImageView) findViewById(R.id.ksad_ad_image);
+        this.f56898g = (ImageView) findViewById(R.id.ksad_ad_dislike);
+        this.f56899h = (KsLogoView) findViewById(R.id.ksad_feed_logo);
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a
@@ -61,17 +61,17 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f59124g) {
+        if (view == this.f56898g) {
             m();
-        } else if (com.kwad.sdk.core.download.a.d.a(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f59109b, 1) == 1) {
+        } else if (com.kwad.sdk.core.download.a.d.a(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f56883b, 1) == 1) {
             k();
         } else {
-            boolean B = com.kwad.sdk.core.response.a.a.B(((com.kwad.sdk.feed.widget.base.a) this).f59110c);
+            boolean B = com.kwad.sdk.core.response.a.a.B(((com.kwad.sdk.feed.widget.base.a) this).f56884c);
             k();
             if (B) {
-                FeedDownloadActivityProxy.launch(((com.kwad.sdk.feed.widget.base.a) this).f59112e, ((com.kwad.sdk.feed.widget.base.a) this).f59109b, ((com.kwad.sdk.feed.widget.base.a) this).f59111d);
+                FeedDownloadActivityProxy.launch(((com.kwad.sdk.feed.widget.base.a) this).f56886e, ((com.kwad.sdk.feed.widget.base.a) this).f56883b, ((com.kwad.sdk.feed.widget.base.a) this).f56885d);
             } else {
-                AdWebViewActivityProxy.launch(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f59109b);
+                AdWebViewActivityProxy.launch(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f56883b);
             }
         }
     }

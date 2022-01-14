@@ -1,6 +1,6 @@
 package c.a.t0.w3;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,11 +16,11 @@ public class h extends BaseCardInfo implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f25517f;
+    public static final BdUniqueId f24803f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d2> f25518e;
+    public List<e2> f24804e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class h extends BaseCardInfo implements c.a.d.n.e.n {
                 return;
             }
         }
-        f25517f = BdUniqueId.gen();
+        f24803f = BdUniqueId.gen();
     }
 
     public h() {
@@ -56,6 +56,6 @@ public class h extends BaseCardInfo implements c.a.d.n.e.n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f25517f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f24803f : (BdUniqueId) invokeV.objValue;
     }
 }

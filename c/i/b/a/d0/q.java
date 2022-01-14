@@ -17,7 +17,7 @@ public interface q {
         public final int[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int[] f30061b;
+        public final int[] f29130b;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(int i2) {
@@ -63,7 +63,7 @@ public interface q {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                int i3 = this.f30061b[i2] - 1;
+                int i3 = this.f29130b[i2] - 1;
                 if (i3 >= 0) {
                     return this.a[i3];
                 }
@@ -77,7 +77,7 @@ public interface q {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                int i3 = this.f30061b[i2] + 1;
+                int i3 = this.f29130b[i2] + 1;
                 int[] iArr = this.a;
                 if (i3 < iArr.length) {
                     return iArr[i3];
@@ -159,9 +159,9 @@ public interface q {
                 }
             }
             this.a = iArr;
-            this.f30061b = new int[iArr.length];
+            this.f29130b = new int[iArr.length];
             for (int i4 = 0; i4 < iArr.length; i4++) {
-                this.f30061b[iArr[i4]] = i4;
+                this.f29130b[iArr[i4]] = i4;
             }
         }
     }

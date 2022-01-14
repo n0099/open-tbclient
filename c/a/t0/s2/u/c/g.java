@@ -44,7 +44,7 @@ public class g extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f23151b;
+        public final /* synthetic */ g f22512b;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class g extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> {
                     return;
                 }
             }
-            this.f23151b = gVar;
+            this.f22512b = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,7 +72,7 @@ public class g extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, kVar) == null) || view == null || kVar == null || kVar.getThreadData() == null || StringUtils.isNull(kVar.getThreadData().v1())) {
                 return;
             }
-            this.f23151b.d0(view, kVar);
+            this.f22512b.d0(view, kVar);
         }
     }
 
@@ -82,7 +82,7 @@ public class g extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f23152e;
+        public final /* synthetic */ g f22513e;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class g extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> {
                     return;
                 }
             }
-            this.f23152e = gVar;
+            this.f22513e = gVar;
         }
 
         @Override // c.a.d.n.e.w
@@ -108,12 +108,12 @@ public class g extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> {
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof k) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 k kVar = (k) nVar;
-                kVar.f18228k = 1;
-                if (this.f23152e.p != null) {
-                    this.f23152e.p.a(threadCardViewHolder.getView(), kVar);
+                kVar.k = 1;
+                if (this.f22513e.p != null) {
+                    this.f22513e.p.a(threadCardViewHolder.getView(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((c.a.s0.s.q.a) kVar, view.getContext(), kVar.H, false, c.a.l.e.a((s) viewGroup, view, i2));
-                threadCardViewHolder.getCardView().o(new a.C0186a(1));
+                threadCardViewHolder.getCardView().o(new a.C0195a(1));
             }
         }
     }
@@ -125,10 +125,10 @@ public class g extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> {
         public final /* synthetic */ ViewGroup a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f23153b;
+        public final /* synthetic */ View f22514b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f23154c;
+        public final /* synthetic */ int f22515c;
 
         public c(g gVar, ViewGroup viewGroup, View view, int i2) {
             Interceptable interceptable = $ic;
@@ -146,15 +146,15 @@ public class g extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> {
                 }
             }
             this.a = viewGroup;
-            this.f23153b = view;
-            this.f23154c = i2;
+            this.f22514b = view;
+            this.f22515c = i2;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(c.a.l.e.a((s) this.a, this.f23153b, this.f23154c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(c.a.l.e.a((s) this.a, this.f22514b, this.f22515c));
             }
         }
     }
@@ -193,17 +193,17 @@ public class g extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> {
             bVar.l().i(true);
             n0 n0Var = new n0(this.n.getPageActivity());
             c.a.s0.s.q.f fVar = new c.a.s0.s.q.f();
-            fVar.f13685b = 25;
-            fVar.f13691h = 25;
+            fVar.f13371b = 25;
+            fVar.f13377h = 25;
             n0Var.u(fVar);
             n0Var.v(2);
             n0Var.z(11);
             n0Var.w(0);
             n0Var.a(32);
             bVar.m(n0Var);
-            l0 k2 = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.o);
-            k2.r(0);
-            ThreadCardViewHolder<k> threadCardViewHolder = new ThreadCardViewHolder<>(k2);
+            l0 k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.o);
+            k.r(0);
+            ThreadCardViewHolder<k> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.setPageId(this.m);
             V(new b(this));
             return threadCardViewHolder;
@@ -218,7 +218,7 @@ public class g extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, threadCardViewHolder})) == null) {
-            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f18222e == null) {
+            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f17778e == null) {
                 return null;
             }
             kVar.K(kVar.position + 1);

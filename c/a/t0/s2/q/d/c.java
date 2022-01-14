@@ -24,22 +24,22 @@ public class c {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f22982b;
+    public View f22350b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f22983c;
+    public TextView f22351c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f22984d;
+    public b f22352d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f22985e;
+    public b f22353e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f22986f;
+    public b f22354f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f22987g;
+    public View f22355g;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -62,13 +62,13 @@ public class c {
             }
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.chosen_pb_comment_layout, (ViewGroup) null);
-        this.f22982b = inflate;
-        this.f22983c = (TextView) inflate.findViewById(R.id.chosen_pb_comment_title);
-        this.f22987g = this.f22982b.findViewById(R.id.chosen_pb_comment_line);
-        this.a = this.f22982b.findViewById(R.id.comment_layout_blank_view);
-        this.f22984d = new b((ViewStub) this.f22982b.findViewById(R.id.chosen_pb_commrnt_first), aVar);
-        this.f22985e = new b((ViewStub) this.f22982b.findViewById(R.id.chosen_pb_commrnt_second), aVar);
-        this.f22986f = new b((ViewStub) this.f22982b.findViewById(R.id.chosen_pb_commrnt_third), aVar);
+        this.f22350b = inflate;
+        this.f22351c = (TextView) inflate.findViewById(R.id.chosen_pb_comment_title);
+        this.f22355g = this.f22350b.findViewById(R.id.chosen_pb_comment_line);
+        this.a = this.f22350b.findViewById(R.id.comment_layout_blank_view);
+        this.f22352d = new b((ViewStub) this.f22350b.findViewById(R.id.chosen_pb_commrnt_first), aVar);
+        this.f22353e = new b((ViewStub) this.f22350b.findViewById(R.id.chosen_pb_commrnt_second), aVar);
+        this.f22354f = new b((ViewStub) this.f22350b.findViewById(R.id.chosen_pb_commrnt_third), aVar);
     }
 
     public final User a(Post post, List<User> list) {
@@ -94,19 +94,19 @@ public class c {
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22982b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22350b : (View) invokeV.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.f22982b, R.color.common_color_10187);
+            SkinManager.setBackgroundResource(this.f22350b, R.color.common_color_10187);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f22983c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundColor(this.f22987g, R.color.CAM_X0204);
-            this.f22984d.c();
-            this.f22985e.c();
-            this.f22986f.c();
+            SkinManager.setViewTextColor(this.f22351c, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundColor(this.f22355g, R.color.CAM_X0204);
+            this.f22352d.c();
+            this.f22353e.c();
+            this.f22354f.c();
         }
     }
 
@@ -117,47 +117,47 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
             if (list != null && !list.isEmpty()) {
-                this.f22987g.setVisibility(0);
+                this.f22355g.setVisibility(0);
                 int size = list.size();
                 if (size != 1) {
                     if (size == 2) {
-                        boolean update3 = this.f22984d.update(list.get(0), a(list.get(0), list2));
-                        boolean update4 = this.f22985e.update(list.get(1), a(list.get(1), list2));
-                        this.f22986f.d(false);
+                        boolean update3 = this.f22352d.update(list.get(0), a(list.get(0), list2));
+                        boolean update4 = this.f22353e.update(list.get(1), a(list.get(1), list2));
+                        this.f22354f.d(false);
                         update = update4;
                         z = update3;
                         update2 = false;
                     } else if (size >= 3) {
-                        boolean update5 = this.f22984d.update(list.get(0), a(list.get(0), list2));
-                        update = this.f22985e.update(list.get(1), a(list.get(1), list2));
-                        update2 = this.f22986f.update(list.get(2), a(list.get(2), list2));
+                        boolean update5 = this.f22352d.update(list.get(0), a(list.get(0), list2));
+                        update = this.f22353e.update(list.get(1), a(list.get(1), list2));
+                        update2 = this.f22354f.update(list.get(2), a(list.get(2), list2));
                         z = update5;
                     } else {
                         z = false;
                     }
                     if (z && !update && !update2) {
-                        this.f22983c.setVisibility(8);
+                        this.f22351c.setVisibility(8);
                         return;
                     } else {
-                        this.f22983c.setVisibility(0);
+                        this.f22351c.setVisibility(0);
                         return;
                     }
                 }
-                z = this.f22984d.update(list.get(0), a(list.get(0), list2));
-                this.f22985e.d(false);
-                this.f22986f.d(false);
+                z = this.f22352d.update(list.get(0), a(list.get(0), list2));
+                this.f22353e.d(false);
+                this.f22354f.d(false);
                 update2 = false;
                 update = false;
                 if (z) {
                 }
-                this.f22983c.setVisibility(0);
+                this.f22351c.setVisibility(0);
                 return;
             }
-            this.f22983c.setVisibility(8);
-            this.f22984d.d(false);
-            this.f22985e.d(false);
-            this.f22986f.d(false);
-            this.f22987g.setVisibility(8);
+            this.f22351c.setVisibility(8);
+            this.f22352d.d(false);
+            this.f22353e.d(false);
+            this.f22354f.d(false);
+            this.f22355g.setVisibility(8);
         }
     }
 }

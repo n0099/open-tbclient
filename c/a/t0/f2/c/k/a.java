@@ -18,11 +18,11 @@ public class a implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f17873f;
+    public static final BdUniqueId f17440f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b> f17874e;
+    public List<b> f17441e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class a implements c.a.d.n.e.n {
                 return;
             }
         }
-        f17873f = BdUniqueId.gen();
+        f17440f = BdUniqueId.gen();
     }
 
     public a(VipBannerList vipBannerList) {
@@ -59,22 +59,22 @@ public class a implements c.a.d.n.e.n {
             return;
         }
         String str = vipBannerList.card_id;
-        this.f17874e = new ArrayList();
+        this.f17441e = new ArrayList();
         for (VipBannerItem vipBannerItem : vipBannerList.item) {
-            this.f17874e.add(new b(vipBannerItem));
+            this.f17441e.add(new b(vipBannerItem));
         }
     }
 
     public List<b> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17874e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17441e : (List) invokeV.objValue;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f17873f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f17440f : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -39,13 +39,13 @@ public class m implements Runnable {
         SafeKeyBoardEditText safeKeyBoardEditText3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            safeKeyBoardUtil = this.a.f35101g;
-            context = this.a.f35099e;
-            safeKeyBoardEditText = this.a.f35100f;
+            safeKeyBoardUtil = this.a.f33968g;
+            context = this.a.f33966e;
+            safeKeyBoardEditText = this.a.f33967f;
             safeKeyBoardUtil.init(context, safeKeyBoardEditText.getViewGroup(), this.a);
-            safeKeyBoardUtil2 = this.a.f35101g;
-            safeKeyBoardEditText2 = this.a.f35100f;
-            safeKeyBoardEditText3 = this.a.f35100f;
+            safeKeyBoardUtil2 = this.a.f33968g;
+            safeKeyBoardEditText2 = this.a.f33967f;
+            safeKeyBoardEditText3 = this.a.f33967f;
             safeKeyBoardUtil2.showSoftKeyBoard(safeKeyBoardEditText2, safeKeyBoardEditText3.getVisibleView());
         }
     }

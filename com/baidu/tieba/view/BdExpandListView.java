@@ -49,7 +49,7 @@ public class BdExpandListView extends BdTypeListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdExpandListView f50953e;
+        public final /* synthetic */ BdExpandListView f49012e;
 
         public a(BdExpandListView bdExpandListView) {
             Interceptable interceptable = $ic;
@@ -66,17 +66,17 @@ public class BdExpandListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f50953e = bdExpandListView;
+            this.f49012e = bdExpandListView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50953e.c0 <= 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49012e.c0 <= 0) {
                 return;
             }
-            this.f50953e.P.setLayoutParams(new AbsListView.LayoutParams(this.f50953e.P.getWidth(), this.f50953e.c0));
-            this.f50953e.invalidate();
+            this.f49012e.P.setLayoutParams(new AbsListView.LayoutParams(this.f49012e.P.getWidth(), this.f49012e.c0));
+            this.f49012e.invalidate();
         }
     }
 
@@ -96,7 +96,7 @@ public class BdExpandListView extends BdTypeListView {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f50954b;
+        public int f49013b;
 
         public c(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class BdExpandListView extends BdTypeListView {
                 }
             }
             this.a = i3;
-            this.f50954b = i5;
+            this.f49013b = i5;
         }
 
         public int a(float f2) {
@@ -252,7 +252,7 @@ public class BdExpandListView extends BdTypeListView {
                             if (this.P.getParent() == this && this.S != null && this.P.isShown() && this.P.getTop() >= 0 && Math.abs(f2) >= this.U && this.W > 400) {
                                 int a2 = this.S.a(this.R - this.Q);
                                 c cVar = this.S;
-                                if (a2 > cVar.a && a2 <= cVar.f50954b) {
+                                if (a2 > cVar.a && a2 <= cVar.f49013b) {
                                     this.T = true;
                                     setClickEventEnabled(false);
                                     this.P.setLayoutParams(new AbsListView.LayoutParams(this.P.getWidth(), a2));
@@ -261,7 +261,7 @@ public class BdExpandListView extends BdTypeListView {
                                     c cVar2 = this.S;
                                     if (a2 <= cVar2.a) {
                                         this.T = false;
-                                    } else if (a2 > cVar2.f50954b) {
+                                    } else if (a2 > cVar2.f49013b) {
                                         this.T = true;
                                         setClickEventEnabled(false);
                                     } else {
@@ -350,7 +350,7 @@ public class BdExpandListView extends BdTypeListView {
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.S == null) {
             return;
         }
-        if (this.P.getHeight() >= this.S.f50954b - (this.V / 2)) {
+        if (this.P.getHeight() >= this.S.f49013b - (this.V / 2)) {
             doRefresh();
         } else {
             b bVar = this.mRefreshListener;

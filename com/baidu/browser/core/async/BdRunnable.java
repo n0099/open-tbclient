@@ -10,16 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 /* loaded from: classes10.dex */
 public abstract class BdRunnable implements Runnable, e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f34107e;
+    public e f33020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public STATUS f34108f;
+    public STATUS f33021f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -48,7 +49,7 @@ public abstract class BdRunnable implements Runnable, e {
             }
             INITED = new STATUS("INITED", 0);
             QUEUED = new STATUS("QUEUED", 1);
-            RUNNING = new STATUS("RUNNING", 2);
+            RUNNING = new STATUS(TornadoLiteRuntime.STATE_RUNNING, 2);
             FAIL = new STATUS("FAIL", 3);
             STATUS status = new STATUS("COMPLETE", 4);
             COMPLETE = status;
@@ -100,15 +101,15 @@ public abstract class BdRunnable implements Runnable, e {
                 return;
             }
         }
-        this.f34108f = STATUS.INITED;
+        this.f33021f = STATUS.INITED;
     }
 
     @Override // c.a.k.a.o.e
     public void a(Error error) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
-            this.f34108f = STATUS.FAIL;
-            e eVar = this.f34107e;
+            this.f33021f = STATUS.FAIL;
+            e eVar = this.f33020e;
             if (eVar != null) {
                 eVar.a(error);
             }
@@ -122,7 +123,7 @@ public abstract class BdRunnable implements Runnable, e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            STATUS status = this.f34108f;
+            STATUS status = this.f33021f;
             return status == STATUS.COMPLETE || status == STATUS.FAIL;
         }
         return invokeV.booleanValue;
@@ -132,8 +133,8 @@ public abstract class BdRunnable implements Runnable, e {
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f34108f = STATUS.COMPLETE;
-            e eVar = this.f34107e;
+            this.f33021f = STATUS.COMPLETE;
+            e eVar = this.f33020e;
             if (eVar != null) {
                 eVar.onComplete();
             }
@@ -145,8 +146,8 @@ public abstract class BdRunnable implements Runnable, e {
     public void onException(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
-            this.f34108f = STATUS.FAIL;
-            e eVar = this.f34107e;
+            this.f33021f = STATUS.FAIL;
+            e eVar = this.f33020e;
             if (eVar != null) {
                 eVar.onException(exc);
             }
@@ -158,7 +159,7 @@ public abstract class BdRunnable implements Runnable, e {
     public void onStart() {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.f34107e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.f33020e) == null) {
             return;
         }
         eVar.onStart();
@@ -170,7 +171,7 @@ public abstract class BdRunnable implements Runnable, e {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
                 onStart();
-                this.f34108f = STATUS.RUNNING;
+                this.f33021f = STATUS.RUNNING;
                 b();
                 onComplete();
             } catch (Error e2) {

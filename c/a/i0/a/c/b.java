@@ -1,8 +1,6 @@
 package c.a.i0.a.c;
 
-import android.animation.Animator;
 import android.text.TextUtils;
-import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieCompositionFactory;
 import com.airbnb.lottie.LottieListener;
@@ -61,91 +59,17 @@ public class b {
 
     /* renamed from: c.a.i0.a.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0148b implements LottieListener<LottieComposition> {
+    public class C0156b implements LottieListener<LottieComposition> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f3792b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Animator.AnimatorListener f3793c;
-
-        /* renamed from: c.a.i0.a.c.b$b$a */
-        /* loaded from: classes.dex */
-        public class a implements Animator.AnimatorListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0148b f3794e;
-
-            public a(C0148b c0148b) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {c0148b};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f3794e = c0148b;
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-                Animator.AnimatorListener animatorListener;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || (animatorListener = this.f3794e.f3793c) == null) {
-                    return;
-                }
-                animatorListener.onAnimationCancel(animator);
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                Animator.AnimatorListener animatorListener;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || (animatorListener = this.f3794e.f3793c) == null) {
-                    return;
-                }
-                animatorListener.onAnimationEnd(animator);
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-                Animator.AnimatorListener animatorListener;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || (animatorListener = this.f3794e.f3793c) == null) {
-                    return;
-                }
-                animatorListener.onAnimationRepeat(animator);
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-                Animator.AnimatorListener animatorListener;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || (animatorListener = this.f3794e.f3793c) == null) {
-                    return;
-                }
-                animatorListener.onAnimationStart(animator);
-            }
-        }
-
-        public C0148b(b bVar, f fVar, LottieAnimationView lottieAnimationView, Animator.AnimatorListener animatorListener) {
+        public C0156b(b bVar, f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, fVar, lottieAnimationView, animatorListener};
+                Object[] objArr = {bVar, fVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -156,8 +80,6 @@ public class b {
                 }
             }
             this.a = fVar;
-            this.f3792b = lottieAnimationView;
-            this.f3793c = animatorListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -165,17 +87,20 @@ public class b {
         /* renamed from: a */
         public void onResult(LottieComposition lottieComposition) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) || lottieComposition == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
+                if (lottieComposition != null) {
+                    f fVar = this.a;
+                    if (fVar != null) {
+                        fVar.a(lottieComposition);
+                        return;
+                    }
+                    return;
+                }
+                f fVar2 = this.a;
+                if (fVar2 != null) {
+                    fVar2.b();
+                }
             }
-            f fVar = this.a;
-            if (fVar != null) {
-                fVar.a();
-            }
-            this.f3792b.setVisibility(0);
-            this.f3792b.setComposition(lottieComposition);
-            this.f3792b.playAnimation();
-            this.f3792b.addAnimatorListener(new a(this));
         }
     }
 
@@ -222,85 +147,12 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f3795b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Animator.AnimatorListener f3796c;
-
-        /* loaded from: classes.dex */
-        public class a implements Animator.AnimatorListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f3797e;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f3797e = dVar;
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-                Animator.AnimatorListener animatorListener;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || (animatorListener = this.f3797e.f3796c) == null) {
-                    return;
-                }
-                animatorListener.onAnimationCancel(animator);
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                Animator.AnimatorListener animatorListener;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || (animatorListener = this.f3797e.f3796c) == null) {
-                    return;
-                }
-                animatorListener.onAnimationEnd(animator);
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-                Animator.AnimatorListener animatorListener;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || (animatorListener = this.f3797e.f3796c) == null) {
-                    return;
-                }
-                animatorListener.onAnimationRepeat(animator);
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-                Animator.AnimatorListener animatorListener;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || (animatorListener = this.f3797e.f3796c) == null) {
-                    return;
-                }
-                animatorListener.onAnimationStart(animator);
-            }
-        }
-
-        public d(b bVar, f fVar, LottieAnimationView lottieAnimationView, Animator.AnimatorListener animatorListener) {
+        public d(b bVar, f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, fVar, lottieAnimationView, animatorListener};
+                Object[] objArr = {bVar, fVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -311,8 +163,6 @@ public class b {
                 }
             }
             this.a = fVar;
-            this.f3795b = lottieAnimationView;
-            this.f3796c = animatorListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -320,17 +170,20 @@ public class b {
         /* renamed from: a */
         public void onResult(LottieComposition lottieComposition) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) || lottieComposition == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
+                if (lottieComposition != null) {
+                    f fVar = this.a;
+                    if (fVar != null) {
+                        fVar.a(lottieComposition);
+                        return;
+                    }
+                    return;
+                }
+                f fVar2 = this.a;
+                if (fVar2 != null) {
+                    fVar2.b();
+                }
             }
-            f fVar = this.a;
-            if (fVar != null) {
-                fVar.a();
-            }
-            this.f3795b.setVisibility(0);
-            this.f3795b.setComposition(lottieComposition);
-            this.f3795b.playAnimation();
-            this.f3795b.addAnimatorListener(new a(this));
         }
     }
 
@@ -359,7 +212,7 @@ public class b {
 
     /* loaded from: classes.dex */
     public interface f {
-        void a();
+        void a(LottieComposition lottieComposition);
 
         void b();
     }
@@ -374,35 +227,32 @@ public class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e.a : (b) invokeV.objValue;
     }
 
-    public void a(File file, LottieAnimationView lottieAnimationView, Animator.AnimatorListener animatorListener, f fVar) {
+    public void a(File file, f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, file, lottieAnimationView, animatorListener, fVar) == null) || file == null || !file.exists() || lottieAnimationView == null) {
-            return;
-        }
-        try {
-            LottieCompositionFactory.fromZipStream(new ZipInputStream(new FileInputStream(file.getPath())), null).addListener(new C0148b(this, fVar, lottieAnimationView, animatorListener)).addFailureListener(new a(this, fVar));
-        } catch (Exception unused) {
-            lottieAnimationView.setVisibility(8);
-            if (fVar != null) {
-                fVar.b();
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, file, fVar) == null) && file != null && file.exists()) {
+            try {
+                LottieCompositionFactory.fromZipStream(new ZipInputStream(new FileInputStream(file.getPath())), null).addListener(new C0156b(this, fVar)).addFailureListener(new a(this, fVar));
+            } catch (Exception unused) {
+                if (fVar != null) {
+                    fVar.b();
+                }
             }
         }
     }
 
-    public void b(String str, LottieAnimationView lottieAnimationView, Animator.AnimatorListener animatorListener, f fVar) {
+    public void b(String str, f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, lottieAnimationView, animatorListener, fVar) == null) || TextUtils.isEmpty(str) || lottieAnimationView == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fVar) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         File o = c.a.i0.b.f.e.o(str);
         if (o != null && o.exists()) {
-            a(o, lottieAnimationView, animatorListener, fVar);
+            a(o, fVar);
             return;
         }
         try {
-            LottieCompositionFactory.fromUrl(c.a.c0.e.a.b(), str).addListener(new d(this, fVar, lottieAnimationView, animatorListener)).addFailureListener(new c(this, fVar));
+            LottieCompositionFactory.fromUrl(c.a.c0.h.a.b(), str).addListener(new d(this, fVar)).addFailureListener(new c(this, fVar));
         } catch (Exception unused) {
-            lottieAnimationView.setVisibility(8);
             if (fVar != null) {
                 fVar.b();
             }

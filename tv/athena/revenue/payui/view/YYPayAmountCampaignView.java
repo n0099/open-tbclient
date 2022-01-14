@@ -34,25 +34,23 @@ public class YYPayAmountCampaignView extends LinearLayout implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f65385e;
+    public Activity f62945e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f65386f;
+    public RecyclerView f62946f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f65387g;
+    public RelativeLayout f62947g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GiftBagsInfo f65388h;
+    public GiftBagsInfo f62948h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PayUIKitConfig f65389i;
+    public PayUIKitConfig f62949i;
 
     /* renamed from: j  reason: collision with root package name */
-    public PayAmountCampaignListAdapter f65390j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public LinearLayoutManager f65391k;
+    public PayAmountCampaignListAdapter f62950j;
+    public LinearLayoutManager k;
     public List<GiftBagItemInfo> mGiftBagList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -74,22 +72,22 @@ public class YYPayAmountCampaignView extends LinearLayout implements b {
             }
         }
         this.mGiftBagList = new ArrayList();
-        this.f65385e = activity;
-        this.f65389i = payUIKitConfig;
+        this.f62945e = activity;
+        this.f62949i = payUIKitConfig;
         a(activity);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, o.a.a(this.f65389i))).inflate(g.pay_ui_layout_pay_amount_campaign_view, (ViewGroup) this, true);
-            this.f65386f = (RecyclerView) findViewById(f.rv_campaign);
-            this.f65387g = (RelativeLayout) findViewById(f.rl_content);
-            this.f65391k = new LinearLayoutManager(context, 0, false);
-            this.f65390j = new PayAmountCampaignListAdapter(this.f65385e, this.mGiftBagList, this.f65389i);
-            this.f65386f.setLayoutManager(this.f65391k);
-            this.f65386f.addItemDecoration(new PayCampaignListItemDecoration());
-            this.f65386f.setAdapter(this.f65390j);
+            LayoutInflater.from(new ContextThemeWrapper(context, o.a.a(this.f62949i))).inflate(g.pay_ui_layout_pay_amount_campaign_view, (ViewGroup) this, true);
+            this.f62946f = (RecyclerView) findViewById(f.rv_campaign);
+            this.f62947g = (RelativeLayout) findViewById(f.rl_content);
+            this.k = new LinearLayoutManager(context, 0, false);
+            this.f62950j = new PayAmountCampaignListAdapter(this.f62945e, this.mGiftBagList, this.f62949i);
+            this.f62946f.setLayoutManager(this.k);
+            this.f62946f.addItemDecoration(new PayCampaignListItemDecoration());
+            this.f62946f.setAdapter(this.f62950j);
         }
     }
 
@@ -104,7 +102,7 @@ public class YYPayAmountCampaignView extends LinearLayout implements b {
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            GiftBagsInfo giftBagsInfo = this.f65388h;
+            GiftBagsInfo giftBagsInfo = this.f62948h;
             if (giftBagsInfo == null) {
                 RLog.error("YYPayAmountCampaignView", "refreshView error mGiftBagsInfo null", new Object[0]);
                 return;
@@ -112,8 +110,8 @@ public class YYPayAmountCampaignView extends LinearLayout implements b {
             List<GiftBagItemInfo> list = giftBagsInfo.giftbag;
             if (list != null && !list.isEmpty()) {
                 this.mGiftBagList.clear();
-                this.mGiftBagList.addAll(this.f65388h.giftbag);
-                this.f65390j.notifyDataSetChanged();
+                this.mGiftBagList.addAll(this.f62948h.giftbag);
+                this.f62950j.notifyDataSetChanged();
                 return;
             }
             RLog.error("YYPayAmountCampaignView", "refreshView error giftbag null", new Object[0]);
@@ -125,7 +123,7 @@ public class YYPayAmountCampaignView extends LinearLayout implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, giftBagsInfo) == null) {
             RLog.info("YYPayAmountCampaignView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
-            this.f65388h = giftBagsInfo;
+            this.f62948h = giftBagsInfo;
         }
     }
 }

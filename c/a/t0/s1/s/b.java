@@ -35,7 +35,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
                 try {
-                    c.a.s0.s.j0.c.b bVar = new c.a.s0.s.j0.c.b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
+                    c.a.s0.s.k0.c.b bVar = new c.a.s0.s.k0.c.b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
                     String storeFile = FileHelper.getStoreFile(str, 1);
                     bVar.a("type", 2);
                     s d2 = bVar.d(storeFile);
@@ -43,7 +43,7 @@ public class b {
                         return null;
                     }
                     String b2 = a.b();
-                    c.a.s0.s.j0.b.b.b(str, b2);
+                    c.a.s0.s.k0.b.b.b(str, b2);
                     return b2;
                 } catch (Exception unused) {
                     return null;

@@ -44,7 +44,7 @@ public final class f {
         Window window = activity.getWindow();
         window.clearFlags(1024);
         int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
-        if (c.a.r0.a.c2.b.a.f5533b) {
+        if (c.a.r0.a.c2.b.a.f5415b) {
             systemUiVisibility |= 5120;
         }
         window.getDecorView().setSystemUiVisibility(systemUiVisibility);

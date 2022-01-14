@@ -64,12 +64,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
             ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
-            int k2 = n.k(pbChosenActivity.getPageContext().getPageActivity());
+            int k = n.k(pbChosenActivity.getPageContext().getPageActivity());
             int i2 = n.i(pbChosenActivity.getPageContext().getPageActivity());
             float h2 = n.h(pbChosenActivity.getPageContext().getPageActivity());
             chosenPbNetMessage.setQ_type(45L);
             chosenPbNetMessage.setScrH(i2);
-            chosenPbNetMessage.setScrW(k2);
+            chosenPbNetMessage.setScrW(k);
             chosenPbNetMessage.setScr_dip(h2);
             chosenPbNetMessage.setExcId(j2);
             chosenPbNetMessage.setTagCode(j3);

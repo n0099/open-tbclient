@@ -4,8 +4,7 @@ import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.j;
 import c.a.d.f.p.n;
-import c.a.t0.o4.l;
-import c.a.t0.w3.s0.g;
+import c.a.t0.p4.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -80,7 +79,7 @@ public class WriteActivityStatic {
     public static int a = 11;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f51864b = 18;
+    public static int f49862b = 18;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes13.dex */
@@ -160,12 +159,12 @@ public class WriteActivityStatic {
                             if (WriteActivityConfig.class == cls || WorkPublishActivityConfig.class == cls || RecordVideoActivityConfig.class == cls || WriteVoteActivityConfig.class == cls || AlbumFloatActivityConfig.class == cls) {
                                 String simpleName = intentConfig.getContext().getClass().getSimpleName();
                                 if ("FrsActivity".equals(simpleName) || "MainTabActivity".equals(simpleName)) {
-                                    g.k().w(j.a(intentConfig.getContext()).getUniqueId());
-                                    g.k().z(false);
+                                    c.a.t0.w3.s0.b.k().w(j.a(intentConfig.getContext()).getUniqueId());
+                                    c.a.t0.w3.s0.b.k().z(false);
                                 }
                             }
                             if (c.a.s0.s.m.c.c()) {
-                                g.k().w(null);
+                                c.a.t0.w3.s0.b.k().w(null);
                             }
                         }
                     }
@@ -302,7 +301,7 @@ public class WriteActivityStatic {
         if (interceptable == null || interceptable.invokeL(65539, null, tbPageContext) == null) {
             BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
             int i2 = Build.VERSION.SDK_INT;
-            if (i2 <= f51864b && i2 >= a) {
+            if (i2 <= f49862b && i2 >= a) {
                 d(tbPageContext);
             } else {
                 c(tbPageContext);
@@ -318,7 +317,7 @@ public class WriteActivityStatic {
                 AntiData antiData = new AntiData();
                 antiData.setIfpost(1);
                 if (antiData.getIfpost() == 0) {
-                    n.M(tbPageContext.getPageActivity(), antiData.getForbid_info());
+                    n.N(tbPageContext.getPageActivity(), antiData.getForbid_info());
                     return;
                 }
                 antiData.setIfVoice(false);
@@ -332,7 +331,7 @@ public class WriteActivityStatic {
     public static void d(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, tbPageContext) == null) {
-            c.a.s0.m.a.r(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(c.a.t0.o4.j.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
+            c.a.s0.m.a.r(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(c.a.t0.p4.j.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
         }
     }
 

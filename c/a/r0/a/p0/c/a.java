@@ -22,17 +22,17 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.p0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0491a implements Runnable {
+    public class RunnableC0500a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f8351e;
+        public final /* synthetic */ Context f8168e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8352f;
+        public final /* synthetic */ String f8169f;
 
-        public RunnableC0491a(a aVar, Context context, String str) {
+        public RunnableC0500a(a aVar, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,15 +47,15 @@ public class a extends z {
                     return;
                 }
             }
-            this.f8351e = context;
-            this.f8352f = str;
+            this.f8168e = context;
+            this.f8169f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Toast.makeText(this.f8351e, this.f8352f, 1).show();
+                Toast.makeText(this.f8168e, this.f8169f, 1).show();
             }
         }
     }
@@ -86,13 +86,13 @@ public class a extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            boolean z = z.f6340b;
+            boolean z = z.f6201b;
             JSONObject a = z.a(unitedSchemeEntity, "params");
             if (a == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
                 return false;
             }
-            q0.e0(new RunnableC0491a(this, context, a.optString("data", "")));
+            q0.e0(new RunnableC0500a(this, context, a.optString("data", "")));
             return true;
         }
         return invokeLLLL.booleanValue;

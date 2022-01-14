@@ -23,10 +23,10 @@ public class x0 {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f23750b;
+        public byte[] f23093b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ x0 f23751c;
+        public final /* synthetic */ x0 f23094c;
 
         public a(x0 x0Var, String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -43,11 +43,11 @@ public class x0 {
                     return;
                 }
             }
-            this.f23751c = x0Var;
+            this.f23094c = x0Var;
             this.a = null;
-            this.f23750b = null;
+            this.f23093b = null;
             this.a = str;
-            this.f23750b = bArr;
+            this.f23093b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -72,12 +72,12 @@ public class x0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.f23750b, this.f23751c.a.getPageActivity());
+                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.f23093b, this.f23094c.a.getPageActivity());
                 if (saveImageFileByUser != -2) {
                     if (saveImageFileByUser != 0) {
-                        return this.f23751c.a.getString(R.string.save_fail);
+                        return this.f23094c.a.getString(R.string.save_fail);
                     }
-                    return this.f23751c.a.getString(R.string.save_image_to_album);
+                    return this.f23094c.a.getString(R.string.save_image_to_album);
                 }
                 return FileHelper.getSdErrorString();
             }
@@ -90,7 +90,7 @@ public class x0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
                 super.onPostExecute((a) str);
-                this.f23751c.a.showToast(str);
+                this.f23094c.a.showToast(str);
             }
         }
     }

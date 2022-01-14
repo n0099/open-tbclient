@@ -34,7 +34,7 @@ public class CommonUtils {
             }
         }
         DF = new DecimalFormat("0.00");
-        PERMISSIONS_STORAGE = new String[]{s.f57425i, "android.permission.WRITE_EXTERNAL_STORAGE"};
+        PERMISSIONS_STORAGE = new String[]{s.f55248i, "android.permission.WRITE_EXTERNAL_STORAGE"};
     }
 
     public CommonUtils() {

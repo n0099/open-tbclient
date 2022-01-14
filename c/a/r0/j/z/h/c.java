@@ -30,10 +30,10 @@ public class c extends WebSocketEventTarget {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11581g;
+    public String f11321g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f11582h;
+    public b f11322h;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -85,14 +85,14 @@ public class c extends WebSocketEventTarget {
                 return;
             }
         }
-        this.f11582h = bVar;
+        this.f11322h = bVar;
     }
 
     public final void A(c.a.r0.a.y.b.a aVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, aVar, str) == null) {
             String format = String.format("%s:ok", str);
-            boolean z = WebSocketEventTarget.f41182f;
+            boolean z = WebSocketEventTarget.f39791f;
             c.a.r0.j.n0.c.call(aVar, true, new f(format));
         }
     }
@@ -102,7 +102,7 @@ public class c extends WebSocketEventTarget {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject)) == null) {
             c.a.r0.a.y.b.a D = D(jsObject);
-            this.f11581g = String.format(Locale.CHINA, "WebSocketTask-%d", Long.valueOf(System.currentTimeMillis()));
+            this.f11321g = String.format(Locale.CHINA, "WebSocketTask-%d", Long.valueOf(System.currentTimeMillis()));
             int type = D.getType("url");
             if (type != 7) {
                 z(D, "connectSocket", String.format("parameter error: parameter.url should be %s instead of %s", c.a.r0.j.h0.f.d.f(7), c.a.r0.j.h0.f.d.f(type)));
@@ -110,7 +110,7 @@ public class c extends WebSocketEventTarget {
             }
             String B = D.B("url");
             String B2 = D.B("__plugin__");
-            if (!this.f11582h.a()) {
+            if (!this.f11322h.a()) {
                 z(D, "connectSocket", "up to max connect count");
                 return this;
             } else if (!C(B, B2)) {
@@ -121,9 +121,9 @@ public class c extends WebSocketEventTarget {
                 E(jsObject);
                 try {
                     WebSocketTask connect = WebSocketManager.INSTANCE.connect(y, this);
-                    this.f11581g = connect.getTaskId();
-                    this.f11582h.b(connect);
-                    c.a.r0.j.n0.c.call(D, true, new g(this.f11581g, String.format("%s:ok", "connectSocket")));
+                    this.f11321g = connect.getTaskId();
+                    this.f11322h.b(connect);
+                    c.a.r0.j.n0.c.call(D, true, new g(this.f11321g, String.format("%s:ok", "connectSocket")));
                     return this;
                 } catch (Exception e2) {
                     z(D, "connectSocket", e2.getMessage());
@@ -181,10 +181,10 @@ public class c extends WebSocketEventTarget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
             super.onClose(jSONObject);
-            if (this.f11582h == null || jSONObject == null) {
+            if (this.f11322h == null || jSONObject == null) {
                 return;
             }
-            this.f11582h.c(jSONObject.optString("taskID"));
+            this.f11322h.c(jSONObject.optString("taskID"));
         }
     }
 
@@ -193,10 +193,10 @@ public class c extends WebSocketEventTarget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th, jSONObject) == null) {
             super.onError(th, jSONObject);
-            if (this.f11582h == null || jSONObject == null) {
+            if (this.f11322h == null || jSONObject == null) {
                 return;
             }
-            this.f11582h.c(jSONObject.optString("taskID"));
+            this.f11322h.c(jSONObject.optString("taskID"));
         }
     }
 
@@ -206,7 +206,7 @@ public class c extends WebSocketEventTarget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) {
             c.a.r0.a.y.b.a D = D(jsObject);
-            int i2 = a.a[this.f41183e.ordinal()];
+            int i2 = a.a[this.f39792e.ordinal()];
             if (i2 == 1) {
                 z(D, "SocketTask.send", "SocketTask.readyState is not OPEN");
             } else if (i2 != 2) {
@@ -227,9 +227,9 @@ public class c extends WebSocketEventTarget {
                 }
                 try {
                     if (str != null) {
-                        WebSocketManager.INSTANCE.send(this.f11581g, str);
+                        WebSocketManager.INSTANCE.send(this.f11321g, str);
                     } else if (jsArrayBuffer != null) {
-                        WebSocketManager.INSTANCE.send(this.f11581g, ByteBuffer.wrap(jsArrayBuffer.buffer()));
+                        WebSocketManager.INSTANCE.send(this.f11321g, ByteBuffer.wrap(jsArrayBuffer.buffer()));
                     }
                     A(D, "SocketTask.send");
                 } catch (Exception e2) {
@@ -251,7 +251,7 @@ public class c extends WebSocketEventTarget {
             c.a.r0.a.y.b.a w = aVar.w("header");
             if (w != null) {
                 for (String str2 : w.j()) {
-                    if (!TextUtils.isEmpty(str2) && !c.a.r0.a.p1.a.f8444d.contains(str2.toUpperCase(Locale.US))) {
+                    if (!TextUtils.isEmpty(str2) && !c.a.r0.a.p1.a.f8260d.contains(str2.toUpperCase(Locale.US))) {
                         builder.addHeader(str2, w.H(str2));
                     }
                 }
@@ -274,7 +274,7 @@ public class c extends WebSocketEventTarget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, aVar, str, str2) == null) {
             String format = String.format("%s:fail %s", str, str2);
-            boolean z = WebSocketEventTarget.f41182f;
+            boolean z = WebSocketEventTarget.f39791f;
             c.a.r0.j.n0.c.call(aVar, false, new f(format));
         }
     }
@@ -284,7 +284,7 @@ public class c extends WebSocketEventTarget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
             c.a.r0.a.y.b.a D = D(jsObject);
-            if (this.f41183e == WebSocketEventTarget.SocketTaskState.CLOSE) {
+            if (this.f39792e == WebSocketEventTarget.SocketTaskState.CLOSE) {
                 z(D, "SocketTask.close", "SocketTask.readyState is CLOSED");
                 return;
             }
@@ -296,13 +296,13 @@ public class c extends WebSocketEventTarget {
                     return;
                 }
                 try {
-                    WebSocketManager.INSTANCE.close(this.f11581g, r, B);
+                    WebSocketManager.INSTANCE.close(this.f11321g, r, B);
                     A(D, "SocketTask.close");
                 } catch (Exception e2) {
                     z(D, "SocketTask.close", e2.getMessage());
                 }
             } finally {
-                this.f11582h.c(this.f11581g);
+                this.f11322h.c(this.f11321g);
             }
         }
     }

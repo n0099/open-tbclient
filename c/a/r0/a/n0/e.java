@@ -58,7 +58,7 @@ public class e {
                 if (cVar.S() && z && list.contains(appId)) {
                     c.a.r0.a.y1.c.a e2 = c.a.r0.a.y1.c.a.e();
                     c.a.r0.a.y1.c.c cVar2 = new c.a.r0.a.y1.c.c(i2);
-                    cVar2.b(cVar.f9947f);
+                    cVar2.b(cVar.f9731f);
                     e2.h(cVar2);
                     hashSet.add(appId);
                     if (a) {

@@ -1,64 +1,77 @@
 package c.a.c0.a0.c;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import kotlin.text.Typography;
 /* loaded from: classes.dex */
-public class a extends BaseExecutorCell {
+public class a implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final StringBuilder a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(int i2) {
-        super(i2);
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f38324c = new ThreadPoolExecutor(i2, i2, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.a = new StringBuilder();
     }
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // c.a.c0.a0.c.d
+    public <T extends d> T a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e() < this.f38323b : invokeV.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? (T) c(str, str2) : (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public String d() {
-        InterceptResult invokeV;
+    public <T extends d> T b(String str, Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ArteryElasticExecutorCell" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) ? (T) c(str, obj) : (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public synchronized void g(ElasticTask elasticTask) {
+    public <T extends d> T c(String str, Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask) == null) {
-            synchronized (this) {
-                super.g(elasticTask);
-                c.a.c0.a0.f.c.f().k();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
+            if (!TextUtils.isEmpty(str) && obj != null) {
+                try {
+                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
+                        if (this.a.length() > 0) {
+                            this.a.append(Typography.amp);
+                        }
+                        StringBuilder sb = this.a;
+                        sb.append(str);
+                        sb.append(com.alipay.sdk.encrypt.a.f30865h);
+                        sb.append(obj);
+                    }
+                } catch (Exception unused) {
+                }
             }
+            return this;
         }
+        return (T) invokeLL.objValue;
+    }
+
+    @Override // c.a.c0.a0.c.d
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.toString() : (String) invokeV.objValue;
     }
 }

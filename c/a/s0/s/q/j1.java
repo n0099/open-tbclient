@@ -12,34 +12,32 @@ public class j1 {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f13744b;
+    public View f13434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f13745c;
+    public View f13435c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f13746d;
+    public View f13436d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f13747e;
+    public View f13437e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f13748f;
+    public View f13438f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13749g;
+    public View f13439g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f13750h;
+    public View f13440h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f13751i;
+    public View f13441i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f13752j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View f13753k;
+    public View f13442j;
+    public View k;
     public View l;
     public View m;
     public View n;
@@ -68,15 +66,15 @@ public class j1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = null;
-            this.f13744b = null;
-            this.f13745c = null;
-            this.f13746d = null;
-            this.f13747e = null;
-            this.f13748f = null;
-            this.f13749g = null;
-            this.f13750h = null;
-            this.f13751i = null;
-            this.f13752j = null;
+            this.f13434b = null;
+            this.f13435c = null;
+            this.f13436d = null;
+            this.f13437e = null;
+            this.f13438f = null;
+            this.f13439g = null;
+            this.f13440h = null;
+            this.f13441i = null;
+            this.f13442j = null;
             this.l = null;
             this.m = null;
             this.n = null;

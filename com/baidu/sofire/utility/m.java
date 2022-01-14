@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final m f39850c;
+    public static final m f38530c;
     public transient /* synthetic */ FieldHolder $fh;
     public HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f39851b;
+    public Handler f38531b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public final class m {
                 return;
             }
         }
-        f39850c = new m();
+        f38530c = new m();
     }
 
     public m() {
@@ -54,12 +54,12 @@ public final class m {
         HandlerThread handlerThread = new HandlerThread("rp_th", 10);
         this.a = handlerThread;
         handlerThread.start();
-        this.f39851b = new Handler(this.a.getLooper());
+        this.f38531b = new Handler(this.a.getLooper());
     }
 
     public static Looper a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f39850c.f39851b.getLooper() : (Looper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f38530c.f38531b.getLooper() : (Looper) invokeV.objValue;
     }
 }

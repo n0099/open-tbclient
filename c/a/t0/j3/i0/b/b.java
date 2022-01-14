@@ -13,13 +13,13 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18863b;
+    public String f18393b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18864c;
+    public String f18394c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f18865d;
+    public boolean f18395d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class b {
             }
             b bVar = new b();
             bVar.a = jSONObject.optString("apk_name");
-            bVar.f18863b = jSONObject.optString("apk_url");
-            bVar.f18864c = jSONObject.optString("download_key");
-            bVar.f18865d = jSONObject.optBoolean("direcrt_download");
+            bVar.f18393b = jSONObject.optString("apk_url");
+            bVar.f18394c = jSONObject.optString("download_key");
+            bVar.f18395d = jSONObject.optBoolean("direcrt_download");
             return bVar;
         }
         return (b) invokeL.objValue;

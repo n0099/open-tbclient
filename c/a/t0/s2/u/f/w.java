@@ -53,7 +53,7 @@ public class w extends n<x, PbImageAlaRecommendVH> {
     public PbImageAlaRecommendVH M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbImageAlaRecommendVH(LayoutInflater.from(this.f3299e).inflate(c.a.t0.s2.j.pb_image_ala_recomment_layout, viewGroup, false), this.m.getPageContext(), this.s) : (PbImageAlaRecommendVH) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbImageAlaRecommendVH(LayoutInflater.from(this.f3258e).inflate(c.a.t0.s2.j.pb_image_ala_recomment_layout, viewGroup, false), this.m.getPageContext(), this.s) : (PbImageAlaRecommendVH) invokeL.objValue;
     }
 
     public View c0(int i2, View view, ViewGroup viewGroup, x xVar, PbImageAlaRecommendVH pbImageAlaRecommendVH) {

@@ -19,7 +19,7 @@ public class b implements c.a.r0.a.f1.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Runnable, String> f9652c;
+    public Map<Runnable, String> f9443c;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -29,7 +29,7 @@ public class b implements c.a.r0.a.f1.f.a {
 
     /* renamed from: c.a.r0.a.u1.r.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0593b {
+    public static class C0602b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,23 +58,23 @@ public class b implements c.a.r0.a.f1.f.a {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0593b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0602b.a : (b) invokeV.objValue;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9652c.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9443c.isEmpty()) {
             return;
         }
         if (c.a.r0.a.f1.f.a.a) {
-            String str = "main process batch handle thread, size = " + this.f9652c.size();
+            String str = "main process batch handle thread, size = " + this.f9443c.size();
         }
-        for (Map.Entry<Runnable, String> entry : this.f9652c.entrySet()) {
+        for (Map.Entry<Runnable, String> entry : this.f9443c.entrySet()) {
             if (entry != null) {
                 ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
             }
         }
-        this.f9652c.clear();
+        this.f9443c.clear();
     }
 
     public void c(Message message) {
@@ -115,6 +115,6 @@ public class b implements c.a.r0.a.f1.f.a {
                 return;
             }
         }
-        this.f9652c = new ConcurrentHashMap();
+        this.f9443c = new ConcurrentHashMap();
     }
 }

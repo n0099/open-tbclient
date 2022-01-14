@@ -64,13 +64,13 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public void setHttpParams() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k2 = n.k(TbadkCoreApplication.getInst());
+            int k = n.k(TbadkCoreApplication.getInst());
             int i2 = n.i(TbadkCoreApplication.getInst());
             float h2 = n.h(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
             addParam("pn", this.pn);
             addParam("ps", this.ps);
-            addParam("scr_w", k2);
+            addParam("scr_w", k);
             addParam("scr_h", i2);
             addParam("q_type", 0);
             addParam("scr_dip", String.valueOf(h2));
@@ -91,7 +91,7 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
                 }
             }
             addParam("network", str);
-            addParam("ua_str", k2 + "_" + i2 + "_android_" + TbConfig.getVersion());
+            addParam("ua_str", k + "_" + i2 + "_android_" + TbConfig.getVersion());
             addParam("tab_id", this.tabId);
             addParam("refresh_type", this.refreshType);
             addParam("session_id", this.sessionId);

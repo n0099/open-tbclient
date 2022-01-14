@@ -24,7 +24,7 @@ public class b extends j {
 
     /* renamed from: c.a.r0.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0669b {
+    public static final class C0678b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class b extends j {
     public static b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0669b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0678b.a : (b) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

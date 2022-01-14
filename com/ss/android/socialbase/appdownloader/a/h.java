@@ -10,8 +10,8 @@ public class h extends a {
 
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
-        Intent intent = new Intent(com.ss.android.socialbase.downloader.constants.e.f62250c + ".intent.action.OPEN_FILEMANAGER");
-        intent.putExtra("CurrentDir", this.f62048c);
+        Intent intent = new Intent(com.ss.android.socialbase.downloader.constants.e.f59904c + ".intent.action.OPEN_FILEMANAGER");
+        intent.putExtra("CurrentDir", this.f59705c);
         intent.putExtra("first_position", 1);
         intent.putExtra("CurrentMode", 1);
         intent.putExtra("com.iqoo.secure", true);

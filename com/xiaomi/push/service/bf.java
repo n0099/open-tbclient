@@ -15,7 +15,7 @@ public class bf {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f63843d = 300000;
+    public static int f61444d = 300000;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -26,10 +26,10 @@ public class bf {
     public XMPushService f932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63844b;
+    public int f61445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f63845c;
+    public int f61446c;
 
     static {
         InterceptResult invokeClinit;
@@ -61,8 +61,8 @@ public class bf {
                 return;
             }
         }
-        this.f63844b = 0;
-        this.f63845c = 0;
+        this.f61445b = 0;
+        this.f61446c = 0;
         this.f932a = xMPushService;
         this.a = 500;
         this.f931a = 0L;
@@ -72,11 +72,11 @@ public class bf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (this.f63844b > 8) {
+            if (this.f61445b > 8) {
                 return 300000;
             }
             double random = (Math.random() * 2.0d) + 1.0d;
-            int i2 = this.f63844b;
+            int i2 = this.f61445b;
             if (i2 > 4) {
                 return (int) (random * 60000.0d);
             }
@@ -88,16 +88,16 @@ public class bf {
             }
             if (System.currentTimeMillis() - this.f931a >= 310000) {
                 this.a = 1000;
-                this.f63845c = 0;
+                this.f61446c = 0;
                 return 0;
             }
             int i3 = this.a;
-            int i4 = f63843d;
+            int i4 = f61444d;
             if (i3 >= i4) {
                 return i3;
             }
-            int i5 = this.f63845c + 1;
-            this.f63845c = i5;
+            int i5 = this.f61446c + 1;
+            this.f61446c = i5;
             if (i5 >= 4) {
                 return i4;
             }
@@ -108,40 +108,40 @@ public class bf {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m663a() {
+    public void m675a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f931a = System.currentTimeMillis();
             this.f932a.a(1);
-            this.f63844b = 0;
+            this.f61445b = 0;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!this.f932a.m615a()) {
+            if (!this.f932a.m627a()) {
                 com.xiaomi.channel.commonutils.logger.b.c("should not reconnect as no client or network.");
             } else if (z) {
-                if (!this.f932a.m616a(1)) {
-                    this.f63844b++;
+                if (!this.f932a.m628a(1)) {
+                    this.f61445b++;
                 }
                 this.f932a.a(1);
                 XMPushService xMPushService = this.f932a;
                 xMPushService.getClass();
                 xMPushService.a(new XMPushService.d(xMPushService));
-            } else if (this.f932a.m616a(1)) {
+            } else if (this.f932a.m628a(1)) {
             } else {
                 int a = a();
-                this.f63844b++;
-                com.xiaomi.channel.commonutils.logger.b.m122a("schedule reconnect in " + a + "ms");
+                this.f61445b++;
+                com.xiaomi.channel.commonutils.logger.b.m134a("schedule reconnect in " + a + "ms");
                 XMPushService xMPushService2 = this.f932a;
                 xMPushService2.getClass();
                 xMPushService2.a(new XMPushService.d(xMPushService2), (long) a);
-                if (this.f63844b == 2 && gx.m415a().m420a()) {
+                if (this.f61445b == 2 && gx.m427a().m432a()) {
                     ag.b();
                 }
-                if (this.f63844b == 3) {
+                if (this.f61445b == 3) {
                     ag.a();
                 }
             }

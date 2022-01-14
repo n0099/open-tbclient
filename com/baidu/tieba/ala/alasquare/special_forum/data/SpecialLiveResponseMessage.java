@@ -66,20 +66,20 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
                         arrayList.add(specialLiveTabInfo);
                     }
                 }
-                this.mData.f14980b = arrayList;
+                this.mData.f14620b = arrayList;
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {
                 AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
                 alaUserInfoData.parserJson(optJSONObject2);
-                this.mData.f14982d = alaUserInfoData;
+                this.mData.f14622d = alaUserInfoData;
             }
-            this.mData.f14981c = jSONObject.optInt("is_like") == 1;
+            this.mData.f14621c = jSONObject.optInt("is_like") == 1;
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user_sign_info");
             if (optJSONObject2 != null) {
                 i iVar = new i();
                 iVar.a(optJSONObject3);
-                this.mData.f14983e = iVar;
+                this.mData.f14623e = iVar;
             }
         }
     }

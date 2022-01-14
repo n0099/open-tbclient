@@ -18,13 +18,13 @@ public final class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27471b;
+    public int f26647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<Integer, String> f27472c;
+    public HashMap<Integer, String> f26648c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Object> f27473d;
+    public HashMap<String, Object> f26649d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -63,9 +63,9 @@ public final class a {
             }
         }
         this.a = str;
-        this.f27471b = i2;
-        this.f27472c = hashMap;
-        this.f27473d = hashMap2;
+        this.f26647b = i2;
+        this.f26648c = hashMap;
+        this.f26649d = hashMap2;
     }
 
     public final String a() {
@@ -81,7 +81,7 @@ public final class a {
             if (this != obj) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.a, aVar.a) && this.f27471b == aVar.f27471b && Intrinsics.areEqual(this.f27472c, aVar.f27472c) && Intrinsics.areEqual(this.f27473d, aVar.f27473d);
+                    return Intrinsics.areEqual(this.a, aVar.a) && this.f26647b == aVar.f26647b && Intrinsics.areEqual(this.f26648c, aVar.f26648c) && Intrinsics.areEqual(this.f26649d, aVar.f26649d);
                 }
                 return false;
             }
@@ -95,10 +95,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             String str = this.a;
-            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.f27471b) * 31;
-            HashMap<Integer, String> hashMap = this.f27472c;
+            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.f26647b) * 31;
+            HashMap<Integer, String> hashMap = this.f26648c;
             int hashCode2 = (hashCode + (hashMap != null ? hashMap.hashCode() : 0)) * 31;
-            HashMap<String, Object> hashMap2 = this.f27473d;
+            HashMap<String, Object> hashMap2 = this.f26649d;
             return hashCode2 + (hashMap2 != null ? hashMap2.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -108,7 +108,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "MediaSource(roomId=" + this.a + ", mediaSourceType=" + this.f27471b + ", videoInfo=" + this.f27472c + ", launchInfo=" + this.f27473d + SmallTailInfo.EMOTION_SUFFIX;
+            return "MediaSource(roomId=" + this.a + ", mediaSourceType=" + this.f26647b + ", videoInfo=" + this.f26648c + ", launchInfo=" + this.f26649d + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

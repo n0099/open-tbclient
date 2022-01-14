@@ -12,10 +12,10 @@ public class a {
     public static Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f58754b;
+    public static String f56540b;
 
     public static File a() {
-        File file = !TextUtils.isEmpty(f58754b) ? new File(f58754b) : new File(a(a), "kwad_ex");
+        File file = !TextUtils.isEmpty(f56540b) ? new File(f56540b) : new File(a(a), "kwad_ex");
         if (!file.exists()) {
             file.mkdir();
         }
@@ -36,7 +36,7 @@ public class a {
 
     public static void a(@NonNull Context context, @Nullable String str) {
         a = context;
-        f58754b = str;
+        f56540b = str;
     }
 
     public static File b() {

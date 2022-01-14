@@ -18,10 +18,10 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.h.i.k.f.a f8202c;
+    public c.a.r0.h.i.k.f.a f8020c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DownloadParams.SwanAppDownloadType f8203d;
+    public DownloadParams.SwanAppDownloadType f8021d;
 
     public b(c.a.r0.h.i.k.f.a aVar, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class b extends c {
                 return;
             }
         }
-        this.f8202c = aVar;
-        this.f8203d = swanAppDownloadType;
+        this.f8020c = aVar;
+        this.f8021d = swanAppDownloadType;
     }
 
     @Override // c.a.r0.a.y1.a.b.c.a
@@ -67,19 +67,19 @@ public class b extends c {
     public void onEvent(@NonNull c.a.r0.a.y1.a.b.a.b bVar) {
         Bundle a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (a = bVar.a()) == null || this.f8202c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (a = bVar.a()) == null || this.f8020c == null) {
             return;
         }
         int i2 = a.getInt("state", DownloadState.NOT_START.value());
         int i3 = a.getInt("progress", 0);
-        this.f8202c.c(DownloadState.convert(i2), i3);
-        this.f8202c.a(i3);
+        this.f8020c.c(DownloadState.convert(i2), i3);
+        this.f8020c.a(i3);
         String string = a.getString("packageName", "");
         if (!TextUtils.isEmpty(string)) {
-            this.f8202c.d(string);
+            this.f8020c.d(string);
         }
-        if (this.f8203d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
-            this.f8202c.f(true);
+        if (this.f8021d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
+            this.f8020c.f(true);
         }
     }
 }

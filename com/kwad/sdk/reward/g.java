@@ -15,20 +15,20 @@ public class g extends Presenter {
     public void a(boolean z) {
         int i2 = z ? 1 : 153;
         a aVar = this.a;
-        com.kwad.sdk.core.report.a.a(aVar.f59455g, i2, aVar.f59458j.getTouchCoords(), this.a.f59453e);
-        this.a.f59450b.a();
+        com.kwad.sdk.core.report.a.a(aVar.f57207g, i2, aVar.f57210j.getTouchCoords(), this.a.f57205e);
+        this.a.f57202b.a();
     }
 
     public boolean f() {
-        return com.kwad.sdk.core.response.a.d.u(this.a.f59455g);
+        return com.kwad.sdk.core.response.a.d.u(this.a.f57207g);
     }
 
     public boolean g() {
-        return com.kwad.sdk.core.response.a.d.v(this.a.f59455g);
+        return com.kwad.sdk.core.response.a.d.v(this.a.f57207g);
     }
 
     public void h() {
-        Activity activity = this.a.f59456h;
+        Activity activity = this.a.f57208h;
         if (activity != null) {
             activity.finish();
         }

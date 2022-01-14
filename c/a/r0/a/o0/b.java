@@ -18,7 +18,7 @@ public class b implements c.a.r0.a.f1.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Queue<c> f8204c;
+    public Queue<c> f8022c;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -28,7 +28,7 @@ public class b implements c.a.r0.a.f1.f.a {
 
     /* renamed from: c.a.r0.a.o0.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0476b {
+    public static class C0485b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,14 +57,14 @@ public class b implements c.a.r0.a.f1.f.a {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0476b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0485b.a : (b) invokeV.objValue;
     }
 
     public synchronized void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                this.f8204c.clear();
+                this.f8022c.clear();
             }
         }
     }
@@ -73,23 +73,23 @@ public class b implements c.a.r0.a.f1.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, str) == null) {
             synchronized (this) {
-                while (this.f8204c.size() > 0) {
-                    c peek = this.f8204c.peek();
+                while (this.f8022c.size() > 0) {
+                    c peek = this.f8022c.peek();
                     if (peek == null) {
-                        this.f8204c.remove();
+                        this.f8022c.remove();
                     } else if (peek.a()) {
                         break;
                     } else {
-                        this.f8204c.remove();
+                        this.f8022c.remove();
                     }
                 }
-                int size = this.f8204c.size();
+                int size = this.f8022c.size();
                 if (size == 0) {
-                    this.f8204c.offer(cVar);
+                    this.f8022c.offer(cVar);
                     q0.g0(cVar);
                 } else {
-                    c peek2 = this.f8204c.peek();
-                    this.f8204c.offer(cVar);
+                    c peek2 = this.f8022c.peek();
+                    this.f8022c.offer(cVar);
                     if (size == 1 && peek2 != null && peek2.b(str)) {
                         q0.g0(cVar);
                     } else {
@@ -113,6 +113,6 @@ public class b implements c.a.r0.a.f1.f.a {
                 return;
             }
         }
-        this.f8204c = new ConcurrentLinkedQueue();
+        this.f8022c = new ConcurrentLinkedQueue();
     }
 }

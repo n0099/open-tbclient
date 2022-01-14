@@ -32,10 +32,10 @@ public class w extends ReporterPidLoader<SplashAD> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29171h;
+    public boolean f28280h;
 
     /* renamed from: i  reason: collision with root package name */
-    public WeakReference<b> f29172i;
+    public WeakReference<b> f28281i;
 
     /* loaded from: classes9.dex */
     public class a implements SplashADZoomOutListener {
@@ -44,16 +44,16 @@ public class w extends ReporterPidLoader<SplashAD> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f29173b;
+        public boolean f28282b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SplashAD[] f29174c;
+        public final /* synthetic */ SplashAD[] f28283c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ FunAdSlot f29175d;
+        public final /* synthetic */ FunAdSlot f28284d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ w f29176e;
+        public final /* synthetic */ w f28285e;
 
         public a(w wVar, SplashAD[] splashADArr, FunAdSlot funAdSlot) {
             Interceptable interceptable = $ic;
@@ -70,9 +70,9 @@ public class w extends ReporterPidLoader<SplashAD> {
                     return;
                 }
             }
-            this.f29176e = wVar;
-            this.f29174c = splashADArr;
-            this.f29175d = funAdSlot;
+            this.f28285e = wVar;
+            this.f28283c = splashADArr;
+            this.f28284d = funAdSlot;
         }
 
         @Override // com.qq.e.ads.splash.SplashADZoomOutListener
@@ -91,12 +91,12 @@ public class w extends ReporterPidLoader<SplashAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LogPrinter.d();
-                this.f29176e.onAdClicked(this.f29173b);
-                this.f29173b = true;
-                b bVar = this.f29176e.f29172i.get();
+                this.f28285e.onAdClicked(this.f28282b);
+                this.f28282b = true;
+                b bVar = this.f28285e.f28281i.get();
                 if (bVar != null) {
-                    String sid = this.f29175d.getSid();
-                    FunSplashAdInteractionListener funSplashAdInteractionListener = bVar.f29180e;
+                    String sid = this.f28284d.getSid();
+                    FunSplashAdInteractionListener funSplashAdInteractionListener = bVar.f28289e;
                     if (funSplashAdInteractionListener != null) {
                         funSplashAdInteractionListener.onAdClicked(sid);
                     }
@@ -109,12 +109,12 @@ public class w extends ReporterPidLoader<SplashAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                w wVar = this.f29176e;
-                if (!wVar.f29171h) {
+                w wVar = this.f28285e;
+                if (!wVar.f28280h) {
                     wVar.onAdClose();
                     return;
                 }
-                b bVar = wVar.f29172i.get();
+                b bVar = wVar.f28281i.get();
                 if (bVar != null) {
                     bVar.a();
                 }
@@ -126,7 +126,7 @@ public class w extends ReporterPidLoader<SplashAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                this.f29176e.onAdShow(this.f29174c[0], this.a);
+                this.f28285e.onAdShow(this.f28283c[0], this.a);
                 this.a = true;
             }
         }
@@ -136,7 +136,7 @@ public class w extends ReporterPidLoader<SplashAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
                 LogPrinter.d();
-                this.f29176e.onAdLoaded((w) this.f29174c[0]);
+                this.f28285e.onAdLoaded((w) this.f28283c[0]);
             }
         }
 
@@ -163,9 +163,9 @@ public class w extends ReporterPidLoader<SplashAD> {
                 int errorCode = adError.getErrorCode();
                 LogPrinter.e("onNoAD code: " + errorCode + ", message: " + adError.getErrorMsg(), new Object[0]);
                 if (errorCode == 4005) {
-                    this.f29176e.onAdError(errorCode, adError.getErrorMsg());
+                    this.f28285e.onAdError(errorCode, adError.getErrorMsg());
                 } else {
-                    this.f29176e.onError(errorCode, adError.getErrorMsg());
+                    this.f28285e.onError(errorCode, adError.getErrorMsg());
                 }
             }
         }
@@ -174,13 +174,13 @@ public class w extends ReporterPidLoader<SplashAD> {
         public void onZoomOut() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.f29176e.f29171h = true;
-                b bVar = this.f29176e.f29172i.get();
+                this.f28285e.f28280h = true;
+                b bVar = this.f28285e.f28281i.get();
                 if (bVar != null) {
-                    bVar.f29178c = true;
+                    bVar.f28287c = true;
                 }
                 LogPrinter.d("onZoomOut", new Object[0]);
-                this.f29176e.onAdClose();
+                this.f28285e.onAdClose();
             }
         }
 
@@ -200,16 +200,16 @@ public class w extends ReporterPidLoader<SplashAD> {
         public a0 a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SplashAD f29177b;
+        public SplashAD f28286b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f29178c;
+        public boolean f28287c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ViewGroup f29179d;
+        public ViewGroup f28288d;
 
         /* renamed from: e  reason: collision with root package name */
-        public FunSplashAdInteractionListener f29180e;
+        public FunSplashAdInteractionListener f28289e;
 
         /* loaded from: classes9.dex */
         public class a implements a0.a {
@@ -252,7 +252,7 @@ public class w extends ReporterPidLoader<SplashAD> {
                 }
             }
             this.a = new a0();
-            this.f29177b = splashAD;
+            this.f28286b = splashAD;
         }
 
         public void a() {
@@ -260,14 +260,14 @@ public class w extends ReporterPidLoader<SplashAD> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 a0 a0Var = this.a;
                 if (a0Var != null) {
-                    a0Var.f29136g = null;
-                    a0Var.f29137h = null;
+                    a0Var.f28246g = null;
+                    a0Var.f28247h = null;
                 }
-                ViewUtils.removeFromParent(this.f29179d);
-                this.f29179d = null;
+                ViewUtils.removeFromParent(this.f28288d);
+                this.f28288d = null;
                 this.a = null;
-                this.f29177b = null;
-                this.f29180e = null;
+                this.f28286b = null;
+                this.f28289e = null;
             }
         }
 
@@ -287,7 +287,7 @@ public class w extends ReporterPidLoader<SplashAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
                 if (activity != null) {
-                    if (!this.f29178c) {
+                    if (!this.f28287c) {
                         LogPrinter.d("isZoomOutPulled == false, will not show mini window", new Object[0]);
                         return false;
                     }
@@ -295,7 +295,7 @@ public class w extends ReporterPidLoader<SplashAD> {
                     if (a0Var == null) {
                         return false;
                     }
-                    this.f29180e = funSplashAdInteractionListener;
+                    this.f28289e = funSplashAdInteractionListener;
                     ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
                     ViewGroup viewGroup2 = (ViewGroup) activity.findViewById(16908290);
                     a aVar = new a(this);
@@ -304,19 +304,19 @@ public class w extends ReporterPidLoader<SplashAD> {
                     com.fun.module.gdt.s sVar = null;
                     if (viewGroup == null || viewGroup2 == null) {
                         LogPrinter.d("zoomOut animationContainer or zoomOutContainer is null", new Object[0]);
-                    } else if (a0Var.f29136g != null && a0Var.f29137h != null) {
+                    } else if (a0Var.f28246g != null && a0Var.f28247h != null) {
                         int[] iArr = new int[2];
                         viewGroup.getLocationOnScreen(iArr);
-                        int[] iArr2 = a0Var.f29140k;
+                        int[] iArr2 = a0Var.k;
                         int i2 = iArr2[0] - iArr[0];
                         int i3 = iArr2[1] - iArr[1];
-                        ViewUtils.removeFromParent(a0Var.f29137h);
-                        viewGroup.addView(a0Var.f29137h, new FrameLayout.LayoutParams(a0Var.f29138i, a0Var.f29139j));
-                        a0Var.f29137h.setX(i2);
-                        a0Var.f29137h.setY(i3);
-                        View view = a0Var.f29137h;
-                        a0Var.f29136g = null;
-                        a0Var.f29137h = null;
+                        ViewUtils.removeFromParent(a0Var.f28247h);
+                        viewGroup.addView(a0Var.f28247h, new FrameLayout.LayoutParams(a0Var.f28248i, a0Var.f28249j));
+                        a0Var.f28247h.setX(i2);
+                        a0Var.f28247h.setY(i3);
+                        View view = a0Var.f28247h;
+                        a0Var.f28246g = null;
+                        a0Var.f28247h = null;
                         if (view != null) {
                             Context context = viewGroup2.getContext();
                             int[] iArr3 = new int[2];
@@ -333,10 +333,10 @@ public class w extends ReporterPidLoader<SplashAD> {
                             }
                             int i4 = a0Var.a;
                             float f2 = i4 / width;
-                            int i5 = a0Var.f29131b;
+                            int i5 = a0Var.f28241b;
                             float f3 = i5 / height;
-                            float f4 = a0Var.f29134e == 0 ? a0Var.f29132c : (width2 - a0Var.f29132c) - i4;
-                            float f5 = (height2 - a0Var.f29133d) - i5;
+                            float f4 = a0Var.f28244e == 0 ? a0Var.f28242c : (width2 - a0Var.f28242c) - i4;
+                            float f5 = (height2 - a0Var.f28243d) - i5;
                             LogPrinter.d("zoomOut animationContainerWidth:" + width2 + " animationContainerHeight:" + height2, new Object[0]);
                             StringBuilder sb = new StringBuilder();
                             sb.append("zoomOut splashScreenX:");
@@ -345,28 +345,28 @@ public class w extends ReporterPidLoader<SplashAD> {
                             sb.append(iArr3[1]);
                             LogPrinter.d(sb.toString(), new Object[0]);
                             LogPrinter.d("zoomOut splashWidth:" + width + " splashHeight:" + height, new Object[0]);
-                            LogPrinter.d("zoomOut width:" + a0Var.a + " height:" + a0Var.f29131b, new Object[0]);
+                            LogPrinter.d("zoomOut width:" + a0Var.a + " height:" + a0Var.f28241b, new Object[0]);
                             LogPrinter.d("zoomOut animationDistX:" + f4 + " animationDistY:" + f5, new Object[0]);
                             ViewUtils.removeFromParent(view);
                             viewGroup.addView(view, new FrameLayout.LayoutParams(width, height));
-                            com.fun.module.gdt.s sVar2 = new com.fun.module.gdt.s(context, a0Var.f29132c);
+                            com.fun.module.gdt.s sVar2 = new com.fun.module.gdt.s(context, a0Var.f28242c);
                             view.setPivotX(0.0f);
                             view.setPivotY(0.0f);
                             if (z) {
-                                view.animate().scaleX(f2).scaleY(f3).x(f4).y(f5).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(a0Var.f29135f).setListener(new z(a0Var, aVar, view, viewGroup2, f4, f5, iArr3, sVar2));
+                                view.animate().scaleX(f2).scaleY(f3).x(f4).y(f5).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(a0Var.f28245f).setListener(new z(a0Var, aVar, view, viewGroup2, f4, f5, iArr3, sVar2));
                             } else {
                                 a0Var.a(view, viewGroup2, f4, f5, iArr3, sVar2, aVar);
                             }
                             bVar = this;
                             sVar = sVar2;
-                            bVar.f29179d = sVar;
+                            bVar.f28288d = sVar;
                             return true;
                         }
                     } else {
                         LogPrinter.d("zoomOut splashAD or splashView is null", new Object[0]);
                     }
                     bVar = this;
-                    bVar.f29179d = sVar;
+                    bVar.f28288d = sVar;
                     return true;
                 }
                 throw new IllegalArgumentException();
@@ -394,7 +394,7 @@ public class w extends ReporterPidLoader<SplashAD> {
                 return;
             }
         }
-        this.f29172i = new WeakReference<>(null);
+        this.f28281i = new WeakReference<>(null);
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
@@ -416,7 +416,7 @@ public class w extends ReporterPidLoader<SplashAD> {
     public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            this.f29171h = false;
+            this.f28280h = false;
             a aVar = new a(this, r0, funAdSlot);
             onLoadStart(funAdSlot);
             SplashAD splashAD = new SplashAD(context.getApplicationContext(), this.mPid.pid, aVar, 0);
@@ -446,15 +446,15 @@ public class w extends ReporterPidLoader<SplashAD> {
             onShowStart();
             splashAD.showAd(viewGroup);
             b bVar = new b(splashAD);
-            this.f29172i = new WeakReference<>(bVar);
+            this.f28281i = new WeakReference<>(bVar);
             View decorView = activity.getWindow().getDecorView();
             a0 a0Var = bVar.a;
             if (a0Var != null) {
-                a0Var.f29136g = bVar.f29177b;
-                a0Var.f29137h = viewGroup;
-                viewGroup.getLocationOnScreen(a0Var.f29140k);
-                a0Var.f29138i = viewGroup.getWidth();
-                a0Var.f29139j = viewGroup.getHeight();
+                a0Var.f28246g = bVar.f28286b;
+                a0Var.f28247h = viewGroup;
+                viewGroup.getLocationOnScreen(a0Var.k);
+                a0Var.f28248i = viewGroup.getWidth();
+                a0Var.f28249j = viewGroup.getHeight();
                 a0Var.l = decorView.getWidth();
                 a0Var.m = decorView.getHeight();
             }

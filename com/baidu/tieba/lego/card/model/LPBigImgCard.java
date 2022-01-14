@@ -165,7 +165,7 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, tbPageContext) == null) || lPBigImgCard == null || tbPageContext == null) {
             return;
         }
-        int k2 = n.k(TbadkCoreApplication.getInst());
-        c.a.d.f.l.d.h().k(lPBigImgCard.getPicUrl(), 17, null, k2, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k2), tbPageContext.getUniqueId(), new Object[0]);
+        int k = n.k(TbadkCoreApplication.getInst());
+        c.a.d.f.l.d.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
     }
 }

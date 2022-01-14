@@ -16,10 +16,10 @@ public class a {
     public List<EmotionImageData> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f23383b;
+    public List<String> f22736b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SingleBarEmotionRecommendData f23384c;
+    public SingleBarEmotionRecommendData f22737c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,13 +44,13 @@ public class a {
     public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23383b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22736b : (List) invokeV.objValue;
     }
 
     public SingleBarEmotionRecommendData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23384c : (SingleBarEmotionRecommendData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22737c : (SingleBarEmotionRecommendData) invokeV.objValue;
     }
 
     public void d(List<EmotionImageData> list) {
@@ -63,14 +63,14 @@ public class a {
     public void e(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f23383b = list;
+            this.f22736b = list;
         }
     }
 
     public void f(SingleBarEmotionRecommendData singleBarEmotionRecommendData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, singleBarEmotionRecommendData) == null) {
-            this.f23384c = singleBarEmotionRecommendData;
+            this.f22737c = singleBarEmotionRecommendData;
         }
     }
 }

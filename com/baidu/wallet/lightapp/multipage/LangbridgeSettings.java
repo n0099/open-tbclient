@@ -136,7 +136,7 @@ public class LangbridgeSettings implements NoProguard, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public LangbridgeSettings m94clone() {
+    public LangbridgeSettings m104clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

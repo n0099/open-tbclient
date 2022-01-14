@@ -140,7 +140,7 @@ public final class Synchronized {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ SynchronizedAsMapValues f57004f;
+            public final /* synthetic */ SynchronizedAsMapValues f54845f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(SynchronizedAsMapValues synchronizedAsMapValues, Iterator it) {
@@ -160,7 +160,7 @@ public final class Synchronized {
                         return;
                     }
                 }
-                this.f57004f = synchronizedAsMapValues;
+                this.f54845f = synchronizedAsMapValues;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -169,7 +169,7 @@ public final class Synchronized {
             public Collection<V> a(Collection<V> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) ? Synchronized.q(collection, this.f57004f.mutex) : (Collection) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) ? Synchronized.q(collection, this.f54845f.mutex) : (Collection) invokeL.objValue;
             }
         }
 
@@ -215,13 +215,13 @@ public final class Synchronized {
         }
 
         @Override // c.i.d.c.k
-        public V forcePut(K k2, V v) {
+        public V forcePut(K k, V v) {
             InterceptResult invokeLL;
             V forcePut;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k2, v)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
                 synchronized (this.mutex) {
-                    forcePut = delegate().forcePut(k2, v);
+                    forcePut = delegate().forcePut(k, v);
                 }
                 return forcePut;
             }
@@ -834,13 +834,13 @@ public final class Synchronized {
         }
 
         @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, c.i.d.c.q0
-        public List<V> get(K k2) {
+        public List<V> get(K k) {
             InterceptResult invokeL;
             List<V> h2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k)) == null) {
                 synchronized (this.mutex) {
-                    h2 = Synchronized.h(delegate().get((p0<K, V>) k2), this.mutex);
+                    h2 = Synchronized.h(delegate().get((p0<K, V>) k), this.mutex);
                 }
                 return h2;
             }
@@ -863,13 +863,13 @@ public final class Synchronized {
         }
 
         @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, c.i.d.c.q0
-        public List<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+        public List<V> replaceValues(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             List<V> replaceValues;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, iterable)) == null) {
                 synchronized (this.mutex) {
-                    replaceValues = delegate().replaceValues((p0<K, V>) k2, (Iterable) iterable);
+                    replaceValues = delegate().replaceValues((p0<K, V>) k, (Iterable) iterable);
                 }
                 return replaceValues;
             }
@@ -1044,13 +1044,13 @@ public final class Synchronized {
         }
 
         @Override // java.util.Map
-        public V put(K k2, V v) {
+        public V put(K k, V v) {
             InterceptResult invokeLL;
             V put;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, k2, v)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, k, v)) == null) {
                 synchronized (this.mutex) {
-                    put = delegate().put(k2, v);
+                    put = delegate().put(k, v);
                 }
                 return put;
             }
@@ -1255,13 +1255,13 @@ public final class Synchronized {
             return invokeL.booleanValue;
         }
 
-        public Collection<V> get(K k2) {
+        public Collection<V> get(K k) {
             InterceptResult invokeL;
             Collection<V> q;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k)) == null) {
                 synchronized (this.mutex) {
-                    q = Synchronized.q(delegate().get(k2), this.mutex);
+                    q = Synchronized.q(delegate().get(k), this.mutex);
                 }
                 return q;
             }
@@ -1331,13 +1331,13 @@ public final class Synchronized {
         }
 
         @Override // c.i.d.c.q0
-        public boolean put(K k2, V v) {
+        public boolean put(K k, V v) {
             InterceptResult invokeLL;
             boolean put;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k2, v)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k, v)) == null) {
                 synchronized (this.mutex) {
-                    put = delegate().put(k2, v);
+                    put = delegate().put(k, v);
                 }
                 return put;
             }
@@ -1345,13 +1345,13 @@ public final class Synchronized {
         }
 
         @Override // c.i.d.c.q0
-        public boolean putAll(K k2, Iterable<? extends V> iterable) {
+        public boolean putAll(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             boolean putAll;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, k, iterable)) == null) {
                 synchronized (this.mutex) {
-                    putAll = delegate().putAll(k2, iterable);
+                    putAll = delegate().putAll(k, iterable);
                 }
                 return putAll;
             }
@@ -1385,13 +1385,13 @@ public final class Synchronized {
             return (Collection) invokeL.objValue;
         }
 
-        public Collection<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+        public Collection<V> replaceValues(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             Collection<V> replaceValues;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, k, iterable)) == null) {
                 synchronized (this.mutex) {
-                    replaceValues = delegate().replaceValues(k2, iterable);
+                    replaceValues = delegate().replaceValues(k, iterable);
                 }
                 return replaceValues;
             }
@@ -1598,13 +1598,13 @@ public final class Synchronized {
         }
 
         @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, c.i.d.c.q0
-        public Set<V> get(K k2) {
+        public Set<V> get(K k) {
             InterceptResult invokeL;
             Set<V> n;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) {
                 synchronized (this.mutex) {
-                    n = Synchronized.n(delegate().get((e1<K, V>) k2), this.mutex);
+                    n = Synchronized.n(delegate().get((e1<K, V>) k), this.mutex);
                 }
                 return n;
             }
@@ -1627,13 +1627,13 @@ public final class Synchronized {
         }
 
         @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, c.i.d.c.q0
-        public Set<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+        public Set<V> replaceValues(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             Set<V> replaceValues;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, k, iterable)) == null) {
                 synchronized (this.mutex) {
-                    replaceValues = delegate().replaceValues((e1<K, V>) k2, (Iterable) iterable);
+                    replaceValues = delegate().replaceValues((e1<K, V>) k, (Iterable) iterable);
                 }
                 return replaceValues;
             }
@@ -1719,13 +1719,13 @@ public final class Synchronized {
         }
 
         @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, c.i.d.c.q0
-        public SortedSet<V> get(K k2) {
+        public SortedSet<V> get(K k) {
             InterceptResult invokeL;
             SortedSet<V> p;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) {
                 synchronized (this.mutex) {
-                    p = Synchronized.p(delegate().get((j1<K, V>) k2), this.mutex);
+                    p = Synchronized.p(delegate().get((j1<K, V>) k), this.mutex);
                 }
                 return p;
             }
@@ -1748,13 +1748,13 @@ public final class Synchronized {
         }
 
         @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, c.i.d.c.q0
-        public SortedSet<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+        public SortedSet<V> replaceValues(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             SortedSet<V> replaceValues;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k, iterable)) == null) {
                 synchronized (this.mutex) {
-                    replaceValues = delegate().replaceValues((j1<K, V>) k2, (Iterable) iterable);
+                    replaceValues = delegate().replaceValues((j1<K, V>) k, (Iterable) iterable);
                 }
                 return replaceValues;
             }
@@ -1781,7 +1781,7 @@ public final class Synchronized {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ SynchronizedTable f57005e;
+            public final /* synthetic */ SynchronizedTable f54846e;
 
             public a(SynchronizedTable synchronizedTable) {
                 Interceptable interceptable = $ic;
@@ -1798,7 +1798,7 @@ public final class Synchronized {
                         return;
                     }
                 }
-                this.f57005e = synchronizedTable;
+                this.f54846e = synchronizedTable;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1807,7 +1807,7 @@ public final class Synchronized {
             public Map<C, V> apply(Map<C, V> map) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) ? Synchronized.i(map, this.f57005e.mutex) : (Map) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) ? Synchronized.i(map, this.f54846e.mutex) : (Map) invokeL.objValue;
             }
         }
 
@@ -1817,7 +1817,7 @@ public final class Synchronized {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ SynchronizedTable f57006e;
+            public final /* synthetic */ SynchronizedTable f54847e;
 
             public b(SynchronizedTable synchronizedTable) {
                 Interceptable interceptable = $ic;
@@ -1834,7 +1834,7 @@ public final class Synchronized {
                         return;
                     }
                 }
-                this.f57006e = synchronizedTable;
+                this.f54847e = synchronizedTable;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1843,7 +1843,7 @@ public final class Synchronized {
             public Map<R, V> apply(Map<R, V> map) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) ? Synchronized.i(map, this.f57006e.mutex) : (Map) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) ? Synchronized.i(map, this.f54847e.mutex) : (Map) invokeL.objValue;
             }
         }
 
@@ -2668,13 +2668,13 @@ public final class Synchronized {
             return (K) invokeV.objValue;
         }
 
-        public SortedMap<K, V> headMap(K k2) {
+        public SortedMap<K, V> headMap(K k) {
             InterceptResult invokeL;
             SortedMap<K, V> o;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) {
                 synchronized (this.mutex) {
-                    o = Synchronized.o(delegate().headMap(k2), this.mutex);
+                    o = Synchronized.o(delegate().headMap(k), this.mutex);
                 }
                 return o;
             }
@@ -2695,26 +2695,26 @@ public final class Synchronized {
             return (K) invokeV.objValue;
         }
 
-        public SortedMap<K, V> subMap(K k2, K k3) {
+        public SortedMap<K, V> subMap(K k, K k2) {
             InterceptResult invokeLL;
             SortedMap<K, V> o;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, k2, k3)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, k, k2)) == null) {
                 synchronized (this.mutex) {
-                    o = Synchronized.o(delegate().subMap(k2, k3), this.mutex);
+                    o = Synchronized.o(delegate().subMap(k, k2), this.mutex);
                 }
                 return o;
             }
             return (SortedMap) invokeLL.objValue;
         }
 
-        public SortedMap<K, V> tailMap(K k2) {
+        public SortedMap<K, V> tailMap(K k) {
             InterceptResult invokeL;
             SortedMap<K, V> o;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k)) == null) {
                 synchronized (this.mutex) {
-                    o = Synchronized.o(delegate().tailMap(k2), this.mutex);
+                    o = Synchronized.o(delegate().tailMap(k), this.mutex);
                 }
                 return o;
             }
@@ -2742,21 +2742,21 @@ public final class Synchronized {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ SynchronizedAsMapEntries f57001f;
+            public final /* synthetic */ SynchronizedAsMapEntries f54842f;
 
             /* renamed from: com.google.common.collect.Synchronized$SynchronizedAsMapEntries$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C2059a extends e0<K, Collection<V>> {
+            public class C2076a extends e0<K, Collection<V>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map.Entry f57002e;
+                public final /* synthetic */ Map.Entry f54843e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ a f57003f;
+                public final /* synthetic */ a f54844f;
 
-                public C2059a(a aVar, Map.Entry entry) {
+                public C2076a(a aVar, Map.Entry entry) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2771,8 +2771,8 @@ public final class Synchronized {
                             return;
                         }
                     }
-                    this.f57003f = aVar;
-                    this.f57002e = entry;
+                    this.f54844f = aVar;
+                    this.f54843e = entry;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -2781,7 +2781,7 @@ public final class Synchronized {
                 public Map.Entry<K, Collection<V>> delegate() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57002e : (Map.Entry) invokeV.objValue;
+                    return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54843e : (Map.Entry) invokeV.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -2790,7 +2790,7 @@ public final class Synchronized {
                 public Collection<V> getValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Synchronized.q((Collection) this.f57002e.getValue(), this.f57003f.f57001f.mutex) : (Collection) invokeV.objValue;
+                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Synchronized.q((Collection) this.f54843e.getValue(), this.f54844f.f54842f.mutex) : (Collection) invokeV.objValue;
                 }
             }
 
@@ -2812,7 +2812,7 @@ public final class Synchronized {
                         return;
                     }
                 }
-                this.f57001f = synchronizedAsMapEntries;
+                this.f54842f = synchronizedAsMapEntries;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2821,7 +2821,7 @@ public final class Synchronized {
             public Map.Entry<K, Collection<V>> a(Map.Entry<K, Collection<V>> entry) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? new C2059a(this, entry) : (Map.Entry) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? new C2076a(this, entry) : (Map.Entry) invokeL.objValue;
             }
         }
 
@@ -3262,13 +3262,13 @@ public final class Synchronized {
         }
 
         @Override // java.util.NavigableMap
-        public Map.Entry<K, V> ceilingEntry(K k2) {
+        public Map.Entry<K, V> ceilingEntry(K k) {
             InterceptResult invokeL;
             Map.Entry<K, V> m;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
                 synchronized (this.mutex) {
-                    m = Synchronized.m(delegate().ceilingEntry(k2), this.mutex);
+                    m = Synchronized.m(delegate().ceilingEntry(k), this.mutex);
                 }
                 return m;
             }
@@ -3276,13 +3276,13 @@ public final class Synchronized {
         }
 
         @Override // java.util.NavigableMap
-        public K ceilingKey(K k2) {
+        public K ceilingKey(K k) {
             InterceptResult invokeL;
             K ceilingKey;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
                 synchronized (this.mutex) {
-                    ceilingKey = delegate().ceilingKey(k2);
+                    ceilingKey = delegate().ceilingKey(k);
                 }
                 return ceilingKey;
             }
@@ -3313,9 +3313,9 @@ public final class Synchronized {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 synchronized (this.mutex) {
                     if (this.descendingMap == null) {
-                        NavigableMap<K, V> k2 = Synchronized.k(delegate().descendingMap(), this.mutex);
-                        this.descendingMap = k2;
-                        return k2;
+                        NavigableMap<K, V> k = Synchronized.k(delegate().descendingMap(), this.mutex);
+                        this.descendingMap = k;
+                        return k;
                     }
                     return this.descendingMap;
                 }
@@ -3338,13 +3338,13 @@ public final class Synchronized {
         }
 
         @Override // java.util.NavigableMap
-        public Map.Entry<K, V> floorEntry(K k2) {
+        public Map.Entry<K, V> floorEntry(K k) {
             InterceptResult invokeL;
             Map.Entry<K, V> m;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k)) == null) {
                 synchronized (this.mutex) {
-                    m = Synchronized.m(delegate().floorEntry(k2), this.mutex);
+                    m = Synchronized.m(delegate().floorEntry(k), this.mutex);
                 }
                 return m;
             }
@@ -3352,13 +3352,13 @@ public final class Synchronized {
         }
 
         @Override // java.util.NavigableMap
-        public K floorKey(K k2) {
+        public K floorKey(K k) {
             InterceptResult invokeL;
             K floorKey;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k)) == null) {
                 synchronized (this.mutex) {
-                    floorKey = delegate().floorKey(k2);
+                    floorKey = delegate().floorKey(k);
                 }
                 return floorKey;
             }
@@ -3366,27 +3366,27 @@ public final class Synchronized {
         }
 
         @Override // java.util.NavigableMap
-        public NavigableMap<K, V> headMap(K k2, boolean z) {
+        public NavigableMap<K, V> headMap(K k, boolean z) {
             InterceptResult invokeLZ;
-            NavigableMap<K, V> k3;
+            NavigableMap<K, V> k2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, k2, z)) == null) {
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, k, z)) == null) {
                 synchronized (this.mutex) {
-                    k3 = Synchronized.k(delegate().headMap(k2, z), this.mutex);
+                    k2 = Synchronized.k(delegate().headMap(k, z), this.mutex);
                 }
-                return k3;
+                return k2;
             }
             return (NavigableMap) invokeLZ.objValue;
         }
 
         @Override // java.util.NavigableMap
-        public Map.Entry<K, V> higherEntry(K k2) {
+        public Map.Entry<K, V> higherEntry(K k) {
             InterceptResult invokeL;
             Map.Entry<K, V> m;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, k)) == null) {
                 synchronized (this.mutex) {
-                    m = Synchronized.m(delegate().higherEntry(k2), this.mutex);
+                    m = Synchronized.m(delegate().higherEntry(k), this.mutex);
                 }
                 return m;
             }
@@ -3394,13 +3394,13 @@ public final class Synchronized {
         }
 
         @Override // java.util.NavigableMap
-        public K higherKey(K k2) {
+        public K higherKey(K k) {
             InterceptResult invokeL;
             K higherKey;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, k)) == null) {
                 synchronized (this.mutex) {
-                    higherKey = delegate().higherKey(k2);
+                    higherKey = delegate().higherKey(k);
                 }
                 return higherKey;
             }
@@ -3429,13 +3429,13 @@ public final class Synchronized {
         }
 
         @Override // java.util.NavigableMap
-        public Map.Entry<K, V> lowerEntry(K k2) {
+        public Map.Entry<K, V> lowerEntry(K k) {
             InterceptResult invokeL;
             Map.Entry<K, V> m;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, k)) == null) {
                 synchronized (this.mutex) {
-                    m = Synchronized.m(delegate().lowerEntry(k2), this.mutex);
+                    m = Synchronized.m(delegate().lowerEntry(k), this.mutex);
                 }
                 return m;
             }
@@ -3443,13 +3443,13 @@ public final class Synchronized {
         }
 
         @Override // java.util.NavigableMap
-        public K lowerKey(K k2) {
+        public K lowerKey(K k) {
             InterceptResult invokeL;
             K lowerKey;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, k2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, k)) == null) {
                 synchronized (this.mutex) {
-                    lowerKey = delegate().lowerKey(k2);
+                    lowerKey = delegate().lowerKey(k);
                 }
                 return lowerKey;
             }
@@ -3502,29 +3502,29 @@ public final class Synchronized {
         }
 
         @Override // java.util.NavigableMap
-        public NavigableMap<K, V> subMap(K k2, boolean z, K k3, boolean z2) {
+        public NavigableMap<K, V> subMap(K k, boolean z, K k2, boolean z2) {
             InterceptResult invokeCommon;
-            NavigableMap<K, V> k4;
+            NavigableMap<K, V> k3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{k2, Boolean.valueOf(z), k3, Boolean.valueOf(z2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{k, Boolean.valueOf(z), k2, Boolean.valueOf(z2)})) == null) {
                 synchronized (this.mutex) {
-                    k4 = Synchronized.k(delegate().subMap(k2, z, k3, z2), this.mutex);
+                    k3 = Synchronized.k(delegate().subMap(k, z, k2, z2), this.mutex);
                 }
-                return k4;
+                return k3;
             }
             return (NavigableMap) invokeCommon.objValue;
         }
 
         @Override // java.util.NavigableMap
-        public NavigableMap<K, V> tailMap(K k2, boolean z) {
+        public NavigableMap<K, V> tailMap(K k, boolean z) {
             InterceptResult invokeLZ;
-            NavigableMap<K, V> k3;
+            NavigableMap<K, V> k2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048600, this, k2, z)) == null) {
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048600, this, k, z)) == null) {
                 synchronized (this.mutex) {
-                    k3 = Synchronized.k(delegate().tailMap(k2, z), this.mutex);
+                    k2 = Synchronized.k(delegate().tailMap(k, z), this.mutex);
                 }
-                return k3;
+                return k2;
             }
             return (NavigableMap) invokeLZ.objValue;
         }
@@ -3538,24 +3538,24 @@ public final class Synchronized {
         }
 
         @Override // com.google.common.collect.Synchronized.SynchronizedSortedMap, java.util.SortedMap, java.util.NavigableMap
-        public SortedMap<K, V> headMap(K k2) {
+        public SortedMap<K, V> headMap(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, k2)) == null) ? headMap(k2, false) : (SortedMap) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, k)) == null) ? headMap(k, false) : (SortedMap) invokeL.objValue;
         }
 
         @Override // com.google.common.collect.Synchronized.SynchronizedSortedMap, java.util.SortedMap, java.util.NavigableMap
-        public SortedMap<K, V> subMap(K k2, K k3) {
+        public SortedMap<K, V> subMap(K k, K k2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, k2, k3)) == null) ? subMap(k2, true, k3, false) : (SortedMap) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, k, k2)) == null) ? subMap(k, true, k2, false) : (SortedMap) invokeLL.objValue;
         }
 
         @Override // com.google.common.collect.Synchronized.SynchronizedSortedMap, java.util.SortedMap, java.util.NavigableMap
-        public SortedMap<K, V> tailMap(K k2) {
+        public SortedMap<K, V> tailMap(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, k2)) == null) ? tailMap(k2, true) : (SortedMap) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, k)) == null) ? tailMap(k, true) : (SortedMap) invokeL.objValue;
         }
     }
 

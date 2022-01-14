@@ -16,20 +16,20 @@ public class p implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f17944i;
+    public static final BdUniqueId f17510i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17945e;
+    public boolean f17511e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f17946f;
+    public d f17512f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17947g;
+    public int f17513g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17948h;
+    public String f17514h;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class p implements c.a.d.n.e.n {
                 return;
             }
         }
-        f17944i = BdUniqueId.gen();
+        f17510i = BdUniqueId.gen();
     }
 
     public p(VipRank vipRank, VipUser vipUser) {
@@ -62,43 +62,43 @@ public class p implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f17945e = true;
+        this.f17511e = true;
         if (vipRank == null) {
             return;
         }
         String str = vipRank.card_id;
         d dVar = new d();
-        this.f17946f = dVar;
+        this.f17512f = dVar;
         dVar.e(vipRank.class_name);
-        this.f17946f.g(vipRank.class_url_name);
-        this.f17946f.h(vipRank.class_url);
-        this.f17947g = vipRank.my_score_rank.intValue();
-        this.f17948h = vipUser.portrait;
+        this.f17512f.g(vipRank.class_url_name);
+        this.f17512f.h(vipRank.class_url);
+        this.f17513g = vipRank.my_score_rank.intValue();
+        this.f17514h = vipUser.portrait;
     }
 
     public d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17946f : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17512f : (d) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17948h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17514h : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f17947g < 0) {
-                this.f17947g = 0;
+            if (this.f17513g < 0) {
+                this.f17513g = 0;
             }
-            if (this.f17947g > 9999) {
+            if (this.f17513g > 9999) {
                 return "9999+";
             }
-            return "" + this.f17947g;
+            return "" + this.f17513g;
         }
         return (String) invokeV.objValue;
     }
@@ -107,6 +107,6 @@ public class p implements c.a.d.n.e.n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f17944i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f17510i : (BdUniqueId) invokeV.objValue;
     }
 }

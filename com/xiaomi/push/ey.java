@@ -24,10 +24,10 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
     public static final jg f360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f63451b;
+    public static final iy f61068b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f63452c;
+    public static final iy f61069c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -54,8 +54,8 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         }
         f360a = new jg("StatsEvents");
         a = new iy("", (byte) 11, (short) 1);
-        f63451b = new iy("", (byte) 11, (short) 2);
-        f63452c = new iy("", (byte) 15, (short) 3);
+        f61068b = new iy("", (byte) 11, (short) 2);
+        f61069c = new iy("", (byte) 15, (short) 3);
     }
 
     public ey() {
@@ -105,11 +105,11 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eyVar)) == null) {
             if (ey.class.equals(eyVar.getClass())) {
-                int compareTo = Boolean.valueOf(m352a()).compareTo(Boolean.valueOf(eyVar.m352a()));
+                int compareTo = Boolean.valueOf(m364a()).compareTo(Boolean.valueOf(eyVar.m364a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m352a() || (a4 = ir.a(this.f361a, eyVar.f361a)) == 0) {
+                if (!m364a() || (a4 = ir.a(this.f361a, eyVar.f361a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(eyVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -161,28 +161,28 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048579, this, jbVar) != null) {
             return;
         }
-        jbVar.m576a();
+        jbVar.m588a();
         while (true) {
-            iy m572a = jbVar.m572a();
-            byte b2 = m572a.a;
+            iy m584a = jbVar.m584a();
+            byte b2 = m584a.a;
             if (b2 == 0) {
                 jbVar.f();
                 a();
                 return;
             }
-            short s = m572a.f815a;
+            short s = m584a.f815a;
             if (s == 1) {
                 if (b2 == 11) {
-                    this.f361a = jbVar.m577a();
+                    this.f361a = jbVar.m589a();
                     jbVar.g();
                 }
                 je.a(jbVar, b2);
                 jbVar.g();
             } else if (s != 2) {
                 if (s == 3 && b2 == 15) {
-                    iz m573a = jbVar.m573a();
-                    this.f362a = new ArrayList(m573a.f816a);
-                    for (int i2 = 0; i2 < m573a.f816a; i2++) {
+                    iz m585a = jbVar.m585a();
+                    this.f362a = new ArrayList(m585a.f816a);
+                    for (int i2 = 0; i2 < m585a.f816a; i2++) {
                         ex exVar = new ex();
                         exVar.a(jbVar);
                         this.f362a.add(exVar);
@@ -194,7 +194,7 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
                 jbVar.g();
             } else {
                 if (b2 == 11) {
-                    this.f363b = jbVar.m577a();
+                    this.f363b = jbVar.m589a();
                     jbVar.g();
                 }
                 je.a(jbVar, b2);
@@ -204,23 +204,23 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m352a() {
+    public boolean m364a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f361a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m353a(ey eyVar) {
+    public boolean m365a(ey eyVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eyVar)) == null) {
             if (eyVar == null) {
                 return false;
             }
-            boolean m352a = m352a();
-            boolean m352a2 = eyVar.m352a();
-            if ((m352a || m352a2) && !(m352a && m352a2 && this.f361a.equals(eyVar.f361a))) {
+            boolean m364a = m364a();
+            boolean m364a2 = eyVar.m364a();
+            if ((m364a || m364a2) && !(m364a && m364a2 && this.f361a.equals(eyVar.f361a))) {
                 return false;
             }
             boolean b2 = b();
@@ -250,12 +250,12 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f363b != null && b()) {
-                jbVar.a(f63451b);
+                jbVar.a(f61068b);
                 jbVar.a(this.f363b);
                 jbVar.b();
             }
             if (this.f362a != null) {
-                jbVar.a(f63452c);
+                jbVar.a(f61069c);
                 jbVar.a(new iz(StandardMessageCodec.LIST, this.f362a.size()));
                 for (ex exVar : this.f362a) {
                     exVar.b(jbVar);
@@ -264,7 +264,7 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             jbVar.c();
-            jbVar.m580a();
+            jbVar.m592a();
         }
     }
 
@@ -285,7 +285,7 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
             if (obj != null && (obj instanceof ey)) {
-                return m353a((ey) obj);
+                return m365a((ey) obj);
             }
             return false;
         }

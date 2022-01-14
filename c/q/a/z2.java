@@ -12,7 +12,7 @@ public final class z2 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f31531e;
+    public final /* synthetic */ Context f30540e;
 
     public z2(Context context) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class z2 implements Runnable {
                 return;
             }
         }
-        this.f31531e = context;
+        this.f30540e = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d3.a = new WebView(this.f31531e).getSettings().getUserAgentString();
+            d3.a = new WebView(this.f30540e).getSettings().getUserAgentString();
         }
     }
 }

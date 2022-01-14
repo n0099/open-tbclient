@@ -25,20 +25,20 @@ public class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f15430b;
+    public ArrayList<TransmitForumData> f15047b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final CustomMessageListener f15431c;
+    public final CustomMessageListener f15048c;
 
     /* renamed from: c.a.t0.a2.l.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0949a extends CustomMessageListener {
+    public class C0962a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0949a(a aVar, int i2) {
+        public C0962a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -65,8 +65,8 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof ArrayList)) {
                 return;
             }
-            this.a.f15430b.clear();
-            this.a.f15430b.addAll((ArrayList) customResponsedMessage.getData());
+            this.a.f15047b.clear();
+            this.a.f15047b.addAll((ArrayList) customResponsedMessage.getData());
         }
     }
 
@@ -85,16 +85,16 @@ public class a {
                 return;
             }
         }
-        this.f15430b = new ArrayList<>();
-        this.f15431c = new C0949a(this, 2016563);
+        this.f15047b = new ArrayList<>();
+        this.f15048c = new C0962a(this, 2016563);
         this.a = tbPageContext;
-        MessageManager.getInstance().registerListener(this.f15431c);
+        MessageManager.getInstance().registerListener(this.f15048c);
     }
 
     public List<TransmitForumData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15430b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15047b : (List) invokeV.objValue;
     }
 
     public void c() {
@@ -107,7 +107,7 @@ public class a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f15431c);
+            MessageManager.getInstance().unRegisterListener(this.f15048c);
         }
     }
 
@@ -118,7 +118,7 @@ public class a {
                 SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.a.getPageActivity(), 24007);
                 CustomMessage customMessage = new CustomMessage(2002001, selectForumActivityConfig);
                 selectForumActivityConfig.setFrom(1);
-                selectForumActivityConfig.setForumList(this.f15430b);
+                selectForumActivityConfig.setForumList(this.f15047b);
                 selectForumActivityConfig.setLiveId(j2);
                 selectForumActivityConfig.setYyAnchorBdUid(str);
                 shareItem.j(true);

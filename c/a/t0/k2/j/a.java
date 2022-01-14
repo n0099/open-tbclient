@@ -24,25 +24,25 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f19264d;
+    public static a f18769d;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     @SuppressLint({"HandlerLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f19265b;
+    public final Handler f18770b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f19266c;
+    public final c f18771c;
 
     /* renamed from: c.a.t0.k2.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class HandlerC1153a extends Handler {
+    public class HandlerC1167a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public HandlerC1153a(a aVar) {
+        public HandlerC1167a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public class a {
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                 this.a.a = System.currentTimeMillis();
                 MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
-                this.a.f19265b.sendMessageDelayed(this.a.f19265b.obtainMessage(1), FlushManager.ReportTimer.DEFAULT_INTERVAL);
+                this.a.f18770b.sendMessageDelayed(this.a.f18770b.obtainMessage(1), FlushManager.ReportTimer.DEFAULT_INTERVAL);
             }
         }
     }
@@ -120,7 +120,7 @@ public class a {
             }
         }
         c.a.t0.w3.f0.a.g(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        f19264d = null;
+        f18769d = null;
     }
 
     public a() {
@@ -137,9 +137,9 @@ public class a {
             }
         }
         this.a = 0L;
-        this.f19265b = new HandlerC1153a(this);
-        this.f19266c = new b(this, 303005);
-        MessageManager.getInstance().registerListener(this.f19266c);
+        this.f18770b = new HandlerC1167a(this);
+        this.f18771c = new b(this, 303005);
+        MessageManager.getInstance().registerListener(this.f18771c);
     }
 
     public static synchronized a d() {
@@ -148,10 +148,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (a.class) {
-                if (f19264d == null) {
-                    f19264d = new a();
+                if (f18769d == null) {
+                    f18769d = new a();
                 }
-                aVar = f19264d;
+                aVar = f18769d;
             }
             return aVar;
         }
@@ -161,8 +161,8 @@ public class a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f19265b.removeMessages(1);
-            this.f19265b.removeMessages(2);
+            this.f18770b.removeMessages(1);
+            this.f18770b.removeMessages(2);
         }
     }
 
@@ -183,11 +183,11 @@ public class a {
                 currentTimeMillis = 0;
             }
             if (currentTimeMillis >= FlushManager.ReportTimer.DEFAULT_INTERVAL) {
-                Handler handler = this.f19265b;
+                Handler handler = this.f18770b;
                 handler.sendMessageDelayed(handler.obtainMessage(1), 10000L);
             } else {
                 long j2 = FlushManager.ReportTimer.DEFAULT_INTERVAL - currentTimeMillis;
-                Handler handler2 = this.f19265b;
+                Handler handler2 = this.f18770b;
                 handler2.sendMessageDelayed(handler2.obtainMessage(1), j2);
             }
             this.a = System.currentTimeMillis();

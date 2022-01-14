@@ -16,13 +16,13 @@ public final class y {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14252b;
+    public int f13926b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14253c;
+    public int f13927c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14254d;
+    public int f13928d;
 
     public y() {
         Interceptable interceptable = $ic;
@@ -37,25 +37,25 @@ public final class y {
                 return;
             }
         }
-        this.f14253c = -1;
+        this.f13927c = -1;
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14253c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13927c : invokeV.intValue;
     }
 
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14254d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13928d : invokeV.intValue;
     }
 
     public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14252b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13926b : invokeV.intValue;
     }
 
     public final int d() {
@@ -78,21 +78,21 @@ public final class y {
     public final void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f14253c = i2;
+            this.f13927c = i2;
         }
     }
 
     public final void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f14254d = i2;
+            this.f13928d = i2;
         }
     }
 
     public final void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f14252b = i2;
+            this.f13926b = i2;
         }
     }
 

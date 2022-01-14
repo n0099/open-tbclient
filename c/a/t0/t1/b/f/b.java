@@ -25,22 +25,22 @@ public class b {
     public PopupDialog a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f24432b;
+    public j f23746b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<g> f24433c;
+    public List<g> f23747c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f24434d;
+    public g f23748d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.t1.b.f.a f24435e;
+    public c.a.t0.t1.b.f.a f23749e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f24436f;
+    public c f23750f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j.d f24437g;
+    public j.d f23751g;
 
     /* loaded from: classes8.dex */
     public class a implements j.c {
@@ -77,12 +77,12 @@ public class b {
 
     /* renamed from: c.a.t0.t1.b.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1432b implements j.d {
+    public class C1447b implements j.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C1432b(b bVar) {
+        public C1447b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,8 +105,8 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.c();
-                if (this.a.f24436f != null) {
-                    this.a.f24436f.a();
+                if (this.a.f23750f != null) {
+                    this.a.f23750f.a();
                 }
                 this.a.d();
             }
@@ -133,31 +133,31 @@ public class b {
                 return;
             }
         }
-        this.f24437g = new C1432b(this);
-        this.f24432b = new j(fVar.getPageActivity());
-        g gVar = new g(fVar.getString(R.string.delete), this.f24432b);
-        this.f24434d = gVar;
-        gVar.l(this.f24437g);
+        this.f23751g = new C1447b(this);
+        this.f23746b = new j(fVar.getPageActivity());
+        g gVar = new g(fVar.getString(R.string.delete), this.f23746b);
+        this.f23748d = gVar;
+        gVar.l(this.f23751g);
         ArrayList arrayList = new ArrayList();
-        this.f24433c = arrayList;
-        arrayList.add(this.f24434d);
-        this.f24432b.l(new a(this));
-        this.f24432b.j(this.f24433c);
-        this.a = new PopupDialog(fVar, this.f24432b);
+        this.f23747c = arrayList;
+        arrayList.add(this.f23748d);
+        this.f23746b.m(new a(this));
+        this.f23746b.j(this.f23747c);
+        this.a = new PopupDialog(fVar, this.f23746b);
         e();
         f();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24435e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f23749e == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
-        httpMessage.addParam("type", this.f24435e.a);
-        httpMessage.addParam("thread_id", this.f24435e.f24429b);
-        httpMessage.addParam("post_id", this.f24435e.f24430c);
-        httpMessage.addParam("ori_ugc_nid", this.f24435e.f24431d);
+        httpMessage.addParam("type", this.f23749e.a);
+        httpMessage.addParam("thread_id", this.f23749e.f23743b);
+        httpMessage.addParam("post_id", this.f23749e.f23744c);
+        httpMessage.addParam("ori_ugc_nid", this.f23749e.f23745d);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -172,7 +172,7 @@ public class b {
     public void e() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (jVar = this.f24432b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (jVar = this.f23746b) == null) {
             return;
         }
         jVar.i();
@@ -192,14 +192,14 @@ public class b {
     public void g(c.a.t0.t1.b.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f24435e = aVar;
+            this.f23749e = aVar;
         }
     }
 
     public void h(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f24436f = cVar;
+            this.f23750f = cVar;
         }
     }
 

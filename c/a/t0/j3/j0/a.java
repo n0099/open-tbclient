@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.m;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -26,21 +26,21 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f18919f;
+    public static a f18446f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18920b;
+    public String f18447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f18921c;
+    public long f18448c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18922d;
+    public String f18449d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18923e;
+    public String f18450e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -55,21 +55,21 @@ public class a {
                 return;
             }
         }
-        this.f18923e = b.j().p("asp_shown_info", "");
+        this.f18450e = b.k().q("asp_shown_info", "");
     }
 
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f18919f == null) {
+            if (f18446f == null) {
                 synchronized (c.a.t0.w3.o0.b.class) {
-                    if (f18919f == null) {
-                        f18919f = new a();
+                    if (f18446f == null) {
+                        f18446f = new a();
                     }
                 }
             }
-            return f18919f;
+            return f18446f;
         }
         return (a) invokeV.objValue;
     }
@@ -81,11 +81,11 @@ public class a {
             AppPosInfo.Builder builder = new AppPosInfo.Builder();
             builder.ap_mac = d();
             builder.ap_connected = Boolean.valueOf(l.H());
-            builder.latitude = this.f18920b;
+            builder.latitude = this.f18447b;
             builder.longitude = this.a;
-            builder.addr_timestamp = Long.valueOf(this.f18921c);
+            builder.addr_timestamp = Long.valueOf(this.f18448c);
             builder.coordinate_type = "bd09ll";
-            builder.asp_shown_info = this.f18923e;
+            builder.asp_shown_info = this.f18450e;
             MercatorModel.MercatorData e2 = MercatorModel.d().e();
             if (e2 != null) {
                 builder.mercator_lat = e2.z();
@@ -137,22 +137,22 @@ public class a {
             AppPosInfo.Builder builder = new AppPosInfo.Builder();
             builder.ap_mac = d();
             builder.ap_connected = Boolean.valueOf(l.H());
-            String str = this.f18920b;
+            String str = this.f18447b;
             builder.latitude = str;
             builder.longitude = this.a;
             if (m.isEmpty(str) || m.isEmpty(this.a)) {
-                String p = b.j().p("key_last_receive_location_latitude_and_longitude", "");
-                if (!m.isEmpty(p)) {
-                    String[] split = p.split(",");
+                String q = b.k().q("key_last_receive_location_latitude_and_longitude", "");
+                if (!m.isEmpty(q)) {
+                    String[] split = q.split(",");
                     if (split.length >= 2) {
                         builder.latitude = split[0];
                         builder.longitude = split[1];
                     }
                 }
             }
-            builder.addr_timestamp = Long.valueOf(this.f18921c);
+            builder.addr_timestamp = Long.valueOf(this.f18448c);
             builder.coordinate_type = "BD09LL";
-            builder.asp_shown_info = this.f18923e;
+            builder.asp_shown_info = this.f18450e;
             MercatorModel.MercatorData e2 = MercatorModel.d().e();
             if (e2 != null) {
                 builder.mercator_lat = e2.z();
@@ -173,10 +173,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f18922d)) {
+            if (TextUtils.isEmpty(this.f18449d)) {
                 f();
             }
-            return this.f18922d;
+            return this.f18449d;
         }
         return (String) invokeV.objValue;
     }
@@ -189,9 +189,9 @@ public class a {
                 try {
                     WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
                     if (connectionInfo != null) {
-                        this.f18922d = connectionInfo.getBSSID();
+                        this.f18449d = connectionInfo.getBSSID();
                     } else {
-                        this.f18922d = "";
+                        this.f18449d = "";
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -203,21 +203,21 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b.j().x("asp_shown_info", this.f18923e);
+            b.k().y("asp_shown_info", this.f18450e);
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f18923e = str;
+            this.f18450e = str;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f18920b = str;
+            this.f18447b = str;
         }
     }
 
@@ -231,7 +231,7 @@ public class a {
     public void k(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f18921c = j2;
+            this.f18448c = j2;
         }
     }
 }

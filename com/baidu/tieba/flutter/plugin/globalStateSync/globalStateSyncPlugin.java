@@ -6,10 +6,10 @@ import androidx.annotation.NonNull;
 import c.a.d.f.p.m;
 import c.a.s0.b.d;
 import c.a.s0.b.e;
-import c.a.s0.b.f.b0;
-import c.a.s0.e1.u0;
+import c.a.s0.b.f.a0;
+import c.a.s0.e1.t0;
 import c.a.s0.h1.b.c;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import c.a.s0.t.b.a;
 import c.a.t0.z0.a.b.g;
 import com.baidu.adp.base.BdBaseApplication;
@@ -445,7 +445,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            e a = d.a(b0.f12498c);
+            e a = d.a(a0.f12202c);
             if (a == null || m.isEmpty(a.a)) {
                 return "";
             }
@@ -516,7 +516,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             if (from != null && from.length() > 0) {
                 hashMap.put("appFrom", from);
             }
-            hashMap.put("isVideoAutoPlay", Boolean.valueOf(u0.e()));
+            hashMap.put("isVideoAutoPlay", Boolean.valueOf(t0.e()));
             hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
             hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
             hashMap.put("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
@@ -529,6 +529,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap.put("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
             hashMap.put("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
             hashMap.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
+            hashMap.put(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
             return hashMap;
         }
         return (HashMap) invokeV.objValue;
@@ -613,20 +614,20 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             Object hashMap4 = new HashMap();
             Object hashMap5 = new HashMap();
             Object hashMap6 = new HashMap();
-            hashMap2.put("financeURL", b.j().p("baidu_finance", null));
+            hashMap2.put("financeURL", b.k().q("baidu_finance", null));
             hashMap2.put("personalCellText", TbadkCoreApplication.getInst().getActivityPrizeData().e());
             hashMap2.put("loginAwardUrl", TbadkCoreApplication.getInst().getActivityPrizeData().c());
-            hashMap2.put("auditPackageSwitch", Integer.valueOf(b.j().g("audit_package_switch", false) ? 1 : 0));
+            hashMap2.put("auditPackageSwitch", Integer.valueOf(b.k().h("audit_package_switch", false) ? 1 : 0));
             hashMap2.put("isLiteMode", "0");
-            hashMap2.put("isShowShoubaiDynamicGuide", String.valueOf(b.j().k("key_is_show_shoubai_dynamic_guide", 0)));
-            hashMap2.put("isShowBaiduFinanceEntrance", String.valueOf(b.j().k("baidu_financial_display", 1)));
+            hashMap2.put("isShowShoubaiDynamicGuide", String.valueOf(b.k().l("key_is_show_shoubai_dynamic_guide", 0)));
+            hashMap2.put("isShowBaiduFinanceEntrance", String.valueOf(b.k().l("baidu_financial_display", 1)));
             hashMap2.put("experimentID", getExperimentID());
             hashMap2.put("userSmallPhotoHost", TbConfig.getPhotoSmallAddress());
             hashMap2.put("userBigPhotoHost", TbConfig.getBigPhotoAdress());
             hashMap2.put("isYYUser", TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
-            hashMap2.put("videoWorksProgressBarWaitingTime", String.valueOf(b.j().k("key_video_works_progress_bar_waiting_time", 0)));
-            hashMap2.put("experimentPersonalVideoTabID", d.Q() ? "12_10_zhuye_feed_b" : "");
-            hashMap2.put("experimentNickNameID", d.M() ? "12_11_nick_name_a" : "");
+            hashMap2.put("videoWorksProgressBarWaitingTime", String.valueOf(b.k().l("key_video_works_progress_bar_waiting_time", 0)));
+            hashMap2.put("experimentPersonalVideoTabID", d.R() ? "12_10_zhuye_feed_b" : "");
+            hashMap2.put("experimentNickNameID", d.N() ? "12_11_nick_name_a" : "");
             hashMap2.put("ubsConfigMap", c.a.s0.b.c.d().f());
             hashMap.put("syncData", hashMap2);
             if (TbSingleton.getInstance().getTiebaPlusConfigData() != null) {

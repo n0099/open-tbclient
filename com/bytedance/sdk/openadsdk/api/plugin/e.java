@@ -22,14 +22,14 @@ import org.json.JSONObject;
 public final class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences f55330b;
+    public static SharedPreferences f53229b;
     public static ScheduledExecutorService a = Executors.newSingleThreadScheduledExecutor(new g.a("tt_pangle_thread_pl_report"));
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f55331c = false;
+    public static volatile boolean f53230c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, String> f55332d = new HashMap();
+    public static Map<String, String> f53231d = new HashMap();
 
     public static void c(final String str, final JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -42,7 +42,7 @@ public final class e {
             bundle.putString("event_name", str);
             bundle.putString("event_extra", jSONObject.toString());
             adManager.getExtra(Bundle.class, bundle);
-        } else if (f55331c) {
+        } else if (f53230c) {
         } else {
             a.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.1
                 @Override // java.lang.Runnable
@@ -66,12 +66,12 @@ public final class e {
             jSONObject3.put("is_plugin", true);
             jSONObject3.put("event_extra", jSONObject.toString());
             jSONObject3.put("type", str);
-            jSONObject3.put("appid", f55332d.get("appid"));
+            jSONObject3.put("appid", f53231d.get("appid"));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put("model", Build.MODEL);
             jSONObject4.put("vendor", Build.MANUFACTURER);
-            jSONObject4.put("imei", f55332d.get("imei"));
-            jSONObject4.put("oaid", f55332d.get("oaid"));
+            jSONObject4.put("imei", f53231d.get("imei"));
+            jSONObject4.put("oaid", f53231d.get("oaid"));
             jSONObject3.put("device_info", jSONObject4);
             jSONArray.put(jSONObject3);
             jSONObject2.put("stats_list", jSONArray);
@@ -81,11 +81,11 @@ public final class e {
     }
 
     public static void a(Context context) {
-        f55330b = context.getSharedPreferences("tt_sdk_settings", 0);
+        f53229b = context.getSharedPreferences("tt_sdk_settings", 0);
     }
 
     public static String b(JSONObject jSONObject) {
-        SharedPreferences sharedPreferences = f55330b;
+        SharedPreferences sharedPreferences = f53229b;
         return com.bytedance.sdk.openadsdk.api.a.c.a().a(true, String.format("https://%s%s", sharedPreferences != null ? sharedPreferences.getString("url_alog", "pangolin.snssdk.com") : "pangolin.snssdk.com", "/api/ad/union/sdk/stats/batch/"), com.bytedance.sdk.openadsdk.api.b.b.a(jSONObject).toString().getBytes());
     }
 
@@ -118,18 +118,18 @@ public final class e {
     }
 
     public static void a() {
-        if (f55331c) {
+        if (f53230c) {
             return;
         }
         try {
-            f55331c = true;
+            f53230c = true;
             a.shutdown();
         } catch (Throwable unused) {
         }
     }
 
     public static void a(final Bundle bundle) {
-        if (f55331c) {
+        if (f53230c) {
             return;
         }
         a.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.2
@@ -144,12 +144,12 @@ public final class e {
         if (adConfig == null) {
             return;
         }
-        f55332d.put("appid", adConfig.getAppId());
+        f53231d.put("appid", adConfig.getAppId());
         TTCustomController customController = adConfig.getCustomController();
         if (customController != null) {
             try {
-                f55332d.put("oaid", customController.getDevOaid());
-                f55332d.put("imei", customController.getDevImei());
+                f53231d.put("oaid", customController.getDevOaid());
+                f53231d.put("imei", customController.getDevImei());
             } catch (Exception unused) {
             }
         }

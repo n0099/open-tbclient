@@ -9,10 +9,10 @@ public interface a extends IInterface {
 
     /* renamed from: com.kwad.sdk.core.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C2086a implements a {
+    public static final class C2103a implements a {
         public IBinder a;
 
-        public C2086a(IBinder iBinder) {
+        public C2103a(IBinder iBinder) {
         }
 
         public String a() {

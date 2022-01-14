@@ -25,19 +25,19 @@ public class CooperatePrivilegeViewHolder extends TypeAdapter.ViewHolder {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f47673b;
+    public BaseFragmentActivity f45899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbImageView f47674c;
+    public TbImageView f45900c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f47675d;
+    public TextView f45901d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f47676e;
+    public TextView f45902e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f47677f;
+    public TbImageView f45903f;
     public TbImageView mNewIcon;
     public ImageView mRedDotIcon;
 
@@ -60,11 +60,11 @@ public class CooperatePrivilegeViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view;
-        this.f47673b = baseFragmentActivity;
-        this.f47674c = (TbImageView) view.findViewById(R.id.privilege_icon);
-        this.f47675d = (TextView) this.a.findViewById(R.id.privilege_name);
-        this.f47676e = (TextView) this.a.findViewById(R.id.privilege_desc);
-        this.f47677f = (TbImageView) this.a.findViewById(R.id.privilege_spread_icon);
+        this.f45899b = baseFragmentActivity;
+        this.f45900c = (TbImageView) view.findViewById(R.id.privilege_icon);
+        this.f45901d = (TextView) this.a.findViewById(R.id.privilege_name);
+        this.f45902e = (TextView) this.a.findViewById(R.id.privilege_desc);
+        this.f45903f = (TbImageView) this.a.findViewById(R.id.privilege_spread_icon);
         this.mNewIcon = (TbImageView) this.a.findViewById(R.id.privilege_new_icon);
         this.mRedDotIcon = (ImageView) this.a.findViewById(R.id.privilege_red_dot);
     }
@@ -72,7 +72,7 @@ public class CooperatePrivilegeViewHolder extends TypeAdapter.ViewHolder {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a.a(this.f47673b.getPageContext(), this.a);
+            a.a(this.f45899b.getPageContext(), this.a);
             this.mNewIcon.setImageResource(R.drawable.icon_new_privilege);
         }
     }
@@ -82,29 +82,29 @@ public class CooperatePrivilegeViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) || fVar == null) {
             return;
         }
-        this.f47674c.setIsRound(false);
+        this.f45900c.setIsRound(false);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.f47674c.setDefaultBgResource(R.color.img_bg_color);
+            this.f45900c.setDefaultBgResource(R.color.img_bg_color);
         } else {
-            this.f47674c.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
+            this.f45900c.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
         }
-        this.f47674c.startLoad(fVar.c(), 10, false);
-        this.f47675d.setText(fVar.g());
+        this.f45900c.startLoad(fVar.c(), 10, false);
+        this.f45901d.setText(fVar.g());
         if (!TbadkCoreApplication.isLogin()) {
-            this.f47677f.setVisibility(4);
+            this.f45903f.setVisibility(4);
         } else {
-            this.f47677f.setVisibility(0);
-            this.f47676e.setText(fVar.a());
+            this.f45903f.setVisibility(0);
+            this.f45902e.setText(fVar.a());
         }
         if (StringUtils.isNull(fVar.e())) {
-            this.f47677f.setVisibility(4);
+            this.f45903f.setVisibility(4);
         } else {
-            this.f47677f.setVisibility(0);
+            this.f45903f.setVisibility(0);
         }
         this.mNewIcon.setAutoChangeStyle(false);
         if (TbadkCoreApplication.isLogin() && fVar.d() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (b.g(fVar.h(), 0L) > b.g(c.a.s0.s.g0.b.j().p("member_center_item_red_tip_" + fVar.d() + currentAccount, "0"), 0L)) {
+            if (b.g(fVar.h(), 0L) > b.g(c.a.s0.s.h0.b.k().q("member_center_item_red_tip_" + fVar.d() + currentAccount, "0"), 0L)) {
                 if (fVar.i() == 1) {
                     this.mNewIcon.setVisibility(8);
                     this.mRedDotIcon.setVisibility(0);

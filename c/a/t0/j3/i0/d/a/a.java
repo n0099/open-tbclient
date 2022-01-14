@@ -19,22 +19,22 @@ public abstract class a implements e<AdCard> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdCard f18888e;
+    public AdCard f18417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdvertAppInfo f18889f;
+    public AdvertAppInfo f18418f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18890g;
+    public boolean f18419g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f18891h;
+    public Context f18420h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext f18892i;
+    public TbPageContext f18421i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.t0.x1.o.a f18893j;
+    public c.a.t0.x1.o.a f18422j;
 
     public a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public abstract class a implements e<AdCard> {
                 return;
             }
         }
-        this.f18892i = tbPageContext;
-        this.f18891h = tbPageContext.getPageActivity();
+        this.f18421i = tbPageContext;
+        this.f18420h = tbPageContext.getPageActivity();
     }
 
     public AdvertAppInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18889f : (AdvertAppInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18418f : (AdvertAppInfo) invokeV.objValue;
     }
 
     public abstract void b();
@@ -66,8 +66,8 @@ public abstract class a implements e<AdCard> {
     public void c(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) {
-            this.f18888e = adCard;
-            this.f18889f = adCard.getAdvertAppInfo();
+            this.f18417e = adCard;
+            this.f18418f = adCard.getAdvertAppInfo();
         }
     }
 
@@ -103,7 +103,7 @@ public abstract class a implements e<AdCard> {
     public void setAfterClickSchemeListener(c.a.t0.x1.o.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f18893j = aVar;
+            this.f18422j = aVar;
         }
     }
 
@@ -125,7 +125,7 @@ public abstract class a implements e<AdCard> {
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f18890g = z;
+            this.f18419g = z;
         }
     }
 
@@ -140,9 +140,9 @@ public abstract class a implements e<AdCard> {
     public void update(Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, obj) == null) && (obj instanceof AdCard)) {
-            this.f18888e = (AdCard) obj;
+            this.f18417e = (AdCard) obj;
             b();
-            c(this.f18888e);
+            c(this.f18417e);
         }
     }
 

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class t extends c.a.d.n.e.a<c.a.t0.o1.k.c.c.a, ThreadCardViewHolder<c.a.t0.o1.k.c.c.a>> implements c.a.t0.t.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class t extends c.a.d.n.e.a<c.a.t0.o1.k.c.c.a, ThreadCardViewHolder<c.a.t
     public String o;
     public NEGFeedBackView.b p;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements c.a.d.n.e.w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ t f21080e;
+        public final /* synthetic */ t f20517e;
 
         public a(t tVar) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class t extends c.a.d.n.e.a<c.a.t0.o1.k.c.c.a, ThreadCardViewHolder<c.a.t
                     return;
                 }
             }
-            this.f21080e = tVar;
+            this.f20517e = tVar;
         }
 
         @Override // c.a.d.n.e.w
@@ -67,7 +67,7 @@ public class t extends c.a.d.n.e.a<c.a.t0.o1.k.c.c.a, ThreadCardViewHolder<c.a.t
                 if (aVar != null && aVar.e0 == 1) {
                     TiebaStatic.log(new StatisticItem("c13449").param("topic_id", aVar.X));
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(this.f21080e.f3299e, aVar.X)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(this.f20517e.f3258e, aVar.X)));
             }
         }
     }
@@ -102,8 +102,8 @@ public class t extends c.a.d.n.e.a<c.a.t0.o1.k.c.c.a, ThreadCardViewHolder<c.a.t
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             l0.b bVar = new l0.b(this.n.getPageActivity(), false);
-            c.a.t0.o1.h.o.d dVar = new c.a.t0.o1.h.o.d(this.f3299e, this.n);
-            dVar.o(this.f3303i);
+            c.a.t0.o1.h.o.d dVar = new c.a.t0.o1.h.o.d(this.f3258e, this.n);
+            dVar.o(this.f3262i);
             bVar.n(dVar);
             bVar.l().c(0);
             bVar.l().e(0);

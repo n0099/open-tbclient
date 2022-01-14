@@ -13,7 +13,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
@@ -192,18 +191,11 @@ public class OpenFlutter {
         return (CustomMessage) invokeL.objValue;
     }
 
-    public static void markSecondaryPageEnter() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            LaunchTaskSchedule.getInstance().start(5);
-        }
-    }
-
     public static boolean openFlutterPage(Context context, String str, Map<String, Object> map) {
         InterceptResult invokeLLL;
         String name;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, map)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, map)) == null) {
             if (checkSwitch(str)) {
                 Intent intent = new Intent(context, FlutterPageActivity.class);
                 BoostFlutterActivity.SerializableMap serializableMap = new BoostFlutterActivity.SerializableMap();
@@ -242,7 +234,6 @@ public class OpenFlutter {
                 } else {
                     context.startActivity(intent);
                 }
-                markSecondaryPageEnter();
                 return true;
             }
             return false;
@@ -253,7 +244,7 @@ public class OpenFlutter {
     public static HashMap parseParmes(IntentConfig intentConfig, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, intentConfig, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, intentConfig, str)) == null) {
             HashMap hashMap = new HashMap();
             if (ACTIVITY_VIDEO_WORK_LIST.equals(str)) {
                 hashMap.put("publisher", intentConfig.getIntent().getStringExtra("type"));
@@ -310,7 +301,7 @@ public class OpenFlutter {
         int i2;
         String substring;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, hashMap, uri) == null) && ACTIVITY_PERSON_CENTER.equals(str)) {
+        if ((interceptable == null || interceptable.invokeLLL(65542, null, str, hashMap, uri) == null) && ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
             if (g.c(uri)) {
                 g.b().h(uri, new g.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1

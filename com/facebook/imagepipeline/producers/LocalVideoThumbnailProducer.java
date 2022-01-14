@@ -30,7 +30,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LocalVideoThumbnailProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -142,7 +142,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
                 return imageRequest.getSourceFile().getPath();
             }
             if (UriUtil.isLocalContentUri(sourceUri)) {
-                if (Build.VERSION.SDK_INT < 19 || !ImageClipActivity.f39310k.equals(sourceUri.getAuthority())) {
+                if (Build.VERSION.SDK_INT < 19 || !ImageClipActivity.k.equals(sourceUri.getAuthority())) {
                     uri = sourceUri;
                     str = null;
                     strArr = null;

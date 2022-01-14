@@ -232,7 +232,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @Deprecated
     public final Resources getResources() {
-        if (a.f57545c.booleanValue()) {
+        if (a.f55361c.booleanValue()) {
             throw new RuntimeException("please use getContext().getResources()");
         }
         return this.mBase.getContext().getResources();

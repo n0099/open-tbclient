@@ -15,17 +15,17 @@ public class c extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f14811h;
+    public static final BdUniqueId f14458h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f14812e;
+    public e f14459e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f14813f;
+    public e f14460f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f14814g;
+    public e f14461g;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class c extends BaseCardInfo {
                 return;
             }
         }
-        f14811h = BdUniqueId.gen();
+        f14458h = BdUniqueId.gen();
     }
 
     public c() {
@@ -61,6 +61,6 @@ public class c extends BaseCardInfo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f14811h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f14458h : (BdUniqueId) invokeV.objValue;
     }
 }

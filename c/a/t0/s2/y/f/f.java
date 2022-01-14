@@ -55,15 +55,15 @@ public class f extends c.a.d.n.e.a<x, VideoPbEnterForumAndTopicViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f3299e);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.f3299e);
+            FrameLayout frameLayout = new FrameLayout(this.f3258e);
+            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.f3258e);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = n.f(this.f3299e, c.a.t0.s2.g.M_W_X007);
-            layoutParams.topMargin = n.f(this.f3299e, c.a.t0.s2.g.M_W_X004);
-            layoutParams.rightMargin = n.f(this.f3299e, c.a.t0.s2.g.M_W_X007);
-            layoutParams.bottomMargin = n.f(this.f3299e, c.a.t0.s2.g.M_W_X004);
+            layoutParams.leftMargin = n.f(this.f3258e, c.a.t0.s2.g.M_W_X007);
+            layoutParams.topMargin = n.f(this.f3258e, c.a.t0.s2.g.M_W_X004);
+            layoutParams.rightMargin = n.f(this.f3258e, c.a.t0.s2.g.M_W_X007);
+            layoutParams.bottomMargin = n.f(this.f3258e, c.a.t0.s2.g.M_W_X004);
             frameLayout.addView(flowLabelLayout, layoutParams);
-            return new VideoPbEnterForumAndTopicViewHolder(this.f3299e, frameLayout);
+            return new VideoPbEnterForumAndTopicViewHolder(this.f3258e, frameLayout);
         }
         return (VideoPbEnterForumAndTopicViewHolder) invokeL.objValue;
     }
@@ -73,7 +73,7 @@ public class f extends c.a.d.n.e.a<x, VideoPbEnterForumAndTopicViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, xVar, videoPbEnterForumAndTopicViewHolder})) == null) {
             if (xVar != null) {
-                videoPbEnterForumAndTopicViewHolder.setData(xVar.f23104e);
+                videoPbEnterForumAndTopicViewHolder.setData(xVar.f22467e);
             }
             videoPbEnterForumAndTopicViewHolder.changeSkinType();
             return view;

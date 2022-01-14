@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Spannable f20399e;
+    public final Spannable f19853e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.s0.g1.n.f f20400f;
+    public c.a.s0.g1.n.f f19854f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20401g;
+    public int f19855g;
 
     public h(Spannable spannable) {
         Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public class h implements View.OnTouchListener {
                 return;
             }
         }
-        this.f20400f = null;
-        this.f20401g = 0;
-        this.f20399e = spannable;
+        this.f19854f = null;
+        this.f19855g = 0;
+        this.f19853e = spannable;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f20401g = i2;
+            this.f19855g = i2;
         }
     }
 
@@ -65,10 +65,10 @@ public class h implements View.OnTouchListener {
             int action = motionEvent.getAction();
             if (view instanceof TextView) {
                 TextView textView = (TextView) view;
-                if (action == 3 && (fVar = this.f20400f) != null) {
+                if (action == 3 && (fVar = this.f19854f) != null) {
                     fVar.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     view.invalidate();
-                    this.f20400f = null;
+                    this.f19854f = null;
                     return false;
                 }
                 if (action == 1 || action == 0) {
@@ -79,7 +79,7 @@ public class h implements View.OnTouchListener {
                         return false;
                     }
                     int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
-                    Spannable spannable = this.f20399e;
+                    Spannable spannable = this.f19853e;
                     if (spannable == null) {
                         return false;
                     }
@@ -91,9 +91,9 @@ public class h implements View.OnTouchListener {
                             view.invalidate();
                         } else {
                             c.a.s0.g1.n.f fVar2 = fVarArr[0];
-                            this.f20400f = fVar2;
+                            this.f19854f = fVar2;
                             if (fVar2.e()) {
-                                int i2 = this.f20401g;
+                                int i2 = this.f19855g;
                                 if (i2 != 0) {
                                     fVarArr[0].g(SkinManager.getColor(i2));
                                 } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
@@ -102,18 +102,18 @@ public class h implements View.OnTouchListener {
                                     fVarArr[0].g(SkinManager.getColor(R.color.cp_bg_line_z));
                                 }
                             }
-                            Spannable spannable2 = this.f20399e;
-                            Selection.setSelection(spannable2, spannable2.getSpanStart(fVarArr[0]), this.f20399e.getSpanEnd(fVarArr[0]));
+                            Spannable spannable2 = this.f19853e;
+                            Selection.setSelection(spannable2, spannable2.getSpanStart(fVarArr[0]), this.f19853e.getSpanEnd(fVarArr[0]));
                             view.invalidate();
                         }
                         return true;
                     }
-                    c.a.s0.g1.n.f fVar3 = this.f20400f;
+                    c.a.s0.g1.n.f fVar3 = this.f19854f;
                     if (fVar3 != null) {
                         fVar3.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                         view.invalidate();
                     }
-                    Selection.removeSelection(this.f20399e);
+                    Selection.removeSelection(this.f19853e);
                 }
                 return false;
             }

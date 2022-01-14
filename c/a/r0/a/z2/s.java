@@ -26,19 +26,19 @@ public final class s {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f10258b;
+    public static final Pattern f10034b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, Integer> f10259c;
+    public static HashMap<String, Integer> f10035c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, Integer> f10260d;
+    public static HashMap<String, Integer> f10036d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HashMap<String, String> f10261e;
+    public static HashMap<String, String> f10037e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static HashMap<String, String> f10262f;
+    public static HashMap<String, String> f10038f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,11 +55,11 @@ public final class s {
             }
         }
         a = c.a.r0.a.k.a;
-        f10258b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-        f10259c = new HashMap<>();
-        f10260d = new HashMap<>();
-        f10261e = new HashMap<>();
-        f10262f = new HashMap<>();
+        f10034b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+        f10035c = new HashMap<>();
+        f10036d = new HashMap<>();
+        f10037e = new HashMap<>();
+        f10038f = new HashMap<>();
         a("application/andrew-inset", "ez", 5);
         a("application/dsptype", "tsp", 5);
         a("application/futuresplash", "spl", 5);
@@ -384,13 +384,13 @@ public final class s {
     public static void a(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i2) == null) {
-            f10259c.put(str2, Integer.valueOf(i2));
-            f10260d.put(str, Integer.valueOf(i2));
-            f10261e.put(str2, str);
-            if (f10262f.containsKey(str)) {
+            f10035c.put(str2, Integer.valueOf(i2));
+            f10036d.put(str, Integer.valueOf(i2));
+            f10037e.put(str2, str);
+            if (f10038f.containsKey(str)) {
                 return;
             }
-            f10262f.put(str, str2);
+            f10038f.put(str, str2);
         }
     }
 
@@ -409,7 +409,7 @@ public final class s {
             if (str == null) {
                 return null;
             }
-            return f10262f.get(str);
+            return f10038f.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -421,7 +421,7 @@ public final class s {
             if (str == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f10261e.get(str);
+            return f10037e.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -431,7 +431,7 @@ public final class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
-                Matcher matcher = f10258b.matcher(str);
+                Matcher matcher = f10034b.matcher(str);
                 if (matcher.find()) {
                     return matcher.group(1);
                 }

@@ -8,7 +8,7 @@ public class b {
     public Set<String> a = new HashSet();
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f58714b = new HashSet();
+    public Set<String> f56502b = new HashSet();
 
     public synchronized void a(String[] strArr, String[] strArr2) {
         if (strArr != null) {
@@ -27,7 +27,7 @@ public class b {
         if (strArr2 != null && strArr2.length > 0) {
             for (String str2 : strArr2) {
                 if (!TextUtils.isEmpty(str2)) {
-                    this.f58714b.add(str2);
+                    this.f56502b.add(str2);
                 }
             }
         }
@@ -38,6 +38,6 @@ public class b {
     }
 
     public synchronized String[] b() {
-        return (String[]) this.f58714b.toArray(new String[this.f58714b.size()]);
+        return (String[]) this.f56502b.toArray(new String[this.f56502b.size()]);
     }
 }

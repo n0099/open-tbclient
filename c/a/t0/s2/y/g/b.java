@@ -50,19 +50,19 @@ public class b {
     public BaseVideoPBReplyFragment a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AbsVideoPbFragment f24029b;
+    public AbsVideoPbFragment f23360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24030c;
+    public int f23361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24031d;
+    public boolean f23362d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TbRichTextView.y f24032e;
+    public final TbRichTextView.y f23363e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f24033f;
+    public c f23364f;
 
     /* loaded from: classes8.dex */
     public class a implements TbRichTextView.y {
@@ -103,7 +103,7 @@ public class b {
                     statisticItem.param("obj_locate", 3);
                     statisticItem.param("obj_type", z2 ? 1 : 2);
                     TiebaStatic.log(statisticItem);
-                    if (this.a.f24029b.isCommentFloatPage()) {
+                    if (this.a.f23360b.isCommentFloatPage()) {
                         StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
                         statisticItem2.param("fid", this.a.a.getPbModel().getForumId());
                         statisticItem2.param("tid", this.a.a.getPbModel().h1());
@@ -111,7 +111,7 @@ public class b {
                         statisticItem2.param("post_id", this.a.a.getPbModel().q0());
                         statisticItem2.param("obj_source", 1);
                         statisticItem2.param("obj_type", 10);
-                        statisticItem2.param("obj_locate", this.a.f24029b.getFromVideoPageType());
+                        statisticItem2.param("obj_locate", this.a.f23360b.getFromVideoPageType());
                         TiebaStatic.log(statisticItem2);
                     }
                     TiebaStatic.eventStat(this.a.a.getPageContext().getPageActivity(), "pic_pb", "");
@@ -163,17 +163,17 @@ public class b {
                     }
                     AbsPbActivity.e eVar = new AbsPbActivity.e();
                     this.a.m(str, i2, eVar);
-                    if (eVar.f48235h) {
+                    if (eVar.f46437h) {
                         TbRichText p = this.a.p(str, i2);
-                        if (p != null && this.a.f24030c >= 0 && this.a.f24030c < p.y().size()) {
+                        if (p != null && this.a.f23361c >= 0 && this.a.f23361c < p.y().size()) {
                             ArrayList<String> arrayList2 = new ArrayList<>();
-                            String a = g.a(p.y().get(this.a.f24030c));
+                            String a = g.a(p.y().get(this.a.f23361c));
                             int i6 = 0;
                             while (true) {
                                 if (i6 >= eVar.a.size()) {
                                     break;
                                 } else if (eVar.a.get(i6).equals(a)) {
-                                    eVar.f48237j = i6;
+                                    eVar.f46439j = i6;
                                     arrayList2.add(a);
                                     break;
                                 } else {
@@ -199,20 +199,20 @@ public class b {
                             ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = new ConcurrentHashMap<>();
                             if (!ListUtils.isEmpty(arrayList2)) {
                                 String str2 = arrayList2.get(0);
-                                concurrentHashMap2.put(str2, eVar.f48229b.get(str2));
+                                concurrentHashMap2.put(str2, eVar.f46431b.get(str2));
                             }
                             ImageViewerConfig.b bVar2 = new ImageViewerConfig.b();
                             bVar2.x(arrayList2);
-                            bVar2.z(eVar.f48230c);
-                            bVar2.y(eVar.f48231d);
-                            bVar2.O(eVar.f48232e);
-                            bVar2.C(eVar.f48234g);
+                            bVar2.z(eVar.f46432c);
+                            bVar2.y(eVar.f46433d);
+                            bVar2.O(eVar.f46434e);
+                            bVar2.C(eVar.f46436g);
                             bVar2.H(true);
-                            bVar2.J(eVar.f48236i);
+                            bVar2.J(eVar.f46438i);
                             bVar2.w(concurrentHashMap2);
                             bVar2.K(false);
                             bVar2.F(this.a.a.getPbModel().c1());
-                            bVar2.L(eVar.f48233f);
+                            bVar2.L(eVar.f46435f);
                             if (this.a.a.getPbModel() != null) {
                                 bVar2.G(this.a.a.getPbModel().v0());
                                 bVar2.A(this.a.a.getPbModel().getFromForumId());
@@ -233,20 +233,20 @@ public class b {
                     ConcurrentHashMap concurrentHashMap3 = new ConcurrentHashMap();
                     if (!ListUtils.isEmpty(arrayList3)) {
                         String str3 = (String) arrayList3.get(0);
-                        concurrentHashMap3.put(str3, eVar.f48229b.get(str3));
+                        concurrentHashMap3.put(str3, eVar.f46431b.get(str3));
                     }
                     ImageViewerConfig.b bVar3 = new ImageViewerConfig.b();
                     bVar3.x(arrayList3);
-                    bVar3.z(eVar.f48230c);
-                    bVar3.y(eVar.f48231d);
-                    bVar3.O(eVar.f48232e);
-                    bVar3.C(eVar.f48234g);
+                    bVar3.z(eVar.f46432c);
+                    bVar3.y(eVar.f46433d);
+                    bVar3.O(eVar.f46434e);
+                    bVar3.C(eVar.f46436g);
                     bVar3.H(true);
                     bVar3.J(eVar.a.get(0));
                     bVar3.w(concurrentHashMap3);
                     bVar3.F(this.a.a.getPbModel().c1());
                     bVar3.K(false);
-                    bVar3.L(eVar.f48233f);
+                    bVar3.L(eVar.f46435f);
                     bVar3.D(false);
                     if (this.a.a.getPbModel() != null) {
                         bVar3.G(this.a.a.getPbModel().v0());
@@ -268,12 +268,12 @@ public class b {
 
     /* renamed from: c.a.t0.s2.y.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1410b implements c.a {
+    public class C1425b implements c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C1410b(b bVar) {
+        public C1425b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -306,11 +306,11 @@ public class b {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-                AbsVideoPbFragment absVideoPbFragment = this.a.f24029b;
+                AbsVideoPbFragment absVideoPbFragment = this.a.f23360b;
                 if (absVideoPbFragment != null && absVideoPbFragment.isAdded()) {
                     if (view != null) {
                         if (view.getId() == i.richText) {
-                            AbsVideoPbFragment absVideoPbFragment2 = this.a.f24029b;
+                            AbsVideoPbFragment absVideoPbFragment2 = this.a.f23360b;
                             if (absVideoPbFragment2 != null && absVideoPbFragment2.richTextHandleSingleTap(view)) {
                                 return true;
                             }
@@ -326,7 +326,7 @@ public class b {
                             this.a.o(sparseArray);
                         }
                     }
-                    AbsVideoPbFragment absVideoPbFragment3 = this.a.f24029b;
+                    AbsVideoPbFragment absVideoPbFragment3 = this.a.f23360b;
                     if (absVideoPbFragment3 != null) {
                         absVideoPbFragment3.tapResetEditor();
                     }
@@ -362,12 +362,12 @@ public class b {
                 return;
             }
         }
-        this.f24030c = 0;
-        this.f24031d = false;
-        this.f24032e = new a(this);
-        this.f24033f = new c(new C1410b(this));
+        this.f23361c = 0;
+        this.f23362d = false;
+        this.f23363e = new a(this);
+        this.f23364f = new c(new C1425b(this));
         this.a = baseVideoPBReplyFragment;
-        this.f24029b = baseVideoPBReplyFragment.getVideoPbFragment();
+        this.f23360b = baseVideoPBReplyFragment.getVideoPbFragment();
     }
 
     public final void d(f fVar, ArrayList<PostData> arrayList) {
@@ -424,7 +424,7 @@ public class b {
                                     if (width < 80 || height < 80 || width * height < 10000) {
                                         return null;
                                     }
-                                    this.f24030c = i5;
+                                    this.f23361c = i5;
                                     return N;
                                 } else if (i4 > i2) {
                                     break;
@@ -446,7 +446,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbRichText, tbRichText2, Integer.valueOf(i2), Integer.valueOf(i3), arrayList, concurrentHashMap})) == null) {
             if (tbRichText == tbRichText2) {
-                this.f24031d = true;
+                this.f23362d = true;
             }
             if (tbRichText != null) {
                 int size = tbRichText.y().size();
@@ -492,7 +492,7 @@ public class b {
                                     }
                                 }
                             }
-                            if (!this.f24031d) {
+                            if (!this.f23362d) {
                                 i4++;
                             }
                         }
@@ -532,7 +532,7 @@ public class b {
     public TbRichTextView.y i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24032e : (TbRichTextView.y) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23363e : (TbRichTextView.y) invokeV.objValue;
     }
 
     public final String j(TbRichTextData tbRichTextData) {
@@ -562,7 +562,7 @@ public class b {
     public c l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f24033f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23364f : (c) invokeV.objValue;
     }
 
     public void m(String str, int i2, AbsPbActivity.e eVar) {
@@ -573,14 +573,14 @@ public class b {
         }
         f R0 = this.a.getPbModel().R0();
         TbRichText p = p(str, i2);
-        if (p == null || (tbRichTextData = p.y().get(this.f24030c)) == null) {
+        if (p == null || (tbRichTextData = p.y().get(this.f23361c)) == null) {
             return;
         }
-        eVar.f48233f = String.valueOf(p.getPostId());
+        eVar.f46435f = String.valueOf(p.getPostId());
         eVar.a = new ArrayList<>();
-        eVar.f48229b = new ConcurrentHashMap<>();
+        eVar.f46431b = new ConcurrentHashMap<>();
         if (!tbRichTextData.C().D()) {
-            eVar.f48235h = false;
+            eVar.f46437h = false;
             String a2 = g.a(tbRichTextData);
             eVar.a.add(a2);
             ImageUrlData imageUrlData = new ImageUrlData();
@@ -598,46 +598,46 @@ public class b {
             imageUrlData.postId = p.getPostId();
             imageUrlData.mIsReserver = this.a.getPbModel().c1();
             imageUrlData.mIsSeeHost = this.a.getPbModel().v0();
-            eVar.f48229b.put(a2, imageUrlData);
+            eVar.f46431b.put(a2, imageUrlData);
             if (R0 != null) {
                 if (R0.l() != null) {
-                    eVar.f48230c = R0.l().getName();
-                    eVar.f48231d = R0.l().getId();
+                    eVar.f46432c = R0.l().getName();
+                    eVar.f46433d = R0.l().getId();
                 }
                 if (R0.O() != null) {
-                    eVar.f48232e = R0.O().g0();
+                    eVar.f46434e = R0.O().g0();
                 }
-                eVar.f48234g = R0.s() == 1;
+                eVar.f46436g = R0.s() == 1;
             }
-            imageUrlData.threadId = c.a.d.f.m.b.g(eVar.f48232e, -1L);
+            imageUrlData.threadId = c.a.d.f.m.b.g(eVar.f46434e, -1L);
             return;
         }
-        eVar.f48235h = true;
+        eVar.f46437h = true;
         int size = R0.F().size();
-        this.f24031d = false;
-        eVar.f48237j = -1;
-        int f2 = R0.j() != null ? f(R0.j().N(), p, i2, i2, eVar.a, eVar.f48229b) : i2;
+        this.f23362d = false;
+        eVar.f46439j = -1;
+        int f2 = R0.j() != null ? f(R0.j().N(), p, i2, i2, eVar.a, eVar.f46431b) : i2;
         for (int i3 = 0; i3 < size; i3++) {
             PostData postData = R0.F().get(i3);
             if (postData.G() == null || R0.j() == null || R0.j().G() == null || !postData.G().equals(R0.j().G())) {
-                f2 = f(postData.N(), p, f2, i2, eVar.a, eVar.f48229b);
+                f2 = f(postData.N(), p, f2, i2, eVar.a, eVar.f46431b);
             }
         }
         if (eVar.a.size() > 0) {
             ArrayList<String> arrayList = eVar.a;
-            eVar.f48236i = arrayList.get(arrayList.size() - 1);
+            eVar.f46438i = arrayList.get(arrayList.size() - 1);
         }
         if (R0 != null) {
             if (R0.l() != null) {
-                eVar.f48230c = R0.l().getName();
-                eVar.f48231d = R0.l().getId();
+                eVar.f46432c = R0.l().getName();
+                eVar.f46433d = R0.l().getId();
             }
             if (R0.O() != null) {
-                eVar.f48232e = R0.O().g0();
+                eVar.f46434e = R0.O().g0();
             }
-            eVar.f48234g = R0.s() == 1;
+            eVar.f46436g = R0.s() == 1;
         }
-        eVar.f48237j = f2;
+        eVar.f46439j = f2;
     }
 
     public AbsPbActivity.e n(String str) {
@@ -695,7 +695,7 @@ public class b {
         if (n == null) {
             return;
         }
-        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.a.getPageContext().getPageActivity()).createSubPbActivityConfig(h1, G, "pb", true, this.f24029b.isCommentFloatPage(), null, false, null, V, postData.S(), this.a.getPbModel().R0().d(), false, postData.t() != null ? postData.t().getIconInfo() : null, 0).addBigImageData(n.a, n.f48229b, n.f48234g, n.f48237j);
+        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.a.getPageContext().getPageActivity()).createSubPbActivityConfig(h1, G, "pb", true, this.f23360b.isCommentFloatPage(), null, false, null, V, postData.S(), this.a.getPbModel().R0().d(), false, postData.t() != null ? postData.t().getIconInfo() : null, 0).addBigImageData(n.a, n.f46431b, n.f46436g, n.f46439j);
         addBigImageData.setKeyPageStartFrom(this.a.getPbModel().Q0());
         addBigImageData.setFromFrsForumId(this.a.getPbModel().getFromForumId());
         addBigImageData.setWorksInfoData(this.a.getPbModel().m1());

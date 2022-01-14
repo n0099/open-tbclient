@@ -24,7 +24,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.core.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2089a {
+    public static class C2106a {
         public static String a(Context context) {
             File file = new File(b(context), "kwad_ex");
             if (!file.exists()) {
@@ -98,7 +98,7 @@ public class a {
     @NonNull
     public static com.kwad.sdk.crash.b b(@NonNull Context context, @NonNull final SdkConfig sdkConfig) {
         final Context applicationContext = context.getApplicationContext();
-        return new b.a().a(applicationContext).f("3.3.17.4").a(3031704).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(1).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(av.w(applicationContext)).b(av.u()).a("Android").c(sdkConfig.appId).d(C2089a.a(applicationContext)).a(new f() { // from class: com.kwad.sdk.core.kwai.a.2
+        return new b.a().a(applicationContext).f("3.3.17.4").a(3031704).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(1).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(av.w(applicationContext)).b(av.u()).a("Android").c(sdkConfig.appId).d(C2106a.a(applicationContext)).a(new f() { // from class: com.kwad.sdk.core.kwai.a.2
             @Override // com.kwad.sdk.crash.f
             public com.kwad.sdk.crash.model.message.a a(int i2) {
                 com.kwad.sdk.crash.model.message.a aVar = new com.kwad.sdk.crash.model.message.a();

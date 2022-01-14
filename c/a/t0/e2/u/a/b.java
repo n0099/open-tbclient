@@ -35,8 +35,8 @@ public class b implements ThirdPartAliRechargeService {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
             c.a.s0.e.a aVar = new c.a.s0.e.a();
             aVar.a = activity;
-            aVar.f12635b = str;
-            aVar.f12636c = z;
+            aVar.f12338b = str;
+            aVar.f12339c = z;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, aVar);
             return runTask == null ? "" : (String) runTask.getData();
         }

@@ -17,19 +17,19 @@ public class a extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public p f18406d;
+    public p f17954d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, String> f18407e;
+    public Map<String, String> f17955e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f18408f;
+    public Object f17956f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18409g;
+    public int f17957g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18410h;
+    public int f17958h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext tbPageContext, int i2) {
@@ -55,58 +55,58 @@ public class a extends g {
     public Object d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18408f : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17956f : invokeV.objValue;
     }
 
     public p e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18406d : (p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17954d : (p) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18409g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17957g : invokeV.intValue;
     }
 
     public Map<String, String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18407e : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17955e : (Map) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18410h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17958h : invokeV.intValue;
     }
 
     public void i(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-            this.f18408f = obj;
+            this.f17956f = obj;
         }
     }
 
     public void j(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, pVar) == null) {
-            this.f18406d = pVar;
+            this.f17954d = pVar;
         }
     }
 
     public void k(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            this.f18407e = map;
+            this.f17955e = map;
         }
     }
 
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f18410h = i2;
+            this.f17958h = i2;
         }
     }
 }

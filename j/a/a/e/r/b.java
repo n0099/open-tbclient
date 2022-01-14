@@ -20,12 +20,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Gson f64855c;
+    public static Gson f62425c;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f64856b;
+    public Handler f62426b;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -33,13 +33,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f64857e;
+        public final /* synthetic */ int f62427e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UrlPageParams f64858f;
+        public final /* synthetic */ UrlPageParams f62428f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f64859g;
+        public final /* synthetic */ b f62429g;
 
         public a(b bVar, int i2, UrlPageParams urlPageParams) {
             Interceptable interceptable = $ic;
@@ -56,39 +56,39 @@ public class b {
                     return;
                 }
             }
-            this.f64859g = bVar;
-            this.f64857e = i2;
-            this.f64858f = urlPageParams;
+            this.f62429g = bVar;
+            this.f62427e = i2;
+            this.f62428f = urlPageParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f64859g.a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62429g.a == null) {
                 return;
             }
-            if (this.f64857e == 1) {
-                this.f64859g.a.onOpenUrl(this.f64858f);
+            if (this.f62427e == 1) {
+                this.f62429g.a.onOpenUrl(this.f62428f);
             }
-            if (this.f64857e == 3) {
-                this.f64859g.a.onUpdateTopUi(this.f64858f);
+            if (this.f62427e == 3) {
+                this.f62429g.a.onUpdateTopUi(this.f62428f);
             }
         }
     }
 
     /* renamed from: j.a.a.e.r.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC2296b implements Runnable {
+    public class RunnableC2313b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f64860e;
+        public final /* synthetic */ String f62430e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f64861f;
+        public final /* synthetic */ b f62431f;
 
-        public RunnableC2296b(b bVar, String str) {
+        public RunnableC2313b(b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,17 +103,17 @@ public class b {
                     return;
                 }
             }
-            this.f64861f = bVar;
-            this.f64860e = str;
+            this.f62431f = bVar;
+            this.f62430e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f64861f.a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62431f.a == null) {
                 return;
             }
-            this.f64861f.a.onNativeOperation(new NativeOperationParams(5, this.f64860e));
+            this.f62431f.a.onNativeOperation(new NativeOperationParams(5, this.f62430e));
         }
     }
 
@@ -123,10 +123,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f64862e;
+        public final /* synthetic */ String f62432e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f64863f;
+        public final /* synthetic */ b f62433f;
 
         public c(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -143,17 +143,17 @@ public class b {
                     return;
                 }
             }
-            this.f64863f = bVar;
-            this.f64862e = str;
+            this.f62433f = bVar;
+            this.f62432e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f64863f.a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62433f.a == null) {
                 return;
             }
-            this.f64863f.a.onNativeOperation(new NativeOperationParams(4, this.f64862e));
+            this.f62433f.a.onNativeOperation(new NativeOperationParams(4, this.f62432e));
         }
     }
 
@@ -163,10 +163,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f64864e;
+        public final /* synthetic */ String f62434e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f64865f;
+        public final /* synthetic */ b f62435f;
 
         public d(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -183,17 +183,17 @@ public class b {
                     return;
                 }
             }
-            this.f64865f = bVar;
-            this.f64864e = str;
+            this.f62435f = bVar;
+            this.f62434e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f64865f.a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62435f.a == null) {
                 return;
             }
-            this.f64865f.a.onNativeOperation(new NativeOperationParams(6, this.f64864e));
+            this.f62435f.a.onNativeOperation(new NativeOperationParams(6, this.f62434e));
         }
     }
 
@@ -221,7 +221,7 @@ public class b {
                 return;
             }
         }
-        f64855c = new Gson();
+        f62425c = new Gson();
     }
 
     public b(e eVar) {
@@ -239,7 +239,7 @@ public class b {
                 return;
             }
         }
-        this.f64856b = new Handler(Looper.getMainLooper());
+        this.f62426b = new Handler(Looper.getMainLooper());
         this.a = eVar;
     }
 
@@ -249,7 +249,7 @@ public class b {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 runnable.run();
             } else {
-                this.f64856b.post(runnable);
+                this.f62426b.post(runnable);
             }
         }
     }
@@ -279,7 +279,7 @@ public class b {
                     }
                     return;
                 } else if (this.a != null) {
-                    b(new RunnableC2296b(this, str));
+                    b(new RunnableC2313b(this, str));
                     return;
                 } else {
                     return;
@@ -288,7 +288,7 @@ public class b {
             String str2 = i2 == 1 ? "CODE_OPEN_URL_PAGE" : "CODE_UPFATE_TOP_INFO";
             UrlPageParams urlPageParams2 = null;
             try {
-                urlPageParams = (UrlPageParams) f64855c.fromJson(str, (Class<Object>) UrlPageParams.class);
+                urlPageParams = (UrlPageParams) f62425c.fromJson(str, (Class<Object>) UrlPageParams.class);
                 try {
                     RLog.info("YYPaySdkJsInterface", "%s params: %s", str2, urlPageParams);
                 } catch (Throwable th) {

@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
@@ -174,7 +175,7 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
                 }
             }
             PENDING = new Status("PENDING", 0);
-            RUNNING = new Status("RUNNING", 1);
+            RUNNING = new Status(TornadoLiteRuntime.STATE_RUNNING, 1);
             Status status = new Status("FINISHED", 2);
             FINISHED = status;
             $VALUES = new Status[]{PENDING, RUNNING, status};

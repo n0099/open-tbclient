@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<b> f21225b;
+    public ArrayList<b> f20664b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,12 +44,12 @@ public class c {
             JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
             cVar.a = a.a(optJSONObject);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                cVar.f21225b = new ArrayList<>();
+                cVar.f20664b = new ArrayList<>();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     try {
                         b a = b.a(optJSONArray.getJSONObject(i2));
                         if (a != null) {
-                            cVar.f21225b.add(a);
+                            cVar.f20664b.add(a);
                         }
                     } catch (JSONException e2) {
                         e2.printStackTrace();

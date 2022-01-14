@@ -85,12 +85,12 @@ public class GroupedLinkedMap<K extends Poolable, V> {
             return invokeV.intValue;
         }
 
-        public LinkedEntry(K k2) {
+        public LinkedEntry(K k) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k2};
+                Object[] objArr = {k};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -102,7 +102,7 @@ public class GroupedLinkedMap<K extends Poolable, V> {
             }
             this.prev = this;
             this.next = this;
-            this.key = k2;
+            this.key = k;
         }
     }
 
@@ -163,16 +163,16 @@ public class GroupedLinkedMap<K extends Poolable, V> {
     }
 
     @Nullable
-    public V get(K k2) {
+    public V get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
-            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k);
             if (linkedEntry == null) {
-                linkedEntry = new LinkedEntry<>(k2);
-                this.keyToEntry.put(k2, linkedEntry);
+                linkedEntry = new LinkedEntry<>(k);
+                this.keyToEntry.put(k, linkedEntry);
             } else {
-                k2.offer();
+                k.offer();
             }
             makeHead(linkedEntry);
             return linkedEntry.removeLast();
@@ -180,16 +180,16 @@ public class GroupedLinkedMap<K extends Poolable, V> {
         return (V) invokeL.objValue;
     }
 
-    public void put(K k2, V v) {
+    public void put(K k, V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2, v) == null) {
-            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k, v) == null) {
+            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k);
             if (linkedEntry == null) {
-                linkedEntry = new LinkedEntry<>(k2);
+                linkedEntry = new LinkedEntry<>(k);
                 makeTail(linkedEntry);
-                this.keyToEntry.put(k2, linkedEntry);
+                this.keyToEntry.put(k, linkedEntry);
             } else {
-                k2.offer();
+                k.offer();
             }
             linkedEntry.add(v);
         }

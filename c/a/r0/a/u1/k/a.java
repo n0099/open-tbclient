@@ -15,13 +15,13 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f9566b;
+    public long f9358b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f9567c;
+    public long f9359c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9568d;
+    public int f9360d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        this.f9568d = 0;
+        this.f9360d = 0;
     }
 
     public String a() {
@@ -48,25 +48,25 @@ public class a {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9568d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9360d : invokeV.intValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9567c - this.f9566b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9359c - this.f9358b : invokeV.longValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9567c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9359c : invokeV.longValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f9566b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f9358b : invokeV.longValue;
     }
 
     public void f(String str) {
@@ -79,21 +79,21 @@ public class a {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f9568d = i2;
+            this.f9360d = i2;
         }
     }
 
     public void h(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f9567c = j2;
+            this.f9359c = j2;
         }
     }
 
     public void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.f9566b = j2;
+            this.f9358b = j2;
         }
     }
 
@@ -101,7 +101,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "ApiCalledInfo{mApiName='" + this.a + ExtendedMessageFormat.QUOTE + ", mStart=" + this.f9566b + ", mEnd=" + this.f9567c + ", cost = " + (this.f9567c - this.f9566b) + "ms" + ExtendedMessageFormat.END_FE;
+            return "ApiCalledInfo{mApiName='" + this.a + ExtendedMessageFormat.QUOTE + ", mStart=" + this.f9358b + ", mEnd=" + this.f9359c + ", cost = " + (this.f9359c - this.f9358b) + "ms" + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

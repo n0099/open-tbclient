@@ -1,7 +1,7 @@
 package c.a.t0.d1;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -20,28 +20,28 @@ import java.util.List;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<d2> a;
+    public final ArrayList<e2> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f16116b;
+    public boolean f15790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public x0 f16117c;
+    public x0 f15791c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AntiData f16118d;
+    public AntiData f15792d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16119e;
+    public String f15793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16120f;
+    public String f15794f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16121g;
+    public boolean f15795g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16122h;
+    public boolean f15796h;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -51,7 +51,7 @@ public class b {
 
     /* renamed from: c.a.t0.d1.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0994b {
+    public static class C1012b {
         public static /* synthetic */ Interceptable $ic;
         public static b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,25 +80,25 @@ public class b {
     public static b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0994b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1012b.a : (b) invokeV.objValue;
     }
 
-    public boolean a(d2 d2Var) {
+    public boolean a(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e2Var)) == null) {
+            if (e2Var == null) {
                 return false;
             }
             if (this.a.size() > 29) {
-                x0 x0Var = this.f16117c;
+                x0 x0Var = this.f15791c;
                 if (x0Var != null) {
                     x0Var.b(1);
                 }
                 return false;
             }
-            this.a.add(d2Var);
-            x0 x0Var2 = this.f16117c;
+            this.a.add(e2Var);
+            x0 x0Var2 = this.f15791c;
             if (x0Var2 != null) {
                 x0Var2.c(this.a.size(), 1);
             }
@@ -110,15 +110,15 @@ public class b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Iterator<d2> it = this.a.iterator();
+            Iterator<e2> it = this.a.iterator();
             while (it.hasNext()) {
-                d2 next = it.next();
+                e2 next = it.next();
                 if (next != null) {
                     next.k4(false);
                 }
             }
             this.a.clear();
-            x0 x0Var = this.f16117c;
+            x0 x0Var = this.f15791c;
             if (x0Var != null) {
                 x0Var.c(0, 1);
             }
@@ -128,22 +128,22 @@ public class b {
     public AntiData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16118d : (AntiData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15792d : (AntiData) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16119e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15793e : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16120f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15794f : (String) invokeV.objValue;
     }
 
-    public List<d2> g() {
+    public List<e2> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (List) invokeV.objValue;
@@ -152,19 +152,19 @@ public class b {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f16122h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15796h : invokeV.booleanValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16116b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15790b : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f16121g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f15795g : invokeV.booleanValue;
     }
 
     public void k(List<String> list) {
@@ -172,9 +172,9 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, list) == null) || ListUtils.isEmpty(list) || ListUtils.isEmpty(this.a)) {
             return;
         }
-        Iterator<d2> it = this.a.iterator();
+        Iterator<e2> it = this.a.iterator();
         while (it.hasNext()) {
-            d2 next = it.next();
+            e2 next = it.next();
             int i2 = 0;
             while (true) {
                 if (i2 >= list.size()) {
@@ -187,17 +187,17 @@ public class b {
                 }
             }
         }
-        x0 x0Var = this.f16117c;
+        x0 x0Var = this.f15791c;
         if (x0Var != null) {
             x0Var.c(this.a.size(), 1);
         }
     }
 
-    public void l(d2 d2Var) {
+    public void l(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, d2Var) == null) {
-            this.a.remove(d2Var);
-            x0 x0Var = this.f16117c;
+        if (interceptable == null || interceptable.invokeL(1048586, this, e2Var) == null) {
+            this.a.remove(e2Var);
+            x0 x0Var = this.f15791c;
             if (x0Var != null) {
                 x0Var.c(this.a.size(), 1);
             }
@@ -215,22 +215,22 @@ public class b {
     public void n(AntiData antiData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, antiData) == null) {
-            this.f16118d = antiData;
+            this.f15792d = antiData;
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f16122h = z;
+            this.f15796h = z;
         }
     }
 
     public void p(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f16116b = z;
-            x0 x0Var = this.f16117c;
+            this.f15790b = z;
+            x0 x0Var = this.f15791c;
             if (x0Var != null) {
                 x0Var.a(z, z2, 1);
             }
@@ -240,28 +240,28 @@ public class b {
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f16119e = str;
+            this.f15793e = str;
         }
     }
 
     public void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f16120f = str;
+            this.f15794f = str;
         }
     }
 
     public void s(x0 x0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, x0Var) == null) {
-            this.f16117c = x0Var;
+            this.f15791c = x0Var;
         }
     }
 
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f16121g = z;
+            this.f15795g = z;
         }
     }
 
@@ -278,7 +278,7 @@ public class b {
                 return;
             }
         }
-        this.f16116b = false;
+        this.f15790b = false;
         this.a = new ArrayList<>();
     }
 }

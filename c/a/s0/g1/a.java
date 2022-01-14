@@ -27,34 +27,34 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12809e;
+    public Context f12505e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12810f;
+    public int f12506f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<String> f12811g;
+    public List<String> f12507g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f12812h;
+    public List<String> f12508h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<String> f12813i;
+    public List<String> f12509i;
 
     /* renamed from: c.a.s0.g1.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0823a {
+    public class C0833a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f12814b;
+        public TextView f12510b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f12815c;
+        public TextView f12511c;
 
-        public C0823a(a aVar, View view) {
+        public C0833a(a aVar, View view) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,8 +72,8 @@ public class a extends BaseAdapter {
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.bar_select_rule_head_view);
             this.a = tbImageView;
             tbImageView.setDefaultBgResource(R.color.CAM_X0206);
-            this.f12814b = (TextView) view.findViewById(R.id.bar_select_rule_title);
-            this.f12815c = (TextView) view.findViewById(R.id.bar_select_rule_content);
+            this.f12510b = (TextView) view.findViewById(R.id.bar_select_rule_title);
+            this.f12511c = (TextView) view.findViewById(R.id.bar_select_rule_content);
         }
     }
 
@@ -84,7 +84,7 @@ public class a extends BaseAdapter {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f12816b;
+        public TextView f12512b;
 
         public b(a aVar, View view) {
             Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class a extends BaseAdapter {
                 }
             }
             this.a = (TextView) view.findViewById(R.id.pb_vote_select_rule_title);
-            this.f12816b = (TextView) view.findViewById(R.id.pb_vote_select_rule_content);
+            this.f12512b = (TextView) view.findViewById(R.id.pb_vote_select_rule_content);
         }
     }
 
@@ -121,20 +121,20 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f12810f = 0;
-        this.f12809e = context;
-        this.f12811g = new ArrayList();
-        this.f12812h = new ArrayList();
-        this.f12813i = new ArrayList();
+        this.f12506f = 0;
+        this.f12505e = context;
+        this.f12507g = new ArrayList();
+        this.f12508h = new ArrayList();
+        this.f12509i = new ArrayList();
     }
 
-    public void a(C0823a c0823a) {
+    public void a(C0833a c0833a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, c0823a) == null) || c0823a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, c0833a) == null) || c0833a == null) {
             return;
         }
-        SkinManager.setViewTextColor(c0823a.f12814b, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(c0823a.f12815c, R.color.CAM_X0109, 1);
+        SkinManager.setViewTextColor(c0833a.f12510b, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(c0833a.f12511c, R.color.CAM_X0109, 1);
     }
 
     public void b(b bVar) {
@@ -143,17 +143,17 @@ public class a extends BaseAdapter {
             return;
         }
         SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(bVar.f12816b, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(bVar.f12512b, R.color.CAM_X0109);
     }
 
     public void c(List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, list2) == null) {
-            this.f12812h.clear();
-            this.f12813i.clear();
+            this.f12508h.clear();
+            this.f12509i.clear();
             if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
-                this.f12812h.addAll(list);
-                this.f12813i.addAll(list2);
+                this.f12508h.addAll(list);
+                this.f12509i.addAll(list2);
             }
             notifyDataSetChanged();
         }
@@ -162,9 +162,9 @@ public class a extends BaseAdapter {
     public void d(List<String> list, List<String> list2, List<String> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, list, list2, list3) == null) {
-            this.f12811g.clear();
+            this.f12507g.clear();
             if (!ListUtils.isEmpty(list)) {
-                this.f12811g.addAll(list);
+                this.f12507g.addAll(list);
             }
             c(list2, list3);
         }
@@ -173,7 +173,7 @@ public class a extends BaseAdapter {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f12810f = i2;
+            this.f12506f = i2;
         }
     }
 
@@ -182,10 +182,10 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (ListUtils.isEmpty(this.f12812h)) {
+            if (ListUtils.isEmpty(this.f12508h)) {
                 return 0;
             }
-            return this.f12812h.size();
+            return this.f12508h.size();
         }
         return invokeV.intValue;
     }
@@ -222,49 +222,49 @@ public class a extends BaseAdapter {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i2, view, viewGroup)) == null) {
-            int i3 = this.f12810f;
+            int i3 = this.f12506f;
             if (i3 == 0) {
-                view = LayoutInflater.from(this.f12809e).inflate(R.layout.pb_vote_select_rule_item, (ViewGroup) null, false);
+                view = LayoutInflater.from(this.f12505e).inflate(R.layout.pb_vote_select_rule_item, (ViewGroup) null, false);
                 b bVar = new b(this, view);
-                if (!ListUtils.isEmpty(this.f12812h) && this.f12812h.size() > i2 && !TextUtils.isEmpty(this.f12812h.get(i2))) {
-                    bVar.a.setText(this.f12812h.get(i2));
+                if (!ListUtils.isEmpty(this.f12508h) && this.f12508h.size() > i2 && !TextUtils.isEmpty(this.f12508h.get(i2))) {
+                    bVar.a.setText(this.f12508h.get(i2));
                     bVar.a.setVisibility(0);
                 } else {
                     bVar.a.setVisibility(8);
                 }
-                if (!ListUtils.isEmpty(this.f12813i) && this.f12813i.size() > i2 && !TextUtils.isEmpty(this.f12813i.get(i2))) {
-                    bVar.f12816b.setText(this.f12813i.get(i2));
-                    bVar.f12816b.setVisibility(0);
+                if (!ListUtils.isEmpty(this.f12509i) && this.f12509i.size() > i2 && !TextUtils.isEmpty(this.f12509i.get(i2))) {
+                    bVar.f12512b.setText(this.f12509i.get(i2));
+                    bVar.f12512b.setVisibility(0);
                 } else {
-                    bVar.f12816b.setVisibility(8);
+                    bVar.f12512b.setVisibility(8);
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
                 layoutParams.weight = 1.0f;
                 view.setLayoutParams(layoutParams);
                 b(bVar);
             } else if (i3 == 1) {
-                view = LayoutInflater.from(this.f12809e).inflate(R.layout.bar_select_rule_item, (ViewGroup) null, false);
-                C0823a c0823a = new C0823a(this, view);
-                if (!ListUtils.isEmpty(this.f12811g) && this.f12811g.size() > i2 && !TextUtils.isEmpty(this.f12811g.get(i2))) {
-                    c0823a.a.setDefaultResource(R.drawable.transparent_bg);
-                    c0823a.a.startLoad(this.f12811g.get(i2), 10, false);
+                view = LayoutInflater.from(this.f12505e).inflate(R.layout.bar_select_rule_item, (ViewGroup) null, false);
+                C0833a c0833a = new C0833a(this, view);
+                if (!ListUtils.isEmpty(this.f12507g) && this.f12507g.size() > i2 && !TextUtils.isEmpty(this.f12507g.get(i2))) {
+                    c0833a.a.setDefaultResource(R.drawable.transparent_bg);
+                    c0833a.a.startLoad(this.f12507g.get(i2), 10, false);
                 }
-                if (!ListUtils.isEmpty(this.f12812h) && this.f12812h.size() > i2 && !TextUtils.isEmpty(this.f12812h.get(i2))) {
-                    c0823a.f12814b.setText(this.f12812h.get(i2));
-                    c0823a.f12814b.setVisibility(0);
+                if (!ListUtils.isEmpty(this.f12508h) && this.f12508h.size() > i2 && !TextUtils.isEmpty(this.f12508h.get(i2))) {
+                    c0833a.f12510b.setText(this.f12508h.get(i2));
+                    c0833a.f12510b.setVisibility(0);
                 } else {
-                    c0823a.f12814b.setVisibility(8);
+                    c0833a.f12510b.setVisibility(8);
                 }
-                if (!ListUtils.isEmpty(this.f12813i) && this.f12813i.size() > i2 && !TextUtils.isEmpty(this.f12813i.get(i2))) {
-                    c0823a.f12815c.setText(this.f12813i.get(i2));
-                    c0823a.f12815c.setVisibility(0);
+                if (!ListUtils.isEmpty(this.f12509i) && this.f12509i.size() > i2 && !TextUtils.isEmpty(this.f12509i.get(i2))) {
+                    c0833a.f12511c.setText(this.f12509i.get(i2));
+                    c0833a.f12511c.setVisibility(0);
                 } else {
-                    c0823a.f12815c.setVisibility(8);
+                    c0833a.f12511c.setVisibility(8);
                 }
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -2);
                 layoutParams2.weight = 1.0f;
                 view.setLayoutParams(layoutParams2);
-                a(c0823a);
+                a(c0833a);
             }
             return view;
         }

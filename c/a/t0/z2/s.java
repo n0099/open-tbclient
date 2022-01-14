@@ -18,12 +18,12 @@ public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static s f26868c;
+    public static s f26071c;
     public transient /* synthetic */ FieldHolder $fh;
     public LinkedHashMap<String, Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f26869b;
+    public CustomMessageListener f26072b;
 
     /* loaded from: classes9.dex */
     public class a extends CustomMessageListener {
@@ -92,22 +92,22 @@ public class s {
             }
         }
         this.a = new LinkedHashMap<>(150, 0.75f, true);
-        this.f26869b = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.f26869b);
+        this.f26072b = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.f26072b);
     }
 
     public static s d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f26868c == null) {
+            if (f26071c == null) {
                 synchronized (s.class) {
-                    if (f26868c == null) {
-                        f26868c = new s();
+                    if (f26071c == null) {
+                        f26071c = new s();
                     }
                 }
             }
-            return f26868c;
+            return f26071c;
         }
         return (s) invokeV.objValue;
     }

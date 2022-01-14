@@ -1,6 +1,6 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -22,7 +22,7 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public long mCursor;
     public boolean mHasMore;
-    public List<d2> mThreadDataList;
+    public List<e2> mThreadDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterDynamicTabHttpResMessage() {
@@ -65,9 +65,9 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
             }
             for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
                 if (threadInfo != null) {
-                    d2 d2Var = new d2();
-                    d2Var.c3(threadInfo);
-                    this.mThreadDataList.add(d2Var);
+                    e2 e2Var = new e2();
+                    e2Var.c3(threadInfo);
+                    this.mThreadDataList.add(e2Var);
                 }
             }
         }

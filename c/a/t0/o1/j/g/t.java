@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class t extends c.a.d.n.e.a<c.a.t0.l2.b.a, AdapterViewHolder<NearbyForumFriendCardView>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class t extends c.a.d.n.e.a<c.a.t0.l2.b.a, AdapterViewHolder<NearbyForumF
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.l2.b.a.f19624h);
+        super(tbPageContext.getPageActivity(), c.a.t0.l2.b.a.f19119h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

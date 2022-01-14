@@ -17,10 +17,10 @@ public class BdAsyncTaskParallel {
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallelType f32180b;
+    public BdAsyncTaskParallelType f31169b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32181c;
+    public int f31170c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -106,10 +106,10 @@ public class BdAsyncTaskParallel {
             }
         }
         this.a = null;
-        this.f32180b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f32181c = 1;
+        this.f31169b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f31170c = 1;
         if (bdAsyncTaskParallelType != null && bdUniqueId != null) {
-            this.f32180b = bdAsyncTaskParallelType;
+            this.f31169b = bdAsyncTaskParallelType;
             this.a = bdUniqueId;
             return;
         }
@@ -119,7 +119,7 @@ public class BdAsyncTaskParallel {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32181c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31170c : invokeV.intValue;
     }
 
     public int b() {
@@ -138,7 +138,7 @@ public class BdAsyncTaskParallel {
     public BdAsyncTaskParallelType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32180b : (BdAsyncTaskParallelType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31169b : (BdAsyncTaskParallelType) invokeV.objValue;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i2) {
@@ -157,11 +157,11 @@ public class BdAsyncTaskParallel {
             }
         }
         this.a = null;
-        this.f32180b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f32181c = 1;
+        this.f31169b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f31170c = 1;
         if (bdUniqueId != null) {
-            this.f32180b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-            this.f32181c = i2;
+            this.f31169b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+            this.f31170c = i2;
             this.a = bdUniqueId;
             return;
         }

@@ -29,34 +29,34 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
     public AlertDialog a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f23116b;
+    public TbPageContext f22479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f23117c;
+    public Context f22480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DialogInterface.OnKeyListener f23118d;
+    public DialogInterface.OnKeyListener f22481d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DialogInterface.OnCancelListener f23119e;
+    public DialogInterface.OnCancelListener f22482e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23120f;
+    public int f22483f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23121g;
+    public boolean f22484g;
 
     /* renamed from: h  reason: collision with root package name */
-    public V f23122h;
+    public V f22485h;
 
     /* renamed from: c.a.t0.s2.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1375a implements ViewHelper.ViewCallback {
+    public class C1390a implements ViewHelper.ViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AtomicBoolean a;
 
-        public C1375a(a aVar, AtomicBoolean atomicBoolean) {
+        public C1390a(a aVar, AtomicBoolean atomicBoolean) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,18 +104,18 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
                 return;
             }
         }
-        this.f23120f = -1;
-        this.f23121g = false;
-        this.f23116b = tbPageContext;
-        this.f23117c = tbPageContext.getPageActivity();
-        this.f23122h = v;
+        this.f22483f = -1;
+        this.f22484g = false;
+        this.f22479b = tbPageContext;
+        this.f22480c = tbPageContext.getPageActivity();
+        this.f22485h = v;
         d(d2);
     }
 
     public void d(D d2) {
         V v;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, d2) == null) || (v = this.f23122h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, d2) == null) || (v = this.f22485h) == null) {
             return;
         }
         v.b(d2);
@@ -128,7 +128,7 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (alertDialog = this.a) == null) {
             return;
         }
-        c.a.d.f.m.g.a(alertDialog, this.f23116b.getPageActivity());
+        c.a.d.f.m.g.a(alertDialog, this.f22479b.getPageActivity());
     }
 
     @Override // c.a.t0.s2.t.f
@@ -137,38 +137,38 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             AlertDialog alertDialog = this.a;
             if (alertDialog != null) {
-                c.a.d.f.m.g.i(alertDialog, this.f23116b.getPageActivity());
+                c.a.d.f.m.g.i(alertDialog, this.f22479b.getPageActivity());
                 return;
             }
-            if (this.f23121g) {
-                this.a = new AlertDialog.Builder(this.f23117c, R.style.search_dialog).create();
+            if (this.f22484g) {
+                this.a = new AlertDialog.Builder(this.f22480c, R.style.search_dialog).create();
             } else {
-                this.a = new AlertDialog.Builder(this.f23117c).create();
+                this.a = new AlertDialog.Builder(this.f22480c).create();
             }
             this.a.setCanceledOnTouchOutside(c());
             this.a.setCancelable(b());
-            this.a.setOnKeyListener(this.f23118d);
-            DialogInterface.OnCancelListener onCancelListener = this.f23119e;
+            this.a.setOnKeyListener(this.f22481d);
+            DialogInterface.OnCancelListener onCancelListener = this.f22482e;
             if (onCancelListener != null) {
                 this.a.setOnCancelListener(onCancelListener);
             }
-            c.a.d.f.m.g.i(this.a, this.f23116b.getPageActivity());
+            c.a.d.f.m.g.i(this.a, this.f22479b.getPageActivity());
             if (this.a.getWindow().getDecorView().getParent() == null) {
                 return;
             }
             Window window = this.a.getWindow();
-            if (this.f23120f == -1) {
-                this.f23120f = 17;
+            if (this.f22483f == -1) {
+                this.f22483f = 17;
             }
-            window.setGravity(this.f23120f);
+            window.setGravity(this.f22483f);
             window.setBackgroundDrawableResource(R.drawable.transparent_bg);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;
-            DisplayMetrics q = n.q(this.f23116b.getPageActivity());
+            DisplayMetrics q = n.q(this.f22479b.getPageActivity());
             if (q != null) {
                 int a = a();
-                if (UtilHelper.getRealScreenOrientation(this.f23117c) == 2) {
+                if (UtilHelper.getRealScreenOrientation(this.f22480c) == 2) {
                     attributes.width = q.heightPixels - (a * 2);
                 } else {
                     attributes.width = q.widthPixels - (a * 2);
@@ -176,9 +176,9 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.f23122h.getViewGroup());
+            window.setContentView(this.f22485h.getViewGroup());
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ViewHelper.processAllViewsIn(this.f23122h.getViewGroup(), false, new C1375a(this, atomicBoolean));
+            ViewHelper.processAllViewsIn(this.f22485h.getViewGroup(), false, new C1390a(this, atomicBoolean));
             if (atomicBoolean.get()) {
                 window.clearFlags(131080);
             }

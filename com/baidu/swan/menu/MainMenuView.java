@@ -26,16 +26,14 @@ public class MainMenuView extends BaseMenuView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f41302h;
+    public LinearLayout f39906h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f41303i;
+    public View f39907i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f41304j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public RecyclerView f41305k;
+    public View f39908j;
+    public RecyclerView k;
     public MenuContentAdapter l;
     public RecyclerView m;
     public MenuContentAdapter n;
@@ -67,25 +65,25 @@ public class MainMenuView extends BaseMenuView {
     private void setMenuHeader(View view) {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, view) == null) || view == null || view == (view2 = this.f41303i)) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, view) == null) || view == null || view == (view2 = this.f39907i)) {
             return;
         }
         if (view2 != null) {
-            this.f41302h.removeView(view2);
+            this.f39906h.removeView(view2);
         }
-        this.f41303i = view;
-        this.f41302h.addView(view, 0);
+        this.f39907i = view;
+        this.f39906h.addView(view, 0);
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f41304j.setVisibility(0);
+            this.f39908j.setVisibility(0);
             this.m.setVisibility(0);
             if (this.l == null) {
                 MenuContentAdapter menuContentAdapter = new MenuContentAdapter(getContext());
                 this.l = menuContentAdapter;
-                this.f41305k.setAdapter(menuContentAdapter);
+                this.k.setAdapter(menuContentAdapter);
             }
             this.l.updateData(this.o.subList(0, 1), this.q, i2);
             if (this.n == null) {
@@ -100,12 +98,12 @@ public class MainMenuView extends BaseMenuView {
     public final void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f41304j.setVisibility(8);
+            this.f39908j.setVisibility(8);
             this.m.setVisibility(8);
             if (this.l == null) {
                 MenuContentAdapter menuContentAdapter = new MenuContentAdapter(getContext());
                 this.l = menuContentAdapter;
-                this.f41305k.setAdapter(menuContentAdapter);
+                this.k.setAdapter(menuContentAdapter);
             }
             this.l.updateData(this.o, this.q, i2);
         }
@@ -128,12 +126,12 @@ public class MainMenuView extends BaseMenuView {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            RecyclerView recyclerView = this.f41305k;
+            RecyclerView recyclerView = this.k;
             if (recyclerView != null) {
                 recyclerView.scrollToPosition(0);
             }
             if (this.m != null) {
-                this.f41305k.scrollToPosition(0);
+                this.k.scrollToPosition(0);
             }
         }
     }
@@ -226,27 +224,27 @@ public class MainMenuView extends BaseMenuView {
             }
         }
         LinearLayout linearLayout = new LinearLayout(context, attributeSet, i2);
-        this.f41302h = linearLayout;
+        this.f39906h = linearLayout;
         linearLayout.setOrientation(1);
         RecyclerView recyclerView = new RecyclerView(context, attributeSet, i2);
-        this.f41305k = recyclerView;
+        this.k = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.f41305k.setPadding(0, (int) this.mContext.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
-        this.f41302h.addView(this.f41305k, layoutParams);
+        this.k.setPadding(0, (int) this.mContext.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
+        this.f39906h.addView(this.k, layoutParams);
         View view = new View(context);
-        this.f41304j = view;
+        this.f39908j = view;
         view.setVisibility(8);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, 1);
         int dimensionPixelSize = getResources().getDimensionPixelSize(g.main_menu_divider_margin);
         layoutParams2.leftMargin = dimensionPixelSize;
         layoutParams2.rightMargin = dimensionPixelSize;
-        this.f41302h.addView(this.f41304j, layoutParams2);
+        this.f39906h.addView(this.f39908j, layoutParams2);
         RecyclerView recyclerView2 = new RecyclerView(context, attributeSet, i2);
         this.m = recyclerView2;
         recyclerView2.setVisibility(8);
         this.m.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-        this.f41302h.addView(this.m, new LinearLayout.LayoutParams(-1, -2));
-        setContentView(this.f41302h, new FrameLayout.LayoutParams(-1, -2));
+        this.f39906h.addView(this.m, new LinearLayout.LayoutParams(-1, -2));
+        setContentView(this.f39906h, new FrameLayout.LayoutParams(-1, -2));
     }
 }

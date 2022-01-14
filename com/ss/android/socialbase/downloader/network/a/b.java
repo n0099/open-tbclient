@@ -15,19 +15,19 @@ public class b {
     public static long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f62599b;
+    public static long f60237b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HandlerThread f62600c = new HandlerThread("Downloader-preconnecter");
+    public static final HandlerThread f60238c = new HandlerThread("Downloader-preconnecter");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Handler f62601d;
+    public static final Handler f60239d;
 
     static {
         b();
-        f62600c.start();
-        Handler handler = new Handler(f62600c.getLooper());
-        f62601d = handler;
+        f60238c.start();
+        Handler handler = new Handler(f60238c.getLooper());
+        f60239d = handler;
         handler.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.a.b.1
             @Override // java.lang.Runnable
             public void run() {
@@ -41,16 +41,16 @@ public class b {
 
     public static void b() {
         a = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_connection_outdate_time", 300000L);
-        f62599b = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_head_info_outdate_time", 300000L);
+        f60237b = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_head_info_outdate_time", 300000L);
         a.a().a(com.ss.android.socialbase.downloader.g.a.c().a("preconnect_max_cache_size", 3));
     }
 
     public static Looper a() {
-        return f62600c.getLooper();
+        return f60238c.getLooper();
     }
 
     public static void a(final String str, final j jVar) {
-        f62601d.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.a.b.2
+        f60239d.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.a.b.2
             @Override // java.lang.Runnable
             public void run() {
                 if (!TextUtils.isEmpty(str)) {

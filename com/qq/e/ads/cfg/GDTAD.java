@@ -20,10 +20,10 @@ public class GDTAD {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static InitListener f61267b;
+    public static InitListener f58949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f61268c;
+    public static e f58950c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -44,7 +44,7 @@ public class GDTAD {
                 return;
             }
         }
-        f61268c = new e() { // from class: com.qq.e.ads.cfg.GDTAD.1
+        f58950c = new e() { // from class: com.qq.e.ads.cfg.GDTAD.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,8 +75,8 @@ public class GDTAD {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     boolean unused = GDTAD.a = true;
-                    if (GDTAD.f61267b != null) {
-                        GDTAD.f61267b.onSuccess();
+                    if (GDTAD.f58949b != null) {
+                        GDTAD.f58949b.onSuccess();
                     }
                 }
             }
@@ -107,9 +107,9 @@ public class GDTAD {
             } else if (StringUtil.isEmpty(str)) {
                 GDTLogger.e("AppId参数不能为空");
             } else {
-                f61267b = initListener;
+                f58949b = initListener;
                 GDTADManager gDTADManager = GDTADManager.getInstance();
-                gDTADManager.setPluginLoadListener(f61268c);
+                gDTADManager.setPluginLoadListener(f58950c);
                 gDTADManager.initWith(context.getApplicationContext(), str);
             }
         }

@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f20518e;
+    public final int f19969e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20519f;
+    public boolean f19970f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -42,7 +42,7 @@ public class b extends View {
                 return;
             }
         }
-        this.f20518e = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
+        this.f19969e = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
         setBackgroundResource(R.drawable.ugc_capture_video_pointer);
     }
 
@@ -53,7 +53,7 @@ public class b extends View {
             Rect rect = new Rect();
             getHitRect(rect);
             int i4 = rect.left;
-            int i5 = this.f20518e;
+            int i5 = this.f19969e;
             rect.left = i4 - i5;
             rect.right += i5;
             rect.top -= i5;
@@ -67,14 +67,14 @@ public class b extends View {
     public boolean isPressed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20519f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19970f : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public void setPressed(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f20519f = z;
+            this.f19970f = z;
         }
     }
 }

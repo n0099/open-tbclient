@@ -29,7 +29,7 @@ public class fe {
     public short f384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f63459b;
+    public byte[] f61076b;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -67,9 +67,9 @@ public class fe {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bVar)) == null) {
-                if (fe.m365a(bArr)) {
+                if (fe.m377a(bArr)) {
                     fe a2 = fe.a(bArr);
-                    return (a2.f382a == 0 || a2.f382a != bVar.a()) ? a2.f63459b : bVar.a(a2.f63459b, a2.f383a);
+                    return (a2.f382a == 0 || a2.f382a != bVar.a()) ? a2.f61076b : bVar.a(a2.f61076b, a2.f383a);
                 }
                 return bArr;
             }
@@ -235,7 +235,7 @@ public class fe {
         this.f384a = s;
         this.f382a = b2;
         this.f383a = i2;
-        this.f63459b = bArr;
+        this.f61076b = bArr;
     }
 
     public static fe a(byte b2, int i2, byte[] bArr) {
@@ -254,7 +254,7 @@ public class fe {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            if (m365a(bArr)) {
+            if (m377a(bArr)) {
                 ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
                 order.getInt();
                 short s = order.getShort();
@@ -270,7 +270,7 @@ public class fe {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m365a(byte[] bArr) {
+    public static boolean m377a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {

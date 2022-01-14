@@ -13,13 +13,13 @@ public class BeanErrorContent {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52964b;
+    public int f50922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f52965c;
+    public String f50923c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f52966d;
+    public Object f50924d;
 
     public BeanErrorContent(int i2, int i3, String str, Object obj) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class BeanErrorContent {
             }
         }
         this.a = i2;
-        this.f52964b = i3;
-        this.f52965c = str;
-        this.f52966d = obj;
+        this.f50922b = i3;
+        this.f50923c = str;
+        this.f50924d = obj;
     }
 
     public int getBeanId() {
@@ -51,18 +51,18 @@ public class BeanErrorContent {
     public Object getErrContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52966d : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50924d : invokeV.objValue;
     }
 
     public String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52965c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50923c : (String) invokeV.objValue;
     }
 
     public int getRet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52964b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50922b : invokeV.intValue;
     }
 }

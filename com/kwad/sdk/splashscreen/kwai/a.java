@@ -11,10 +11,10 @@ public class a {
         if (b2 == null) {
             b2 = new b(currentTimeMillis, 1);
         } else if (b2.a(currentTimeMillis)) {
-            b2.f60171b++;
+            b2.f57887b++;
         } else {
             b2.a = currentTimeMillis;
-            b2.f60171b = 1;
+            b2.f57887b = 1;
         }
         a(context, b2);
     }

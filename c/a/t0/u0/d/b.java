@@ -15,10 +15,10 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24636b;
+    public int f23954b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24637c;
+    public String f23955c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class b {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f24637c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f23955c) : invokeV.booleanValue;
     }
 
     public void b(JSONObject jSONObject) {
@@ -48,8 +48,8 @@ public class b {
         jSONObject.optString("pic");
         this.a = jSONObject.optString("url");
         jSONObject.optInt("server_time");
-        this.f24636b = jSONObject.optInt("adid");
-        this.f24637c = jSONObject.optString("big_pic");
+        this.f23954b = jSONObject.optInt("adid");
+        this.f23955c = jSONObject.optString("big_pic");
         jSONObject.optString("small_pic");
     }
 }

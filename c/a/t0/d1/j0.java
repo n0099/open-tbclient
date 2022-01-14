@@ -20,22 +20,22 @@ public class j0 {
     public List<FrsTabInfo> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<c.a.s0.i0.b> f16515b;
+    public final List<c.a.s0.i0.b> f16197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f16516c;
+    public Context f16198c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f16517d;
+    public String f16199d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16518e;
+    public String f16200e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16519f;
+    public String f16201f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16520g;
+    public String f16202g;
 
     public j0(Context context, List<FrsTabInfo> list) {
         Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public class j0 {
             }
         }
         this.a = list;
-        this.f16515b = new LinkedList();
-        this.f16516c = context;
+        this.f16197b = new LinkedList();
+        this.f16198c = context;
     }
 
     public void a(c.a.s0.i0.b bVar) {
@@ -62,36 +62,36 @@ public class j0 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || bVar.getFragmentTabStructure() == null) {
             return;
         }
-        for (c.a.s0.i0.b bVar2 : this.f16515b) {
-            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f13111e == bVar.getFragmentTabStructure().f13111e) {
+        for (c.a.s0.i0.b bVar2 : this.f16197b) {
+            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f12789e == bVar.getFragmentTabStructure().f12789e) {
                 return;
             }
         }
-        this.f16515b.add(bVar);
+        this.f16197b.add(bVar);
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16519f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16201f : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16517d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16199d : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16518e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16200e : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16520g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16202g : (String) invokeV.objValue;
     }
 
     public List<FrsTabInfo> f() {
@@ -103,13 +103,13 @@ public class j0 {
     public List<c.a.s0.i0.b> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f16515b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f16197b : (List) invokeV.objValue;
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16516c : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16198c : (Context) invokeV.objValue;
     }
 
     public boolean h(int i2) {
@@ -132,28 +132,28 @@ public class j0 {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f16519f = str;
+            this.f16201f = str;
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f16517d = str;
+            this.f16199d = str;
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f16518e = str;
+            this.f16200e = str;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f16520g = str;
+            this.f16202g = str;
         }
     }
 
@@ -164,13 +164,13 @@ public class j0 {
             LinkedList linkedList2 = new LinkedList();
             for (FrsTabInfo frsTabInfo : this.a) {
                 boolean z = false;
-                Iterator<c.a.s0.i0.b> it = this.f16515b.iterator();
+                Iterator<c.a.s0.i0.b> it = this.f16197b.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     c.a.s0.i0.b next = it.next();
-                    if (next.getFragmentTabStructure() != null && frsTabInfo.tab_id.intValue() == next.getFragmentTabStructure().f13111e) {
+                    if (next.getFragmentTabStructure() != null && frsTabInfo.tab_id.intValue() == next.getFragmentTabStructure().f12789e) {
                         linkedList.add(next);
                         z = true;
                         break;
@@ -183,11 +183,11 @@ public class j0 {
             if (!ListUtils.isEmpty(linkedList2)) {
                 this.a.removeAll(linkedList2);
             }
-            this.f16515b.clear();
+            this.f16197b.clear();
             if (ListUtils.isEmpty(linkedList)) {
                 return;
             }
-            this.f16515b.addAll(linkedList);
+            this.f16197b.addAll(linkedList);
         }
     }
 }

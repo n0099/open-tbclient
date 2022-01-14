@@ -1,7 +1,7 @@
 package c.a.t0.o1.f.a;
 
 import android.view.View;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.o1.f.a.e.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -9,7 +9,7 @@ import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLLIL(65536, null, view, obj, i2, str) == null) {
             if (obj instanceof c.a.t0.o1.f.a.e.c) {
                 c.a.t0.o1.f.a.e.c cVar = (c.a.t0.o1.f.a.e.c) obj;
-                if (cVar.f20931e) {
+                if (cVar.f20369e) {
                     StatisticItem statisticItem = new StatisticItem("c13736");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                     statisticItem.eventStat();
@@ -31,17 +31,17 @@ public class a {
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem2.eventStat();
             } else if (obj instanceof e) {
-                d2 d2Var = ((e) obj).f20939j;
+                e2 e2Var = ((e) obj).f20377j;
                 StatisticItem statisticItem3 = new StatisticItem("c13738");
                 statisticItem3.param("obj_type", str);
                 statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (d2Var != null) {
-                    statisticItem3.param("tid", d2Var.v1());
-                    statisticItem3.param("fid", d2Var.U());
+                if (e2Var != null) {
+                    statisticItem3.param("tid", e2Var.v1());
+                    statisticItem3.param("fid", e2Var.U());
                 }
                 statisticItem3.eventStat();
             } else if ((obj instanceof c.a.s0.s.q.a) && c(view)) {
-                d2 threadData = ((c.a.s0.s.q.a) obj).getThreadData();
+                e2 threadData = ((c.a.s0.s.q.a) obj).getThreadData();
                 StatisticItem statisticItem4 = new StatisticItem("c13738");
                 statisticItem4.param("obj_type", str);
                 statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -55,14 +55,14 @@ public class a {
     }
 
     public static void b(View view, Object obj, String str) {
-        d2 threadData;
+        e2 threadData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, view, obj, str) == null) {
             StatisticItem statisticItem = new StatisticItem("c13825");
             statisticItem.param("obj_type", str);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             if (obj instanceof e) {
-                threadData = ((e) obj).f20939j;
+                threadData = ((e) obj).f20377j;
             } else {
                 threadData = obj instanceof c.a.s0.s.q.a ? ((c.a.s0.s.q.a) obj).getThreadData() : null;
             }

@@ -75,12 +75,12 @@ public class b implements g {
 
     /* renamed from: c.a.t0.z.b.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1551b implements c.a.t0.z.b.f.d.a {
+    public class C1567b implements c.a.t0.z.b.f.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.f0.f.b a;
 
-        public C1551b(b bVar, c.a.f0.f.b bVar2) {
+        public C1567b(b bVar, c.a.f0.f.b bVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -200,7 +200,7 @@ public class b implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, str, bVar) == null) {
             if (!c.a.s0.r0.e.c().g()) {
-                n.L(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
+                n.M(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
                 return;
             }
             c.a.r0.a.d2.e L = c.a.r0.a.d2.e.L();
@@ -211,7 +211,7 @@ public class b implements g {
             aVar.mParams.putInt("type", 2);
             aVar.mParams.putString("orderInfo", str);
             aVar.b(L.getActivity());
-            aVar.c(new C1551b(this, bVar));
+            aVar.c(new C1567b(this, bVar));
             aVar.onExec();
         }
     }

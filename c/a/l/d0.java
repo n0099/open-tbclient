@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -24,20 +24,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class d0 extends c implements p<d2>, q {
+public class d0 extends c implements p<e2>, q {
     public static /* synthetic */ Interceptable $ic;
     public static final int s;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f4228i;
+    public RelativeLayout f4159i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f4229j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public FrameLayout f4230k;
-    public d2 l;
+    public ImageView f4160j;
+    public FrameLayout k;
+    public e2 l;
     public BdUniqueId m;
     public int n;
     public int o;
@@ -51,7 +49,7 @@ public class d0 extends c implements p<d2>, q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d0 f4231e;
+        public final /* synthetic */ d0 f4161e;
 
         public a(d0 d0Var) {
             Interceptable interceptable = $ic;
@@ -68,17 +66,17 @@ public class d0 extends c implements p<d2>, q {
                     return;
                 }
             }
-            this.f4231e = d0Var;
+            this.f4161e = d0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4231e.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4161e.l == null) {
                 return;
             }
-            CustomMessage customMessage = new CustomMessage(2921428, this.f4231e.m);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, this.f4231e.l);
+            CustomMessage customMessage = new CustomMessage(2921428, this.f4161e.m);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, this.f4161e.l);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
@@ -120,17 +118,17 @@ public class d0 extends c implements p<d2>, q {
         this.p = R.color.CAM_X0111;
         this.r = new a(this);
         this.n = i2;
-        this.f4228i = new RelativeLayout(context);
-        this.f4229j = new ImageView(context);
+        this.f4159i = new RelativeLayout(context);
+        this.f4160j = new ImageView(context);
         FrameLayout frameLayout = new FrameLayout(context);
-        this.f4230k = frameLayout;
-        ImageView imageView = this.f4229j;
+        this.k = frameLayout;
+        ImageView imageView = this.f4160j;
         int i5 = s;
         frameLayout.addView(imageView, new FrameLayout.LayoutParams(i5, i5));
-        this.f4230k.setOnClickListener(this.r);
+        this.k.setOnClickListener(this.r);
         l(Align.ALIGN_RIGHT_BOTTOM);
-        this.f4228i.addView(this.f4230k);
-        f(this.f4228i);
+        this.f4159i.addView(this.k);
+        f(this.f4159i);
         g(-1);
         h(new RelativeLayout.LayoutParams(-1, -1));
     }
@@ -148,7 +146,7 @@ public class d0 extends c implements p<d2>, q {
             layoutParams.rightMargin = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             layoutParams.topMargin = f2;
             layoutParams.bottomMargin = 0;
-            this.f4230k.setLayoutParams(layoutParams);
+            this.k.setLayoutParams(layoutParams);
         } else if (align == Align.ALIGN_RIGHT_CENTER) {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(11);
@@ -156,7 +154,7 @@ public class d0 extends c implements p<d2>, q {
             layoutParams2.rightMargin = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             layoutParams2.topMargin = 0;
             layoutParams2.bottomMargin = 0;
-            this.f4230k.setLayoutParams(layoutParams2);
+            this.k.setLayoutParams(layoutParams2);
         } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams3.addRule(11);
@@ -164,7 +162,7 @@ public class d0 extends c implements p<d2>, q {
             layoutParams3.rightMargin = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             layoutParams3.bottomMargin = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds51);
             layoutParams3.topMargin = 0;
-            this.f4230k.setLayoutParams(layoutParams3);
+            this.k.setLayoutParams(layoutParams3);
         }
         this.q = align;
     }
@@ -185,17 +183,17 @@ public class d0 extends c implements p<d2>, q {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: o */
-    public void onBindDataToView(d2 d2Var) {
+    public void onBindDataToView(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, d2Var) == null) {
-            this.l = d2Var;
-            if (d2Var == null) {
-                this.f4230k.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048579, this, e2Var) == null) {
+            this.l = e2Var;
+            if (e2Var == null) {
+                this.k.setVisibility(8);
             } else if (!n(4)) {
-                this.f4230k.setVisibility(8);
+                this.k.setVisibility(8);
             } else {
-                this.f4230k.setVisibility(0);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f4229j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                this.k.setVisibility(0);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f4160j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
         }
     }
@@ -204,7 +202,7 @@ public class d0 extends c implements p<d2>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f4229j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f4160j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 

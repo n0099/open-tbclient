@@ -17,7 +17,7 @@ public class PrivilegeTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f47663e;
+    public a f45890e;
 
     /* loaded from: classes12.dex */
     public interface a {
@@ -67,7 +67,7 @@ public class PrivilegeTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
             super.onTextChanged(charSequence, i2, i3, i4);
-            a aVar = this.f47663e;
+            a aVar = this.f45890e;
             if (aVar != null) {
                 aVar.a(charSequence, i2, i3, i4);
             }
@@ -77,7 +77,7 @@ public class PrivilegeTextView extends TextView {
     public void setTextChangeListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f47663e = aVar;
+            this.f45890e = aVar;
         }
     }
 

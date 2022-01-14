@@ -14,16 +14,16 @@ public class h {
     public final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f4368b;
+    public final byte[] f4277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f4369c;
+    public final int f4278c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4370d;
+    public int f4279d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4371e;
+    public int f4280e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public h() {
@@ -59,8 +59,8 @@ public class h {
             }
         }
         this.a = new int[4];
-        this.f4368b = new byte[16];
-        this.f4369c = i2;
+        this.f4277b = new byte[16];
+        this.f4278c = i2;
         e();
     }
 
@@ -91,14 +91,14 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int i2 = 0;
-            int rotateLeft = (this.f4370d > 16 ? Integer.rotateLeft(this.a[0], 1) + Integer.rotateLeft(this.a[1], 7) + Integer.rotateLeft(this.a[2], 12) + Integer.rotateLeft(this.a[3], 18) : this.a[2] + XXHash32.PRIME5) + this.f4370d;
-            int i3 = this.f4371e - 4;
+            int rotateLeft = (this.f4279d > 16 ? Integer.rotateLeft(this.a[0], 1) + Integer.rotateLeft(this.a[1], 7) + Integer.rotateLeft(this.a[2], 12) + Integer.rotateLeft(this.a[3], 18) : this.a[2] + XXHash32.PRIME5) + this.f4279d;
+            int i3 = this.f4280e - 4;
             while (i2 <= i3) {
-                rotateLeft = Integer.rotateLeft(rotateLeft + (a(this.f4368b, i2) * XXHash32.PRIME3), 17) * XXHash32.PRIME4;
+                rotateLeft = Integer.rotateLeft(rotateLeft + (a(this.f4277b, i2) * XXHash32.PRIME3), 17) * XXHash32.PRIME4;
                 i2 += 4;
             }
-            while (i2 < this.f4371e) {
-                rotateLeft = Integer.rotateLeft(rotateLeft + ((this.f4368b[i2] & 255) * XXHash32.PRIME5), 11) * XXHash32.PRIME1;
+            while (i2 < this.f4280e) {
+                rotateLeft = Integer.rotateLeft(rotateLeft + ((this.f4277b[i2] & 255) * XXHash32.PRIME5), 11) * XXHash32.PRIME1;
                 i2++;
             }
             int i4 = (rotateLeft ^ (rotateLeft >>> 15)) * XXHash32.PRIME2;
@@ -113,18 +113,18 @@ public class h {
         if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) || i3 <= 0) {
             return;
         }
-        this.f4370d += i3;
+        this.f4279d += i3;
         int i4 = i2 + i3;
-        int i5 = this.f4371e;
+        int i5 = this.f4280e;
         if (i5 + i3 < 16) {
-            System.arraycopy(bArr, i2, this.f4368b, i5, i3);
-            this.f4371e += i3;
+            System.arraycopy(bArr, i2, this.f4277b, i5, i3);
+            this.f4280e += i3;
             return;
         }
         if (i5 > 0) {
             int i6 = 16 - i5;
-            System.arraycopy(bArr, i2, this.f4368b, i5, i6);
-            f(this.f4368b, 0);
+            System.arraycopy(bArr, i2, this.f4277b, i5, i6);
+            f(this.f4277b, 0);
             i2 += i6;
         }
         int i7 = i4 - 16;
@@ -134,8 +134,8 @@ public class h {
         }
         if (i2 < i4) {
             int i8 = i4 - i2;
-            this.f4371e = i8;
-            System.arraycopy(bArr, i2, this.f4368b, 0, i8);
+            this.f4280e = i8;
+            System.arraycopy(bArr, i2, this.f4277b, 0, i8);
         }
     }
 
@@ -143,7 +143,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int[] iArr = this.a;
-            int i2 = this.f4369c;
+            int i2 = this.f4278c;
             iArr[0] = i2 + XXHash32.PRIME1 + XXHash32.PRIME2;
             iArr[1] = XXHash32.PRIME2 + i2;
             iArr[2] = i2;
@@ -168,7 +168,7 @@ public class h {
             iArr2[1] = rotateLeft2;
             iArr2[2] = rotateLeft3;
             iArr2[3] = rotateLeft4;
-            this.f4371e = 0;
+            this.f4280e = 0;
         }
     }
 }

@@ -210,7 +210,7 @@ public class a0 implements v {
         bundle.putString(WebViewActivityConfig.TAG_AD_DEEPLINK_URL, adCard.scheme);
         c.a.t0.j3.i0.b.g gVar = adCard.tailFrame;
         if (gVar != null) {
-            gVar.f18881e = adCard.getButtonText();
+            gVar.f18411e = adCard.getButtonText();
             bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, adCard.tailFrame.e());
         }
         AdWebVideoActivity.setConfigAndJump(new AdWebVideoActivityConfig(context, "", n, true, true, true, bundle));

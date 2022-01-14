@@ -21,25 +21,25 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7865e;
+    public static final boolean f7693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f7866f;
+    public static volatile a f7694f;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.m2.d.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f7867b;
+    public c f7695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f7868c;
+    public b f7696c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.a.m2.c.a f7869d;
+    public c.a.r0.a.m2.c.a f7697d;
 
     /* renamed from: c.a.r0.a.m2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0447a {
+    public static /* synthetic */ class C0456a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -50,7 +50,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONArray f7870b;
+        public JSONArray f7698b;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public final class a {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7870b = null;
+                this.f7698b = null;
             }
         }
 
@@ -81,7 +81,7 @@ public final class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("extra", this.f7870b);
+                    jSONObject.put("extra", this.f7698b);
                 } catch (JSONException e2) {
                     if (c.a.r0.a.m2.d.a.a) {
                         Log.getStackTraceString(e2);
@@ -92,7 +92,7 @@ public final class a {
             return (JSONObject) invokeV.objValue;
         }
 
-        public /* synthetic */ b(a aVar, C0447a c0447a) {
+        public /* synthetic */ b(a aVar, C0456a c0456a) {
             this(aVar);
         }
     }
@@ -110,7 +110,7 @@ public final class a {
                 return;
             }
         }
-        f7865e = k.a;
+        f7693e = k.a;
     }
 
     public a() {
@@ -127,23 +127,23 @@ public final class a {
             }
         }
         this.a = new c.a.r0.a.m2.d.b();
-        this.f7867b = new c();
-        this.f7868c = new b(this, null);
-        this.f7869d = new c.a.r0.a.m2.c.a();
+        this.f7695b = new c();
+        this.f7696c = new b(this, null);
+        this.f7697d = new c.a.r0.a.m2.c.a();
     }
 
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f7866f == null) {
+            if (f7694f == null) {
                 synchronized (a.class) {
-                    if (f7866f == null) {
-                        f7866f = new a();
+                    if (f7694f == null) {
+                        f7694f = new a();
                     }
                 }
             }
-            return f7866f;
+            return f7694f;
         }
         return (a) invokeV.objValue;
     }
@@ -152,8 +152,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.c();
-            this.f7867b.b();
-            this.f7868c.b();
+            this.f7695b.b();
+            this.f7696c.b();
         }
     }
 
@@ -165,7 +165,7 @@ public final class a {
             jSONArray.put(e());
             jSONArray.put(g());
             jSONArray.put(c());
-            return this.f7869d.d(jSONArray);
+            return this.f7697d.d(jSONArray);
         }
         return (File) invokeV.objValue;
     }
@@ -174,8 +174,8 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject c2 = this.f7868c.c();
-            if (f7865e) {
+            JSONObject c2 = this.f7696c.c();
+            if (f7693e) {
                 String str = "extraTraces: " + c2;
             }
             return c2;
@@ -188,7 +188,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject d2 = this.a.d();
-            if (f7865e) {
+            if (f7693e) {
                 String str = "LaunchTraces: " + d2;
             }
             return d2;
@@ -199,15 +199,15 @@ public final class a {
     public c.a.r0.a.m2.c.a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7869d : (c.a.r0.a.m2.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7697d : (c.a.r0.a.m2.c.a) invokeV.objValue;
     }
 
     public JSONObject g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject c2 = this.f7867b.c();
-            if (f7865e) {
+            JSONObject c2 = this.f7695b.c();
+            if (f7693e) {
                 String str = "WhiteTraces: " + c2;
             }
             return c2;
@@ -218,7 +218,7 @@ public final class a {
     public void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
-            this.f7867b.a(jSONObject);
+            this.f7695b.a(jSONObject);
         }
     }
 
@@ -245,13 +245,13 @@ public final class a {
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f7868c.f7870b == null || this.f7868c.f7870b.length() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f7696c.f7698b == null || this.f7696c.f7698b.length() == 0) {
             return;
         }
         JSONArray jSONArray = new JSONArray();
         jSONArray.put(e());
         jSONArray.put(g());
         jSONArray.put(c());
-        this.f7869d.d(jSONArray);
+        this.f7697d.d(jSONArray);
     }
 }

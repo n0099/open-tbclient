@@ -31,38 +31,38 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f18101b;
+    public boolean f17661b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TailData f18102c;
+    public TailData f17662c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TailData f18103d;
+    public TailData f17663d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f18104e;
+    public TbPageContext<?> f17664e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.f2.h.f.a<Integer> f18105f;
+    public c.a.t0.f2.h.f.a<Integer> f17665f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.t0.f2.h.f.a<Integer> f18106g;
+    public c.a.t0.f2.h.f.a<Integer> f17666g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.g.a f18107h;
+    public c.a.d.c.g.a f17667h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.d.c.g.a f18108i;
+    public c.a.d.c.g.a f17668i;
 
     /* renamed from: c.a.t0.f2.h.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1094a extends c.a.d.c.g.a {
+    public class C1108a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1094a(a aVar, int i2, int i3) {
+        public C1108a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -89,7 +89,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.a = false;
-                if (this.a.f18105f != null) {
+                if (this.a.f17665f != null) {
                     Integer num = null;
                     if (responsedMessage instanceof AddTailHttpResponseMessage) {
                         resultData = ((AddTailHttpResponseMessage) responsedMessage).getResultData();
@@ -98,11 +98,11 @@ public class a {
                     }
                     if (resultData != null) {
                         num = Integer.valueOf(resultData.a());
-                        if (this.a.f18101b) {
+                        if (this.a.f17661b) {
                             this.a.p(num.intValue());
                         }
                     }
-                    this.a.f18105f.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
+                    this.a.f17665f.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
                 }
             }
         }
@@ -142,13 +142,13 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.a = false;
-                if (this.a.f18106g != null) {
+                if (this.a.f17666g != null) {
                     if (responsedMessage instanceof UpdateTailHttpResponseMessage) {
                         resultData = ((UpdateTailHttpResponseMessage) responsedMessage).getResultData();
                     } else {
                         resultData = responsedMessage instanceof UpdateTailSocketResponseMessage ? ((UpdateTailSocketResponseMessage) responsedMessage).getResultData() : null;
                     }
-                    this.a.f18106g.a(responsedMessage.hasError(), responsedMessage.getErrorString(), resultData != null ? Integer.valueOf(resultData.a()) : null);
+                    this.a.f17666g.a(responsedMessage.hasError(), responsedMessage.getErrorString(), resultData != null ? Integer.valueOf(resultData.a()) : null);
                 }
             }
         }
@@ -170,13 +170,13 @@ public class a {
             }
         }
         this.a = false;
-        this.f18101b = false;
-        this.f18107h = new C1094a(this, CmdConfigHttp.CMD_TAIL_ADD, 305101);
-        this.f18108i = new b(this, CmdConfigHttp.CMD_TAIL_UPDATE, 305102);
-        this.f18104e = tbPageContext;
-        tbPageContext.registerListener(this.f18107h);
-        this.f18104e.registerListener(this.f18108i);
-        this.f18103d = new TailData();
+        this.f17661b = false;
+        this.f17667h = new C1108a(this, CmdConfigHttp.CMD_TAIL_ADD, 305101);
+        this.f17668i = new b(this, CmdConfigHttp.CMD_TAIL_UPDATE, 305102);
+        this.f17664e = tbPageContext;
+        tbPageContext.registerListener(this.f17667h);
+        this.f17664e.registerListener(this.f17668i);
+        this.f17663d = new TailData();
     }
 
     public int e(String str) {
@@ -194,7 +194,7 @@ public class a {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18103d.getFontColor() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17663d.getFontColor() : (String) invokeV.objValue;
     }
 
     public String h(String str) {
@@ -212,28 +212,28 @@ public class a {
     public TailData i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18103d : (TailData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17663d : (TailData) invokeV.objValue;
     }
 
     public void j(int i2, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), str, str2, Boolean.valueOf(z)}) == null) {
             TailData tailData = new TailData();
-            this.f18103d = tailData;
+            this.f17663d = tailData;
             if (i2 != 0) {
                 TailData tailData2 = new TailData();
-                this.f18102c = tailData2;
+                this.f17662c = tailData2;
                 tailData2.setId(i2);
-                this.f18102c.setContent(str);
-                this.f18102c.setFontColor(str2);
-                this.f18103d.setId(i2);
-                this.f18103d.setContent(str);
-                this.f18103d.setFontColor(str2);
+                this.f17662c.setContent(str);
+                this.f17662c.setFontColor(str2);
+                this.f17663d.setId(i2);
+                this.f17663d.setContent(str);
+                this.f17663d.setFontColor(str2);
                 return;
             }
             tailData.setContent("");
-            this.f18103d.setFontColor("7a7c80");
-            this.f18101b = z;
+            this.f17663d.setFontColor("7a7c80");
+            this.f17661b = z;
         }
     }
 
@@ -241,14 +241,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            TailData tailData = this.f18103d;
+            TailData tailData = this.f17663d;
             if (tailData != null && tailData.getFontColor() != null) {
-                TailData tailData2 = this.f18102c;
+                TailData tailData2 = this.f17662c;
                 if (tailData2 == null) {
-                    if (!StringUtils.isNull(this.f18103d.getContent()) || !this.f18103d.getFontColor().equals("7a7c80")) {
+                    if (!StringUtils.isNull(this.f17663d.getContent()) || !this.f17663d.getFontColor().equals("7a7c80")) {
                         return true;
                     }
-                } else if (tailData2.getContent() != null && this.f18102c.getFontColor() != null && (!this.f18102c.getContent().equals(this.f18103d.getContent()) || !this.f18102c.getFontColor().equals(this.f18103d.getFontColor()))) {
+                } else if (tailData2.getContent() != null && this.f17662c.getFontColor() != null && (!this.f17662c.getContent().equals(this.f17663d.getContent()) || !this.f17662c.getFontColor().equals(this.f17663d.getFontColor()))) {
                     return true;
                 }
             }
@@ -272,14 +272,14 @@ public class a {
     public void n(c.a.t0.f2.h.f.a<Integer> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f18105f = aVar;
+            this.f17665f = aVar;
         }
     }
 
     public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f18103d.setFontColor(str);
+            this.f17663d.setFontColor(str);
         }
     }
 
@@ -293,7 +293,7 @@ public class a {
     public void q(c.a.t0.f2.h.f.a<Integer> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.f18106g = aVar;
+            this.f17666g = aVar;
         }
     }
 
@@ -304,23 +304,23 @@ public class a {
         }
         String f2 = d.f(str);
         if (!StringUtils.isNull(f2)) {
-            this.f18104e.showToast(f2);
+            this.f17664e.showToast(f2);
             return;
         }
         String b2 = d.b(str);
-        this.f18103d.setContent(b2);
+        this.f17663d.setContent(b2);
         this.a = true;
-        TailData tailData = this.f18102c;
+        TailData tailData = this.f17662c;
         if (tailData != null && tailData.getId() > 0) {
-            this.f18104e.sendMessage(new UpdateTailNetMessage(this.f18102c.getId(), b2, this.f18103d.getFontColor(), this.f18104e.getString(R.string.tail_default_font)));
+            this.f17664e.sendMessage(new UpdateTailNetMessage(this.f17662c.getId(), b2, this.f17663d.getFontColor(), this.f17664e.getString(R.string.tail_default_font)));
         } else {
-            this.f18104e.sendMessage(new AddTailNetMessage(b2, this.f18103d.getFontColor(), this.f18104e.getString(R.string.tail_default_font)));
+            this.f17664e.sendMessage(new AddTailNetMessage(b2, this.f17663d.getFontColor(), this.f17664e.getString(R.string.tail_default_font)));
         }
     }
 
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? !StringUtils.isNull(this.f18103d.getContent()) && k() && StringUtils.isNull(d.f(this.f18103d.getContent())) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? !StringUtils.isNull(this.f17663d.getContent()) && k() && StringUtils.isNull(d.f(this.f17663d.getContent())) : invokeV.booleanValue;
     }
 }

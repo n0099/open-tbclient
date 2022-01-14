@@ -13,25 +13,23 @@ public class d implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27547e;
+    public int f26723e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27548f;
+    public int f26724f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27549g;
+    public boolean f26725g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27550h;
+    public boolean f26726h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27551i;
+    public int f26727i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27552j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f27553k;
+    public int f26728j;
+    public long k;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -46,11 +44,11 @@ public class d implements Cloneable {
                 return;
             }
         }
-        this.f27547e = 3553;
-        this.f27548f = -1;
-        this.f27549g = false;
-        this.f27550h = false;
-        this.f27553k = 0L;
+        this.f26723e = 3553;
+        this.f26724f = -1;
+        this.f26725g = false;
+        this.f26726h = false;
+        this.k = 0L;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,45 +70,45 @@ public class d implements Cloneable {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27552j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26728j : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27548f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26724f : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27551i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26727i : invokeV.intValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27548f != -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26724f != -1 : invokeV.booleanValue;
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f27548f = i2;
+            this.f26724f = i2;
         }
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27547e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26723e : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "type = " + this.f27547e + " && id = " + this.f27548f + " && cameraFrame" + this.f27549g + " && frontCamera = " + this.f27550h + " && width * height = " + this.f27551i + " * " + this.f27552j + " && timestamp = " + this.f27553k;
+            return "type = " + this.f26723e + " && id = " + this.f26724f + " && cameraFrame" + this.f26725g + " && frontCamera = " + this.f26726h + " && width * height = " + this.f26727i + " * " + this.f26728j + " && timestamp = " + this.k;
         }
         return (String) invokeV.objValue;
     }

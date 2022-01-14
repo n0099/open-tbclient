@@ -1,7 +1,7 @@
 package c.a.t0.s2.r;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AntiData;
@@ -17,23 +17,23 @@ public class r implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final BdUniqueId f23079j;
+    public static final BdUniqueId f22443j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23080e;
+    public boolean f22444e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f23081f;
+    public boolean f22445f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23082g;
+    public boolean f22446g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d2 f23083h;
+    public e2 f22447h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AntiData f23084i;
+    public AntiData f22448i;
 
     static {
         InterceptResult invokeClinit;
@@ -48,15 +48,15 @@ public class r implements c.a.d.n.e.n {
                 return;
             }
         }
-        f23079j = BdUniqueId.gen();
+        f22443j = BdUniqueId.gen();
     }
 
-    public r(d2 d2Var, AntiData antiData) {
+    public r(e2 e2Var, AntiData antiData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d2Var, antiData};
+            Object[] objArr = {e2Var, antiData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -66,20 +66,20 @@ public class r implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f23080e = false;
-        this.f23081f = false;
-        this.f23082g = false;
-        this.f23083h = d2Var;
-        this.f23084i = antiData;
+        this.f22444e = false;
+        this.f22445f = false;
+        this.f22446g = false;
+        this.f22447h = e2Var;
+        this.f22448i = antiData;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d2 d2Var = this.f23083h;
-            if (d2Var != null) {
-                return d2Var.D();
+            e2 e2Var = this.f22447h;
+            if (e2Var != null) {
+                return e2Var.D();
             }
             return 0;
         }
@@ -89,21 +89,21 @@ public class r implements c.a.d.n.e.n {
     public AntiData d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23084i : (AntiData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22448i : (AntiData) invokeV.objValue;
     }
 
-    public d2 e() {
+    public e2 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23083h : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22447h : (e2) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d2 d2Var = this.f23083h;
-            return d2Var != null && d2Var.e0() == 1;
+            e2 e2Var = this.f22447h;
+            return e2Var != null && e2Var.e0() == 1;
         }
         return invokeV.booleanValue;
     }
@@ -112,32 +112,32 @@ public class r implements c.a.d.n.e.n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f23079j : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f22443j : (BdUniqueId) invokeV.objValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23080e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22444e : invokeV.booleanValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23082g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22446g : invokeV.booleanValue;
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f23080e = z;
+            this.f22444e = z;
         }
     }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f23082g = z;
+            this.f22446g = z;
         }
     }
 }

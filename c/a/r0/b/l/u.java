@@ -57,10 +57,10 @@ public class u implements c.a.r0.a.p.d.q {
 
         @Override // c.a.r0.a.p.d.j
         @NonNull
-        public c.a.r0.a.h2.c.j.f b(Activity activity, d.C0552d c0552d, Bundle bundle) {
+        public c.a.r0.a.h2.c.j.f b(Activity activity, d.C0561d c0561d, Bundle bundle) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, c0552d, bundle)) == null) ? new s(activity, c0552d, bundle) : (c.a.r0.a.h2.c.j.f) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, c0561d, bundle)) == null) ? new s(activity, c0561d, bundle) : (c.a.r0.a.h2.c.j.f) invokeLLL.objValue;
         }
 
         @Override // c.a.r0.a.p.d.j

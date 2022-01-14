@@ -64,10 +64,10 @@ public class d {
         public File a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f62951b;
+        public long f60574b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f62952c;
+        public long f60575c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -92,13 +92,13 @@ public class d {
         public long b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62951b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60574b : invokeV.longValue;
         }
 
         public long c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f62952c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f60575c : invokeV.longValue;
         }
 
         public String toString() {
@@ -117,7 +117,7 @@ public class d {
         public void b(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.f62952c = j2;
+                this.f60575c = j2;
             }
         }
 
@@ -139,14 +139,14 @@ public class d {
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.f62951b = j2;
+                this.f60574b = j2;
             }
         }
     }
 
     /* renamed from: com.tencent.open.log.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C2240d {
+    public static final class C2257d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

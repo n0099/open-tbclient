@@ -16,19 +16,19 @@ public class o {
     public Bitmap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23066b;
+    public String f22431b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23067c;
+    public String f22432c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PostData f23068d;
+    public PostData f22433d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23069e;
+    public int f22434e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.s0.g1.n.a f23070f;
+    public c.a.s0.g1.n.a f22435f;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -47,19 +47,19 @@ public class o {
     public c.a.s0.g1.n.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23070f : (c.a.s0.g1.n.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22435f : (c.a.s0.g1.n.a) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23067c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22432c : (String) invokeV.objValue;
     }
 
     public PostData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23068d : (PostData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22433d : (PostData) invokeV.objValue;
     }
 
     public Bitmap d() {
@@ -71,33 +71,33 @@ public class o {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23066b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22431b : (String) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23069e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22434e : invokeV.intValue;
     }
 
     public void g(c.a.s0.g1.n.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f23070f = aVar;
+            this.f22435f = aVar;
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f23067c = str;
+            this.f22432c = str;
         }
     }
 
     public void i(PostData postData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, postData) == null) {
-            this.f23068d = postData;
+            this.f22433d = postData;
         }
     }
 
@@ -111,14 +111,14 @@ public class o {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f23066b = str;
+            this.f22431b = str;
         }
     }
 
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f23069e = i2;
+            this.f22434e = i2;
         }
     }
 }

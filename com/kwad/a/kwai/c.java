@@ -14,7 +14,7 @@ public interface c {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f57526b;
+        public long f55342b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -38,28 +38,28 @@ public interface c {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57527b;
+        public int f55343b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f57528c;
+        public long f55344c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f57529d;
+        public long f55345d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f57530e;
+        public int f55346e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f57531f;
+        public int f55347f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f57532g;
+        public int f55348g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f57533h;
+        public int f55349h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f57534i;
+        public int f55350i;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -77,28 +77,28 @@ public interface c {
 
         public abstract a a(long j2, int i2);
 
-        public abstract AbstractC2070c a(long j2);
+        public abstract AbstractC2087c a(long j2);
 
         public abstract d a(int i2);
     }
 
     /* renamed from: com.kwad.a.kwai.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractC2070c {
+    public static abstract class AbstractC2087c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f57535b;
+        public long f55351b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f57536c;
+        public long f55352c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f57537d;
+        public long f55353d;
 
-        public AbstractC2070c() {
+        public AbstractC2087c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

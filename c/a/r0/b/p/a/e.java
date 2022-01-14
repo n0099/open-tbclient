@@ -30,19 +30,19 @@ public class e extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f10361e;
+        public final /* synthetic */ Context f10137e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10362f;
+        public final /* synthetic */ CallbackHandler f10138f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10363g;
+        public final /* synthetic */ String f10139g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f10364h;
+        public final /* synthetic */ String f10140h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f10365i;
+        public final /* synthetic */ e f10141i;
 
         public a(e eVar, Context context, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -59,11 +59,11 @@ public class e extends z {
                     return;
                 }
             }
-            this.f10365i = eVar;
-            this.f10361e = context;
-            this.f10362f = callbackHandler;
-            this.f10363g = str;
-            this.f10364h = str2;
+            this.f10141i = eVar;
+            this.f10137e = context;
+            this.f10138f = callbackHandler;
+            this.f10139g = str;
+            this.f10140h = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,7 +72,7 @@ public class e extends z {
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f10365i.l(iVar, this.f10361e, this.f10362f, this.f10363g, this.f10364h);
+                this.f10141i.l(iVar, this.f10137e, this.f10138f, this.f10139g, this.f10140h);
             }
         }
     }
@@ -83,13 +83,13 @@ public class e extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10366e;
+        public final /* synthetic */ String f10142e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10367f;
+        public final /* synthetic */ CallbackHandler f10143f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10368g;
+        public final /* synthetic */ String f10144g;
 
         public b(e eVar, String str, CallbackHandler callbackHandler, String str2) {
             Interceptable interceptable = $ic;
@@ -106,9 +106,9 @@ public class e extends z {
                     return;
                 }
             }
-            this.f10366e = str;
-            this.f10367f = callbackHandler;
-            this.f10368g = str2;
+            this.f10142e = str;
+            this.f10143f = callbackHandler;
+            this.f10144g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,23 +118,23 @@ public class e extends z {
             JSONObject wrapCallbackParams;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                if (bundle != null && !TextUtils.isEmpty(bundle.getString(this.f10366e))) {
-                    String string = bundle.getString(this.f10366e);
+                if (bundle != null && !TextUtils.isEmpty(bundle.getString(this.f10142e))) {
+                    String string = bundle.getString(this.f10142e);
                     c.a.r0.a.e0.d.i("GetStokenAction", "stoken=" + string);
                     try {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("stoken", string);
                         wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
                     } catch (JSONException e2) {
-                        if (z.f6340b) {
+                        if (z.f6201b) {
                             e2.getMessage();
                         }
                         wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
                     }
-                    this.f10367f.handleSchemeDispatchCallback(this.f10368g, wrapCallbackParams.toString());
+                    this.f10143f.handleSchemeDispatchCallback(this.f10144g, wrapCallbackParams.toString());
                     return;
                 }
-                this.f10367f.handleSchemeDispatchCallback(this.f10368g, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is invalid").toString());
+                this.f10143f.handleSchemeDispatchCallback(this.f10144g, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is invalid").toString());
             }
         }
     }

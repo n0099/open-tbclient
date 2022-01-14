@@ -9,7 +9,7 @@ import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ForegroundColorSpan;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -37,13 +37,13 @@ public class m {
         readThreadHistory.a(str);
     }
 
-    public static void b(d2 d2Var, SpannableStringBuilder spannableStringBuilder, boolean z) {
+    public static void b(e2 e2Var, SpannableStringBuilder spannableStringBuilder, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65537, null, d2Var, spannableStringBuilder, z) == null) || spannableStringBuilder == null || c.a.d.f.p.m.isEmptyStringAfterTrim(spannableStringBuilder.toString()) || d2Var == null || d2Var.s0() != 0) {
+        if (!(interceptable == null || interceptable.invokeLLZ(65537, null, e2Var, spannableStringBuilder, z) == null) || spannableStringBuilder == null || c.a.d.f.p.m.isEmptyStringAfterTrim(spannableStringBuilder.toString()) || e2Var == null || e2Var.s0() != 0) {
             return;
         }
-        if (z || d2Var.o0() == 1 || StringUtils.isNull(d2Var.getTitle())) {
-            ArrayList<c.a.s0.g1.n.b> N0 = d2Var.N0();
+        if (z || e2Var.o0() == 1 || StringUtils.isNull(e2Var.getTitle())) {
+            ArrayList<c.a.s0.g1.n.b> N0 = e2Var.N0();
             if (ListUtils.isEmpty(N0)) {
                 return;
             }
@@ -73,7 +73,7 @@ public class m {
             return;
         }
         spannableString.setSpan(new c.a.s0.g1.n.c(bVar), i2, i4, 33);
-        spannableString.setSpan(new AbsoluteSizeSpan(bVar.f12967i), i2, i4, 33);
+        spannableString.setSpan(new AbsoluteSizeSpan(bVar.f12654i), i2, i4, 33);
     }
 
     public static SpannableStringBuilder d(String str, String str2) {
@@ -125,22 +125,22 @@ public class m {
                 if (aVar != null) {
                     int i3 = aVar.a;
                     if (i3 > 0) {
-                        aVar.f18281b = context.getString(i3);
+                        aVar.f17834b = context.getString(i3);
                     }
-                    if (!c.a.d.f.p.m.isEmpty(aVar.f18281b)) {
+                    if (!c.a.d.f.p.m.isEmpty(aVar.f17834b)) {
                         int length = spannableStringBuilder.length();
-                        spannableStringBuilder.append((CharSequence) aVar.f18281b);
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f18282c)), length, spannableStringBuilder.length(), 17);
+                        spannableStringBuilder.append((CharSequence) aVar.f17834b);
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f17835c)), length, spannableStringBuilder.length(), 17);
                         if (i2 == arrayList.size() - 1 && !z2) {
                             break;
                         }
-                        Bitmap bitmap = SkinManager.getBitmap(aVar.f18283d);
+                        Bitmap bitmap = SkinManager.getBitmap(aVar.f17836d);
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
                         if (bitmap != null) {
                             bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                         }
-                        c.a.s0.s.i0.j jVar = new c.a.s0.s.i0.j(bitmapDrawable);
-                        int i4 = aVar.f18284e;
+                        c.a.s0.s.j0.j jVar = new c.a.s0.s.j0.j(bitmapDrawable);
+                        int i4 = aVar.f17837e;
                         if (i4 != 0) {
                             jVar.b(i4);
                         }
@@ -160,26 +160,26 @@ public class m {
         return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public static void j(d2 d2Var, TextView textView) {
+    public static void j(e2 e2Var, TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, d2Var, textView) == null) {
-            if ((StringUtils.isNull(d2Var.getTitle()) && (d2Var.Y0() == null || d2Var.Y0().size() == 0)) || d2Var.o0() == 1) {
-                d2Var.d3(false, true);
-                if (d2Var.i1() != null && !StringUtils.isNull(d2Var.i1().toString())) {
+        if (interceptable == null || interceptable.invokeLL(65545, null, e2Var, textView) == null) {
+            if ((StringUtils.isNull(e2Var.getTitle()) && (e2Var.Y0() == null || e2Var.Y0().size() == 0)) || e2Var.o0() == 1) {
+                e2Var.d3(false, true);
+                if (e2Var.i1() != null && !StringUtils.isNull(e2Var.i1().toString())) {
                     textView.setVisibility(0);
-                    textView.setText(d2Var.i1());
+                    textView.setText(e2Var.i1());
                     return;
                 }
                 textView.setVisibility(8);
                 return;
             }
             textView.setVisibility(0);
-            d2Var.q = 0;
-            d2Var.d3(false, true);
-            SpannableStringBuilder i1 = d2Var.i1();
+            e2Var.q = 0;
+            e2Var.d3(false, true);
+            SpannableStringBuilder i1 = e2Var.i1();
             textView.setOnTouchListener(new c.a.t0.n4.h(i1));
             textView.setText(i1);
-            l(textView, d2Var.g0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            l(textView, e2Var.g0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
@@ -208,16 +208,16 @@ public class m {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18281b;
+        public String f17834b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f18282c;
+        public int f17835c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f18283d;
+        public int f17836d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18284e;
+        public int f17837e;
 
         public a(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -235,13 +235,13 @@ public class m {
                 }
             }
             this.a = -1;
-            this.f18281b = "";
-            this.f18282c = R.color.CAM_X0304;
-            this.f18283d = R.drawable.pic_dot_title;
-            this.f18284e = 0;
+            this.f17834b = "";
+            this.f17835c = R.color.CAM_X0304;
+            this.f17836d = R.drawable.pic_dot_title;
+            this.f17837e = 0;
             this.a = i2;
-            this.f18282c = i3;
-            this.f18283d = i4;
+            this.f17835c = i3;
+            this.f17836d = i4;
         }
 
         public a(int i2) {
@@ -260,10 +260,10 @@ public class m {
                 }
             }
             this.a = -1;
-            this.f18281b = "";
-            this.f18282c = R.color.CAM_X0304;
-            this.f18283d = R.drawable.pic_dot_title;
-            this.f18284e = 0;
+            this.f17834b = "";
+            this.f17835c = R.color.CAM_X0304;
+            this.f17836d = R.drawable.pic_dot_title;
+            this.f17837e = 0;
             this.a = i2;
         }
 
@@ -283,11 +283,11 @@ public class m {
                 }
             }
             this.a = -1;
-            this.f18281b = "";
-            this.f18282c = R.color.CAM_X0304;
-            this.f18283d = R.drawable.pic_dot_title;
-            this.f18284e = 0;
-            this.f18281b = str;
+            this.f17834b = "";
+            this.f17835c = R.color.CAM_X0304;
+            this.f17836d = R.drawable.pic_dot_title;
+            this.f17837e = 0;
+            this.f17834b = str;
         }
 
         public a(String str, int i2) {
@@ -306,12 +306,12 @@ public class m {
                 }
             }
             this.a = -1;
-            this.f18281b = "";
-            this.f18282c = R.color.CAM_X0304;
-            this.f18283d = R.drawable.pic_dot_title;
-            this.f18284e = 0;
-            this.f18281b = str;
-            this.f18283d = i2;
+            this.f17834b = "";
+            this.f17835c = R.color.CAM_X0304;
+            this.f17836d = R.drawable.pic_dot_title;
+            this.f17837e = 0;
+            this.f17834b = str;
+            this.f17836d = i2;
         }
     }
 }

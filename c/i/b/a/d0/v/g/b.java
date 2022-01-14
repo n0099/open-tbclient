@@ -16,28 +16,28 @@ public class b {
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f30167b;
+    public final long f29228b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f30168c;
+    public final boolean f29229c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f30169d;
+    public final long f29230d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f30170e;
+    public final long f29231e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f30171f;
+    public final long f29232f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final k f30172g;
+    public final k f29233g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Uri f30173h;
+    public final Uri f29234h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<e> f30174i;
+    public final List<e> f29235i;
 
     public b(long j2, long j3, long j4, boolean z, long j5, long j6, long j7, k kVar, Uri uri, List<e> list) {
         Interceptable interceptable = $ic;
@@ -55,40 +55,40 @@ public class b {
             }
         }
         this.a = j2;
-        this.f30167b = j3;
-        this.f30168c = z;
-        this.f30169d = j5;
-        this.f30170e = j6;
-        this.f30171f = j7;
-        this.f30172g = kVar;
-        this.f30173h = uri;
-        this.f30174i = list == null ? Collections.emptyList() : list;
+        this.f29228b = j3;
+        this.f29229c = z;
+        this.f29230d = j5;
+        this.f29231e = j6;
+        this.f29232f = j7;
+        this.f29233g = kVar;
+        this.f29234h = uri;
+        this.f29235i = list == null ? Collections.emptyList() : list;
     }
 
     public final e a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f30174i.get(i2) : (e) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f29235i.get(i2) : (e) invokeI.objValue;
     }
 
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30174i.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29235i.size() : invokeV.intValue;
     }
 
     public final long c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 == this.f30174i.size() - 1) {
-                long j2 = this.f30167b;
+            if (i2 == this.f29235i.size() - 1) {
+                long j2 = this.f29228b;
                 if (j2 == -9223372036854775807L) {
                     return -9223372036854775807L;
                 }
-                return j2 - this.f30174i.get(i2).f30186b;
+                return j2 - this.f29235i.get(i2).f29247b;
             }
-            return this.f30174i.get(i2 + 1).f30186b - this.f30174i.get(i2).f30186b;
+            return this.f29235i.get(i2 + 1).f29247b - this.f29235i.get(i2).f29247b;
         }
         return invokeI.longValue;
     }

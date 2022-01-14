@@ -53,7 +53,7 @@ public class d implements NetRequest.RequestInterceptor {
                     int c2 = c.a.r0.a.e2.a.b.c("request", url, r2);
                     if (c2 != 0) {
                         c.a.r0.a.u.h.b Y = i.Y(c2);
-                        netRequestResult.setStatusCodeAndMsg(Y.f9529b, Y.f9530c);
+                        netRequestResult.setStatusCodeAndMsg(Y.f9323b, Y.f9324c);
                         return true;
                     }
                 } finally {

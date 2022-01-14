@@ -29,31 +29,31 @@ public class o implements FunSplashAd {
     public final TTSplashAd a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f29090b;
+    public final View f28201b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Pair<Integer, Integer> f29091c;
+    public final Pair<Integer, Integer> f28202c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f29092d;
+    public final int f28203d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f29093e;
+    public final int f28204e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f29094f;
+    public boolean f28205f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29095g;
+    public int f28206g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29096h;
+    public int f28207h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f29097i;
+    public FrameLayout f28208i;
 
     /* renamed from: j  reason: collision with root package name */
-    public FunSplashAdInteractionListener f29098j;
+    public FunSplashAdInteractionListener f28209j;
 
     /* loaded from: classes9.dex */
     public class a implements ISplashClickEyeListener {
@@ -84,7 +84,7 @@ public class o implements FunSplashAd {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                this.a.f29094f = z;
+                this.a.f28205f = z;
                 LogPrinter.d("isSupportSplashClickEye:" + z, new Object[0]);
                 return false;
             }
@@ -96,8 +96,8 @@ public class o implements FunSplashAd {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LogPrinter.d();
-                ViewUtils.removeFromParent(this.a.f29097i);
-                this.a.f29097i = null;
+                ViewUtils.removeFromParent(this.a.f28208i);
+                this.a.f28208i = null;
             }
         }
 
@@ -116,25 +116,23 @@ public class o implements FunSplashAd {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f29099e;
+        public final /* synthetic */ ViewGroup f28210e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float f29100f;
+        public final /* synthetic */ float f28211f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ float f29101g;
+        public final /* synthetic */ float f28212g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int[] f29102h;
+        public final /* synthetic */ int[] f28213h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f29103i;
+        public final /* synthetic */ int f28214i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ int f29104j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ o f29105k;
+        public final /* synthetic */ int f28215j;
+        public final /* synthetic */ o k;
 
         public b(o oVar, ViewGroup viewGroup, float f2, float f3, int[] iArr, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -151,13 +149,13 @@ public class o implements FunSplashAd {
                     return;
                 }
             }
-            this.f29105k = oVar;
-            this.f29099e = viewGroup;
-            this.f29100f = f2;
-            this.f29101g = f3;
-            this.f29102h = iArr;
-            this.f29103i = i2;
-            this.f29104j = i3;
+            this.k = oVar;
+            this.f28210e = viewGroup;
+            this.f28211f = f2;
+            this.f28212g = f3;
+            this.f28213h = iArr;
+            this.f28214i = i2;
+            this.f28215j = i3;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -171,7 +169,7 @@ public class o implements FunSplashAd {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f29105k.a(this.f29099e, this.f29100f, this.f29101g, this.f29102h, this.f29103i, this.f29104j);
+                this.k.a(this.f28210e, this.f28211f, this.f28212g, this.f28213h, this.f28214i, this.f28215j);
             }
         }
 
@@ -207,12 +205,12 @@ public class o implements FunSplashAd {
                 return;
             }
         }
-        this.f29092d = PxUtils.dp2px(16.0f);
-        this.f29093e = PxUtils.dp2px(100.0f);
-        this.f29097i = new FrameLayout(FunAdSdk.getAppContext());
+        this.f28203d = PxUtils.dp2px(16.0f);
+        this.f28204e = PxUtils.dp2px(100.0f);
+        this.f28208i = new FrameLayout(FunAdSdk.getAppContext());
         tTSplashAd.setSplashClickEyeListener(new a(this));
         this.a = tTSplashAd;
-        this.f29090b = tTSplashAd.getSplashView();
+        this.f28201b = tTSplashAd.getSplashView();
         int[] splashClickEyeSizeToDp = tTSplashAd.getSplashClickEyeSizeToDp();
         if (splashClickEyeSizeToDp == null || splashClickEyeSizeToDp.length != 2) {
             DisplayMetrics displayMetrics = FunAdSdk.getAppContext().getResources().getDisplayMetrics();
@@ -223,24 +221,24 @@ public class o implements FunSplashAd {
             valueOf = Integer.valueOf(PxUtils.dp2px(splashClickEyeSizeToDp[0]));
             round = PxUtils.dp2px(splashClickEyeSizeToDp[1]);
         }
-        this.f29091c = Pair.create(valueOf, Integer.valueOf(round));
+        this.f28202c = Pair.create(valueOf, Integer.valueOf(round));
     }
 
     public final void a(ViewGroup viewGroup, float f2, float f3, int[] iArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, Float.valueOf(f2), Float.valueOf(f3), iArr, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            ViewUtils.removeFromParent(this.f29090b);
-            this.f29090b.setScaleX(1.0f);
-            this.f29090b.setScaleY(1.0f);
-            this.f29090b.setX(0.0f);
-            this.f29090b.setY(0.0f);
+            ViewUtils.removeFromParent(this.f28201b);
+            this.f28201b.setScaleX(1.0f);
+            this.f28201b.setScaleY(1.0f);
+            this.f28201b.setX(0.0f);
+            this.f28201b.setY(0.0f);
             int[] iArr2 = new int[2];
             viewGroup.getLocationOnScreen(iArr2);
             float f4 = (f3 - iArr2[1]) + iArr[1];
-            this.f29097i.addView(this.f29090b, -1, -1);
-            viewGroup.addView(this.f29097i, new FrameLayout.LayoutParams(i2, i3));
-            this.f29097i.setTranslationX((f2 - iArr2[0]) + iArr[0]);
-            this.f29097i.setTranslationY(f4);
+            this.f28208i.addView(this.f28201b, -1, -1);
+            viewGroup.addView(this.f28208i, new FrameLayout.LayoutParams(i2, i3));
+            this.f28208i.setTranslationX((f2 - iArr2[0]) + iArr[0]);
+            this.f28208i.setTranslationY(f4);
             this.a.splashClickEyeAnimationFinish();
         }
     }
@@ -250,12 +248,12 @@ public class o implements FunSplashAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            FrameLayout frameLayout = this.f29097i;
+            FrameLayout frameLayout = this.f28208i;
             if (frameLayout != null) {
                 ViewUtils.removeFromParent(frameLayout);
-                this.f29097i = null;
+                this.f28208i = null;
             }
-            this.f29098j = null;
+            this.f28209j = null;
         }
     }
 
@@ -265,38 +263,38 @@ public class o implements FunSplashAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
             if (activity != null) {
-                if (!this.f29094f) {
+                if (!this.f28205f) {
                     LogPrinter.d("showMiniWindow failed without support", new Object[0]);
                     return false;
-                } else if (this.f29097i == null) {
+                } else if (this.f28208i == null) {
                     LogPrinter.d("showMiniWindow failed:Can't showMiniWindow again", new Object[0]);
                     return false;
                 } else {
-                    this.f29098j = funSplashAdInteractionListener;
+                    this.f28209j = funSplashAdInteractionListener;
                     ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
                     ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(16908290);
                     int[] iArr = new int[2];
-                    this.f29090b.getLocationOnScreen(iArr);
-                    int width = this.f29090b.getWidth();
-                    int height = this.f29090b.getHeight();
-                    int i2 = this.f29095g;
-                    int i3 = this.f29096h;
+                    this.f28201b.getLocationOnScreen(iArr);
+                    int width = this.f28201b.getWidth();
+                    int height = this.f28201b.getHeight();
+                    int i2 = this.f28206g;
+                    int i3 = this.f28207h;
                     if (i2 == 0 || i3 == 0) {
                         LogPrinter.d("showMiniWindow failed without invalid origin view width and height", new Object[0]);
                         return false;
                     }
-                    int intValue = ((Integer) this.f29091c.first).intValue();
-                    int intValue2 = ((Integer) this.f29091c.second).intValue();
+                    int intValue = ((Integer) this.f28202c.first).intValue();
+                    int intValue2 = ((Integer) this.f28202c.second).intValue();
                     float f2 = intValue / width;
                     float f3 = intValue2 / height;
-                    float f4 = (i2 - this.f29092d) - intValue;
-                    float f5 = (i3 - this.f29093e) - intValue2;
-                    ViewUtils.removeFromParent(this.f29090b);
-                    viewGroup.addView(this.f29090b, new FrameLayout.LayoutParams(width, height));
-                    this.f29090b.setPivotX(0.0f);
-                    this.f29090b.setPivotY(0.0f);
+                    float f4 = (i2 - this.f28203d) - intValue;
+                    float f5 = (i3 - this.f28204e) - intValue2;
+                    ViewUtils.removeFromParent(this.f28201b);
+                    viewGroup.addView(this.f28201b, new FrameLayout.LayoutParams(width, height));
+                    this.f28201b.setPivotX(0.0f);
+                    this.f28201b.setPivotY(0.0f);
                     if (z) {
-                        this.f29090b.animate().scaleX(f2).scaleY(f3).x(f4).y(f5).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(300L).setListener(new b(this, viewGroup2, f4, f5, iArr, intValue, intValue2));
+                        this.f28201b.animate().scaleX(f2).scaleY(f3).x(f4).y(f5).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(300L).setListener(new b(this, viewGroup2, f4, f5, iArr, intValue, intValue2));
                         return true;
                     }
                     a(viewGroup2, f4, f5, iArr, intValue, intValue2);

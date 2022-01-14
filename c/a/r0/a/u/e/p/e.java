@@ -30,21 +30,21 @@ public class e extends c.a.r0.a.u.e.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e f9485d;
+        public final /* synthetic */ e f9279d;
 
         /* renamed from: c.a.r0.a.u.e.p.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0581a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
+        public class C0590a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.b f9486e;
+            public final /* synthetic */ c.b f9280e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f9487f;
+            public final /* synthetic */ a f9281f;
 
-            public C0581a(a aVar, c.b bVar) {
+            public C0590a(a aVar, c.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,8 +59,8 @@ public class e extends c.a.r0.a.u.e.p.a {
                         return;
                     }
                 }
-                this.f9487f = aVar;
-                this.f9486e = bVar;
+                this.f9281f = aVar;
+                this.f9280e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -70,11 +70,11 @@ public class e extends c.a.r0.a.u.e.p.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                     if (c.a.r0.a.h2.c.d.h(iVar)) {
-                        this.f9486e.a(this.f9487f.f9485d.A());
+                        this.f9280e.a(this.f9281f.f9279d.A());
                         return;
                     }
                     int b2 = iVar.b();
-                    this.f9486e.a(new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
+                    this.f9280e.a(new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
                 }
             }
         }
@@ -97,7 +97,7 @@ public class e extends c.a.r0.a.u.e.p.a {
                     return;
                 }
             }
-            this.f9485d = eVar;
+            this.f9279d = eVar;
         }
 
         @Override // c.a.r0.a.u.c.c
@@ -110,7 +110,7 @@ public class e extends c.a.r0.a.u.e.p.a {
                 if (a0 == null) {
                     return new c.a.r0.a.u.h.b(1001, "null swan runtime");
                 }
-                a0.d0().g(c.a.r0.a.d2.d.J(), "mapp_i_get_common_sys_info", new C0581a(this, bVar));
+                a0.d0().g(c.a.r0.a.d2.d.J(), "mapp_i_get_common_sys_info", new C0590a(this, bVar));
                 return new c.a.r0.a.u.h.b(0);
             }
             return (c.a.r0.a.u.h.b) invokeLL.objValue;
@@ -121,7 +121,7 @@ public class e extends c.a.r0.a.u.e.p.a {
         public c.a.r0.a.u.h.b e(@NonNull JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.f9485d.A() : (c.a.r0.a.u.h.b) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.f9279d.A() : (c.a.r0.a.u.h.b) invokeL.objValue;
         }
 
         @Override // c.a.r0.a.u.c.c

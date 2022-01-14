@@ -31,12 +31,12 @@ public class h0 implements UBCManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f27246c;
+    public static final boolean f26435c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27247b;
+    public String f26436b;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class h0 implements UBCManager {
                 return;
             }
         }
-        f27246c = b0.m();
+        f26435c = b0.m();
     }
 
     public h0() {
@@ -68,7 +68,7 @@ public class h0 implements UBCManager {
             }
         }
         this.a = "";
-        this.f27247b = "";
+        this.f26436b = "";
     }
 
     public final IRemoteUBCService a() throws RemoteException {
@@ -90,7 +90,7 @@ public class h0 implements UBCManager {
                     ubcBeginFlowWithBizInfo = a().ubcBeginFlowWithBizInfo(str, str2, i2, this.a);
                 }
                 flow = ubcBeginFlowWithBizInfo;
-                if (f27246c) {
+                if (f26435c) {
                     String str3 = "flow id " + str + " beginFlow  process name " + c.a.k0.b.a.a.b() + "flow hashCode " + flow.hashCode() + " handle id " + flow.getHandle();
                 }
             } catch (RemoteException e2) {
@@ -120,7 +120,7 @@ public class h0 implements UBCManager {
     public void flowAddEventWithDate(Flow flow, String str, String str2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{flow, str, str2, Long.valueOf(j2)}) == null) {
-            if (f27246c) {
+            if (f26435c) {
                 String str3 = " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
@@ -142,14 +142,14 @@ public class h0 implements UBCManager {
     public void flowCancel(Flow flow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, flow) == null) {
-            if (f27246c) {
+            if (f26435c) {
                 String str = "cancel flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
                 return;
             }
             if (b0.i().m() && flow.hasEnd()) {
-                if (f27246c) {
+                if (f26435c) {
                     String str2 = "flow has end, should not end again!!! ubc id=" + flow.getId() + ", flow handle=" + flow.getHandle();
                     return;
                 }
@@ -172,14 +172,14 @@ public class h0 implements UBCManager {
     public void flowEnd(Flow flow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, flow) == null) {
-            if (f27246c) {
+            if (f26435c) {
                 String str = "end flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
                 return;
             }
             if (b0.i().m() && flow.hasEnd()) {
-                if (f27246c) {
+                if (f26435c) {
                     String str2 = "flow has end, should not end again!!! ubc id=" + flow.getId() + ", flow handle=" + flow.getHandle();
                     return;
                 }
@@ -225,7 +225,7 @@ public class h0 implements UBCManager {
     public void flowSetValue(Flow flow, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, flow, str) == null) {
-            if (f27246c) {
+            if (f26435c) {
                 String str2 = " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
@@ -247,7 +247,7 @@ public class h0 implements UBCManager {
     public void flowSetValueWithDuration(Flow flow, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, flow, str) == null) {
-            if (f27246c) {
+            if (f26435c) {
                 String str2 = " flow setValueWithDuration, mId:" + flow.getId() + " handle: " + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
@@ -264,7 +264,7 @@ public class h0 implements UBCManager {
                     if (!TextUtils.isEmpty(str)) {
                         jSONObject.put(SpeedStatsUtils.UBC_KEY_OPTION, str);
                     }
-                    if (f27246c) {
+                    if (f26435c) {
                         String str3 = " flow setValueWithDuration, mId:" + flow.getId() + ", duration: " + jSONObject.toString();
                     }
                 } catch (JSONException e2) {
@@ -299,7 +299,7 @@ public class h0 implements UBCManager {
     public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            boolean z = f27246c;
+            boolean z = f26435c;
             d.w().v();
         }
     }
@@ -328,8 +328,8 @@ public class h0 implements UBCManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            if (f27246c) {
-                return PreferenceManager.getDefaultSharedPreferences(b0.b()).getBoolean("KEY_UBC_DEBUG", f27246c);
+            if (f26435c) {
+                return PreferenceManager.getDefaultSharedPreferences(b0.b()).getBoolean("KEY_UBC_DEBUG", f26435c);
             }
             return false;
         }
@@ -341,7 +341,7 @@ public class h0 implements UBCManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (f27246c) {
+            if (f26435c) {
                 return PreferenceManager.getDefaultSharedPreferences(b0.b()).getBoolean("KEY_UBC_SAMPLE", false);
             }
             return true;
@@ -370,15 +370,15 @@ public class h0 implements UBCManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048610, this, mVar) == null) && mVar != null && c.a.k0.b.a.a.g()) {
             j.a aVar = new j.a();
-            aVar.c(mVar.f27301f);
+            aVar.c(mVar.f26486f);
             aVar.f(mVar.a);
-            aVar.e(mVar.f27297b);
-            aVar.d(mVar.f27299d);
-            aVar.g(mVar.f27298c);
+            aVar.e(mVar.f26482b);
+            aVar.d(mVar.f26484d);
+            aVar.g(mVar.f26483c);
             aVar.b(true);
             j a = aVar.a();
-            if (!m.a(mVar.f27301f)) {
-                a.D(mVar.f27300e);
+            if (!m.a(mVar.f26486f)) {
+                a.D(mVar.f26485e);
             }
             ArrayList arrayList = new ArrayList(1);
             arrayList.add(a);
@@ -410,7 +410,7 @@ public class h0 implements UBCManager {
     public void upload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            boolean z = f27246c;
+            boolean z = f26435c;
             d.w().O();
             d.w().K();
         }
@@ -420,7 +420,7 @@ public class h0 implements UBCManager {
     public void uploadFailedData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            boolean z = f27246c;
+            boolean z = f26435c;
             d.w().E();
             d.w().L();
         }
@@ -453,7 +453,7 @@ public class h0 implements UBCManager {
     public void flowAddEvent(Flow flow, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, flow, str, str2) == null) {
-            if (f27246c) {
+            if (f26435c) {
                 String str3 = " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
@@ -543,7 +543,7 @@ public class h0 implements UBCManager {
                     jSONObject.put(entry.getKey(), entry.getValue());
                 }
             } catch (JSONException e2) {
-                if (f27246c) {
+                if (f26435c) {
                     String str2 = "UBC beginFlow# exception:" + e2.getMessage();
                 }
             }
@@ -562,7 +562,7 @@ public class h0 implements UBCManager {
                     jSONObject.put(entry.getKey(), entry.getValue());
                 }
             } catch (JSONException e2) {
-                if (f27246c) {
+                if (f26435c) {
                     String str2 = "UBC onEvent# exception:" + e2.getMessage();
                 }
             }
@@ -580,11 +580,11 @@ public class h0 implements UBCManager {
                     jSONObject.put(entry.getKey(), entry.getValue());
                 }
             } catch (JSONException e2) {
-                if (f27246c) {
+                if (f26435c) {
                     String str = "UBC beginFlow# exception:" + e2.getMessage();
                 }
             }
-            if (f27246c) {
+            if (f26435c) {
                 String str2 = " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + jSONObject.toString();
             }
             flowSetValue(flow, jSONObject.toString());
@@ -598,18 +598,18 @@ public class h0 implements UBCManager {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, str, str2, i2)) == null) {
             if (c.a.k0.b.a.a.g()) {
                 if (TextUtils.isEmpty(str)) {
-                    if (f27246c) {
+                    if (f26435c) {
                         throw new IllegalArgumentException("UBC beginFlow#flowId must not be null.");
                     }
                     return null;
                 }
-                if (f27246c) {
+                if (f26435c) {
                     String str3 = "begin flow id:" + str + " value:" + str2;
                 }
                 if (TextUtils.isEmpty(this.a)) {
                     return d.w().o(str, str2, i2);
                 }
-                return d.w().p(str, str2, i2, this.f27247b);
+                return d.w().p(str, str2, i2, this.f26436b);
             }
             return b(str, str2, i2);
         }
@@ -622,19 +622,19 @@ public class h0 implements UBCManager {
         if (interceptable == null || interceptable.invokeLLI(1048603, this, str, str2, i2) == null) {
             if (c.a.k0.b.a.a.g()) {
                 if (TextUtils.isEmpty(str)) {
-                    if (f27246c) {
+                    if (f26435c) {
                         throw new IllegalArgumentException("UBC onEvent#eventId must not be null.");
                     }
                     return;
                 }
-                if (f27246c) {
+                if (f26435c) {
                     String str3 = "on event id:" + str + " value:" + str2;
                 }
                 if (TextUtils.isEmpty(this.a)) {
                     d.w().A(str, str2, i2);
                     return;
                 } else {
-                    d.w().B(str, str2, i2, this.f27247b);
+                    d.w().B(str, str2, i2, this.f26436b);
                     return;
                 }
             }
@@ -660,13 +660,13 @@ public class h0 implements UBCManager {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                if (f27246c) {
+                if (f26435c) {
                     String str2 = "begin flow id:" + str + " value:" + jSONObject;
                 }
                 if (TextUtils.isEmpty(this.a)) {
                     return d.w().q(str, jSONObject, i2);
                 }
-                return d.w().r(str, jSONObject, i2, this.f27247b);
+                return d.w().r(str, jSONObject, i2, this.f26436b);
             }
             return b(str, jSONObject.toString(), i2);
         }
@@ -681,14 +681,14 @@ public class h0 implements UBCManager {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                if (f27246c) {
+                if (f26435c) {
                     String str2 = "on event id:" + str + " value:" + jSONObject.toString();
                 }
                 if (TextUtils.isEmpty(this.a)) {
                     d.w().C(str, jSONObject, i2);
                     return;
                 } else {
-                    d.w().D(str, jSONObject, i2, this.f27247b);
+                    d.w().D(str, jSONObject, i2, this.f26436b);
                     return;
                 }
             }

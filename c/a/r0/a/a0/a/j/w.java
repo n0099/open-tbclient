@@ -14,7 +14,7 @@ public class w extends a {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f5243b;
+    public float f5134b;
 
     public w() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class w extends a {
             if (bVar.a() == 0) {
                 bVar.b(canvas.save());
             }
-            canvas.scale(this.a, this.f5243b);
+            canvas.scale(this.a, this.f5134b);
         }
     }
 
@@ -48,6 +48,6 @@ public class w extends a {
             return;
         }
         this.a = (float) jSONArray.optDouble(0);
-        this.f5243b = (float) jSONArray.optDouble(1);
+        this.f5134b = (float) jSONArray.optDouble(1);
     }
 }

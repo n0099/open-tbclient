@@ -56,10 +56,10 @@ public class StatHelper {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f56182b = false;
+    public static boolean f54050b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f56183c = "";
+    public static String f54051c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -228,7 +228,7 @@ public class StatHelper {
         if (a) {
             hashMap.put(PAY_BANKSIGN, "1");
         }
-        if (f56182b) {
+        if (f54050b) {
             hashMap.put(PAY_CATEGORY, "1");
         }
         if ("4".equals(getPayFrom())) {
@@ -460,7 +460,7 @@ public class StatHelper {
     public static void clearProcesssId() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, null) == null) {
-            f56183c = null;
+            f54051c = null;
         }
     }
 
@@ -486,7 +486,7 @@ public class StatHelper {
             a.c(Key.alipayVersion.name(), null);
             a.c(Key.signChannel.name(), null);
             a = false;
-            f56182b = false;
+            f54050b = false;
         }
     }
 
@@ -646,11 +646,11 @@ public class StatHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65590, null)) == null) {
-            if (!TextUtils.isEmpty(f56183c)) {
-                return f56183c;
+            if (!TextUtils.isEmpty(f54051c)) {
+                return f54051c;
             }
             String a2 = a();
-            f56183c = a2;
+            f54051c = a2;
             return a2;
         }
         return (String) invokeV.objValue;
@@ -760,7 +760,7 @@ public class StatHelper {
     public static void setDowngrade(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65602, null, z) == null) {
-            f56182b = z;
+            f54050b = z;
         }
     }
 

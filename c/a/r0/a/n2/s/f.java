@@ -19,9 +19,7 @@ import org.json.JSONObject;
 public class f extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public SwanCoreVersion f8165k;
+    public SwanCoreVersion k;
     public String l;
     public String m;
     public String n;
@@ -68,7 +66,7 @@ public class f extends e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 c.a.r0.a.d2.e D = c.a.r0.a.g1.f.U().D();
-                String i2 = c.a.r0.a.q2.b.i(this.f8165k, TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
+                String i2 = c.a.r0.a.q2.b.i(this.k, TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
                 if (D != null && D.X() != null) {
                     b.a X = D.X();
                     if (TextUtils.isEmpty(this.l)) {
@@ -85,7 +83,7 @@ public class f extends e {
                         this.p = X.W();
                     }
                     this.p = m.b(this.p);
-                    if (TextUtils.isEmpty(this.f8162g) && !TextUtils.isEmpty(X.e0())) {
+                    if (TextUtils.isEmpty(this.f7982g) && !TextUtils.isEmpty(X.e0())) {
                         this.s = X.e0();
                     }
                     String b2 = m.b(this.s);
@@ -98,31 +96,31 @@ public class f extends e {
                     }
                 }
                 this.n = SwanAppNetworkUtils.f().type;
-                if (this.f8163h == null) {
-                    this.f8163h = new JSONObject();
+                if (this.f7983h == null) {
+                    this.f7983h = new JSONObject();
                 }
-                this.f8163h.put("swan", i2);
-                this.f8163h.put("appversion", this.l);
-                this.f8163h.put("thirdversion", this.m);
-                this.f8163h.put("net", this.n);
-                this.f8163h.put("needdown", this.o);
-                this.f8163h.put("scheme", this.p);
-                this.f8163h.put("page", this.s);
-                this.f8163h.put("launchid", this.u);
+                this.f7983h.put("swan", i2);
+                this.f7983h.put("appversion", this.l);
+                this.f7983h.put("thirdversion", this.m);
+                this.f7983h.put("net", this.n);
+                this.f7983h.put("needdown", this.o);
+                this.f7983h.put("scheme", this.p);
+                this.f7983h.put("page", this.s);
+                this.f7983h.put("launchid", this.u);
                 if (!TextUtils.isEmpty(this.t)) {
-                    this.f8163h.put("error_code", this.t);
+                    this.f7983h.put("error_code", this.t);
                 }
                 if (!TextUtils.isEmpty(this.q)) {
-                    this.f8163h.put("canceltime", this.q);
+                    this.f7983h.put("canceltime", this.q);
                 }
                 if (!TextUtils.isEmpty(this.r)) {
-                    this.f8163h.put("successtime", this.r);
+                    this.f7983h.put("successtime", this.r);
                 }
-                if (e.f8156j) {
-                    String str = "SwanAppUBCEvent: mExt=" + this.f8163h + "\t " + Thread.currentThread().getId();
+                if (e.f7976j) {
+                    String str = "SwanAppUBCEvent: mExt=" + this.f7983h + "\t " + Thread.currentThread().getId();
                 }
             } catch (JSONException e2) {
-                if (e.f8156j) {
+                if (e.f7976j) {
                     e2.printStackTrace();
                 }
             }
@@ -141,11 +139,11 @@ public class f extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
             if (eVar == null) {
-                boolean z = e.f8156j;
+                boolean z = e.f7976j;
                 return;
             }
-            this.f8161f = eVar.H();
-            this.f8158c = eVar.T();
+            this.f7981f = eVar.H();
+            this.f7978c = eVar.T();
             this.o = eVar.s0().getString("aiapp_extra_need_download", "");
             this.p = eVar.W();
             this.s = eVar.e0();

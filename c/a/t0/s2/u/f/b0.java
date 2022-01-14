@@ -51,7 +51,7 @@ public class b0 extends n<c.a.t0.s2.r.l, PbLoadMoreItemVideoViewHolder> {
     public PbLoadMoreItemVideoViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemVideoViewHolder(LayoutInflater.from(this.f3299e).inflate(c.a.t0.s2.j.new_pb_video_more, viewGroup, false)) : (PbLoadMoreItemVideoViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemVideoViewHolder(LayoutInflater.from(this.f3258e).inflate(c.a.t0.s2.j.new_pb_video_more, viewGroup, false)) : (PbLoadMoreItemVideoViewHolder) invokeL.objValue;
     }
 
     public View c0(int i2, View view, ViewGroup viewGroup, c.a.t0.s2.r.l lVar, PbLoadMoreItemVideoViewHolder pbLoadMoreItemVideoViewHolder) {

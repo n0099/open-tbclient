@@ -58,10 +58,10 @@ public class CoinClickDialog extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CheckBox f41078e;
+        public final /* synthetic */ CheckBox f39695e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CoinClickDialog f41079f;
+        public final /* synthetic */ CoinClickDialog f39696f;
 
         public a(CoinClickDialog coinClickDialog, CheckBox checkBox) {
             Interceptable interceptable = $ic;
@@ -78,20 +78,20 @@ public class CoinClickDialog extends Activity {
                     return;
                 }
             }
-            this.f41079f = coinClickDialog;
-            this.f41078e = checkBox;
+            this.f39696f = coinClickDialog;
+            this.f39695e = checkBox;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f41078e.isChecked()) {
-                    this.f41079f.showNotShowEnsureDialog();
+                if (this.f39695e.isChecked()) {
+                    this.f39696f.showNotShowEnsureDialog();
                     return;
                 }
-                c.a.r0.h.j.r.b.n().j("1", this.f41079f.coinsThisTime, this.f41079f.coinsTotal);
-                this.f41079f.finish();
+                c.a.r0.h.j.r.b.n().j("1", this.f39696f.coinsThisTime, this.f39696f.coinsTotal);
+                this.f39696f.finish();
             }
         }
     }
@@ -102,7 +102,7 @@ public class CoinClickDialog extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CoinClickDialog f41080e;
+        public final /* synthetic */ CoinClickDialog f39697e;
 
         public b(CoinClickDialog coinClickDialog) {
             Interceptable interceptable = $ic;
@@ -119,14 +119,14 @@ public class CoinClickDialog extends Activity {
                     return;
                 }
             }
-            this.f41080e = coinClickDialog;
+            this.f39697e = coinClickDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.r0.h.j.r.b.n().j("3", this.f41080e.coinsThisTime, this.f41080e.coinsTotal);
+                c.a.r0.h.j.r.b.n().j("3", this.f39697e.coinsThisTime, this.f39697e.coinsTotal);
                 c.a.r0.h.j.n.c.n().s(true);
             }
         }
@@ -224,7 +224,7 @@ public class CoinClickDialog extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CoinClickDialog f41081e;
+        public final /* synthetic */ CoinClickDialog f39698e;
 
         public d(CoinClickDialog coinClickDialog) {
             Interceptable interceptable = $ic;
@@ -241,7 +241,7 @@ public class CoinClickDialog extends Activity {
                     return;
                 }
             }
-            this.f41081e = coinClickDialog;
+            this.f39698e = coinClickDialog;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -252,11 +252,11 @@ public class CoinClickDialog extends Activity {
                     if (TextUtils.equals(c.a.r0.h.j.b.o.I(), c.a.r0.h.j.m.c.a)) {
                         c.a.r0.h.j.b.o.V(true);
                     }
-                    c.a.r0.h.j.r.b.n().j("2", this.f41081e.coinsThisTime, this.f41081e.coinsTotal);
-                    this.f41081e.finish();
+                    c.a.r0.h.j.r.b.n().j("2", this.f39698e.coinsThisTime, this.f39698e.coinsTotal);
+                    this.f39698e.finish();
                 }
                 if (i2 == -2 && TextUtils.equals(c.a.r0.h.j.b.o.I(), c.a.r0.h.j.m.c.a)) {
-                    ((CheckBox) this.f41081e.findViewById(h.cb)).setChecked(false);
+                    ((CheckBox) this.f39698e.findViewById(h.cb)).setChecked(false);
                 }
             }
         }

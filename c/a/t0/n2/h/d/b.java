@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SingleThreadEmotionHorizontalAdater a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdListView f20246b;
+    public BdListView f19713b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f20247c;
+    public e f19714c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<EmotionPackageData> f20248d;
+    public List<EmotionPackageData> f19715d;
 
     public b(TbPageContext<?> tbPageContext, BdListView bdListView) {
         Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public class b {
                 return;
             }
         }
-        this.f20246b = bdListView;
+        this.f19713b = bdListView;
         e eVar = new e(tbPageContext);
-        this.f20247c = eVar;
+        this.f19714c = eVar;
         eVar.c(TbadkCoreApplication.getInst().getSkinType());
-        this.f20246b.addHeaderView(this.f20247c.b());
-        this.f20248d = new ArrayList();
-        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.f20248d, tbPageContext);
+        this.f19713b.addHeaderView(this.f19714c.b());
+        this.f19715d = new ArrayList();
+        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.f19715d, tbPageContext);
         this.a = singleThreadEmotionHorizontalAdater;
-        this.f20246b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
+        this.f19713b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
     }
 
     public void update() {
@@ -64,13 +64,13 @@ public class b {
     public void update(List<EmotionPackageData> list) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null || (eVar = this.f20247c) == null || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null || (eVar = this.f19714c) == null || this.a == null) {
             return;
         }
         eVar.update(Integer.valueOf(list.size()));
-        this.f20248d.clear();
+        this.f19715d.clear();
         if (list != null) {
-            this.f20248d.addAll(list);
+            this.f19715d.addAll(list);
         }
         this.a.notifyDataSetChanged();
     }

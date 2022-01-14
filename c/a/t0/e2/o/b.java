@@ -46,15 +46,15 @@ public class b implements YYPayService {
             if (interceptable == null || interceptable.invokeL(1048576, this, hVar) == null) {
                 if (hVar != null) {
                     YYPayService.YYPayResultMessage yYPayResultMessage = new YYPayService.YYPayResultMessage();
-                    yYPayResultMessage.setStatus(hVar.f13303g);
-                    yYPayResultMessage.setAppid(hVar.f13298b);
-                    yYPayResultMessage.setUid(hVar.f13304h.longValue());
-                    yYPayResultMessage.setUsedChannel(hVar.f13305i);
-                    yYPayResultMessage.setCurrencyType(hVar.f13300d);
+                    yYPayResultMessage.setStatus(hVar.f12983g);
+                    yYPayResultMessage.setAppid(hVar.f12978b);
+                    yYPayResultMessage.setUid(hVar.f12984h.longValue());
+                    yYPayResultMessage.setUsedChannel(hVar.f12985i);
+                    yYPayResultMessage.setCurrencyType(hVar.f12980d);
                     yYPayResultMessage.setAmount(hVar.a.longValue());
-                    yYPayResultMessage.setCurrencyAmount(hVar.f13299c.longValue());
-                    yYPayResultMessage.setOrderId(hVar.f13302f);
-                    yYPayResultMessage.setExpand(hVar.f13301e);
+                    yYPayResultMessage.setCurrencyAmount(hVar.f12979c.longValue());
+                    yYPayResultMessage.setOrderId(hVar.f12982f);
+                    yYPayResultMessage.setExpand(hVar.f12981e);
                     this.a.onSuccess(yYPayResultMessage);
                     return;
                 }

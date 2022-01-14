@@ -23,7 +23,7 @@ public class v implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ t f29122b;
+    public final /* synthetic */ t f28232b;
 
     public v(t tVar) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class v implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
                 return;
             }
         }
-        this.f29122b = tVar;
+        this.f28232b = tVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -65,13 +65,13 @@ public class v implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, tTNativeExpressAd, baseNativeAd2, funAdInteractionListener}) == null) {
             expressInflater.inflate();
-            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.f29122b.f29111i.get(tTNativeExpressAd);
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.f28232b.f28221i.get(tTNativeExpressAd);
             if (expressAdListenerWrapper != null) {
                 expressAdListenerWrapper.funListener = funAdInteractionListener;
             } else {
                 LogPrinter.e("Can not get correspond listener by csjDrawVideoAd.", new Object[0]);
             }
-            this.f29122b.onShowStart(this.a);
+            this.f28232b.onShowStart(this.a);
             this.a = true;
         }
     }

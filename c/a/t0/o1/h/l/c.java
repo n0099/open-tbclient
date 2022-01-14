@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f21146b;
+    public static long f20589b;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends k0<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,14 +53,14 @@ public class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String[] split = c.a.s0.s.g0.b.j().p("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(",");
+                String[] split = c.a.s0.s.h0.b.k().q("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(",");
                 if (split.length != 2) {
                     return null;
                 }
                 String str = split[0];
                 long g2 = c.a.d.f.m.b.g(split[1], 0L);
                 if (g2 != 0 && !StringUtils.isNull(str)) {
-                    c.a.s0.s.g0.b.j().x("read_progress_" + TbadkCoreApplication.getCurrentAccount(), this.a.tid + "," + g2);
+                    c.a.s0.s.h0.b.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), this.a.tid + "," + g2);
                 }
                 return null;
             }
@@ -85,7 +85,7 @@ public class c {
     public static void d(long j2, int i2, List<ThreadInfo> list, List<n> list2) {
         ThreadInfo threadInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), list, list2}) == null) || j2 != f21146b || ListUtils.isEmpty(list) || ListUtils.isEmpty(list2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), list, list2}) == null) || j2 != f20589b || ListUtils.isEmpty(list) || ListUtils.isEmpty(list2)) {
             return;
         }
         if (i2 == 0) {
@@ -101,7 +101,7 @@ public class c {
         if (ListUtils.getCount(list) <= i4 || (threadInfo = list.get(i4)) == null || threadInfo.tid.longValue() == 0) {
             return;
         }
-        f21146b = threadInfo.tid.longValue();
+        f20589b = threadInfo.tid.longValue();
         n0.b(new a(threadInfo), null);
     }
 
@@ -110,8 +110,8 @@ public class c {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && TbadkCoreApplication.isLogin()) {
             if (this.a == null) {
-                c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-                this.a = j2.p("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
+                c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                this.a = k.q("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
             if (StringUtils.isNull(this.a)) {
                 return;
@@ -128,8 +128,8 @@ public class c {
             for (int i2 = 0; i2 < list.size(); i2++) {
                 if ((list.get(i2) instanceof c.a.t0.g0.f0.b) && (bVar = (c.a.t0.g0.f0.b) list.get(i2)) != null && !StringUtils.isNull(bVar.l) && bVar.l.equals(str)) {
                     b bVar2 = new b();
-                    bVar2.f21144e = g2;
-                    bVar2.f21145f = false;
+                    bVar2.f20587e = g2;
+                    bVar2.f20588f = false;
                     list.add(i2, bVar2);
                     return;
                 }
@@ -144,8 +144,8 @@ public class c {
             return;
         }
         this.a = null;
-        f21146b = threadInfo.tid.longValue();
-        c.a.s0.s.g0.b.j().x("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+        f20589b = threadInfo.tid.longValue();
+        c.a.s0.s.h0.b.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
     }
 
     public void c(boolean z, List<ThreadInfo> list) {
@@ -156,7 +156,7 @@ public class c {
             return;
         }
         this.a = null;
-        f21146b = threadInfo.tid.longValue();
-        c.a.s0.s.g0.b.j().x("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+        f20589b = threadInfo.tid.longValue();
+        c.a.s0.s.h0.b.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
     }
 }

@@ -15,7 +15,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static List<String> f39601i;
+    public static List<String> f38287i;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static DnsParseResult a(String str, boolean z) {
@@ -27,10 +27,10 @@ public class b {
                 return null;
             }
             int i2 = 0;
-            com.baidu.searchbox.dns.c.a k2 = new a.C1840a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
-            com.baidu.searchbox.dns.d.a i3 = k2.i();
-            com.baidu.searchbox.dns.d.a.a h2 = k2.h();
-            int j2 = k2.j();
+            com.baidu.searchbox.dns.c.a k = new a.C1856a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+            com.baidu.searchbox.dns.d.a i3 = k.i();
+            com.baidu.searchbox.dns.d.a.a h2 = k.h();
+            int j2 = k.j();
             if (h2 != null) {
                 list = a(h2, DnsUtil.stackType);
                 if (list == null || list.isEmpty()) {
@@ -120,8 +120,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             synchronized (b.class) {
-                if (f39601i != null && f39601i.size() > 0) {
-                    for (String str : f39601i) {
+                if (f38287i != null && f38287i.size() > 0) {
+                    for (String str : f38287i) {
                         b(str);
                     }
                 }
@@ -147,11 +147,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             synchronized (b.class) {
-                if (f39601i == null) {
-                    f39601i = new ArrayList(4);
+                if (f38287i == null) {
+                    f38287i = new ArrayList(4);
                 }
-                if (!f39601i.contains(str)) {
-                    f39601i.add(str);
+                if (!f38287i.contains(str)) {
+                    f38287i.add(str);
                 }
             }
         }

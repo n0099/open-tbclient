@@ -24,13 +24,13 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class a0 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, String> f10161b;
+    public static final Map<String, String> f9937b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,22 +48,22 @@ public class a0 {
         }
         a = c.a.r0.a.k.a;
         HashMap hashMap = new HashMap(14);
-        f10161b = hashMap;
-        hashMap.put(com.kuaishou.weapon.un.s.f57423g, "定位");
-        f10161b.put(com.kuaishou.weapon.un.s.f57424h, "定位");
-        f10161b.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, "录音");
-        f10161b.put("android.permission.READ_CONTACTS", "读取联系人");
-        f10161b.put("android.permission.ACCESS_NETWORK_STATE", "访问网络状态");
-        f10161b.put("android.permission.REORDER_TASKS", "开机自启");
-        f10161b.put(com.kuaishou.weapon.un.s.a, "网络");
-        f10161b.put("android.permission.REQUEST_INSTALL_PACKAGES", "安装软件包");
-        f10161b.put("android.permission.READ_CALENDAR", "读取日历");
-        f10161b.put("android.permission.WRITE_CALENDAR", "写入日历");
-        f10161b.put("android.permission.WRITE_EXTERNAL_STORAGE", "存储");
-        f10161b.put(com.kuaishou.weapon.un.s.f57425i, "存储");
-        f10161b.put(PermissionRequest.RESOURCE_VIDEO_CAPTURE, "相机");
-        f10161b.put("android.permission.WRITE_SETTINGS", "系统设置");
-        f10161b.put("android.permission.SYSTEM_ALERT_WINDOW", "悬浮窗");
+        f9937b = hashMap;
+        hashMap.put(com.kuaishou.weapon.un.s.f55246g, "定位");
+        f9937b.put(com.kuaishou.weapon.un.s.f55247h, "定位");
+        f9937b.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, "录音");
+        f9937b.put("android.permission.READ_CONTACTS", "读取联系人");
+        f9937b.put("android.permission.ACCESS_NETWORK_STATE", "访问网络状态");
+        f9937b.put("android.permission.REORDER_TASKS", "开机自启");
+        f9937b.put(com.kuaishou.weapon.un.s.a, "网络");
+        f9937b.put("android.permission.REQUEST_INSTALL_PACKAGES", "安装软件包");
+        f9937b.put("android.permission.READ_CALENDAR", "读取日历");
+        f9937b.put("android.permission.WRITE_CALENDAR", "写入日历");
+        f9937b.put("android.permission.WRITE_EXTERNAL_STORAGE", "存储");
+        f9937b.put(com.kuaishou.weapon.un.s.f55248i, "存储");
+        f9937b.put(PermissionRequest.RESOURCE_VIDEO_CAPTURE, "相机");
+        f9937b.put("android.permission.WRITE_SETTINGS", "系统设置");
+        f9937b.put("android.permission.SYSTEM_ALERT_WINDOW", "悬浮窗");
     }
 
     public static Map<String, ComponentName> a() {
@@ -331,7 +331,7 @@ public class a0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            String str2 = f10161b.get(str);
+            String str2 = f9937b.get(str);
             return str2 == null ? "" : str2;
         }
         return (String) invokeL.objValue;

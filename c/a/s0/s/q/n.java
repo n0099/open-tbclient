@@ -18,11 +18,11 @@ public class n extends BaseCardInfo implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f13772f;
+    public static BdUniqueId f13461f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<m> f13773e;
+    public List<m> f13462e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class n extends BaseCardInfo implements c.a.d.n.e.n {
                 return;
             }
         }
-        f13772f = BdUniqueId.gen();
+        f13461f = BdUniqueId.gen();
     }
 
     public n() {
@@ -53,14 +53,14 @@ public class n extends BaseCardInfo implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f13773e = new ArrayList();
+        this.f13462e = new ArrayList();
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f13772f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f13461f : (BdUniqueId) invokeV.objValue;
     }
 
     public void parserProtobuf(List<BannerImage> list) {
@@ -71,7 +71,7 @@ public class n extends BaseCardInfo implements c.a.d.n.e.n {
         for (BannerImage bannerImage : list) {
             m mVar = new m();
             mVar.f(bannerImage);
-            this.f13773e.add(mVar);
+            this.f13462e.add(mVar);
         }
     }
 }

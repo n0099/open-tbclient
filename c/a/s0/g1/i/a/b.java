@@ -23,34 +23,32 @@ public class b {
     public final RectF a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Rect f12897b;
+    public final Rect f12588b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final RectF f12898c;
+    public final RectF f12589c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f12899d;
+    public final int f12590d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f12900e;
+    public final int f12591e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f12901f;
+    public float f12592f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<a> f12902g;
+    public final List<a> f12593g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f12903h;
+    public final int f12594h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f12904i;
+    public a f12595i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Rect f12905j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final Matrix f12906k;
+    public final Rect f12596j;
+    public final Matrix k;
 
     static {
         InterceptResult invokeClinit;
@@ -83,15 +81,15 @@ public class b {
             }
         }
         this.a = new RectF();
-        this.f12897b = new Rect();
-        this.f12901f = 1.0f;
-        this.f12902g = new ArrayList();
-        this.f12906k = new Matrix();
-        this.f12900e = i3;
-        this.f12899d = i2;
-        this.f12898c = new RectF(0.0f, 0.0f, i2, i3);
-        this.f12905j = new Rect(0, 0, iArr[0], iArr[1]);
-        this.f12903h = i2 / 2;
+        this.f12588b = new Rect();
+        this.f12592f = 1.0f;
+        this.f12593g = new ArrayList();
+        this.k = new Matrix();
+        this.f12591e = i3;
+        this.f12590d = i2;
+        this.f12589c = new RectF(0.0f, 0.0f, i2, i3);
+        this.f12596j = new Rect(0, 0, iArr[0], iArr[1]);
+        this.f12594h = i2 / 2;
     }
 
     public void a(Rect rect) {
@@ -104,12 +102,12 @@ public class b {
                 rect.top = 0;
             }
             int i2 = rect.right;
-            int i3 = this.f12905j.right;
+            int i3 = this.f12596j.right;
             if (i2 > i3) {
                 rect.right = i3;
             }
             int i4 = rect.bottom;
-            int i5 = this.f12905j.bottom;
+            int i5 = this.f12596j.bottom;
             if (i4 > i5) {
                 rect.bottom = i5;
             }
@@ -121,7 +119,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4)) == null) {
             if (i4 == k()) {
-                return j(i2, i3, i4).intersect(this.f12897b);
+                return j(i2, i3, i4).intersect(this.f12588b);
             }
             return false;
         }
@@ -131,25 +129,25 @@ public class b {
     public a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(this.f12903h) : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(this.f12594h) : (a) invokeV.objValue;
     }
 
     public List<a> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12902g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12593g : (List) invokeV.objValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12903h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12594h : invokeV.intValue;
     }
 
     public Rect f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12905j : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12596j : (Rect) invokeV.objValue;
     }
 
     public Rect g(a aVar) {
@@ -167,20 +165,20 @@ public class b {
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12900e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12591e : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12899d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12590d : invokeV.intValue;
     }
 
     public Rect j(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(1048585, this, i2, i3, i4)) == null) {
-            int i5 = this.f12903h;
+            int i5 = this.f12594h;
             int i6 = i5 * i4 * i3;
             int i7 = i5 * i4 * i2;
             return new Rect(i6, i7, (i4 * i5) + i6, (i4 * i5) + i7);
@@ -193,7 +191,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             int i2 = 1;
-            while (i2 < Math.round(this.f12901f)) {
+            while (i2 < Math.round(this.f12592f)) {
                 i2 *= 2;
             }
             return i2;
@@ -204,7 +202,7 @@ public class b {
     public float l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f12901f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f12592f : invokeV.floatValue;
     }
 
     public Point[] m() {
@@ -212,17 +210,17 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             o();
-            int k2 = k();
-            Rect rect = this.f12897b;
-            int i2 = this.f12903h;
-            int i3 = (rect.top / k2) / i2;
-            int i4 = (rect.left / k2) / i2;
+            int k = k();
+            Rect rect = this.f12588b;
+            int i2 = this.f12594h;
+            int i3 = (rect.top / k) / i2;
+            int i4 = (rect.left / k) / i2;
             Point point = new Point();
             point.y = i3;
             point.x = i4;
             Point point2 = new Point();
-            point2.y = (((rect.bottom / k2) / i2) * k2) + 1;
-            point2.x = (((rect.right / k2) / i2) * k2) + 1;
+            point2.y = (((rect.bottom / k) / i2) * k) + 1;
+            point2.x = (((rect.right / k) / i2) * k) + 1;
             return new Point[]{point, point2};
         }
         return (Point[]) invokeV.objValue;
@@ -231,16 +229,16 @@ public class b {
     public a n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f12904i : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f12595i : (a) invokeV.objValue;
     }
 
     public Rect o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            this.f12906k.mapRect(this.a, this.f12898c);
-            u(this.f12897b, this.a);
-            return this.f12897b;
+            this.k.mapRect(this.a, this.f12589c);
+            u(this.f12588b, this.a);
+            return this.f12588b;
         }
         return (Rect) invokeV.objValue;
     }
@@ -248,28 +246,28 @@ public class b {
     public void p(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f12906k.postTranslate(f2, f3);
+            this.k.postTranslate(f2, f3);
         }
     }
 
     public void q(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f12906k.postScale(f2, f2);
+            this.k.postScale(f2, f2);
         }
     }
 
     public void r(float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.f12906k.postScale(f2, f2, f3, f4);
+            this.k.postScale(f2, f2, f3, f4);
         }
     }
 
     public void s(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            this.f12901f = f2;
+            this.f12592f = f2;
         }
     }
 
@@ -279,8 +277,8 @@ public class b {
             return;
         }
         a aVar = new a(bitmap);
-        this.f12904i = aVar;
-        aVar.i(0, 0, this.f12899d, this.f12900e);
+        this.f12595i = aVar;
+        aVar.i(0, 0, this.f12590d, this.f12591e);
     }
 
     public final void u(Rect rect, RectF rectF) {

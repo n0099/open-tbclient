@@ -15,10 +15,10 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32392b;
+    public int f31366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32393c;
+    public int f31367c;
 
     public GridSpaceItemDecoration(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.a = i2;
-        this.f32392b = i3;
-        this.f32393c = i4;
+        this.f31366b = i3;
+        this.f31367c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -48,11 +48,11 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
             if (layoutParams.getSpanIndex() != -1) {
                 if (layoutParams.getSpanIndex() % 2 == 0) {
                     rect.left = this.a;
-                    rect.right = this.f32392b;
+                    rect.right = this.f31366b;
                     return;
                 }
-                rect.left = this.f32392b;
-                rect.right = this.f32393c;
+                rect.left = this.f31366b;
+                rect.right = this.f31367c;
             }
         }
     }

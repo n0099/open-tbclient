@@ -36,15 +36,15 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f22321d;
+    public static volatile b f21707d;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC1335b a;
+    public InterfaceC1349b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f22322b;
+    public AtomicBoolean f21708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f22323c;
+    public AtomicBoolean f21709c;
 
     /* loaded from: classes8.dex */
     public static class a implements CustomMessageTask.CustomRunnable<m> {
@@ -79,7 +79,7 @@ public class b {
                         }
                         return null;
                     } else if (data.getType() == 4) {
-                        n.M(TbadkCoreApplication.getInst(), "验证失败，请您稍后再试");
+                        n.N(TbadkCoreApplication.getInst(), "验证失败，请您稍后再试");
                         if (data.f() != null) {
                             data.f().b(null);
                         }
@@ -97,12 +97,12 @@ public class b {
 
     /* renamed from: c.a.t0.q2.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC1335b {
+    public interface InterfaceC1349b {
         void a(m.c cVar);
     }
 
     /* loaded from: classes8.dex */
-    public static class c implements InterfaceC1335b {
+    public static class c implements InterfaceC1349b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public m a;
@@ -125,7 +125,7 @@ public class b {
             this.a = mVar;
         }
 
-        @Override // c.a.t0.q2.d.b.InterfaceC1335b
+        @Override // c.a.t0.q2.d.b.InterfaceC1349b
         public void a(m.c cVar) {
             m mVar;
             Interceptable interceptable = $ic;
@@ -149,22 +149,22 @@ public class b {
                 return;
             }
         }
-        this.f22322b = new AtomicBoolean(false);
-        this.f22323c = new AtomicBoolean(false);
+        this.f21708b = new AtomicBoolean(false);
+        this.f21709c = new AtomicBoolean(false);
     }
 
     public static b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f22321d == null) {
+            if (f21707d == null) {
                 synchronized (b.class) {
-                    if (f22321d == null) {
-                        f22321d = new b();
+                    if (f21707d == null) {
+                        f21707d = new b();
                     }
                 }
             }
-            return f22321d;
+            return f21707d;
         }
         return (b) invokeV.objValue;
     }
@@ -195,7 +195,7 @@ public class b {
                 this.a.a(cVar);
             }
             this.a = null;
-            this.f22322b.set(false);
+            this.f21708b.set(false);
         }
     }
 
@@ -267,10 +267,10 @@ public class b {
         return invokeV.booleanValue;
     }
 
-    public final void i(m mVar, InterfaceC1335b interfaceC1335b) {
+    public final void i(m mVar, InterfaceC1349b interfaceC1349b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, mVar, interfaceC1335b) == null) {
-            q(interfaceC1335b);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, mVar, interfaceC1349b) == null) {
+            q(interfaceC1349b);
             SapiAccount session = SapiAccountManager.getInstance().getSession();
             if (mVar != null && session != null) {
                 if (mVar.getType() == 0) {
@@ -360,31 +360,31 @@ public class b {
         }
     }
 
-    public void q(InterfaceC1335b interfaceC1335b) {
+    public void q(InterfaceC1349b interfaceC1349b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, interfaceC1335b) == null) {
-            this.a = interfaceC1335b;
+        if (interceptable == null || interceptable.invokeL(1048589, this, interfaceC1349b) == null) {
+            this.a = interfaceC1349b;
         }
     }
 
-    public void r(m mVar, InterfaceC1335b interfaceC1335b) {
+    public void r(m mVar, InterfaceC1349b interfaceC1349b) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, mVar, interfaceC1335b) == null) && this.f22323c.compareAndSet(false, true)) {
-            if (this.f22322b.compareAndSet(false, true)) {
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, mVar, interfaceC1349b) == null) && this.f21709c.compareAndSet(false, true)) {
+            if (this.f21708b.compareAndSet(false, true)) {
                 try {
-                    i(mVar, interfaceC1335b);
+                    i(mVar, interfaceC1349b);
                 } catch (Exception e2) {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e2.toString());
-                    this.f22322b.set(false);
+                    this.f21708b.set(false);
                 }
             } else if (!h()) {
                 try {
-                    i(mVar, interfaceC1335b);
+                    i(mVar, interfaceC1349b);
                 } catch (Exception unused) {
-                    this.f22322b.set(false);
+                    this.f21708b.set(false);
                 }
             }
-            this.f22323c.set(false);
+            this.f21709c.set(false);
         }
     }
 }

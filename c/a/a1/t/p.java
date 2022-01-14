@@ -19,19 +19,19 @@ public class p {
     public RenderScript a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ScriptIntrinsicYuvToRGB f1486b;
+    public ScriptIntrinsicYuvToRGB f1474b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Type.Builder f1487c;
+    public Type.Builder f1475c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Type.Builder f1488d;
+    public Type.Builder f1476d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Allocation f1489e;
+    public Allocation f1477e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Allocation f1490f;
+    public Allocation f1478f;
 
     public p(Context context) {
         Interceptable interceptable = $ic;
@@ -50,28 +50,28 @@ public class p {
         }
         RenderScript create = RenderScript.create(context);
         this.a = create;
-        this.f1486b = ScriptIntrinsicYuvToRGB.create(create, Element.U8_4(create));
+        this.f1474b = ScriptIntrinsicYuvToRGB.create(create, Element.U8_4(create));
     }
 
     public Bitmap a(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            if (this.f1487c == null) {
+            if (this.f1475c == null) {
                 RenderScript renderScript = this.a;
                 Type.Builder x = new Type.Builder(renderScript, Element.U8(renderScript)).setX(bArr.length);
-                this.f1487c = x;
-                this.f1489e = Allocation.createTyped(this.a, x.create(), 1);
+                this.f1475c = x;
+                this.f1477e = Allocation.createTyped(this.a, x.create(), 1);
                 RenderScript renderScript2 = this.a;
                 Type.Builder y = new Type.Builder(renderScript2, Element.RGBA_8888(renderScript2)).setX(i2).setY(i3);
-                this.f1488d = y;
-                this.f1490f = Allocation.createTyped(this.a, y.create(), 1);
+                this.f1476d = y;
+                this.f1478f = Allocation.createTyped(this.a, y.create(), 1);
             }
-            this.f1489e.copyFrom(bArr);
-            this.f1486b.setInput(this.f1489e);
-            this.f1486b.forEach(this.f1490f);
+            this.f1477e.copyFrom(bArr);
+            this.f1474b.setInput(this.f1477e);
+            this.f1474b.forEach(this.f1478f);
             Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
-            this.f1490f.copyTo(createBitmap);
+            this.f1478f.copyTo(createBitmap);
             return createBitmap;
         }
         return (Bitmap) invokeLII.objValue;

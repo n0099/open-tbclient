@@ -1,6 +1,6 @@
 package c.a.t0.s2.r;
 
-import c.a.s0.s.q.z1;
+import c.a.s0.s.q.a2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,25 +17,23 @@ public class h implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f23044e;
+    public String f22410e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f23045f;
+    public String f22411f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f23046g;
+    public int f22412g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23047h;
+    public int f22413h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f23048i;
+    public boolean f22414i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f23049j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f23050k;
+    public String f22415j;
+    public String k;
     public boolean l;
 
     static {
@@ -69,15 +67,15 @@ public class h implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f23048i = false;
+        this.f22414i = false;
         if (forumData == null) {
             return;
         }
-        this.f23044e = forumData.getName();
-        this.f23045f = forumData.getImage_url();
-        this.f23046g = forumData.getPost_num();
-        this.f23047h = forumData.getMember_num();
-        this.f23049j = forumData.getId();
+        this.f22410e = forumData.getName();
+        this.f22411f = forumData.getImage_url();
+        this.f22412g = forumData.getPost_num();
+        this.f22413h = forumData.getMember_num();
+        this.f22415j = forumData.getId();
         this.l = forumData.isLike() == 1;
     }
 
@@ -88,12 +86,12 @@ public class h implements c.a.d.n.e.n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? m : (BdUniqueId) invokeV.objValue;
     }
 
-    public h(z1 z1Var) {
+    public h(a2 a2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z1Var};
+            Object[] objArr = {a2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -103,15 +101,15 @@ public class h implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f23048i = false;
-        if (z1Var == null) {
+        this.f22414i = false;
+        if (a2Var == null) {
             return;
         }
-        this.f23044e = z1Var.f13864b;
-        this.f23045f = z1Var.f13865c;
-        this.f23046g = z1Var.f13870h;
-        this.f23047h = z1Var.f13871i;
-        this.f23049j = z1Var.a;
-        this.l = z1Var.getIsLike();
+        this.f22410e = a2Var.f13273b;
+        this.f22411f = a2Var.f13274c;
+        this.f22412g = a2Var.f13279h;
+        this.f22413h = a2Var.f13280i;
+        this.f22415j = a2Var.a;
+        this.l = a2Var.getIsLike();
     }
 }

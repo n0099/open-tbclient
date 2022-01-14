@@ -15,10 +15,10 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f7075b;
+    public static final boolean f6923b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7076c;
+    public static final boolean f6924c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -35,9 +35,9 @@ public final class e {
                 return;
             }
         }
-        f7075b = k.a;
+        f6923b = k.a;
         c.a.r0.a.c1.a.g0().getSwitch("swan_slave_ready", false);
-        f7076c = false;
+        f6924c = false;
     }
 
     public e() {
@@ -58,7 +58,7 @@ public final class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) {
-            if (f7075b) {
+            if (f6923b) {
                 String str = "createSlaveReadyMessage:" + eVar;
             }
             TreeMap treeMap = new TreeMap();
@@ -72,10 +72,10 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f7075b) {
-                String str = "isSlaveReadyABSwitchOn:" + f7076c;
+            if (f6923b) {
+                String str = "isSlaveReadyABSwitchOn:" + f6924c;
             }
-            return f7076c;
+            return f6924c;
         }
         return invokeV.booleanValue;
     }

@@ -35,7 +35,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LabelRecommendActivity f47154e;
+        public final /* synthetic */ LabelRecommendActivity f45409e;
 
         public a(LabelRecommendActivity labelRecommendActivity) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                     return;
                 }
             }
-            this.f47154e = labelRecommendActivity;
+            this.f45409e = labelRecommendActivity;
         }
 
         @Override // c.a.t0.v1.c.a
@@ -62,22 +62,22 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 int i3 = b.a[labelRequestEnum.ordinal()];
                 if (i3 != 1) {
                     if (i3 == 2 && i2 == 0) {
-                        c.a.s0.s.g0.b.j().t("set_recommend_label", true);
-                        this.f47154e.statisticSubSuccess();
-                        this.f47154e.finish();
+                        c.a.s0.s.h0.b.k().u("set_recommend_label", true);
+                        this.f45409e.statisticSubSuccess();
+                        this.f45409e.finish();
                         return;
                     }
                     return;
                 }
-                LabelRecommendActivity labelRecommendActivity = this.f47154e;
+                LabelRecommendActivity labelRecommendActivity = this.f45409e;
                 labelRecommendActivity.hideLoadingView(labelRecommendActivity.mView.c());
                 if (bVar != null && !ListUtils.isEmpty(bVar.c()) && !ListUtils.isEmpty(bVar.b())) {
-                    LabelRecommendActivity labelRecommendActivity2 = this.f47154e;
+                    LabelRecommendActivity labelRecommendActivity2 = this.f45409e;
                     labelRecommendActivity2.hideNetRefreshView(labelRecommendActivity2.mView.c());
-                    this.f47154e.mView.j(bVar);
+                    this.f45409e.mView.j(bVar);
                     return;
                 }
-                LabelRecommendActivity labelRecommendActivity3 = this.f47154e;
+                LabelRecommendActivity labelRecommendActivity3 = this.f45409e;
                 labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.mView.c(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
             }
         }
@@ -205,7 +205,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             }
             TiebaStatic.log(new StatisticItem("c12243").param("obj_type", this.mFrom));
             loadData();
-            c.a.s0.s.g0.b.j().t("show_recommend_label", true);
+            c.a.s0.s.h0.b.k().u("show_recommend_label", true);
         }
     }
 

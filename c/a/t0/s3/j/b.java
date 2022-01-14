@@ -15,7 +15,7 @@ public class b extends c.a.t0.s3.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<d> f24204c;
+    public ArrayList<d> f23527c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class b extends c.a.t0.s3.f.a {
                 return;
             }
         }
-        this.f24204c = new ArrayList<>();
+        this.f23527c = new ArrayList<>();
     }
 
     @Override // c.a.t0.s3.f.a
@@ -53,13 +53,13 @@ public class b extends c.a.t0.s3.f.a {
     public ArrayList<d> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24204c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23527c : (ArrayList) invokeV.objValue;
     }
 
     public void i(ArrayList<d> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.f24204c = arrayList;
+            this.f23527c = arrayList;
             g(null);
         }
     }

@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.g;
 import c.a.d.a.j;
 import c.a.d.f.p.m;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -134,19 +134,19 @@ public class c {
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem i(Context context, d2 d2Var, String str) {
+    public static StatisticItem i(Context context, e2 e2Var, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, d2Var, str)) == null) {
-            if (context == null || d2Var == null || StringUtils.isNull(str)) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, e2Var, str)) == null) {
+            if (context == null || e2Var == null || StringUtils.isNull(str)) {
                 return null;
             }
             StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("tid", d2Var.g0()).param("fid", d2Var.U()).param("thread_type", d2Var.r1()).param("card_type", d2Var.R0()).param("nid", d2Var.G0());
-            if (d2Var.L() != null && !m.isEmpty(d2Var.L().oriUgcVid)) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
+            statisticItem.param("tid", e2Var.g0()).param("fid", e2Var.U()).param("thread_type", e2Var.r1()).param("card_type", e2Var.R0()).param("nid", e2Var.G0());
+            if (e2Var.L() != null && !m.isEmpty(e2Var.L().oriUgcVid)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, e2Var.L().oriUgcVid);
             }
-            statisticItem.param("weight", d2Var.a1).param("ab_tag", d2Var.b1).param("extra", d2Var.c1).param("obj_type", d2Var.K2 ? "2" : "1").param("source", d2Var.Z0);
+            statisticItem.param("weight", e2Var.a1).param("ab_tag", e2Var.b1).param("extra", e2Var.c1).param("obj_type", e2Var.J2 ? "2" : "1").param("source", e2Var.Z0);
             h(context, statisticItem);
             return statisticItem;
         }

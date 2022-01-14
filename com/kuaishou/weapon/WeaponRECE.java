@@ -24,21 +24,21 @@ public class WeaponRECE extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f57180c = 101;
+    public static final int f55018c = 101;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f57181d = 102;
+    public static final int f55019d = 102;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f57182e = 107;
+    public static final int f55020e = 107;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f57183f = 60000;
+    public static final long f55021f = 60000;
     public transient /* synthetic */ FieldHolder $fh;
     public NetworkInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57184b;
+    public int f55022b;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -47,10 +47,10 @@ public class WeaponRECE extends BroadcastReceiver {
         public final /* synthetic */ Intent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f57185b;
+        public final /* synthetic */ Context f55023b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ WeaponRECE f57186c;
+        public final /* synthetic */ WeaponRECE f55024c;
 
         public a(WeaponRECE weaponRECE, Intent intent, Context context) {
             Interceptable interceptable = $ic;
@@ -67,9 +67,9 @@ public class WeaponRECE extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f57186c = weaponRECE;
+            this.f55024c = weaponRECE;
             this.a = intent;
-            this.f57185b = context;
+            this.f55023b = context;
         }
 
         @Override // java.lang.Runnable
@@ -80,34 +80,34 @@ public class WeaponRECE extends BroadcastReceiver {
                 String action = this.a.getAction();
                 if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
                     try {
-                        NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f57185b.getSystemService("connectivity")).getActiveNetworkInfo();
-                        if (this.f57186c.f57184b == -1) {
+                        NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f55023b.getSystemService("connectivity")).getActiveNetworkInfo();
+                        if (this.f55024c.f55022b == -1) {
                             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                                this.f57186c.f57184b = 2;
+                                this.f55024c.f55022b = 2;
                                 return;
                             }
-                            this.f57186c.f57184b = 1;
-                        } else if (this.f57186c.a != activeNetworkInfo) {
-                            if (this.f57186c.a == null || activeNetworkInfo == null || this.f57186c.a.getType() != activeNetworkInfo.getType()) {
-                                this.f57186c.a = activeNetworkInfo;
+                            this.f55024c.f55022b = 1;
+                        } else if (this.f55024c.a != activeNetworkInfo) {
+                            if (this.f55024c.a == null || activeNetworkInfo == null || this.f55024c.a.getType() != activeNetworkInfo.getType()) {
+                                this.f55024c.a = activeNetworkInfo;
                                 if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
-                                    this.f57186c.f57184b = 1;
+                                    this.f55024c.f55022b = 1;
                                     return;
                                 }
-                                d dVar = new d(this.f57185b);
-                                if (this.f57186c.f57184b == 1) {
+                                d dVar = new d(this.f55023b);
+                                if (this.f55024c.f55022b == 1) {
                                     long currentTimeMillis = System.currentTimeMillis();
                                     if (currentTimeMillis - dVar.f() >= 60000) {
                                         dVar.c(currentTimeMillis);
-                                        n.a(this.f57185b).b(107);
+                                        n.a(this.f55023b).b(107);
                                     }
                                 }
-                                this.f57186c.f57184b = 2;
+                                this.f55024c.f55022b = 2;
                                 if (dVar.b(d.W, 0) == 1) {
                                     if (activeNetworkInfo.getType() != 1) {
                                         dVar.c(d.c1, 1);
                                     } else if (dVar.c(d.c1) == 1) {
-                                        n.a(this.f57185b).f();
+                                        n.a(this.f55023b).f();
                                         dVar.c(d.c1, 0);
                                     }
                                 }
@@ -118,23 +118,23 @@ public class WeaponRECE extends BroadcastReceiver {
                     }
                 } else if (action.equals(PackageChangedReceiver.ACTION_UNINSTALL)) {
                     try {
-                        d dVar2 = new d(this.f57185b);
+                        d dVar2 = new d(this.f55023b);
                         dVar2.c(d.e1, dVar2.b(d.e1, 0) + 1);
                         long currentTimeMillis2 = System.currentTimeMillis();
                         if (currentTimeMillis2 - dVar2.e() >= 60000) {
                             dVar2.b(currentTimeMillis2);
-                            n.a(this.f57185b).b(102);
+                            n.a(this.f55023b).b(102);
                         }
                     } catch (Exception unused) {
                     }
                 } else if (action.equals(PackageChangedReceiver.ACTION_INSTALL)) {
                     try {
-                        d dVar3 = new d(this.f57185b);
+                        d dVar3 = new d(this.f55023b);
                         dVar3.c(d.d1, dVar3.b(d.d1, 0) + 1);
                         long currentTimeMillis3 = System.currentTimeMillis();
                         if (currentTimeMillis3 - dVar3.e() >= 60000) {
                             dVar3.b(currentTimeMillis3);
-                            n.a(this.f57185b).b(101);
+                            n.a(this.f55023b).b(101);
                         }
                     } catch (Exception unused2) {
                     }
@@ -149,9 +149,9 @@ public class WeaponRECE extends BroadcastReceiver {
                             for (int i3 = 0; i3 < pVar.r.size(); i3++) {
                                 try {
                                     r rVar = pVar.r.get(i3);
-                                    if (rVar != null && rVar.f57404d.match(this.a.getAction(), this.a.getType(), this.a.getScheme(), this.a.getData(), this.a.getCategories(), "WR") >= 0) {
-                                        Class<?> loadClass = pVar.f57372g.loadClass(rVar.f57402b);
-                                        loadClass.getDeclaredMethod(rVar.f57403c, Context.class, Intent.class).invoke(loadClass.newInstance(), this.f57185b.getApplicationContext(), this.a);
+                                    if (rVar != null && rVar.f55228d.match(this.a.getAction(), this.a.getType(), this.a.getScheme(), this.a.getData(), this.a.getCategories(), "WR") >= 0) {
+                                        Class<?> loadClass = pVar.f55198g.loadClass(rVar.f55226b);
+                                        loadClass.getDeclaredMethod(rVar.f55227c, Context.class, Intent.class).invoke(loadClass.newInstance(), this.f55023b.getApplicationContext(), this.a);
                                     }
                                 } catch (Throwable th) {
                                     l1.a(th);
@@ -177,7 +177,7 @@ public class WeaponRECE extends BroadcastReceiver {
                 return;
             }
         }
-        this.f57184b = -1;
+        this.f55022b = -1;
     }
 
     @Override // android.content.BroadcastReceiver

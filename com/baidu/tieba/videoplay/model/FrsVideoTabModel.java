@@ -19,13 +19,13 @@ public class FrsVideoTabModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f50855e;
+    public b f48921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50856f;
+    public int f48922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f50857g;
+    public CustomMessageListener f48923g;
 
     /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
@@ -61,7 +61,7 @@ public class FrsVideoTabModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.a.f50855e.a();
+            this.a.f48921e.a();
         }
     }
 
@@ -88,9 +88,9 @@ public class FrsVideoTabModel extends BdBaseModel {
                 return;
             }
         }
-        this.f50857g = new a(this, 2921628);
+        this.f48923g = new a(this, 2921628);
         setUniqueId(bdUniqueId);
-        registerListener(this.f50857g);
+        registerListener(this.f48923g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -116,8 +116,8 @@ public class FrsVideoTabModel extends BdBaseModel {
     public void loadMore() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f50856f < 2) {
-                this.f50856f = 2;
+            if (this.f48922f < 2) {
+                this.f48922f = 2;
             }
             x(2);
         }
@@ -145,7 +145,7 @@ public class FrsVideoTabModel extends BdBaseModel {
     public void z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f50855e = bVar;
+            this.f48921e = bVar;
         }
     }
 }

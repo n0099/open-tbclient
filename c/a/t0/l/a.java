@@ -1,7 +1,8 @@
 package c.a.t0.l;
 
-import c.a.c0.i.h;
-import c.a.c0.i.l;
+import c.a.c0.l.h;
+import c.a.c0.l.l;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f19556b;
+    public static a f19053b;
     public transient /* synthetic */ FieldHolder $fh;
     public l a;
 
@@ -36,21 +37,27 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f19556b == null) {
+            if (f19053b == null) {
                 synchronized (a.class) {
-                    if (f19556b == null) {
-                        f19556b = new a();
+                    if (f19053b == null) {
+                        f19053b = new a();
                     }
                 }
             }
-            return f19556b;
+            return f19053b;
         }
         return (a) invokeV.objValue;
     }
 
-    public int b(String str, String str2, int i2) {
+    public int b(String str, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) ? this.a.a(str, i2) : invokeLI.intValue;
+    }
+
+    public int c(String str, String str2, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i2)) == null) ? this.a.b(str, str2, i2) : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i2)) == null) ? this.a.b(str, str2, i2) : invokeLLI.intValue;
     }
 }

@@ -16,13 +16,13 @@ public final class d extends b<d> {
     public boolean v;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public <K> d(K k2, c<K> cVar) {
-        super(k2, cVar);
+    public <K> d(K k, c<K> cVar) {
+        super(k, cVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k2, cVar};
+            Object[] objArr = {k, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -60,7 +60,7 @@ public final class d extends b<d> {
                     this.t.e(f2);
                     this.u = Float.MAX_VALUE;
                 }
-                this.f15464b = this.t.a();
+                this.f15079b = this.t.a();
                 this.a = 0.0f;
                 this.v = false;
                 return true;
@@ -68,23 +68,23 @@ public final class d extends b<d> {
             if (this.u != Float.MAX_VALUE) {
                 this.t.a();
                 long j3 = j2 / 2;
-                b.i h2 = this.t.h(this.f15464b, this.a, j3);
+                b.i h2 = this.t.h(this.f15079b, this.a, j3);
                 this.t.e(this.u);
                 this.u = Float.MAX_VALUE;
-                b.i h3 = this.t.h(h2.a, h2.f15474b, j3);
-                this.f15464b = h3.a;
-                this.a = h3.f15474b;
+                b.i h3 = this.t.h(h2.a, h2.f15088b, j3);
+                this.f15079b = h3.a;
+                this.a = h3.f15088b;
             } else {
-                b.i h4 = this.t.h(this.f15464b, this.a, j2);
-                this.f15464b = h4.a;
-                this.a = h4.f15474b;
+                b.i h4 = this.t.h(this.f15079b, this.a, j2);
+                this.f15079b = h4.a;
+                this.a = h4.f15088b;
             }
-            float max = Math.max(this.f15464b, this.f15470h);
-            this.f15464b = max;
-            float min = Math.min(max, this.f15469g);
-            this.f15464b = min;
+            float max = Math.max(this.f15079b, this.f15085h);
+            this.f15079b = max;
+            float min = Math.min(max, this.f15084g);
+            this.f15079b = min;
             if (k(min, this.a)) {
-                this.f15464b = this.t.a();
+                this.f15079b = this.t.a();
                 this.a = 0.0f;
                 return true;
             }
@@ -105,8 +105,8 @@ public final class d extends b<d> {
             e eVar = this.t;
             if (eVar != null) {
                 double a = eVar.a();
-                if (a <= this.f15469g) {
-                    if (a < this.f15470h) {
+                if (a <= this.f15084g) {
+                    if (a < this.f15085h) {
                         throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
                     }
                     return;

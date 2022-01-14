@@ -13,7 +13,7 @@ public class c {
     public static c.a.r0.a.m.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.r0.a.m.a f10397b;
+    public static final c.a.r0.a.m.a f10172b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -56,7 +56,7 @@ public class c {
                 return;
             }
         }
-        f10397b = new a();
+        f10172b = new a();
     }
 
     public static c.a.r0.a.m.a a() {
@@ -64,7 +64,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             c.a.r0.a.m.a aVar = a;
-            return aVar == null ? f10397b : aVar;
+            return aVar == null ? f10172b : aVar;
         }
         return (c.a.r0.a.m.a) invokeV.objValue;
     }

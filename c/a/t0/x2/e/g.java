@@ -23,25 +23,23 @@ public class g extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26204e;
+    public boolean f25426e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f26205f;
+    public boolean f25427f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26206g;
+    public String f25428g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26207h;
+    public String f25429h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f26208i;
+    public String f25430i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f26209j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public List<c.a.d.n.e.n> f26210k;
+    public int f25431j;
+    public List<c.a.d.n.e.n> k;
 
     static {
         InterceptResult invokeClinit;
@@ -78,31 +76,31 @@ public class g extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, user) == null) || user == null || ListUtils.isEmpty(user.gift_list)) {
             return;
         }
-        this.f26206g = String.valueOf(user.id);
-        this.f26207h = user.name;
-        this.f26208i = user.name_show;
-        this.f26209j = user.sex.intValue();
-        String str = this.f26206g;
+        this.f25428g = String.valueOf(user.id);
+        this.f25429h = user.name;
+        this.f25430i = user.name_show;
+        this.f25431j = user.sex.intValue();
+        String str = this.f25428g;
         if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            this.f26204e = true;
+            this.f25426e = true;
         } else {
-            this.f26204e = false;
+            this.f25426e = false;
         }
         if (user.sex.intValue() == 2) {
-            this.f26205f = false;
+            this.f25427f = false;
         } else {
-            this.f26205f = true;
+            this.f25427f = true;
         }
         Integer num = user.gift_num;
         if (num != null) {
             num.intValue();
         }
-        this.f26210k = new ArrayList();
+        this.k = new ArrayList();
         for (GiftInfo giftInfo : user.gift_list) {
             if (giftInfo != null) {
                 o oVar = new o();
                 oVar.g(giftInfo);
-                this.f26210k.add(oVar);
+                this.k.add(oVar);
             }
         }
     }
@@ -117,6 +115,6 @@ public class g extends BaseCardInfo {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !ListUtils.isEmpty(this.f26210k) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !ListUtils.isEmpty(this.k) : invokeV.booleanValue;
     }
 }

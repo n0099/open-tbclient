@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.message.a.f$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -77,7 +77,7 @@ public class f extends c {
             String e2 = kVar.e();
             String h2 = kVar.h();
             int i2 = kVar.i();
-            byte[] k2 = kVar.k();
+            byte[] k = kVar.k();
             String f2 = kVar.f();
             int b2 = kVar.b();
             String str = new String(bArr);
@@ -98,7 +98,7 @@ public class f extends c {
                     intent.putExtra("message_id", h2);
                     intent.putExtra("baidu_message_type", i2);
                     intent.putExtra("baidu_message_body", bArr);
-                    intent.putExtra("baidu_message_secur_info", k2);
+                    intent.putExtra("baidu_message_secur_info", k);
                     intent.putExtra("notify_id", b2);
                     intent.putExtra("widget_badge_info", kVar.c());
                     if (kVar.a() < 1 || !m.q(this.a)) {

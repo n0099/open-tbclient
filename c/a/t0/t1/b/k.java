@@ -24,13 +24,13 @@ public class k implements c.a.s0.l0.b.h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<FeedData> f24454e;
+    public ArrayList<FeedData> f23767e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b1 f24455f;
+    public b1 f23768f;
 
     /* renamed from: g  reason: collision with root package name */
-    public i f24456g;
+    public i f23769g;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -45,21 +45,21 @@ public class k implements c.a.s0.l0.b.h {
                 return;
             }
         }
-        this.f24454e = new ArrayList<>();
-        this.f24455f = new b1();
-        this.f24456g = new i();
+        this.f23767e = new ArrayList<>();
+        this.f23768f = new b1();
+        this.f23769g = new i();
     }
 
     public ArrayList<FeedData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24454e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23767e : (ArrayList) invokeV.objValue;
     }
 
     public b1 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24455f : (b1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23768f : (b1) invokeV.objValue;
     }
 
     @Override // c.a.s0.l0.b.h
@@ -75,14 +75,14 @@ public class k implements c.a.s0.l0.b.h {
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         FeedData feedData = new FeedData();
                         feedData.parserJson(optJSONArray.optJSONObject(i2));
-                        this.f24454e.add(feedData);
+                        this.f23767e.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
-                            this.f24454e.remove(feedData);
+                            this.f23767e.remove(feedData);
                         }
                     }
                 }
-                this.f24456g.f(jSONObject.optJSONObject("message"));
-                this.f24455f.i(jSONObject.optJSONObject("page"));
+                this.f23769g.f(jSONObject.optJSONObject("message"));
+                this.f23768f.i(jSONObject.optJSONObject("page"));
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -100,13 +100,13 @@ public class k implements c.a.s0.l0.b.h {
                     for (int i2 = 0; i2 < list.size(); i2++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i2));
-                        this.f24454e.add(feedData);
+                        this.f23767e.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
-                            this.f24454e.remove(feedData);
+                            this.f23767e.remove(feedData);
                         }
                     }
                 }
-                this.f24455f.j(dataRes.page);
+                this.f23768f.j(dataRes.page);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }

@@ -28,7 +28,7 @@ public class a extends c.a.r0.g.p.b.d.a {
         }
     }
 
-    @Override // c.a.r0.g.p.b.b.InterfaceC0678b
+    @Override // c.a.r0.g.p.b.b.InterfaceC0687b
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

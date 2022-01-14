@@ -18,15 +18,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class m extends c.a.t0.d0.a {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: d  reason: collision with root package name */
-    public static boolean f19679d = true;
+    /* renamed from: e  reason: collision with root package name */
+    public static boolean f19170e = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f19680b;
+    public long f19171b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f19681c;
+    public long f19172c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public j f19173d;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +64,8 @@ public class m extends c.a.t0.d0.a {
                 return;
             }
         }
-        this.f19680b = -1L;
+        this.f19171b = -1L;
+        this.f19172c = -1L;
     }
 
     @Override // c.a.t0.d0.a
@@ -69,11 +73,13 @@ public class m extends c.a.t0.d0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(3007);
-            this.f19680b = System.currentTimeMillis();
+            long currentTimeMillis = System.currentTimeMillis();
+            this.f19171b = currentTimeMillis;
+            this.f19172c = currentTimeMillis;
             super.d(bundle);
-            j jVar = new j(this.a);
-            this.f19681c = jVar;
-            jVar.f(f19679d);
+            j jVar = new j(this.a, this.f19172c);
+            this.f19173d = jVar;
+            jVar.f(f19170e);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -83,15 +89,15 @@ public class m extends c.a.t0.d0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.e();
-            f19679d = false;
-            this.f19681c.d();
+            f19170e = false;
+            this.f19173d.d();
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && LogoActivityConfig.isFirst && this.f19680b >= 0) {
-            l.b().w(System.currentTimeMillis() - this.f19680b);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && LogoActivityConfig.isFirst && this.f19171b >= 0) {
+            l.b().w(System.currentTimeMillis() - this.f19171b);
         }
     }
 }

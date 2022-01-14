@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             c.a.d.f.j.a.c cVar = new c.a.d.f.j.a.c(eVar);
             eVar.b().s(str4);
             cVar.e(-1, -1, -1);
-            byte[] bArr = eVar.c().f2841h;
+            byte[] bArr = eVar.c().f2817h;
             if (bArr != null) {
                 try {
                     str = new String(bArr, "UTF-8");
@@ -167,17 +167,17 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                     message = dnsProxyResponseData2.getErrno() + " " + dnsProxyResponseData2.getErrmsg();
                 }
             } else if (eVar.a() != null) {
-                message = eVar.a().f2822h;
+                message = eVar.a().f2799h;
             } else {
                 StringBuilder sb4 = new StringBuilder();
                 List<c.a.d.f.j.a.d> d2 = eVar.d();
                 if (d2 != null) {
                     for (c.a.d.f.j.a.d dVar : d2) {
-                        if (dVar != null && !TextUtils.isEmpty(dVar.f2822h)) {
+                        if (dVar != null && !TextUtils.isEmpty(dVar.f2799h)) {
                             if (sb4.length() > 0) {
                                 sb4.append(",");
                             }
-                            sb4.append(dVar.f2822h);
+                            sb4.append(dVar.f2799h);
                         }
                     }
                 }

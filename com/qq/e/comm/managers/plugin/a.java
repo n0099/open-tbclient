@@ -9,7 +9,7 @@ public class a {
     public static Method a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f61405b;
+    public static boolean f59078b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Throwable th, String str) {
@@ -17,7 +17,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65536, null, th, str) == null) {
             try {
                 Exception exc = new Exception("插件错误：" + str, th);
-                if (f61405b) {
+                if (f59078b) {
                     return;
                 }
                 if (a == null) {
@@ -27,7 +27,7 @@ public class a {
                 }
                 a.invoke(null, exc);
             } catch (Throwable unused) {
-                f61405b = true;
+                f59078b = true;
             }
         }
     }

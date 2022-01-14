@@ -21,13 +21,13 @@ public class VideoChannelTitleLayout extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50930e;
+    public int f48991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50931f;
+    public int f48992f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50932g;
+    public boolean f48993g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoChannelTitleLayout(Context context) {
@@ -47,7 +47,7 @@ public class VideoChannelTitleLayout extends ViewGroup {
                 return;
             }
         }
-        this.f50932g = false;
+        this.f48993g = false;
     }
 
     public final void a(int i2) {
@@ -67,20 +67,20 @@ public class VideoChannelTitleLayout extends ViewGroup {
             int i3 = lineCount - 1;
             StaticLayout staticLayout3 = new StaticLayout(text.subSequence(staticLayout2.getLineStart(i3), staticLayout2.getLineEnd(i3)), expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
             if (staticLayout3.getLineRight(staticLayout3.getLineCount() - 1) + f3 + childAt.getMeasuredWidth() <= i2) {
-                this.f50930e = staticLayout2.getLineTop(i3) + (i3 * f2);
-                this.f50931f = ((int) staticLayout2.getLineRight(i3)) + f3;
+                this.f48991e = staticLayout2.getLineTop(i3) + (i3 * f2);
+                this.f48992f = ((int) staticLayout2.getLineRight(i3)) + f3;
                 return;
             }
-            this.f50930e = staticLayout2.getHeight() + ((lineCount + 1) * f2);
-            this.f50931f = 0;
+            this.f48991e = staticLayout2.getHeight() + ((lineCount + 1) * f2);
+            this.f48992f = 0;
             return;
         }
         if (lineCount == 3) {
             int i4 = lineCount - 1;
             StaticLayout staticLayout4 = new StaticLayout(text.subSequence(staticLayout2.getLineStart(i4), staticLayout2.getLineEnd(i4)), expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
             if (staticLayout4.getLineRight(staticLayout4.getLineCount() - 1) + f3 + childAt.getMeasuredWidth() <= i2) {
-                this.f50930e = staticLayout2.getLineTop(i4) + (lineCount * f2);
-                this.f50931f = (int) staticLayout2.getLineRight(i4);
+                this.f48991e = staticLayout2.getLineTop(i4) + (lineCount * f2);
+                this.f48992f = (int) staticLayout2.getLineRight(i4);
                 return;
             }
             staticLayout = staticLayout2;
@@ -95,8 +95,8 @@ public class VideoChannelTitleLayout extends ViewGroup {
         spannableStringBuilder.append((CharSequence) "...");
         expandableTextView.getContentView().setText(spannableStringBuilder);
         StaticLayout staticLayout6 = new StaticLayout(spannableStringBuilder, expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-        this.f50931f = staticLayout6.getLineStart(staticLayout6.getLineCount() - 1);
-        this.f50930e = staticLayout.getLineEnd(staticLayout6.getLineCount() - 1) + (staticLayout6.getLineCount() * f2);
+        this.f48992f = staticLayout6.getLineStart(staticLayout6.getLineCount() - 1);
+        this.f48991e = staticLayout.getLineEnd(staticLayout6.getLineCount() - 1) + (staticLayout6.getLineCount() * f2);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -106,12 +106,12 @@ public class VideoChannelTitleLayout extends ViewGroup {
             ExpandableTextView expandableTextView = (ExpandableTextView) getChildAt(0);
             View childAt = getChildAt(1);
             expandableTextView.layout(0, 0, expandableTextView.getMeasuredWidth(), expandableTextView.getMeasuredHeight());
-            if (!this.f50932g) {
+            if (!this.f48993g) {
                 childAt.layout(0, 0, childAt.getMeasuredWidth(), childAt.getMeasuredHeight());
                 return;
             }
-            int i6 = this.f50931f;
-            childAt.layout(i6, this.f50930e, childAt.getMeasuredWidth() + i6, this.f50930e + childAt.getMeasuredHeight());
+            int i6 = this.f48992f;
+            childAt.layout(i6, this.f48991e, childAt.getMeasuredWidth() + i6, this.f48991e + childAt.getMeasuredHeight());
         }
     }
 
@@ -124,14 +124,14 @@ public class VideoChannelTitleLayout extends ViewGroup {
             a(size);
             ExpandableTextView expandableTextView = (ExpandableTextView) getChildAt(0);
             View childAt = getChildAt(1);
-            this.f50932g = childAt.getVisibility() == 0;
+            this.f48993g = childAt.getVisibility() == 0;
             measureChildren(i2, i3);
-            if (!this.f50932g) {
+            if (!this.f48993g) {
                 setMeasuredDimension(expandableTextView.getMeasuredWidth(), expandableTextView.getMeasuredHeight());
                 return;
             }
             a(size);
-            setMeasuredDimension(size, this.f50930e + childAt.getMeasuredHeight());
+            setMeasuredDimension(size, this.f48991e + childAt.getMeasuredHeight());
         }
     }
 
@@ -154,7 +154,7 @@ public class VideoChannelTitleLayout extends ViewGroup {
                 return;
             }
         }
-        this.f50932g = false;
+        this.f48993g = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -176,6 +176,6 @@ public class VideoChannelTitleLayout extends ViewGroup {
                 return;
             }
         }
-        this.f50932g = false;
+        this.f48993g = false;
     }
 }

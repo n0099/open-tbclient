@@ -184,34 +184,32 @@ public class DownloadInfo implements Parcelable {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f62561b;
+        public String f60201b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f62562c;
+        public String f60202c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f62563d;
+        public String f60203d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f62564e;
+        public String f60204e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f62565f;
+        public boolean f60205f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f62566g;
+        public String f60206g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<c> f62567h;
+        public List<c> f60207h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f62568i;
+        public int f60208i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String[] f62569j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public int[] f62570k;
+        public String[] f60209j;
+        public int[] k;
         public int l;
         public int m;
         public boolean n;
@@ -239,27 +237,27 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a b(String str) {
-            this.f62561b = str;
+            this.f60201b = str;
             return this;
         }
 
         public a c(String str) {
-            this.f62562c = str;
+            this.f60202c = str;
             return this;
         }
 
         public a d(String str) {
-            this.f62563d = str;
+            this.f60203d = str;
             return this;
         }
 
         public a e(String str) {
-            this.f62564e = str;
+            this.f60204e = str;
             return this;
         }
 
         public a f(String str) {
-            this.f62566g = str;
+            this.f60206g = str;
             return this;
         }
 
@@ -344,7 +342,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a a(boolean z) {
-            this.f62565f = z;
+            this.f60205f = z;
             return this;
         }
 
@@ -404,7 +402,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a a(List<c> list) {
-            this.f62567h = list;
+            this.f60207h = list;
             return this;
         }
 
@@ -434,7 +432,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a a(int i2) {
-            this.f62568i = i2;
+            this.f60208i = i2;
             return this;
         }
 
@@ -449,7 +447,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a a(String[] strArr) {
-            this.f62569j = strArr;
+            this.f60209j = strArr;
             return this;
         }
 
@@ -459,11 +457,11 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a(String str) {
-            this.f62562c = str;
+            this.f60202c = str;
         }
 
         public a a(int[] iArr) {
-            this.f62570k = iArr;
+            this.k = iArr;
             return this;
         }
 
@@ -2581,9 +2579,9 @@ public class DownloadInfo implements Parcelable {
             return;
         }
         this.name = aVar.a;
-        this.title = aVar.f62561b;
-        this.url = aVar.f62562c;
-        String str = aVar.f62563d;
+        this.title = aVar.f60201b;
+        this.url = aVar.f60202c;
+        String str = aVar.f60203d;
         if (TextUtils.isEmpty(str)) {
             try {
                 str = f.e();
@@ -2592,7 +2590,7 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.savePath = str;
-        String str2 = aVar.f62564e;
+        String str2 = aVar.f60204e;
         this.tempPath = str2;
         if (TextUtils.isEmpty(str2) && !f.h(str)) {
             this.tempPath = f.f();
@@ -2607,15 +2605,15 @@ public class DownloadInfo implements Parcelable {
         }
         this.status = new AtomicInteger(0);
         this.curBytes = new AtomicLong(0L);
-        this.extra = aVar.f62566g;
-        this.onlyWifi = aVar.f62565f;
-        this.extraHeaders = aVar.f62567h;
-        this.maxBytes = aVar.f62568i;
+        this.extra = aVar.f60206g;
+        this.onlyWifi = aVar.f60205f;
+        this.extraHeaders = aVar.f60207h;
+        this.maxBytes = aVar.f60208i;
         this.retryCount = aVar.l;
         this.backUpUrlRetryCount = aVar.m;
         this.force = aVar.n;
-        this.outIp = aVar.f62569j;
-        this.outSize = aVar.f62570k;
+        this.outIp = aVar.f60209j;
+        this.outSize = aVar.k;
         this.needPostProgress = aVar.o;
         this.maxProgressCount = aVar.p;
         this.minProgressTimeMsInterval = aVar.q;

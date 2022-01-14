@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -133,7 +134,7 @@ public interface Service {
                     return invokeV.booleanValue;
                 }
             };
-            STARTING = new State("STARTING", 1) { // from class: com.google.common.util.concurrent.Service.State.2
+            STARTING = new State(TornadoLiteRuntime.STATE_STARTING, 1) { // from class: com.google.common.util.concurrent.Service.State.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -168,7 +169,7 @@ public interface Service {
                     return invokeV.booleanValue;
                 }
             };
-            RUNNING = new State("RUNNING", 2) { // from class: com.google.common.util.concurrent.Service.State.3
+            RUNNING = new State(TornadoLiteRuntime.STATE_RUNNING, 2) { // from class: com.google.common.util.concurrent.Service.State.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

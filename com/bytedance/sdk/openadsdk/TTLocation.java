@@ -4,13 +4,13 @@ public class TTLocation implements LocationProvider {
     public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f55277b;
+    public double f53176b;
 
     public TTLocation(double d2, double d3) {
         this.a = 0.0d;
-        this.f55277b = 0.0d;
+        this.f53176b = 0.0d;
         this.a = d2;
-        this.f55277b = d3;
+        this.f53176b = d3;
     }
 
     @Override // com.bytedance.sdk.openadsdk.LocationProvider
@@ -20,7 +20,7 @@ public class TTLocation implements LocationProvider {
 
     @Override // com.bytedance.sdk.openadsdk.LocationProvider
     public double getLongitude() {
-        return this.f55277b;
+        return this.f53176b;
     }
 
     public void setLatitude(double d2) {
@@ -28,6 +28,6 @@ public class TTLocation implements LocationProvider {
     }
 
     public void setLongitude(double d2) {
-        this.f55277b = d2;
+        this.f53176b = d2;
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class Ruka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BLOCK_THRESHOLD = 2000;

@@ -16,28 +16,28 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9725b;
+    public String f9514b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9726c;
+    public String f9515c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9727d;
+    public String f9516d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9728e;
+    public String f9517e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9729f;
+    public String f9518f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f9730g;
+    public JSONObject f9519g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f9731h;
+    public String f9520h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.a.u.h.b f9732i;
+    public c.a.r0.a.u.h.b f9521i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -56,14 +56,14 @@ public class b {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f9726c) || TextUtils.isEmpty(this.f9727d) || TextUtils.isEmpty(this.f9729f) || TextUtils.isEmpty(this.f9728e)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f9515c) || TextUtils.isEmpty(this.f9516d) || TextUtils.isEmpty(this.f9518f) || TextUtils.isEmpty(this.f9517e)) ? false : true : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.r0.a.u.h.b bVar = this.f9732i;
+            c.a.r0.a.u.h.b bVar = this.f9521i;
             return (bVar == null || bVar.isSuccess()) ? false : true;
         }
         return invokeV.booleanValue;
@@ -78,21 +78,21 @@ public class b {
             sb.append(this.a);
             sb.append(ExtendedMessageFormat.QUOTE);
             sb.append(", providerRootPath='");
-            sb.append(this.f9726c);
+            sb.append(this.f9515c);
             sb.append(ExtendedMessageFormat.QUOTE);
             sb.append(", providerVersion='");
-            sb.append(this.f9727d);
+            sb.append(this.f9516d);
             sb.append(ExtendedMessageFormat.QUOTE);
             sb.append(", componentId='");
-            sb.append(this.f9729f);
+            sb.append(this.f9518f);
             sb.append(ExtendedMessageFormat.QUOTE);
             sb.append(", cb='");
-            sb.append(this.f9731h);
+            sb.append(this.f9520h);
             sb.append(ExtendedMessageFormat.QUOTE);
             sb.append(", pageParams=");
-            sb.append(this.f9730g);
+            sb.append(this.f9519g);
             sb.append(", swanApiResult=");
-            c.a.r0.a.u.h.b bVar = this.f9732i;
+            c.a.r0.a.u.h.b bVar = this.f9521i;
             sb.append(bVar == null ? null : bVar.a());
             sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();

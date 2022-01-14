@@ -35,24 +35,24 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final byte[] f5158g;
+    public static final byte[] f5050g;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f5159b;
+    public boolean f5051b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<String> f5160c;
+    public Set<String> f5052c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5161d;
+    public String f5053d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f5162e;
+    public Context f5054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f5163f;
+    public int f5055f;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +67,7 @@ public class a {
                 return;
             }
         }
-        f5158g = new byte[]{77, 73, 78, 71};
+        f5050g = new byte[]{77, 73, 78, 71};
     }
 
     public a() {
@@ -140,7 +140,7 @@ public class a {
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5160c : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5052c : (Set) invokeV.objValue;
     }
 
     public final void b(Bundle bundle, c.a.r.h.b.e.a aVar) {
@@ -148,38 +148,38 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, aVar) == null) {
             try {
                 if (aVar == null) {
-                    this.f5163f |= 16;
+                    this.f5055f |= 16;
                     return;
                 }
                 String string = bundle.getString("helios_data");
                 if (TextUtils.isEmpty(string)) {
-                    this.f5163f |= 1;
+                    this.f5055f |= 1;
                     return;
                 }
                 String string2 = bundle.getString("helios_sf");
                 if (TextUtils.isEmpty(string2)) {
-                    this.f5163f |= 2;
+                    this.f5055f |= 2;
                     return;
                 }
                 byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
                 for (int i2 = 0; i2 < decode.length; i2++) {
-                    decode[i2] = (byte) (decode[i2] ^ f5158g[i2 % f5158g.length]);
+                    decode[i2] = (byte) (decode[i2] ^ f5050g[i2 % f5050g.length]);
                 }
                 JSONObject jSONObject = new JSONObject(new String(decode));
                 if (f(jSONObject)) {
                     HashSet hashSet = new HashSet();
-                    this.f5160c = hashSet;
-                    if (!e(this.f5161d, this.f5162e, jSONObject, hashSet)) {
-                        this.f5163f |= 4;
+                    this.f5052c = hashSet;
+                    if (!e(this.f5053d, this.f5054e, jSONObject, hashSet)) {
+                        this.f5055f |= 4;
                     } else if (!Arrays.equals(g.a(Base64.decode(string2, 0), aVar), f.b(decode))) {
-                        this.f5163f |= 8;
+                        this.f5055f |= 8;
                     } else {
                         this.a = jSONObject.getLong("priority");
-                        this.f5159b = true;
+                        this.f5051b = true;
                     }
                 }
             } catch (Exception e2) {
-                this.f5163f |= 256;
+                this.f5055f |= 256;
                 Log.getStackTraceString(e2);
             }
         }
@@ -192,9 +192,9 @@ public class a {
         Bundle bundle;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, aVar, z) == null) {
-            PackageManager packageManager = this.f5162e.getPackageManager();
+            PackageManager packageManager = this.f5054e.getPackageManager();
             try {
-                packageInfo = packageManager.getPackageInfo(this.f5161d, 2);
+                packageInfo = packageManager.getPackageInfo(this.f5053d, 2);
             } catch (PackageManager.NameNotFoundException unused) {
                 packageInfo = null;
             }
@@ -219,13 +219,13 @@ public class a {
     public void d(String str, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, context) == null) {
-            this.f5161d = str;
-            this.f5162e = context;
+            this.f5053d = str;
+            this.f5054e = context;
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0041, code lost:
-        if (r10.equals(r9.f5161d) == false) goto L15;
+        if (r10.equals(r9.f5053d) == false) goto L15;
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0056, code lost:
         if (r0.startsWith(r10) != false) goto L16;
@@ -245,20 +245,20 @@ public class a {
             if (!optString.equals("") || a == 4) {
                 if (a != 0) {
                     if (a == 1) {
-                        String str = this.f5161d;
+                        String str = this.f5053d;
                         if (str != null) {
                         }
-                        i2 = this.f5163f | 32;
-                        this.f5163f = i2;
+                        i2 = this.f5055f | 32;
+                        this.f5055f = i2;
                         return false;
                     } else if (a == 2) {
                         try {
-                            if (!Pattern.compile(optString).matcher(this.f5161d).matches()) {
-                                this.f5163f |= 32;
+                            if (!Pattern.compile(optString).matcher(this.f5053d).matches()) {
+                                this.f5055f |= 32;
                                 return false;
                             }
                         } catch (Exception unused) {
-                            i2 = this.f5163f | 128;
+                            i2 = this.f5055f | 128;
                         }
                     } else if (a == 4) {
                         return true;
@@ -266,8 +266,8 @@ public class a {
                     return true;
                 }
             }
-            i2 = this.f5163f | 64;
-            this.f5163f = i2;
+            i2 = this.f5055f | 64;
+            this.f5055f = i2;
             return false;
         }
         return invokeL.booleanValue;
@@ -282,6 +282,6 @@ public class a {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f5159b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f5051b : invokeV.booleanValue;
     }
 }

@@ -32,34 +32,32 @@ public class b {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f13231b;
+    public final View f12907b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ThreadAchievementShareInfo.ParamBean f13232c;
+    public final ThreadAchievementShareInfo.ParamBean f12908c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbRichTextView f13233d;
+    public TbRichTextView f12909d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.g1.n.a f13234e;
+    public c.a.s0.g1.n.a f12910e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f13235f;
+    public TbImageView f12911f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f13236g;
+    public TextView f12912g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f13237h;
+    public TextView f12913h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f13238i;
+    public TextView f12914i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f13239j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f13240k;
+    public TextView f12915j;
+    public TextView k;
 
     public b(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
@@ -77,8 +75,8 @@ public class b {
             }
         }
         this.a = context;
-        this.f13231b = LayoutInflater.from(context).inflate(R.layout.normal_interaction_achievement, (ViewGroup) null);
-        this.f13232c = threadAchievementShareInfo.getParams();
+        this.f12907b = LayoutInflater.from(context).inflate(R.layout.normal_interaction_achievement, (ViewGroup) null);
+        this.f12908c = threadAchievementShareInfo.getParams();
         c();
         b();
     }
@@ -86,17 +84,17 @@ public class b {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13231b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12907b : (View) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f13232c.getContent() == null || this.f13232c.getContent().size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f12908c.getContent() == null || this.f12908c.getContent().size() == 0) {
             return;
         }
         JSONArray jSONArray = new JSONArray();
         ThreadAchievementShareInfo.ContentBean contentBean = null;
-        for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.f13232c.getContent()) {
+        for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.f12908c.getContent()) {
             if (contentBean2.getType() == 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -110,60 +108,60 @@ public class b {
                 contentBean = contentBean2;
             }
         }
-        if (!TextUtils.isEmpty(this.f13232c.getThread_title())) {
-            this.f13236g.setText(this.f13232c.getThread_title());
-            this.f13236g.setVisibility(0);
-            this.f13233d.setMaxLines(6);
+        if (!TextUtils.isEmpty(this.f12908c.getThread_title())) {
+            this.f12912g.setText(this.f12908c.getThread_title());
+            this.f12912g.setVisibility(0);
+            this.f12909d.setMaxLines(6);
         } else {
-            ((LinearLayout.LayoutParams) this.f13233d.getLayoutParams()).topMargin = n.f(this.a, R.dimen.tbds20);
-            this.f13233d.setMaxLines(8);
+            ((LinearLayout.LayoutParams) this.f12909d.getLayoutParams()).topMargin = n.f(this.a, R.dimen.tbds20);
+            this.f12909d.setMaxLines(8);
         }
-        this.f13233d.setTextEllipsize(TextUtils.TruncateAt.END);
-        this.f13233d.setMinimumHeight(n.f(this.a, R.dimen.tbds516));
-        if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.f13232c.getThread_type().contains("pic")) {
-            this.f13235f.setVisibility(0);
-            this.f13235f.setDefaultBgResource(R.color.transparent);
-            this.f13235f.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f13235f.setPlaceHolder(2);
-            this.f13235f.startLoad(contentBean.getSrc(), 10, false);
-            if (!TextUtils.isEmpty(this.f13232c.getThread_title())) {
-                this.f13233d.setVisibility(8);
+        this.f12909d.setTextEllipsize(TextUtils.TruncateAt.END);
+        this.f12909d.setMinimumHeight(n.f(this.a, R.dimen.tbds516));
+        if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.f12908c.getThread_type().contains("pic")) {
+            this.f12911f.setVisibility(0);
+            this.f12911f.setDefaultBgResource(R.color.transparent);
+            this.f12911f.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f12911f.setPlaceHolder(2);
+            this.f12911f.startLoad(contentBean.getSrc(), 10, false);
+            if (!TextUtils.isEmpty(this.f12908c.getThread_title())) {
+                this.f12909d.setVisibility(8);
             } else {
-                this.f13233d.setMaxLines(2);
-                this.f13233d.setTextEllipsize(TextUtils.TruncateAt.END);
-                this.f13233d.setLayoutStrategy(this.f13234e);
-                this.f13233d.setMinimumHeight(n.f(this.a, R.dimen.tbds0));
+                this.f12909d.setMaxLines(2);
+                this.f12909d.setTextEllipsize(TextUtils.TruncateAt.END);
+                this.f12909d.setLayoutStrategy(this.f12910e);
+                this.f12909d.setMinimumHeight(n.f(this.a, R.dimen.tbds0));
             }
         }
-        this.f13233d.setText(TbRichTextView.parse(jSONArray, false));
-        this.f13240k.setText(StringHelper.numFormatOverWanWithNegative(this.f13232c.getAgree_num()));
-        this.f13237h.setText(StringHelper.numFormatOverWanWithNegative(this.f13232c.getPost_num()));
+        this.f12909d.setText(TbRichTextView.parse(jSONArray, false));
+        this.k.setText(StringHelper.numFormatOverWanWithNegative(this.f12908c.getAgree_num()));
+        this.f12913h.setText(StringHelper.numFormatOverWanWithNegative(this.f12908c.getPost_num()));
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f13237h = (TextView) this.f13231b.findViewById(R.id.comment_num);
-            this.f13238i = (TextView) this.f13231b.findViewById(R.id.comment_desc);
-            this.f13239j = (TextView) this.f13231b.findViewById(R.id.praise_desc);
-            this.f13240k = (TextView) this.f13231b.findViewById(R.id.praise_num);
-            this.f13236g = (TextView) this.f13231b.findViewById(R.id.thread_title);
-            this.f13235f = (TbImageView) this.f13231b.findViewById(R.id.main_img);
-            this.f13233d = (TbRichTextView) this.f13231b.findViewById(R.id.rich_text);
-            this.f13240k.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.f13237h.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.f13239j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.f13238i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.f13236g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f12913h = (TextView) this.f12907b.findViewById(R.id.comment_num);
+            this.f12914i = (TextView) this.f12907b.findViewById(R.id.comment_desc);
+            this.f12915j = (TextView) this.f12907b.findViewById(R.id.praise_desc);
+            this.k = (TextView) this.f12907b.findViewById(R.id.praise_num);
+            this.f12912g = (TextView) this.f12907b.findViewById(R.id.thread_title);
+            this.f12911f = (TbImageView) this.f12907b.findViewById(R.id.main_img);
+            this.f12909d = (TbRichTextView) this.f12907b.findViewById(R.id.rich_text);
+            this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.f12913h.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.f12915j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f12914i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f12912g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             c.a.s0.g1.n.a aVar = new c.a.s0.g1.n.a();
-            this.f13234e = aVar;
+            this.f12910e = aVar;
             aVar.s(n.f(this.a, R.dimen.tbds38));
-            this.f13234e.v(n.f(this.a, R.dimen.tbds42));
-            this.f13234e.j(n.f(this.a, R.dimen.tbds23));
-            this.f13234e.o(n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
-            this.f13234e.i(n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-            this.f13233d.setLayoutStrategy(this.f13234e);
-            this.f13233d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f12910e.v(n.f(this.a, R.dimen.tbds42));
+            this.f12910e.j(n.f(this.a, R.dimen.tbds23));
+            this.f12910e.o(n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
+            this.f12910e.i(n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+            this.f12909d.setLayoutStrategy(this.f12910e);
+            this.f12909d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 }

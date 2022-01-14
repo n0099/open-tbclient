@@ -8,11 +8,11 @@ public class ah {
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f59295b;
+    public final boolean f57059b;
 
     public ah(e eVar) {
         this.a = eVar;
-        this.f59295b = !(eVar instanceof f);
+        this.f57059b = !(eVar instanceof f);
     }
 
     public List<? extends ae> a(String str) {

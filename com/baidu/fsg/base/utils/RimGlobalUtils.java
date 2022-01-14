@@ -167,7 +167,7 @@ public final class RimGlobalUtils {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f35005b;
+                public final /* synthetic */ View f33877b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -185,14 +185,14 @@ public final class RimGlobalUtils {
                         }
                     }
                     this.a = context;
-                    this.f35005b = view;
+                    this.f33877b = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ((InputMethodManager) this.a.getSystemService("input_method")).showSoftInput(this.f35005b, 0);
+                        ((InputMethodManager) this.a.getSystemService("input_method")).showSoftInput(this.f33877b, 0);
                     }
                 }
             }, 100L);

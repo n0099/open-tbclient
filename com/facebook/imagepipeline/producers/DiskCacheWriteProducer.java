@@ -11,7 +11,7 @@ import com.facebook.imagepipeline.cache.BufferedDiskCache;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DiskCacheWriteProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -23,13 +23,13 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
     /* renamed from: com.facebook.imagepipeline.producers.DiskCacheWriteProducer$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DiskCacheWriteConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

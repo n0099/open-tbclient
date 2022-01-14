@@ -19,13 +19,13 @@ public class c<K, V> {
     public final LinkedHashMap<K, V> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61477b;
+    public int f59146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61478c;
+    public int f59147c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b<K, Long> f61479d;
+    public b<K, Long> f59148d;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -45,9 +45,9 @@ public class c<K, V> {
         if (i2 <= 0) {
             throw new IllegalArgumentException("maxSize <= 0");
         }
-        this.f61478c = i2;
+        this.f59147c = i2;
         this.a = new LinkedHashMap<>(0, 0.75f, true);
-        this.f61479d = new b<>(0, 0.75f);
+        this.f59148d = new b<>(0, 0.75f);
     }
 
     public static int a(String str, String str2, Boolean bool) {
@@ -99,15 +99,15 @@ public class c<K, V> {
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             while (true) {
                 synchronized (this) {
-                    if (this.f61477b <= i2 || this.a.isEmpty()) {
+                    if (this.f59146b <= i2 || this.a.isEmpty()) {
                         break;
                     }
                     Map.Entry<K, V> next = this.a.entrySet().iterator().next();
                     K key = next.getKey();
                     V value = next.getValue();
                     this.a.remove(key);
-                    this.f61479d.remove(key);
-                    this.f61477b -= b(key, value);
+                    this.f59148d.remove(key);
+                    this.f59146b -= b(key, value);
                 }
             }
         }
@@ -128,15 +128,15 @@ public class c<K, V> {
         return invokeL.booleanValue;
     }
 
-    private int b(K k2, V v) {
+    private int b(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, k2, v)) == null) {
-            int a = a((c<K, V>) k2, (K) v);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, k, v)) == null) {
+            int a = a((c<K, V>) k, (K) v);
             if (a <= 0) {
-                this.f61477b = 0;
+                this.f59146b = 0;
                 for (Map.Entry<K, V> entry : this.a.entrySet()) {
-                    this.f61477b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
+                    this.f59146b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
                 }
             }
             return a;
@@ -165,17 +165,17 @@ public class c<K, V> {
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? (str == null || str.length() == 0 || str.trim().length() == 0 || StringUtil.NULL_STRING.equals(str) || str.equals("")) ? Boolean.FALSE : Boolean.TRUE : (Boolean) invokeL.objValue;
     }
 
-    private V b(K k2) {
+    private V b(K k) {
         InterceptResult invokeL;
         V remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, k2)) == null) {
-            if (k2 != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, k)) == null) {
+            if (k != null) {
                 synchronized (this) {
-                    remove = this.a.remove(k2);
-                    this.f61479d.remove(k2);
+                    remove = this.a.remove(k);
+                    this.f59148d.remove(k);
                     if (remove != null) {
-                        this.f61477b -= b(k2, remove);
+                        this.f59146b -= b(k, remove);
                     }
                 }
                 return remove;
@@ -200,26 +200,26 @@ public class c<K, V> {
         return invokeLLL.intValue;
     }
 
-    public int a(K k2, V v) {
+    public int a(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k2, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, v)) == null) {
             return 1;
         }
         return invokeLL.intValue;
     }
 
-    public final V a(K k2) {
+    public final V a(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2)) == null) {
-            if (k2 != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
+            if (k != null) {
                 synchronized (this) {
-                    if (!this.f61479d.containsKey(k2)) {
-                        b((c<K, V>) k2);
+                    if (!this.f59148d.containsKey(k)) {
+                        b((c<K, V>) k);
                         return null;
                     }
-                    V v = this.a.get(k2);
+                    V v = this.a.get(k);
                     if (v != null) {
                         return v;
                     }
@@ -231,23 +231,23 @@ public class c<K, V> {
         return (V) invokeL.objValue;
     }
 
-    public final V a(K k2, V v, long j2) {
+    public final V a(K k, V v, long j2) {
         InterceptResult invokeCommon;
         V put;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{k2, v, Long.valueOf(j2)})) == null) {
-            if (k2 == null || v == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{k, v, Long.valueOf(j2)})) == null) {
+            if (k == null || v == null) {
                 throw new NullPointerException("key == null || value == null");
             }
             synchronized (this) {
-                this.f61477b += b(k2, v);
-                put = this.a.put(k2, v);
-                this.f61479d.put(k2, Long.valueOf(j2));
+                this.f59146b += b(k, v);
+                put = this.a.put(k, v);
+                this.f59148d.put(k, Long.valueOf(j2));
                 if (put != null) {
-                    this.f61477b -= b(k2, put);
+                    this.f59146b -= b(k, put);
                 }
             }
-            a(this.f61478c);
+            a(this.f59147c);
             return put;
         }
         return (V) invokeCommon.objValue;

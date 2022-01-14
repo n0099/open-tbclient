@@ -352,12 +352,12 @@ public final class f {
     public static void a(Map<Integer, byte[]> map, FileDescriptor fileDescriptor, m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, map, fileDescriptor, mVar) == null) {
-            l lVar = new l(fileDescriptor, 0L, mVar.f55167b);
-            long j2 = mVar.f55168c;
-            l lVar2 = new l(fileDescriptor, j2, mVar.f55169d - j2);
-            ByteBuffer duplicate = mVar.f55170e.duplicate();
+            l lVar = new l(fileDescriptor, 0L, mVar.f53070b);
+            long j2 = mVar.f53071c;
+            l lVar2 = new l(fileDescriptor, j2, mVar.f53072d - j2);
+            ByteBuffer duplicate = mVar.f53073e.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
-            long j3 = mVar.f55167b;
+            long j3 = mVar.f53070b;
             s.c(duplicate);
             int position = duplicate.position() + 16;
             if (j3 >= 0 && j3 <= 4294967295L) {
@@ -512,7 +512,7 @@ public final class f {
             if (bArr.length == 40) {
                 ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN);
                 order.position(32);
-                if (order.getLong() == j2 - (mVar.f55168c - mVar.f55167b)) {
+                if (order.getLong() == j2 - (mVar.f53071c - mVar.f53070b)) {
                     return Arrays.copyOfRange(bArr, 0, 32);
                 }
                 throw new SecurityException("APK content size did not verify");
@@ -550,7 +550,7 @@ public final class f {
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? ByteBuffer.allocate(i2) : (ByteBuffer) invokeI.objValue;
                     }
-                }).f55159b)) {
+                }).f53062b)) {
                     return;
                 }
                 throw new SecurityException("APK verity digest of contents did not verify");

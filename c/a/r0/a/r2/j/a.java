@@ -50,17 +50,17 @@ public class a extends z {
             if (eVar == null) {
                 d.c("getAutoRotationSync", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 return false;
             } else if (context == null) {
                 d.c("getAutoRotationSync", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = z.f6340b;
+                boolean z2 = z.f6201b;
                 return false;
             } else {
                 try {
                     int i2 = Settings.System.getInt(context.getApplicationContext().getContentResolver(), "accelerometer_rotation");
-                    if (z.f6340b) {
+                    if (z.f6201b) {
                         String str = "getAutoRotationSync --- isRotateOn: " + i2;
                     }
                     JSONObject jSONObject = new JSONObject();
@@ -70,11 +70,11 @@ public class a extends z {
                         return true;
                     } catch (JSONException unused) {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                        boolean z3 = z.f6340b;
+                        boolean z3 = z.f6201b;
                         return false;
                     }
                 } catch (Exception e2) {
-                    if (z.f6340b) {
+                    if (z.f6201b) {
                         e2.printStackTrace();
                     }
                     return false;

@@ -26,13 +26,13 @@ public class b extends k {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<String> f22421b;
+    public SparseArray<String> f21802b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f22422c;
+    public HashMap<String, String> f21803c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Gson f22423d;
+    public Gson f21804d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(int i2) {
@@ -52,7 +52,7 @@ public class b extends k {
                 return;
             }
         }
-        this.f22423d = new Gson();
+        this.f21804d = new Gson();
         a();
     }
 
@@ -60,7 +60,7 @@ public class b extends k {
         int e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f22421b = new SparseArray<>();
+            this.f21802b = new SparseArray<>();
             ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
             if (ListUtils.isEmpty(findHttpTasks)) {
                 return;
@@ -72,38 +72,24 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!m.isEmpty(str) && str.contains("=") && (e2 = c.a.d.f.m.b.e(str.split("[=]")[1], 0)) != 0) {
-                        this.f22421b.put(e2, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.f21802b.put(e2, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
         }
     }
 
-    public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        InterceptResult invokeLL;
-        HashMap<String, String> hashMap;
+    public void b(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
-            String str = this.f22421b.get(socketMessage.getCmd());
-            if (str != null && (hashMap = this.f22422c) != null && hashMap.get(str) != null && this.a != null) {
-                this.a.a(str, this.f22423d.toJson(this.f22422c.get(str)), this.f22423d.toJson(this.f22423d.toJson(socketMessage.getData())));
-            }
-            return socketMessage;
-        }
-        return (SocketMessage) invokeLL.objValue;
-    }
-
-    public void c(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             this.a = cVar;
         }
     }
 
-    public void d(HashMap<String, String> hashMap) {
+    public void c(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hashMap) == null) {
-            this.f22422c = hashMap;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+            this.f21803c = hashMap;
         }
     }
 
@@ -112,7 +98,22 @@ public class b extends k {
     @Override // c.a.d.c.f.f
     public /* bridge */ /* synthetic */ SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         SocketMessage socketMessage2 = socketMessage;
-        b(socketMessage2, socketMessageTask);
+        process2(socketMessage2, socketMessageTask);
         return socketMessage2;
+    }
+
+    /* renamed from: process  reason: avoid collision after fix types in other method */
+    public SocketMessage process2(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        InterceptResult invokeLL;
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, socketMessage, socketMessageTask)) == null) {
+            String str = this.f21802b.get(socketMessage.getCmd());
+            if (str != null && (hashMap = this.f21803c) != null && hashMap.get(str) != null && this.a != null) {
+                this.a.a(str, this.f21804d.toJson(this.f21803c.get(str)), this.f21804d.toJson(this.f21804d.toJson(socketMessage.getData())));
+            }
+            return socketMessage;
+        }
+        return (SocketMessage) invokeLL.objValue;
     }
 }

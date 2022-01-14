@@ -21,19 +21,19 @@ public class BdProgressDialog1080 extends AlertDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41576e;
+    public String f40153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f41577f;
+    public TextView f40154f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41578g;
+    public TextView f40155g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CircleView1080 f41579h;
+    public CircleView1080 f40156h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41580i;
+    public int f40157i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdProgressDialog1080(Context context) {
@@ -58,14 +58,14 @@ public class BdProgressDialog1080 extends AlertDialog {
     public int getPercent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41580i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40157i : invokeV.intValue;
     }
 
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f41576e = str;
-            TextView textView = this.f41578g;
+            this.f40153e = str;
+            TextView textView = this.f40155g;
             if (textView != null) {
                 textView.setText(str);
             }
@@ -74,15 +74,15 @@ public class BdProgressDialog1080 extends AlertDialog {
 
     public void setPercent(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 == this.f41580i) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 == this.f40157i) {
             return;
         }
-        this.f41580i = i2;
-        TextView textView = this.f41577f;
+        this.f40157i = i2;
+        TextView textView = this.f40154f;
         if (textView != null) {
             textView.setText(i2 + "%");
         }
-        CircleView1080 circleView1080 = this.f41579h;
+        CircleView1080 circleView1080 = this.f40156h;
         if (circleView1080 != null) {
             circleView1080.setProgress(i2);
         }
@@ -103,17 +103,17 @@ public class BdProgressDialog1080 extends AlertDialog {
                     findViewById.setLayoutParams(layoutParams);
                 }
                 TextView textView = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-                this.f41578g = textView;
+                this.f40155g = textView;
                 if (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f41578g.getLayoutParams();
+                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f40155g.getLayoutParams();
                     layoutParams2.topMargin = n.f(getContext(), R.dimen.tbds35);
-                    this.f41578g.setLayoutParams(layoutParams2);
+                    this.f40155g.setLayoutParams(layoutParams2);
                 }
-                if (!StringUtils.isNull(this.f41576e)) {
-                    this.f41578g.setText(this.f41576e);
+                if (!StringUtils.isNull(this.f40153e)) {
+                    this.f40155g.setText(this.f40153e);
                 }
-                this.f41577f = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-                this.f41579h = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
+                this.f40154f = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
+                this.f40156h = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
             }
         }
     }

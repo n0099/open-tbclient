@@ -11,7 +11,7 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.image.CloseableImage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BitmapMemoryCacheGetProducer extends BitmapMemoryCacheProducer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "BitmapMemoryCacheGetProducer";

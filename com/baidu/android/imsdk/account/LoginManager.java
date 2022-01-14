@@ -193,10 +193,10 @@ public class LoginManager {
             String str = this.TAG;
             LogUtils.d(str, "lcp，im login ：" + IMUserLoginByTokenMsg.sRetrytimes + ", loginType :" + loginType);
             if (z) {
-                Handler handler = a.f14646c;
+                Handler handler = a.f14300c;
                 if (handler != null) {
                     handler.removeCallbacks(this.imLoginRunable);
-                    a.f14646c.postDelayed(this.imLoginRunable, 3000L);
+                    a.f14300c.postDelayed(this.imLoginRunable, 3000L);
                 }
             } else if (loginType == 1) {
                 BIMManager.login(Utility.readUid(mContext), AccountManagerImpl.getInstance(mContext).getToken(), loginType, AccountManagerImpl.getInstance(mContext).getFrom(), AccountManagerImpl.getInstance(mContext).getcFrom(), removeLoginListener());
@@ -334,11 +334,11 @@ public class LoginManager {
                     this.mLoginState = LoginState.NOT_LOGIN;
                     return;
                 } else if (110 != i2 && 7 != i2 && 23 != i2 && 1004 != i2 && 1001 != i2 && 8010 != i2) {
-                    LogUtils.d(this.TAG, "error :" + i2 + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f14648e);
+                    LogUtils.d(this.TAG, "error :" + i2 + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f14302e);
                     this.mLoginState = LoginState.NOT_LOGIN;
-                    if (a.f14648e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+                    if (a.f14302e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                         imRetryLogin(i2);
-                    } else if (!a.f14648e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+                    } else if (!a.f14302e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                         LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                         IMConnection.getInstance(mContext).disconnectedByPeer();
                     }

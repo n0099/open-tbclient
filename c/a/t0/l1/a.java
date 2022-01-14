@@ -24,22 +24,22 @@ public class a {
     public BaseActivity<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.s0.g1.q.a.f.b f19614b;
+    public c.a.s0.g1.q.a.f.b f19109b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f19615c;
+    public c f19110c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final f f19616d;
+    public final f f19111d;
 
     /* renamed from: c.a.t0.l1.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1178a implements f {
+    public class C1192a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1178a(a aVar) {
+        public C1192a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,8 +68,8 @@ public class a {
                 return;
             }
             long time = date.getTime() / 1000;
-            if (this.a.f19615c != null) {
-                this.a.f19615c.a(date, time);
+            if (this.a.f19110c != null) {
+                this.a.f19110c.a(date, time);
             }
         }
     }
@@ -82,14 +82,14 @@ public class a {
 
         /* renamed from: c.a.t0.l1.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC1179a implements View.OnClickListener {
+        public class View$OnClickListenerC1193a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f19617e;
+            public final /* synthetic */ b f19112e;
 
-            public View$OnClickListenerC1179a(b bVar) {
+            public View$OnClickListenerC1193a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,29 +104,29 @@ public class a {
                         return;
                     }
                 }
-                this.f19617e = bVar;
+                this.f19112e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f19617e.a.f19614b == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f19112e.a.f19109b == null) {
                     return;
                 }
-                this.f19617e.a.f19614b.f();
+                this.f19112e.a.f19109b.f();
             }
         }
 
         /* renamed from: c.a.t0.l1.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC1180b implements View.OnClickListener {
+        public class View$OnClickListenerC1194b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f19618e;
+            public final /* synthetic */ b f19113e;
 
-            public View$OnClickListenerC1180b(b bVar) {
+            public View$OnClickListenerC1194b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,17 +141,17 @@ public class a {
                         return;
                     }
                 }
-                this.f19618e = bVar;
+                this.f19113e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f19618e.a.f19614b == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f19113e.a.f19109b == null) {
                     return;
                 }
-                this.f19618e.a.f19614b.A();
-                this.f19618e.a.f19614b.f();
+                this.f19113e.a.f19109b.A();
+                this.f19113e.a.f19109b.f();
             }
         }
 
@@ -179,11 +179,11 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 SkinManager.setBackgroundResource(view, c.a.t0.y2.c.person_birthday_select_top_bg);
                 TextView textView = (TextView) view.findViewById(d.person_constellation_cancle);
-                textView.setOnClickListener(new View$OnClickListenerC1179a(this));
+                textView.setOnClickListener(new View$OnClickListenerC1193a(this));
                 SkinManager.setViewTextColor(textView, c.a.t0.y2.a.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
                 TextView textView2 = (TextView) view.findViewById(d.person_constellation_birthday_complete);
                 SkinManager.setViewTextColor(textView2, c.a.t0.y2.a.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());
-                textView2.setOnClickListener(new View$OnClickListenerC1180b(this));
+                textView2.setOnClickListener(new View$OnClickListenerC1194b(this));
             }
         }
     }
@@ -208,7 +208,7 @@ public class a {
                 return;
             }
         }
-        this.f19616d = new C1178a(this);
+        this.f19111d = new C1192a(this);
         this.a = baseActivity;
     }
 
@@ -224,9 +224,9 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || (baseActivity = this.a) == null || baseActivity.isFinishing()) {
             return;
         }
-        this.f19615c = cVar;
-        if (this.f19614b == null) {
-            c.a.s0.g1.q.a.b.a aVar = new c.a.s0.g1.q.a.b.a(this.a, this.f19616d);
+        this.f19110c = cVar;
+        if (this.f19109b == null) {
+            c.a.s0.g1.q.a.b.a aVar = new c.a.s0.g1.q.a.b.a(this.a, this.f19111d);
             aVar.k(e.person_birthday_select_layout, d());
             aVar.p(new boolean[]{true, true, true, false, false, false});
             aVar.j(this.a.getString(g.pickerview_year), this.a.getString(g.pickerview_month), this.a.getString(g.pickerview_day), this.a.getString(g.pickerview_hours), this.a.getString(g.pickerview_minutes), this.a.getString(g.pickerview_seconds));
@@ -239,8 +239,8 @@ public class a {
             aVar.e(SkinManager.getColor(c.a.t0.y2.a.CAM_X0201));
             aVar.c(false);
             aVar.h((ViewGroup) this.a.findViewById(16908290));
-            this.f19614b = aVar.a();
+            this.f19109b = aVar.a();
         }
-        this.f19614b.u();
+        this.f19109b.u();
     }
 }

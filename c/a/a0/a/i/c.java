@@ -25,10 +25,10 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1101b;
+    public String f1100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1102c;
+    public String f1101c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class c {
             }
         }
         this.a = null;
-        this.f1101b = null;
-        this.f1102c = null;
-        this.f1102c = "video_session";
+        this.f1100b = null;
+        this.f1101c = null;
+        this.f1101c = "video_session";
         b(c.a.a0.a.c.a());
     }
 
@@ -66,9 +66,9 @@ public class c {
             }
         }
         this.a = null;
-        this.f1101b = null;
-        this.f1102c = null;
-        this.f1102c = str;
+        this.f1100b = null;
+        this.f1101c = null;
+        this.f1101c = str;
         b(c.a.a0.a.c.a());
     }
 
@@ -208,7 +208,7 @@ public class c {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f1101b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f1100b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
@@ -216,7 +216,7 @@ public class c {
         try {
             String str = this.a;
             if (g(str)) {
-                String str2 = this.f1101b;
+                String str2 = this.f1100b;
                 f(str2);
                 if (h(str, str2)) {
                     f(str);
@@ -266,7 +266,7 @@ public class c {
                 FileInputStream fileInputStream = new FileInputStream(str);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                this.f1102c.equals("live_show_session");
+                this.f1101c.equals("live_show_session");
                 bufferedReader.close();
                 inputStreamReader.close();
                 fileInputStream.close();

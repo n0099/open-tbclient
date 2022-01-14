@@ -25,38 +25,36 @@ public class a {
     public View a;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f59205c;
+    public AdBaseFrameLayout f56976c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f59206d;
+    public long f56977d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f59207e;
+    public Activity f56978e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f59208f;
+    public ImageView f56979f;
 
     /* renamed from: g  reason: collision with root package name */
-    public KsAdWebView f59209g;
+    public KsAdWebView f56980g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f59210h;
+    public boolean f56981h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f59211i;
+    public boolean f56982i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AdTemplate f59212j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public InterfaceC2112a f59213k;
+    public AdTemplate f56983j;
+    public InterfaceC2129a k;
     public FrameLayout m;
     @Nullable
     public b.c n;
     public b o;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f59204b = true;
+    public boolean f56975b = true;
     public Handler l = new Handler(Looper.getMainLooper());
     public boolean p = false;
     public boolean q = false;
@@ -64,7 +62,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC2112a {
+    public interface InterfaceC2129a {
         void a();
     }
 
@@ -79,20 +77,20 @@ public class a {
         this.m.setVisibility(4);
         this.a = com.kwad.sdk.a.kwai.a.a((ViewGroup) this.m, b(), true);
         KsAdWebView ksAdWebView = (KsAdWebView) this.m.findViewById(R.id.ksad_web_card_webView);
-        this.f59209g = ksAdWebView;
+        this.f56980g = ksAdWebView;
         ksAdWebView.setBackgroundColor(-1);
         p.a aVar = new p.a();
         aVar.n = 1;
-        this.f59209g.setClientParams(aVar);
-        this.f59209g.setTemplateData(this.f59212j);
-        this.f59209g.setHttpErrorListener(new KsAdWebView.d() { // from class: com.kwad.sdk.i.a.1
+        this.f56980g.setClientParams(aVar);
+        this.f56980g.setTemplateData(this.f56983j);
+        this.f56980g.setHttpErrorListener(new KsAdWebView.d() { // from class: com.kwad.sdk.i.a.1
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
             public void a() {
             }
 
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
             public void a(int i2, String str, String str2) {
-                a.this.f59204b = true;
+                a.this.f56975b = true;
                 if (a.this.o != null) {
                     a.this.o.a(a.this.f());
                 }
@@ -105,9 +103,9 @@ public class a {
                 }
             }
         });
-        this.f59209g.setDeepLinkEnabled(false);
-        this.f59209g.setInsideDownloadEnable(false);
-        this.f59209g.setDownloadListener(new DownloadListener() { // from class: com.kwad.sdk.i.a.2
+        this.f56980g.setDeepLinkEnabled(false);
+        this.f56980g.setInsideDownloadEnable(false);
+        this.f56980g.setDownloadListener(new DownloadListener() { // from class: com.kwad.sdk.i.a.2
             @Override // android.webkit.DownloadListener
             public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
                 a.this.q = true;
@@ -116,7 +114,7 @@ public class a {
                 }
             }
         });
-        this.f59209g.setDeepLinkListener(new KsAdWebView.b() { // from class: com.kwad.sdk.i.a.3
+        this.f56980g.setDeepLinkListener(new KsAdWebView.b() { // from class: com.kwad.sdk.i.a.3
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.b
             public void a() {
                 a.this.p = true;
@@ -134,9 +132,9 @@ public class a {
             }
         });
         ImageView imageView = (ImageView) this.a.findViewById(R.id.ksad_end_close_btn);
-        this.f59208f = imageView;
+        this.f56979f = imageView;
         imageView.setVisibility(8);
-        this.f59208f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.i.a.4
+        this.f56979f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.i.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.e();
@@ -146,15 +144,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        KsAdWebView ksAdWebView = this.f59209g;
+        KsAdWebView ksAdWebView = this.f56980g;
         if (ksAdWebView != null) {
             ksAdWebView.c();
         }
-        InterfaceC2112a interfaceC2112a = this.f59213k;
-        if (interfaceC2112a != null) {
-            interfaceC2112a.a();
+        InterfaceC2129a interfaceC2129a = this.k;
+        if (interfaceC2129a != null) {
+            interfaceC2129a.a();
         }
-        Activity activity = this.f59207e;
+        Activity activity = this.f56978e;
         if (activity != null) {
             activity.finish();
         }
@@ -162,7 +160,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean f() {
-        return this.r ? !this.f59204b : (this.f59204b || this.p || this.q) ? false : true;
+        return this.r ? !this.f56975b : (this.f56975b || this.p || this.q) ? false : true;
     }
 
     private boolean g() {
@@ -182,7 +180,7 @@ public class a {
     }
 
     public a a(boolean z) {
-        this.f59211i = z;
+        this.f56982i = z;
         return this;
     }
 
@@ -192,31 +190,31 @@ public class a {
 
     public void a() {
         this.m.setVisibility(4);
-        String a = a(this.f59212j);
+        String a = a(this.f56983j);
         if (TextUtils.isEmpty(a)) {
             return;
         }
-        this.f59209g.loadUrl(a);
+        this.f56980g.loadUrl(a);
     }
 
     public void a(Activity activity) {
-        this.f59207e = activity;
+        this.f56978e = activity;
     }
 
     public void a(FrameLayout frameLayout, AdBaseFrameLayout adBaseFrameLayout, AdTemplate adTemplate) {
         this.m = frameLayout;
-        this.f59205c = adBaseFrameLayout;
-        this.f59212j = adTemplate;
+        this.f56976c = adBaseFrameLayout;
+        this.f56983j = adTemplate;
         d();
-        this.f59204b = false;
+        this.f56975b = false;
     }
 
     public void a(b.c cVar) {
         this.n = cVar;
     }
 
-    public void a(InterfaceC2112a interfaceC2112a) {
-        this.f59213k = interfaceC2112a;
+    public void a(InterfaceC2129a interfaceC2129a) {
+        this.k = interfaceC2129a;
     }
 
     public void a(b bVar) {
@@ -230,54 +228,54 @@ public class a {
     public boolean c() {
         boolean g2 = g();
         this.r = true;
-        if (g2 && this.f59207e != null) {
-            this.f59209g.setDeepLinkEnabled(true);
-            this.f59209g.setInsideDownloadEnable(true);
-            this.f59205c.setDispatchTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.i.a.5
+        if (g2 && this.f56978e != null) {
+            this.f56980g.setDeepLinkEnabled(true);
+            this.f56980g.setInsideDownloadEnable(true);
+            this.f56976c.setDispatchTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.i.a.5
                 @Override // android.view.View.OnTouchListener
                 @SuppressLint({"ClickableViewAccessibility"})
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    if (motionEvent.getX() > a.this.f59208f.getX() && motionEvent.getX() - a.this.f59208f.getX() < a.this.f59208f.getWidth() && motionEvent.getY() > a.this.f59208f.getY() && motionEvent.getY() - a.this.f59208f.getY() < a.this.f59208f.getHeight()) {
+                    if (motionEvent.getX() > a.this.f56979f.getX() && motionEvent.getX() - a.this.f56979f.getX() < a.this.f56979f.getWidth() && motionEvent.getY() > a.this.f56979f.getY() && motionEvent.getY() - a.this.f56979f.getY() < a.this.f56979f.getHeight()) {
                         com.kwad.sdk.core.d.a.a("LandingPageWebCard", "onClick backIcon");
                         return false;
                     }
                     if (motionEvent.getAction() == 0) {
-                        a.this.f59206d = SystemClock.elapsedRealtime();
+                        a.this.f56977d = SystemClock.elapsedRealtime();
                     } else if (motionEvent.getAction() == 1) {
-                        long elapsedRealtime = SystemClock.elapsedRealtime() - a.this.f59206d;
-                        if (a.this.f59206d > 0 && elapsedRealtime > 60 && elapsedRealtime < 500) {
-                            com.kwad.sdk.core.report.a.a(a.this.f59212j, (int) com.baidu.apollon.a.f33398e, a.this.f59205c.getTouchCoords());
-                            if (!a.this.f59210h) {
-                                a.this.f59210h = true;
+                        long elapsedRealtime = SystemClock.elapsedRealtime() - a.this.f56977d;
+                        if (a.this.f56977d > 0 && elapsedRealtime > 60 && elapsedRealtime < 500) {
+                            com.kwad.sdk.core.report.a.a(a.this.f56983j, (int) com.baidu.apollon.a.f32337e, a.this.f56976c.getTouchCoords());
+                            if (!a.this.f56981h) {
+                                a.this.f56981h = true;
                                 if (a.this.n != null) {
                                     b.a aVar = new b.a();
-                                    aVar.f58569c = 3;
+                                    aVar.f56360c = 3;
                                     a.this.n.a(aVar);
                                 }
                             }
                         }
-                        a.this.f59206d = 0L;
+                        a.this.f56977d = 0L;
                     }
                     return false;
                 }
             });
             long t = com.kwad.sdk.core.config.b.t() * 1000;
-            if (t == 0 || !this.f59211i) {
-                this.f59208f.setVisibility(0);
+            if (t == 0 || !this.f56982i) {
+                this.f56979f.setVisibility(0);
             } else {
                 this.l.postDelayed(new Runnable() { // from class: com.kwad.sdk.i.a.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.f59207e == null || a.this.f59207e.isFinishing()) {
+                        if (a.this.f56978e == null || a.this.f56978e.isFinishing()) {
                             return;
                         }
-                        a.this.f59208f.setVisibility(0);
-                        a.this.f59208f.setAlpha(0.0f);
-                        a.this.f59208f.animate().alpha(1.0f).setDuration(500L).start();
+                        a.this.f56979f.setVisibility(0);
+                        a.this.f56979f.setAlpha(0.0f);
+                        a.this.f56979f.animate().alpha(1.0f).setDuration(500L).start();
                     }
                 }, t);
             }
-            KsAdWebView ksAdWebView = this.f59209g;
+            KsAdWebView ksAdWebView = this.f56980g;
             if (ksAdWebView != null) {
                 ksAdWebView.b();
             }

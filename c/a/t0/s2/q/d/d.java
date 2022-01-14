@@ -31,31 +31,31 @@ public class d {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f22988b;
+    public TextView f22356b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HeadImageView f22989c;
+    public HeadImageView f22357c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f22990d;
+    public TextView f22358d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f22991e;
+    public e f22359e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22992f;
+    public TextView f22360f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BarImageView f22993g;
+    public BarImageView f22361g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f22994h;
+    public TextView f22362h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f22995i;
+    public TextView f22363i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f22996j;
+    public LinearLayout f22364j;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -63,7 +63,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f22997e;
+        public final /* synthetic */ d f22365e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -80,16 +80,16 @@ public class d {
                     return;
                 }
             }
-            this.f22997e = dVar;
+            this.f22365e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22997e.f22991e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22365e.f22359e == null) {
                 return;
             }
-            this.f22997e.f22991e.c();
+            this.f22365e.f22359e.c();
         }
     }
 
@@ -99,10 +99,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserInfo f22998e;
+        public final /* synthetic */ UserInfo f22366e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f22999f;
+        public final /* synthetic */ d f22367f;
 
         public b(d dVar, UserInfo userInfo) {
             Interceptable interceptable = $ic;
@@ -119,15 +119,15 @@ public class d {
                     return;
                 }
             }
-            this.f22999f = dVar;
-            this.f22998e = userInfo;
+            this.f22367f = dVar;
+            this.f22366e = userInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f22999f.e(this.f22998e.id.longValue(), this.f22998e.name);
+                this.f22367f.e(this.f22366e.id.longValue(), this.f22366e.name);
             }
         }
     }
@@ -138,10 +138,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserInfo f23000e;
+        public final /* synthetic */ UserInfo f22368e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f23001f;
+        public final /* synthetic */ d f22369f;
 
         public c(d dVar, UserInfo userInfo) {
             Interceptable interceptable = $ic;
@@ -158,32 +158,32 @@ public class d {
                     return;
                 }
             }
-            this.f23001f = dVar;
-            this.f23000e = userInfo;
+            this.f22369f = dVar;
+            this.f22368e = userInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f23001f.e(this.f23000e.id.longValue(), this.f23000e.name);
+                this.f22369f.e(this.f22368e.id.longValue(), this.f22368e.name);
             }
         }
     }
 
     /* renamed from: c.a.t0.s2.q.d.d$d  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1373d implements View.OnClickListener {
+    public class View$OnClickListenerC1388d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f23002e;
+        public String f22370e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f23003f;
+        public final /* synthetic */ d f22371f;
 
-        public View$OnClickListenerC1373d(d dVar, String str) {
+        public View$OnClickListenerC1388d(d dVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,17 +198,17 @@ public class d {
                     return;
                 }
             }
-            this.f23003f = dVar;
-            this.f23002e = str;
+            this.f22371f = dVar;
+            this.f22370e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23003f.f22991e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22371f.f22359e == null) {
                 return;
             }
-            this.f23003f.f22991e.a(this.f23002e);
+            this.f22371f.f22359e.a(this.f22370e);
         }
     }
 
@@ -238,17 +238,17 @@ public class d {
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.chosen_pb_person_info, (ViewGroup) null);
         this.a = inflate;
-        this.f22988b = (TextView) inflate.findViewById(R.id.chosen_pb_title);
-        this.f22989c = (HeadImageView) this.a.findViewById(R.id.chosen_pb_person_info_head);
-        this.f22990d = (TextView) this.a.findViewById(R.id.chosen_pb_person_info_name);
-        this.f22992f = (TextView) this.a.findViewById(R.id.chosen_pb_bar_forum_name);
-        this.f22989c.setRadius(n.d(context, 2.0f));
-        this.f22993g = (BarImageView) this.a.findViewById(R.id.chosen_pb_bar_pic);
-        this.f22994h = (TextView) this.a.findViewById(R.id.chosen_pb_bar_attention_number);
+        this.f22356b = (TextView) inflate.findViewById(R.id.chosen_pb_title);
+        this.f22357c = (HeadImageView) this.a.findViewById(R.id.chosen_pb_person_info_head);
+        this.f22358d = (TextView) this.a.findViewById(R.id.chosen_pb_person_info_name);
+        this.f22360f = (TextView) this.a.findViewById(R.id.chosen_pb_bar_forum_name);
+        this.f22357c.setRadius(n.d(context, 2.0f));
+        this.f22361g = (BarImageView) this.a.findViewById(R.id.chosen_pb_bar_pic);
+        this.f22362h = (TextView) this.a.findViewById(R.id.chosen_pb_bar_attention_number);
         TextView textView = (TextView) this.a.findViewById(R.id.chosen_pb_bar_attention_button);
-        this.f22995i = textView;
+        this.f22363i = textView;
         textView.setOnClickListener(new a(this));
-        this.f22996j = (LinearLayout) this.a.findViewById(R.id.chosen_pb_bar_container);
+        this.f22364j = (LinearLayout) this.a.findViewById(R.id.chosen_pb_bar_container);
     }
 
     public View c() {
@@ -260,7 +260,7 @@ public class d {
     public void d(String str) {
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str) || (headImageView = this.f22989c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str) || (headImageView = this.f22357c) == null) {
             return;
         }
         headImageView.startLoad(str, 12, false);
@@ -269,7 +269,7 @@ public class d {
     public final void e(long j2, String str) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, str) == null) || (eVar = this.f22991e) == null) {
+        if (!(interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, str) == null) || (eVar = this.f22359e) == null) {
             return;
         }
         eVar.b(String.valueOf(j2), str);
@@ -279,28 +279,28 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.f22995i.setText(R.string.relate_forum_is_followed);
-                SkinManager.setViewTextColor(this.f22995i, R.color.CAM_X0109, 1);
-                this.f22995i.setEnabled(false);
+                this.f22363i.setText(R.string.relate_forum_is_followed);
+                SkinManager.setViewTextColor(this.f22363i, R.color.CAM_X0109, 1);
+                this.f22363i.setEnabled(false);
                 return;
             }
-            this.f22995i.setText(R.string.attention);
-            this.f22995i.setEnabled(true);
-            SkinManager.setViewTextColor(this.f22995i, R.color.CAM_X0111, 1);
+            this.f22363i.setText(R.string.attention);
+            this.f22363i.setEnabled(true);
+            SkinManager.setViewTextColor(this.f22363i, R.color.CAM_X0111, 1);
         }
     }
 
     public void g(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.f22991e = eVar;
+            this.f22359e = eVar;
         }
     }
 
     public void h(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (textView = this.f22990d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (textView = this.f22358d) == null) {
             return;
         }
         textView.setText(str);
@@ -308,36 +308,36 @@ public class d {
 
     public final void i(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) || this.f22992f == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) || this.f22360f == null) {
             return;
         }
         if (StringUtils.isNull(str)) {
-            this.f22992f.setVisibility(4);
+            this.f22360f.setVisibility(4);
             return;
         }
-        this.f22992f.setText(context.getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
-        this.f22992f.setOnClickListener(new View$OnClickListenerC1373d(this, str));
-        this.f22992f.setVisibility(0);
+        this.f22360f.setText(context.getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
+        this.f22360f.setOnClickListener(new View$OnClickListenerC1388d(this, str));
+        this.f22360f.setVisibility(0);
     }
 
     public void j(Context context, ExcellentPbThreadInfo excellentPbThreadInfo) {
         TextView textView;
         Integer num;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, context, excellentPbThreadInfo) == null) || excellentPbThreadInfo == null || (textView = this.f22988b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, context, excellentPbThreadInfo) == null) || excellentPbThreadInfo == null || (textView = this.f22356b) == null) {
             return;
         }
         textView.setText(excellentPbThreadInfo.title);
         if (!StringUtils.isNull(excellentPbThreadInfo.forum.forum_name) && excellentPbThreadInfo.forum.forum_id != null && excellentPbThreadInfo.excid.longValue() > 0) {
             k.c().h(excellentPbThreadInfo.forum.forum_name);
-            this.f22996j.setVisibility(0);
+            this.f22364j.setVisibility(0);
             i(context, excellentPbThreadInfo.forum.forum_name);
-            BarImageView barImageView = this.f22993g;
+            BarImageView barImageView = this.f22361g;
             if (barImageView != null) {
                 barImageView.startLoad(excellentPbThreadInfo.forum.avatar, 16, false);
-                this.f22993g.setOnClickListener(new View$OnClickListenerC1373d(this, excellentPbThreadInfo.forum.forum_name));
+                this.f22361g.setOnClickListener(new View$OnClickListenerC1388d(this, excellentPbThreadInfo.forum.forum_name));
             }
-            TextView textView2 = this.f22994h;
+            TextView textView2 = this.f22362h;
             if (textView2 != null && (num = excellentPbThreadInfo.forum.member_count) != null) {
                 textView2.setText(StringHelper.numFormatOver10000(num.intValue()));
             }
@@ -350,7 +350,7 @@ public class d {
                 return;
             }
         }
-        this.f22996j.setVisibility(8);
+        this.f22364j.setVisibility(8);
     }
 
     public void update(UserInfo userInfo) {
@@ -360,7 +360,7 @@ public class d {
         }
         h(userInfo.name);
         d(userInfo.portrait);
-        this.f22989c.setOnClickListener(new b(this, userInfo));
-        this.f22990d.setOnClickListener(new c(this, userInfo));
+        this.f22357c.setOnClickListener(new b(this, userInfo));
+        this.f22358d.setOnClickListener(new c(this, userInfo));
     }
 }

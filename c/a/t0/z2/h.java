@@ -16,22 +16,22 @@ public class h {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26825b;
+    public int f26030b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MediaController.MediaPlayerControl f26826c;
+    public MediaController.MediaPlayerControl f26031c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f26827d;
+    public b f26032d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f26828e;
+    public d f26033e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f26829f;
+    public c f26034f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f26830g;
+    public Handler f26035g;
 
     /* loaded from: classes9.dex */
     public class a extends Handler {
@@ -63,20 +63,20 @@ public class h {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.a.f26826c != null && this.a.f26826c.isPlaying()) {
-                int currentPosition = this.a.f26826c.getCurrentPosition();
-                int duration = this.a.f26826c.getDuration();
-                if (currentPosition < this.a.f26825b) {
-                    if (this.a.f26827d != null) {
-                        this.a.f26827d.a();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.a.f26031c != null && this.a.f26031c.isPlaying()) {
+                int currentPosition = this.a.f26031c.getCurrentPosition();
+                int duration = this.a.f26031c.getDuration();
+                if (currentPosition < this.a.f26030b) {
+                    if (this.a.f26032d != null) {
+                        this.a.f26032d.a();
                     }
-                } else if (currentPosition == this.a.f26825b && this.a.f26828e != null) {
-                    this.a.f26828e.a();
+                } else if (currentPosition == this.a.f26030b && this.a.f26033e != null) {
+                    this.a.f26033e.a();
                 }
-                if (this.a.f26829f != null) {
-                    this.a.f26829f.onProgressUpdated(duration, currentPosition);
+                if (this.a.f26034f != null) {
+                    this.a.f26034f.onProgressUpdated(duration, currentPosition);
                 }
-                this.a.f26825b = currentPosition;
+                this.a.f26030b = currentPosition;
                 this.a.h();
             }
         }
@@ -111,15 +111,15 @@ public class h {
             }
         }
         this.a = 1000;
-        this.f26825b = 0;
-        this.f26830g = new a(this, Looper.getMainLooper());
+        this.f26030b = 0;
+        this.f26035g = new a(this, Looper.getMainLooper());
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f26830g.removeMessages(1);
-            Handler handler = this.f26830g;
+            this.f26035g.removeMessages(1);
+            Handler handler = this.f26035g;
             handler.sendMessageDelayed(handler.obtainMessage(1), this.a);
         }
     }
@@ -127,35 +127,35 @@ public class h {
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f26827d = bVar;
+            this.f26032d = bVar;
         }
     }
 
     public void j(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f26829f = cVar;
+            this.f26034f = cVar;
         }
     }
 
     public void k(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.f26828e = dVar;
+            this.f26033e = dVar;
         }
     }
 
     public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayerControl) == null) {
-            this.f26826c = mediaPlayerControl;
+            this.f26031c = mediaPlayerControl;
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f26825b = 0;
+            this.f26030b = 0;
             h();
         }
     }
@@ -163,7 +163,7 @@ public class h {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f26830g.removeMessages(1);
+            this.f26035g.removeMessages(1);
         }
     }
 }

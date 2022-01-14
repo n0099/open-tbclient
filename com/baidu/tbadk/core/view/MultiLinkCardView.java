@@ -37,25 +37,23 @@ public class MultiLinkCardView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f41823e;
+    public TextView f40380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f41824f;
+    public TextView f40381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41825g;
+    public TextView f40382g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f41826h;
+    public RelativeLayout f40383h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f41827i;
+    public RelativeLayout f40384i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f41828j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TbImageView f41829k;
+    public RelativeLayout f40385j;
+    public TbImageView k;
     public TbImageView l;
     public TbImageView m;
     public TextView n;
@@ -113,12 +111,12 @@ public class MultiLinkCardView extends RelativeLayout {
             if (ListUtils.isEmpty(a)) {
                 return;
             }
-            if (d.w0()) {
+            if (d.u0()) {
                 TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(n.f(getContext(), R.dimen.tbds10)).into(this.n);
             }
-            this.f41826h.setVisibility(8);
-            this.f41827i.setVisibility(8);
-            this.f41828j.setVisibility(8);
+            this.f40383h.setVisibility(8);
+            this.f40384i.setVisibility(8);
+            this.f40385j.setVisibility(8);
             this.n.setVisibility(8);
             int size = a.size() > 3 ? 3 : a.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -202,20 +200,20 @@ public class MultiLinkCardView extends RelativeLayout {
             }
         }
         LayoutInflater.from(context).inflate(R.layout.multi_link_card_layout, this);
-        this.f41826h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
-        this.f41827i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
-        this.f41828j = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
-        this.f41823e = (TextView) findViewById(R.id.goods_from_tag_first);
-        this.f41824f = (TextView) findViewById(R.id.goods_from_tag_second);
-        this.f41825g = (TextView) findViewById(R.id.goods_from_tag_third);
+        this.f40383h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
+        this.f40384i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
+        this.f40385j = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
+        this.f40380e = (TextView) findViewById(R.id.goods_from_tag_first);
+        this.f40381f = (TextView) findViewById(R.id.goods_from_tag_second);
+        this.f40382g = (TextView) findViewById(R.id.goods_from_tag_third);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.iv_multi_link_first_icon);
-        this.f41829k = tbImageView;
+        this.k = tbImageView;
         tbImageView.setDrawCorner(true);
-        this.f41829k.setGifIconSupport(false);
-        this.f41829k.setLongIconSupport(false);
-        this.f41829k.setConrers(15);
-        this.f41829k.setPlaceHolder(1);
-        this.f41829k.setRadius(n.f(getContext(), R.dimen.tbds10));
+        this.k.setGifIconSupport(false);
+        this.k.setLongIconSupport(false);
+        this.k.setConrers(15);
+        this.k.setPlaceHolder(1);
+        this.k.setRadius(n.f(getContext(), R.dimen.tbds10));
         TbImageView tbImageView2 = (TbImageView) findViewById(R.id.iv_multi_link_second_icon);
         this.l = tbImageView2;
         tbImageView2.setDrawCorner(true);
@@ -241,15 +239,15 @@ public class MultiLinkCardView extends RelativeLayout {
         this.r = new ArrayList();
         ArrayList arrayList = new ArrayList();
         this.q = arrayList;
-        arrayList.add(this.f41826h);
-        this.q.add(this.f41827i);
-        this.q.add(this.f41828j);
-        this.r.add(this.f41829k);
+        arrayList.add(this.f40383h);
+        this.q.add(this.f40384i);
+        this.q.add(this.f40385j);
+        this.r.add(this.k);
         this.r.add(this.l);
         this.r.add(this.m);
-        this.s.add(this.f41823e);
-        this.s.add(this.f41824f);
-        this.s.add(this.f41825g);
+        this.s.add(this.f40380e);
+        this.s.add(this.f40381f);
+        this.s.add(this.f40382g);
         onChangeSkinType();
     }
 }

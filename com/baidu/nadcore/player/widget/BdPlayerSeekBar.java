@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.h0.r;
-import c.a.c0.h0.s;
-import c.a.c0.s.v0.d;
-import c.a.c0.s.z.f;
+import c.a.c0.k0.m;
+import c.a.c0.k0.n;
+import c.a.c0.v.v0.d;
+import c.a.c0.v.z.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.player.widget.BdThumbSeekBarView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,19 +33,19 @@ public class BdPlayerSeekBar extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdThumbSeekBarView f38310e;
+    public BdThumbSeekBarView f37099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdPlayerProgressView f38311f;
+    public BdPlayerProgressView f37100f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdPlayerProgressView f38312g;
+    public BdPlayerProgressView f37101g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f38313h;
+    public f f37102h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HashMap f38314i;
+    public HashMap f37103i;
     @JvmField
     public boolean isSeeking;
 
@@ -164,7 +164,7 @@ public class BdPlayerSeekBar extends FrameLayout {
     public void _$_clearFindViewByIdCache() {
         HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.f38314i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.f37103i) == null) {
             return;
         }
         hashMap.clear();
@@ -174,13 +174,13 @@ public class BdPlayerSeekBar extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f38314i == null) {
-                this.f38314i = new HashMap();
+            if (this.f37103i == null) {
+                this.f37103i = new HashMap();
             }
-            View view = (View) this.f38314i.get(Integer.valueOf(i2));
+            View view = (View) this.f37103i.get(Integer.valueOf(i2));
             if (view == null) {
                 View findViewById = findViewById(i2);
-                this.f38314i.put(Integer.valueOf(i2), findViewById);
+                this.f37103i.put(Integer.valueOf(i2), findViewById);
                 return findViewById;
             }
             return view;
@@ -191,11 +191,11 @@ public class BdPlayerSeekBar extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(s.nad_bdvideoplayer_seek_bar_view, this);
-            this.f38311f = (BdPlayerProgressView) findViewById(r.nad_main_progress_text);
-            this.f38312g = (BdPlayerProgressView) findViewById(r.nad_main_duration_text);
-            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(r.main_view_seekbar);
-            this.f38310e = bdThumbSeekBarView;
+            LayoutInflater.from(getContext()).inflate(n.nad_bdvideoplayer_seek_bar_view, this);
+            this.f37100f = (BdPlayerProgressView) findViewById(m.nad_main_progress_text);
+            this.f37101g = (BdPlayerProgressView) findViewById(m.nad_main_duration_text);
+            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(m.main_view_seekbar);
+            this.f37099e = bdThumbSeekBarView;
             if (bdThumbSeekBarView != null) {
                 bdThumbSeekBarView.setOnSeekBarChangeListener(new a(this));
             }
@@ -205,19 +205,19 @@ public class BdPlayerSeekBar extends FrameLayout {
     public final f getSeekBarListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38313h : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37102h : (f) invokeV.objValue;
     }
 
     public final BdThumbSeekBarView getSeekBarView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38310e : (BdThumbSeekBarView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37099e : (BdThumbSeekBarView) invokeV.objValue;
     }
 
     public void setBufferingPosition(int i2) {
         BdThumbSeekBarView bdThumbSeekBarView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (bdThumbSeekBarView = this.f38310e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (bdThumbSeekBarView = this.f37099e) == null) {
             return;
         }
         bdThumbSeekBarView.setBufferingProgress(i2);
@@ -227,17 +227,17 @@ public class BdPlayerSeekBar extends FrameLayout {
         BdPlayerProgressView bdPlayerProgressView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            BdThumbSeekBarView bdThumbSeekBarView = this.f38310e;
+            BdThumbSeekBarView bdThumbSeekBarView = this.f37099e;
             if (bdThumbSeekBarView != null) {
                 bdThumbSeekBarView.setMax(i2);
             }
-            if (this.f38312g != null) {
+            if (this.f37101g != null) {
                 String b2 = d.b(i2, false);
                 if (b2 != null) {
                     if (!(!(b2.length() == 0))) {
                         b2 = null;
                     }
-                    if (b2 == null || (bdPlayerProgressView = this.f38312g) == null) {
+                    if (b2 == null || (bdPlayerProgressView = this.f37101g) == null) {
                         return;
                     }
                     bdPlayerProgressView.setPositionText(b2);
@@ -249,7 +249,7 @@ public class BdPlayerSeekBar extends FrameLayout {
     public void setPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            BdThumbSeekBarView bdThumbSeekBarView = this.f38310e;
+            BdThumbSeekBarView bdThumbSeekBarView = this.f37099e;
             boolean z = false;
             if (bdThumbSeekBarView != null) {
                 bdThumbSeekBarView.setProgress(i2);
@@ -258,7 +258,7 @@ public class BdPlayerSeekBar extends FrameLayout {
                 }
             }
             String b2 = d.b(i2, z);
-            BdPlayerProgressView bdPlayerProgressView = this.f38311f;
+            BdPlayerProgressView bdPlayerProgressView = this.f37100f;
             if (bdPlayerProgressView != null) {
                 if (!(true ^ TextUtils.isEmpty(b2))) {
                     bdPlayerProgressView = null;
@@ -273,35 +273,35 @@ public class BdPlayerSeekBar extends FrameLayout {
     public final void setSeekBarListener(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            this.f38313h = fVar;
+            this.f37102h = fVar;
         }
     }
 
     public final void setSeekBarView(BdThumbSeekBarView bdThumbSeekBarView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bdThumbSeekBarView) == null) {
-            this.f38310e = bdThumbSeekBarView;
+            this.f37099e = bdThumbSeekBarView;
         }
     }
 
     public void switchToFull() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            BdPlayerProgressView bdPlayerProgressView = this.f38311f;
+            BdPlayerProgressView bdPlayerProgressView = this.f37100f;
             if (bdPlayerProgressView != null) {
                 bdPlayerProgressView.setTextSize(d.a(this, 12.0f));
             }
-            BdPlayerProgressView bdPlayerProgressView2 = this.f38312g;
+            BdPlayerProgressView bdPlayerProgressView2 = this.f37101g;
             if (bdPlayerProgressView2 != null) {
                 bdPlayerProgressView2.setTextSize(d.a(this, 12.0f));
             }
-            BdThumbSeekBarView bdThumbSeekBarView = this.f38310e;
+            BdThumbSeekBarView bdThumbSeekBarView = this.f37099e;
             ViewGroup.LayoutParams layoutParams = bdThumbSeekBarView != null ? bdThumbSeekBarView.getLayoutParams() : null;
             RelativeLayout.LayoutParams layoutParams2 = layoutParams instanceof RelativeLayout.LayoutParams ? layoutParams : null;
             if (layoutParams2 != null) {
                 layoutParams2.leftMargin = d.a(this, 3.0f);
                 layoutParams2.rightMargin = d.a(this, 1.0f);
-                BdThumbSeekBarView bdThumbSeekBarView2 = this.f38310e;
+                BdThumbSeekBarView bdThumbSeekBarView2 = this.f37099e;
                 if (bdThumbSeekBarView2 != null) {
                     bdThumbSeekBarView2.setLayoutParams(layoutParams2);
                 }
@@ -312,21 +312,21 @@ public class BdPlayerSeekBar extends FrameLayout {
     public void switchToHalf() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            BdPlayerProgressView bdPlayerProgressView = this.f38311f;
+            BdPlayerProgressView bdPlayerProgressView = this.f37100f;
             if (bdPlayerProgressView != null) {
                 bdPlayerProgressView.setTextSize(d.a(this, 10.0f));
             }
-            BdPlayerProgressView bdPlayerProgressView2 = this.f38312g;
+            BdPlayerProgressView bdPlayerProgressView2 = this.f37101g;
             if (bdPlayerProgressView2 != null) {
                 bdPlayerProgressView2.setTextSize(d.a(this, 10.0f));
             }
-            BdThumbSeekBarView bdThumbSeekBarView = this.f38310e;
+            BdThumbSeekBarView bdThumbSeekBarView = this.f37099e;
             ViewGroup.LayoutParams layoutParams = bdThumbSeekBarView != null ? bdThumbSeekBarView.getLayoutParams() : null;
             RelativeLayout.LayoutParams layoutParams2 = layoutParams instanceof RelativeLayout.LayoutParams ? layoutParams : null;
             if (layoutParams2 != null) {
                 layoutParams2.leftMargin = d.a(this, 3.0f);
                 layoutParams2.rightMargin = d.a(this, 3.0f);
-                BdThumbSeekBarView bdThumbSeekBarView2 = this.f38310e;
+                BdThumbSeekBarView bdThumbSeekBarView2 = this.f37099e;
                 if (bdThumbSeekBarView2 != null) {
                     bdThumbSeekBarView2.setLayoutParams(layoutParams2);
                 }

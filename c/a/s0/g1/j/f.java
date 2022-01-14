@@ -19,13 +19,13 @@ public class f implements c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12938b;
+    public int f12626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f12939c;
+    public double f12627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f12940d;
+    public boolean f12628d;
 
     public f(int i2) {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class f implements c {
             }
         }
         this.a = 3;
-        this.f12938b = 3;
-        this.f12940d = true;
+        this.f12626b = 3;
+        this.f12628d = true;
         if (i2 > 0) {
-            this.f12938b = i2;
+            this.f12626b = i2;
         }
     }
 
@@ -75,7 +75,7 @@ public class f implements c {
             if (i2 == 1) {
                 return 0.5625d;
             }
-            double d2 = this.f12939c;
+            double d2 = this.f12627c;
             if (d2 > 0.0d) {
                 return d2;
             }
@@ -87,7 +87,7 @@ public class f implements c {
     public void d(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f12939c = d2;
+            this.f12627c = d2;
         }
     }
 
@@ -107,13 +107,13 @@ public class f implements c {
                 constrainImageLayout.setImageMaxChildCount(-1);
                 constrainImageLayout.setCanCenterStart(true);
             }
-            int i4 = this.f12938b;
+            int i4 = this.f12626b;
             int i5 = count - i4;
             if (i5 > 0) {
                 i3 = i4 + i2;
                 List<MediaData> subList = ListUtils.subList(list, i2, i3);
-                constrainImageLayout.setExtraCenterText(this.f12940d ? TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i5)}) : null);
-                constrainImageLayout.setUrls(subList, i2, true, this.f12940d);
+                constrainImageLayout.setExtraCenterText(this.f12628d ? TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i5)}) : null);
+                constrainImageLayout.setUrls(subList, i2, true, this.f12628d);
             } else {
                 constrainImageLayout.setUrls(ListUtils.subList(list, i2, count), i2);
                 constrainImageLayout.setExtraCenterText(null);

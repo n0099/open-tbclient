@@ -13,10 +13,10 @@ public class z0 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57503b;
+    public String f55320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57504c;
+    public String f55321c;
 
     public z0() {
         Interceptable interceptable = $ic;
@@ -31,15 +31,15 @@ public class z0 {
                 return;
             }
         }
-        this.f57504c = "";
-        this.f57503b = "";
+        this.f55321c = "";
+        this.f55320b = "";
         this.a = 0;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57504c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55321c : (String) invokeV.objValue;
     }
 
     public void a(int i2) {
@@ -52,7 +52,7 @@ public class z0 {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f57504c = str;
+            this.f55321c = str;
         }
     }
 
@@ -65,13 +65,13 @@ public class z0 {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f57503b = str;
+            this.f55320b = str;
         }
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f57503b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55320b : (String) invokeV.objValue;
     }
 }

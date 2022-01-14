@@ -15,7 +15,7 @@ public class e implements p0 {
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ u f31289b;
+    public final /* synthetic */ u f30311b;
 
     public e(u uVar, View view) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e implements p0 {
                 return;
             }
         }
-        this.f31289b = uVar;
+        this.f30311b = uVar;
         this.a = view;
     }
 
@@ -42,7 +42,7 @@ public class e implements p0 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        new Handler(Looper.getMainLooper()).postDelayed(new b(this), this.f31289b.f31457c.getSpet());
+        new Handler(Looper.getMainLooper()).postDelayed(new b(this), this.f30311b.f30469c.getSpet());
     }
 
     @Override // c.q.a.p0

@@ -34,7 +34,7 @@ public class StatService {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f37595b;
+    public static boolean f36361b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -316,7 +316,7 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65581, null, feedTrackStrategy) == null) {
             av.a(feedTrackStrategy);
-            f37595b = true;
+            f36361b = true;
         }
     }
 
@@ -463,7 +463,7 @@ public class StatService {
             }
             af.a(appKey);
             af.a(z2);
-            if (!f37595b) {
+            if (!f36361b) {
                 setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_ALL);
             }
             BDStatCore.instance().init(context);

@@ -29,13 +29,13 @@ public abstract class RichTextMaker<T> {
     public IconPos a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42960b;
+    public int f41433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42961c;
+    public int f41434c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42962d;
+    public int f41435d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes11.dex */
@@ -203,24 +203,24 @@ public abstract class RichTextMaker<T> {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final int f42963g = 1;
+        public static final int f41436g = 1;
         public transient /* synthetic */ FieldHolder $fh;
         public final SpannableString a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f42964b;
+        public final int f41437b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f42965c;
+        public final int f41438c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f42966d;
+        public final int f41439d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f42967e;
+        public final int f41440e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f42968f;
+        public final int f41441f;
 
         static {
             InterceptResult invokeClinit;
@@ -253,11 +253,11 @@ public abstract class RichTextMaker<T> {
                 }
             }
             this.a = spannableString;
-            this.f42964b = i2;
-            this.f42965c = i3;
-            this.f42966d = i4;
-            this.f42967e = i5;
-            this.f42968f = i6;
+            this.f41437b = i2;
+            this.f41438c = i3;
+            this.f41439d = i4;
+            this.f41440e = i5;
+            this.f41441f = i6;
         }
 
         @NonNull
@@ -275,7 +275,7 @@ public abstract class RichTextMaker<T> {
                 if (i6 != 1) {
                     if (i6 == 2) {
                         SpannableString spannableString2 = new SpannableString(str + "m");
-                        i2 = f42963g + length;
+                        i2 = f41436g + length;
                         spannableString = spannableString2;
                         i5 = length + (-1);
                         i4 = i5;
@@ -294,7 +294,7 @@ public abstract class RichTextMaker<T> {
                         sb.append("m");
                         sb.append(str.substring(i7));
                         SpannableString spannableString3 = new SpannableString(sb);
-                        int i8 = f42963g;
+                        int i8 = f41436g;
                         spannableString = spannableString3;
                         i5 = i7;
                         i4 = (i8 + length) - 1;
@@ -305,7 +305,7 @@ public abstract class RichTextMaker<T> {
                     i3 = 0;
                 } else {
                     SpannableString spannableString4 = new SpannableString("m" + str);
-                    int i9 = f42963g;
+                    int i9 = f41436g;
                     i2 = i9;
                     i3 = i2;
                     spannableString = spannableString4;
@@ -373,8 +373,8 @@ public abstract class RichTextMaker<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048579, this, cVar, i2, t) == null) {
             a aVar = new a(this, i2, t instanceof String ? (String) t : "", i2, t);
-            aVar.j(this.f42961c);
-            cVar.a.setSpan(aVar, cVar.f42966d, cVar.f42967e, cVar.f42968f);
+            aVar.j(this.f41434c);
+            cVar.a.setSpan(aVar, cVar.f41439d, cVar.f41440e, cVar.f41441f);
         }
     }
 
@@ -383,18 +383,18 @@ public abstract class RichTextMaker<T> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) || this.a == IconPos.NONE) {
             return;
         }
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(this.f42960b, this.f42961c, EMRichTextAnyIconSpan.IconType.WEBP);
-        eMRichTextAnyIconSpan.c(this.f42962d);
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(this.f41433b, this.f41434c, EMRichTextAnyIconSpan.IconType.WEBP);
+        eMRichTextAnyIconSpan.c(this.f41435d);
         if (DeviceInfoUtil.isXiaoMi()) {
             eMRichTextAnyIconSpan.a(R.dimen.tbds6);
         }
-        cVar.a.setSpan(eMRichTextAnyIconSpan, cVar.f42964b, cVar.f42965c, cVar.f42968f);
+        cVar.a.setSpan(eMRichTextAnyIconSpan, cVar.f41437b, cVar.f41438c, cVar.f41441f);
     }
 
     public void f(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f42961c = i2;
+            this.f41434c = i2;
         }
     }
 
@@ -408,14 +408,14 @@ public abstract class RichTextMaker<T> {
     public void h(@DrawableRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f42960b = i2;
+            this.f41433b = i2;
         }
     }
 
     public void i(@DimenRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f42962d = UtilHelper.getDimenPixelSize(i2);
+            this.f41435d = UtilHelper.getDimenPixelSize(i2);
         }
     }
 

@@ -30,7 +30,7 @@ public final class e {
                 f fVar = new f();
                 fVar.a(jSONObject.getString("imei"));
                 fVar.b(jSONObject.getString(BaseStatisContent.IMSI));
-                fVar.c(jSONObject.getString(BaseStatisContent.MAC));
+                fVar.c(jSONObject.getString("mac"));
                 fVar.d(jSONObject.getString("bluetoothmac"));
                 fVar.e(jSONObject.getString("gsi"));
                 return fVar;

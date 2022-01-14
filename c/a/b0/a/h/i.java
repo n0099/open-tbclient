@@ -21,25 +21,25 @@ public class i {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f1580b;
+    public File f1564b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f1581c;
+    public File f1565c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c> f1582d;
+    public List<c> f1566d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f1583e;
+    public b f1567e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.b0.a.g.a f1584f;
+    public c.a.b0.a.g.a f1568f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f1585g;
+    public long f1569g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1586h;
+    public int f1570h;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -54,10 +54,10 @@ public class i {
         public T a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f1587b;
+        public boolean f1571b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ i f1588c;
+        public final /* synthetic */ i f1572c;
 
         /* loaded from: classes.dex */
         public class a extends Thread {
@@ -65,10 +65,10 @@ public class i {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f1589e;
+            public final /* synthetic */ String f1573e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f1590f;
+            public final /* synthetic */ b f1574f;
 
             public a(b bVar, String str) {
                 Interceptable interceptable = $ic;
@@ -85,16 +85,16 @@ public class i {
                         return;
                     }
                 }
-                this.f1590f = bVar;
-                this.f1589e = str;
+                this.f1574f = bVar;
+                this.f1573e = str;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f1590f.f1588c.s(this.f1589e);
-                    this.f1590f.f(null);
+                    this.f1574f.f1572c.s(this.f1573e);
+                    this.f1574f.f(null);
                 }
             }
         }
@@ -106,13 +106,13 @@ public class i {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f1591e;
+            public final /* synthetic */ boolean f1575e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Exception f1592f;
+            public final /* synthetic */ Exception f1576f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ b f1593g;
+            public final /* synthetic */ b f1577g;
 
             public RunnableC0033b(b bVar, boolean z, Exception exc) {
                 Interceptable interceptable = $ic;
@@ -129,9 +129,9 @@ public class i {
                         return;
                     }
                 }
-                this.f1593g = bVar;
-                this.f1591e = z;
-                this.f1592f = exc;
+                this.f1577g = bVar;
+                this.f1575e = z;
+                this.f1576f = exc;
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r0v17, resolved type: c.a.b0.a.h.i$c */
@@ -142,29 +142,29 @@ public class i {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     int i2 = 0;
-                    if (this.f1591e) {
-                        while (i2 < this.f1593g.f1588c.f1582d.size()) {
-                            c cVar = (c) this.f1593g.f1588c.f1582d.get(i2);
+                    if (this.f1575e) {
+                        while (i2 < this.f1577g.f1572c.f1566d.size()) {
+                            c cVar = (c) this.f1577g.f1572c.f1566d.get(i2);
                             if (cVar != 0) {
-                                cVar.a(this.f1593g.a, this.f1593g.f1588c.f1580b.getAbsolutePath());
+                                cVar.a(this.f1577g.a, this.f1577g.f1572c.f1564b.getAbsolutePath());
                             }
                             i2++;
                         }
-                        if (this.f1593g.f1588c.f1584f != null) {
-                            this.f1593g.f1588c.f1584f.b(this.f1593g.f1588c.f1580b.getAbsolutePath());
+                        if (this.f1577g.f1572c.f1568f != null) {
+                            this.f1577g.f1572c.f1568f.b(this.f1577g.f1572c.f1564b.getAbsolutePath());
                             return;
                         }
                         return;
                     }
-                    while (i2 < this.f1593g.f1588c.f1582d.size()) {
-                        c cVar2 = (c) this.f1593g.f1588c.f1582d.get(i2);
+                    while (i2 < this.f1577g.f1572c.f1566d.size()) {
+                        c cVar2 = (c) this.f1577g.f1572c.f1566d.get(i2);
                         if (cVar2 != 0) {
-                            cVar2.b(this.f1593g.a, this.f1592f);
+                            cVar2.b(this.f1577g.a, this.f1576f);
                         }
                         i2++;
                     }
-                    if (this.f1593g.f1588c.f1584f != null) {
-                        this.f1593g.f1588c.f1584f.onFailed(this.f1592f);
+                    if (this.f1577g.f1572c.f1568f != null) {
+                        this.f1577g.f1572c.f1568f.onFailed(this.f1576f);
                     }
                 }
             }
@@ -185,25 +185,25 @@ public class i {
                     return;
                 }
             }
-            this.f1588c = iVar;
+            this.f1572c = iVar;
         }
 
         @Override // c.a.b0.a.g.a
         public void a(long j2, long j3, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) || i2 == this.f1588c.f1586h) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) || i2 == this.f1572c.f1570h) {
                 return;
             }
-            this.f1588c.f1585g = j3;
-            this.f1588c.f1586h = i2;
-            for (int i3 = 0; i3 < this.f1588c.f1582d.size(); i3++) {
-                c cVar = (c) this.f1588c.f1582d.get(i3);
+            this.f1572c.f1569g = j3;
+            this.f1572c.f1570h = i2;
+            for (int i3 = 0; i3 < this.f1572c.f1566d.size(); i3++) {
+                c cVar = (c) this.f1572c.f1566d.get(i3);
                 if (cVar != null) {
                     cVar.c(this.a, j2, j3, i2);
                 }
             }
-            if (this.f1588c.f1584f != null) {
-                this.f1588c.f1584f.a(j2, j3, i2);
+            if (this.f1572c.f1568f != null) {
+                this.f1572c.f1568f.a(j2, j3, i2);
             }
         }
 
@@ -211,11 +211,11 @@ public class i {
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.f1588c.p()) {
+                if (this.f1572c.p()) {
                     d("onCompleted(download): " + str);
                 }
                 new a(this, str).start();
-                this.f1587b = false;
+                this.f1571b = false;
             }
         }
 
@@ -229,15 +229,15 @@ public class i {
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1587b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1571b : invokeV.booleanValue;
         }
 
         public void f(Exception exc) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, exc) == null) || this.f1588c.f1582d == null || this.f1588c.f1582d.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, exc) == null) || this.f1572c.f1566d == null || this.f1572c.f1566d.isEmpty()) {
                 return;
             }
-            new Handler(Looper.getMainLooper()).post(new RunnableC0033b(this, this.f1588c.q(), exc));
+            new Handler(Looper.getMainLooper()).post(new RunnableC0033b(this, this.f1572c.q(), exc));
         }
 
         public void g(T t) {
@@ -251,27 +251,27 @@ public class i {
         public void onFailed(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, exc) == null) {
-                if (this.f1588c.p()) {
+                if (this.f1572c.p()) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("onFailed: ");
-                    sb.append(this.f1588c.a);
+                    sb.append(this.f1572c.a);
                     sb.append(StringUtils.LF);
                     sb.append(exc != null ? exc.getMessage() : "");
                     d(sb.toString());
                 }
-                if (this.f1588c.f1581c.exists()) {
-                    this.f1588c.f1581c.delete();
+                if (this.f1572c.f1565c.exists()) {
+                    this.f1572c.f1565c.delete();
                 }
-                for (int i2 = 0; i2 < this.f1588c.f1582d.size(); i2++) {
-                    c cVar = (c) this.f1588c.f1582d.get(i2);
+                for (int i2 = 0; i2 < this.f1572c.f1566d.size(); i2++) {
+                    c cVar = (c) this.f1572c.f1566d.get(i2);
                     if (cVar != null) {
                         cVar.b(this.a, exc);
                     }
                 }
-                if (this.f1588c.f1584f != null) {
-                    this.f1588c.f1584f.onFailed(exc);
+                if (this.f1572c.f1568f != null) {
+                    this.f1572c.f1568f.onFailed(exc);
                 }
-                this.f1587b = false;
+                this.f1571b = false;
             }
         }
 
@@ -279,18 +279,18 @@ public class i {
         public void onStarted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.f1587b = true;
-                if (this.f1588c.p()) {
+                this.f1571b = true;
+                if (this.f1572c.p()) {
                     d("onStarted");
                 }
-                for (int i2 = 0; i2 < this.f1588c.f1582d.size(); i2++) {
-                    c cVar = (c) this.f1588c.f1582d.get(i2);
+                for (int i2 = 0; i2 < this.f1572c.f1566d.size(); i2++) {
+                    c cVar = (c) this.f1572c.f1566d.get(i2);
                     if (cVar != null) {
                         cVar.d(this.a);
                     }
                 }
-                if (this.f1588c.f1584f != null) {
-                    this.f1588c.f1584f.onStarted();
+                if (this.f1572c.f1568f != null) {
+                    this.f1572c.f1568f.onStarted();
                 }
             }
         }
@@ -360,9 +360,9 @@ public class i {
             }
         }
         this.a = str;
-        this.f1580b = file;
-        this.f1582d = new ArrayList();
-        this.f1581c = new File(this.f1580b.getAbsolutePath() + ".loading");
+        this.f1564b = file;
+        this.f1566d = new ArrayList();
+        this.f1565c = new File(this.f1564b.getAbsolutePath() + ".loading");
     }
 
     public static void j(String str) {
@@ -387,14 +387,14 @@ public class i {
         }
         synchronized (this) {
             if (!q() && !r()) {
-                if (this.f1583e == null) {
+                if (this.f1567e == null) {
                     b bVar = new b(this, null);
-                    this.f1583e = bVar;
+                    this.f1567e = bVar;
                     bVar.g(this);
                 }
                 c.a.b0.a.g.b c2 = c.a.b0.a.b.c();
                 if (c2 != null) {
-                    c2.a(this.a, this.f1581c.getParent(), this.f1581c.getName(), this.f1583e);
+                    c2.a(this.a, this.f1565c.getParent(), this.f1565c.getName(), this.f1567e);
                 }
             }
         }
@@ -405,13 +405,13 @@ public class i {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             if (q()) {
                 if (cVar != null) {
-                    cVar.a(this, this.f1580b.getAbsolutePath());
+                    cVar.a(this, this.f1564b.getAbsolutePath());
                     return;
                 }
                 return;
             }
-            if (cVar != null && !this.f1582d.contains(cVar)) {
-                this.f1582d.add(cVar);
+            if (cVar != null && !this.f1566d.contains(cVar)) {
+                this.f1566d.add(cVar);
             }
             k();
         }
@@ -420,13 +420,13 @@ public class i {
     public File m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1580b : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1564b : (File) invokeV.objValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1586h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1570h : invokeV.intValue;
     }
 
     public String o() {
@@ -445,7 +445,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            File file = this.f1580b;
+            File file = this.f1564b;
             return file != null && file.exists();
         }
         return invokeV.booleanValue;
@@ -455,7 +455,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            b bVar = this.f1583e;
+            b bVar = this.f1567e;
             return bVar != null && bVar.e();
         }
         return invokeV.booleanValue;
@@ -470,9 +470,9 @@ public class i {
             boolean z2 = false;
             try {
                 if (p()) {
-                    j("onCompleted-unzip:" + str + "\nto " + this.f1580b.getAbsolutePath());
+                    j("onCompleted-unzip:" + str + "\nto " + this.f1564b.getAbsolutePath());
                 }
-                File file2 = new File(this.f1580b + ".ziping");
+                File file2 = new File(this.f1564b + ".ziping");
                 if (file2.exists()) {
                     if (p()) {
                         j("delete older exists " + file2);
@@ -497,7 +497,7 @@ public class i {
                     c.a.b0.a.j.e.e(file2);
                     z2 = z3;
                 } else {
-                    z2 = file2.renameTo(this.f1580b) & z3;
+                    z2 = file2.renameTo(this.f1564b) & z3;
                 }
             } catch (Exception e3) {
                 j("Exception on onFileLoaderCompledted " + e3.getMessage());

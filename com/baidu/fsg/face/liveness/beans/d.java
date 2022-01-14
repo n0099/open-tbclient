@@ -26,10 +26,10 @@ public class d extends BaseBean {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35369b;
+    public int f34223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LivenessRecogDTO f35370c;
+    public LivenessRecogDTO f34224c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
@@ -61,7 +61,7 @@ public class d extends BaseBean {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f35369b = i2;
+            this.f34223b = i2;
         }
     }
 
@@ -71,36 +71,36 @@ public class d extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            LivenessRecogDTO livenessRecogDTO = this.f35370c;
+            LivenessRecogDTO livenessRecogDTO = this.f34224c;
             if (livenessRecogDTO != null) {
                 setSpParameter(livenessRecogDTO.spParams);
-                arrayList.add(new RestNameValuePair("processid", this.f35370c.processid));
-                LivenessRecogType livenessRecogType = this.f35370c.livenessType;
+                arrayList.add(new RestNameValuePair("processid", this.f34224c.processid));
+                LivenessRecogType livenessRecogType = this.f34224c.livenessType;
                 if (livenessRecogType == LivenessRecogType.RECOG_TYPE_BDUSS) {
                     arrayList.add(new RestNameValuePair("type", "contrastportrait"));
                     arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
                     arrayList.add(new RestNameValuePair("type", "certinfo"));
-                    arrayList.add(new RestNameValuePair("exuid", this.f35370c.exUid));
+                    arrayList.add(new RestNameValuePair("exuid", this.f34224c.exUid));
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("name", this.f35370c.realName);
-                        jSONObject.put("cert", this.f35370c.idCardNum);
-                        jSONObject.put("bankmobile", this.f35370c.phoneNum);
+                        jSONObject.put("name", this.f34224c.realName);
+                        jSONObject.put("cert", this.f34224c.idCardNum);
+                        jSONObject.put("bankmobile", this.f34224c.phoneNum);
                         arrayList.add(new RestNameValuePair("certinfo", PayUtils.encrypt("phone_number", jSONObject.toString())));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
                     arrayList.add(new RestNameValuePair("type", "authtoken"));
-                    arrayList.add(new RestNameValuePair("authtoken", this.f35370c.authToken));
+                    arrayList.add(new RestNameValuePair("authtoken", this.f34224c.authToken));
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_OUTER) {
                     arrayList.add(new RestNameValuePair("type", "outer"));
-                    arrayList.add(new RestNameValuePair("exuid", this.f35370c.exUid));
+                    arrayList.add(new RestNameValuePair("exuid", this.f34224c.exUid));
                 }
                 arrayList.add(new RestNameValuePair("opt", String.valueOf(this.a)));
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f35370c.serviceType));
-                arrayList.add(new RestNameValuePair("living_type", String.valueOf(this.f35369b)));
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f34224c.serviceType));
+                arrayList.add(new RestNameValuePair("living_type", String.valueOf(this.f34223b)));
             }
             return arrayList;
         }
@@ -137,7 +137,7 @@ public class d extends BaseBean {
     public void a(LivenessRecogDTO livenessRecogDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, livenessRecogDTO) == null) {
-            this.f35370c = livenessRecogDTO;
+            this.f34224c = livenessRecogDTO;
         }
     }
 
@@ -146,9 +146,9 @@ public class d extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            if (this.f35370c != null) {
-                sb.append("bduss=" + this.f35370c.bduss);
-                sb.append(";stoken=" + this.f35370c.stoken);
+            if (this.f34224c != null) {
+                sb.append("bduss=" + this.f34224c.bduss);
+                sb.append(";stoken=" + this.f34224c.stoken);
             }
             return PayUtils.encrypt("phone_number", sb.toString());
         }

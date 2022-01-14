@@ -25,7 +25,7 @@ public class b extends c.a.r0.a.a0.a.a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5164b;
+        public final /* synthetic */ CallbackHandler f5056b;
 
         public a(b bVar, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class b extends c.a.r0.a.a0.a.a {
                 }
             }
             this.a = str;
-            this.f5164b = callbackHandler;
+            this.f5056b = callbackHandler;
         }
 
         @Override // com.baidu.swan.apps.canvas.view.CanvasView.c
@@ -53,7 +53,7 @@ public class b extends c.a.r0.a.a0.a.a {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (str = this.a) == null) {
                 return;
             }
-            this.f5164b.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
+            this.f5056b.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
         }
     }
 
@@ -95,16 +95,16 @@ public class b extends c.a.r0.a.a0.a.a {
                 return false;
             }
             String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(m.f5421f)) {
+            if (TextUtils.isEmpty(m.f5308f)) {
                 c.a.r0.a.c0.g.a.a("SwanAppAction", "canvasId is empty ");
                 unitedSchemeEntity.result = l(201);
                 return false;
             }
-            if (TextUtils.isEmpty(m.f5422g)) {
+            if (TextUtils.isEmpty(m.f5309g)) {
                 c.a.r0.a.c0.g.a.a("SwanAppAction", "drawCanvas slaveId is empty");
                 c.a.r0.a.h0.g.f H = c.a.r0.a.g1.f.U().H();
                 if (H != null) {
-                    m.f5422g = H.n3();
+                    m.f5309g = H.n3();
                 }
             }
             c.a.r0.a.c0.c.d.a aVar = (c.a.r0.a.c0.c.d.a) c.a.r0.a.c0.d.a.a(m);

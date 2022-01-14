@@ -8,14 +8,14 @@ public class d implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f58574b;
+    public b f56365b;
 
     /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58575b;
+        public int f56366b;
 
         @Override // com.kwad.sdk.core.b
         public void parseJson(@Nullable JSONObject jSONObject) {
@@ -25,7 +25,7 @@ public class d implements com.kwad.sdk.core.webview.kwai.a {
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             com.kwad.sdk.utils.t.a(jSONObject, "width", this.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "height", this.f58575b);
+            com.kwad.sdk.utils.t.a(jSONObject, "height", this.f56366b);
             return jSONObject;
         }
     }
@@ -46,18 +46,18 @@ public class d implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     public void a(b bVar) {
-        this.f58574b = bVar;
+        this.f56365b = bVar;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         a aVar = new a();
-        b bVar = this.f58574b;
+        b bVar = this.f56365b;
         if (bVar != null) {
             bVar.a(aVar);
         } else {
-            aVar.a = this.a.f58538d.getWidth();
-            aVar.f58575b = this.a.f58538d.getHeight();
+            aVar.a = this.a.f56329d.getWidth();
+            aVar.f56366b = this.a.f56329d.getHeight();
         }
         cVar.a(aVar);
     }

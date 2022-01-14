@@ -21,49 +21,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+import org.aspectj.runtime.reflect.SignatureImpl;
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26404b;
+    public String f25619b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26405c;
+    public String f25620c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26406d;
+    public String f25621d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26407e;
+    public String f25622e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26408f;
+    public String f25623f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26409g;
+    public String f25624g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26410h;
+    public String f25625h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f26411i;
+    public String f25626i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f26412j;
+    public String f25627j;
+    public String k;
 
-    /* renamed from: k  reason: collision with root package name */
-    public String f26413k;
-
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
@@ -100,15 +99,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f26412j == null) {
+            if (this.f25627j == null) {
                 try {
-                    this.f26412j = TbadkCoreApplication.getInst().getAndroidId();
+                    this.f25627j = TbadkCoreApplication.getInst().getAndroidId();
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f26412j;
+            return this.f25627j;
         }
         return (String) invokeV.objValue;
     }
@@ -149,15 +148,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f26405c == null) {
+            if (this.f25620c == null) {
                 try {
-                    this.f26405c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                    this.f25620c = TbadkCoreApplication.getInst().getCuidGalaxy2();
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f26405c;
+            return this.f25620c;
         }
         return (String) invokeV.objValue;
     }
@@ -166,10 +165,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f26413k == null) {
-                this.f26413k = "com.baidu.tieba.fileprovider";
+            if (this.k == null) {
+                this.k = "com.baidu.tieba.fileprovider";
             }
-            return this.f26413k;
+            return this.k;
         }
         return (String) invokeV.objValue;
     }
@@ -185,15 +184,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f26408f == null) {
+            if (this.f25623f == null) {
                 try {
-                    this.f26408f = TbadkCoreApplication.getInst().getImei();
+                    this.f25623f = TbadkCoreApplication.getInst().getImei();
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f26408f;
+            return this.f25623f;
         }
         return (String) invokeV.objValue;
     }
@@ -202,15 +201,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f26410h == null) {
+            if (this.f25625h == null) {
                 try {
-                    this.f26410h = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+                    this.f25625h = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f26410h;
+            return this.f25625h;
         }
         return (String) invokeV.objValue;
     }
@@ -219,10 +218,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f26407e == null) {
-                this.f26407e = Build.MODEL;
+            if (this.f25622e == null) {
+                this.f25622e = Build.MODEL;
             }
-            return this.f26407e;
+            return this.f25622e;
         }
         return (String) invokeV.objValue;
     }
@@ -231,15 +230,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f26409g == null) {
+            if (this.f25624g == null) {
                 try {
-                    this.f26409g = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+                    this.f25624g = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f26409g;
+            return this.f25624g;
         }
         return (String) invokeV.objValue;
     }
@@ -248,10 +247,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f26404b == null) {
-                this.f26404b = Build.VERSION.RELEASE;
+            if (this.f25619b == null) {
+                this.f25619b = Build.VERSION.RELEASE;
             }
-            return this.f26404b;
+            return this.f25619b;
         }
         return (String) invokeV.objValue;
     }
@@ -260,15 +259,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f26411i == null) {
+            if (this.f25626i == null) {
                 try {
-                    this.f26411i = BdBaseApplication.getInst().getPackageName();
+                    this.f25626i = BdBaseApplication.getInst().getPackageName();
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f26411i;
+            return this.f25626i;
         }
         return (String) invokeV.objValue;
     }
@@ -277,15 +276,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f26406d == null) {
+            if (this.f25621d == null) {
                 try {
-                    this.f26406d = r();
+                    this.f25621d = r();
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f26406d;
+            return this.f25621d;
         }
         return (String) invokeV.objValue;
     }
@@ -294,7 +293,11 @@ public class c {
     public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? TbSingleton.getInstance().getSampleId() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            String sampleId = TbSingleton.getInstance().getSampleId();
+            return sampleId == null ? "" : sampleId.replace(SignatureImpl.SEP, ',');
+        }
+        return (String) invokeV.objValue;
     }
 
     @NonNull
@@ -370,17 +373,17 @@ public class c {
         }
         try {
             this.a = TbConfig.getVersion();
-            this.f26404b = Build.VERSION.RELEASE;
-            this.f26405c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            this.f25619b = Build.VERSION.RELEASE;
+            this.f25620c = TbadkCoreApplication.getInst().getCuidGalaxy2();
             q();
-            this.f26406d = r();
-            this.f26407e = Build.MODEL;
-            this.f26408f = TbadkCoreApplication.getInst().getImei();
-            this.f26409g = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            this.f26410h = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
-            this.f26411i = BdBaseApplication.getInst().getPackageName();
-            this.f26412j = TbadkCoreApplication.getInst().getAndroidId();
-            this.f26413k = "com.baidu.tieba.fileprovider";
+            this.f25621d = r();
+            this.f25622e = Build.MODEL;
+            this.f25623f = TbadkCoreApplication.getInst().getImei();
+            this.f25624g = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            this.f25625h = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+            this.f25626i = BdBaseApplication.getInst().getPackageName();
+            this.f25627j = TbadkCoreApplication.getInst().getAndroidId();
+            this.k = "com.baidu.tieba.fileprovider";
         } catch (Exception e2) {
             BdLog.e(e2);
         }

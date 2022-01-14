@@ -30,10 +30,10 @@ public class u extends BaseBean<Object> {
     public PwdRequest a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54007b;
+    public String f51944b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54008c;
+    public boolean f51945c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> u(Context context) {
@@ -58,9 +58,9 @@ public class u extends BaseBean<Object> {
 
     private void a(List<RestNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, list) == null) && this.f54008c && !TextUtils.isEmpty(this.f54007b)) {
+        if ((interceptable == null || interceptable.invokeL(65537, this, list) == null) && this.f51945c && !TextUtils.isEmpty(this.f51944b)) {
             try {
-                JSONObject jSONObject = new JSONObject(this.f54007b);
+                JSONObject jSONObject = new JSONObject(this.f51944b);
                 jSONObject.remove("half_screen_pwd_verify");
                 Iterator<String> keys = jSONObject.keys();
                 if (keys != null) {
@@ -166,14 +166,14 @@ public class u extends BaseBean<Object> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f54007b = str;
+            this.f51944b = str;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f54008c = z;
+            this.f51945c = z;
         }
     }
 }

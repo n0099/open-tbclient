@@ -16,15 +16,15 @@ public class a extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConstrainImageLayout.c f12937e;
+    public ConstrainImageLayout.c f12625e;
 
     /* renamed from: c.a.s0.g1.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0831a implements ConstrainImageLayout.c {
+    public class C0841a implements ConstrainImageLayout.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0831a(a aVar) {
+        public C0841a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public class a extends f {
                 return;
             }
         }
-        this.f12937e = new C0831a(this);
+        this.f12625e = new C0841a(this);
     }
 
     @Override // c.a.s0.g1.j.f, c.a.s0.g1.j.c
@@ -87,10 +87,10 @@ public class a extends f {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i2, i3)) == null) {
-            if (list.size() < this.f12938b) {
+            if (list.size() < this.f12626b) {
                 list.size();
             }
-            constrainImageLayout.setTbImageViewConfiguration(this.f12937e);
+            constrainImageLayout.setTbImageViewConfiguration(this.f12625e);
             return super.a(constrainImageLayout, list, i2, i3);
         }
         return invokeLLII.intValue;

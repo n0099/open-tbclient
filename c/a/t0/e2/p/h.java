@@ -16,12 +16,12 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static h f17590c;
+    public static h f17162c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f17591b;
+    public int f17163b;
 
     /* loaded from: classes7.dex */
     public class a implements CyberPlayerManager.InstallListener {
@@ -30,7 +30,7 @@ public class h {
         public final /* synthetic */ CyberPlayerManager.InstallListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f17592b;
+        public final /* synthetic */ h f17164b;
 
         public a(h hVar, CyberPlayerManager.InstallListener installListener) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class h {
                     return;
                 }
             }
-            this.f17592b = hVar;
+            this.f17164b = hVar;
             this.a = installListener;
         }
 
@@ -55,8 +55,8 @@ public class h {
         public void onInstallError(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-                if (this.f17592b.f17591b >= 3) {
-                    this.f17592b.f17591b = 0;
+                if (this.f17164b.f17163b >= 3) {
+                    this.f17164b.f17163b = 0;
                     CyberPlayerManager.InstallListener installListener = this.a;
                     if (installListener != null) {
                         installListener.onInstallError(i2, i3, str);
@@ -64,8 +64,8 @@ public class h {
                     }
                     return;
                 }
-                h.c(this.f17592b);
-                this.f17592b.g(this.a);
+                h.c(this.f17164b);
+                this.f17164b.g(this.a);
             }
         }
 
@@ -80,8 +80,8 @@ public class h {
         public void onInstallSuccess(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-                this.f17592b.f17591b = 0;
-                this.f17592b.a = true;
+                this.f17164b.f17163b = 0;
+                this.f17164b.a = true;
                 CyberPlayerManager.InstallListener installListener = this.a;
                 if (installListener != null) {
                     installListener.onInstallSuccess(i2, str);
@@ -97,7 +97,7 @@ public class h {
         public final /* synthetic */ CyberPlayerManager.InstallListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f17593b;
+        public final /* synthetic */ h f17165b;
 
         public b(h hVar, CyberPlayerManager.InstallListener installListener) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class h {
                     return;
                 }
             }
-            this.f17593b = hVar;
+            this.f17165b = hVar;
             this.a = installListener;
         }
 
@@ -122,8 +122,8 @@ public class h {
         public void onInstallError(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-                if (this.f17593b.f17591b >= 3) {
-                    this.f17593b.f17591b = 0;
+                if (this.f17165b.f17163b >= 3) {
+                    this.f17165b.f17163b = 0;
                     CyberPlayerManager.InstallListener installListener = this.a;
                     if (installListener != null) {
                         installListener.onInstallError(i2, i3, str);
@@ -131,8 +131,8 @@ public class h {
                     }
                     return;
                 }
-                h.c(this.f17593b);
-                this.f17593b.g(this.a);
+                h.c(this.f17165b);
+                this.f17165b.g(this.a);
             }
         }
 
@@ -147,8 +147,8 @@ public class h {
         public void onInstallSuccess(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-                this.f17593b.f17591b = 0;
-                this.f17593b.a = true;
+                this.f17165b.f17163b = 0;
+                this.f17165b.a = true;
                 CyberPlayerManager.InstallListener installListener = this.a;
                 if (installListener != null) {
                     installListener.onInstallSuccess(i2, str);
@@ -174,8 +174,8 @@ public class h {
     }
 
     public static /* synthetic */ int c(h hVar) {
-        int i2 = hVar.f17591b;
-        hVar.f17591b = i2 + 1;
+        int i2 = hVar.f17163b;
+        hVar.f17163b = i2 + 1;
         return i2;
     }
 
@@ -183,10 +183,10 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f17590c == null) {
+            if (f17162c == null) {
                 i();
             }
-            return f17590c;
+            return f17162c;
         }
         return (h) invokeV.objValue;
     }
@@ -195,8 +195,8 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             synchronized (h.class) {
-                if (f17590c == null) {
-                    f17590c = new h();
+                if (f17162c == null) {
+                    f17162c = new h();
                 }
             }
         }

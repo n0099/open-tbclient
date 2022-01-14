@@ -15,34 +15,32 @@ public class j {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27261b;
+    public boolean f26449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27262c;
+    public boolean f26450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27263d;
+    public int f26451d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f27264e;
+    public boolean f26452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27265f;
+    public int f26453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27266g;
+    public boolean f26454g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27267h;
+    public int f26455h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f27268i;
+    public String f26456i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27269j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f27270k;
+    public int f26457j;
+    public int k;
     public int l;
     public boolean m;
     public String n;
@@ -59,34 +57,32 @@ public class j {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f27271b;
+        public boolean f26458b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27272c;
+        public boolean f26459c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f27273d;
+        public int f26460d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f27274e;
+        public int f26461e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f27275f;
+        public boolean f26462f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f27276g;
+        public boolean f26463g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f27277h;
+        public String f26464h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f27278i;
+        public boolean f26465i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f27279j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public int f27280k;
+        public int f26466j;
+        public int k;
         public boolean l;
 
         public a() {
@@ -103,16 +99,16 @@ public class j {
                 }
             }
             this.a = "1";
-            this.f27271b = true;
-            this.f27272c = false;
-            this.f27273d = 720;
-            this.f27274e = 0;
-            this.f27275f = false;
-            this.f27276g = false;
-            this.f27278i = false;
-            this.f27277h = "0";
-            this.f27279j = 0;
-            this.f27280k = 1;
+            this.f26458b = true;
+            this.f26459c = false;
+            this.f26460d = 720;
+            this.f26461e = 0;
+            this.f26462f = false;
+            this.f26463g = false;
+            this.f26465i = false;
+            this.f26464h = "0";
+            this.f26466j = 0;
+            this.k = 1;
             this.l = true;
         }
 
@@ -126,7 +122,7 @@ public class j {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.f27276g = z;
+                this.f26463g = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -156,7 +152,7 @@ public class j {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f27272c = z;
+                this.f26459c = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -166,7 +162,7 @@ public class j {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f27271b = z;
+                this.f26458b = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -176,7 +172,7 @@ public class j {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.f27273d = i2;
+                this.f26460d = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -186,7 +182,7 @@ public class j {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                this.f27274e = i2;
+                this.f26461e = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -212,17 +208,17 @@ public class j {
         this.r = 2;
         this.s = true;
         this.a = str;
-        this.f27261b = z;
-        this.f27262c = z2;
-        this.f27263d = i2;
-        this.f27265f = i3;
-        this.f27266g = z3;
+        this.f26449b = z;
+        this.f26450c = z2;
+        this.f26451d = i2;
+        this.f26453f = i3;
+        this.f26454g = z3;
     }
 
     public void A(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f27269j = i2;
+            this.f26457j = i2;
         }
     }
 
@@ -236,14 +232,14 @@ public class j {
     public void C(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f27264e = z;
+            this.f26452e = z;
         }
     }
 
     public void D(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f27267h = i2;
+            this.f26455h = i2;
         }
     }
 
@@ -271,7 +267,7 @@ public class j {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27268i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26456i : (String) invokeV.objValue;
     }
 
     public int b() {
@@ -289,13 +285,13 @@ public class j {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27270k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f27269j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f26457j : invokeV.intValue;
     }
 
     public int f() {
@@ -307,19 +303,19 @@ public class j {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f27267h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f26455h : invokeV.intValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f27265f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f26453f : invokeV.intValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f27263d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f26451d : invokeV.intValue;
     }
 
     public int i() {
@@ -337,7 +333,7 @@ public class j {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f27266g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f26454g : invokeV.booleanValue;
     }
 
     public boolean l() {
@@ -355,13 +351,13 @@ public class j {
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f27264e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f26452e : invokeV.booleanValue;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f27262c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f26450c : invokeV.booleanValue;
     }
 
     public boolean p() {
@@ -385,7 +381,7 @@ public class j {
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f27261b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f26449b : invokeV.booleanValue;
     }
 
     public boolean t() {
@@ -397,7 +393,7 @@ public class j {
     public void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
-            this.f27268i = str;
+            this.f26456i = str;
         }
     }
 
@@ -432,7 +428,7 @@ public class j {
     public void z(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.f27270k = i2;
+            this.k = i2;
         }
     }
 
@@ -455,16 +451,16 @@ public class j {
         this.r = 2;
         this.s = true;
         this.a = aVar.a;
-        this.f27261b = aVar.f27271b;
-        this.f27262c = aVar.f27272c;
-        this.f27263d = aVar.f27273d;
-        this.f27265f = aVar.f27274e;
-        this.f27266g = aVar.f27275f;
-        this.m = aVar.f27276g;
-        this.o = aVar.f27278i;
-        this.n = aVar.f27277h;
-        this.p = aVar.f27279j;
-        this.q = aVar.f27280k;
+        this.f26449b = aVar.f26458b;
+        this.f26450c = aVar.f26459c;
+        this.f26451d = aVar.f26460d;
+        this.f26453f = aVar.f26461e;
+        this.f26454g = aVar.f26462f;
+        this.m = aVar.f26463g;
+        this.o = aVar.f26465i;
+        this.n = aVar.f26464h;
+        this.p = aVar.f26466j;
+        this.q = aVar.k;
         this.s = aVar.l;
     }
 }

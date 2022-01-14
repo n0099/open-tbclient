@@ -20,27 +20,27 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile b f61165g;
+    public static volatile b f58849g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f61166h;
+    public static boolean f58850h;
     public transient /* synthetic */ FieldHolder $fh;
     public OpenId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public OpenId f61167b;
+    public OpenId f58851b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OpenId f61168c;
+    public OpenId f58852c;
 
     /* renamed from: d  reason: collision with root package name */
-    public OpenId f61169d;
+    public OpenId f58853d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SupportInfo f61170e;
+    public SupportInfo f58854e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BroadcastReceiver f61171f;
+    public BroadcastReceiver f58855f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -56,10 +56,10 @@ public class b {
             }
         }
         this.a = new OpenId("udid");
-        this.f61167b = new OpenId("oaid");
-        this.f61169d = new OpenId("vaid");
-        this.f61168c = new OpenId("aaid");
-        this.f61170e = new SupportInfo();
+        this.f58851b = new OpenId("oaid");
+        this.f58853d = new OpenId("vaid");
+        this.f58852c = new OpenId("aaid");
+        this.f58854e = new SupportInfo();
     }
 
     public static ValueData a(Cursor cursor) {
@@ -104,14 +104,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f61165g == null) {
+            if (f58849g == null) {
                 synchronized (b.class) {
-                    if (f61165g == null) {
-                        f61165g = new b();
+                    if (f58849g == null) {
+                        f58849g = new b();
                     }
                 }
             }
-            return f61165g;
+            return f58849g;
         }
         return (b) invokeV.objValue;
     }
@@ -119,7 +119,7 @@ public class b {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            boolean z = f61166h;
+            boolean z = f58850h;
         }
     }
 
@@ -128,13 +128,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if ("oaid".equals(str)) {
-                return this.f61167b;
+                return this.f58851b;
             }
             if ("vaid".equals(str)) {
-                return this.f61169d;
+                return this.f58853d;
             }
             if ("aaid".equals(str)) {
-                return this.f61168c;
+                return this.f58852c;
             }
             if ("udid".equals(str)) {
                 return this.a;
@@ -257,7 +257,7 @@ public class b {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            f61166h = z;
+            f58850h = z;
         }
     }
 
@@ -325,8 +325,8 @@ public class b {
         if (interceptable != null && (invokeLZ = interceptable.invokeLZ(1048580, this, context, z)) != null) {
             return invokeLZ.booleanValue;
         }
-        if (this.f61170e.isCached() && !z) {
-            return this.f61170e.isSupport();
+        if (this.f58854e.isCached() && !z) {
+            return this.f58854e.isSupport();
         }
         PackageManager packageManager = context.getPackageManager();
         if (packageManager == null) {
@@ -340,27 +340,27 @@ public class b {
         }
         if (packageInfo != null) {
             str = packageInfo.versionName;
-            if (!this.f61170e.isCached() && this.f61170e.isSameVersion(str)) {
+            if (!this.f58854e.isCached() && this.f58854e.isSameVersion(str)) {
                 b("use same version cache, safeVersion : " + str);
-                return this.f61170e.isSupport();
+                return this.f58854e.isSupport();
             }
-            this.f61170e.setVersionName(str);
+            this.f58854e.setVersionName(str);
             resolveContentProvider = packageManager.resolveContentProvider("com.meizu.flyme.openidsdk", 0);
             boolean z2 = true;
             if ((resolveContentProvider == null && (resolveContentProvider.applicationInfo.flags & 1) != 0 && TextUtils.equals("com.meizu.safe", resolveContentProvider.packageName)) ? false : false) {
                 b("is not Supported, for isLegalProvider : false");
-                this.f61170e.setSupport(false);
+                this.f58854e.setSupport(false);
                 return false;
             }
             boolean a = a(context);
             b("query support, result : " + a);
-            this.f61170e.setSupport(a);
+            this.f58854e.setSupport(a);
             return a;
         }
         str = null;
-        if (!this.f61170e.isCached()) {
+        if (!this.f58854e.isCached()) {
         }
-        this.f61170e.setVersionName(str);
+        this.f58854e.setVersionName(str);
         resolveContentProvider = packageManager.resolveContentProvider("com.meizu.flyme.openidsdk", 0);
         boolean z22 = true;
         if ((resolveContentProvider == null && (resolveContentProvider.applicationInfo.flags & 1) != 0 && TextUtils.equals("com.meizu.safe", resolveContentProvider.packageName)) ? false : false) {
@@ -371,13 +371,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             synchronized (this) {
-                if (this.f61171f != null) {
+                if (this.f58855f != null) {
                     return;
                 }
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
                 a aVar = new a();
-                this.f61171f = aVar;
+                this.f58855f = aVar;
                 context.registerReceiver(aVar, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
             }
         }

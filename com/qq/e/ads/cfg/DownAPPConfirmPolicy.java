@@ -15,7 +15,7 @@ public final class DownAPPConfirmPolicy {
     public static final DownAPPConfirmPolicy NOConfirm;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ DownAPPConfirmPolicy[] f61266b;
+    public static final /* synthetic */ DownAPPConfirmPolicy[] f58948b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -35,7 +35,7 @@ public final class DownAPPConfirmPolicy {
         Default = new DownAPPConfirmPolicy("Default", 0, 0);
         DownAPPConfirmPolicy downAPPConfirmPolicy = new DownAPPConfirmPolicy("NOConfirm", 1, 2);
         NOConfirm = downAPPConfirmPolicy;
-        f61266b = new DownAPPConfirmPolicy[]{Default, downAPPConfirmPolicy};
+        f58948b = new DownAPPConfirmPolicy[]{Default, downAPPConfirmPolicy};
     }
 
     public DownAPPConfirmPolicy(String str, int i2, int i3) {
@@ -68,7 +68,7 @@ public final class DownAPPConfirmPolicy {
     public static DownAPPConfirmPolicy[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DownAPPConfirmPolicy[]) f61266b.clone() : (DownAPPConfirmPolicy[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DownAPPConfirmPolicy[]) f58948b.clone() : (DownAPPConfirmPolicy[]) invokeV.objValue;
     }
 
     public int value() {

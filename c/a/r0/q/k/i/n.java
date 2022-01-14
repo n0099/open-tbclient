@@ -11,10 +11,10 @@ public class n {
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f11883b = "0";
+    public static String f11613b = "0";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f11884c;
+    public static long f11614c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class n {
         }
         c.a.r0.q.a b2 = c.a.r0.q.c.b();
         if (b2 != null) {
-            f11883b = b2.i().getString("key_h2_heart_beat_version", "0");
+            f11613b = b2.i().getString("key_h2_heart_beat_version", "0");
         }
     }
 

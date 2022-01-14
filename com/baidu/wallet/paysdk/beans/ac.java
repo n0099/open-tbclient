@@ -58,9 +58,9 @@ public class ac extends BaseBean<VerifyCodeResponse> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("mobile", this.a.a));
-            arrayList.add(new RestNameValuePair("sp_no", this.a.f54033b));
-            arrayList.add(new RestNameValuePair("order_no", this.a.f54034c));
-            arrayList.add(new RestNameValuePair("pay_type", this.a.f54035d));
+            arrayList.add(new RestNameValuePair("sp_no", this.a.f51970b));
+            arrayList.add(new RestNameValuePair("order_no", this.a.f51971c));
+            arrayList.add(new RestNameValuePair("pay_type", this.a.f51972d));
             if (!TextUtils.isEmpty(PayDataCache.getInstance().getPaySessionInfo())) {
                 arrayList.add(new RestNameValuePair("session_info", PayDataCache.getInstance().getPaySessionInfo()));
             }

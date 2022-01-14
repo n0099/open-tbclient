@@ -45,25 +45,23 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47437e;
+    public boolean f45676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47438f;
+    public int f45677f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47439g;
+    public int f45678g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47440h;
+    public int f45679h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f47441i;
+    public LinearLayout f45680i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final ArrayList<ItemViewHolder> f47442j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f47443k;
+    public final ArrayList<ItemViewHolder> f45681j;
+    public int k;
     public TbPageContext l;
 
     /* loaded from: classes12.dex */
@@ -138,10 +136,10 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorRankCard.a f47444e;
+        public final /* synthetic */ HorRankCard.a f45682e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HorizontalScrollListView f47445f;
+        public final /* synthetic */ HorizontalScrollListView f45683f;
 
         public a(HorizontalScrollListView horizontalScrollListView, HorRankCard.a aVar) {
             Interceptable interceptable = $ic;
@@ -158,19 +156,19 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                     return;
                 }
             }
-            this.f47445f = horizontalScrollListView;
-            this.f47444e = aVar;
+            this.f45683f = horizontalScrollListView;
+            this.f45682e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f47444e.f47260j)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f45682e.f45510j)) {
                 return;
             }
             v.b().d(true);
-            i.e(this.f47444e.m).d(TiebaStatic.Params.OBJ_URL, this.f47444e.f47260j).a(this.f47444e.m);
-            w.c(this.f47445f.l, this.f47444e.f47260j);
+            i.e(this.f45682e.m).d(TiebaStatic.Params.OBJ_URL, this.f45682e.f45510j).a(this.f45682e.m);
+            w.c(this.f45683f.l, this.f45682e.f45510j);
         }
     }
 
@@ -180,10 +178,10 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorRankCard.a f47446e;
+        public final /* synthetic */ HorRankCard.a f45684e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HorizontalScrollListView f47447f;
+        public final /* synthetic */ HorizontalScrollListView f45685f;
 
         public b(HorizontalScrollListView horizontalScrollListView, HorRankCard.a aVar) {
             Interceptable interceptable = $ic;
@@ -200,17 +198,17 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                     return;
                 }
             }
-            this.f47447f = horizontalScrollListView;
-            this.f47446e = aVar;
+            this.f45685f = horizontalScrollListView;
+            this.f45684e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f47447f.getContext())) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f45685f.getContext())) {
                 c.a.t0.x1.m.b a = c.a.t0.x1.m.b.a();
-                HorRankCard.a aVar = this.f47446e;
-                a.e(aVar, aVar.f47256f, null, null);
+                HorRankCard.a aVar = this.f45684e;
+                a.e(aVar, aVar.f45506f, null, null);
             }
         }
     }
@@ -233,9 +231,9 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                 return;
             }
         }
-        this.f47437e = false;
-        this.f47442j = new ArrayList<>();
-        this.f47443k = 3;
+        this.f45676e = false;
+        this.f45681j = new ArrayList<>();
+        this.k = 3;
         f(context);
     }
 
@@ -245,7 +243,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             if (i2 == 0) {
                 layoutParams.leftMargin = getResources().getDimensionPixelSize(R.dimen.ds24);
             } else {
-                layoutParams.leftMargin = this.f47440h;
+                layoutParams.leftMargin = this.f45679h;
             }
         }
     }
@@ -267,7 +265,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             view.setPadding(0, 0, 0, n.f(getContext(), R.dimen.ds24));
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
-        if (this.f47437e) {
+        if (this.f45676e) {
             itemViewHolder.mForumAvatarImageView.setIsRound(true);
             itemViewHolder.mLeftTop.setVisibility(8);
             int i3 = aVar.a;
@@ -310,24 +308,24 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                     } else {
                         SkinManager.setBackgroundColor(itemViewHolder.mLeftTop, c.a.t0.x1.a.a[i2 <= 3 ? i2 : 3]);
                     }
-                } else if (!c.a.t0.x1.o.k.b.a(aVar.f47261k)) {
-                    itemViewHolder.mLeftTop.setBackgroundColor(aVar.f47261k);
+                } else if (!c.a.t0.x1.o.k.b.a(aVar.k)) {
+                    itemViewHolder.mLeftTop.setBackgroundColor(aVar.k);
                 } else {
                     SkinManager.setBackgroundColor(itemViewHolder.mLeftTop, c.a.t0.x1.a.a[i2 <= 3 ? i2 : 3]);
                 }
             }
             itemViewHolder.mForumAvatarImageView.setRadius(0);
         }
-        if (!TextUtils.isEmpty(aVar.f47260j)) {
+        if (!TextUtils.isEmpty(aVar.f45510j)) {
             itemViewHolder.mForumAvatarImageView.setOnClickListener(new a(this, aVar));
         } else {
             itemViewHolder.mForumAvatarImageView.setOnClickListener(null);
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) itemViewHolder.mForumAvatarImageView.getLayoutParams();
-        layoutParams.width = this.f47438f;
-        layoutParams.height = this.f47439g;
+        layoutParams.width = this.f45677f;
+        layoutParams.height = this.f45678g;
         b(layoutParams, i2);
-        if (this.f47437e) {
+        if (this.f45676e) {
             layoutParams.topMargin = getResources().getDimensionPixelSize(R.dimen.ds10);
         } else {
             layoutParams.topMargin = 0;
@@ -337,64 +335,64 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
         b(layoutParams2, i2);
         itemViewHolder.mLeftTop.setLayoutParams(layoutParams2);
         RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) itemViewHolder.mNameLayout.getLayoutParams();
-        layoutParams3.width = this.f47438f;
+        layoutParams3.width = this.f45677f;
         b(layoutParams3, i2);
         itemViewHolder.mNameLayout.setLayoutParams(layoutParams3);
         RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) itemViewHolder.mSubtitleLayout.getLayoutParams();
-        layoutParams4.width = this.f47438f;
+        layoutParams4.width = this.f45677f;
         b(layoutParams4, i2);
         itemViewHolder.mSubtitleLayout.setLayoutParams(layoutParams4);
         RelativeLayout.LayoutParams layoutParams5 = (RelativeLayout.LayoutParams) itemViewHolder.mPostLayout.getLayoutParams();
-        layoutParams5.width = this.f47438f;
+        layoutParams5.width = this.f45677f;
         b(layoutParams5, i2);
         itemViewHolder.mPostLayout.setLayoutParams(layoutParams5);
-        itemViewHolder.mForumAvatarImageView.setTag(aVar.f47252b);
-        itemViewHolder.mForumAvatarImageView.startLoad(aVar.f47252b, 10, false);
-        if (!TextUtils.isEmpty(aVar.f47253c)) {
+        itemViewHolder.mForumAvatarImageView.setTag(aVar.f45502b);
+        itemViewHolder.mForumAvatarImageView.startLoad(aVar.f45502b, 10, false);
+        if (!TextUtils.isEmpty(aVar.f45503c)) {
             RelativeLayout.LayoutParams layoutParams6 = (RelativeLayout.LayoutParams) itemViewHolder.mForumAvatarIcon.getLayoutParams();
             int f2 = n.f(getContext(), R.dimen.ds30);
             int f3 = n.f(getContext(), R.dimen.ds6);
             int f4 = n.f(getContext(), R.dimen.ds18);
-            int i4 = ((this.f47438f - f2) + this.f47440h) - f3;
+            int i4 = ((this.f45677f - f2) + this.f45679h) - f3;
             if (i2 == 0) {
                 i4 = (i4 - f4) + f3;
             }
-            layoutParams6.setMargins(i4, (this.f47439g - f2) + f3, 0, 0);
+            layoutParams6.setMargins(i4, (this.f45678g - f2) + f3, 0, 0);
             itemViewHolder.mForumAvatarIcon.setLayoutParams(layoutParams6);
-            itemViewHolder.mForumAvatarIcon.startLoad(aVar.f47253c, 10, false);
+            itemViewHolder.mForumAvatarIcon.startLoad(aVar.f45503c, 10, false);
         } else {
             itemViewHolder.mForumAvatarIcon.setVisibility(8);
         }
-        if (aVar.f47254d != null) {
+        if (aVar.f45504d != null) {
             itemViewHolder.mForumNameTextView.setVisibility(0);
-            if (this.f47437e) {
+            if (this.f45676e) {
                 if (aVar.a <= 0) {
-                    itemViewHolder.mForumNameTextView.setMaxWidth(this.f47438f);
+                    itemViewHolder.mForumNameTextView.setMaxWidth(this.f45677f);
                 } else {
-                    itemViewHolder.mForumNameTextView.setMaxWidth((this.f47438f - getResources().getDimensionPixelSize(R.dimen.ds22)) - getResources().getDimensionPixelSize(R.dimen.ds4));
+                    itemViewHolder.mForumNameTextView.setMaxWidth((this.f45677f - getResources().getDimensionPixelSize(R.dimen.ds22)) - getResources().getDimensionPixelSize(R.dimen.ds4));
                 }
             } else {
-                itemViewHolder.mForumNameTextView.setMaxWidth(this.f47438f);
+                itemViewHolder.mForumNameTextView.setMaxWidth(this.f45677f);
             }
-            itemViewHolder.mForumNameTextView.setText(aVar.f47254d);
+            itemViewHolder.mForumNameTextView.setText(aVar.f45504d);
         } else {
             itemViewHolder.mForumNameTextView.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(aVar.f47255e)) {
+        if (!TextUtils.isEmpty(aVar.f45505e)) {
             try {
-                itemViewHolder.mSubtitleTextView.setText(StringHelper.numberUniformFormat(Long.parseLong(aVar.f47255e)).toLowerCase());
+                itemViewHolder.mSubtitleTextView.setText(StringHelper.numberUniformFormat(Long.parseLong(aVar.f45505e)).toLowerCase());
             } catch (Exception unused) {
-                itemViewHolder.mSubtitleTextView.setText(aVar.f47255e);
+                itemViewHolder.mSubtitleTextView.setText(aVar.f45505e);
             }
             SkinManager.setViewTextColor(itemViewHolder.mSubtitleTextView, R.color.CAM_X0312);
             itemViewHolder.mSubtitleTextView.setVisibility(0);
         } else {
             itemViewHolder.mSubtitleTextView.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(aVar.f47256f) && !TextUtils.isEmpty(aVar.f47258h) && !TextUtils.isEmpty(aVar.f47259i)) {
+        if (!TextUtils.isEmpty(aVar.f45506f) && !TextUtils.isEmpty(aVar.f45508h) && !TextUtils.isEmpty(aVar.f45509i)) {
             itemViewHolder.mPostLayout.setVisibility(0);
-            g(itemViewHolder.mBtnPost, aVar.f47257g, aVar.f47258h, aVar.f47259i);
-            itemViewHolder.mBtnPost.setTag(aVar.f47256f);
+            g(itemViewHolder.mBtnPost, aVar.f45507g, aVar.f45508h, aVar.f45509i);
+            itemViewHolder.mBtnPost.setTag(aVar.f45506f);
             itemViewHolder.mBtnPost.setOnClickListener(new b(this, aVar));
             return;
         }
@@ -413,18 +411,18 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.f47440h = (int) context.getResources().getDimension(R.dimen.ds36);
-            this.f47438f = (int) context.getResources().getDimension(R.dimen.ds102);
-            this.f47439g = (int) context.getResources().getDimension(R.dimen.ds102);
+            this.f45679h = (int) context.getResources().getDimension(R.dimen.ds36);
+            this.f45677f = (int) context.getResources().getDimension(R.dimen.ds102);
+            this.f45678g = (int) context.getResources().getDimension(R.dimen.ds102);
             setHorizontalFadingEdgeEnabled(false);
             setVerticalFadingEdgeEnabled(false);
             setHorizontalScrollBarEnabled(false);
             setVerticalScrollBarEnabled(false);
             LinearLayout linearLayout = new LinearLayout(context);
-            this.f47441i = linearLayout;
+            this.f45680i = linearLayout;
             linearLayout.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            this.f47441i.setOrientation(0);
-            addView(this.f47441i);
+            this.f45680i.setOrientation(0);
+            addView(this.f45680i);
         }
     }
 
@@ -451,17 +449,17 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
 
     public void onSkinTypeChanged(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || this.f47443k == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || this.k == i2) {
             return;
         }
-        Iterator<ItemViewHolder> it = this.f47442j.iterator();
+        Iterator<ItemViewHolder> it = this.f45681j.iterator();
         while (it.hasNext()) {
             ItemViewHolder next = it.next();
             if (next != null) {
                 e(next, i2);
             }
         }
-        this.f47443k = i2;
+        this.k = i2;
     }
 
     public void setData(List<HorRankCard.a> list, TbPageContext tbPageContext) {
@@ -470,35 +468,35 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             return;
         }
         this.l = tbPageContext;
-        int count = ListUtils.getCount(this.f47442j);
+        int count = ListUtils.getCount(this.f45681j);
         int count2 = ListUtils.getCount(list);
         if (count > count2) {
             for (int i2 = 0; i2 < count - count2; i2++) {
-                TypeAdapter.ViewHolder viewHolder = (TypeAdapter.ViewHolder) ListUtils.getItem(this.f47442j, 0);
+                TypeAdapter.ViewHolder viewHolder = (TypeAdapter.ViewHolder) ListUtils.getItem(this.f45681j, 0);
                 if (viewHolder != null) {
-                    this.f47441i.removeView(viewHolder.getView());
+                    this.f45680i.removeView(viewHolder.getView());
                 }
-                this.f47442j.remove(viewHolder);
+                this.f45681j.remove(viewHolder);
             }
         }
         int i3 = 0;
         while (i3 < count2) {
             HorRankCard.a aVar = (HorRankCard.a) ListUtils.getItem(list, i3);
-            ItemViewHolder itemViewHolder = (ItemViewHolder) ListUtils.getItem(this.f47442j, i3);
+            ItemViewHolder itemViewHolder = (ItemViewHolder) ListUtils.getItem(this.f45681j, i3);
             if (itemViewHolder != null) {
                 d(itemViewHolder.getView(), aVar, i3, i3 == count2 + (-1));
             } else {
                 View c2 = c();
                 if (c2 != null) {
                     ItemViewHolder itemViewHolder2 = new ItemViewHolder(c2);
-                    this.f47442j.add(itemViewHolder2);
+                    this.f45681j.add(itemViewHolder2);
                     d(itemViewHolder2.getView(), aVar, i3, i3 == count2 + (-1));
-                    this.f47441i.addView(c2);
+                    this.f45680i.addView(c2);
                 }
             }
             i3++;
         }
-        onSkinTypeChanged(this.f47443k);
+        onSkinTypeChanged(this.k);
     }
 
     public void setDisplayNum(double d2) {
@@ -512,25 +510,25 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                 dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds24);
                 d3 = d2;
             }
-            this.f47438f = (int) (((getResources().getDisplayMetrics().widthPixels - dimensionPixelSize) - (this.f47440h * (((int) (0.5d + d3)) - 1))) / d3);
+            this.f45677f = (int) (((getResources().getDisplayMetrics().widthPixels - dimensionPixelSize) - (this.f45679h * (((int) (0.5d + d3)) - 1))) / d3);
         }
     }
 
     public void setRatio(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f47439g = (int) ((this.f47438f * d2) + 0.5d);
+            this.f45678g = (int) ((this.f45677f * d2) + 0.5d);
         }
     }
 
     public void setRound(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f47437e = z;
+            this.f45676e = z;
             if (z) {
-                this.f47440h = (int) getResources().getDimension(R.dimen.ds36);
+                this.f45679h = (int) getResources().getDimension(R.dimen.ds36);
             } else {
-                this.f47440h = (int) getResources().getDimension(R.dimen.ds18);
+                this.f45679h = (int) getResources().getDimension(R.dimen.ds18);
             }
         }
     }
@@ -554,9 +552,9 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                 return;
             }
         }
-        this.f47437e = false;
-        this.f47442j = new ArrayList<>();
-        this.f47443k = 3;
+        this.f45676e = false;
+        this.f45681j = new ArrayList<>();
+        this.k = 3;
         f(context);
     }
 
@@ -579,9 +577,9 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                 return;
             }
         }
-        this.f47437e = false;
-        this.f47442j = new ArrayList<>();
-        this.f47443k = 3;
+        this.f45676e = false;
+        this.f45681j = new ArrayList<>();
+        this.k = 3;
         f(context);
     }
 }

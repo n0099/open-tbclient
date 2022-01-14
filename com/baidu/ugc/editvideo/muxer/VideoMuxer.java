@@ -50,7 +50,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.webrtc.MediaStreamTrack;
 /* loaded from: classes13.dex */
-public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC1957a {
+public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC1974a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILTER_TEMP_DIR_PREFIX = "video_addfilter_";
     public static int MAX_RETRY_COUNT = 2;
@@ -292,10 +292,10 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
                                     sb.append(",isVideoDone:");
                                     sb.append(this.this$0.misVideoCombineDone);
                                 } else {
-                                    c.a.a1.a.a("v_log_audio_mixer_error", aVar.f1346e, null);
+                                    c.a.a1.a.a("v_log_audio_mixer_error", aVar.f1339e, null);
                                     sb = new StringBuilder();
                                     sb.append("mixtureAACFileList fail");
-                                    sb.append(aVar.f1346e);
+                                    sb.append(aVar.f1339e);
                                 }
                                 str = sb.toString();
                             }
@@ -484,7 +484,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                                 c.a.a1.m.a aVar = new c.a.a1.m.a();
-                                aVar.f1346e = "audioeditorerror:" + str;
+                                aVar.f1339e = "audioeditorerror:" + str;
                                 this.this$1.this$0.notifyMuxerFail(aVar);
                             }
                         }
@@ -689,9 +689,9 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
                 }
                 if (!FileUtils.checkFile(str) || i2 <= 0) {
                     c.a.a1.m.a aVar = new c.a.a1.m.a();
-                    aVar.f1343b = true;
+                    aVar.f1336b = true;
                     aVar.a = 24;
-                    aVar.f1344c = "error_mixtrue";
+                    aVar.f1337c = "error_mixtrue";
                     StringBuilder sb = new StringBuilder();
                     sb.append("视频预处理合成失败,视频文件丢失 FinalVideoPath=");
                     sb.append(str);
@@ -721,7 +721,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
                     sb.append(this.mNeedAbort);
                     sb.append(" , trace=");
                     sb.append(m.g(new RuntimeException()));
-                    aVar.f1346e = sb.toString();
+                    aVar.f1339e = sb.toString();
                     this.mListener.e(aVar.a().toString());
                 } else {
                     onProgress(2, 100);
@@ -740,12 +740,12 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
             if (this.mListener != null) {
                 String str = null;
                 if (aVar != null) {
-                    if (this.mMuxerData != null && this.mMuxerData.getCurrThemeEffect() != null && !TextUtils.isEmpty(aVar.f1346e)) {
-                        aVar.f1346e += ",themeName : " + this.mMuxerData.getCurrThemeEffect().name;
+                    if (this.mMuxerData != null && this.mMuxerData.getCurrThemeEffect() != null && !TextUtils.isEmpty(aVar.f1339e)) {
+                        aVar.f1339e += ",themeName : " + this.mMuxerData.getCurrThemeEffect().name;
                     }
-                    aVar.f1346e += ",checkAudioDirectNext : " + CheckUtils.checkAudioDirectNext(this.mMuxerData);
-                    aVar.f1346e += ",checkVideoDirectNext : " + CheckUtils.checkVideoDirectNext(this.mMuxerData);
-                    aVar.f1346e += ",needAbort : " + this.mNeedAbort;
+                    aVar.f1339e += ",checkAudioDirectNext : " + CheckUtils.checkAudioDirectNext(this.mMuxerData);
+                    aVar.f1339e += ",checkVideoDirectNext : " + CheckUtils.checkVideoDirectNext(this.mMuxerData);
+                    aVar.f1339e += ",needAbort : " + this.mNeedAbort;
                     str = aVar.a().toString();
                 }
                 this.mListener.e(str);
@@ -1098,8 +1098,8 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
                                                 this.val$videoMuxerData.setFinalAudioPath(str5);
                                                 str4 = "audiocombineresult:" + startCombineAudio + "audiopath:" + str5 + ",isVideoDone:" + this.this$1.this$0.misVideoCombineDone;
                                             } else {
-                                                c.a.a1.a.a("v_log_audio_mixer_error", aVar2.f1346e, null);
-                                                str4 = "mixtureAACFileList fail" + aVar2.f1346e;
+                                                c.a.a1.a.a("v_log_audio_mixer_error", aVar2.f1339e, null);
+                                                str4 = "mixtureAACFileList fail" + aVar2.f1339e;
                                             }
                                             c.e("VideoMuxer", str4);
                                             this.this$1.this$0.combineAudioFinish();
@@ -1131,8 +1131,8 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
                                     c.e("VideoMuxer: ", "onExceptionThrown: " + m.g(e2));
                                 }
                             } else {
-                                c.a.a1.a.a("v_log_audio_mixer_error", aVar.f1346e, null);
-                                str = "mixtureAACFileList fail" + aVar.f1346e;
+                                c.a.a1.a.a("v_log_audio_mixer_error", aVar.f1339e, null);
+                                str = "mixtureAACFileList fail" + aVar.f1339e;
                             }
                         }
                         c.e("VideoMuxer", str);
@@ -1538,7 +1538,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
         combineAudioFinish();
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1957a
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1974a
     public void onAudioVideoMuxerCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -1547,18 +1547,18 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1957a
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1974a
     public void onAudioVideoMuxerFail(c.a.a1.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             notifyMuxerFail(aVar);
             if (aVar != null) {
-                c.e("VideoMuxer", "onMuxerMusicFail:" + aVar.f1346e);
+                c.e("VideoMuxer", "onMuxerMusicFail:" + aVar.f1339e);
             }
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1957a
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1974a
     public void onAudioVideoMuxerFinish(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
@@ -1595,9 +1595,9 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
             c.a.a1.m.b.b("onGenFilterVideoFail", "视频处理-失败");
             c.a.a1.m.a aVar = new c.a.a1.m.a();
             aVar.a = 24;
-            aVar.f1344c = "error_mixtrue";
-            aVar.f1343b = true;
-            aVar.f1346e = "视频预处理合成处理视频特效合成失败 checkAudioDirectNext : " + CheckUtils.checkAudioDirectNext(this.mMuxerData) + " --- " + str;
+            aVar.f1337c = "error_mixtrue";
+            aVar.f1336b = true;
+            aVar.f1339e = "视频预处理合成处理视频特效合成失败 checkAudioDirectNext : " + CheckUtils.checkAudioDirectNext(this.mMuxerData) + " --- " + str;
             d dVar = this.mAudioMixtureManager;
             if (dVar != null) {
                 dVar.i();
@@ -1702,8 +1702,8 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
             }
             c.a.a1.m.a aVar = new c.a.a1.m.a();
             aVar.a = 24;
-            aVar.f1344c = "error_mixtrue";
-            aVar.f1343b = true;
+            aVar.f1337c = "error_mixtrue";
+            aVar.f1336b = true;
             StringBuilder sb2 = new StringBuilder();
             if (videoMuxerData == null) {
                 str = "开始合成，合成信息丢失:muxerData为空";
@@ -1715,7 +1715,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
                 str = ",checkerror:" + sb.toString();
             }
             sb2.append(str);
-            aVar.f1346e = sb2.toString();
+            aVar.f1339e = sb2.toString();
             notifyMuxerFail(aVar);
         }
     }

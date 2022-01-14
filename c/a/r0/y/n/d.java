@@ -30,25 +30,23 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f12302e;
+    public final Context f12016e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SwanVideoView f12303f;
+    public SwanVideoView f12017f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f12304g;
+    public FrameLayout f12018g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f12305h;
+    public LinearLayout f12019h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f12306i;
+    public LinearLayout f12020i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SeekBar f12307j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public SeekBar f12308k;
+    public SeekBar f12021j;
+    public SeekBar k;
     public AudioManager l;
     public int m;
     public boolean n;
@@ -81,7 +79,7 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.a.f12308k.setProgress(i2);
+                this.a.k.setProgress(i2);
             }
         }
     }
@@ -101,27 +99,27 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
                 return;
             }
         }
-        this.f12302e = context;
+        this.f12016e = context;
         i();
     }
 
     public void b(SwanVideoView swanVideoView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, swanVideoView) == null) {
-            this.f12303f = swanVideoView;
+            this.f12017f = swanVideoView;
         }
     }
 
     public FrameLayout d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12304g : (FrameLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12018g : (FrameLayout) invokeV.objValue;
     }
 
     public void e() {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (linearLayout = this.f12305h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (linearLayout = this.f12019h) == null) {
             return;
         }
         linearLayout.setVisibility(8);
@@ -130,7 +128,7 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
     public void f() {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (linearLayout = this.f12306i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (linearLayout = this.f12020i) == null) {
             return;
         }
         linearLayout.setVisibility(8);
@@ -139,33 +137,33 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.f12302e).inflate(g.swanapp_video_setting_layer, (ViewGroup) null);
-            this.f12304g = frameLayout;
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.f12016e).inflate(g.swanapp_video_setting_layer, (ViewGroup) null);
+            this.f12018g = frameLayout;
             frameLayout.setOnTouchListener(this);
-            LinearLayout linearLayout = (LinearLayout) this.f12304g.findViewById(f.swanapp_video_layout_rate);
-            this.f12305h = linearLayout;
+            LinearLayout linearLayout = (LinearLayout) this.f12018g.findViewById(f.swanapp_video_layout_rate);
+            this.f12019h = linearLayout;
             linearLayout.setVisibility(8);
-            this.f12305h.findViewById(f.swanapp_video_rate_tv_rate1).setOnClickListener(this);
-            this.f12305h.findViewById(f.swanapp_video_rate_tv_rate2).setOnClickListener(this);
-            this.f12305h.findViewById(f.swanapp_video_rate_tv_rate3).setOnClickListener(this);
-            this.f12305h.findViewById(f.swanapp_video_rate_tv_rate4).setOnClickListener(this);
-            this.f12305h.findViewById(f.swanapp_video_rate_tv_rate5).setOnClickListener(this);
+            this.f12019h.findViewById(f.swanapp_video_rate_tv_rate1).setOnClickListener(this);
+            this.f12019h.findViewById(f.swanapp_video_rate_tv_rate2).setOnClickListener(this);
+            this.f12019h.findViewById(f.swanapp_video_rate_tv_rate3).setOnClickListener(this);
+            this.f12019h.findViewById(f.swanapp_video_rate_tv_rate4).setOnClickListener(this);
+            this.f12019h.findViewById(f.swanapp_video_rate_tv_rate5).setOnClickListener(this);
             int i2 = f.swanapp_video_rate_tv_rate2;
             this.m = i2;
             n(i2, -13399809);
             k();
-            LinearLayout linearLayout2 = (LinearLayout) this.f12304g.findViewById(f.swanapp_video_layout_setting);
-            this.f12306i = linearLayout2;
+            LinearLayout linearLayout2 = (LinearLayout) this.f12018g.findViewById(f.swanapp_video_layout_setting);
+            this.f12020i = linearLayout2;
             linearLayout2.setVisibility(8);
-            this.f12306i.setOnTouchListener(this);
-            this.f12307j = (SeekBar) this.f12306i.findViewById(f.swanapp_video_setting_seekbar_brightness);
-            this.f12308k = (SeekBar) this.f12306i.findViewById(f.swanapp_video_setting_seekbar_sound);
-            this.f12307j.setOnSeekBarChangeListener(this);
-            this.f12308k.setOnSeekBarChangeListener(this);
-            this.f12307j.setMax(100);
-            AudioManager audioManager = (AudioManager) this.f12302e.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            this.f12020i.setOnTouchListener(this);
+            this.f12021j = (SeekBar) this.f12020i.findViewById(f.swanapp_video_setting_seekbar_brightness);
+            this.k = (SeekBar) this.f12020i.findViewById(f.swanapp_video_setting_seekbar_sound);
+            this.f12021j.setOnSeekBarChangeListener(this);
+            this.k.setOnSeekBarChangeListener(this);
+            this.f12021j.setMax(100);
+            AudioManager audioManager = (AudioManager) this.f12016e.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             this.l = audioManager;
-            this.f12308k.setMax(audioManager.getStreamMaxVolume(3));
+            this.k.setMax(audioManager.getStreamMaxVolume(3));
             r();
             c.a.r0.a.r2.b.d.e().d("#com.baidu.swan.videoplayer&MediaSettingViewLayer", new a(this));
         }
@@ -189,7 +187,7 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
                 this.m = 0;
             }
             n(this.m, -13399809);
-            SwanVideoView swanVideoView = this.f12303f;
+            SwanVideoView swanVideoView = this.f12017f;
             if (swanVideoView != null) {
                 swanVideoView.showRateInfo(str);
             }
@@ -199,23 +197,23 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
     public void k() {
         float dimension;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f12305h == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f12019h == null) {
             return;
         }
         if (this.n) {
-            dimension = this.f12302e.getResources().getDimension(c.a.r0.y.d.swanapp_video_setting_weight_full);
+            dimension = this.f12016e.getResources().getDimension(c.a.r0.y.d.swanapp_video_setting_weight_full);
         } else {
-            dimension = this.f12302e.getResources().getDimension(c.a.r0.y.d.swanapp_video_setting_weight);
+            dimension = this.f12016e.getResources().getDimension(c.a.r0.y.d.swanapp_video_setting_weight);
         }
-        ViewGroup.LayoutParams layoutParams = this.f12305h.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f12019h.getLayoutParams();
         layoutParams.width = (int) dimension;
-        this.f12305h.setLayoutParams(layoutParams);
+        this.f12019h.setLayoutParams(layoutParams);
     }
 
     public void l(int i2) {
         SwanVideoView swanVideoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (swanVideoView = this.f12303f) == null || swanVideoView.isSilent()) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (swanVideoView = this.f12017f) == null || swanVideoView.isSilent()) {
             return;
         }
         AudioManager audioManager = this.l;
@@ -223,9 +221,9 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
             audioManager.setStreamVolume(3, i2, 0);
         }
         if (i2 == 0) {
-            this.f12303f.setMuted(true);
-        } else if (this.f12303f.isMute()) {
-            this.f12303f.setMuted(false);
+            this.f12017f.setMuted(true);
+        } else if (this.f12017f.isMute()) {
+            this.f12017f.setMuted(false);
         }
     }
 
@@ -234,13 +232,13 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
         if (!(interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) || i2 == 0) {
             return;
         }
-        ((TextView) this.f12304g.findViewById(i2)).setTextColor(i3);
+        ((TextView) this.f12018g.findViewById(i2)).setTextColor(i3);
     }
 
     public void o(float f2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048585, this, f2) == null) && (this.f12302e instanceof Activity)) {
-            c.a.r0.a.r2.d.b.a.c().e((Activity) this.f12302e, f2 / 100.0f);
+        if ((interceptable == null || interceptable.invokeF(1048585, this, f2) == null) && (this.f12016e instanceof Activity)) {
+            c.a.r0.a.r2.d.b.a.c().e((Activity) this.f12016e, f2 / 100.0f);
         }
     }
 
@@ -250,7 +248,7 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
             e();
-            if (this.f12303f == null) {
+            if (this.f12017f == null) {
                 return;
             }
             int id = view.getId();
@@ -278,8 +276,8 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
                 return;
             }
             try {
-                this.f12303f.setPlayRate(Float.parseFloat(str));
-                this.f12303f.showRateInfo(str);
+                this.f12017f.setPlayRate(Float.parseFloat(str));
+                this.f12017f.showRateInfo(str);
             } catch (NumberFormatException unused) {
             }
         }
@@ -329,38 +327,38 @@ public class d implements View.OnClickListener, View.OnTouchListener, SeekBar.On
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            SwanVideoView swanVideoView = this.f12303f;
+            SwanVideoView swanVideoView = this.f12017f;
             boolean isIsLandscape = swanVideoView != null ? swanVideoView.isIsLandscape() : false;
-            if (this.f12305h != null) {
+            if (this.f12019h != null) {
                 if (isIsLandscape != this.n) {
                     this.n = isIsLandscape;
                     k();
                 }
-                this.f12305h.setVisibility(0);
+                this.f12019h.setVisibility(0);
             }
         }
     }
 
     public void q() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || this.f12306i == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || this.f12020i == null) {
             return;
         }
         r();
-        this.f12306i.setVisibility(0);
+        this.f12020i.setVisibility(0);
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (this.f12302e instanceof Activity) {
-                this.f12307j.setProgress((int) (c.a.r0.a.r2.d.b.a.c().a((Activity) this.f12302e) * 100.0f));
+            if (this.f12016e instanceof Activity) {
+                this.f12021j.setProgress((int) (c.a.r0.a.r2.d.b.a.c().a((Activity) this.f12016e) * 100.0f));
             }
-            SwanVideoView swanVideoView = this.f12303f;
+            SwanVideoView swanVideoView = this.f12017f;
             if (swanVideoView != null && swanVideoView.isMute()) {
-                this.f12308k.setProgress(0);
+                this.k.setProgress(0);
             } else {
-                this.f12308k.setProgress(this.l.getStreamVolume(3));
+                this.k.setProgress(this.l.getStreamVolume(3));
             }
         }
     }

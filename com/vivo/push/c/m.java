@@ -13,7 +13,7 @@ public final class m implements Runnable {
     public final /* synthetic */ com.vivo.push.b.m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f63052b;
+    public final /* synthetic */ l f60675b;
 
     public m(l lVar, com.vivo.push.b.m mVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class m implements Runnable {
                 return;
             }
         }
-        this.f63052b = lVar;
+        this.f60675b = lVar;
         this.a = mVar;
     }
 
@@ -39,8 +39,8 @@ public final class m implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l lVar = this.f63052b;
-            PushMessageCallback pushMessageCallback = ((z) lVar).f63061b;
+            l lVar = this.f60675b;
+            PushMessageCallback pushMessageCallback = ((z) lVar).f60684b;
             context = lVar.a;
             pushMessageCallback.onListTags(context, this.a.h(), this.a.d(), this.a.g());
         }

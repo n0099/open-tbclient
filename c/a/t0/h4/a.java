@@ -12,10 +12,10 @@ public class a {
     public DataRes a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18608b;
+    public String f18144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18609c;
+    public int f18145c;
 
     public a() {
         Interceptable interceptable = $ic;

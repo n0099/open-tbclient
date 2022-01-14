@@ -27,22 +27,22 @@ public class a {
     public static final SparseArray<c.a.r0.e.a.d.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CpuType f10558b;
+    public static CpuType f10330b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f10559c;
+    public static int f10331c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c.a.r0.e.a.d.b f10560d;
+    public static c.a.r0.e.a.d.b f10332d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.e.a.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0671a implements FileFilter {
+    public static class C0680a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0671a() {
+        public C0680a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +91,7 @@ public class a {
             }
         }
         a = new SparseArray<>();
-        f10559c = -1;
+        f10331c = -1;
     }
 
     public static c.a.r0.e.a.d.a a(int i2) {
@@ -117,7 +117,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File[] listFiles = new File("/sys/devices/system/cpu").listFiles(new C0671a());
+            File[] listFiles = new File("/sys/devices/system/cpu").listFiles(new C0680a());
             if (listFiles == null || listFiles.length <= 0) {
                 return -1;
             }
@@ -172,25 +172,25 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            int i2 = f10559c;
+            int i2 = f10331c;
             if (i2 != -1) {
                 return i2;
             }
             int c2 = c("/sys/devices/system/cpu/possible");
             if (c2 != -1) {
-                f10559c = c2;
+                f10331c = c2;
                 return c2;
             }
             int c3 = c("/sys/devices/system/cpu/present");
             if (c3 != -1) {
-                f10559c = c3;
+                f10331c = c3;
                 return c3;
             }
             int b2 = b();
             if (b2 == -1) {
                 b2 = Math.max(Runtime.getRuntime().availableProcessors(), 1);
             }
-            f10559c = b2;
+            f10331c = b2;
             return b2;
         }
         return invokeV.intValue;
@@ -200,7 +200,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            c.a.r0.e.a.d.b bVar = f10560d;
+            c.a.r0.e.a.d.b bVar = f10332d;
             if (bVar != null) {
                 return bVar;
             }
@@ -210,10 +210,10 @@ public class a {
             }
             if (e2 == 1) {
                 c.a.r0.e.a.d.b bVar2 = new c.a.r0.e.a.d.b();
-                bVar2.f10531h = false;
+                bVar2.f10304h = false;
                 bVar2.a = e2;
                 bVar2.l = a(0);
-                f10560d = bVar2;
+                f10332d = bVar2;
                 return bVar2;
             }
             ArrayList<c.a.r0.e.a.d.a> arrayList = new ArrayList(e2);
@@ -224,7 +224,7 @@ public class a {
             SparseIntArray sparseIntArray = new SparseIntArray();
             ArrayList arrayList2 = new ArrayList();
             for (c.a.r0.e.a.d.a aVar : arrayList) {
-                int i3 = aVar.f10524g;
+                int i3 = aVar.f10297g;
                 if (sparseArray.get(i3) != null) {
                     sparseIntArray.put(i3, sparseIntArray.get(i3) + 1);
                 } else {
@@ -237,24 +237,24 @@ public class a {
             c.a.r0.e.a.d.b bVar3 = new c.a.r0.e.a.d.b();
             bVar3.a = e2;
             boolean z = arrayList2.size() > 1;
-            bVar3.f10531h = z;
+            bVar3.f10304h = z;
             if (!z) {
                 bVar3.l = (c.a.r0.e.a.d.a) (arrayList2.size() <= 0 ? arrayList.get(0) : arrayList2.get(0));
-                f10560d = bVar3;
+                f10332d = bVar3;
                 return bVar3;
             }
-            bVar3.f10533j = (c.a.r0.e.a.d.a) arrayList2.get(0);
-            bVar3.f10526c = ((c.a.r0.e.a.d.a) arrayList2.get(0)).f10522e;
-            bVar3.f10525b = sparseIntArray.get(bVar3.f10533j.f10524g);
-            bVar3.f10532i = (c.a.r0.e.a.d.a) arrayList2.get(1);
-            bVar3.f10528e = ((c.a.r0.e.a.d.a) arrayList2.get(1)).f10522e;
-            bVar3.f10527d = sparseIntArray.get(bVar3.f10532i.f10524g);
+            bVar3.f10306j = (c.a.r0.e.a.d.a) arrayList2.get(0);
+            bVar3.f10299c = ((c.a.r0.e.a.d.a) arrayList2.get(0)).f10295e;
+            bVar3.f10298b = sparseIntArray.get(bVar3.f10306j.f10297g);
+            bVar3.f10305i = (c.a.r0.e.a.d.a) arrayList2.get(1);
+            bVar3.f10301e = ((c.a.r0.e.a.d.a) arrayList2.get(1)).f10295e;
+            bVar3.f10300d = sparseIntArray.get(bVar3.f10305i.f10297g);
             if (arrayList2.size() > 2) {
-                bVar3.f10534k = (c.a.r0.e.a.d.a) arrayList2.get(2);
-                bVar3.f10530g = ((c.a.r0.e.a.d.a) arrayList2.get(2)).f10522e;
-                bVar3.f10529f = sparseIntArray.get(bVar3.f10534k.f10524g);
+                bVar3.k = (c.a.r0.e.a.d.a) arrayList2.get(2);
+                bVar3.f10303g = ((c.a.r0.e.a.d.a) arrayList2.get(2)).f10295e;
+                bVar3.f10302f = sparseIntArray.get(bVar3.k.f10297g);
             }
-            f10560d = bVar3;
+            f10332d = bVar3;
             return bVar3;
         }
         return (c.a.r0.e.a.d.b) invokeV.objValue;
@@ -277,7 +277,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            CpuType cpuType = f10558b;
+            CpuType cpuType = f10330b;
             return cpuType != null ? cpuType : i(g());
         }
         return (CpuType) invokeV.objValue;
@@ -289,7 +289,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 CpuType cpuType = CpuType.Unknown;
-                f10558b = cpuType;
+                f10330b = cpuType;
                 return cpuType;
             }
             String lowerCase = str.toLowerCase();
@@ -297,19 +297,19 @@ public class a {
                 if (!lowerCase.startsWith("qcom") && !lowerCase.startsWith("kona") && !lowerCase.startsWith("lahaina") && !lowerCase.startsWith("msm") && !lowerCase.startsWith("sdm") && !lowerCase.startsWith("apq") && !lowerCase.startsWith("sm")) {
                     if (lowerCase.startsWith("mt")) {
                         CpuType cpuType2 = CpuType.Mtk;
-                        f10558b = cpuType2;
+                        f10330b = cpuType2;
                         return cpuType2;
                     }
                     CpuType cpuType3 = CpuType.Unknown;
-                    f10558b = cpuType3;
+                    f10330b = cpuType3;
                     return cpuType3;
                 }
                 CpuType cpuType4 = CpuType.QualComm;
-                f10558b = cpuType4;
+                f10330b = cpuType4;
                 return cpuType4;
             }
             CpuType cpuType5 = CpuType.Hisilicon;
-            f10558b = cpuType5;
+            f10330b = cpuType5;
             return cpuType5;
         }
         return (CpuType) invokeL.objValue;

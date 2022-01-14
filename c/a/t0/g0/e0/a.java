@@ -2,7 +2,7 @@ package c.a.t0.g0.e0;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.z2.e;
 import c.a.t0.z2.h;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,31 +22,31 @@ public class a implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlaVideoContainer f18216e;
+    public AlaVideoContainer f17772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d2 f18217f;
+    public e2 f17773f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AlaInfoData f18218g;
+    public AlaInfoData f17774g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18219h;
+    public boolean f17775h;
 
     /* renamed from: i  reason: collision with root package name */
-    public h f18220i;
+    public h f17776i;
 
     /* renamed from: j  reason: collision with root package name */
-    public h.b f18221j;
+    public h.b f17777j;
 
     /* renamed from: c.a.t0.g0.e0.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1101a implements h.b {
+    public class C1115a implements h.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1101a(a aVar) {
+        public C1115a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,51 +88,51 @@ public class a implements e {
                 return;
             }
         }
-        this.f18219h = false;
-        this.f18221j = new C1101a(this);
-        this.f18216e = alaVideoContainer;
+        this.f17775h = false;
+        this.f17777j = new C1115a(this);
+        this.f17772e = alaVideoContainer;
         if (alaVideoContainer != null) {
             h hVar = new h();
-            this.f18220i = hVar;
-            hVar.l(this.f18216e.getVideoView());
-            this.f18220i.i(this.f18221j);
+            this.f17776i = hVar;
+            hVar.l(this.f17772e.getVideoView());
+            this.f17776i.i(this.f17777j);
         }
     }
 
     public final void b() {
-        d2 d2Var;
+        e2 e2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (d2Var = this.f18217f) == null || d2Var.t1() == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (e2Var = this.f17773f) == null || e2Var.t1() == null) {
         }
     }
 
     public void c() {
         AlaVideoContainer alaVideoContainer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (alaVideoContainer = this.f18216e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (alaVideoContainer = this.f17772e) == null) {
             return;
         }
         alaVideoContainer.startPlayAnimation();
     }
 
-    public void d(d2 d2Var, String str, String str2, boolean z) {
+    public void d(e2 e2Var, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{d2Var, str, str2, Boolean.valueOf(z)}) == null) || d2Var == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{e2Var, str, str2, Boolean.valueOf(z)}) == null) || e2Var == null) {
             return;
         }
-        this.f18217f = d2Var;
-        if (this.f18216e == null || d2Var.o1() == null) {
+        this.f17773f = e2Var;
+        if (this.f17772e == null || e2Var.o1() == null) {
             return;
         }
-        AlaInfoData o1 = this.f18217f.o1();
-        this.f18218g = o1;
-        this.f18216e.setVideoThumbnail(o1.cover);
+        AlaInfoData o1 = this.f17773f.o1();
+        this.f17774g = o1;
+        this.f17772e.setVideoThumbnail(o1.cover);
         if (z) {
-            this.f18216e.setTitle(this.f18217f.getTitle());
+            this.f17772e.setTitle(this.f17773f.getTitle());
         } else {
-            this.f18216e.setTitle("");
+            this.f17772e.setTitle("");
         }
-        this.f18216e.setPlayCount(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.f18217f.o1().audience_count)));
+        this.f17772e.setPlayCount(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.f17773f.o1().audience_count)));
     }
 
     @Override // c.a.t0.z2.e
@@ -140,11 +140,11 @@ public class a implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AlaVideoContainer alaVideoContainer = this.f18216e;
+            AlaVideoContainer alaVideoContainer = this.f17772e;
             if (alaVideoContainer == null || alaVideoContainer.getVideoView() == null) {
                 return 0;
             }
-            return this.f18216e.getVideoView().getCurrentPositionSync();
+            return this.f17772e.getVideoView().getCurrentPositionSync();
         }
         return invokeV.intValue;
     }
@@ -154,11 +154,11 @@ public class a implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            d2 d2Var = this.f18217f;
-            if (d2Var == null || d2Var.t1() == null) {
+            e2 e2Var = this.f17773f;
+            if (e2Var == null || e2Var.t1() == null) {
                 return null;
             }
-            return this.f18217f.t1().video_url;
+            return this.f17773f.t1().video_url;
         }
         return (String) invokeV.objValue;
     }
@@ -168,7 +168,7 @@ public class a implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AlaVideoContainer alaVideoContainer = this.f18216e;
+            AlaVideoContainer alaVideoContainer = this.f17772e;
             if (alaVideoContainer != null) {
                 return alaVideoContainer.getView();
             }
@@ -191,7 +191,7 @@ public class a implements e {
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f18219h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17775h : invokeV.booleanValue;
     }
 
     @Override // c.a.t0.z2.e
@@ -215,16 +215,16 @@ public class a implements e {
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            AlaVideoContainer alaVideoContainer = this.f18216e;
+            AlaVideoContainer alaVideoContainer = this.f17772e;
             if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
-                this.f18216e.getVideoView().stopPlayback();
-                this.f18216e.resetUI();
-                h hVar = this.f18220i;
+                this.f17772e.getVideoView().stopPlayback();
+                this.f17772e.resetUI();
+                h hVar = this.f17776i;
                 if (hVar != null) {
                     hVar.n();
                 }
             }
-            this.f18219h = false;
+            this.f17775h = false;
         }
     }
 }

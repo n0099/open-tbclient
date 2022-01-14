@@ -16,7 +16,7 @@ public class b {
     public List<i> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f19628b;
+    public boolean f19123b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -46,6 +46,6 @@ public class b {
                 this.a.add(iVar);
             }
         }
-        this.f19628b = jSONObject.optInt("has_more", 0) == 1;
+        this.f19123b = jSONObject.optInt("has_more", 0) == 1;
     }
 }

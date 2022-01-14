@@ -92,10 +92,10 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         public AdvertAppInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f49363b;
+        public int f47509b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f49364c;
+        public String f47510c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -158,8 +158,8 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             b bVar = new b();
             STATISTIC_DATA = bVar;
             bVar.a = advertAppInfo;
-            bVar.f49364c = str;
-            bVar.f49363b = i2;
+            bVar.f47510c = str;
+            bVar.f47509b = i2;
         }
     }
 
@@ -213,7 +213,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                     this.mVideoView.updateTailFrameView(bVar.a);
                     DistributeVideoView distributeVideoView = this.mVideoView;
                     b bVar2 = STATISTIC_DATA;
-                    distributeVideoView.setStatisticInfo(bVar2.a, bVar2.f49363b, bVar2.f49364c);
+                    distributeVideoView.setStatisticInfo(bVar2.a, bVar2.f47509b, bVar2.f47510c);
                 } else {
                     this.mVideoView.updateTailFrameView(null);
                 }

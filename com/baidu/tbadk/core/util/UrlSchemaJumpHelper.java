@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -60,12 +60,12 @@ public class UrlSchemaJumpHelper {
     public static void ensureBlackList() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ListUtils.isEmpty(SCHEMA_BLACK_LIST)) {
-            String p = b.j().p(KEY_APP_JUMP_BLACK_LIST, null);
-            if (TextUtils.isEmpty(p)) {
+            String q = b.k().q(KEY_APP_JUMP_BLACK_LIST, null);
+            if (TextUtils.isEmpty(q)) {
                 return;
             }
             try {
-                setBlackList(new JSONArray(p));
+                setBlackList(new JSONArray(q));
             } catch (JSONException e2) {
                 BdLog.e(e2);
             }
@@ -130,10 +130,10 @@ public class UrlSchemaJumpHelper {
                     SCHEMA_BLACK_LIST.clear();
                     SCHEMA_BLACK_LIST.addAll(arrayList);
                 }
-                b.j().x(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
+                b.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
                 return;
             }
-            b.j().C(KEY_APP_JUMP_BLACK_LIST);
+            b.k().D(KEY_APP_JUMP_BLACK_LIST);
             SCHEMA_BLACK_LIST.clear();
         }
     }

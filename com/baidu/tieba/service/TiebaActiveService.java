@@ -41,7 +41,7 @@ public class TiebaActiveService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TiebaActiveService f49625e;
+        public final /* synthetic */ TiebaActiveService f47758e;
 
         public a(TiebaActiveService tiebaActiveService) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class TiebaActiveService extends BdBaseService {
                     return;
                 }
             }
-            this.f49625e = tiebaActiveService;
+            this.f47758e = tiebaActiveService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49625e.sendActive();
+                this.f47758e.sendActive();
             }
         }
     }
@@ -77,7 +77,7 @@ public class TiebaActiveService extends BdBaseService {
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TiebaActiveService f49626b;
+        public final /* synthetic */ TiebaActiveService f47759b;
 
         public b(TiebaActiveService tiebaActiveService) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class TiebaActiveService extends BdBaseService {
                     return;
                 }
             }
-            this.f49626b = tiebaActiveService;
+            this.f47759b = tiebaActiveService;
             this.a = null;
         }
 
@@ -102,7 +102,7 @@ public class TiebaActiveService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49626b.mActiveTask = null;
+                this.f47759b.mActiveTask = null;
                 NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
@@ -132,7 +132,7 @@ public class TiebaActiveService extends BdBaseService {
                     }
                     return null;
                 } catch (Exception e2) {
-                    c.a.s0.s.g0.b.j().v(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
+                    c.a.s0.s.h0.b.k().w(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
                     BdLog.e(e2.getMessage());
                     return null;
                 }
@@ -146,19 +146,19 @@ public class TiebaActiveService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 super.onPostExecute((b) str);
-                this.f49626b.mActiveTask = null;
+                this.f47759b.mActiveTask = null;
                 if (str == null) {
-                    TiebaActiveService.access$308(this.f49626b);
-                    if (this.f49626b.mHaveRetry < 10) {
-                        this.f49626b.mHandler.removeCallbacks(this.f49626b.mRunnable);
-                        this.f49626b.mHandler.postDelayed(this.f49626b.mRunnable, 60000L);
+                    TiebaActiveService.access$308(this.f47759b);
+                    if (this.f47759b.mHaveRetry < 10) {
+                        this.f47759b.mHandler.removeCallbacks(this.f47759b.mRunnable);
+                        this.f47759b.mHandler.postDelayed(this.f47759b.mRunnable, 60000L);
                     } else {
-                        c.a.s0.s.g0.b.j().v(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
-                        this.f49626b.stopSelf();
+                        c.a.s0.s.h0.b.k().w(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
+                        this.f47759b.stopSelf();
                     }
                 }
-                c.a.s0.s.g0.b.j().v(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2);
-                this.f49626b.stopSelf();
+                c.a.s0.s.h0.b.k().w(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2);
+                this.f47759b.stopSelf();
             }
         }
 
@@ -195,7 +195,7 @@ public class TiebaActiveService extends BdBaseService {
     private String getChannelByShare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? c.a.s0.s.g0.b.j().p("channel_id", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? c.a.s0.s.h0.b.k().q("channel_id", null) : (String) invokeV.objValue;
     }
 
     private String getChannelyFile() {
@@ -271,7 +271,7 @@ public class TiebaActiveService extends BdBaseService {
         if (!(interceptable == null || interceptable.invokeL(65547, this, str) == null) || str == null || str.length() <= 0) {
             return;
         }
-        c.a.s0.s.g0.b.j().x("channel_id", str);
+        c.a.s0.s.h0.b.k().y("channel_id", str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -317,7 +317,7 @@ public class TiebaActiveService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i2) == null) {
             super.onStart(intent, i2);
-            if (isActived() && c.a.s0.s.g0.b.j().k(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2) != 1) {
+            if (isActived() && c.a.s0.s.h0.b.k().l(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2) != 1) {
                 stopSelf();
             } else {
                 sendActive();

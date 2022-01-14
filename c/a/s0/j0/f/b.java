@@ -2,7 +2,7 @@ package c.a.s0.j0.f;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.tbadk.core.data.MetaData;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ public interface b {
     public interface a {
         void a();
 
-        void b(@NonNull List<d2> list, @Nullable Map<String, Object> map);
+        void b(@NonNull List<e2> list, @Nullable Map<String, Object> map);
     }
 
     void a(@Nullable a aVar);

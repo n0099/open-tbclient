@@ -1,6 +1,6 @@
 package c.a.t0.d1;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ public class l {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d2 f16537b;
+    public static e2 f16243b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,10 +30,10 @@ public class l {
         }
     }
 
-    public static d2 a() {
+    public static e2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f16537b : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f16243b : (e2) invokeV.objValue;
     }
 
     public static String b() {
@@ -42,12 +42,12 @@ public class l {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (String) invokeV.objValue;
     }
 
-    public static synchronized void update(d2 d2Var) {
+    public static synchronized void update(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, d2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65539, null, e2Var) == null) {
             synchronized (l.class) {
-                a = d2Var.E;
-                f16537b = d2Var;
+                a = e2Var.E;
+                f16243b = e2Var;
             }
         }
     }

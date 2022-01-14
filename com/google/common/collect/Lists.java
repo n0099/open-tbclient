@@ -181,7 +181,7 @@ public final class Lists {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ TransformingRandomAccessList f56877f;
+            public final /* synthetic */ TransformingRandomAccessList f54719f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(TransformingRandomAccessList transformingRandomAccessList, ListIterator listIterator) {
@@ -201,14 +201,14 @@ public final class Lists {
                         return;
                     }
                 }
-                this.f56877f = transformingRandomAccessList;
+                this.f54719f = transformingRandomAccessList;
             }
 
             @Override // c.i.d.c.m1
             public T a(F f2) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f56877f.function.apply(f2) : (T) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f54719f.function.apply(f2) : (T) invokeL.objValue;
             }
         }
 
@@ -300,7 +300,7 @@ public final class Lists {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ TransformingSequentialList f56878f;
+            public final /* synthetic */ TransformingSequentialList f54720f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(TransformingSequentialList transformingSequentialList, ListIterator listIterator) {
@@ -320,14 +320,14 @@ public final class Lists {
                         return;
                     }
                 }
-                this.f56878f = transformingSequentialList;
+                this.f54720f = transformingSequentialList;
             }
 
             @Override // c.i.d.c.m1
             public T a(F f2) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f56878f.function.apply(f2) : (T) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f54720f.function.apply(f2) : (T) invokeL.objValue;
             }
         }
 

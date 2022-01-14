@@ -13,13 +13,13 @@ import com.kwad.sdk.utils.bc;
 public class e implements bc.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public a f60222b;
+    public a f57936b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60223c;
+    public String f57937c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BroadcastReceiver f60224d = new BroadcastReceiver() { // from class: com.kwad.sdk.utils.e.1
+    public BroadcastReceiver f57938d = new BroadcastReceiver() { // from class: com.kwad.sdk.utils.e.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             String schemeSpecificPart = (!TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction()) || intent.getData() == null) ? null : intent.getData().getSchemeSpecificPart();
@@ -39,42 +39,42 @@ public class e implements bc.a {
     }
 
     public e(String str) {
-        this.f60223c = str;
+        this.f57937c = str;
     }
 
     public void a(Context context) {
         if (context != null) {
             try {
-                context.unregisterReceiver(this.f60224d);
+                context.unregisterReceiver(this.f57938d);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }
         }
-        this.f60222b = null;
+        this.f57936b = null;
     }
 
     public void a(Context context, a aVar) {
         if (context == null) {
             return;
         }
-        this.f60222b = aVar;
+        this.f57936b = aVar;
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addDataScheme("package");
-        context.registerReceiver(this.f60224d, intentFilter);
+        context.registerReceiver(this.f57938d, intentFilter);
     }
 
     @Override // com.kwad.sdk.utils.bc.a
     public void a(Message message) {
         Object obj;
         a aVar;
-        if (message.what != 242 || (obj = message.obj) == null || !obj.equals(this.f60223c) || (aVar = this.f60222b) == null) {
+        if (message.what != 242 || (obj = message.obj) == null || !obj.equals(this.f57937c) || (aVar = this.f57936b) == null) {
             return;
         }
-        aVar.a(this.f60223c);
+        aVar.a(this.f57937c);
     }
 
     public void a(String str) {
-        this.f60223c = str;
+        this.f57937c = str;
     }
 }

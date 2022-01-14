@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import com.bumptech.glide.GlideContext;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
@@ -99,7 +100,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
                 }
             }
             PENDING = new Status("PENDING", 0);
-            RUNNING = new Status("RUNNING", 1);
+            RUNNING = new Status(TornadoLiteRuntime.STATE_RUNNING, 1);
             WAITING_FOR_SIZE = new Status("WAITING_FOR_SIZE", 2);
             COMPLETE = new Status("COMPLETE", 3);
             FAILED = new Status("FAILED", 4);

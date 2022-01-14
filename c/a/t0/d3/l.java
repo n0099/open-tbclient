@@ -11,7 +11,7 @@ public class l {
     public final c.a.t0.c3.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f17513b;
+    public final String f17089b;
 
     public l(c.a.t0.c3.b bVar, String str) {
         Interceptable interceptable = $ic;
@@ -29,6 +29,6 @@ public class l {
             }
         }
         this.a = bVar;
-        this.f17513b = str;
+        this.f17089b = str;
     }
 }

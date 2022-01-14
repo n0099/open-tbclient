@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class b extends EventTargetImpl implements a.InterfaceC0754a {
+public class b extends EventTargetImpl implements a.InterfaceC0763a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ApiButton f11402e;
+    public ApiButton f11147e;
     @V8JavascriptField
     public String image;
     @V8JavascriptField
@@ -41,7 +41,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11403e;
+        public final /* synthetic */ b f11148e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -58,31 +58,31 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
                     return;
                 }
             }
-            this.f11403e = bVar;
+            this.f11148e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ApiButton apiButton;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.f11403e.f11402e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.f11148e.f11147e) == null) {
                 return;
             }
             c.a.r0.j.p0.b.d(apiButton);
-            this.f11403e.f11402e = null;
+            this.f11148e.f11147e = null;
         }
     }
 
     /* renamed from: c.a.r0.j.p0.d.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0755b implements Runnable {
+    public class RunnableC0764b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11404e;
+        public final /* synthetic */ b f11149e;
 
-        public RunnableC0755b(b bVar) {
+        public RunnableC0764b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,14 +97,14 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
                     return;
                 }
             }
-            this.f11404e = bVar;
+            this.f11149e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ApiButton apiButton;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.f11404e.f11402e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.f11149e.f11147e) == null) {
                 return;
             }
             apiButton.hide();
@@ -117,7 +117,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11405e;
+        public final /* synthetic */ b f11150e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -134,14 +134,14 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
                     return;
                 }
             }
-            this.f11405e = bVar;
+            this.f11150e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ApiButton apiButton;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.f11405e.f11402e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.f11150e.f11147e) == null) {
                 return;
             }
             apiButton.show();
@@ -154,10 +154,10 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11406e;
+        public final /* synthetic */ String f11151e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f11407f;
+        public final /* synthetic */ b f11152f;
 
         public d(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -174,8 +174,8 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
                     return;
                 }
             }
-            this.f11407f = bVar;
-            this.f11406e = str;
+            this.f11152f = bVar;
+            this.f11151e = str;
         }
 
         @Override // java.lang.Runnable
@@ -183,12 +183,12 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (k.a) {
-                    String str = "onFieldChangedCallback fieldName=" + this.f11406e;
+                    String str = "onFieldChangedCallback fieldName=" + this.f11151e;
                 }
-                if (this.f11407f.f11402e == null) {
+                if (this.f11152f.f11147e == null) {
                     return;
                 }
-                String str2 = this.f11406e;
+                String str2 = this.f11151e;
                 char c2 = 65535;
                 int hashCode = str2.hashCode();
                 if (hashCode != 3556653) {
@@ -199,12 +199,12 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
                     c2 = 0;
                 }
                 if (c2 == 0) {
-                    b bVar = this.f11407f;
-                    bVar.f11402e.setButtonText(bVar.text);
+                    b bVar = this.f11152f;
+                    bVar.f11147e.setButtonText(bVar.text);
                 } else if (c2 != 1) {
                 } else {
-                    b bVar2 = this.f11407f;
-                    bVar2.f11402e.setImageUrl(bVar2.image);
+                    b bVar2 = this.f11152f;
+                    bVar2.f11147e.setImageUrl(bVar2.image);
                 }
             }
         }
@@ -216,7 +216,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11408e;
+        public final /* synthetic */ b f11153e;
 
         public e(b bVar) {
             Interceptable interceptable = $ic;
@@ -233,18 +233,18 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
                     return;
                 }
             }
-            this.f11408e = bVar;
+            this.f11153e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b bVar = this.f11408e;
-                if (bVar.f11402e == null || bVar.B()) {
+                b bVar = this.f11153e;
+                if (bVar.f11147e == null || bVar.B()) {
                     return;
                 }
-                this.f11408e.f11402e.bindStyle();
+                this.f11153e.f11147e.bindStyle();
             }
         }
     }
@@ -296,7 +296,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
         InterceptResult invokeV;
         c.a.r0.a.m1.e.a.a z;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f11402e == null || this.style == null || (z = z()) == null || !c.a.r0.j.p0.b.f(this.f11402e, z)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f11147e == null || this.style == null || (z = z()) == null || !c.a.r0.j.p0.b.f(this.f11147e, z)) ? false : true : invokeV.booleanValue;
     }
 
     @JavascriptInterface
@@ -311,7 +311,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            q0.e0(new RunnableC0755b(this));
+            q0.e0(new RunnableC0764b(this));
         }
     }
 
@@ -323,7 +323,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
         }
     }
 
-    @Override // c.a.r0.j.p0.d.a.a.InterfaceC0754a
+    @Override // c.a.r0.j.p0.d.a.a.InterfaceC0763a
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -344,12 +344,12 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
         c.a.r0.j.p0.d.a.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f11402e == null || (aVar = this.style) == null) {
+            if (this.f11147e == null || (aVar = this.style) == null) {
                 return false;
             }
             aVar.b(this);
             c.a.r0.a.m1.e.a.a z = z();
-            return z != null && c.a.r0.j.p0.b.a(this.f11402e, z);
+            return z != null && c.a.r0.j.p0.b.a(this.f11147e, z);
         }
         return invokeV.booleanValue;
     }
@@ -359,7 +359,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             c.a.r0.j.p0.d.a.a aVar = this.style;
-            if (aVar == null || this.f11402e == null) {
+            if (aVar == null || this.f11147e == null) {
                 return null;
             }
             int g2 = n0.g(aVar.width);
@@ -373,7 +373,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0754a {
             if (g3 < g6) {
                 g3 = g6;
             }
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11402e.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11147e.getLayoutParams();
             if (layoutParams != null && layoutParams.width == g2 && layoutParams.height == g3 && layoutParams.leftMargin == g4 && layoutParams.topMargin == g5) {
                 return null;
             }

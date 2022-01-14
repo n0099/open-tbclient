@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.game.strategy.message;
 
 import c.a.d.n.e.n;
-import c.a.t0.d1.d2.a.c.a;
-import c.a.t0.d1.d2.a.d.e;
+import c.a.t0.d1.e2.a.c.a;
+import c.a.t0.d1.e2.a.d.e;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -87,8 +87,8 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
                 setError(error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = c.a.t0.d1.d2.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = c.a.t0.d1.d2.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = c.a.t0.d1.e2.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = c.a.t0.d1.e2.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
         }
     }

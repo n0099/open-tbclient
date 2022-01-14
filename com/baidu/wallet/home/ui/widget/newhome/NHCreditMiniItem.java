@@ -23,13 +23,13 @@ public class NHCreditMiniItem extends BaseItemView {
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f53290b;
+    public MaskTextView f51242b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f53291c;
+    public MaskTextView f51243c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f53292d;
+    public MaskTextView f51244d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditMiniItem(Context context) {
@@ -66,9 +66,9 @@ public class NHCreditMiniItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_mini_item"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "bg_pic"));
-            this.f53290b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_top"));
-            this.f53291c = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_mid"));
-            this.f53292d = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_bottom"));
+            this.f51242b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_top"));
+            this.f51243c = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_mid"));
+            this.f51244d = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_bottom"));
         }
     }
 
@@ -81,13 +81,13 @@ public class NHCreditMiniItem extends BaseItemView {
             return;
         }
         setNetImageViewUrl(this.a, getData().logo);
-        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f53290b) != null) {
+        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f51242b) != null) {
             maskTextView3.setMaskText(getData().name);
         }
-        if (!TextUtils.isEmpty(getData().value1) && (maskTextView2 = this.f53291c) != null) {
+        if (!TextUtils.isEmpty(getData().value1) && (maskTextView2 = this.f51243c) != null) {
             maskTextView2.setMaskText(getData().value1);
         }
-        if (TextUtils.isEmpty(getData().value2) || (maskTextView = this.f53292d) == null) {
+        if (TextUtils.isEmpty(getData().value2) || (maskTextView = this.f51244d) == null) {
             return;
         }
         maskTextView.setMaskText(getData().value2);

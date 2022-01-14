@@ -20,7 +20,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f44893common;
+    public CommonReq f43268common;
     public long forumId;
     public long lastThreadId;
     public int qType;

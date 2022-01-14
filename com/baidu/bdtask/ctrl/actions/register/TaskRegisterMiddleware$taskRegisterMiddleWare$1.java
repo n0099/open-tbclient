@@ -38,13 +38,13 @@ public final class TaskRegisterMiddleware$taskRegisterMiddleWare$1 extends Lambd
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "", "action", "Lcom/baidu/bdtask/framework/redux/Action;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.ctrl.actions.register.TaskRegisterMiddleware$taskRegisterMiddleWare$1$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static final class C17651 extends Lambda implements Function1<a, Unit> {
+        public static final class C17811 extends Lambda implements Function1<a, Unit> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Function1 $next;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C17651(Function1 function1) {
+            public C17811(Function1 function1) {
                 super(1);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -83,7 +83,7 @@ public final class TaskRegisterMiddleware$taskRegisterMiddleWare$1 extends Lambd
                         if (!g.a.d(taskRule.getVersionLimit())) {
                             DebugTrace debugTrace = DebugTrace.a;
                             debugTrace.a("less than limit version ,require " + taskRule.getVersionLimit() + " now:" + g.a.b());
-                            c.a.j.h.b.b.f3958c.b().a(taskRule.getUrl(), 4);
+                            c.a.j.h.b.b.f3896c.b().a(taskRule.getUrl(), 4);
                             return;
                         }
                         this.$next.invoke(aVar);
@@ -139,7 +139,7 @@ public final class TaskRegisterMiddleware$taskRegisterMiddleWare$1 extends Lambd
         public final Function1<a, Unit> invoke2(Function1<? super a, Unit> function1) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function1)) == null) ? new C17651(function1) : (Function1) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function1)) == null) ? new C17811(function1) : (Function1) invokeL.objValue;
         }
     }
 

@@ -7,8 +7,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
-import c.a.c0.h0.n;
-import c.a.c0.h0.w;
+import c.a.c0.k0.i;
+import c.a.c0.k0.r;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,10 +25,10 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public double H;
     public SlideInterceptor I;
     public WeakReference<Activity> J;
-    public n K;
+    public i K;
 
     /* loaded from: classes10.dex */
-    public class a implements n {
+    public class a implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -51,7 +51,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // c.a.c0.h0.n
+        @Override // c.a.c0.k0.i
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -64,7 +64,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     }
 
     /* loaded from: classes10.dex */
-    public class b implements n {
+    public class b implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -87,7 +87,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // c.a.c0.h0.n
+        @Override // c.a.c0.k0.i
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -143,12 +143,12 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             WeakReference<Activity> weakReference = this.J;
             if (weakReference != null && weakReference.get() != null) {
-                w.c(this.J.get(), new b(this));
+                r.c(this.J.get(), new b(this));
                 return;
             }
-            n nVar = this.K;
-            if (nVar != null) {
-                nVar.onTranslucent(true);
+            i iVar = this.K;
+            if (iVar != null) {
+                iVar.onTranslucent(true);
             }
         }
     }
@@ -159,12 +159,12 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WeakReference<Activity> weakReference = this.J;
             if (weakReference != null && weakReference.get() != null) {
-                w.d(this.J.get(), new a(this));
+                r.d(this.J.get(), new a(this));
                 return;
             }
-            n nVar = this.K;
-            if (nVar != null) {
-                nVar.onTranslucent(false);
+            i iVar = this.K;
+            if (iVar != null) {
+                iVar.onTranslucent(false);
             }
         }
     }
@@ -225,10 +225,10 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         }
     }
 
-    public void setOnTransparentListener(n nVar) {
+    public void setOnTransparentListener(i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nVar) == null) {
-            this.K = nVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iVar) == null) {
+            this.K = iVar;
         }
     }
 

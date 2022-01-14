@@ -11,13 +11,13 @@ import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class HttpDefines {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class HttpMethod {
         public static final /* synthetic */ HttpMethod[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

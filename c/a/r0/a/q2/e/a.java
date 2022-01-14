@@ -29,23 +29,23 @@ public final class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static C0512a f8602b;
+    public static C0521a f8416b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static C0512a f8603c;
+    public static C0521a f8417c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.q2.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0512a {
+    public static class C0521a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f8604b;
+        public long f8418b;
 
-        public C0512a() {
+        public C0521a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,24 +71,24 @@ public final class a {
             return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? i2 == 1 ? "game-core-version-name" : "swan-core-version-name" : (String) invokeI.objValue;
         }
 
-        public static C0512a f(JSONObject jSONObject, int i2) {
+        public static C0521a f(JSONObject jSONObject, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, i2)) == null) {
-                C0512a c0512a = new C0512a();
+                C0521a c0521a = new C0521a();
                 if (jSONObject != null) {
-                    c0512a.a = jSONObject.optString(c(i2));
-                    c0512a.f8604b = jSONObject.optLong(b(i2));
+                    c0521a.a = jSONObject.optString(c(i2));
+                    c0521a.f8418b = jSONObject.optLong(b(i2));
                 }
-                return c0512a;
+                return c0521a;
             }
-            return (C0512a) invokeLI.objValue;
+            return (C0521a) invokeLI.objValue;
         }
 
         public long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8604b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8418b : invokeV.longValue;
         }
 
         public String e() {
@@ -139,33 +139,33 @@ public final class a {
         }
     }
 
-    public static Exception c(C0512a c0512a, int i2) {
+    public static Exception c(C0521a c0521a, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, c0512a, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, c0521a, i2)) == null) {
             d.k("PresetSwanCoreControl", "doPresetUpdate.");
-            if (c0512a == null) {
+            if (c0521a == null) {
                 return new Exception("preset swan config is null");
             }
             String h2 = h(i2);
-            String path = l(c0512a.d(), i2).getPath();
+            String path = l(c0521a.d(), i2).getPath();
             if (!c.a.r0.w.d.V(h2, path)) {
                 Exception exc = new Exception("PresetSwanCoreControl doPresetUpdate: failed by unzip file path = " + h2);
                 d.k("PresetSwanCoreControl", "doPresetUpdate unzip failed assetExists: " + c.a.r0.a.z2.h.a(AppRuntime.getAppContext(), h2) + ";" + exc);
                 boolean a2 = a(path);
                 if (i2 == 0 && Looper.myLooper() != Looper.getMainLooper() && !c.a.r0.a.a1.d.w() && !a2) {
                     d.k("PresetSwanCoreControl", "doSwanFolderFallback:start.");
-                    c.a.r0.a.a1.d.e("swan_core" + File.separator + "preset" + File.separator + c0512a.d());
+                    c.a.r0.a.a1.d.e("swan_core" + File.separator + "preset" + File.separator + c0521a.d());
                 }
                 return exc;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(Long.valueOf(c0512a.d()));
+            arrayList.add(Long.valueOf(c0521a.d()));
             c.a.r0.a.q2.b.b(j(i2), arrayList);
-            h.a().putLong(o(i2), c0512a.d());
-            h.a().putString(p(i2), c0512a.e());
+            h.a().putLong(o(i2), c0521a.d());
+            h.a().putString(p(i2), c0521a.e());
             if (i2 == 0) {
-                SwanJSVersionUpdateEvent.sendEvent(c0512a.d());
+                SwanJSVersionUpdateEvent.sendEvent(c0521a.d());
             }
             v(false, i2);
             if (a) {
@@ -181,16 +181,16 @@ public final class a {
         return (Exception) invokeLI.objValue;
     }
 
-    public static C0512a d() {
+    public static C0521a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f8602b == null) {
-                f8602b = C0512a.f(u(0), 0);
+            if (f8416b == null) {
+                f8416b = C0521a.f(u(0), 0);
             }
-            return f8602b;
+            return f8416b;
         }
-        return (C0512a) invokeV.objValue;
+        return (C0521a) invokeV.objValue;
     }
 
     public static String e(int i2) {
@@ -217,16 +217,16 @@ public final class a {
         return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) ? i2 == 1 ? "aigames/game-core.zip" : "aiapps/swan-core.zip" : (String) invokeI.objValue;
     }
 
-    public static C0512a i() {
+    public static C0521a i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f8603c == null) {
-                f8603c = C0512a.f(u(1), 1);
+            if (f8417c == null) {
+                f8417c = C0521a.f(u(1), 1);
             }
-            return f8603c;
+            return f8417c;
         }
-        return (C0512a) invokeV.objValue;
+        return (C0521a) invokeV.objValue;
     }
 
     public static File j(int i2) {
@@ -235,7 +235,7 @@ public final class a {
         return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) ? new File(c.a.r0.a.q2.b.d(i2), "preset") : (File) invokeI.objValue;
     }
 
-    public static C0512a k(int i2) {
+    public static C0521a k(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) {
@@ -244,7 +244,7 @@ public final class a {
             }
             return d();
         }
-        return (C0512a) invokeI.objValue;
+        return (C0521a) invokeI.objValue;
     }
 
     public static File l(long j2, int i2) {
@@ -289,7 +289,7 @@ public final class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i2)) == null) {
-            if (k(i2).f8604b > 0) {
+            if (k(i2).f8418b > 0) {
                 return h.a().getBoolean(n(i2), false) || !m(i2).isAvailable();
             }
             return false;
@@ -310,15 +310,15 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65555, null, i2) == null) {
             synchronized (a.class) {
-                C0512a k2 = k(i2);
+                C0521a k = k(i2);
                 String h2 = h(i2);
-                String path = l(k2.d(), i2).getPath();
+                String path = l(k.d(), i2).getPath();
                 boolean z = c.a.r0.w.d.z(h2, path);
                 if (a) {
                     String str = "isZipAssetMatchUnzipResult:" + z + ",path:" + path;
                 }
                 if (!z) {
-                    c.a.r0.a.q2.b.m(0, i2, k2.d());
+                    c.a.r0.a.q2.b.m(0, i2, k.d());
                     c.a.r0.w.d.M(path);
                     c.a.r0.w.d.V(h2, path);
                 }
@@ -333,12 +333,12 @@ public final class a {
             synchronized (a.class) {
                 boolean z = a;
                 if (q(i2)) {
-                    C0512a k2 = k(i2);
+                    C0521a k = k(i2);
                     long j2 = h.a().getLong(h(i2), 0L);
                     if (a) {
-                        String str = "onPresetUpdate curVer: " + j2 + " newVer: " + k2.e();
+                        String str = "onPresetUpdate curVer: " + j2 + " newVer: " + k.e();
                     }
-                    return c(k2, i2);
+                    return c(k, i2);
                 }
                 return null;
             }

@@ -15,19 +15,19 @@ public class b implements s.a, s.b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f60448b;
+    public long f58158b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f60449c;
+    public long f58159c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f60450d;
+    public long f58160d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60451e;
+    public int f58161e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f60452f;
+    public int f58162f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class b implements s.a, s.b {
                 return;
             }
         }
-        this.f60452f = 1000;
+        this.f58162f = 1000;
     }
 
     @Override // com.kwai.filedownloader.s.b
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f60451e = 0;
+            this.f58161e = 0;
             this.a = 0L;
         }
     }
@@ -58,8 +58,8 @@ public class b implements s.a, s.b {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f60450d = SystemClock.uptimeMillis();
-            this.f60449c = j2;
+            this.f58160d = SystemClock.uptimeMillis();
+            this.f58159c = j2;
         }
     }
 
@@ -67,43 +67,43 @@ public class b implements s.a, s.b {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60451e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f58161e : invokeV.intValue;
     }
 
     @Override // com.kwai.filedownloader.s.b
     public void b(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) || this.f60450d <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) || this.f58160d <= 0) {
             return;
         }
-        long j3 = j2 - this.f60449c;
+        long j3 = j2 - this.f58159c;
         this.a = 0L;
-        long uptimeMillis = SystemClock.uptimeMillis() - this.f60450d;
+        long uptimeMillis = SystemClock.uptimeMillis() - this.f58160d;
         if (uptimeMillis > 0) {
             j3 /= uptimeMillis;
         }
-        this.f60451e = (int) j3;
+        this.f58161e = (int) j3;
     }
 
     @Override // com.kwai.filedownloader.s.b
     public void c(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) || this.f60452f <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) || this.f58162f <= 0) {
             return;
         }
         boolean z = true;
         if (this.a != 0) {
             long uptimeMillis = SystemClock.uptimeMillis() - this.a;
-            if (uptimeMillis >= this.f60452f || (this.f60451e == 0 && uptimeMillis > 0)) {
-                int i2 = (int) ((j2 - this.f60448b) / uptimeMillis);
-                this.f60451e = i2;
-                this.f60451e = Math.max(0, i2);
+            if (uptimeMillis >= this.f58162f || (this.f58161e == 0 && uptimeMillis > 0)) {
+                int i2 = (int) ((j2 - this.f58158b) / uptimeMillis);
+                this.f58161e = i2;
+                this.f58161e = Math.max(0, i2);
             } else {
                 z = false;
             }
         }
         if (z) {
-            this.f60448b = j2;
+            this.f58158b = j2;
             this.a = SystemClock.uptimeMillis();
         }
     }

@@ -31,25 +31,23 @@ public class d extends c.a.r0.a.z.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9987e;
+        public final /* synthetic */ CallbackHandler f9770e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f9988f;
+        public final /* synthetic */ UnitedSchemeEntity f9771f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f9989g;
+        public final /* synthetic */ Context f9772g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9990h;
+        public final /* synthetic */ c.a.r0.a.d2.e f9773h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z.e.b f9991i;
+        public final /* synthetic */ c.a.r0.a.z.e.b f9774i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ CameraPreview f9992j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ String f9993k;
+        public final /* synthetic */ CameraPreview f9775j;
+        public final /* synthetic */ String k;
         public final /* synthetic */ d l;
 
         public a(d dVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, c.a.r0.a.d2.e eVar, c.a.r0.a.z.e.b bVar, CameraPreview cameraPreview, String str) {
@@ -68,13 +66,13 @@ public class d extends c.a.r0.a.z.b.a {
                 }
             }
             this.l = dVar;
-            this.f9987e = callbackHandler;
-            this.f9988f = unitedSchemeEntity;
-            this.f9989g = context;
-            this.f9990h = eVar;
-            this.f9991i = bVar;
-            this.f9992j = cameraPreview;
-            this.f9993k = str;
+            this.f9770e = callbackHandler;
+            this.f9771f = unitedSchemeEntity;
+            this.f9772g = context;
+            this.f9773h = eVar;
+            this.f9774i = bVar;
+            this.f9775j = cameraPreview;
+            this.k = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -85,10 +83,10 @@ public class d extends c.a.r0.a.z.b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.l.r(this.f9989g, this.f9988f, this.f9987e, this.f9990h, this.f9991i, this.f9992j, this.f9993k);
+                    this.l.r(this.f9772g, this.f9771f, this.f9770e, this.f9773h, this.f9774i, this.f9775j, this.k);
                 } else if (iVar != null && iVar.a() != null) {
                     String str = "authorize recorder failed : " + c.a.r0.a.h2.c.d.f(b2);
-                    UnitedSchemeUtility.callCallback(this.f9987e, this.f9988f, UnitedSchemeUtility.wrapCallbackParams(iVar.b(), str));
+                    UnitedSchemeUtility.callCallback(this.f9770e, this.f9771f, UnitedSchemeUtility.wrapCallbackParams(iVar.b(), str));
                     c.a.r0.a.e0.d.o("SwanAppAction", str);
                 } else {
                     c.a.r0.a.e0.d.c("SwanAppAction", "authorize recorder failed : result is invalid");
@@ -103,25 +101,23 @@ public class d extends c.a.r0.a.z.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f9994e;
+        public final /* synthetic */ UnitedSchemeEntity f9776e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9995f;
+        public final /* synthetic */ CallbackHandler f9777f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f9996g;
+        public final /* synthetic */ Context f9778g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9997h;
+        public final /* synthetic */ c.a.r0.a.d2.e f9779h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z.e.b f9998i;
+        public final /* synthetic */ c.a.r0.a.z.e.b f9780i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ CameraPreview f9999j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ String f10000k;
+        public final /* synthetic */ CameraPreview f9781j;
+        public final /* synthetic */ String k;
         public final /* synthetic */ d l;
 
         public b(d dVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, Context context, c.a.r0.a.d2.e eVar, c.a.r0.a.z.e.b bVar, CameraPreview cameraPreview, String str) {
@@ -140,13 +136,13 @@ public class d extends c.a.r0.a.z.b.a {
                 }
             }
             this.l = dVar;
-            this.f9994e = unitedSchemeEntity;
-            this.f9995f = callbackHandler;
-            this.f9996g = context;
-            this.f9997h = eVar;
-            this.f9998i = bVar;
-            this.f9999j = cameraPreview;
-            this.f10000k = str;
+            this.f9776e = unitedSchemeEntity;
+            this.f9777f = callbackHandler;
+            this.f9778g = context;
+            this.f9779h = eVar;
+            this.f9780i = bVar;
+            this.f9781j = cameraPreview;
+            this.k = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -156,9 +152,9 @@ public class d extends c.a.r0.a.z.b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.l.t(this.f9996g, this.f9994e, this.f9995f, this.f9997h, this.f9998i, this.f9999j, this.f10000k);
+                    this.l.t(this.f9778g, this.f9776e, this.f9777f, this.f9779h, this.f9780i, this.f9781j, this.k);
                 } else if (iVar != null && iVar.a() != null) {
-                    this.l.s(iVar.b(), this.f9994e, this.f9995f);
+                    this.l.s(iVar.b(), this.f9776e, this.f9777f);
                 } else {
                     c.a.r0.a.e0.d.c("SwanAppAction", "authorize camera failed : result is invalid");
                 }
@@ -172,25 +168,23 @@ public class d extends c.a.r0.a.z.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10001e;
+        public final /* synthetic */ UnitedSchemeEntity f9782e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10002f;
+        public final /* synthetic */ CallbackHandler f9783f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f10003g;
+        public final /* synthetic */ c.a.r0.a.d2.e f9784g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CameraPreview f10004h;
+        public final /* synthetic */ CameraPreview f9785h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z.e.b f10005i;
+        public final /* synthetic */ c.a.r0.a.z.e.b f9786i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f10006j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ d f10007k;
+        public final /* synthetic */ String f9787j;
+        public final /* synthetic */ d k;
 
         public c(d dVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, c.a.r0.a.d2.e eVar, CameraPreview cameraPreview, c.a.r0.a.z.e.b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -207,20 +201,20 @@ public class d extends c.a.r0.a.z.b.a {
                     return;
                 }
             }
-            this.f10007k = dVar;
-            this.f10001e = unitedSchemeEntity;
-            this.f10002f = callbackHandler;
-            this.f10003g = eVar;
-            this.f10004h = cameraPreview;
-            this.f10005i = bVar;
-            this.f10006j = str;
+            this.k = dVar;
+            this.f9782e = unitedSchemeEntity;
+            this.f9783f = callbackHandler;
+            this.f9784g = eVar;
+            this.f9785h = cameraPreview;
+            this.f9786i = bVar;
+            this.f9787j = str;
         }
 
         @Override // c.a.r0.a.v1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f10007k.w(this.f10001e, this.f10002f, this.f10003g, this.f10004h, this.f10005i, this.f10006j);
+                this.k.w(this.f9782e, this.f9783f, this.f9784g, this.f9785h, this.f9786i, this.f9787j);
             }
         }
 
@@ -228,31 +222,31 @@ public class d extends c.a.r0.a.z.b.a {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f10007k.s(10005, this.f10001e, this.f10002f);
+                this.k.s(10005, this.f9782e, this.f9783f);
             }
         }
     }
 
     /* renamed from: c.a.r0.a.z.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0633d implements c.a.r0.a.z.c.b {
+    public class C0642d implements c.a.r0.a.z.c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CameraPreview a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10008b;
+        public final /* synthetic */ UnitedSchemeEntity f9788b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10009c;
+        public final /* synthetic */ CallbackHandler f9789c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ HashMap f10010d;
+        public final /* synthetic */ HashMap f9790d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f10011e;
+        public final /* synthetic */ d f9791e;
 
-        public C0633d(d dVar, CameraPreview cameraPreview, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, HashMap hashMap) {
+        public C0642d(d dVar, CameraPreview cameraPreview, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, HashMap hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,11 +261,11 @@ public class d extends c.a.r0.a.z.b.a {
                     return;
                 }
             }
-            this.f10011e = dVar;
+            this.f9791e = dVar;
             this.a = cameraPreview;
-            this.f10008b = unitedSchemeEntity;
-            this.f10009c = callbackHandler;
-            this.f10010d = hashMap;
+            this.f9788b = unitedSchemeEntity;
+            this.f9789c = callbackHandler;
+            this.f9790d = hashMap;
         }
 
         @Override // c.a.r0.a.z.c.b
@@ -280,7 +274,7 @@ public class d extends c.a.r0.a.z.b.a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.stopRecording();
                 this.a.clearSaveMediaPath();
-                this.f10011e.u(this.f10008b, this.f10009c, this.f10010d);
+                this.f9791e.u(this.f9788b, this.f9789c, this.f9790d);
                 c.a.r0.a.e0.d.c("SwanAppCameraManager", "start record timeout");
             }
         }
@@ -291,7 +285,7 @@ public class d extends c.a.r0.a.z.b.a {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.a.stopRecording();
                 this.a.clearSaveMediaPath();
-                this.f10011e.u(this.f10008b, this.f10009c, this.f10010d);
+                this.f9791e.u(this.f9788b, this.f9789c, this.f9790d);
                 c.a.r0.a.e0.d.c("SwanAppCameraManager", "start record cancel");
             }
         }
@@ -341,7 +335,7 @@ public class d extends c.a.r0.a.z.b.a {
                 c.a.r0.a.e0.d.c("SwanAppCameraManager", "get camera view is null");
                 return false;
             }
-            String x = c.a.r0.a.o2.b.x(eVar.f5660f);
+            String x = c.a.r0.a.o2.b.x(eVar.f5537f);
             if (TextUtils.isEmpty(x)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 c.a.r0.a.e0.d.c("SwanAppCameraManager", "get camera start record cache path is empty");
@@ -418,13 +412,13 @@ public class d extends c.a.r0.a.z.b.a {
             try {
                 z = cameraPreview.startRecording(str);
                 try {
-                    hashMap.put("tempVideoPath", c.a.r0.a.o2.b.J(cameraPreview.getVideoPath(), eVar.f5660f));
-                    hashMap.put("tempThumbPath", c.a.r0.a.o2.b.J(cameraPreview.getThumbPath(), eVar.f5660f));
-                    c.a.r0.a.z.a.b().i(31000, new C0633d(this, cameraPreview, unitedSchemeEntity, callbackHandler, hashMap));
+                    hashMap.put("tempVideoPath", c.a.r0.a.o2.b.J(cameraPreview.getVideoPath(), eVar.f5537f));
+                    hashMap.put("tempThumbPath", c.a.r0.a.o2.b.J(cameraPreview.getThumbPath(), eVar.f5537f));
+                    c.a.r0.a.z.a.b().i(31000, new C0642d(this, cameraPreview, unitedSchemeEntity, callbackHandler, hashMap));
                 } catch (Exception e2) {
                     e = e2;
-                    c.a.r0.a.z.a.b().e(bVar.f5422g, bVar.f5421f, false);
-                    if (z.f6340b) {
+                    c.a.r0.a.z.a.b().e(bVar.f5309g, bVar.f5308f, false);
+                    if (z.f6201b) {
                         e.printStackTrace();
                     }
                     c.a.r0.a.e0.d.c("SwanAppCameraManager", "start recording api occur exception");

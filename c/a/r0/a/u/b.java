@@ -29,13 +29,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             HashMap<Class, Object> hashMap = new HashMap<>();
-            hashMap.put(b.C0323b.class, new b.C0323b());
+            hashMap.put(b.C0332b.class, new b.C0332b());
             hashMap.put(a.f.class, new a.f());
             hashMap.put(a.g.class, new a.g());
-            hashMap.put(a.C0385a.class, new a.C0385a());
+            hashMap.put(a.C0394a.class, new a.C0394a());
             hashMap.put(c.a.class, new c.a());
             hashMap.put(v0.c.class, new v0.c());
-            hashMap.put(b.C0511b.class, new b.C0511b());
+            hashMap.put(b.C0520b.class, new b.C0520b());
             hashMap.put(a.c.class, new a.c());
             hashMap.put(l.class, new l());
             hashMap.put(c.a.r0.a.s.a.b.class, new c.a.r0.a.s.a.b());
@@ -47,9 +47,9 @@ public class b {
             hashMap.put(d.c.class, new d.c());
             hashMap.put(c.a.r0.a.k1.f.c.class, new c.a.r0.a.k1.f.c());
             hashMap.put(e.b.class, new e.b());
-            hashMap.put(a.C0481a.class, new a.C0481a());
-            hashMap.put(c.a.r0.a.g0.a.class, new c.a.r0.a.g0.a());
             hashMap.put(a.C0490a.class, new a.C0490a());
+            hashMap.put(c.a.r0.a.g0.a.class, new c.a.r0.a.g0.a());
+            hashMap.put(a.C0499a.class, new a.C0499a());
             hashMap.put(a.b.class, new a.b());
             hashMap.put(c.a.r0.a.u1.c.class, new c.a.r0.a.u1.c());
             hashMap.put(e.b.class, new e.b());

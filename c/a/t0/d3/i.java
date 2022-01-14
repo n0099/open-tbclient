@@ -18,7 +18,7 @@ public class i implements c.a.t0.h2.e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public k f17506b;
+    public k f17082b;
 
     public i(String str) {
         Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class i implements c.a.t0.h2.e {
             }
         }
         this.a = str;
-        this.f17506b = new k(str);
+        this.f17082b = new k(str);
     }
 
     @Override // c.a.t0.h2.e
     public void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && m(str)) {
-            c.a.t0.f4.b.d().j(this.a, c.a.t0.f4.b.i(VideoPlatformStatic.c(), this.f17506b.d(), this.f17506b.b()));
+            c.a.t0.f4.b.d().j(this.a, c.a.t0.f4.b.i(VideoPlatformStatic.c(), this.f17082b.d(), this.f17082b.b()));
         }
     }
 
@@ -51,10 +51,10 @@ public class i implements c.a.t0.h2.e {
     public void b(String str, int i2, int i3, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2}) == null) && m(str)) {
-            this.f17506b.f();
-            this.f17506b.i();
-            this.f17506b.k();
-            this.f17506b.a(new c.a.t0.c3.c(i2, AlbumActivityConfig.FROM_WRITE, i3, str2));
+            this.f17082b.f();
+            this.f17082b.i();
+            this.f17082b.k();
+            this.f17082b.a(new c.a.t0.c3.c(i2, AlbumActivityConfig.FROM_WRITE, i3, str2));
         }
     }
 
@@ -62,8 +62,8 @@ public class i implements c.a.t0.h2.e {
     public void c(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i2, str2) == null) && m(str)) {
-            this.f17506b.f();
-            this.f17506b.a(new c.a.t0.c3.c(i2, "edit", i2, str2));
+            this.f17082b.f();
+            this.f17082b.a(new c.a.t0.c3.c(i2, "edit", i2, str2));
         }
     }
 
@@ -73,7 +73,7 @@ public class i implements c.a.t0.h2.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (m(str)) {
-                return this.f17506b.g();
+                return this.f17082b.g();
             }
             return false;
         }
@@ -84,15 +84,15 @@ public class i implements c.a.t0.h2.e {
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f17506b.h() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f17082b.h() : invokeL.booleanValue;
     }
 
     @Override // c.a.t0.h2.e
     public void f(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(1048581, this, str, i2, str2) == null) && m(str)) {
-            this.f17506b.f();
-            this.f17506b.a(new c.a.t0.c3.c(i2, BundleOpProvider.METHOD_BUNDLE_RECORD, i2, str2));
+            this.f17082b.f();
+            this.f17082b.a(new c.a.t0.c3.c(i2, BundleOpProvider.METHOD_BUNDLE_RECORD, i2, str2));
         }
     }
 
@@ -100,10 +100,10 @@ public class i implements c.a.t0.h2.e {
     public void g(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(1048582, this, str, i2, str2) == null) && m(str)) {
-            this.f17506b.f();
-            this.f17506b.i();
-            this.f17506b.k();
-            this.f17506b.a(new c.a.t0.c3.c(402, AlbumActivityConfig.FROM_WRITE, i2, str2));
+            this.f17082b.f();
+            this.f17082b.i();
+            this.f17082b.k();
+            this.f17082b.a(new c.a.t0.c3.c(402, AlbumActivityConfig.FROM_WRITE, i2, str2));
         }
     }
 
@@ -111,7 +111,7 @@ public class i implements c.a.t0.h2.e {
     public void h(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && m(str)) {
-            this.f17506b.a(new c.a.t0.c3.c(503, str2, -4399, ""));
+            this.f17082b.a(new c.a.t0.c3.c(503, str2, -4399, ""));
         }
     }
 
@@ -119,7 +119,7 @@ public class i implements c.a.t0.h2.e {
     public void i(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && m(str)) {
-            this.f17506b.a(new c.a.t0.c3.c(501, str2, -4399, ""));
+            this.f17082b.a(new c.a.t0.c3.c(501, str2, -4399, ""));
         }
     }
 
@@ -127,8 +127,8 @@ public class i implements c.a.t0.h2.e {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && m(str)) {
-            this.f17506b.k();
-            this.f17506b.a(new c.a.t0.c3.c(301, AlbumActivityConfig.FROM_WRITE, -4399, ""));
+            this.f17082b.k();
+            this.f17082b.a(new c.a.t0.c3.c(301, AlbumActivityConfig.FROM_WRITE, -4399, ""));
         }
     }
 
@@ -136,9 +136,9 @@ public class i implements c.a.t0.h2.e {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && m(str)) {
-            this.f17506b.k();
-            this.f17506b.j();
-            this.f17506b.a(new c.a.t0.c3.c(401, AlbumActivityConfig.FROM_WRITE, -4399, ""));
+            this.f17082b.k();
+            this.f17082b.j();
+            this.f17082b.a(new c.a.t0.c3.c(401, AlbumActivityConfig.FROM_WRITE, -4399, ""));
         }
     }
 
@@ -147,11 +147,11 @@ public class i implements c.a.t0.h2.e {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(1048587, this, str, i2, str2) == null) && m(str)) {
             if (i2 != 103 && i2 != 105 && i2 != 106 && i2 != 107 && i2 != 104) {
-                this.f17506b.a(new c.a.t0.c3.c(i2, str2, -4399, ""));
+                this.f17082b.a(new c.a.t0.c3.c(i2, str2, -4399, ""));
                 return;
             }
-            this.f17506b.f();
-            this.f17506b.a(new c.a.t0.c3.c(i2, str2, i2, VideoPlatformStatic.g(i2)));
+            this.f17082b.f();
+            this.f17082b.a(new c.a.t0.c3.c(i2, str2, i2, VideoPlatformStatic.g(i2)));
         }
     }
 

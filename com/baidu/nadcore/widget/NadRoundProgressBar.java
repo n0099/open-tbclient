@@ -10,9 +10,9 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.d0.f;
-import c.a.c0.h0.o;
-import c.a.c0.h0.v;
+import c.a.c0.g0.f;
+import c.a.c0.k0.j;
+import c.a.c0.k0.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,25 +27,23 @@ public class NadRoundProgressBar extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f38447e;
+    public final Paint f37232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38448f;
+    public int f37233f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38449g;
+    public int f37234g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f38450h;
+    public final int f37235h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final float f38451i;
+    public final float f37236i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final float f38452j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public float f38453k;
+    public final float f37237j;
+    public float k;
     public int l;
     public int m;
     public final boolean n;
@@ -112,46 +110,46 @@ public class NadRoundProgressBar extends View {
             super.onDraw(canvas);
             int width = getWidth() / 2;
             float f2 = width;
-            int i2 = (int) ((f2 - (this.f38453k / 2.0f)) - 5.0f);
-            this.f38447e.setColor(this.f38448f);
-            this.f38447e.setStyle(Paint.Style.STROKE);
-            this.f38447e.setStrokeWidth(this.f38453k);
-            this.f38447e.setAntiAlias(true);
-            canvas.drawCircle(f2, f2, i2, this.f38447e);
-            this.f38447e.setStyle(Paint.Style.FILL);
-            this.f38447e.setStrokeWidth(0.0f);
-            this.f38447e.setColor(this.f38450h);
-            this.f38447e.setTextSize(this.f38451i);
-            this.f38447e.setTypeface(Typeface.DEFAULT_BOLD);
+            int i2 = (int) ((f2 - (this.k / 2.0f)) - 5.0f);
+            this.f37232e.setColor(this.f37233f);
+            this.f37232e.setStyle(Paint.Style.STROKE);
+            this.f37232e.setStrokeWidth(this.k);
+            this.f37232e.setAntiAlias(true);
+            canvas.drawCircle(f2, f2, i2, this.f37232e);
+            this.f37232e.setStyle(Paint.Style.FILL);
+            this.f37232e.setStrokeWidth(0.0f);
+            this.f37232e.setColor(this.f37235h);
+            this.f37232e.setTextSize(this.f37236i);
+            this.f37232e.setTypeface(Typeface.DEFAULT_BOLD);
             int i3 = (int) ((this.m / this.l) * 100.0f);
-            float measureText = this.f38447e.measureText(String.valueOf(i3));
-            this.f38447e.setTextSize(this.f38452j);
-            float measureText2 = this.f38447e.measureText("%");
+            float measureText = this.f37232e.measureText(String.valueOf(i3));
+            this.f37232e.setTextSize(this.f37237j);
+            float measureText2 = this.f37232e.measureText("%");
             if (this.n && this.o == 0) {
                 if (i3 == 0) {
                     i3 = 1;
                 }
-                this.f38447e.setTextSize(this.f38451i);
-                canvas.drawText(String.valueOf(i3), f2 - ((measureText + measureText2) / 2.0f), ((this.f38451i / 2.0f) + f2) - 5.0f, this.f38447e);
-                this.f38447e.setTextSize(this.f38452j);
-                canvas.drawText("%", ((measureText / 2.0f) + f2) - (measureText2 / 2.0f), (f2 + (this.f38451i / 2.0f)) - 5.0f, this.f38447e);
+                this.f37232e.setTextSize(this.f37236i);
+                canvas.drawText(String.valueOf(i3), f2 - ((measureText + measureText2) / 2.0f), ((this.f37236i / 2.0f) + f2) - 5.0f, this.f37232e);
+                this.f37232e.setTextSize(this.f37237j);
+                canvas.drawText("%", ((measureText / 2.0f) + f2) - (measureText2 / 2.0f), (f2 + (this.f37236i / 2.0f)) - 5.0f, this.f37232e);
             }
-            this.f38447e.setStrokeWidth(this.f38453k);
-            this.f38447e.setColor(this.f38449g);
+            this.f37232e.setStrokeWidth(this.k);
+            this.f37232e.setColor(this.f37234g);
             float f3 = width - i2;
             float f4 = width + i2;
             this.p.set(f3, f3, f4, f4);
-            this.f38447e.setStrokeCap(Paint.Cap.ROUND);
+            this.f37232e.setStrokeCap(Paint.Cap.ROUND);
             int i4 = this.o;
             if (i4 == 0) {
-                this.f38447e.setStyle(Paint.Style.STROKE);
-                canvas.drawArc(this.p, -90.0f, (this.m * 360.0f) / this.l, false, this.f38447e);
+                this.f37232e.setStyle(Paint.Style.STROKE);
+                canvas.drawArc(this.p, -90.0f, (this.m * 360.0f) / this.l, false, this.f37232e);
             } else if (i4 != 1) {
             } else {
-                this.f38447e.setStyle(Paint.Style.FILL_AND_STROKE);
+                this.f37232e.setStyle(Paint.Style.FILL_AND_STROKE);
                 int i5 = this.m;
                 if (i5 != 0) {
-                    canvas.drawArc(this.p, -90.0f, (i5 * 360.0f) / this.l, true, this.f38447e);
+                    canvas.drawArc(this.p, -90.0f, (i5 * 360.0f) / this.l, true, this.f37232e);
                 }
             }
         }
@@ -160,7 +158,7 @@ public class NadRoundProgressBar extends View {
     public void setCircleColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f38448f = i2;
+            this.f37233f = i2;
             postInvalidate();
         }
     }
@@ -168,7 +166,7 @@ public class NadRoundProgressBar extends View {
     public void setCircleProgressColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f38449g = i2;
+            this.f37234g = i2;
             postInvalidate();
         }
     }
@@ -208,14 +206,14 @@ public class NadRoundProgressBar extends View {
     public void setRoundProgressColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f38449g = i2;
+            this.f37234g = i2;
         }
     }
 
     public void setRoundWidth(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.f38453k = f2;
+            this.k = f2;
         }
     }
 
@@ -260,18 +258,18 @@ public class NadRoundProgressBar extends View {
                 return;
             }
         }
-        this.f38447e = new Paint();
+        this.f37232e = new Paint();
         this.p = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v.NadRoundProgressBar);
-        this.f38448f = obtainStyledAttributes.getColor(v.NadRoundProgressBar_roundColor, getResources().getColor(o.nad_mini_video_round_progress_border_color));
-        this.f38449g = obtainStyledAttributes.getColor(v.NadRoundProgressBar_roundProgressColor, getResources().getColor(o.nad_mini_video_round_progress_color));
-        this.f38450h = obtainStyledAttributes.getColor(v.NadRoundProgressBar_roundTextColor, getResources().getColor(o.nad_mini_video_round_progress_text_color));
-        this.f38451i = obtainStyledAttributes.getDimension(v.NadRoundProgressBar_roundTextSize, f.c.a(getContext(), 11.0f));
-        this.f38452j = obtainStyledAttributes.getDimension(v.NadRoundProgressBar_roundHintTextSize, f.c.a(getContext(), 8.0f));
-        this.f38453k = obtainStyledAttributes.getDimension(v.NadRoundProgressBar_roundWidth, 5.0f);
-        this.l = obtainStyledAttributes.getInteger(v.NadRoundProgressBar_roundMax, 100);
-        this.n = obtainStyledAttributes.getBoolean(v.NadRoundProgressBar_textIsDisplayable, true);
-        this.o = obtainStyledAttributes.getInt(v.NadRoundProgressBar_nad_style, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q.NadRoundProgressBar);
+        this.f37233f = obtainStyledAttributes.getColor(q.NadRoundProgressBar_roundColor, getResources().getColor(j.nad_mini_video_round_progress_border_color));
+        this.f37234g = obtainStyledAttributes.getColor(q.NadRoundProgressBar_roundProgressColor, getResources().getColor(j.nad_mini_video_round_progress_color));
+        this.f37235h = obtainStyledAttributes.getColor(q.NadRoundProgressBar_roundTextColor, getResources().getColor(j.nad_mini_video_round_progress_text_color));
+        this.f37236i = obtainStyledAttributes.getDimension(q.NadRoundProgressBar_roundTextSize, f.c.a(getContext(), 11.0f));
+        this.f37237j = obtainStyledAttributes.getDimension(q.NadRoundProgressBar_roundHintTextSize, f.c.a(getContext(), 8.0f));
+        this.k = obtainStyledAttributes.getDimension(q.NadRoundProgressBar_roundWidth, 5.0f);
+        this.l = obtainStyledAttributes.getInteger(q.NadRoundProgressBar_roundMax, 100);
+        this.n = obtainStyledAttributes.getBoolean(q.NadRoundProgressBar_textIsDisplayable, true);
+        this.o = obtainStyledAttributes.getInt(q.NadRoundProgressBar_nad_style, 0);
         obtainStyledAttributes.recycle();
     }
 }

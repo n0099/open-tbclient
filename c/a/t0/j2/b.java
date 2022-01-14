@@ -16,13 +16,13 @@ public abstract class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<UserData> f18684e;
+    public ArrayList<UserData> f18220e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f18685f;
+    public boolean f18221f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18686g;
+    public boolean f18222g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public abstract class b extends BaseAdapter {
                 return;
             }
         }
-        this.f18684e = null;
-        this.f18685f = false;
-        this.f18686g = false;
+        this.f18220e = null;
+        this.f18221f = false;
+        this.f18222g = false;
     }
 
     public abstract void a(i1 i1Var);
@@ -47,19 +47,19 @@ public abstract class b extends BaseAdapter {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18685f = false;
-            ArrayList<UserData> arrayList = this.f18684e;
+            this.f18221f = false;
+            ArrayList<UserData> arrayList = this.f18220e;
             if (arrayList == null || arrayList.size() != 0) {
                 return;
             }
-            this.f18685f = true;
+            this.f18221f = true;
         }
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18686g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18222g : invokeV.booleanValue;
     }
 
     public abstract boolean d(long j2);
@@ -67,14 +67,14 @@ public abstract class b extends BaseAdapter {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f18684e.clear();
+            this.f18220e.clear();
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f18686g = z;
+            this.f18222g = z;
         }
     }
 }

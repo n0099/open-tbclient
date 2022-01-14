@@ -17,7 +17,7 @@ public abstract class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24135b;
+    public int f23461b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public abstract class a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24135b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23461b : invokeV.intValue;
     }
 
     public String b() {
@@ -70,7 +70,7 @@ public abstract class a {
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
             try {
                 int optInt = jSONObject.optInt("error_code", 0);
-                this.f24135b = optInt;
+                this.f23461b = optInt;
                 if (optInt != 0) {
                     g(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络不给力呀"));
                     return;
@@ -78,7 +78,7 @@ public abstract class a {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
                     int optInt2 = optJSONObject.optInt("errno", 0);
-                    this.f24135b = optInt2;
+                    this.f23461b = optInt2;
                     if (optInt2 != 0) {
                         g(optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG, "网络不给力呀"));
                         return;

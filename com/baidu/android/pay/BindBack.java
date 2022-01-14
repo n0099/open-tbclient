@@ -1,5 +1,5 @@
 package com.baidu.android.pay;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface BindBack {
     boolean isHideLoadingDialog();
 

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public class c extends m {
         this.m = false;
         this.l = 3;
         TopicDetaiInputContainer topicDetaiInputContainer = new TopicDetaiInputContainer(context);
-        this.f14538k = topicDetaiInputContainer;
+        this.k = topicDetaiInputContainer;
         this.r = topicDetaiInputContainer.getInputView();
-        ((TopicDetaiInputContainer) this.f14538k).setHint(context.getString(R.string.say_your_point));
+        ((TopicDetaiInputContainer) this.k).setHint(context.getString(R.string.say_your_point));
         this.n = new int[]{4, 13, 24, 3, 9, 6, 12};
     }
 

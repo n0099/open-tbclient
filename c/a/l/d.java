@@ -19,10 +19,8 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public CardUserInfoLayout f4225j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f4226k;
+    public CardUserInfoLayout f4157j;
+    public int k;
     public c.a.s0.s.q.a l;
     public b m;
 
@@ -32,7 +30,7 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f4227e;
+        public final /* synthetic */ d f4158e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -49,18 +47,18 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
                     return;
                 }
             }
-            this.f4227e = dVar;
+            this.f4158e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f4227e.m != null) {
-                    this.f4227e.m.a(this.f4227e.l, view);
+                if (this.f4158e.m != null) {
+                    this.f4158e.m.a(this.f4158e.l, view);
                 }
-                if (this.f4227e.c() != null) {
-                    this.f4227e.c().a(view, this.f4227e.l);
+                if (this.f4158e.c() != null) {
+                    this.f4158e.c().a(view, this.f4158e.l);
                 }
             }
         }
@@ -89,22 +87,22 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
                 return;
             }
         }
-        this.f4226k = 34053;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13746d instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13746d.getParent() == null) {
-            this.f4225j = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13746d;
+        this.k = 34053;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13436d instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13436d.getParent() == null) {
+            this.f4157j = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13436d;
         } else {
-            this.f4225j = new CardUserInfoLayout(context);
+            this.f4157j = new CardUserInfoLayout(context);
         }
-        this.f4225j.setShowFlag(this.f4226k);
-        this.f4225j.setUserAfterClickListener(new a(this));
+        this.f4157j.setShowFlag(this.k);
+        this.f4157j.setUserAfterClickListener(new a(this));
     }
 
     @Override // c.a.l.a
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            int i3 = i2 | this.f4226k;
-            this.f4226k = i3;
+            int i3 = i2 | this.k;
+            this.k = i3;
             t(i3);
         }
     }
@@ -113,8 +111,8 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            int i3 = (~i2) & this.f4226k;
-            this.f4226k = i3;
+            int i3 = (~i2) & this.k;
+            this.k = i3;
             t(i3);
         }
     }
@@ -123,14 +121,14 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4225j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4157j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            this.f4225j.onChangeSkinType(tbPageContext, i2);
+            this.f4157j.onChangeSkinType(tbPageContext, i2);
         }
     }
 
@@ -141,17 +139,17 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.l = aVar;
-            this.f4225j.setData(aVar.getThreadData());
+            this.f4157j.setData(aVar.getThreadData());
         }
     }
 
     public void q(boolean z) {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (cardUserInfoLayout = this.f4225j) == null || cardUserInfoLayout.getAvatar() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (cardUserInfoLayout = this.f4157j) == null || cardUserInfoLayout.getAvatar() == null) {
             return;
         }
-        this.f4225j.getAvatar().setClickable(z);
+        this.f4157j.getAvatar().setClickable(z);
     }
 
     public void r(b bVar) {
@@ -164,30 +162,30 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
     public void s(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.f4225j.setPageUniqueId(bdUniqueId);
+            this.f4157j.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f4225j.setShowFlag(this.f4226k);
+            this.f4157j.setShowFlag(this.k);
         }
     }
 
     public void u(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, tbPageContext) == null) {
-            this.f4225j.setPageContext(tbPageContext);
+            this.f4157j.setPageContext(tbPageContext);
         }
     }
 
     public void v(boolean z) {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (cardUserInfoLayout = this.f4225j) == null || cardUserInfoLayout.getUserName() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (cardUserInfoLayout = this.f4157j) == null || cardUserInfoLayout.getUserName() == null) {
             return;
         }
-        this.f4225j.getUserName().setClickable(z);
+        this.f4157j.getUserName().setClickable(z);
     }
 }

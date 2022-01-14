@@ -34,53 +34,53 @@ public class FastSafeIterableMap<K, V> extends SafeIterableMap<K, V> {
         this.mHashMap = new HashMap<>();
     }
 
-    public Map.Entry<K, V> ceil(K k2) {
+    public Map.Entry<K, V> ceil(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
-            if (contains(k2)) {
-                return this.mHashMap.get(k2).mPrevious;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            if (contains(k)) {
+                return this.mHashMap.get(k).mPrevious;
             }
             return null;
         }
         return (Map.Entry) invokeL.objValue;
     }
 
-    public boolean contains(K k2) {
+    public boolean contains(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2)) == null) ? this.mHashMap.containsKey(k2) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? this.mHashMap.containsKey(k) : invokeL.booleanValue;
     }
 
     @Override // androidx.arch.core.internal.SafeIterableMap
-    public SafeIterableMap.Entry<K, V> get(K k2) {
+    public SafeIterableMap.Entry<K, V> get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k2)) == null) ? this.mHashMap.get(k2) : (SafeIterableMap.Entry) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) ? this.mHashMap.get(k) : (SafeIterableMap.Entry) invokeL.objValue;
     }
 
     @Override // androidx.arch.core.internal.SafeIterableMap
-    public V putIfAbsent(@NonNull K k2, @NonNull V v) {
+    public V putIfAbsent(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k2, v)) == null) {
-            SafeIterableMap.Entry<K, V> entry = get(k2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
+            SafeIterableMap.Entry<K, V> entry = get(k);
             if (entry != null) {
                 return entry.mValue;
             }
-            this.mHashMap.put(k2, put(k2, v));
+            this.mHashMap.put(k, put(k, v));
             return null;
         }
         return (V) invokeLL.objValue;
     }
 
     @Override // androidx.arch.core.internal.SafeIterableMap
-    public V remove(@NonNull K k2) {
+    public V remove(@NonNull K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k2)) == null) {
-            V v = (V) super.remove(k2);
-            this.mHashMap.remove(k2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k)) == null) {
+            V v = (V) super.remove(k);
+            this.mHashMap.remove(k);
             return v;
         }
         return (V) invokeL.objValue;

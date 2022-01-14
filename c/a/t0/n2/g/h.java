@@ -25,31 +25,29 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20215e;
+    public Context f19683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<EmotionImageData> f20216f;
+    public List<EmotionImageData> f19684f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Set<String> f20217g;
+    public Set<String> f19685g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinkedHashMap<String, EmotionImageData> f20218h;
+    public LinkedHashMap<String, EmotionImageData> f19686h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f20219i;
+    public f f19687i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f20220j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f20221k;
+    public int f19688j;
+    public int k;
     public int l;
     public final Runnable m;
 
@@ -59,10 +57,10 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickEmotionView f20222e;
+        public final /* synthetic */ PickEmotionView f19689e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f20223f;
+        public final /* synthetic */ h f19690f;
 
         public a(h hVar, PickEmotionView pickEmotionView) {
             Interceptable interceptable = $ic;
@@ -79,8 +77,8 @@ public class h extends BaseAdapter {
                     return;
                 }
             }
-            this.f20223f = hVar;
-            this.f20222e = pickEmotionView;
+            this.f19690f = hVar;
+            this.f19689e = pickEmotionView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -89,20 +87,20 @@ public class h extends BaseAdapter {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (tag = view.getTag(view.getId())) != null && (tag instanceof EmotionImageData)) {
                 EmotionImageData emotionImageData = (EmotionImageData) tag;
-                if (this.f20223f.f20218h.containsKey(emotionImageData.getPicUrl())) {
-                    this.f20223f.f20218h.remove(emotionImageData.getPicUrl());
-                    this.f20222e.setChoosed(false);
-                    if (this.f20223f.f20219i != null) {
-                        this.f20223f.f20219i.onUnChoose();
+                if (this.f19690f.f19686h.containsKey(emotionImageData.getPicUrl())) {
+                    this.f19690f.f19686h.remove(emotionImageData.getPicUrl());
+                    this.f19689e.setChoosed(false);
+                    if (this.f19690f.f19687i != null) {
+                        this.f19690f.f19687i.onUnChoose();
                     }
-                } else if (this.f20223f.f20219i != null) {
-                    if (this.f20223f.f20219i.canChooseMore()) {
-                        this.f20223f.f20218h.put(emotionImageData.getPicUrl(), emotionImageData);
-                        this.f20222e.setChoosed(true);
-                        this.f20223f.f20219i.onChoose();
+                } else if (this.f19690f.f19687i != null) {
+                    if (this.f19690f.f19687i.canChooseMore()) {
+                        this.f19690f.f19686h.put(emotionImageData.getPicUrl(), emotionImageData);
+                        this.f19689e.setChoosed(true);
+                        this.f19690f.f19687i.onChoose();
                         return;
                     }
-                    BdToast.c(this.f20223f.f20215e, this.f20223f.f20215e.getText(R.string.face_group_add_pic_max)).q();
+                    BdToast.c(this.f19690f.f19683e, this.f19690f.f19683e.getText(R.string.face_group_add_pic_max)).q();
                 }
             }
         }
@@ -114,7 +112,7 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f20224e;
+        public final /* synthetic */ h f19691e;
 
         public b(h hVar) {
             Interceptable interceptable = $ic;
@@ -131,21 +129,21 @@ public class h extends BaseAdapter {
                     return;
                 }
             }
-            this.f20224e = hVar;
+            this.f19691e = hVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f20224e.f20217g == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f19691e.f19685g == null) {
                 return;
             }
             HashSet hashSet = new HashSet();
-            Iterator it = this.f20224e.f20218h.entrySet().iterator();
+            Iterator it = this.f19691e.f19686h.entrySet().iterator();
             while (it.hasNext()) {
-                hashSet.add(((EmotionImageData) ((Map.Entry) it.next()).getValue()).getThumbUrl() + this.f20224e.l);
+                hashSet.add(((EmotionImageData) ((Map.Entry) it.next()).getValue()).getThumbUrl() + this.f19691e.l);
             }
-            for (String str : this.f20224e.f20217g) {
+            for (String str : this.f19691e.f19685g) {
                 if (!TextUtils.isEmpty(str) && !hashSet.contains(str)) {
                     c.a.s0.c0.c.k().h(str);
                 }
@@ -153,23 +151,23 @@ public class h extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public PickEmotionView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PickEmotionView f20225b;
+        public PickEmotionView f19692b;
 
         /* renamed from: c  reason: collision with root package name */
-        public PickEmotionView f20226c;
+        public PickEmotionView f19693c;
 
         /* renamed from: d  reason: collision with root package name */
-        public PickEmotionView f20227d;
+        public PickEmotionView f19694d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f20228e;
+        public final /* synthetic */ h f19695e;
 
         public c(h hVar) {
             Interceptable interceptable = $ic;
@@ -186,16 +184,16 @@ public class h extends BaseAdapter {
                     return;
                 }
             }
-            this.f20228e = hVar;
+            this.f19695e = hVar;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20228e.j(this.a);
-                this.f20228e.j(this.f20225b);
-                this.f20228e.j(this.f20226c);
-                this.f20228e.j(this.f20227d);
+                this.f19695e.j(this.a);
+                this.f19695e.j(this.f19692b);
+                this.f19695e.j(this.f19693c);
+                this.f19695e.j(this.f19694d);
             }
         }
     }
@@ -216,19 +214,19 @@ public class h extends BaseAdapter {
             }
         }
         this.m = new b(this);
-        this.f20215e = BdBaseApplication.getInst().getApp();
-        this.f20216f = list;
+        this.f19683e = BdBaseApplication.getInst().getApp();
+        this.f19684f = list;
         this.l = i2;
-        this.f20217g = new HashSet();
-        this.f20218h = new LinkedHashMap<>();
-        this.f20221k = n.f(this.f20215e, R.dimen.ds116);
-        this.f20220j = (int) (((n.k(this.f20215e) - n.f(this.f20215e, R.dimen.ds60)) - (this.f20221k * 4)) * 0.333d);
+        this.f19685g = new HashSet();
+        this.f19686h = new LinkedHashMap<>();
+        this.k = n.f(this.f19683e, R.dimen.ds116);
+        this.f19688j = (int) (((n.k(this.f19683e) - n.f(this.f19683e, R.dimen.ds60)) - (this.k * 4)) * 0.333d);
     }
 
     public void g(Map<String, EmotionImageData> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            this.f20218h.putAll(map);
+            this.f19686h.putAll(map);
         }
     }
 
@@ -237,12 +235,12 @@ public class h extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<EmotionImageData> list = this.f20216f;
+            List<EmotionImageData> list = this.f19684f;
             if (list != null) {
                 if (list.size() % 4 == 0) {
-                    return this.f20216f.size() / 4;
+                    return this.f19684f.size() / 4;
                 }
-                return (this.f20216f.size() / 4) + 1;
+                return (this.f19684f.size() / 4) + 1;
             }
             return 0;
         }
@@ -254,11 +252,11 @@ public class h extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<EmotionImageData> list = this.f20216f;
+            List<EmotionImageData> list = this.f19684f;
             if (list == null || i2 > list.size() - 1) {
                 return null;
             }
-            return this.f20216f.get(i2);
+            return this.f19684f.get(i2);
         }
         return invokeI.objValue;
     }
@@ -283,13 +281,13 @@ public class h extends BaseAdapter {
                 c cVar2 = new c(this);
                 View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_emotion, (ViewGroup) null);
                 cVar2.a = (PickEmotionView) inflate.findViewById(R.id.emotion_view1);
-                cVar2.f20225b = (PickEmotionView) inflate.findViewById(R.id.emotion_view2);
-                cVar2.f20226c = (PickEmotionView) inflate.findViewById(R.id.emotion_view3);
-                cVar2.f20227d = (PickEmotionView) inflate.findViewById(R.id.emotion_view4);
+                cVar2.f19692b = (PickEmotionView) inflate.findViewById(R.id.emotion_view2);
+                cVar2.f19693c = (PickEmotionView) inflate.findViewById(R.id.emotion_view3);
+                cVar2.f19694d = (PickEmotionView) inflate.findViewById(R.id.emotion_view4);
                 cVar2.a();
-                n(cVar2.f20225b, this.f20220j);
-                n(cVar2.f20226c, this.f20220j);
-                n(cVar2.f20227d, this.f20220j);
+                n(cVar2.f19692b, this.f19688j);
+                n(cVar2.f19693c, this.f19688j);
+                n(cVar2.f19694d, this.f19688j);
                 inflate.setTag(cVar2);
                 cVar = cVar2;
                 view = inflate;
@@ -298,19 +296,19 @@ public class h extends BaseAdapter {
             }
             int i3 = i2 * 4;
             int i4 = i3 + 4;
-            int min = Math.min(i4, this.f20216f.size() - 1);
+            int min = Math.min(i4, this.f19684f.size() - 1);
             int i5 = i3;
             while (i5 < i4) {
-                EmotionImageData emotionImageData = i5 <= min ? this.f20216f.get(i5) : null;
+                EmotionImageData emotionImageData = i5 <= min ? this.f19684f.get(i5) : null;
                 int i6 = i5 - i3;
                 if (i6 == 0) {
                     h(cVar.a, emotionImageData);
                 } else if (i6 == 1) {
-                    h(cVar.f20225b, emotionImageData);
+                    h(cVar.f19692b, emotionImageData);
                 } else if (i6 == 2) {
-                    h(cVar.f20226c, emotionImageData);
+                    h(cVar.f19693c, emotionImageData);
                 } else if (i6 == 3) {
-                    h(cVar.f20227d, emotionImageData);
+                    h(cVar.f19694d, emotionImageData);
                 }
                 i5++;
             }
@@ -331,17 +329,17 @@ public class h extends BaseAdapter {
         pickEmotionView.getEmotionView().setTag(pickEmotionView.getEmotionView().getId(), emotionImageData);
         pickEmotionView.setData(emotionImageData, this.l);
         m(pickEmotionView, emotionImageData);
-        if (this.f20217g == null || TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+        if (this.f19685g == null || TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
             return;
         }
-        Set<String> set = this.f20217g;
+        Set<String> set = this.f19685g;
         set.add(emotionImageData.getThumbUrl() + pickEmotionView.getLoadType());
     }
 
     public LinkedHashMap<String, EmotionImageData> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20218h : (LinkedHashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19686h : (LinkedHashMap) invokeV.objValue;
     }
 
     public final void j(PickEmotionView pickEmotionView) {
@@ -362,14 +360,14 @@ public class h extends BaseAdapter {
     public void l(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, fVar) == null) {
-            this.f20219i = fVar;
+            this.f19687i = fVar;
         }
     }
 
     public final void m(PickEmotionView pickEmotionView, EmotionImageData emotionImageData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, pickEmotionView, emotionImageData) == null) {
-            if (this.f20218h.containsKey(emotionImageData.getPicUrl())) {
+            if (this.f19686h.containsKey(emotionImageData.getPicUrl())) {
                 pickEmotionView.setChoosed(true);
             } else {
                 pickEmotionView.setChoosed(false);

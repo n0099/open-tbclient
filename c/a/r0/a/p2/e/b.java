@@ -19,21 +19,21 @@ public abstract class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f8543f;
+    public static final boolean f8359f;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.p2.d.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.p2.b f8544b;
+    public c.a.r0.a.p2.b f8360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f8545c;
+    public volatile boolean f8361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HandlerThread f8546d;
+    public HandlerThread f8362d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f8547e;
+    public Handler f8363e;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -67,8 +67,8 @@ public abstract class b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
                 this.a.f();
-                if (!this.a.f8545c) {
-                    this.a.f8547e.removeMessages(101);
+                if (!this.a.f8361c) {
+                    this.a.f8363e.removeMessages(101);
                 } else {
                     this.a.a.c();
                 }
@@ -89,7 +89,7 @@ public abstract class b {
                 return;
             }
         }
-        f8543f = k.a;
+        f8359f = k.a;
     }
 
     public b(c.a.r0.a.p2.b bVar) {
@@ -108,29 +108,29 @@ public abstract class b {
             }
         }
         this.a = new c.a.r0.a.p2.d.b();
-        this.f8544b = bVar;
+        this.f8360b = bVar;
     }
 
     public synchronized void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (this.f8545c) {
+                if (this.f8361c) {
                     return;
                 }
                 d();
-                this.f8547e.sendMessage(this.f8547e.obtainMessage(101));
+                this.f8363e.sendMessage(this.f8363e.obtainMessage(101));
             }
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f8547e == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f8363e == null) {
             HandlerThread handlerThread = new HandlerThread("cookieSync");
-            this.f8546d = handlerThread;
+            this.f8362d = handlerThread;
             handlerThread.start();
-            this.f8547e = new a(this, this.f8546d.getLooper());
+            this.f8363e = new a(this, this.f8362d.getLooper());
         }
     }
 
@@ -138,12 +138,12 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f8545c = true;
-                if (this.f8546d != null) {
-                    this.f8546d.quitSafely();
+                this.f8361c = true;
+                if (this.f8362d != null) {
+                    this.f8362d.quitSafely();
                 }
-                this.f8547e = null;
-                this.f8546d = null;
+                this.f8363e = null;
+                this.f8362d = null;
             }
         }
     }
@@ -154,11 +154,11 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                if (this.f8545c) {
+                if (this.f8361c) {
                     return;
                 }
                 d();
-                this.f8547e.sendMessageDelayed(this.f8547e.obtainMessage(101), 5000L);
+                this.f8363e.sendMessageDelayed(this.f8363e.obtainMessage(101), 5000L);
             }
         }
     }

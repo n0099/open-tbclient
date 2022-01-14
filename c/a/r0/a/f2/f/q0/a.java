@@ -23,23 +23,23 @@ public class a extends e {
 
     /* renamed from: c.a.r0.a.f2.f.q0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0328a implements c.a.r0.a.z2.g1.c<i<b.e>> {
+    public class C0337a implements c.a.r0.a.z2.g1.c<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6298e;
+        public final /* synthetic */ CallbackHandler f6159e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f6299f;
+        public final /* synthetic */ d f6160f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.p.e.b f6300g;
+        public final /* synthetic */ c.a.r0.a.p.e.b f6161g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f6301h;
+        public final /* synthetic */ a f6162h;
 
-        public C0328a(a aVar, CallbackHandler callbackHandler, d dVar, c.a.r0.a.p.e.b bVar) {
+        public C0337a(a aVar, CallbackHandler callbackHandler, d dVar, c.a.r0.a.p.e.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,10 +54,10 @@ public class a extends e {
                     return;
                 }
             }
-            this.f6301h = aVar;
-            this.f6298e = callbackHandler;
-            this.f6299f = dVar;
-            this.f6300g = bVar;
+            this.f6162h = aVar;
+            this.f6159e = callbackHandler;
+            this.f6160f = dVar;
+            this.f6161g = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,19 +67,19 @@ public class a extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f6298e, this.f6299f.f5424i);
-                    this.f6299f.o = null;
+                    c.a.r0.a.h2.c.d.q(iVar, this.f6159e, this.f6160f.f5311i);
+                    this.f6160f.o = null;
                 } else {
-                    d dVar = this.f6299f;
+                    d dVar = this.f6160f;
                     dVar.q = false;
-                    this.f6301h.m(this.f6298e, (SwanAppSlaveManager) this.f6300g, dVar);
+                    this.f6162h.m(this.f6159e, (SwanAppSlaveManager) this.f6161g, dVar);
                 }
-                if (this.f6300g.x(this.f6299f)) {
-                    this.f6301h.o();
+                if (this.f6161g.x(this.f6160f)) {
+                    this.f6162h.o();
                     return;
                 }
                 c.a.r0.a.e0.d.c("insertWebView", "insert webview widget fail");
-                this.f6298e.handleSchemeDispatchCallback(this.f6299f.f5424i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                this.f6159e.handleSchemeDispatchCallback(this.f6160f.f5311i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
     }
@@ -110,7 +110,7 @@ public class a extends e {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             d i2 = d.i(unitedSchemeEntity);
@@ -123,14 +123,14 @@ public class a extends e {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else {
-                c.a.r0.a.p.e.b bVar = (c.a.r0.a.p.e.b) c.a.r0.a.g1.f.U().A(i2.f5422g);
+                c.a.r0.a.p.e.b bVar = (c.a.r0.a.p.e.b) c.a.r0.a.g1.f.U().A(i2.f5309g);
                 if (bVar == null) {
                     c.a.r0.a.e0.d.c("insertWebView", "viewManager is null");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
                 }
                 if (TextUtils.equals(i2.p, "quickPass")) {
-                    eVar.d0().g(context, "scope_webview_extra_operation", new C0328a(this, callbackHandler, i2, bVar));
+                    eVar.d0().g(context, "scope_webview_extra_operation", new C0337a(this, callbackHandler, i2, bVar));
                 } else if (!bVar.x(i2)) {
                     c.a.r0.a.e0.d.c("insertWebView", "insert webview widget fail");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

@@ -126,14 +126,14 @@ public final class a extends c {
             return;
         }
         while (true) {
-            String k2 = lVar.k();
-            if (k2 == null) {
+            String k = lVar.k();
+            if (k == null) {
                 return;
             }
-            if (!this.n && k2.startsWith("Format: ")) {
-                C(k2);
-            } else if (k2.startsWith("Dialogue: ")) {
-                A(k2, list, gVar);
+            if (!this.n && k.startsWith("Format: ")) {
+                C(k);
+            } else if (k.startsWith("Dialogue: ")) {
+                A(k, list, gVar);
             }
         }
     }
@@ -178,15 +178,15 @@ public final class a extends c {
     }
 
     public final void D(l lVar) {
-        String k2;
+        String k;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, lVar) == null) {
             do {
-                k2 = lVar.k();
-                if (k2 == null) {
+                k = lVar.k();
+                if (k == null) {
                     return;
                 }
-            } while (!k2.startsWith("[Events]"));
+            } while (!k.startsWith("[Events]"));
         }
     }
 

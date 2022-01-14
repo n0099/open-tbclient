@@ -27,13 +27,13 @@ public class d0 {
     public PbModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f23410b;
+    public b f22763b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BdUniqueId f23411c;
+    public final BdUniqueId f22764c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.d.c.g.a f23412d;
+    public final c.a.d.c.g.a f22765d;
 
     /* loaded from: classes8.dex */
     public class a extends c.a.d.c.g.a {
@@ -69,17 +69,17 @@ public class d0 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == this.a.f23411c) {
+            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == this.a.f22764c) {
                 if (responsedMessage instanceof LookMoreHttpResMessage) {
                     LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
                     List<PostData> data = lookMoreHttpResMessage.getData();
                     String errorString = lookMoreHttpResMessage.getErrorString();
                     int error = lookMoreHttpResMessage.getError();
                     if (error != 0) {
-                        this.a.f23410b.a(error, errorString, "");
+                        this.a.f22763b.a(error, errorString, "");
                     } else if (ListUtils.isEmpty(data)) {
                     } else {
-                        this.a.f23410b.onSuccess(data);
+                        this.a.f22763b.onSuccess(data);
                     }
                 } else if (responsedMessage instanceof LookMoreSocketResMessage) {
                     LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
@@ -87,9 +87,9 @@ public class d0 {
                     String errorString2 = lookMoreSocketResMessage.getErrorString();
                     int error2 = lookMoreSocketResMessage.getError();
                     if (error2 != 0) {
-                        this.a.f23410b.a(error2, errorString2, "");
+                        this.a.f22763b.a(error2, errorString2, "");
                     } else if (data2 != null) {
-                        this.a.f23410b.onSuccess(data2);
+                        this.a.f22763b.onSuccess(data2);
                     }
                 }
             }
@@ -118,13 +118,13 @@ public class d0 {
                 return;
             }
         }
-        this.f23412d = new a(this, CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
+        this.f22765d = new a(this, CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
         this.a = pbModel;
-        this.f23411c = BdUniqueId.gen();
+        this.f22764c = BdUniqueId.gen();
         e();
-        this.f23412d.setTag(baseFragmentActivity.getUniqueId());
-        MessageManager.getInstance().registerListener(this.f23412d);
-        this.f23410b = null;
+        this.f22765d.setTag(baseFragmentActivity.getUniqueId());
+        MessageManager.getInstance().registerListener(this.f22765d);
+        this.f22763b = null;
     }
 
     public void c(List<Long> list) {
@@ -133,23 +133,23 @@ public class d0 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || (pbModel = this.a) == null || pbModel.R0() == null) {
             return;
         }
-        int k2 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
+        int k = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
         int i2 = c.a.d.f.p.n.i(TbadkCoreApplication.getInst());
         LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-        lookMoreReqMessage.setKz(Long.valueOf(c.a.d.f.m.b.g(this.a.f48398f, 0L)));
+        lookMoreReqMessage.setKz(Long.valueOf(c.a.d.f.m.b.g(this.a.f46595f, 0L)));
         lookMoreReqMessage.setPost_id(list);
         lookMoreReqMessage.setSt_type(c.a.d.f.m.b.e(this.a.mStType, 0));
         lookMoreReqMessage.setWith_floor(1);
-        lookMoreReqMessage.setScr_w(k2);
+        lookMoreReqMessage.setScr_w(k);
         lookMoreReqMessage.setScr_h(i2);
-        lookMoreReqMessage.setTag(this.f23411c);
+        lookMoreReqMessage.setTag(this.f22764c);
         MessageManager.getInstance().sendMessage(lookMoreReqMessage);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f23412d);
+            MessageManager.getInstance().unRegisterListener(this.f22765d);
         }
     }
 
@@ -166,7 +166,7 @@ public class d0 {
     public void f(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f23410b = bVar;
+            this.f22763b = bVar;
         }
     }
 }

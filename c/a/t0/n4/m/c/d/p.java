@@ -5,23 +5,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f20568b;
+    public int f20019b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20569c;
+    public int f20020c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20570d;
+    public int f20021d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MultiMediaData f20571e;
+    public MultiMediaData f20022e;
 
     public p() {
         Interceptable interceptable = $ic;

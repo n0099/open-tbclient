@@ -12,14 +12,14 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTDislikeController f55276b;
+    public TTDislikeController f53175b;
 
     public TTDislikeDialogAbstract(Context context) {
         super(context);
     }
 
     public void a() {
-        if (this.f55276b == null || this.a == null) {
+        if (this.f53175b == null || this.a == null) {
             return;
         }
         int[] tTDislikeListViewIds = getTTDislikeListViewIds();
@@ -28,7 +28,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
                 View findViewById = this.a.findViewById(i2);
                 if (findViewById != null) {
                     if (findViewById instanceof TTDislikeListView) {
-                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f55276b);
+                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f53175b);
                     } else {
                         throw new IllegalArgumentException("getTTDislikeListViewIds找到的view类型异常，请检查");
                     }
@@ -42,7 +42,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     }
 
     public void b() {
-        TTDislikeController tTDislikeController = this.f55276b;
+        TTDislikeController tTDislikeController = this.f53175b;
         if (tTDislikeController != null) {
             tTDislikeController.onDislikeEvent(getContext(), true);
         }
@@ -73,7 +73,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     }
 
     public void setDislikeModel(TTDislikeController tTDislikeController) {
-        this.f55276b = tTDislikeController;
+        this.f53175b = tTDislikeController;
         a();
     }
 
@@ -84,10 +84,10 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     }
 
     public void startPersonalizePromptActivity() {
-        TTDislikeController tTDislikeController = this.f55276b;
+        TTDislikeController tTDislikeController = this.f53175b;
         if (tTDislikeController != null) {
             tTDislikeController.openWebPage(getContext(), true);
-            this.f55276b.onDislikeEvent(getContext(), false);
+            this.f53175b.onDislikeEvent(getContext(), false);
         }
     }
 

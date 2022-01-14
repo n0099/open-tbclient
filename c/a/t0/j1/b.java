@@ -14,7 +14,7 @@ public class b {
     public Integer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18679b;
+    public String f18215b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, goodsWin) == null) {
             this.a = goodsWin.show;
-            this.f18679b = goodsWin.goods_url;
+            this.f18215b = goodsWin.goods_url;
         }
     }
 }

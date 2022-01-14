@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.concurrent.Executor;
@@ -154,7 +155,7 @@ public final class SequentialExecutor implements Executor {
             IDLE = new WorkerRunningState("IDLE", 0);
             QUEUING = new WorkerRunningState("QUEUING", 1);
             QUEUED = new WorkerRunningState("QUEUED", 2);
-            WorkerRunningState workerRunningState = new WorkerRunningState("RUNNING", 3);
+            WorkerRunningState workerRunningState = new WorkerRunningState(TornadoLiteRuntime.STATE_RUNNING, 3);
             RUNNING = workerRunningState;
             $VALUES = new WorkerRunningState[]{IDLE, QUEUING, QUEUED, workerRunningState};
         }

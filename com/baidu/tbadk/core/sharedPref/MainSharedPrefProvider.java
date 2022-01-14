@@ -8,7 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.g0.a;
+import c.a.s0.s.h0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -96,9 +96,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             if (str != null && str.length() != 0) {
-                int length = a.f13352k.length;
+                int length = a.k.length;
                 for (int i2 = 0; i2 < length; i2++) {
-                    if (str.equals(a.f13352k[i2])) {
+                    if (str.equals(a.k[i2])) {
                         return true;
                     }
                 }

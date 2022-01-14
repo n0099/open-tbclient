@@ -13,10 +13,10 @@ public final class d extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f30554g;
+    public final int f29595g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Object f30555h;
+    public final Object f29596h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public d(s sVar, int i2) {
@@ -60,14 +60,14 @@ public final class d extends b {
     public Object j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30555h : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29596h : invokeV.objValue;
     }
 
     @Override // c.i.b.a.f0.f
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30554g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29595g : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,7 +89,7 @@ public final class d extends b {
                 return;
             }
         }
-        this.f30554g = i3;
-        this.f30555h = obj;
+        this.f29595g = i3;
+        this.f29596h = obj;
     }
 }

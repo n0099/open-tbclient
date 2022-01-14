@@ -1,7 +1,7 @@
 package c.a.t0.s2.r;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AntiData;
@@ -25,34 +25,32 @@ public class t {
     public ForumData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PostData f23086b;
+    public PostData f22450b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<PostData> f23087c;
+    public ArrayList<PostData> f22451c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23088d;
+    public int f22452d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23089e;
+    public int f22453e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23090f;
+    public int f22454f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f23091g;
+    public int f22455g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23092h;
+    public int f22456h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AntiData f23093i;
+    public AntiData f22457i;
 
     /* renamed from: j  reason: collision with root package name */
-    public d2 f23094j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f23095k;
+    public e2 f22458j;
+    public boolean k;
     public boolean l;
     public Error m;
 
@@ -69,12 +67,12 @@ public class t {
                 return;
             }
         }
-        this.f23090f = 20;
-        this.f23092h = -1;
-        this.f23095k = false;
-        this.f23086b = null;
-        this.f23087c = new ArrayList<>();
-        this.f23088d = 1;
+        this.f22454f = 20;
+        this.f22456h = -1;
+        this.k = false;
+        this.f22450b = null;
+        this.f22451c = new ArrayList<>();
+        this.f22452d = 1;
     }
 
     public static t w(DataRes dataRes) {
@@ -89,15 +87,15 @@ public class t {
                 AntiData antiData = new AntiData();
                 antiData.parserProtobuf(dataRes.anti);
                 tVar.x(antiData);
-                d2 d2Var = new d2();
-                d2Var.c3(dataRes.thread);
-                tVar.E(d2Var);
+                e2 e2Var = new e2();
+                e2Var.c3(dataRes.thread);
+                tVar.E(e2Var);
                 ForumData forumData = new ForumData();
                 forumData.parserProtobuf(dataRes.forum);
                 tVar.A(forumData);
                 PostData postData = new PostData();
                 postData.p0(forumData.isBrandForum);
-                postData.i0(dataRes.post, d2Var);
+                postData.i0(dataRes.post, e2Var);
                 tVar.C(postData);
                 List<SubPostList> list = dataRes.subpost_list;
                 int size = list.size();
@@ -106,9 +104,9 @@ public class t {
                 for (int i2 = 0; i2 < size; i2++) {
                     PostData postData2 = new PostData();
                     postData2.p0(forumData.isBrandForum);
-                    postData2.g0(list.get(i2), false, d2Var, A);
-                    if (postData2.q() != null && postData2.q().baijiahaoData == null && d2Var.L() != null) {
-                        postData2.q().baijiahaoData = d2Var.L();
+                    postData2.g0(list.get(i2), false, e2Var, A);
+                    if (postData2.q() != null && postData2.q().baijiahaoData == null && e2Var.L() != null) {
+                        postData2.q().baijiahaoData = e2Var.L();
                     }
                     arrayList.add(postData2);
                 }
@@ -149,55 +147,55 @@ public class t {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f23090f = i2;
+        this.f22454f = i2;
     }
 
     public void C(PostData postData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postData) == null) {
-            this.f23086b = postData;
+            this.f22450b = postData;
         }
     }
 
     public void D(ArrayList<PostData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.f23087c = arrayList;
+            this.f22451c = arrayList;
         }
     }
 
-    public void E(d2 d2Var) {
+    public void E(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, d2Var) == null) {
-            this.f23094j = d2Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, e2Var) == null) {
+            this.f22458j = e2Var;
         }
     }
 
     public void F(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f23089e = i2;
+            this.f22453e = i2;
         }
     }
 
     public void G(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f23088d = i2;
+            this.f22452d = i2;
         }
     }
 
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int i2 = this.f23092h;
+            int i2 = this.f22456h;
             if (i2 < 0) {
-                this.f23092h = this.f23091g;
+                this.f22456h = this.f22455g;
                 return;
             }
-            int i3 = this.f23091g;
+            int i3 = this.f22455g;
             if (i2 > i3) {
-                this.f23092h = i3;
+                this.f22456h = i3;
             }
         }
     }
@@ -205,13 +203,13 @@ public class t {
     public AntiData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23093i : (AntiData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22457i : (AntiData) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f23091g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f22455g : invokeV.intValue;
     }
 
     public Error c() {
@@ -230,8 +228,8 @@ public class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            d2 d2Var = this.f23094j;
-            return (d2Var == null || this.f23086b == null || d2Var.J() == null || this.f23094j.J().getUserId() == null || this.f23086b.t() == null || this.f23086b.t().getUserId() == null || !this.f23094j.J().getUserId().equals(this.f23086b.t().getUserId())) ? false : true;
+            e2 e2Var = this.f22458j;
+            return (e2Var == null || this.f22450b == null || e2Var.J() == null || this.f22458j.J().getUserId() == null || this.f22450b.t() == null || this.f22450b.t().getUserId() == null || !this.f22458j.J().getUserId().equals(this.f22450b.t().getUserId())) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -239,35 +237,35 @@ public class t {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f23095k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f23090f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f22454f : invokeV.intValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f23092h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f22456h : invokeV.intValue;
     }
 
     public PostData i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f23086b : (PostData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f22450b : (PostData) invokeV.objValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.f23092h == -1) {
-                this.f23092h = this.f23091g;
+            if (this.f22456h == -1) {
+                this.f22456h = this.f22455g;
             }
-            return this.f23092h;
+            return this.f22456h;
         }
         return invokeV.intValue;
     }
@@ -275,39 +273,39 @@ public class t {
     public ArrayList<PostData> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f23087c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f22451c : (ArrayList) invokeV.objValue;
     }
 
-    public d2 l() {
+    public e2 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f23094j : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f22458j : (e2) invokeV.objValue;
     }
 
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f23089e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f22453e : invokeV.intValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f23088d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f22452d : invokeV.intValue;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f23091g < this.f23088d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f22455g < this.f22452d : invokeV.booleanValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            d2 d2Var = this.f23094j;
-            return d2Var != null && d2Var.G2();
+            e2 e2Var = this.f22458j;
+            return e2Var != null && e2Var.G2();
         }
         return invokeV.booleanValue;
     }
@@ -334,14 +332,14 @@ public class t {
             F(tVar.m());
             G(tVar.n());
         }
-        int size = this.f23087c.size();
-        if (z && size % this.f23090f != 0) {
-            for (int i2 = 0; i2 < size % this.f23090f; i2++) {
-                ArrayList<PostData> arrayList = this.f23087c;
+        int size = this.f22451c.size();
+        if (z && size % this.f22454f != 0) {
+            for (int i2 = 0; i2 < size % this.f22454f; i2++) {
+                ArrayList<PostData> arrayList = this.f22451c;
                 arrayList.remove(arrayList.size() - 1);
             }
         }
-        this.f23087c.addAll(tVar.k());
+        this.f22451c.addAll(tVar.k());
     }
 
     public void s(t tVar) {
@@ -359,14 +357,14 @@ public class t {
             B(tVar.g());
             F(tVar.m());
             G(tVar.n());
-            int i2 = this.f23090f;
-            int size = (this.f23091g - (((tVar.k().size() - 1) + i2) / i2)) + 1;
-            this.f23092h = size;
+            int i2 = this.f22454f;
+            int size = (this.f22455g - (((tVar.k().size() - 1) + i2) / i2)) + 1;
+            this.f22456h = size;
             if (size < 0) {
-                this.f23092h = 0;
+                this.f22456h = 0;
             }
         }
-        this.f23087c.addAll(tVar.k());
+        this.f22451c.addAll(tVar.k());
     }
 
     public void t(t tVar, boolean z) {
@@ -385,14 +383,14 @@ public class t {
             F(tVar.m());
             G(tVar.n());
         }
-        int size = this.f23087c.size();
-        if (z && size % this.f23090f != 0) {
-            for (int i2 = 0; i2 < size % this.f23090f; i2++) {
-                ArrayList<PostData> arrayList = this.f23087c;
+        int size = this.f22451c.size();
+        if (z && size % this.f22454f != 0) {
+            for (int i2 = 0; i2 < size % this.f22454f; i2++) {
+                ArrayList<PostData> arrayList = this.f22451c;
                 arrayList.remove(arrayList.size() - 1);
             }
         }
-        this.f23087c.addAll(tVar.k());
+        this.f22451c.addAll(tVar.k());
         H();
     }
 
@@ -409,20 +407,20 @@ public class t {
             return;
         }
         x(tVar.a());
-        this.f23092h = tVar.b();
+        this.f22456h = tVar.b();
         A(tVar.d());
         B(tVar.g());
         E(tVar.l());
         F(tVar.m());
         G(tVar.n());
         y(tVar.q());
-        this.f23087c.addAll(0, tVar.k());
+        this.f22451c.addAll(0, tVar.k());
     }
 
     public void x(AntiData antiData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, antiData) == null) {
-            this.f23093i = antiData;
+            this.f22457i = antiData;
         }
     }
 
@@ -436,7 +434,7 @@ public class t {
     public void z(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.f23091g = i2;
+            this.f22455g = i2;
         }
     }
 }

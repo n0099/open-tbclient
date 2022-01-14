@@ -30,7 +30,7 @@ public final class b extends c.a.r0.a.c0.a.d.a<LottieAnimationView, c> {
     @NonNull
 
     /* renamed from: i  reason: collision with root package name */
-    public String f5428i;
+    public String f5314i;
 
     /* loaded from: classes.dex */
     public class a implements Animator.AnimatorListener {
@@ -38,13 +38,13 @@ public final class b extends c.a.r0.a.c0.a.d.a<LottieAnimationView, c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f5429e;
+        public final /* synthetic */ c f5315e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f5430f;
+        public final /* synthetic */ JSONObject f5316f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f5431g;
+        public final /* synthetic */ LottieAnimationView f5317g;
 
         public a(b bVar, c cVar, JSONObject jSONObject, LottieAnimationView lottieAnimationView) {
             Interceptable interceptable = $ic;
@@ -61,9 +61,9 @@ public final class b extends c.a.r0.a.c0.a.d.a<LottieAnimationView, c> {
                     return;
                 }
             }
-            this.f5429e = cVar;
-            this.f5430f = jSONObject;
-            this.f5431g = lottieAnimationView;
+            this.f5315e = cVar;
+            this.f5316f = jSONObject;
+            this.f5317g = lottieAnimationView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -77,9 +77,9 @@ public final class b extends c.a.r0.a.c0.a.d.a<LottieAnimationView, c> {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                c cVar = this.f5429e;
-                c.a.r0.a.a3.g.c.a.d(cVar.f5422g, cVar.f5421f, "animateview", "ended", this.f5430f);
-                d.i("Component-AnimationView", "progress: " + this.f5431g.getProgress());
+                c cVar = this.f5315e;
+                c.a.r0.a.a3.g.c.a.d(cVar.f5309g, cVar.f5308f, "animateview", "ended", this.f5316f);
+                d.i("Component-AnimationView", "progress: " + this.f5317g.getProgress());
             }
         }
 
@@ -118,7 +118,7 @@ public final class b extends c.a.r0.a.c0.a.d.a<LottieAnimationView, c> {
                 return;
             }
         }
-        this.f5428i = str;
+        this.f5314i = str;
     }
 
     public static void Z(String str, String str2) {
@@ -129,15 +129,15 @@ public final class b extends c.a.r0.a.c0.a.d.a<LottieAnimationView, c> {
                 jSONObject.put("json", str);
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str2);
             } catch (Exception e2) {
-                if (c.a.r0.a.c0.b.a.f5409h) {
+                if (c.a.r0.a.c0.b.a.f5296h) {
                     e2.printStackTrace();
                 }
             }
             String jSONObject2 = jSONObject.toString();
-            if (c.a.r0.a.c0.b.a.f5409h && TextUtils.isEmpty(jSONObject2)) {
+            if (c.a.r0.a.c0.b.a.f5296h && TextUtils.isEmpty(jSONObject2)) {
                 return;
             }
-            if (c.a.r0.a.c0.b.a.f5409h) {
+            if (c.a.r0.a.c0.b.a.f5296h) {
                 String str3 = "reportLottieAnimationCrash: " + jSONObject2;
             }
             c.b bVar = new c.b(10009);
@@ -153,12 +153,12 @@ public final class b extends c.a.r0.a.c0.a.d.a<LottieAnimationView, c> {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f5422g);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f5309g);
                 jSONObject.put("vtype", "ended");
-                jSONObject2.putOpt("animationViewId", cVar.f5421f);
+                jSONObject2.putOpt("animationViewId", cVar.f5308f);
                 jSONObject.put("data", jSONObject2.toString());
             } catch (JSONException e2) {
-                if (c.a.r0.a.c0.b.a.f5409h) {
+                if (c.a.r0.a.c0.b.a.f5296h) {
                     e2.printStackTrace();
                 }
             }
@@ -188,7 +188,7 @@ public final class b extends c.a.r0.a.c0.a.d.a<LottieAnimationView, c> {
                 lottieAnimationView.loop(cVar.y);
                 lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
                 lottieAnimationView.setImageAssetDelegate(new c.a.r0.a.c0.c.a.a(cVar.x));
-                lottieAnimationView.setAnimationFromJson(this.f5428i, cVar.f5421f);
+                lottieAnimationView.setAnimationFromJson(this.f5314i, cVar.f5308f);
                 if (cVar.z) {
                     lottieAnimationView.playAnimation();
                 }
@@ -197,7 +197,7 @@ public final class b extends c.a.r0.a.c0.a.d.a<LottieAnimationView, c> {
                 }
                 S(lottieAnimationView, cVar);
             } catch (Exception unused) {
-                Z(this.f5428i, e.f0());
+                Z(this.f5314i, e.f0());
             }
         }
     }
@@ -216,7 +216,7 @@ public final class b extends c.a.r0.a.c0.a.d.a<LottieAnimationView, c> {
     public final void W(@NonNull LottieAnimationView lottieAnimationView, @NonNull c cVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048585, this, lottieAnimationView, cVar) == null) && t()) {
-            boolean z = c.a.r0.a.c0.b.a.f5409h;
+            boolean z = c.a.r0.a.c0.b.a.f5296h;
             String str = cVar.A;
             if (TextUtils.equals(str, "play")) {
                 lottieAnimationView.resumeAnimation();
@@ -235,7 +235,7 @@ public final class b extends c.a.r0.a.c0.a.d.a<LottieAnimationView, c> {
     public void Q(@NonNull LottieAnimationView lottieAnimationView, @NonNull c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, lottieAnimationView, cVar) == null) {
-            boolean z = c.a.r0.a.c0.b.a.f5409h;
+            boolean z = c.a.r0.a.c0.b.a.f5296h;
             lottieAnimationView.setColorFilter(new PorterDuffColorFilter(cVar.o, PorterDuff.Mode.ADD));
         }
     }

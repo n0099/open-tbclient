@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.n.e.s;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a<T, V extends TypeAdapter.ViewHolder> extends c.a.d.n.e.a<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,18 +59,18 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends c.a.d.n.e.a
     public void X(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-            this.f3303i = bdUniqueId;
+            this.f3262i = bdUniqueId;
         }
     }
 
-    public void Z(View view, d2 d2Var) {
+    public void Z(View view, e2 e2Var) {
         c.a.s0.n.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, d2Var) == null) || (fVar = this.p) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, e2Var) == null) || (fVar = this.p) == null) {
             return;
         }
-        int i2 = d2Var.position;
-        fVar.a(view, d2Var, i2, i2);
+        int i2 = e2Var.position;
+        fVar.a(view, e2Var, i2, i2);
     }
 
     public boolean a0() {
@@ -93,13 +93,13 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends c.a.d.n.e.a
         }
     }
 
-    public void d0(View view, d2 d2Var, int i2, long j2) {
+    public void d0(View view, e2 e2Var, int i2, long j2) {
         c.a.s0.n.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view, d2Var, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (fVar = this.p) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view, e2Var, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (fVar = this.p) == null) {
             return;
         }
-        fVar.c(view, d2Var, i2, j2);
+        fVar.c(view, e2Var, i2, j2);
     }
 
     public void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -107,9 +107,9 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends c.a.d.n.e.a
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
             return;
         }
-        this.f3299e = tbPageContext.getPageActivity();
+        this.f3258e = tbPageContext.getPageActivity();
         this.n = tbPageContext;
-        this.f3303i = bdUniqueId;
+        this.f3262i = bdUniqueId;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

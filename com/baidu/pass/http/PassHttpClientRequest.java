@@ -15,7 +15,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38939b;
+    public int f37653b;
     public volatile boolean cancelRequest;
     public Context context;
     public Method method;
@@ -38,7 +38,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
             }
         }
         this.cancelRequest = false;
-        this.f38939b = i2;
+        this.f37653b = i2;
         this.method = method;
         this.context = context;
         this.paramDTO = passHttpParamDTO;
@@ -85,7 +85,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passHttpClientRequest)) == null) {
             ReqPriority reqPriority = this.paramDTO.priority;
             ReqPriority reqPriority2 = passHttpClientRequest.paramDTO.priority;
-            return reqPriority == reqPriority2 ? this.f38939b - passHttpClientRequest.f38939b : reqPriority2.ordinal() - reqPriority.ordinal();
+            return reqPriority == reqPriority2 ? this.f37653b - passHttpClientRequest.f37653b : reqPriority2.ordinal() - reqPriority.ordinal();
         }
         return invokeL.intValue;
     }

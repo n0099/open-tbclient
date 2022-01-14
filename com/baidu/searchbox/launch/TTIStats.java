@@ -26,7 +26,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TTIStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -43,7 +43,7 @@ public class TTIStats {
     public transient /* synthetic */ FieldHolder $fh;
     public UBCManager mUbcManager;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class TTIData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

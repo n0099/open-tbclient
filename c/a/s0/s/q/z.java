@@ -14,7 +14,7 @@ public class z {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13859b;
+    public int f13544b;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class z {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13859b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13544b : invokeV.intValue;
     }
 
     public void c(ForumBookInfo forumBookInfo) {
@@ -48,7 +48,7 @@ public class z {
             return;
         }
         this.a = forumBookInfo.book_id;
-        this.f13859b = forumBookInfo.book_type.intValue();
+        this.f13544b = forumBookInfo.book_type.intValue();
         String str = forumBookInfo.book_title;
         String str2 = forumBookInfo.book_cover;
         String str3 = forumBookInfo.author;

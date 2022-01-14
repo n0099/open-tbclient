@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 public interface a extends c.a.s0.j0.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f13140b = "c.a.s0.j0.f.a";
+    public static final String f12818b = "c.a.s0.j0.f.a";
 
     @NonNull
     b a(@NonNull TbPageContext tbPageContext);

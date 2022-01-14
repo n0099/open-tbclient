@@ -31,11 +31,11 @@ public class a {
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Files.FileType f27919b;
+    public Files.FileType f27080b;
 
     /* renamed from: c.b.b.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class C1597a {
+    public static /* synthetic */ class C1613a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class a {
     public a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.getPath().length() == 0 ? new a(new File(str), this.f27919b) : new a(new File(this.a, str), this.f27919b) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.getPath().length() == 0 ? new a(new File(str), this.f27080b) : new a(new File(this.a, str), this.f27080b) : (a) invokeL.objValue;
     }
 
     public final int b() {
@@ -111,7 +111,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = C1597a.a[this.f27919b.ordinal()];
+            int i2 = C1613a.a[this.f27080b.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return e().exists();
@@ -142,7 +142,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Files.FileType fileType = this.f27919b;
+            Files.FileType fileType = this.f27080b;
             if (fileType != Files.FileType.Classpath) {
                 if (fileType != Files.FileType.Internal) {
                     return e().delete();
@@ -157,7 +157,7 @@ public class a {
     public File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27919b == Files.FileType.External ? new File(f.f27771d.e(), this.a.getPath()) : this.a : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27080b == Files.FileType.External ? new File(f.f26938d.e(), this.a.getPath()) : this.a : (File) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -166,7 +166,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f27919b == aVar.f27919b && j().equals(aVar.j());
+                return this.f27080b == aVar.f27080b && j().equals(aVar.j());
             }
             return false;
         }
@@ -177,7 +177,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Files.FileType fileType = this.f27919b;
+            Files.FileType fileType = this.f27080b;
             if (fileType != Files.FileType.Classpath && (fileType != Files.FileType.Internal || this.a.exists())) {
                 return e().length();
             }
@@ -217,7 +217,7 @@ public class a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((37 + this.f27919b.hashCode()) * 67) + j().hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((37 + this.f27080b.hashCode()) * 67) + j().hashCode() : invokeV.intValue;
     }
 
     public a i() {
@@ -226,13 +226,13 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             File parentFile = this.a.getParentFile();
             if (parentFile == null) {
-                if (this.f27919b == Files.FileType.Absolute) {
+                if (this.f27080b == Files.FileType.Absolute) {
                     parentFile = new File("/");
                 } else {
                     parentFile = new File("");
                 }
             }
-            return new a(parentFile, this.f27919b);
+            return new a(parentFile, this.f27080b);
         }
         return (a) invokeV.objValue;
     }
@@ -264,22 +264,22 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            Files.FileType fileType = this.f27919b;
-            if (fileType != Files.FileType.Classpath && ((fileType != Files.FileType.Internal || e().exists()) && (this.f27919b != Files.FileType.Local || e().exists()))) {
+            Files.FileType fileType = this.f27080b;
+            if (fileType != Files.FileType.Classpath && ((fileType != Files.FileType.Internal || e().exists()) && (this.f27080b != Files.FileType.Local || e().exists()))) {
                 try {
                     return new FileInputStream(e());
                 } catch (Exception e2) {
                     if (e().isDirectory()) {
-                        throw new GdxRuntimeException("Cannot open a stream to a directory: " + this.a + " (" + this.f27919b + SmallTailInfo.EMOTION_SUFFIX, e2);
+                        throw new GdxRuntimeException("Cannot open a stream to a directory: " + this.a + " (" + this.f27080b + SmallTailInfo.EMOTION_SUFFIX, e2);
                     }
-                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.f27919b + SmallTailInfo.EMOTION_SUFFIX, e2);
+                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.f27080b + SmallTailInfo.EMOTION_SUFFIX, e2);
                 }
             }
             InputStream resourceAsStream = a.class.getResourceAsStream("/" + this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, '/'));
             if (resourceAsStream != null) {
                 return resourceAsStream;
             }
-            throw new GdxRuntimeException("File not found: " + this.a + " (" + this.f27919b + SmallTailInfo.EMOTION_SUFFIX);
+            throw new GdxRuntimeException("File not found: " + this.a + " (" + this.f27080b + SmallTailInfo.EMOTION_SUFFIX);
         }
         return (InputStream) invokeV.objValue;
     }
@@ -367,7 +367,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
             if (this.a.getPath().length() != 0) {
-                return new a(new File(this.a.getParent(), str), this.f27919b);
+                return new a(new File(this.a.getParent(), str), this.f27080b);
             }
             throw new GdxRuntimeException("Cannot get the sibling of the root.");
         }
@@ -377,7 +377,7 @@ public class a {
     public Files.FileType t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f27919b : (Files.FileType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f27080b : (Files.FileType) invokeV.objValue;
     }
 
     public String toString() {
@@ -401,7 +401,7 @@ public class a {
                 return;
             }
         }
-        this.f27919b = fileType;
+        this.f27080b = fileType;
         this.a = new File(str);
     }
 
@@ -421,6 +421,6 @@ public class a {
             }
         }
         this.a = file;
-        this.f27919b = fileType;
+        this.f27080b = fileType;
     }
 }

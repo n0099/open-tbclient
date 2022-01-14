@@ -6,7 +6,7 @@ import c.a.d.c.f.j;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
 import c.a.d.f.r.k;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import c.a.s0.s.l.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
@@ -35,28 +35,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static h f14447f;
+    public static h f14111f;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.d.c.e.c.k.a f14448b;
+    public c.a.d.c.e.c.k.a f14112b;
 
     /* renamed from: c  reason: collision with root package name */
-    public UpdateClientInfoMessage f14449c;
+    public UpdateClientInfoMessage f14113c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14450d;
+    public int f14114d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.d.c.e.c.k.a f14451e;
+    public final c.a.d.c.e.c.k.a f14115e;
 
     /* loaded from: classes6.dex */
     public class a implements c.a.d.c.e.c.k.a {
@@ -85,10 +84,10 @@ public class h {
         @Override // c.a.d.c.e.c.k.a
         public void a(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.f14448b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.f14112b == null) {
                 return;
             }
-            this.a.f14448b.a(str);
+            this.a.f14112b.a(str);
         }
 
         @Override // c.a.d.c.e.c.k.a
@@ -97,8 +96,8 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
                 c.a.s0.f0.a.b(0, 2, 0, 0, 0);
-                if (this.a.f14448b != null) {
-                    this.a.f14448b.b(i2, str);
+                if (this.a.f14112b != null) {
+                    this.a.f14112b.b(i2, str);
                 }
                 return false;
             }
@@ -108,19 +107,19 @@ public class h {
         @Override // c.a.d.c.e.c.k.a
         public void c(c.a.d.f.r.c cVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || this.a.f14448b == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || this.a.f14112b == null) {
                 return;
             }
-            this.a.f14448b.c(cVar);
+            this.a.f14112b.c(cVar);
         }
 
         @Override // c.a.d.c.e.c.k.a
         public void d(k kVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) || this.a.f14448b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) || this.a.f14112b == null) {
                 return;
             }
-            this.a.f14448b.d(kVar);
+            this.a.f14112b.d(kVar);
         }
 
         @Override // c.a.d.c.e.c.k.a
@@ -128,8 +127,8 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
                 c.a.s0.f0.a.b(0, 1, 0, 0, 0);
-                if (this.a.f14448b != null) {
-                    this.a.f14448b.g(map);
+                if (this.a.f14112b != null) {
+                    this.a.f14112b.g(map);
                 }
                 c.a.d.c.e.c.i.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
                 if (c.a.s0.s0.k.d().g() && h.b(this.a) < 10) {
@@ -137,8 +136,8 @@ public class h {
                 }
                 c.a.s0.f0.a.b(1001, 0, 0, 3, 0);
                 h hVar = this.a;
-                hVar.f14449c = hVar.i();
-                MessageManager.getInstance().sendMessage(this.a.f14449c);
+                hVar.f14113c = hVar.i();
+                MessageManager.getInstance().sendMessage(this.a.f14113c);
             }
         }
     }
@@ -232,16 +231,16 @@ public class h {
                 return;
             }
         }
-        this.f14448b = null;
-        this.f14449c = null;
-        this.f14450d = 0;
-        this.f14451e = new a(this);
+        this.f14112b = null;
+        this.f14113c = null;
+        this.f14114d = 0;
+        this.f14115e = new a(this);
         MessageManager.getInstance().addResponsedMessageRule(new b(this, 1001));
     }
 
     public static /* synthetic */ int b(h hVar) {
-        int i2 = hVar.f14450d + 1;
-        hVar.f14450d = i2;
+        int i2 = hVar.f14114d + 1;
+        hVar.f14114d = i2;
         return i2;
     }
 
@@ -251,14 +250,14 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             synchronized (h.class) {
-                if (f14447f == null) {
+                if (f14111f == null) {
                     synchronized (h.class) {
-                        if (f14447f == null) {
-                            f14447f = new h();
+                        if (f14111f == null) {
+                            f14111f = new h();
                         }
                     }
                 }
-                hVar = f14447f;
+                hVar = f14111f;
             }
             return hVar;
         }
@@ -273,7 +272,7 @@ public class h {
             UpdateClientInfoMessage updateClientInfoMessage = new UpdateClientInfoMessage();
             updateClientInfoMessage.addUserInfo(HttpRequest.CLIENT_TYPE, "2");
             updateClientInfoMessage.addUserInfo("_client_version", TbConfig.getVersion());
-            updateClientInfoMessage.addUserInfo("user_agent", w0.b());
+            updateClientInfoMessage.addUserInfo("user_agent", v0.b());
             if (TbadkCoreApplication.getInst().getImei() != null) {
                 updateClientInfoMessage.addUserInfo(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
             }
@@ -307,7 +306,7 @@ public class h {
             updateClientInfoMessage.addUserInfo("model", Build.MODEL);
             updateClientInfoMessage.addUserInfo(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
             updateClientInfoMessage.addUserInfo("z_id", TbadkCoreApplication.getInst().getZid());
-            updateClientInfoMessage.addUserInfo(BaseStatisContent.MAC, PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
+            updateClientInfoMessage.addUserInfo("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
             updateClientInfoMessage.addUserInfo("brand", Build.BRAND);
             updateClientInfoMessage.addUserInfo(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
             updateClientInfoMessage.addUserInfo("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
@@ -367,9 +366,9 @@ public class h {
             updateClientInfoMessage.addUserInfo("first_install_time", TbSingleton.getInstance().getAppFirstInstallTime() + "");
             updateClientInfoMessage.addUserInfo(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, TbSingleton.getInstance().getAppLastUpdateTime() + "");
             updateClientInfoMessage.addUserInfo("event_day", TbSingleton.getInstance().getData());
-            updateClientInfoMessage.addUserInfo("android_id", TbadkCoreApplication.getInst().getAndroidId());
+            updateClientInfoMessage.addUserInfo(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
             updateClientInfoMessage.addUserInfo(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
-            updateClientInfoMessage.addUserInfo("extra", c.a.s0.s.g0.b.j().p("key_sync_extra_field", ""));
+            updateClientInfoMessage.addUserInfo("extra", c.a.s0.s.h0.b.k().q("key_sync_extra_field", ""));
             updateClientInfoMessage.addUserInfo("personalized_rec_switch", String.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch()));
             return updateClientInfoMessage;
         }
@@ -379,7 +378,7 @@ public class h {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().getSocketClient().G(this.f14451e);
+            MessageManager.getInstance().getSocketClient().G(this.f14115e);
         }
     }
 
@@ -421,7 +420,7 @@ public class h {
     public void p(c.a.d.c.e.c.k.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f14448b = aVar;
+            this.f14112b = aVar;
         }
     }
 }

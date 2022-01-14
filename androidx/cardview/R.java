@@ -47,10 +47,10 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int cardview_dark_background = 0x7f0604a1;
-        public static final int cardview_light_background = 0x7f0604a2;
-        public static final int cardview_shadow_end_color = 0x7f0604a3;
-        public static final int cardview_shadow_start_color = 0x7f0604a4;
+        public static final int cardview_dark_background = 0x7f0604a4;
+        public static final int cardview_light_background = 0x7f0604a5;
+        public static final int cardview_shadow_end_color = 0x7f0604a6;
+        public static final int cardview_shadow_start_color = 0x7f0604a7;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {

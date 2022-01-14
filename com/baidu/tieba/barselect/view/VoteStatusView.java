@@ -24,26 +24,24 @@ public class VoteStatusView extends View {
     public int activeStartColor;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43888e;
+    public int f42290e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f43889f;
+    public boolean f42291f;
     public int frozenColor;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f43890g;
+    public Paint f42292g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Shader f43891h;
+    public Shader f42293h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Path f43892i;
+    public Path f42294i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Path f43893j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public Path f43894k;
+    public Path f42295j;
+    public Path k;
     public Path l;
     public Path m;
 
@@ -75,13 +73,13 @@ public class VoteStatusView extends View {
             this.activeStartColor = SkinManager.getColor(R.color.CAM_X0303);
             this.activeEndColor = SkinManager.getColor(R.color.CAM_X0302);
             Paint paint = new Paint();
-            this.f43890g = paint;
+            this.f42292g = paint;
             paint.setAntiAlias(true);
-            this.f43890g.setStyle(Paint.Style.FILL);
-            this.f43890g.setColor(this.frozenColor);
-            this.f43892i = new Path();
-            this.f43893j = new Path();
-            this.f43894k = new Path();
+            this.f42292g.setStyle(Paint.Style.FILL);
+            this.f42292g.setColor(this.frozenColor);
+            this.f42294i = new Path();
+            this.f42295j = new Path();
+            this.k = new Path();
             this.l = new Path();
             this.m = new Path();
         }
@@ -98,35 +96,35 @@ public class VoteStatusView extends View {
             }
             int i2 = height / 2;
             float f2 = i2;
-            this.f43892i.addCircle(f2, f2, f2, Path.Direction.CW);
+            this.f42294i.addCircle(f2, f2, f2, Path.Direction.CW);
             float f3 = width / 2;
-            this.f43893j.addCircle(f3, f2, f2, Path.Direction.CW);
+            this.f42295j.addCircle(f3, f2, f2, Path.Direction.CW);
             float f4 = width - i2;
-            this.f43894k.addCircle(f4, f2, f2, Path.Direction.CW);
+            this.k.addCircle(f4, f2, f2, Path.Direction.CW);
             float f5 = (height * 9) / 26;
             float f6 = (height * 17) / 26;
             this.l.addRect(f2, f5, f3, f6, Path.Direction.CW);
             this.m.addRect(f3, f5, f4, f6, Path.Direction.CW);
-            this.f43890g.setColor(this.frozenColor);
-            this.f43890g.setShader(null);
-            if (this.f43891h == null || this.f43889f) {
-                this.f43891h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.activeStartColor, this.activeEndColor, Shader.TileMode.CLAMP);
-                this.f43889f = false;
+            this.f42292g.setColor(this.frozenColor);
+            this.f42292g.setShader(null);
+            if (this.f42293h == null || this.f42291f) {
+                this.f42293h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.activeStartColor, this.activeEndColor, Shader.TileMode.CLAMP);
+                this.f42291f = false;
             }
-            if (this.f43888e == c.f15707c) {
-                this.f43890g.setShader(this.f43891h);
+            if (this.f42290e == c.f15311c) {
+                this.f42292g.setShader(this.f42293h);
             }
-            canvas.drawPath(this.m, this.f43890g);
-            canvas.drawPath(this.f43894k, this.f43890g);
-            if (this.f43888e == c.f15706b) {
-                this.f43890g.setShader(this.f43891h);
+            canvas.drawPath(this.m, this.f42292g);
+            canvas.drawPath(this.k, this.f42292g);
+            if (this.f42290e == c.f15310b) {
+                this.f42292g.setShader(this.f42293h);
             }
-            canvas.drawPath(this.l, this.f43890g);
-            canvas.drawPath(this.f43893j, this.f43890g);
-            if (this.f43888e == c.a) {
-                this.f43890g.setShader(this.f43891h);
+            canvas.drawPath(this.l, this.f42292g);
+            canvas.drawPath(this.f42295j, this.f42292g);
+            if (this.f42290e == c.a) {
+                this.f42292g.setShader(this.f42293h);
             }
-            canvas.drawPath(this.f43892i, this.f43890g);
+            canvas.drawPath(this.f42294i, this.f42292g);
         }
     }
 
@@ -136,7 +134,7 @@ public class VoteStatusView extends View {
             this.activeStartColor = SkinManager.getColor(i2, R.color.CAM_X0303);
             this.activeEndColor = SkinManager.getColor(i2, R.color.CAM_X0302);
             this.frozenColor = SkinManager.getColor(i2, R.color.CAM_X0204);
-            this.f43889f = true;
+            this.f42291f = true;
             invalidate();
         }
     }
@@ -144,7 +142,7 @@ public class VoteStatusView extends View {
     public void setStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f43888e = i2;
+            this.f42290e = i2;
             invalidate();
         }
     }
@@ -168,8 +166,8 @@ public class VoteStatusView extends View {
                 return;
             }
         }
-        this.f43888e = -1;
-        this.f43889f = true;
+        this.f42290e = -1;
+        this.f42291f = true;
         a();
     }
 }

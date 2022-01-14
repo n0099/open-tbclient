@@ -22,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_STATISTIC_DATA_COUNT = "count";

@@ -22,19 +22,19 @@ public class c {
     public TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f24962b;
+    public View f24268b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f24963c;
+    public ViewGroup f24269c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f24964d;
+    public ImageView f24270d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f24965e;
+    public TextView f24271e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f24966f;
+    public TextView f24272f;
 
     public c(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -53,28 +53,28 @@ public class c {
         }
         this.a = tbPageContext;
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.no_like_forum_emotion_item_view, (ViewGroup) null);
-        this.f24962b = inflate;
-        this.f24963c = (ViewGroup) inflate.findViewById(R.id.item_group);
-        this.f24964d = (ImageView) this.f24962b.findViewById(R.id.image);
-        this.f24965e = (TextView) this.f24962b.findViewById(R.id.hint_text_1);
-        this.f24966f = (TextView) this.f24962b.findViewById(R.id.hint_text_2);
-        this.f24965e.setText(R.string.no_like_forum_hint_1);
-        this.f24966f.setText(R.string.no_like_forum_hint_2);
+        this.f24268b = inflate;
+        this.f24269c = (ViewGroup) inflate.findViewById(R.id.item_group);
+        this.f24270d = (ImageView) this.f24268b.findViewById(R.id.image);
+        this.f24271e = (TextView) this.f24268b.findViewById(R.id.hint_text_1);
+        this.f24272f = (TextView) this.f24268b.findViewById(R.id.hint_text_2);
+        this.f24271e.setText(R.string.no_like_forum_hint_1);
+        this.f24272f.setText(R.string.no_like_forum_hint_2);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setImageResource(this.f24964d, R.drawable.cp_mask_attention_a);
-            SkinManager.setViewTextColor(this.f24965e, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f24966f, R.color.CAM_X0109);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0206).tlRadius(n.f(this.a.getPageActivity(), R.dimen.tbds21)).trRadius(n.f(this.a.getPageActivity(), R.dimen.tbds21)).blRadius(n.f(this.a.getPageActivity(), R.dimen.tbds21)).brRadius(n.f(this.a.getPageActivity(), R.dimen.tbds21)).into(this.f24963c);
+            SkinManager.setImageResource(this.f24270d, R.drawable.cp_mask_attention_a);
+            SkinManager.setViewTextColor(this.f24271e, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f24272f, R.color.CAM_X0109);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0206).tlRadius(n.f(this.a.getPageActivity(), R.dimen.tbds21)).trRadius(n.f(this.a.getPageActivity(), R.dimen.tbds21)).blRadius(n.f(this.a.getPageActivity(), R.dimen.tbds21)).brRadius(n.f(this.a.getPageActivity(), R.dimen.tbds21)).into(this.f24269c);
         }
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24962b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24268b : (View) invokeV.objValue;
     }
 }

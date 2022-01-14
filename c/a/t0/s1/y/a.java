@@ -19,7 +19,7 @@ public class a<T> {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f22925b;
+    public T f22295b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a<T> {
     public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22925b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22295b : (T) invokeV.objValue;
     }
 
     public int b() {
@@ -79,7 +79,7 @@ public class a<T> {
                             r4.setTitle(optJSONObject.optString("themeTitle"));
                             r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
                             r4.setThreadType(optJSONObject.optInt("threadType"));
-                            this.f22925b = r4;
+                            this.f22295b = r4;
                             return 0;
                         }
                         ?? r1 = (T) new ShareFromGameCenterMsgData();
@@ -94,7 +94,7 @@ public class a<T> {
                         r1.setShareSourceIcon(optString2);
                         r1.setShareSourceUrl(optString5);
                         r1.setShareUrl(optString4);
-                        this.f22925b = r1;
+                        this.f22295b = r1;
                         return 1;
                     } else if (4 == this.a) {
                         ?? r12 = (T) new ShareFromFrsMsgData();
@@ -102,7 +102,7 @@ public class a<T> {
                         r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
                         r12.setMemberNum(optJSONObject.optInt("memberNum"));
                         r12.setPostNum(optJSONObject.optInt("postNum"));
-                        this.f22925b = r12;
+                        this.f22295b = r12;
                         return 2;
                     } else {
                         return -1;

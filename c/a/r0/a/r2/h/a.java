@@ -18,41 +18,41 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile a f8842i;
+    public static volatile a f8647i;
     public transient /* synthetic */ FieldHolder $fh;
     public SensorManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SensorEventListener f8843b;
+    public SensorEventListener f8648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Sensor f8844c;
+    public Sensor f8649c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Sensor f8845d;
+    public Sensor f8650d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f8846e;
+    public b f8651e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f8847f;
+    public float[] f8652f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f8848g;
+    public float[] f8653g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f8849h;
+    public boolean f8654h;
 
     /* renamed from: c.a.r0.a.r2.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0528a implements SensorEventListener {
+    public class C0537a implements SensorEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f8850e;
+        public final /* synthetic */ a f8655e;
 
-        public C0528a(a aVar) {
+        public C0537a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class a {
                     return;
                 }
             }
-            this.f8850e = aVar;
+            this.f8655e = aVar;
         }
 
         @Override // android.hardware.SensorEventListener
@@ -89,17 +89,17 @@ public class a {
                     if (fArr == null || fArr.length != 3) {
                         return;
                     }
-                    this.f8850e.f8847f = (float[]) fArr.clone();
+                    this.f8655e.f8652f = (float[]) fArr.clone();
                 } else if (sensorEvent == null || (sensor = sensorEvent.sensor) == null || sensor.getType() != 2) {
                 } else {
                     float[] fArr2 = sensorEvent.values;
                     if (fArr2 != null && fArr2.length == 3) {
-                        this.f8850e.f8848g = (float[]) fArr2.clone();
+                        this.f8655e.f8653g = (float[]) fArr2.clone();
                     }
-                    if (this.f8850e.f8846e == null || this.f8850e.f8847f == null || this.f8850e.f8848g == null || (g2 = this.f8850e.g()) == null) {
+                    if (this.f8655e.f8651e == null || this.f8655e.f8652f == null || this.f8655e.f8653g == null || (g2 = this.f8655e.g()) == null) {
                         return;
                     }
-                    this.f8850e.f8846e.a(g2);
+                    this.f8655e.f8651e.a(g2);
                 }
             }
         }
@@ -123,31 +123,31 @@ public class a {
                 return;
             }
         }
-        this.f8849h = false;
+        this.f8654h = false;
     }
 
     public static a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f8842i == null) {
+            if (f8647i == null) {
                 synchronized (a.class) {
-                    if (f8842i == null) {
-                        f8842i = new a();
+                    if (f8647i == null) {
+                        f8647i = new a();
                     }
                 }
             }
-            return f8842i;
+            return f8647i;
         }
         return (a) invokeV.objValue;
     }
 
     public static void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || f8842i == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || f8647i == null) {
             return;
         }
-        f8842i.j();
+        f8647i.j();
     }
 
     @Nullable
@@ -158,7 +158,7 @@ public class a {
             float[] fArr = new float[9];
             float[] fArr2 = new float[9];
             float[] fArr3 = new float[3];
-            if (SensorManager.getRotationMatrix(fArr, null, this.f8847f, this.f8848g) && SensorManager.remapCoordinateSystem(fArr, 2, 129, fArr2)) {
+            if (SensorManager.getRotationMatrix(fArr, null, this.f8652f, this.f8653g) && SensorManager.remapCoordinateSystem(fArr, 2, 129, fArr2)) {
                 SensorManager.getOrientation(fArr2, fArr3);
                 return fArr3;
             }
@@ -172,13 +172,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d.i("SwanAppOrientationManager", "get System Sensor listener");
-            SensorEventListener sensorEventListener = this.f8843b;
+            SensorEventListener sensorEventListener = this.f8648b;
             if (sensorEventListener != null) {
                 return sensorEventListener;
             }
-            C0528a c0528a = new C0528a(this);
-            this.f8843b = c0528a;
-            return c0528a;
+            C0537a c0537a = new C0537a(this);
+            this.f8648b = c0537a;
+            return c0537a;
         }
         return (SensorEventListener) invokeV.objValue;
     }
@@ -187,16 +187,16 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             d.i("SwanAppOrientationManager", "release");
-            if (this.f8849h) {
+            if (this.f8654h) {
                 m();
             }
             this.a = null;
-            this.f8844c = null;
-            this.f8845d = null;
-            this.f8843b = null;
-            this.f8847f = null;
-            this.f8848g = null;
-            f8842i = null;
+            this.f8649c = null;
+            this.f8650d = null;
+            this.f8648b = null;
+            this.f8652f = null;
+            this.f8653g = null;
+            f8647i = null;
         }
     }
 
@@ -204,22 +204,22 @@ public class a {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, bVar)) == null) {
-            if (this.f8849h) {
+            if (this.f8654h) {
                 d.o("SwanAppOrientationManager", "has already start, change new listener");
-                this.f8846e = bVar;
+                this.f8651e = bVar;
                 return true;
             }
             SensorManager sensorManager = (SensorManager) c.a.r0.a.c1.a.c().getSystemService("sensor");
             this.a = sensorManager;
             if (sensorManager != null) {
-                this.f8846e = bVar;
-                this.f8844c = sensorManager.getDefaultSensor(1);
+                this.f8651e = bVar;
+                this.f8649c = sensorManager.getDefaultSensor(1);
                 Sensor defaultSensor = this.a.getDefaultSensor(2);
-                this.f8845d = defaultSensor;
-                if (this.f8844c != null && defaultSensor != null) {
-                    this.a.registerListener(i(), this.f8844c, i2);
-                    this.a.registerListener(i(), this.f8845d, i2);
-                    this.f8849h = true;
+                this.f8650d = defaultSensor;
+                if (this.f8649c != null && defaultSensor != null) {
+                    this.a.registerListener(i(), this.f8649c, i2);
+                    this.a.registerListener(i(), this.f8650d, i2);
+                    this.f8654h = true;
                     d.i("SwanAppOrientationManager", "start listen");
                     return true;
                 }
@@ -236,20 +236,20 @@ public class a {
         SensorManager sensorManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!this.f8849h) {
+            if (!this.f8654h) {
                 d.o("SwanAppOrientationManager", "has already stop");
                 return;
             }
-            this.f8849h = false;
-            SensorEventListener sensorEventListener = this.f8843b;
+            this.f8654h = false;
+            SensorEventListener sensorEventListener = this.f8648b;
             if (sensorEventListener != null && (sensorManager = this.a) != null) {
                 sensorManager.unregisterListener(sensorEventListener);
-                this.f8843b = null;
+                this.f8648b = null;
             }
-            this.f8846e = null;
+            this.f8651e = null;
             this.a = null;
-            this.f8844c = null;
-            this.f8845d = null;
+            this.f8649c = null;
+            this.f8650d = null;
         }
     }
 }

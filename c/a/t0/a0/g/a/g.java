@@ -17,22 +17,22 @@ public class g {
     public c.a.d.a.f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f15114b;
+    public BdTypeListView f14746b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<c.a.d.n.e.a> f15115c;
+    public final List<c.a.d.n.e.a> f14747c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f15116d;
+    public f f14748d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f15117e;
+    public c f14749e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f15118f;
+    public a f14750f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f15119g;
+    public b f14751g;
 
     public g(c.a.d.a.f fVar, BdTypeListView bdTypeListView, boolean z) {
         Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class g {
                 return;
             }
         }
-        this.f15115c = new ArrayList();
+        this.f14747c = new ArrayList();
         this.a = fVar;
-        this.f15114b = bdTypeListView;
+        this.f14746b = bdTypeListView;
         a(z);
     }
 
@@ -59,30 +59,30 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                c cVar = new c((TbPageContext) this.a, c.a.t0.a0.j.b.a.f15223g);
-                this.f15117e = cVar;
-                this.f15115c.add(cVar);
+                c cVar = new c((TbPageContext) this.a, c.a.t0.a0.j.b.a.f14847g);
+                this.f14749e = cVar;
+                this.f14747c.add(cVar);
             } else {
-                f fVar = new f((TbPageContext) this.a, c.a.t0.a0.j.b.a.f15223g);
-                this.f15116d = fVar;
-                this.f15115c.add(fVar);
+                f fVar = new f((TbPageContext) this.a, c.a.t0.a0.j.b.a.f14847g);
+                this.f14748d = fVar;
+                this.f14747c.add(fVar);
             }
-            this.f15118f = new a((TbPageContext) this.a, c.a.t0.a0.g.b.a.f15120e);
-            this.f15119g = new b((TbPageContext) this.a, c.a.t0.a0.g.b.b.f15121e);
-            this.f15115c.add(this.f15118f);
-            this.f15115c.add(this.f15119g);
-            this.f15114b.addAdapters(this.f15115c);
+            this.f14750f = new a((TbPageContext) this.a, c.a.t0.a0.g.b.a.f14752e);
+            this.f14751g = new b((TbPageContext) this.a, c.a.t0.a0.g.b.b.f14753e);
+            this.f14747c.add(this.f14750f);
+            this.f14747c.add(this.f14751g);
+            this.f14746b.addAdapters(this.f14747c);
         }
     }
 
     public void b(c.a.t0.a0.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            f fVar = this.f15116d;
+            f fVar = this.f14748d;
             if (fVar != null) {
                 fVar.b0(eVar);
             }
-            c cVar = this.f15117e;
+            c cVar = this.f14749e;
             if (cVar != null) {
                 cVar.b0(eVar);
             }
@@ -92,7 +92,7 @@ public class g {
     public void c(List<n> list) {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.f15114b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.f14746b) == null) {
             return;
         }
         bdTypeListView.setData(list);

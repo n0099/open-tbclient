@@ -14,7 +14,7 @@ public class j {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23054b;
+    public String f22419b;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class j {
             }
         }
         this.a = "";
-        this.f23054b = "";
+        this.f22419b = "";
     }
 
     public String a() {
@@ -42,7 +42,7 @@ public class j {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23054b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22419b : (String) invokeV.objValue;
     }
 
     public void c(ForumHeadlineImgInfo forumHeadlineImgInfo) {
@@ -55,6 +55,6 @@ public class j {
         this.a = forumHeadlineImgInfo.img_url;
         forumHeadlineImgInfo.rank_num.intValue();
         String str2 = forumHeadlineImgInfo.rank_up_info;
-        this.f23054b = forumHeadlineImgInfo.rank_url;
+        this.f22419b = forumHeadlineImgInfo.rank_url;
     }
 }

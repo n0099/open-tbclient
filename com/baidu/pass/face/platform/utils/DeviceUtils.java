@@ -5,6 +5,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +53,7 @@ public class DeviceUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
+            String string = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             try {
                 return MD5Utils.encryption(string.getBytes());
             } catch (Exception e2) {

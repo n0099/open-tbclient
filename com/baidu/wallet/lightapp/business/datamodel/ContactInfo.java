@@ -16,7 +16,7 @@ public class ContactInfo implements Comparator<ContactInfo> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53652b;
+    public String f51598b;
 
     /* loaded from: classes13.dex */
     public static class Phone implements Serializable {
@@ -79,30 +79,30 @@ public class ContactInfo implements Comparator<ContactInfo> {
             } else if (contactInfo2 == null) {
                 return contactInfo == null ? 0 : -1;
             } else {
-                contactInfo.f53652b = a(contactInfo.a);
-                contactInfo2.f53652b = a(contactInfo2.a);
-                if (TextUtils.isEmpty(contactInfo.f53652b) && TextUtils.isEmpty(contactInfo2.f53652b)) {
+                contactInfo.f51598b = a(contactInfo.a);
+                contactInfo2.f51598b = a(contactInfo2.a);
+                if (TextUtils.isEmpty(contactInfo.f51598b) && TextUtils.isEmpty(contactInfo2.f51598b)) {
                     return 0;
                 }
-                if (TextUtils.isEmpty(contactInfo.f53652b)) {
-                    return !TextUtils.isEmpty(contactInfo2.f53652b) ? 1 : 0;
+                if (TextUtils.isEmpty(contactInfo.f51598b)) {
+                    return !TextUtils.isEmpty(contactInfo2.f51598b) ? 1 : 0;
                 }
-                if (TextUtils.isEmpty(contactInfo2.f53652b)) {
-                    return TextUtils.isEmpty(contactInfo.f53652b) ? 0 : -1;
+                if (TextUtils.isEmpty(contactInfo2.f51598b)) {
+                    return TextUtils.isEmpty(contactInfo.f51598b) ? 0 : -1;
                 }
-                contactInfo.f53652b = contactInfo.f53652b.toUpperCase();
-                String upperCase = contactInfo2.f53652b.toUpperCase();
-                contactInfo2.f53652b = upperCase;
-                if (contactInfo.f53652b.equals(upperCase)) {
+                contactInfo.f51598b = contactInfo.f51598b.toUpperCase();
+                String upperCase = contactInfo2.f51598b.toUpperCase();
+                contactInfo2.f51598b = upperCase;
+                if (contactInfo.f51598b.equals(upperCase)) {
                     return 0;
                 }
-                if (contactInfo.f53652b.equals("#")) {
+                if (contactInfo.f51598b.equals("#")) {
                     return 1;
                 }
-                if (contactInfo2.f53652b.equals("#")) {
+                if (contactInfo2.f51598b.equals("#")) {
                     return -1;
                 }
-                return contactInfo.f53652b.compareTo(contactInfo2.f53652b);
+                return contactInfo.f51598b.compareTo(contactInfo2.f51598b);
             }
         }
         return invokeLL.intValue;

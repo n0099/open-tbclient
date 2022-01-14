@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.s0.s.q.a;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
@@ -24,16 +24,16 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f34242e;
+    public Context f33148e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ThreadForumEnterGoodsButton f34243f;
+    public ThreadForumEnterGoodsButton f33149f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f34244g;
+    public View.OnClickListener f33150g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f34245h;
+    public int f33151h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumGoodsEnterLayout(Context context) {
@@ -59,8 +59,8 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f34242e = context;
-            this.f34243f = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
+            this.f33148e = context;
+            this.f33149f = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
         }
     }
 
@@ -79,7 +79,7 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            this.f34243f.onChangeSkinType();
+            this.f33149f.onChangeSkinType();
         }
     }
 
@@ -87,14 +87,14 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            d2 threadData = aVar.getThreadData();
-            if (c(aVar) || b(aVar) || aVar.getThreadData() == null || !aVar.getThreadData().d2() || this.f34245h == 3) {
+            e2 threadData = aVar.getThreadData();
+            if (c(aVar) || b(aVar) || aVar.getThreadData() == null || !aVar.getThreadData().d2() || this.f33151h == 3) {
                 z = false;
             } else {
-                this.f34243f.setVisibility(0);
-                this.f34243f.setFrom(2);
-                this.f34243f.bindData(threadData);
-                this.f34243f.setAfterClickListener(this.f34244g);
+                this.f33149f.setVisibility(0);
+                this.f33149f.setFrom(2);
+                this.f33149f.bindData(threadData);
+                this.f33149f.setAfterClickListener(this.f33150g);
                 z = true;
             }
             setVisibility(z ? 0 : 8);
@@ -110,14 +110,14 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public void setFrstype(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f34245h = i2;
+            this.f33151h = i2;
         }
     }
 
     public void setOnAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f34244g = onClickListener;
+            this.f33150g = onClickListener;
         }
     }
 

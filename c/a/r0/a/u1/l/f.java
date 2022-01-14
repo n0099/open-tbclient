@@ -12,10 +12,10 @@ public class f {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9625b;
+    public static final boolean f9416b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f9626c;
+    public static final boolean f9417c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,24 +32,24 @@ public class f {
             }
         }
         a = k.a;
-        f9625b = c("swan_perf_stat_rectify", 0);
-        f9626c = c("swan_perf_stat_overlay_rectify", 0);
+        f9416b = c("swan_perf_stat_rectify", 0);
+        f9417c = c("swan_perf_stat_overlay_rectify", 0);
         if (a) {
-            String str = "670 data rectify on - " + f9625b;
-            String str2 = "670 data overlay rectify on - " + f9626c;
+            String str = "670 data rectify on - " + f9416b;
+            String str2 = "670 data overlay rectify on - " + f9417c;
         }
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f9626c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f9417c : invokeV.booleanValue;
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f9625b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f9416b : invokeV.booleanValue;
     }
 
     public static boolean c(String str, int i2) {

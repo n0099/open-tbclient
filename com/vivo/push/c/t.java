@@ -46,10 +46,10 @@ public final class t implements r.a {
                 return;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(b.c.f33651e, "1");
-            hashMap.put("message_id", String.valueOf(this.a.f63055b.f()));
-            context = this.a.f63056c.a;
-            context2 = this.a.f63056c.a;
+            hashMap.put(b.c.f32583e, "1");
+            hashMap.put("message_id", String.valueOf(this.a.f60678b.f()));
+            context = this.a.f60679c.a;
+            context2 = this.a.f60679c.a;
             String b2 = com.vivo.push.util.aa.b(context, context2.getPackageName());
             if (!TextUtils.isEmpty(b2)) {
                 hashMap.put("app_id", b2);
@@ -67,9 +67,9 @@ public final class t implements r.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("messageID", String.valueOf(this.a.f63055b.f()));
-            context = this.a.f63056c.a;
-            context2 = this.a.f63056c.a;
+            hashMap.put("messageID", String.valueOf(this.a.f60678b.f()));
+            context = this.a.f60679c.a;
+            context2 = this.a.f60679c.a;
             String b2 = com.vivo.push.util.aa.b(context, context2.getPackageName());
             if (!TextUtils.isEmpty(b2)) {
                 hashMap.put("remoteAppId", b2);

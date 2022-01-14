@@ -42,25 +42,23 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
     public String B;
 
     /* renamed from: e  reason: collision with root package name */
-    public LoginDialogActivity f22300e;
+    public LoginDialogActivity f21688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f22301f;
+    public View f21689f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f22302g;
+    public View f21690g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f22303h;
+    public View f21691h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f22304i;
+    public ImageView f21692i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f22305j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f22306k;
+    public TextView f21693j;
+    public TextView k;
     public TextView l;
     public TextView m;
     public View n;
@@ -105,9 +103,9 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
         public void onFail(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                this.a.f22300e.closeLoadingDialog();
-                this.a.f22300e.showToast(String.format(this.a.f22300e.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
-                this.a.f22300e.passLoginFail();
+                this.a.f21688e.closeLoadingDialog();
+                this.a.f21688e.showToast(String.format(this.a.f21688e.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+                this.a.f21688e.passLoginFail();
             }
         }
 
@@ -122,25 +120,25 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
         public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
-                this.a.f22300e.passLoginSucc();
-                this.a.f22300e.addLoginSuccessLog(DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
+                this.a.f21688e.passLoginSucc();
+                this.a.f21688e.addLoginSuccessLog(DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
             }
         }
     }
 
     /* renamed from: c.a.t0.q2.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1333b extends WebAuthListener {
+    public class C1347b extends WebAuthListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SocialType f22307e;
+        public final /* synthetic */ SocialType f21694e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f22308f;
+        public final /* synthetic */ b f21695f;
 
-        public C1333b(b bVar, SocialType socialType) {
+        public C1347b(b bVar, SocialType socialType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,15 +153,15 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
                     return;
                 }
             }
-            this.f22308f = bVar;
-            this.f22307e = socialType;
+            this.f21695f = bVar;
+            this.f21694e = socialType;
         }
 
         @Override // com.baidu.sapi2.shell.listener.WebAuthListener
         public void beforeSuccess(SapiAccount sapiAccount) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
-                this.f22308f.f22300e.showLoading();
+                this.f21695f.f21688e.showLoading();
             }
         }
 
@@ -172,9 +170,9 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                this.f22308f.f22300e.closeLoadingDialog();
-                this.f22308f.f22300e.showToast(String.format(this.f22308f.f22300e.getString(R.string.third_login_fail), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-                this.f22308f.f22300e.passLoginFail();
+                this.f21695f.f21688e.closeLoadingDialog();
+                this.f21695f.f21688e.showToast(String.format(this.f21695f.f21688e.getString(R.string.third_login_fail), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.f21695f.f21688e.passLoginFail();
             }
         }
 
@@ -183,8 +181,8 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
         public void onSuccess(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
-                this.f22308f.f22300e.passLoginSucc();
-                this.f22308f.f22300e.addLoginSuccessLog(this.f22307e.name().toLowerCase());
+                this.f21695f.f21688e.passLoginSucc();
+                this.f21695f.f21688e.addLoginSuccessLog(this.f21694e.name().toLowerCase());
             }
         }
     }
@@ -258,14 +256,14 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
     public void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, loginDialogActivity, viewGroup) == null) {
-            this.f22300e = loginDialogActivity;
+            this.f21688e = loginDialogActivity;
             View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.onekey_login_dialog_activity_layout, viewGroup, true);
-            this.f22301f = inflate.findViewById(R.id.dialog_background);
-            this.f22302g = inflate.findViewById(R.id.dialog_layout);
-            this.f22303h = inflate.findViewById(R.id.close_btn_layout);
-            this.f22304i = (ImageView) inflate.findViewById(R.id.close_btn_view);
-            this.f22305j = (TextView) inflate.findViewById(R.id.dialog_title);
-            this.f22306k = (TextView) inflate.findViewById(R.id.dialog_subtitle);
+            this.f21689f = inflate.findViewById(R.id.dialog_background);
+            this.f21690g = inflate.findViewById(R.id.dialog_layout);
+            this.f21691h = inflate.findViewById(R.id.close_btn_layout);
+            this.f21692i = (ImageView) inflate.findViewById(R.id.close_btn_view);
+            this.f21693j = (TextView) inflate.findViewById(R.id.dialog_title);
+            this.k = (TextView) inflate.findViewById(R.id.dialog_subtitle);
             this.l = (TextView) inflate.findViewById(R.id.user_number);
             this.m = (TextView) inflate.findViewById(R.id.login_btn);
             this.n = inflate.findViewById(R.id.qq_login_btn);
@@ -280,10 +278,10 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
             this.w = (TextView) inflate.findViewById(R.id.tip_3);
             this.x = (TextView) inflate.findViewById(R.id.privacy_text);
             this.y = (TextView) inflate.findViewById(R.id.tip_4);
-            this.f22301f.setOnClickListener(this);
-            this.f22303h.setOnClickListener(this);
-            this.f22304i.setOnClickListener(this);
-            this.f22302g.setOnClickListener(this);
+            this.f21689f.setOnClickListener(this);
+            this.f21691h.setOnClickListener(this);
+            this.f21692i.setOnClickListener(this);
+            this.f21690g.setOnClickListener(this);
             this.m.setOnClickListener(this);
             this.n.setOnClickListener(this);
             this.o.setOnClickListener(this);
@@ -300,7 +298,7 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LoginDialogActivity loginDialogActivity = this.f22300e;
+            LoginDialogActivity loginDialogActivity = this.f21688e;
             new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.onekey_login_dialog_activity_agreement_text), SwanAppPhoneLoginDialog.PASS_ACCOUNT_AGREE, false).start();
         }
     }
@@ -308,8 +306,8 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f22300e.passLoginCancel();
-            this.f22300e.finish();
+            this.f21688e.passLoginCancel();
+            this.f21688e.finish();
         }
     }
 
@@ -338,9 +336,9 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f22300e.showLoading();
+            this.f21688e.showLoading();
             PassportSDK passportSDK = PassportSDK.getInstance();
-            LoginDialogActivity loginDialogActivity = this.f22300e;
+            LoginDialogActivity loginDialogActivity = this.f21688e;
             passportSDK.loadOneKeyLogin(loginDialogActivity, h(loginDialogActivity, this.B), new a(this));
         }
     }
@@ -360,14 +358,14 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             int i2 = this.z;
             if (i2 == 1) {
-                LoginDialogActivity loginDialogActivity = this.f22300e;
+                LoginDialogActivity loginDialogActivity = this.f21688e;
                 new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.onekey_login_dialog_activity_operator_1), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
             } else if (i2 == 2) {
-                LoginDialogActivity loginDialogActivity2 = this.f22300e;
+                LoginDialogActivity loginDialogActivity2 = this.f21688e;
                 new TbWebViewActivityConfig(loginDialogActivity2, loginDialogActivity2.getResources().getString(R.string.onekey_login_dialog_activity_operator_2), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
             } else if (i2 != 3) {
             } else {
-                LoginDialogActivity loginDialogActivity3 = this.f22300e;
+                LoginDialogActivity loginDialogActivity3 = this.f21688e;
                 new TbWebViewActivityConfig(loginDialogActivity3, loginDialogActivity3.getResources().getString(R.string.onekey_login_dialog_activity_operator_3), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
             }
         }
@@ -376,9 +374,9 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f22300e.finish();
-            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.f22300e, true);
-            loginActivityConfig.setLoginListener(this.f22300e.getLoginListener());
+            this.f21688e.finish();
+            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.f21688e, true);
+            loginActivityConfig.setLoginListener(this.f21688e.getLoginListener());
             loginActivityConfig.start();
         }
     }
@@ -386,7 +384,7 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            LoginDialogActivity loginDialogActivity = this.f22300e;
+            LoginDialogActivity loginDialogActivity = this.f21688e;
             new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.onekey_login_dialog_activity_privacy_text), "http://privacy.baidu.com/mdetail?id=288", false).start();
         }
     }
@@ -401,7 +399,7 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
     public final void m(SocialType socialType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, socialType) == null) {
-            PassportSDK.getInstance().loadThirdPartyLogin(new C1333b(this, socialType), socialType);
+            PassportSDK.getInstance().loadThirdPartyLogin(new C1347b(this, socialType), socialType);
         }
     }
 
@@ -464,13 +462,13 @@ public class b implements c.a.t0.q2.c.a, View.OnClickListener {
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            SkinManager.setBackgroundResource(this.f22302g, R.drawable.nav_bg_corner_shape, i2);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22304i, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f22305j);
+            SkinManager.setBackgroundResource(this.f21690g, R.drawable.nav_bg_corner_shape, i2);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21692i, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f21693j);
             d2.v(R.color.CAM_X0105);
             d2.z(R.dimen.T_X05);
             d2.A(R.string.F_X02);
-            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.f22306k);
+            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.k);
             d3.v(R.color.CAM_X0108);
             d3.z(R.dimen.T_X08);
             d3.A(R.string.F_X01);

@@ -23,7 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class UbcPerfFrameRegister implements IPerfFrameRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UbcPerfFrameRegister";

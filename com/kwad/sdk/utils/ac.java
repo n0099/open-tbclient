@@ -6,7 +6,7 @@ public class ac {
     public Map<String, com.kwad.sdk.core.download.a.b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, com.kwad.sdk.core.webview.kwai.c> f60175b;
+    public Map<String, com.kwad.sdk.core.webview.kwai.c> f57891b;
 
     public com.kwad.sdk.core.download.a.b a(String str) {
         return this.a.get(str);
@@ -17,7 +17,7 @@ public class ac {
             bVar.j();
         }
         this.a.clear();
-        this.f60175b.clear();
+        this.f57891b.clear();
     }
 
     public void a(String str, com.kwad.sdk.core.download.a.b bVar) {
@@ -25,10 +25,10 @@ public class ac {
     }
 
     public void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
-        this.f60175b.put(str, cVar);
+        this.f57891b.put(str, cVar);
     }
 
     public com.kwad.sdk.core.webview.kwai.c b(String str) {
-        return this.f60175b.get(str);
+        return this.f57891b.get(str);
     }
 }

@@ -73,7 +73,7 @@ public class ShareUtils {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         c.a(this.val$shareContent.t);
-                        n.M(this.val$activity, view.getResources().getString(R.string.copy_pb_url_success));
+                        n.N(this.val$activity, view.getResources().getString(R.string.copy_pb_url_success));
                     }
                 }
             });

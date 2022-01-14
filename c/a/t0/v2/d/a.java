@@ -14,7 +14,7 @@ public class a implements c.a.s0.s.w.b.a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25275b;
+    public String f24569b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,13 +41,13 @@ public class a implements c.a.s0.s.w.b.a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25275b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24569b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25275b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24569b : (String) invokeV.objValue;
     }
 
     public void d(BannerImage bannerImage) {
@@ -56,7 +56,7 @@ public class a implements c.a.s0.s.w.b.a {
             return;
         }
         this.a = bannerImage.img_url;
-        this.f25275b = bannerImage.ahead_url;
+        this.f24569b = bannerImage.ahead_url;
         String str = bannerImage.title;
     }
 }

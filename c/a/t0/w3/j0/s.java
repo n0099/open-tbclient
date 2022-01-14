@@ -13,7 +13,7 @@ public class s {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25586b;
+    public String f24871b;
 
     public s() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class s {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25586b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24871b : (String) invokeV.objValue;
     }
 
     public void c(int i2) {
@@ -51,7 +51,7 @@ public class s {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f25586b = str;
+            this.f24871b = str;
         }
     }
 }

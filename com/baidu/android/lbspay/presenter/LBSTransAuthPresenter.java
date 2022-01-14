@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LBSTransAuthPresenter implements LBSTransPresenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTH_CHANNEL_ALI = "alipay";

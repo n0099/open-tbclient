@@ -22,25 +22,23 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f49820e;
+    public b f47949e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f49821f;
+    public c f47950f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f49822g;
+    public String f47951g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49823h;
+    public String f47952h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f49824i;
+    public String f47953i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f49825j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f49826k;
+    public boolean f47954j;
+    public boolean k;
 
     /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
@@ -71,17 +69,17 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 return;
             }
         }
-        this.f49825j = false;
-        this.f49826k = false;
-        this.f49822g = str;
-        this.f49823h = str2;
-        this.f49824i = str3;
+        this.f47954j = false;
+        this.k = false;
+        this.f47951g = str;
+        this.f47952h = str2;
+        this.f47953i = str3;
     }
 
     public void E(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f49821f = cVar;
+            this.f47950f = cVar;
         }
     }
 
@@ -90,7 +88,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.f49820e;
+            b bVar = this.f47949e;
             if (bVar != null) {
                 bVar.cancel();
                 return false;
@@ -106,7 +104,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             b bVar = new b(this, null);
-            this.f49820e = bVar;
+            this.f47949e = bVar;
             bVar.execute(new Object[0]);
             return true;
         }
@@ -120,10 +118,10 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.t0.s3.j.c f49827b;
+        public c.a.t0.s3.j.c f47955b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ DirMenuModel f49828c;
+        public final /* synthetic */ DirMenuModel f47956c;
 
         public b(DirMenuModel dirMenuModel) {
             Interceptable interceptable = $ic;
@@ -140,9 +138,9 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                     return;
                 }
             }
-            this.f49828c = dirMenuModel;
+            this.f47956c = dirMenuModel;
             this.a = null;
-            this.f49827b = new c.a.t0.s3.j.c();
+            this.f47955b = new c.a.t0.s3.j.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -157,40 +155,40 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 c.a.s0.s.r.a.f();
                 l<String> g2 = c.a.s0.s.r.a.g("tb.my_posts");
                 if (g2 != null) {
-                    str = g2.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.f49828c.f49822g + "_dir");
+                    str = g2.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.f47956c.f47951g + "_dir");
                 } else {
                     str = null;
                 }
                 if (str != null) {
-                    this.f49827b.e(str);
-                    this.f49828c.f49826k = true;
+                    this.f47955b.e(str);
+                    this.f47956c.k = true;
                     publishProgress(new Integer[0]);
                 }
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/seconddir");
                     this.a = netWork;
-                    netWork.addPostData(ForumListActivity.KEY_MENU_NAME, this.f49828c.f49822g);
-                    this.a.addPostData("menu_type", this.f49828c.f49823h);
-                    this.a.addPostData(ForumListActivity.KEY_MENU_ID, this.f49828c.f49824i);
+                    netWork.addPostData(ForumListActivity.KEY_MENU_NAME, this.f47956c.f47951g);
+                    this.a.addPostData("menu_type", this.f47956c.f47952h);
+                    this.a.addPostData(ForumListActivity.KEY_MENU_ID, this.f47956c.f47953i);
                     postNetData = this.a.postNetData();
                 } catch (Exception e2) {
-                    this.f49827b.g(e2.getMessage());
+                    this.f47955b.g(e2.getMessage());
                     BdLog.detailException(e2);
                 }
                 if (postNetData == null) {
-                    return this.f49827b;
+                    return this.f47955b;
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.f49827b.e(postNetData);
-                    this.f49828c.f49825j = true;
+                    this.f47955b.e(postNetData);
+                    this.f47956c.f47954j = true;
                     if (g2 != null) {
-                        g2.e(TbadkCoreApplication.getCurrentAccount() + "_" + this.f49828c.f49822g + "_dir", postNetData, 86400000L);
+                        g2.e(TbadkCoreApplication.getCurrentAccount() + "_" + this.f47956c.f47951g + "_dir", postNetData, 86400000L);
                     }
                 } else {
-                    this.f49827b.g(this.a.getErrorString());
-                    this.f49828c.f49825j = false;
+                    this.f47955b.g(this.a.getErrorString());
+                    this.f47956c.f47954j = false;
                 }
-                return this.f49827b;
+                return this.f47955b;
             }
             return (c.a.t0.s3.j.c) invokeL.objValue;
         }
@@ -201,10 +199,10 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         public void onPostExecute(c.a.t0.s3.j.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                if (!this.f49828c.f49825j) {
-                    this.f49828c.f49821f.a(false, -1, null, cVar.b(), this.f49828c.f49826k);
+                if (!this.f47956c.f47954j) {
+                    this.f47956c.f47950f.a(false, -1, null, cVar.b(), this.f47956c.k);
                 } else if (cVar.h() != null) {
-                    this.f49828c.f49821f.a(true, cVar.a(), cVar.h(), cVar.b(), this.f49828c.f49826k);
+                    this.f47956c.f47950f.a(true, cVar.a(), cVar.h(), cVar.b(), this.f47956c.k);
                 }
             }
         }
@@ -229,8 +227,8 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, numArr) == null) {
                 super.onProgressUpdate(numArr);
-                if (this.f49827b != null) {
-                    this.f49828c.f49821f.a(true, this.f49827b.a(), this.f49827b.h(), this.f49827b.b(), this.f49828c.f49826k);
+                if (this.f47955b != null) {
+                    this.f47956c.f47950f.a(true, this.f47955b.a(), this.f47955b.h(), this.f47955b.b(), this.f47956c.k);
                 }
             }
         }

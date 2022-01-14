@@ -20,25 +20,23 @@ public class i implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17866e;
+    public boolean f17434e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f17867f;
+    public String f17435f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17868g;
+    public String f17436g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17869h;
+    public int f17437h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f17870i;
+    public String f17438i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f17871j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f17872k;
+    public int f17439j;
+    public String k;
     public String l;
 
     static {
@@ -70,25 +68,25 @@ public class i implements n {
                 return;
             }
         }
-        this.f17866e = true;
+        this.f17434e = true;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17868g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17436g : (String) invokeV.objValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17869h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17437h : invokeV.intValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17867f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17435f : (String) invokeV.objValue;
     }
 
     public String g() {
@@ -107,19 +105,19 @@ public class i implements n {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17872k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : (String) invokeV.objValue;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17870i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17438i : (String) invokeV.objValue;
     }
 
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17871j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17439j : invokeV.intValue;
     }
 
     public void l(DataRes dataRes) {
@@ -128,12 +126,12 @@ public class i implements n {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataRes) == null) || dataRes == null || (vipUpgrade = dataRes.upgrade) == null) {
             return;
         }
-        this.f17870i = vipUpgrade.svip;
-        this.f17872k = vipUpgrade.link;
-        this.f17868g = vipUpgrade.button;
-        this.f17867f = vipUpgrade.text;
-        this.f17871j = vipUpgrade.pay.intValue();
-        this.f17869h = dataRes.upgrade.normal.intValue();
+        this.f17438i = vipUpgrade.svip;
+        this.k = vipUpgrade.link;
+        this.f17436g = vipUpgrade.button;
+        this.f17435f = vipUpgrade.text;
+        this.f17439j = vipUpgrade.pay.intValue();
+        this.f17437h = dataRes.upgrade.normal.intValue();
         VipUpgrade vipUpgrade2 = dataRes.upgrade;
         String str = vipUpgrade2.card_id;
         this.l = vipUpgrade2.expire;

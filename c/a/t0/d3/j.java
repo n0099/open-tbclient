@@ -19,10 +19,10 @@ public class j implements c.a.t0.h2.g {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17507b;
+    public String f17083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, c.a.t0.h2.e> f17508c;
+    public HashMap<String, c.a.t0.h2.e> f17084c;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -92,25 +92,25 @@ public class j implements c.a.t0.h2.g {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f17507b = this.a;
+            this.f17083b = this.a;
         }
     }
 
     @Override // c.a.t0.h2.g
     public void e(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || StringUtils.isNull(this.f17507b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || StringUtils.isNull(this.f17083b)) {
             return;
         }
-        if (!o(this.f17507b) && !p(this.f17507b)) {
-            c.a.t0.h2.d.b(this.f17507b);
-            this.f17508c.remove(this.a);
+        if (!o(this.f17083b) && !p(this.f17083b)) {
+            c.a.t0.h2.d.b(this.f17083b);
+            this.f17084c.remove(this.a);
         } else {
-            q(this.f17507b);
+            q(this.f17083b);
         }
         g();
-        n().h(this.f17507b, str);
-        this.f17507b = null;
+        n().h(this.f17083b, str);
+        this.f17083b = null;
     }
 
     @Override // c.a.t0.h2.g
@@ -160,7 +160,7 @@ public class j implements c.a.t0.h2.g {
             n().i(this.a, str);
             if (!o(this.a) && !p(this.a)) {
                 c.a.t0.h2.d.b(this.a);
-                this.f17508c.remove(this.a);
+                this.f17084c.remove(this.a);
             } else {
                 q(this.a);
             }
@@ -173,7 +173,7 @@ public class j implements c.a.t0.h2.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             i iVar = new i(this.a);
-            this.f17508c.put(this.a, iVar);
+            this.f17084c.put(this.a, iVar);
             return iVar;
         }
         return (c.a.t0.h2.e) invokeV.objValue;
@@ -183,7 +183,7 @@ public class j implements c.a.t0.h2.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            c.a.t0.h2.e eVar = this.f17508c.get(this.a);
+            c.a.t0.h2.e eVar = this.f17084c.get(this.a);
             return eVar == null ? l() : eVar;
         }
         return (c.a.t0.h2.e) invokeV.objValue;
@@ -204,11 +204,11 @@ public class j implements c.a.t0.h2.g {
     public void q(String str) {
         c.a.t0.h2.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || (eVar = this.f17508c.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || (eVar = this.f17084c.get(str)) == null) {
             return;
         }
         eVar.a(str);
-        this.f17508c.remove(str);
+        this.f17084c.remove(str);
     }
 
     public j() {
@@ -224,6 +224,6 @@ public class j implements c.a.t0.h2.g {
                 return;
             }
         }
-        this.f17508c = new HashMap<>();
+        this.f17084c = new HashMap<>();
     }
 }

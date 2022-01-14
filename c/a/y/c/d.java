@@ -33,34 +33,32 @@ public class d {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f27583b;
+    public Context f26755b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27584c;
+    public boolean f26756c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HandlerThread f27585d;
+    public HandlerThread f26757d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f27586e;
+    public volatile boolean f26758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27587f;
+    public boolean f26759f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f27588g;
+    public long f26760g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.y.c.g.d f27589h;
+    public c.a.y.c.g.d f26761h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f27590i;
+    public e f26762i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HandlerC1586d f27591j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.y.c.g.e f27592k;
+    public HandlerC1602d f26763j;
+    public c.a.y.c.g.e k;
     public f l;
     public c.a.y.c.f.a m;
     public c.a.y.c.g.c n;
@@ -229,8 +227,8 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 if (Build.VERSION.SDK_INT >= 18) {
-                    this.a.f27592k.d();
-                    this.a.f27592k = null;
+                    this.a.k.d();
+                    this.a.k = null;
                 }
                 this.a.l = null;
                 this.a.v(1, z);
@@ -240,13 +238,13 @@ public class d {
 
     /* renamed from: c.a.y.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class HandlerC1586d extends Handler {
+    public class HandlerC1602d extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC1586d(d dVar, Looper looper) {
+        public HandlerC1602d(d dVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -272,26 +270,26 @@ public class d {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
                     case 7001:
-                        if (this.a.f27590i != null) {
-                            this.a.f27590i.onRecorderStart(((Boolean) message.obj).booleanValue());
+                        if (this.a.f26762i != null) {
+                            this.a.f26762i.onRecorderStart(((Boolean) message.obj).booleanValue());
                         }
-                        this.a.f27586e = false;
+                        this.a.f26758e = false;
                         break;
                     case w0.Y5 /* 7002 */:
-                        if (this.a.f27590i != null) {
-                            this.a.f27590i.a(((Integer) message.obj).intValue());
+                        if (this.a.f26762i != null) {
+                            this.a.f26762i.a(((Integer) message.obj).intValue());
                             break;
                         }
                         break;
                     case w0.S5 /* 7003 */:
-                        if (this.a.f27590i != null) {
-                            this.a.f27590i.onRecorderComplete(((Boolean) message.obj).booleanValue(), this.a.f27589h != null ? this.a.f27589h.f() : null);
+                        if (this.a.f26762i != null) {
+                            this.a.f26762i.onRecorderComplete(((Boolean) message.obj).booleanValue(), this.a.f26761h != null ? this.a.f26761h.f() : null);
                             break;
                         }
                         break;
                     case w0.T5 /* 7004 */:
-                        if (this.a.f27590i != null) {
-                            this.a.f27590i.onRecorderError(((Integer) message.obj).intValue());
+                        if (this.a.f26762i != null) {
+                            this.a.f26762i.onRecorderError(((Integer) message.obj).intValue());
                             break;
                         }
                         break;
@@ -299,7 +297,7 @@ public class d {
                         this.a.R();
                         break;
                     case w0.V5 /* 7006 */:
-                        this.a.f27586e = false;
+                        this.a.f26758e = false;
                         this.a.U();
                         break;
                 }
@@ -337,10 +335,10 @@ public class d {
             }
         }
         this.a = 0;
-        this.f27584c = false;
-        this.f27586e = false;
-        this.f27587f = false;
-        this.f27588g = 0L;
+        this.f26756c = false;
+        this.f26758e = false;
+        this.f26759f = false;
+        this.f26760g = 0L;
         this.o = false;
         this.r = false;
     }
@@ -386,31 +384,31 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
-                this.f27592k = new c.a.y.c.g.e();
+                this.k = new c.a.y.c.g.e();
             }
-            if (this.f27589h.o()) {
+            if (this.f26761h.o()) {
                 this.m = new c.a.y.c.f.a();
             } else {
                 w = true;
             }
             this.p = new c.a.y.c.f.b();
             this.a = 0;
-            if (!this.f27584c && this.f27585d == null) {
+            if (!this.f26756c && this.f26757d == null) {
                 HandlerThread handlerThread = new HandlerThread(u);
-                this.f27585d = handlerThread;
+                this.f26757d = handlerThread;
                 handlerThread.start();
             }
-            HandlerC1586d handlerC1586d = this.f27591j;
-            if (handlerC1586d == null) {
-                if (this.f27585d != null) {
-                    this.f27591j = new HandlerC1586d(this, this.f27585d.getLooper());
+            HandlerC1602d handlerC1602d = this.f26763j;
+            if (handlerC1602d == null) {
+                if (this.f26757d != null) {
+                    this.f26763j = new HandlerC1602d(this, this.f26757d.getLooper());
                 } else {
-                    this.f27591j = new HandlerC1586d(this, this.f27583b.getMainLooper());
+                    this.f26763j = new HandlerC1602d(this, this.f26755b.getMainLooper());
                 }
             } else {
-                handlerC1586d.removeCallbacksAndMessages(null);
+                handlerC1602d.removeCallbacksAndMessages(null);
             }
-            this.f27589h.h();
+            this.f26761h.h();
         }
     }
 
@@ -422,8 +420,8 @@ public class d {
             synchronized (this) {
                 String str = "isMovieRecordStarted sMovieRecordState = " + v;
                 int i2 = (v ^ 1) ^ 2;
-                if (this.f27589h != null) {
-                    if (this.f27589h.o()) {
+                if (this.f26761h != null) {
+                    if (this.f26761h.o()) {
                         i2 ^= 4;
                     }
                 }
@@ -451,7 +449,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.y.c.g.d dVar = this.f27589h;
+            c.a.y.c.g.d dVar = this.f26761h;
             if (dVar == null) {
                 return false;
             }
@@ -489,19 +487,19 @@ public class d {
                 arrayList.clear();
                 this.s = null;
             }
-            this.f27583b = null;
-            this.f27589h = null;
+            this.f26755b = null;
+            this.f26761h = null;
             N(0);
             K();
-            HandlerC1586d handlerC1586d = this.f27591j;
-            if (handlerC1586d != null) {
-                handlerC1586d.removeCallbacksAndMessages(null);
-                this.f27591j = null;
+            HandlerC1602d handlerC1602d = this.f26763j;
+            if (handlerC1602d != null) {
+                handlerC1602d.removeCallbacksAndMessages(null);
+                this.f26763j = null;
             }
-            HandlerThread handlerThread = this.f27585d;
+            HandlerThread handlerThread = this.f26757d;
             if (handlerThread != null) {
                 handlerThread.quit();
-                this.f27585d = null;
+                this.f26757d = null;
             }
         }
     }
@@ -542,8 +540,8 @@ public class d {
                 this.p.v();
                 z = false;
             }
-            c.a.y.c.g.d dVar = this.f27589h;
-            if (dVar == null || this.f27592k.b(dVar.f(), this.f27589h.g(), this.l)) {
+            c.a.y.c.g.d dVar = this.f26761h;
+            if (dVar == null || this.k.b(dVar.f(), this.f26761h.g(), this.l)) {
                 return z;
             }
             return false;
@@ -554,11 +552,11 @@ public class d {
     public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            String str = "restartRecorder mRestartTried = " + this.f27587f;
-            HandlerC1586d handlerC1586d = this.f27591j;
-            if (handlerC1586d != null) {
-                this.f27587f = true;
-                handlerC1586d.sendMessageDelayed(handlerC1586d.obtainMessage(w0.U5), 500L);
+            String str = "restartRecorder mRestartTried = " + this.f26759f;
+            HandlerC1602d handlerC1602d = this.f26763j;
+            if (handlerC1602d != null) {
+                this.f26759f = true;
+                handlerC1602d.sendMessageDelayed(handlerC1602d.obtainMessage(w0.U5), 500L);
             }
         }
     }
@@ -579,16 +577,16 @@ public class d {
         if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (aVar = this.m) == null) {
             return;
         }
-        aVar.q(this.f27589h, this.f27592k, this.n);
+        aVar.q(this.f26761h, this.k, this.n);
     }
 
     public final void Q() {
-        HandlerC1586d handlerC1586d;
+        HandlerC1602d handlerC1602d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (handlerC1586d = this.f27591j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (handlerC1602d = this.f26763j) == null) {
             return;
         }
-        handlerC1586d.sendMessageDelayed(handlerC1586d.obtainMessage(7001, Boolean.FALSE), 500L);
+        handlerC1602d.sendMessageDelayed(handlerC1602d.obtainMessage(7001, Boolean.FALSE), 500L);
     }
 
     public final void R() {
@@ -599,7 +597,7 @@ public class d {
             if (J()) {
                 P();
                 T();
-            } else if (!this.f27587f) {
+            } else if (!this.f26759f) {
                 L();
             } else {
                 Q();
@@ -610,15 +608,15 @@ public class d {
     public void S(Context context, c.a.y.c.g.d dVar, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048591, this, context, dVar, eVar) == null) {
-            String str = "startRecorder mStarting = " + this.f27586e;
-            if (this.f27586e) {
+            String str = "startRecorder mStarting = " + this.f26758e;
+            if (this.f26758e) {
                 Q();
                 return;
             }
-            this.f27586e = true;
-            this.f27583b = context;
-            this.f27589h = dVar;
-            this.f27590i = eVar;
+            this.f26758e = true;
+            this.f26755b = context;
+            this.f26761h = dVar;
+            this.f26762i = eVar;
             R();
         }
     }
@@ -627,29 +625,29 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             Y();
-            this.p.w(this.s, this.f27589h, this.f27592k, this.q);
+            this.p.w(this.s, this.f26761h, this.k, this.q);
         }
     }
 
     public void U() {
-        HandlerC1586d handlerC1586d;
+        HandlerC1602d handlerC1602d;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            String str = "stopRecorder mStarting = " + this.f27586e;
-            if (this.f27586e) {
-                if (!B() && (handlerC1586d = this.f27591j) != null) {
-                    handlerC1586d.sendMessage(handlerC1586d.obtainMessage(w0.T5, 4002));
+            String str = "stopRecorder mStarting = " + this.f26758e;
+            if (this.f26758e) {
+                if (!B() && (handlerC1602d = this.f26763j) != null) {
+                    handlerC1602d.sendMessage(handlerC1602d.obtainMessage(w0.T5, 4002));
                 }
-                HandlerC1586d handlerC1586d2 = this.f27591j;
-                if (handlerC1586d2 != null) {
-                    handlerC1586d2.sendMessageDelayed(handlerC1586d2.obtainMessage(w0.V5), 500L);
+                HandlerC1602d handlerC1602d2 = this.f26763j;
+                if (handlerC1602d2 != null) {
+                    handlerC1602d2.sendMessageDelayed(handlerC1602d2.obtainMessage(w0.V5), 500L);
                     return;
                 }
                 return;
             }
             this.o = false;
             this.r = false;
-            this.f27588g = 0L;
+            this.f26760g = 0L;
             c.a.y.c.f.a aVar = this.m;
             if (aVar != null && aVar.o()) {
                 this.m.s();
@@ -665,8 +663,8 @@ public class d {
     public void V(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.f27588g *= 1000000;
-            e eVar = this.f27590i;
+            this.f26760g *= 1000000;
+            e eVar = this.f26762i;
             if (eVar != null) {
                 eVar.a(j2);
             }
@@ -756,7 +754,7 @@ public class d {
                 M(i2, z);
                 String str2 = "checkMovieRecordStartState sMovieRecordState = " + v;
                 if (D()) {
-                    this.f27591j.sendMessage(this.f27591j.obtainMessage(7001, Boolean.valueOf(B())));
+                    this.f26763j.sendMessage(this.f26763j.obtainMessage(7001, Boolean.valueOf(B())));
                 }
             }
         }
@@ -769,8 +767,8 @@ public class d {
                 String str = "checkMovieRecordStopState condition = " + i2 + " && state = " + z;
                 w(i2, z);
                 String str2 = "checkMovieRecordStopState sMovieRecordState = " + v;
-                if (E() && this.f27591j != null) {
-                    this.f27591j.sendMessage(this.f27591j.obtainMessage(w0.S5, Boolean.valueOf(C())));
+                if (E() && this.f26763j != null) {
+                    this.f26763j.sendMessage(this.f26763j.obtainMessage(w0.S5, Boolean.valueOf(C())));
                 }
             }
         }

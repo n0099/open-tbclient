@@ -104,11 +104,11 @@ public class c extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.f> {
         SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || fVar == null || fVar.f14785e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || fVar == null || fVar.f14433e == null) {
             return;
         }
-        int k2 = n.k(this.f18211g);
-        if (k2 != this.o) {
+        int k = n.k(this.f17768g);
+        if (k != this.o) {
             int[] b2 = c.a.t0.a0.f.c.c.b(getContext());
             int i2 = b2[0];
             int i3 = b2[1];
@@ -116,14 +116,14 @@ public class c extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.f> {
             layoutParams.width = i2;
             layoutParams.height = i3;
             this.n.setLayoutParams(layoutParams);
-            this.o = k2;
+            this.o = k;
         }
-        this.n.setData(fVar.f14785e.a, 101);
+        this.n.setData(fVar.f14433e.a, 101);
         StatisticItem statisticItem = new StatisticItem("c13551");
-        c.a.t0.a0.f.c.e.g gVar = fVar.f14785e;
+        c.a.t0.a0.f.c.e.g gVar = fVar.f14433e;
         if (gVar != null && (sdkLiveInfoData = gVar.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null) {
             int a = c.a.t0.a0.f.c.c.a(alaLiveInfo);
-            SdkLiveInfoData sdkLiveInfoData2 = fVar.f14785e.a;
+            SdkLiveInfoData sdkLiveInfoData2 = fVar.f14433e.a;
             SdkLiveInfoData.YYExt yYExt = sdkLiveInfoData2.liveInfo.yyExt;
             if (yYExt != null) {
                 TiebaStaticHelper.addYYParam(statisticItem, c.a.t0.a0.f.c.c.k(yYExt, sdkLiveInfoData2.roomId));
@@ -135,8 +135,8 @@ public class c extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.f> {
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
         }
         statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
-        statisticItem.param("nid", fVar.f14785e.a.nid);
-        statisticItem.param(TiebaStatic.Params.LOGID, fVar.f14785e.a.logid);
+        statisticItem.param("nid", fVar.f14433e.a.nid);
+        statisticItem.param(TiebaStatic.Params.LOGID, fVar.f14433e.a.logid);
         TiebaStatic.log(statisticItem);
     }
 }

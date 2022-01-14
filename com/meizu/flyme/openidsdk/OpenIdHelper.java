@@ -33,7 +33,7 @@ public class OpenIdHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             b a = b.a();
-            return a.a(context.getApplicationContext(), a.f61168c);
+            return a.a(context.getApplicationContext(), a.f58852c);
         }
         return (String) invokeL.objValue;
     }
@@ -43,7 +43,7 @@ public class OpenIdHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             b a = b.a();
-            return a.a(context.getApplicationContext(), a.f61167b);
+            return a.a(context.getApplicationContext(), a.f58851b);
         }
         return (String) invokeL.objValue;
     }
@@ -63,7 +63,7 @@ public class OpenIdHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             b a = b.a();
-            return a.a(context.getApplicationContext(), a.f61169d);
+            return a.a(context.getApplicationContext(), a.f58853d);
         }
         return (String) invokeL.objValue;
     }

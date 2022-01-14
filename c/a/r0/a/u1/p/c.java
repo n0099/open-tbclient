@@ -16,7 +16,7 @@ public class c implements e {
     public List<Long> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f9642b;
+    public long f9433b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class c implements e {
             }
         }
         this.a = new ArrayList();
-        this.f9642b = -1L;
+        this.f9433b = -1L;
     }
 
     @Override // c.a.r0.a.u1.p.e
@@ -41,10 +41,10 @@ public class c implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             List<Long> list = this.a;
-            if (list == null || list.size() <= 0 || this.f9642b < 0) {
+            if (list == null || list.size() <= 0 || this.f9433b < 0) {
                 return -1L;
             }
-            return this.f9642b - ((Long) Collections.min(this.a)).longValue();
+            return this.f9433b - ((Long) Collections.min(this.a)).longValue();
         }
         return invokeV.longValue;
     }
@@ -53,7 +53,7 @@ public class c implements e {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f9642b = j2;
+            this.f9433b = j2;
         }
     }
 

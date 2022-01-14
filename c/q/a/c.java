@@ -36,7 +36,7 @@ public class c implements DownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
             String guessFileName = URLUtil.guessFileName(str, str3, str4);
-            f fVar = this.a.f63247c;
+            f fVar = this.a.f60867c;
             if (fVar != null) {
                 fVar.a(str, guessFileName, str4, j2, str3, str2);
             }

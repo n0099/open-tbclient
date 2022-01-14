@@ -19,29 +19,29 @@ public class a {
 
     /* renamed from: c.a.h0.l.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0133a implements Runnable {
+    public static class RunnableC0141a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.h0.o.a f3602e;
+        public final /* synthetic */ c.a.h0.o.a f3549e;
 
         /* renamed from: c.a.h0.l.i.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0134a extends c.a.h0.o.a {
+        public class C0142a extends c.a.h0.o.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONArray a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ RunnableC0133a f3603b;
+            public final /* synthetic */ RunnableC0141a f3550b;
 
-            public C0134a(RunnableC0133a runnableC0133a, JSONArray jSONArray) {
+            public C0142a(RunnableC0141a runnableC0141a, JSONArray jSONArray) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC0133a, jSONArray};
+                    Object[] objArr = {runnableC0141a, jSONArray};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -51,7 +51,7 @@ public class a {
                         return;
                     }
                 }
-                this.f3603b = runnableC0133a;
+                this.f3550b = runnableC0141a;
                 this.a = jSONArray;
             }
 
@@ -59,7 +59,7 @@ public class a {
             public void a(int i2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                    c.a.h0.o.a aVar = this.f3603b.f3602e;
+                    c.a.h0.o.a aVar = this.f3550b.f3549e;
                     if (aVar != null) {
                         aVar.a(i2, str);
                     }
@@ -70,7 +70,7 @@ public class a {
             }
         }
 
-        public RunnableC0133a(c.a.h0.o.a aVar) {
+        public RunnableC0141a(c.a.h0.o.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +85,7 @@ public class a {
                     return;
                 }
             }
-            this.f3602e = aVar;
+            this.f3549e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -95,7 +95,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (c2 = a.c()) == null) {
                 return;
             }
-            c.a.h0.l.h.a.d(c2, new C0134a(this, c2));
+            c.a.h0.l.h.a.d(c2, new C0142a(this, c2));
         }
     }
 
@@ -160,7 +160,7 @@ public class a {
     public static void f(c.a.h0.o.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, aVar) == null) {
-            c.a.h0.q.a.a(new RunnableC0133a(aVar));
+            c.a.h0.q.a.a(new RunnableC0141a(aVar));
         }
     }
 }

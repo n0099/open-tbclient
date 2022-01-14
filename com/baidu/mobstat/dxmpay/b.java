@@ -17,7 +17,7 @@ public class b {
     public static volatile boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f38080b;
+    public static volatile boolean f36832b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */

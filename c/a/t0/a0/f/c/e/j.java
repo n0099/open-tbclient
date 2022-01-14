@@ -15,7 +15,7 @@ public class j {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<SdkLiveInfoData> f14790b;
+    public ArrayList<SdkLiveInfoData> f14438b;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -43,13 +43,13 @@ public class j {
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        this.f14790b = new ArrayList<>(optJSONArray.length());
+        this.f14438b = new ArrayList<>(optJSONArray.length());
         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
                 sdkLiveInfoData.fromJson(optJSONObject, str);
-                this.f14790b.add(sdkLiveInfoData);
+                this.f14438b.add(sdkLiveInfoData);
             }
         }
     }

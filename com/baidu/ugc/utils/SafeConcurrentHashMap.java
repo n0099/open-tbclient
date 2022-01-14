@@ -27,17 +27,17 @@ public class SafeConcurrentHashMap<K, V> extends ConcurrentHashMap<K, V> {
     }
 
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
-    public V put(@NonNull K k2, @NonNull V v) {
+    public V put(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k2, v)) == null) {
-            if (k2 == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, v)) == null) {
+            if (k == null) {
                 return null;
             }
             if (v == null) {
-                return remove(k2);
+                return remove(k);
             }
-            return (V) super.put(k2, v);
+            return (V) super.put(k, v);
         }
         return (V) invokeLL.objValue;
     }

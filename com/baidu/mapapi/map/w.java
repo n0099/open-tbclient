@@ -12,16 +12,16 @@ public class w implements Runnable {
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f36683b;
+    public final /* synthetic */ int f35474b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f36684c;
+    public final /* synthetic */ int f35475c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f36685d;
+    public final /* synthetic */ String f35476d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ TileOverlay f36686e;
+    public final /* synthetic */ TileOverlay f35477e;
 
     public w(TileOverlay tileOverlay, int i2, int i3, int i4, String str) {
         Interceptable interceptable = $ic;
@@ -38,11 +38,11 @@ public class w implements Runnable {
                 return;
             }
         }
-        this.f36686e = tileOverlay;
+        this.f35477e = tileOverlay;
         this.a = i2;
-        this.f36683b = i3;
-        this.f36684c = i4;
-        this.f36685d = str;
+        this.f35474b = i3;
+        this.f35475c = i4;
+        this.f35476d = str;
     }
 
     @Override // java.lang.Runnable
@@ -52,15 +52,15 @@ public class w implements Runnable {
         String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tileProvider = this.f36686e.f36644g;
-            Tile tile = ((FileTileProvider) tileProvider).getTile(this.a, this.f36683b, this.f36684c);
+            tileProvider = this.f35477e.f35436g;
+            Tile tile = ((FileTileProvider) tileProvider).getTile(this.a, this.f35474b, this.f35475c);
             if (tile != null && tile.width == 256 && tile.height == 256) {
-                this.f36686e.a(this.a + "_" + this.f36683b + "_" + this.f36684c, tile);
+                this.f35477e.a(this.a + "_" + this.f35474b + "_" + this.f35475c, tile);
             } else {
-                unused = TileOverlay.f36639b;
+                unused = TileOverlay.f35431b;
             }
-            hashSet = this.f36686e.f36643e;
-            hashSet.remove(this.f36685d);
+            hashSet = this.f35477e.f35435e;
+            hashSet.remove(this.f35476d);
         }
     }
 }

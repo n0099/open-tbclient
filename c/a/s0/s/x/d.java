@@ -4,7 +4,6 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.cmdRouter.MultiDexHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStaticClassesArray;
-import com.baidu.tbadk.switchs.SecondaryStaticSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,13 +18,7 @@ public class d {
     public static String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String[] f13999b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String[] f14000c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static boolean f14001d;
+    public static boolean f13673b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -34,10 +27,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f14002e;
+        public final /* synthetic */ boolean f13674e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TiebaStaticClassesArray f14003f;
+        public final /* synthetic */ TiebaStaticClassesArray f13675f;
 
         public a(boolean z, TiebaStaticClassesArray tiebaStaticClassesArray) {
             Interceptable interceptable = $ic;
@@ -54,8 +47,8 @@ public class d {
                     return;
                 }
             }
-            this.f14002e = z;
-            this.f14003f = tiebaStaticClassesArray;
+            this.f13674e = z;
+            this.f13675f = tiebaStaticClassesArray;
         }
 
         @Override // java.lang.Runnable
@@ -63,9 +56,9 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f14002e) {
+                    if (this.f13674e) {
                         MultiDexHelper.loadClass(BdBaseApplication.getInst());
-                    } else if (this.f14003f.loadStaticClasses()) {
+                    } else if (this.f13675f.loadStaticClasses()) {
                     } else {
                         MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
                     }
@@ -89,9 +82,7 @@ public class d {
                 return;
             }
         }
-        a = new String[]{"com.baidu.tieba.livesdk.AlaLiveSdkStatic", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.wallet.PayStatic", "com.baidu.tieba.emotion.BasePlugInFaceProviderStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tbadk.plugins.Static", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.videoplay.fragment.VideoChannelDelegateStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.location.LocationProvidersStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.emotion.PlugInFaceProviderStatic", "com.baidu.tieba.flutter.FlutterStatic", "com.baidu.tieba.square.ForumSquareStatic", "com.baidu.tieba.homepage.topic.TopicStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tbadk.core.util.schemeaction.SchemeActionStatic", "com.baidu.tieba.hottopic.controller.HotTopicStatic"};
-        f13999b = new String[]{"com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.videoplay.fragment.VideoChannelDelegateStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.flutter.FlutterStatic", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.homepage.topic.TopicStatic", "com.baidu.tieba.location.LocationProvidersStatic", "com.baidu.tieba.square.ForumSquareStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic"};
-        f14000c = new String[]{"com.baidu.tieba.livesdk.AlaLiveSdkStatic", "com.baidu.tieba.wallet.PayStatic", "com.baidu.tieba.emotion.BasePlugInFaceProviderStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tbadk.plugins.Static", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.ala.livecard.Static"};
+        a = new String[]{"com.baidu.tieba.tbadvert.TbAdvertStatic", "com.baidu.tieba.homepage.personalize.PersonalizeStatic", "com.baidu.tieba.livesdk.AlaLiveSdkStatic", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.wallet.PayStatic", "com.baidu.tieba.emotion.BasePlugInFaceProviderStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tbadk.plugins.Static", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.videoplay.fragment.VideoChannelDelegateStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.location.LocationProvidersStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.emotion.PlugInFaceProviderStatic", "com.baidu.tieba.flutter.FlutterStatic", "com.baidu.tieba.square.ForumSquareStatic", "com.baidu.tieba.homepage.topic.TopicStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tbadk.core.util.schemeaction.SchemeActionStatic", "com.baidu.tieba.hottopic.controller.HotTopicStatic"};
     }
 
     public static void a() {
@@ -99,6 +90,7 @@ public class d {
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             try {
                 TiebaStaticClassesArray tiebaStaticClassesArray = new TiebaStaticClassesArray();
+                boolean z = true;
                 try {
                     Class<?> cls = Class.forName("com.baidu.tbadk.core.util.TiebaStaticArray");
                     Object newInstance = cls.newInstance();
@@ -109,10 +101,13 @@ public class d {
                     e2.printStackTrace();
                 }
                 String str = "" + tiebaStaticClassesArray.staticClassesArray.length;
-                f14001d = c.a.s0.s.g0.b.j().k("static_opt_open", 0) > 0;
+                if (c.a.s0.s.h0.b.k().l("static_opt_open", 0) <= 0) {
+                    z = false;
+                }
+                f13673b = z;
                 long currentTimeMillis = System.currentTimeMillis();
-                if (f14001d) {
-                    c.a.d.e.a.c().a("MultiDexHelper", new a(b(true), tiebaStaticClassesArray));
+                if (f13673b) {
+                    c.a.d.e.a.b().a("MultiDexHelper", new a(b(), tiebaStaticClassesArray));
                 } else if (!tiebaStaticClassesArray.loadStaticClasses()) {
                     MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
                 }
@@ -123,22 +118,11 @@ public class d {
         }
     }
 
-    public static boolean b(boolean z) {
-        InterceptResult invokeZ;
-        String[] strArr;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (!SecondaryStaticSwitch.getIsOn()) {
-                String[] strArr2 = a;
-                if (!z) {
-                    return false;
-                }
-                strArr = strArr2;
-            } else if (z) {
-                strArr = f13999b;
-            } else {
-                strArr = f14000c;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String[] strArr = a;
             try {
                 if (strArr.length <= 0) {
                     return false;
@@ -154,6 +138,6 @@ public class d {
                 return false;
             }
         }
-        return invokeZ.booleanValue;
+        return invokeV.booleanValue;
     }
 }

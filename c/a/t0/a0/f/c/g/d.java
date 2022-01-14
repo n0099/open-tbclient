@@ -21,22 +21,22 @@ public class d {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f14872b;
+    public List<String> f14517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<SdkLiveInfoData> f14873c;
+    public List<SdkLiveInfoData> f14518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f14874d;
+    public List<n> f14519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14875e;
+    public boolean f14520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14876f;
+    public String f14521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14877g;
+    public String f14522g;
 
     public d(j jVar, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -54,15 +54,15 @@ public class d {
             }
         }
         this.a = false;
-        this.f14875e = false;
-        this.f14872b = new ArrayList();
-        this.f14873c = new ArrayList();
-        this.f14874d = new ArrayList();
+        this.f14520e = false;
+        this.f14517b = new ArrayList();
+        this.f14518c = new ArrayList();
+        this.f14519d = new ArrayList();
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.f14875e = true;
+            this.f14520e = true;
         }
-        this.f14876f = str;
-        this.f14877g = str2;
+        this.f14521f = str;
+        this.f14522g = str2;
         a(jVar);
     }
 
@@ -73,7 +73,7 @@ public class d {
             if (jVar == null) {
                 return false;
             }
-            boolean e2 = e(jVar.f14790b);
+            boolean e2 = e(jVar.f14438b);
             this.a = jVar.a;
             return e2;
         }
@@ -84,15 +84,15 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = false;
-            List<String> list = this.f14872b;
+            List<String> list = this.f14517b;
             if (list != null) {
                 list.clear();
             }
-            List<SdkLiveInfoData> list2 = this.f14873c;
+            List<SdkLiveInfoData> list2 = this.f14518c;
             if (list2 != null) {
                 list2.clear();
             }
-            List<n> list3 = this.f14874d;
+            List<n> list3 = this.f14519d;
             if (list3 != null) {
                 list3.clear();
             }
@@ -108,25 +108,25 @@ public class d {
             for (int i2 = 0; i2 < size; i2 += 2) {
                 e eVar = new e();
                 c.a.t0.a0.f.a.a aVar = new c.a.t0.a0.f.a.a();
-                aVar.f14674e = list.get(i2);
-                aVar.f14679j = true;
-                aVar.f14675f = this.f14875e;
-                aVar.f14676g = this.f14876f;
-                aVar.f14677h = this.f14877g;
+                aVar.f14327e = list.get(i2);
+                aVar.f14332j = true;
+                aVar.f14328f = this.f14520e;
+                aVar.f14329g = this.f14521f;
+                aVar.f14330h = this.f14522g;
                 int i3 = i2 + 1;
-                aVar.f14678i = i3;
-                eVar.f14782e = aVar;
+                aVar.f14331i = i3;
+                eVar.f14430e = aVar;
                 if (i3 < size) {
                     c.a.t0.a0.f.a.a aVar2 = new c.a.t0.a0.f.a.a();
-                    aVar2.f14674e = list.get(i3);
-                    aVar2.f14675f = this.f14875e;
-                    aVar2.f14676g = this.f14876f;
-                    aVar2.f14677h = this.f14877g;
-                    aVar2.f14678i = i2 + 2;
-                    eVar.f14783f = aVar2;
-                    aVar2.f14680k = true;
+                    aVar2.f14327e = list.get(i3);
+                    aVar2.f14328f = this.f14520e;
+                    aVar2.f14329g = this.f14521f;
+                    aVar2.f14330h = this.f14522g;
+                    aVar2.f14331i = i2 + 2;
+                    eVar.f14431f = aVar2;
+                    aVar2.k = true;
                 } else {
-                    aVar.f14679j = false;
+                    aVar.f14332j = false;
                     aVar.l = true;
                 }
                 arrayList.add(eVar);
@@ -141,8 +141,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.f14874d)) {
-                arrayList.addAll(this.f14874d);
+            if (!ListUtils.isEmpty(this.f14519d)) {
+                arrayList.addAll(this.f14519d);
             }
             return arrayList;
         }
@@ -160,18 +160,18 @@ public class d {
             for (SdkLiveInfoData sdkLiveInfoData : list) {
                 if (sdkLiveInfoData != null) {
                     String str = sdkLiveInfoData.liveId;
-                    if (!this.f14872b.contains(str)) {
+                    if (!this.f14517b.contains(str)) {
                         arrayList.add(sdkLiveInfoData);
-                        this.f14872b.add(str);
+                        this.f14517b.add(str);
                     }
                 }
             }
             if (ListUtils.isEmpty(arrayList)) {
                 return false;
             }
-            this.f14873c.addAll(arrayList);
-            ArrayList<n> c2 = c(this.f14873c);
-            this.f14874d = c2;
+            this.f14518c.addAll(arrayList);
+            ArrayList<n> c2 = c(this.f14518c);
+            this.f14519d = c2;
             return !ListUtils.isEmpty(c2);
         }
         return invokeL.booleanValue;

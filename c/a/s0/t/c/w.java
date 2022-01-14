@@ -15,25 +15,25 @@ public class w {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14238b;
+    public String f13912b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14239c;
+    public String f13913c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EmotionGroupType f14240d;
+    public EmotionGroupType f13914d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14241e;
+    public int f13915e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14242f;
+    public int f13916f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14243g;
+    public String f13917g;
 
     /* renamed from: h  reason: collision with root package name */
-    public x f14244h;
+    public x f13918h;
 
     public w() {
         Interceptable interceptable = $ic;
@@ -52,13 +52,13 @@ public class w {
     public x a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14244h : (x) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13918h : (x) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14242f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13916f : invokeV.intValue;
     }
 
     public String c() {
@@ -70,44 +70,44 @@ public class w {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14239c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13913c : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14238b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13912b : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14243g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13917g : (String) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14241e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13915e : invokeV.intValue;
     }
 
     public EmotionGroupType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14240d : (EmotionGroupType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13914d : (EmotionGroupType) invokeV.objValue;
     }
 
     public void h(x xVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, xVar) == null) {
-            this.f14244h = xVar;
+            this.f13918h = xVar;
         }
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f14242f = i2;
+            this.f13916f = i2;
         }
     }
 
@@ -121,35 +121,35 @@ public class w {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f14239c = str;
+            this.f13913c = str;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f14238b = str;
+            this.f13912b = str;
         }
     }
 
     public void m(EmotionGroupType emotionGroupType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, emotionGroupType) == null) {
-            this.f14240d = emotionGroupType;
+            this.f13914d = emotionGroupType;
         }
     }
 
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f14243g = str;
+            this.f13917g = str;
         }
     }
 
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f14241e = i2;
+            this.f13915e = i2;
         }
     }
 }

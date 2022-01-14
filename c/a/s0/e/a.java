@@ -12,10 +12,10 @@ public class a {
     public Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12635b;
+    public String f12338b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12636c;
+    public boolean f12339c;
 
     public a() {
         Interceptable interceptable = $ic;

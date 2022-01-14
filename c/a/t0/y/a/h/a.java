@@ -18,15 +18,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends BdAsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f26421b;
+    public static final String f25637b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f26422c;
+    public static final String f25638c;
     public transient /* synthetic */ FieldHolder $fh;
     public AdInfo a;
 
@@ -43,8 +43,8 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
                 return;
             }
         }
-        f26421b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
-        f26422c = File.separator;
+        f25637b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+        f25638c = File.separator;
     }
 
     public a() {
@@ -65,7 +65,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, file) == null) {
             if (z && file != null) {
-                File file2 = new File(f26421b + f26422c + (t.c(this.a.adVideoUrl) + ".mp4"));
+                File file2 = new File(f25637b + f25638c + (t.c(this.a.adVideoUrl) + ".mp4"));
                 if (file2.exists()) {
                     file2.delete();
                 }
@@ -105,14 +105,14 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
         if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) != null) {
             return (Boolean) invokeL.objValue;
         }
-        String str = f26421b + f26422c + "advideo.temp";
+        String str = f25637b + f25638c + "advideo.temp";
         file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         z = false;
         try {
-            new File(f26421b).mkdirs();
+            new File(f25637b).mkdirs();
             if (!file.createNewFile()) {
                 b(false, null);
                 return Boolean.FALSE;

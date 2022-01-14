@@ -15,14 +15,14 @@ public interface b extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.b.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C2181a implements b {
+        public static class C2198a implements b {
             public static b a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f62183b;
+            public IBinder f59837b;
 
-            public C2181a(IBinder iBinder) {
-                this.f62183b = iBinder;
+            public C2198a(IBinder iBinder) {
+                this.f59837b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.b.b
@@ -33,7 +33,7 @@ public interface b extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
                     obtain.writeMap(map);
                     obtain.writeMap(map2);
-                    if (!this.f62183b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f59837b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(map, map2);
                     } else {
                         obtain2.readException();
@@ -46,7 +46,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f62183b;
+                return this.f59837b;
             }
         }
 
@@ -62,7 +62,7 @@ public interface b extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
                 return (b) queryLocalInterface;
             }
-            return new C2181a(iBinder);
+            return new C2198a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -87,7 +87,7 @@ public interface b extends IInterface {
         }
 
         public static b a() {
-            return C2181a.a;
+            return C2198a.a;
         }
     }
 }

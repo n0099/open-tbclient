@@ -86,14 +86,14 @@ public class QRCodeStatic {
                 r data = customMessage.getData();
                 int i2 = data.a;
                 if (i2 == 0) {
-                    str = c.a.t0.g3.b.b.a.b(data.f25583c);
+                    str = c.a.t0.g3.b.b.a.b(data.f24868c);
                 } else if (i2 == 1) {
-                    str = c.a.t0.g3.b.b.a.c(data.f25584d);
+                    str = c.a.t0.g3.b.b.a.c(data.f24869d);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.f25585e = "qr_none";
+                    data.f24870e = "qr_none";
                 } else {
-                    data.f25585e = str;
+                    data.f24870e = str;
                 }
                 return new CustomResponsedMessage<>(2921403, data);
             }

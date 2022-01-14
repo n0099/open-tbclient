@@ -10,7 +10,7 @@ import tbclient.ClassForumInfo;
 import tbclient.GetVerticalForumList.DataRes;
 import tbclient.Page;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public class c {
             this.a = new ArrayList();
             for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
                 a aVar = new a();
-                aVar.f21399b = classForumInfo.class_id;
-                aVar.f21400c = classForumInfo.class_name;
-                aVar.f21401d = classForumInfo.class_icon;
+                aVar.f20833b = classForumInfo.class_id;
+                aVar.f20834c = classForumInfo.class_name;
+                aVar.f20835d = classForumInfo.class_icon;
                 ArrayList arrayList = new ArrayList();
                 for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
                     arrayList.add(new g(recommendForumInfo, false));

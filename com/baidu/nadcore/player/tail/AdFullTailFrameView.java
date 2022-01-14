@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-import c.a.c0.b.e;
-import c.a.c0.b.g;
+import c.a.c0.d.e;
+import c.a.c0.d.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdFullTailFrameView f38278e;
+        public final /* synthetic */ AdFullTailFrameView f37071e;
 
         public a(AdFullTailFrameView adFullTailFrameView) {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
                     return;
                 }
             }
-            this.f38278e = adFullTailFrameView;
+            this.f37071e = adFullTailFrameView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -84,7 +84,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
     public int layoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? g.ad_video_tail_frame_full_view : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? g.nad_video_tail_frame_full_view : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

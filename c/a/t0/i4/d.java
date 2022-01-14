@@ -3,7 +3,6 @@ package c.a.t0.i4;
 import android.os.Build;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +15,13 @@ public class d {
     public static int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) ? Build.VERSION.SDK_INT >= 26 ? SpeedStatsStampTable.INIT_MSG_SIX_STAMP_KEY : i2 : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return 2038;
+            }
+            return i2;
+        }
+        return invokeI.intValue;
     }
 
     public static void b(int i2, WindowManager.LayoutParams layoutParams, Window window) {

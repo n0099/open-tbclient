@@ -15,7 +15,7 @@ public final class c extends b {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f8503b;
+    public final boolean f8319b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public final class c extends b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean z = this.f8503b;
+            boolean z = this.f8319b;
         }
     }
 
@@ -52,7 +52,7 @@ public final class c extends b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            boolean z = this.f8503b;
+            boolean z = this.f8319b;
         }
     }
 
@@ -62,7 +62,7 @@ public final class c extends b {
         c.a.r0.a.h2.a d0;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, jSONObject, str2) == null) {
-            boolean z = this.f8503b;
+            boolean z = this.f8319b;
             if (jSONObject == null || (a0 = e.a0()) == null || (d0 = a0.d0()) == null) {
                 return;
             }

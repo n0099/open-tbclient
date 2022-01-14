@@ -24,16 +24,16 @@ public class d extends c.a.d.a.d {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HorizontalListView f19423b;
+    public HorizontalListView f18924b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.k4.i.h.a f19424c;
+    public c.a.t0.k4.i.h.a f18925c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.k4.i.c.b f19425d;
+    public c.a.t0.k4.i.c.b f18926d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.k4.i.d.a f19426e;
+    public c.a.t0.k4.i.d.a f18927e;
 
     /* loaded from: classes7.dex */
     public class a implements AdapterView.OnItemClickListener {
@@ -41,7 +41,7 @@ public class d extends c.a.d.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f19427e;
+        public final /* synthetic */ d f18928e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -58,21 +58,21 @@ public class d extends c.a.d.a.d {
                     return;
                 }
             }
-            this.f19427e = dVar;
+            this.f18928e = dVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                c.a.t0.k4.i.e.a aVar = (c.a.t0.k4.i.e.a) this.f19427e.f19425d.getItem(i2);
-                if (this.f19427e.f19426e != null) {
-                    this.f19427e.f19426e.h(aVar);
+                c.a.t0.k4.i.e.a aVar = (c.a.t0.k4.i.e.a) this.f18928e.f18926d.getItem(i2);
+                if (this.f18928e.f18927e != null) {
+                    this.f18928e.f18927e.h(aVar);
                 }
-                if (this.f19427e.f19424c == null || this.f19427e.f19424c.v() == null) {
+                if (this.f18928e.f18925c == null || this.f18928e.f18925c.v() == null) {
                     return;
                 }
-                this.f19427e.f19424c.v().setFilter(aVar);
+                this.f18928e.f18925c.v().setFilter(aVar);
             }
         }
     }
@@ -95,7 +95,7 @@ public class d extends c.a.d.a.d {
                 return;
             }
         }
-        this.f19424c = aVar;
+        this.f18925c = aVar;
         View inflate = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.edit_filter_layout, (ViewGroup) null);
         this.a = inflate;
         inflate.getResources();
@@ -106,8 +106,8 @@ public class d extends c.a.d.a.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            for (c.a.t0.k4.i.e.a aVar : this.f19425d.a()) {
-                if (aVar != null && StringHelper.equals(aVar.f19380c, str)) {
+            for (c.a.t0.k4.i.e.a aVar : this.f18926d.a()) {
+                if (aVar != null && StringHelper.equals(aVar.f18882c, str)) {
                     return aVar;
                 }
             }
@@ -131,10 +131,10 @@ public class d extends c.a.d.a.d {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f19423b = (HorizontalListView) this.a.findViewById(R.id.edit_filter_horizontal_list);
-            this.f19425d = new c.a.t0.k4.i.c.b();
+            this.f18924b = (HorizontalListView) this.a.findViewById(R.id.edit_filter_horizontal_list);
+            this.f18926d = new c.a.t0.k4.i.c.b();
             o(c.a.t0.k4.i.d.a.c(this.a.getContext()));
-            this.f19423b.setOnItemClickListener(new a(this));
+            this.f18924b.setOnItemClickListener(new a(this));
         }
     }
 
@@ -159,22 +159,22 @@ public class d extends c.a.d.a.d {
     public void m(c.a.t0.k4.i.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f19425d.b(aVar);
+            this.f18926d.b(aVar);
         }
     }
 
     public void n(c.a.t0.k4.i.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f19426e = aVar;
+            this.f18927e = aVar;
         }
     }
 
     public void o(List<c.a.t0.k4.i.e.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.f19425d.c(list);
-            this.f19423b.setAdapter((ListAdapter) this.f19425d);
+            this.f18926d.c(list);
+            this.f18924b.setAdapter((ListAdapter) this.f18926d);
         }
     }
 }

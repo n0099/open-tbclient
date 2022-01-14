@@ -26,7 +26,7 @@ public abstract class b {
                 return;
             }
         }
-        this.isSwitchOpen = c.a.s0.s.g0.b.j().g("page_stay_duration_switch", false);
+        this.isSwitchOpen = c.a.s0.s.h0.b.k().h("page_stay_duration_switch", false);
     }
 
     private void updataSwitchStaus(boolean z) {
@@ -34,7 +34,7 @@ public abstract class b {
         if (!(interceptable == null || interceptable.invokeZ(65537, this, z) == null) || this.isSwitchOpen == z) {
             return;
         }
-        c.a.s0.s.g0.b.j().t("page_stay_duration_switch", true);
+        c.a.s0.s.h0.b.k().u("page_stay_duration_switch", true);
         this.isSwitchOpen = z;
     }
 

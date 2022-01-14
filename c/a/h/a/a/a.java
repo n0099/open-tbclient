@@ -18,28 +18,28 @@ public class a {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f3533b;
+    public static b f3481b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3534c;
+    public static String f3482c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static g f3535d;
+    public static g f3483d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f3536e;
+    public static long f3484e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f3537f;
+    public static Handler f3485f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.h.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0126a implements Handler.Callback {
+    public static class C0134a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0126a() {
+        public C0134a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,81 +62,81 @@ public class a {
                 if (i2 != 100) {
                     switch (i2) {
                         case 0:
-                            if (a.f3535d != null) {
-                                a.f3535d.c(a.f3534c, message.arg1);
-                                g unused = a.f3535d = null;
+                            if (a.f3483d != null) {
+                                a.f3483d.c(a.f3482c, message.arg1);
+                                g unused = a.f3483d = null;
                                 break;
                             }
                             break;
                         case 1:
                         case 3:
-                            if (a.f3535d != null) {
+                            if (a.f3483d != null) {
                                 if (h.d()) {
-                                    a.f3535d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_create_file_fail));
+                                    a.f3483d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_create_file_fail));
                                 } else {
-                                    a.f3535d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_sdcard_nospace));
+                                    a.f3483d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_sdcard_nospace));
                                 }
-                                g unused2 = a.f3535d = null;
+                                g unused2 = a.f3483d = null;
                                 break;
                             }
                             break;
                         case 2:
-                            if (a.f3535d != null) {
-                                a.f3535d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_file_fail));
-                                g unused3 = a.f3535d = null;
+                            if (a.f3483d != null) {
+                                a.f3483d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_file_fail));
+                                g unused3 = a.f3483d = null;
                                 break;
                             }
                             break;
                         case 4:
-                            if (a.f3535d != null) {
-                                a.f3535d.b(message.arg1);
+                            if (a.f3483d != null) {
+                                a.f3483d.b(message.arg1);
                                 break;
                             }
                             break;
                         case 5:
-                            if (a.f3535d != null) {
-                                a.f3535d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_load_lib_fail));
-                                g unused4 = a.f3535d = null;
+                            if (a.f3483d != null) {
+                                a.f3483d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_load_lib_fail));
+                                g unused4 = a.f3483d = null;
                                 break;
                             }
                             break;
                         case 6:
-                            if (a.f3535d != null) {
-                                a.f3535d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_init_fail));
-                                g unused5 = a.f3535d = null;
+                            if (a.f3483d != null) {
+                                a.f3483d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_init_fail));
+                                g unused5 = a.f3483d = null;
                                 break;
                             }
                             break;
                         case 7:
-                            if (a.f3535d != null) {
-                                a.f3535d.error(message.what, c.a.d.f.q.h.a(R.string.voice_record_timeout_tip));
-                                g unused6 = a.f3535d = null;
+                            if (a.f3483d != null) {
+                                a.f3483d.error(message.what, c.a.d.f.q.h.a(R.string.voice_record_timeout_tip));
+                                g unused6 = a.f3483d = null;
                                 break;
                             }
                             break;
                         case 8:
-                            if (a.f3535d != null) {
-                                a.f3535d.error(message.what, c.a.d.f.q.h.a(R.string.voice_record_short_tip));
-                                g unused7 = a.f3535d = null;
+                            if (a.f3483d != null) {
+                                a.f3483d.error(message.what, c.a.d.f.q.h.a(R.string.voice_record_short_tip));
+                                g unused7 = a.f3483d = null;
                                 break;
                             }
                             break;
                         case 9:
-                            if (a.f3535d != null) {
-                                a.f3535d.a(message.arg1);
+                            if (a.f3483d != null) {
+                                a.f3483d.a(message.arg1);
                                 break;
                             }
                             break;
                         default:
-                            if (a.f3535d != null) {
-                                a.f3535d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_other));
-                                g unused8 = a.f3535d = null;
+                            if (a.f3483d != null) {
+                                a.f3483d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_other));
+                                g unused8 = a.f3483d = null;
                                 break;
                             }
                             break;
                     }
-                } else if (a.f3535d != null) {
-                    a.f3535d.e();
+                } else if (a.f3483d != null) {
+                    a.f3483d.e();
                 }
                 int unused9 = a.a = 0;
                 return false;
@@ -158,13 +158,13 @@ public class a {
                 return;
             }
         }
-        f3537f = new Handler(new C0126a());
+        f3485f = new Handler(new C0134a());
     }
 
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            b bVar = f3533b;
+            b bVar = f3481b;
             if (bVar != null) {
                 bVar.cancel();
             }
@@ -176,22 +176,22 @@ public class a {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, str, i2, gVar)) == null) {
-            if (System.currentTimeMillis() - f3536e < 1000) {
+            if (System.currentTimeMillis() - f3484e < 1000) {
                 return false;
             }
-            f3536e = System.currentTimeMillis();
+            f3484e = System.currentTimeMillis();
             if (a == 0) {
-                if (f3533b == null) {
-                    f3533b = new b(f3537f);
+                if (f3481b == null) {
+                    f3481b = new b(f3485f);
                 }
-                f3534c = str;
-                f3535d = gVar;
-                if (f3533b.i(str, i2)) {
+                f3482c = str;
+                f3483d = gVar;
+                if (f3481b.i(str, i2)) {
                     a = 3;
-                    new Thread(f3533b).start();
+                    new Thread(f3481b).start();
                     return true;
                 }
-                f3533b = null;
+                f3481b = null;
             }
             return false;
         }
@@ -201,7 +201,7 @@ public class a {
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            b bVar = f3533b;
+            b bVar = f3481b;
             if (bVar != null) {
                 bVar.j();
             }

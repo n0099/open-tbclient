@@ -23,7 +23,7 @@ import c.a.s0.d0.a;
 import c.a.s0.e1.k0;
 import c.a.s0.e1.n0;
 import c.a.s0.e1.s;
-import c.a.s0.e1.y0;
+import c.a.s0.e1.x0;
 import c.a.s0.g1.n.f;
 import c.a.s0.s.s.a;
 import c.a.s0.s.s.j;
@@ -220,7 +220,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    Bitmap c2 = y0.c(0, this.a.getPageContext().getContext(), null, this.a.writeImagesInfo.getChosedFiles().get(0).getFilePath(), TbImageHelper.getInstance().getPostImageSize());
+                    Bitmap c2 = x0.c(0, this.a.getPageContext().getContext(), null, this.a.writeImagesInfo.getChosedFiles().get(0).getFilePath(), TbImageHelper.getInstance().getPostImageSize());
                     if (c2 != null && FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE, c2, 85) != null && (resizeBitmap = BitmapHelper.resizeBitmap(c2, 100)) != null) {
                         FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85);
                     }
@@ -239,10 +239,10 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46533b;
+        public final /* synthetic */ String f44814b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f46534c;
+        public final /* synthetic */ TalkableActivity f44815c;
 
         public d(TalkableActivity talkableActivity, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -259,21 +259,21 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f46534c = talkableActivity;
+            this.f44815c = talkableActivity;
             this.a = str;
-            this.f46533b = str2;
+            this.f44814b = str2;
         }
 
         @Override // c.a.s0.e1.s
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f46534c.mLocalPicModel = new LocalPicModel(this.a, this.f46533b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
-                TalkableActivity talkableActivity = this.f46534c;
+                this.f44815c.mLocalPicModel = new LocalPicModel(this.a, this.f44814b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
+                TalkableActivity talkableActivity = this.f44815c;
                 talkableActivity.mLocalPicModel.setLoadDataCallBack(talkableActivity.mLocalPicModelCallback);
-                this.f46534c.mLocalPicModel.getData();
-                this.f46534c.mListView.hideMore();
-                this.f46534c.writeImagesInfo.clear();
+                this.f44815c.mLocalPicModel.getData();
+                this.f44815c.mListView.hideMore();
+                this.f44815c.writeImagesInfo.clear();
             }
         }
     }
@@ -311,7 +311,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f.a)) {
                 f.a aVar = (f.a) customResponsedMessage.getData();
-                c.a.s0.g1.n.f.b(this.a.getPageContext(), aVar.a, aVar.f12990b, aVar.f12991c);
+                c.a.s0.g1.n.f.b(this.a.getPageContext(), aVar.a, aVar.f12675b, aVar.f12676c);
             }
         }
     }
@@ -322,10 +322,10 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46535e;
+        public final /* synthetic */ String f44816e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f46536f;
+        public final /* synthetic */ TalkableActivity f44817f;
 
         public f(TalkableActivity talkableActivity, String str) {
             Interceptable interceptable = $ic;
@@ -342,15 +342,15 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f46536f = talkableActivity;
-            this.f46535e = str;
+            this.f44817f = talkableActivity;
+            this.f44816e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46536f.mListModel.sendTextMessage(this.f46535e);
+                this.f44817f.mListModel.sendTextMessage(this.f44816e);
             }
         }
     }
@@ -482,10 +482,10 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f46537e;
+        public final /* synthetic */ int f44818e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f46538f;
+        public final /* synthetic */ TalkableActivity f44819f;
 
         public h(TalkableActivity talkableActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -502,8 +502,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f46538f = talkableActivity;
-            this.f46537e = i2;
+            this.f44819f = talkableActivity;
+            this.f44818e = i2;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -511,7 +511,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f46538f.reSendMsg(this.f46537e);
+                this.f44819f.reSendMsg(this.f44818e);
             }
         }
     }
@@ -522,10 +522,10 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f46539e;
+        public final /* synthetic */ int f44820e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f46540f;
+        public final /* synthetic */ TalkableActivity f44821f;
 
         public i(TalkableActivity talkableActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -542,8 +542,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f46540f = talkableActivity;
-            this.f46539e = i2;
+            this.f44821f = talkableActivity;
+            this.f44820e = i2;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -551,7 +551,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f46540f.deleteMsg(this.f46539e);
+                this.f44821f.deleteMsg(this.f44820e);
             }
         }
     }

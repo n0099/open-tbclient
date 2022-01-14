@@ -15,27 +15,27 @@ public class a implements c.a.r0.j.p0.g.b.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.j.p0.g.b.b f11461e;
+    public c.a.r0.j.p0.g.b.b f11204e;
 
     /* renamed from: c.a.r0.j.p0.g.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0761a implements Runnable {
+    public class RunnableC0770a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f11462e;
+        public final /* synthetic */ int f11205e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.j.p0.g.b.d f11463f;
+        public final /* synthetic */ c.a.r0.j.p0.g.b.d f11206f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a.b f11464g;
+        public final /* synthetic */ a.b f11207g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f11465h;
+        public final /* synthetic */ a f11208h;
 
-        public RunnableC0761a(a aVar, int i2, c.a.r0.j.p0.g.b.d dVar, a.b bVar) {
+        public RunnableC0770a(a aVar, int i2, c.a.r0.j.p0.g.b.d dVar, a.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,10 +50,10 @@ public class a implements c.a.r0.j.p0.g.b.b {
                     return;
                 }
             }
-            this.f11465h = aVar;
-            this.f11462e = i2;
-            this.f11463f = dVar;
-            this.f11464g = bVar;
+            this.f11208h = aVar;
+            this.f11205e = i2;
+            this.f11206f = dVar;
+            this.f11207g = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -65,8 +65,8 @@ public class a implements c.a.r0.j.p0.g.b.b {
                     c.a.r0.a.e0.d.c("RecommendButton", "context is null.");
                     return;
                 }
-                this.f11465h.f11461e = c.a.r0.j.p0.g.b.a.c(this.f11462e, b2, this.f11463f);
-                this.f11465h.f11461e.t(this.f11464g);
+                this.f11208h.f11204e = c.a.r0.j.p0.g.b.a.c(this.f11205e, b2, this.f11206f);
+                this.f11208h.f11204e.t(this.f11207g);
             }
         }
     }
@@ -77,10 +77,10 @@ public class a implements c.a.r0.j.p0.g.b.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.j.p0.g.e.a f11466e;
+        public final /* synthetic */ c.a.r0.j.p0.g.e.a f11209e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11467f;
+        public final /* synthetic */ a f11210f;
 
         public b(a aVar, c.a.r0.j.p0.g.e.a aVar2) {
             Interceptable interceptable = $ic;
@@ -97,17 +97,17 @@ public class a implements c.a.r0.j.p0.g.b.b {
                     return;
                 }
             }
-            this.f11467f = aVar;
-            this.f11466e = aVar2;
+            this.f11210f = aVar;
+            this.f11209e = aVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11467f.f11461e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11210f.f11204e == null) {
                 return;
             }
-            this.f11467f.f11461e.e(this.f11466e);
+            this.f11210f.f11204e.e(this.f11209e);
         }
     }
 
@@ -117,10 +117,10 @@ public class a implements c.a.r0.j.p0.g.b.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.b f11468e;
+        public final /* synthetic */ a.b f11211e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11469f;
+        public final /* synthetic */ a f11212f;
 
         public c(a aVar, a.b bVar) {
             Interceptable interceptable = $ic;
@@ -137,17 +137,17 @@ public class a implements c.a.r0.j.p0.g.b.b {
                     return;
                 }
             }
-            this.f11469f = aVar;
-            this.f11468e = bVar;
+            this.f11212f = aVar;
+            this.f11211e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11469f.f11461e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11212f.f11204e == null) {
                 return;
             }
-            this.f11469f.f11461e.t(this.f11468e);
+            this.f11212f.f11204e.t(this.f11211e);
         }
     }
 
@@ -157,10 +157,10 @@ public class a implements c.a.r0.j.p0.g.b.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f11470e;
+        public final /* synthetic */ boolean f11213e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11471f;
+        public final /* synthetic */ a f11214f;
 
         public d(a aVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -177,17 +177,17 @@ public class a implements c.a.r0.j.p0.g.b.b {
                     return;
                 }
             }
-            this.f11471f = aVar;
-            this.f11470e = z;
+            this.f11214f = aVar;
+            this.f11213e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11471f.f11461e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11214f.f11204e == null) {
                 return;
             }
-            this.f11471f.f11461e.l(this.f11470e);
+            this.f11214f.f11204e.l(this.f11213e);
         }
     }
 
@@ -197,7 +197,7 @@ public class a implements c.a.r0.j.p0.g.b.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11472e;
+        public final /* synthetic */ a f11215e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -214,16 +214,16 @@ public class a implements c.a.r0.j.p0.g.b.b {
                     return;
                 }
             }
-            this.f11472e = aVar;
+            this.f11215e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11472e.f11461e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11215e.f11204e == null) {
                 return;
             }
-            this.f11472e.f11461e.show();
+            this.f11215e.f11204e.show();
         }
     }
 
@@ -233,7 +233,7 @@ public class a implements c.a.r0.j.p0.g.b.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11473e;
+        public final /* synthetic */ a f11216e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -250,16 +250,16 @@ public class a implements c.a.r0.j.p0.g.b.b {
                     return;
                 }
             }
-            this.f11473e = aVar;
+            this.f11216e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11473e.f11461e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11216e.f11204e == null) {
                 return;
             }
-            this.f11473e.f11461e.hide();
+            this.f11216e.f11204e.hide();
         }
     }
 
@@ -269,7 +269,7 @@ public class a implements c.a.r0.j.p0.g.b.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11474e;
+        public final /* synthetic */ a f11217e;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -286,16 +286,16 @@ public class a implements c.a.r0.j.p0.g.b.b {
                     return;
                 }
             }
-            this.f11474e = aVar;
+            this.f11217e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11474e.f11461e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11217e.f11204e == null) {
                 return;
             }
-            this.f11474e.f11461e.destroy();
+            this.f11217e.f11204e.destroy();
         }
     }
 
@@ -305,7 +305,7 @@ public class a implements c.a.r0.j.p0.g.b.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11475e;
+        public final /* synthetic */ a f11218e;
 
         public h(a aVar) {
             Interceptable interceptable = $ic;
@@ -322,16 +322,16 @@ public class a implements c.a.r0.j.p0.g.b.b {
                     return;
                 }
             }
-            this.f11475e = aVar;
+            this.f11218e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11475e.f11461e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11218e.f11204e == null) {
                 return;
             }
-            this.f11475e.f11461e.update();
+            this.f11218e.f11204e.update();
         }
     }
 
@@ -350,7 +350,7 @@ public class a implements c.a.r0.j.p0.g.b.b {
                 return;
             }
         }
-        q0.e0(new RunnableC0761a(this, i2, dVar, bVar));
+        q0.e0(new RunnableC0770a(this, i2, dVar, bVar));
     }
 
     @Override // c.a.r0.j.p0.g.a

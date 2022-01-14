@@ -8,26 +8,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecomTopicList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20928b;
+    public String f20366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20929c;
+    public int f20367c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20930d;
+    public int f20368d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f20931e;
+    public boolean f20369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20932f;
+    public int f20370f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -42,19 +42,19 @@ public class c {
                 return;
             }
         }
-        this.f20931e = true;
+        this.f20369e = true;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20932f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20370f : invokeV.intValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20932f == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20370f == 1 : invokeV.booleanValue;
     }
 
     public c(@NonNull RecomTopicList recomTopicList, int i2) {
@@ -73,9 +73,9 @@ public class c {
             }
         }
         this.a = recomTopicList.topic_id.longValue();
-        this.f20928b = recomTopicList.topic_name;
-        this.f20929c = recomTopicList.tag.intValue();
-        this.f20930d = i2 + 1;
-        this.f20932f = recomTopicList.is_video_topic.intValue();
+        this.f20366b = recomTopicList.topic_name;
+        this.f20367c = recomTopicList.tag.intValue();
+        this.f20368d = i2 + 1;
+        this.f20370f = recomTopicList.is_video_topic.intValue();
     }
 }

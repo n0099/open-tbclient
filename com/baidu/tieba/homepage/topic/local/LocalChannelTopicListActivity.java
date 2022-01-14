@@ -69,7 +69,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LocalChannelTopicListActivity f46190e;
+        public final /* synthetic */ LocalChannelTopicListActivity f44489e;
 
         public b(LocalChannelTopicListActivity localChannelTopicListActivity) {
             Interceptable interceptable = $ic;
@@ -86,16 +86,16 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f46190e = localChannelTopicListActivity;
+            this.f44489e = localChannelTopicListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46190e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44489e.mModel == null) {
                 return;
             }
-            this.f46190e.mModel.loadData();
+            this.f44489e.mModel.loadData();
         }
     }
 

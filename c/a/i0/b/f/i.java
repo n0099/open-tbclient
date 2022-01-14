@@ -32,7 +32,7 @@ public class i {
                 for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
                     JSONObject optJSONObject = jSONArray2.optJSONObject(i2);
                     try {
-                        if (c.a.i0.a.c.c.a(Long.valueOf(Long.valueOf(optJSONObject.optString("t").split("_")[0]).longValue()), Long.valueOf(System.currentTimeMillis()))) {
+                        if (c.a.i0.a.c.c.a(Long.valueOf(Long.valueOf(optJSONObject.optString("t").split("_")[0]).longValue() * 1000), Long.valueOf(System.currentTimeMillis()))) {
                             jSONArray.put(optJSONObject);
                         }
                     } catch (NumberFormatException e2) {
@@ -61,10 +61,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, gVar) == null) {
             String f2 = c.a.i0.a.c.i.f("today_show_list", "");
-            if (TextUtils.isEmpty(f2)) {
-                return;
-            }
-            String valueOf = String.valueOf(System.currentTimeMillis());
+            String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
             try {
                 if (TextUtils.isEmpty(f2)) {
                     jSONArray = new JSONArray();
@@ -75,7 +72,7 @@ public class i {
                 if (jSONArray.length() > 0) {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                        if (TextUtils.equals(optJSONObject.optString("k"), gVar.f3840c)) {
+                        if (TextUtils.equals(optJSONObject.optString("k"), gVar.f3782c)) {
                             optJSONObject.put("t", TextUtils.concat(valueOf, "_", optJSONObject.optString("t")).toString());
                             jSONArray.put(i2, optJSONObject);
                             break;
@@ -85,7 +82,7 @@ public class i {
                 z = true;
                 if (z) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("k", gVar.f3840c);
+                    jSONObject.put("k", gVar.f3782c);
                     jSONObject.put("t", valueOf);
                     jSONArray.put(jSONObject);
                 }

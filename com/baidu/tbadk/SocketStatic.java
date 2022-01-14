@@ -67,7 +67,7 @@ public class SocketStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && PermissionUtil.isAgreePrivacyPolicy() && Build.VERSION.SDK_INT >= 24 && TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    a.c().a("startSocketService", new Runnable(this) { // from class: com.baidu.tbadk.SocketStatic.1.1
+                    a.b().a("startSocketService", new Runnable(this) { // from class: com.baidu.tbadk.SocketStatic.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 this$0;

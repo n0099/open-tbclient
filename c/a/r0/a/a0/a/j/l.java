@@ -30,10 +30,10 @@ public class l extends a {
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) {
-            int alpha = bVar.f5179f.getAlpha();
-            bVar.c(bVar.f5179f);
-            canvas.drawPath(bVar.f5183j, bVar.f5179f);
-            bVar.f5179f.setAlpha(alpha);
+            int alpha = bVar.f5071f.getAlpha();
+            bVar.c(bVar.f5071f);
+            canvas.drawPath(bVar.f5075j, bVar.f5071f);
+            bVar.f5071f.setAlpha(alpha);
         }
     }
 

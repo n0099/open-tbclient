@@ -25,16 +25,16 @@ public class CouponListDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CouponListView f39063e;
+    public CouponListView f37774e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f39064f;
+    public ImageView f37775f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f39065g;
+    public FrameLayout f37776g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f39066h;
+    public d f37777h;
 
     /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
@@ -42,7 +42,7 @@ public class CouponListDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CouponListDialog f39067e;
+        public final /* synthetic */ CouponListDialog f37778e;
 
         public a(CouponListDialog couponListDialog) {
             Interceptable interceptable = $ic;
@@ -59,17 +59,17 @@ public class CouponListDialog extends Dialog {
                     return;
                 }
             }
-            this.f39067e = couponListDialog;
+            this.f37778e = couponListDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f39067e.f39063e != null && this.f39067e.f39066h != null) {
-                    this.f39067e.f39066h.a(false, this.f39067e.f39063e.getSelectedItem());
+                if (this.f37778e.f37774e != null && this.f37778e.f37777h != null) {
+                    this.f37778e.f37777h.a(false, this.f37778e.f37774e.getSelectedItem());
                 }
-                this.f39067e.dismiss();
+                this.f37778e.dismiss();
             }
         }
     }
@@ -80,7 +80,7 @@ public class CouponListDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CouponListDialog f39068e;
+        public final /* synthetic */ CouponListDialog f37779e;
 
         public b(CouponListDialog couponListDialog) {
             Interceptable interceptable = $ic;
@@ -97,16 +97,16 @@ public class CouponListDialog extends Dialog {
                     return;
                 }
             }
-            this.f39068e = couponListDialog;
+            this.f37779e = couponListDialog;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f39068e.f39063e == null || this.f39068e.f39066h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f37779e.f37774e == null || this.f37779e.f37777h == null) {
                 return;
             }
-            this.f39068e.f39066h.a(false, this.f39068e.f39063e.getSelectedItem());
+            this.f37779e.f37777h.a(false, this.f37779e.f37774e.getSelectedItem());
         }
     }
 
@@ -142,22 +142,22 @@ public class CouponListDialog extends Dialog {
         }
 
         @Override // com.baidu.poly.widget.coupon.CouponListView.h
-        public void b(a.C0144a c0144a, c.a.h0.s.e.a aVar) {
+        public void b(a.C0152a c0152a, c.a.h0.s.e.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0144a, aVar) == null) {
-                a.C0141a c0141a = new a.C0141a();
-                c0141a.a = 0;
-                aVar.a(c0141a);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0152a, aVar) == null) {
+                a.C0149a c0149a = new a.C0149a();
+                c0149a.a = 0;
+                aVar.a(c0149a);
             }
         }
 
         @Override // com.baidu.poly.widget.coupon.CouponListView.h
-        public void c(boolean z, a.C0144a c0144a) {
+        public void c(boolean z, a.C0152a c0152a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, c0144a) == null) {
+            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, c0152a) == null) {
                 this.a.dismiss();
-                if (this.a.f39066h != null) {
-                    this.a.f39066h.a(z, c0144a);
+                if (this.a.f37777h != null) {
+                    this.a.f37777h.a(z, c0152a);
                 }
             }
         }
@@ -172,7 +172,7 @@ public class CouponListDialog extends Dialog {
 
     /* loaded from: classes10.dex */
     public interface d {
-        void a(boolean z, a.C0144a c0144a);
+        void a(boolean z, a.C0152a c0152a);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -206,12 +206,12 @@ public class CouponListDialog extends Dialog {
                 window.setWindowAnimations(j.cashier_coupon_dialog_anim);
                 window.setLayout(-1, -2);
             }
-            this.f39063e = (CouponListView) findViewById(g.cashier_couponlist_view);
+            this.f37774e = (CouponListView) findViewById(g.cashier_couponlist_view);
             FrameLayout frameLayout = (FrameLayout) findViewById(g.cashier_fl_title_content);
-            this.f39065g = frameLayout;
+            this.f37776g = frameLayout;
             frameLayout.setVisibility(8);
             ImageView imageView = (ImageView) findViewById(g.iv_close);
-            this.f39064f = imageView;
+            this.f37775f = imageView;
             imageView.setOnClickListener(new a(this));
             setOnCancelListener(new b(this));
         }
@@ -220,18 +220,18 @@ public class CouponListDialog extends Dialog {
     public void setListener(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            this.f39066h = dVar;
+            this.f37777h = dVar;
         }
     }
 
-    public void update(List<a.C0144a> list) {
+    public void update(List<a.C0152a> list) {
         CouponListView couponListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (couponListView = this.f39063e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (couponListView = this.f37774e) == null) {
             return;
         }
         couponListView.update(list);
-        this.f39063e.setListener(new c(this));
+        this.f37774e.setListener(new c(this));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

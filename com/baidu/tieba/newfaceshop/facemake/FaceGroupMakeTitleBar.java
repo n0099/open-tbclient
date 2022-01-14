@@ -23,13 +23,13 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f47968e;
+    public TextView f46179e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f47969f;
+    public TextView f46180f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f47970g;
+    public ImageView f46181g;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -37,7 +37,7 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeTitleBar f47971e;
+        public final /* synthetic */ FaceGroupMakeTitleBar f46182e;
 
         public a(FaceGroupMakeTitleBar faceGroupMakeTitleBar) {
             Interceptable interceptable = $ic;
@@ -54,14 +54,14 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f47971e = faceGroupMakeTitleBar;
+            this.f46182e = faceGroupMakeTitleBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ((Activity) this.f47971e.getContext()).finish();
+                ((Activity) this.f46182e.getContext()).finish();
             }
         }
     }
@@ -91,20 +91,20 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.face_group_make_title_bar, (ViewGroup) this, true);
-            this.f47968e = (TextView) findViewById(R.id.tv_title);
-            this.f47969f = (TextView) findViewById(R.id.tv_right);
-            this.f47970g = (ImageView) findViewById(R.id.iv_close);
-            SkinManager.setViewTextColor(this.f47968e, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f47969f, R.color.common_color_10140);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f47970g, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
-            this.f47970g.setOnClickListener(new a(this));
+            this.f46179e = (TextView) findViewById(R.id.tv_title);
+            this.f46180f = (TextView) findViewById(R.id.tv_right);
+            this.f46181g = (ImageView) findViewById(R.id.iv_close);
+            SkinManager.setViewTextColor(this.f46179e, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f46180f, R.color.common_color_10140);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f46181g, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
+            this.f46181g.setOnClickListener(new a(this));
         }
     }
 
     public void setCloseListener(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (imageView = this.f47970g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (imageView = this.f46181g) == null) {
             return;
         }
         imageView.setOnClickListener(onClickListener);
@@ -113,21 +113,21 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     public void setRightListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f47969f.setOnClickListener(onClickListener);
+            this.f46180f.setOnClickListener(onClickListener);
         }
     }
 
     public void setRightText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f47969f.setText(str);
+            this.f46180f.setText(str);
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f47968e.setText(str);
+            this.f46179e.setText(str);
         }
     }
 

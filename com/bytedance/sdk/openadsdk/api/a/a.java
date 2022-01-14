@@ -20,7 +20,7 @@ public final class a implements HostnameVerifier {
     public static final a a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f55278b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f53177b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     private boolean a(String str, X509Certificate x509Certificate) {
         if (a(str)) {
@@ -70,7 +70,7 @@ public final class a implements HostnameVerifier {
     }
 
     public static boolean a(String str) {
-        return f55278b.matcher(str).matches();
+        return f53177b.matcher(str).matches();
     }
 
     public static List<String> a(X509Certificate x509Certificate, int i2) {

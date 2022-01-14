@@ -20,7 +20,7 @@ public class l0 {
     public AlgorithmParameterSpec a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Key f31349b;
+    public Key f30368b;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class l0 {
         }
         try {
             this.a = new IvParameterSpec(str2.getBytes("utf-8"));
-            this.f31349b = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
+            this.f30368b = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
         } catch (Exception e2) {
             throw new RuntimeException("Error in getKey(String secretKey), Cause: " + e2);
         }

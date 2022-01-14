@@ -16,10 +16,10 @@ public class e4 extends AsyncTask {
     public final /* synthetic */ long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f31291b;
+    public final /* synthetic */ String f30313b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ b1 f31292c;
+    public final /* synthetic */ b1 f30314c;
 
     public e4(b1 b1Var, long j2, String str) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class e4 extends AsyncTask {
                 return;
             }
         }
-        this.f31292c = b1Var;
+        this.f30314c = b1Var;
         this.a = j2;
-        this.f31291b = str;
+        this.f30313b = str;
     }
 
     @Override // android.os.AsyncTask
@@ -67,24 +67,24 @@ public class e4 extends AsyncTask {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             byte[] bArr = (byte[]) obj;
             if (bArr == null) {
-                b1 b1Var = this.f31292c;
-                c1 c1Var = b1Var.f31258c;
-                if (c1Var != null && !b1Var.f31260e) {
+                b1 b1Var = this.f30314c;
+                c1 c1Var = b1Var.f30282c;
+                if (c1Var != null && !b1Var.f30284e) {
                     c1Var.onFail(PBError.NO_RESUOURCE);
-                    this.f31292c.f31259d = true;
+                    this.f30314c.f30283d = true;
                 }
             } else {
-                b1 b1Var2 = this.f31292c;
-                if (b1Var2.f31258c != null && !b1Var2.f31260e) {
-                    file = b1Var2.f31262g;
+                b1 b1Var2 = this.f30314c;
+                if (b1Var2.f30282c != null && !b1Var2.f30284e) {
+                    file = b1Var2.f30286g;
                     r0.t(bArr, file.getPath(), new a4(this));
                 }
             }
             if (bArr != null) {
-                b1 b1Var3 = this.f31292c;
-                if (b1Var3.f31260e) {
-                    b1Var3.f31262g = new File(r0.e(this.f31292c.a) + File.separator + "win" + File.separator + r0.D(this.f31291b) + ".mp4");
-                    file2 = this.f31292c.f31262g;
+                b1 b1Var3 = this.f30314c;
+                if (b1Var3.f30284e) {
+                    b1Var3.f30286g = new File(r0.e(this.f30314c.a) + File.separator + "win" + File.separator + r0.D(this.f30313b) + ".mp4");
+                    file2 = this.f30314c.f30286g;
                     r0.t(bArr, file2.getPath(), null);
                 }
             }

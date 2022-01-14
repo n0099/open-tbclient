@@ -1,7 +1,7 @@
 package c.a.t0.g0.f0;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -124,26 +124,26 @@ public class k extends b {
         this.X = true;
     }
 
-    public static boolean Y(d2 d2Var) {
+    public static boolean Y(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e2Var)) == null) {
+            if (e2Var == null) {
                 return false;
             }
-            return d2Var.getType() == d2.i3 || d2Var.getType() == d2.F3 || d2Var.getType() == d2.E3 || d2Var.getType() == d2.L3 || d2Var.getType() == d2.Q3;
+            return e2Var.getType() == e2.i3 || e2Var.getType() == e2.F3 || e2Var.getType() == e2.E3 || e2Var.getType() == e2.L3 || e2Var.getType() == e2.Q3;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean Z(d2 d2Var) {
+    public static boolean Z(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, e2Var)) == null) {
+            if (e2Var == null) {
                 return false;
             }
-            return d2Var.getType() == d2.S3 || d2Var.getType() == d2.T3;
+            return e2Var.getType() == e2.S3 || e2Var.getType() == e2.T3;
         }
         return invokeL.booleanValue;
     }
@@ -170,7 +170,7 @@ public class k extends b {
                 if (w != null) {
                     w.param(TiebaStatic.Params.AB_ACTION, "click");
                     if (getThreadData() != null) {
-                        d2 threadData = getThreadData();
+                        e2 threadData = getThreadData();
                         if (threadData.L() != null) {
                             w.param(TiebaStatic.Params.OBJ_PARAM4, threadData.L().oriUgcNid);
                         }
@@ -199,7 +199,7 @@ public class k extends b {
                 if (w != null) {
                     w.setPosition(this.position);
                     if (getThreadData() != null) {
-                        d2 threadData = getThreadData();
+                        e2 threadData = getThreadData();
                         if (threadData.y1() != null && (threadData.y1().N() != null || threadData.y1().Z() != null)) {
                             i2 = 1;
                         }
@@ -230,7 +230,7 @@ public class k extends b {
                     w3.setPosition(this.position);
                     w3.param(TiebaStatic.Params.AB_ACTION, "show");
                     if (getThreadData() != null) {
-                        d2 threadData2 = getThreadData();
+                        e2 threadData2 = getThreadData();
                         int i4 = (threadData2.y1() == null || (threadData2.y1().N() == null && threadData2.y1().Z() == null)) ? 0 : 1;
                         w3.param("obj_name", i4);
                         if (i4 != 0 && threadData2.y1().N() != null && threadData2.y1().N().y() != null && threadData2.y1().N().y().size() > 0) {
@@ -282,7 +282,7 @@ public class k extends b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             StatisticItem y = y(r0, true);
             if (getThreadData() != null) {
-                d2 threadData = getThreadData();
+                e2 threadData = getThreadData();
                 if (threadData.L() != null) {
                     y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.L().oriUgcNid);
                     y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.L().oriUgcVid);
@@ -299,29 +299,29 @@ public class k extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d2 d2Var = this.f18222e;
-            return d2Var != null && d2Var.H2();
+            e2 e2Var = this.f17778e;
+            return e2Var != null && e2Var.H2();
         }
         return invokeV.booleanValue;
     }
 
-    public int P(d2 d2Var) {
+    public int P(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, e2Var)) == null) {
+            if (e2Var == null) {
                 return 0;
             }
-            if (d2Var.P1()) {
+            if (e2Var.P1()) {
                 return 1;
             }
-            if (d2Var.H2()) {
+            if (e2Var.H2()) {
                 return 2;
             }
-            if (d2Var.Q1()) {
+            if (e2Var.Q1()) {
                 return 3;
             }
-            return d2Var.R1() ? 4 : 0;
+            return e2Var.R1() ? 4 : 0;
         }
         return invokeL.intValue;
     }
@@ -334,7 +334,7 @@ public class k extends b {
             if (w != null) {
                 w.param("ab_tag", g()).param(TiebaStatic.Params.AB_ACTION, "show");
                 if (getThreadData() != null) {
-                    d2 threadData = getThreadData();
+                    e2 threadData = getThreadData();
                     int i2 = (threadData.y1() == null || (threadData.y1().N() == null && threadData.y1().Z() == null)) ? 0 : 1;
                     w.param("obj_name", i2);
                     if (i2 != 0 && threadData.y1().N() != null && threadData.y1().N().y() != null && threadData.y1().N().y().size() > 0) {
@@ -358,7 +358,7 @@ public class k extends b {
             if (w != null) {
                 w.param(TiebaStatic.Params.AB_ACTION, "click");
                 if (getThreadData() != null) {
-                    d2 threadData = getThreadData();
+                    e2 threadData = getThreadData();
                     if (threadData.L() != null) {
                         w.param(TiebaStatic.Params.OBJ_PARAM4, threadData.L().oriUgcNid);
                     }
@@ -381,9 +381,9 @@ public class k extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             StatisticItem w = w(str);
-            d2 d2Var = this.f18222e;
-            if (d2Var != null && d2Var.J() != null) {
-                w.param(TiebaStatic.Params.AB_TYPE, this.f18222e.J().hadConcerned() ? 1 : 0);
+            e2 e2Var = this.f17778e;
+            if (e2Var != null && e2Var.J() != null) {
+                w.param(TiebaStatic.Params.AB_TYPE, this.f17778e.J().hadConcerned() ? 1 : 0);
             }
             return w;
         }
@@ -394,10 +394,10 @@ public class k extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (l.T(this.f18222e)) {
+            if (l.T(this.f17778e)) {
                 StatisticItem y = y(s0, true);
                 if (y != null && getThreadData() != null) {
-                    d2 threadData = getThreadData();
+                    e2 threadData = getThreadData();
                     if (threadData.L() != null) {
                         y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.L().oriUgcNid);
                         y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.L().oriUgcVid);
@@ -424,7 +424,7 @@ public class k extends b {
                 if (w != null) {
                     w.param("ab_tag", g()).param(TiebaStatic.Params.AB_ACTION, "click");
                     if (getThreadData() != null) {
-                        d2 threadData2 = getThreadData();
+                        e2 threadData2 = getThreadData();
                         if (threadData2.L() != null) {
                             w.param(TiebaStatic.Params.OBJ_PARAM4, threadData2.L().oriUgcNid);
                         }
@@ -460,8 +460,8 @@ public class k extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            d2 d2Var = this.f18222e;
-            return d2Var == null || d2Var.z2();
+            e2 e2Var = this.f17778e;
+            return e2Var == null || e2Var.z2();
         }
         return invokeV.booleanValue;
     }
@@ -470,43 +470,43 @@ public class k extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            d2 d2Var = this.f18222e;
-            return (d2Var == null || ListUtils.getCount(d2Var.F1()) == 0) ? false : true;
+            e2 e2Var = this.f17778e;
+            return (e2Var == null || ListUtils.getCount(e2Var.F1()) == 0) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    public int a0(d2 d2Var) {
+    public int a0(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, e2Var)) == null) {
+            if (e2Var == null) {
                 return 1;
             }
-            if (d2Var.R1() || d2Var.Q1()) {
+            if (e2Var.R1() || e2Var.Q1()) {
                 return 2;
             }
-            return (d2Var.P1() || d2Var.S1()) ? 3 : 1;
+            return (e2Var.P1() || e2Var.S1()) ? 3 : 1;
         }
         return invokeL.intValue;
     }
 
     @Override // c.a.t0.g0.f0.b, c.a.s0.s.q.a
-    public d2 getThreadData() {
+    public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            d2 d2Var = this.f18222e;
-            if (d2Var == null) {
+            e2 e2Var = this.f17778e;
+            if (e2Var == null) {
                 return null;
             }
-            if (d2Var.W0() == 5) {
-                return this.f18222e;
+            if (e2Var.W0() == 5) {
+                return this.f17778e;
             }
-            this.f18222e.s4(1);
-            return this.f18222e;
+            this.f17778e.s4(1);
+            return this.f17778e;
         }
-        return (d2) invokeV.objValue;
+        return (e2) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
@@ -517,13 +517,13 @@ public class k extends b {
         int indexOf2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            d2 d2Var = this.f18222e;
-            if (d2Var == null) {
+            e2 e2Var = this.f17778e;
+            if (e2Var == null) {
                 return v0;
             }
             if (this.G && b.V.length > 1) {
-                BdUniqueId type = d2Var.getType();
-                if (type == d2.i3 || type == d2.E3 || type == d2.Q3 || type == d2.F3) {
+                BdUniqueId type = e2Var.getType();
+                if (type == e2.i3 || type == e2.E3 || type == e2.Q3 || type == e2.F3) {
                     if (this.s) {
                         indexOf = b.T.indexOf(b.J);
                     } else {
@@ -546,15 +546,15 @@ public class k extends b {
                 }
                 return type;
             }
-            d2 d2Var2 = this.f18222e;
-            int i2 = d2Var2.d0;
+            e2 e2Var2 = this.f17778e;
+            int i2 = e2Var2.d0;
             if (i2 == 63) {
                 return C0;
             }
             if (i2 == 64) {
                 return D0;
             }
-            if (d2Var2.B1 && (originalThreadInfo = d2Var2.A1) != null) {
+            if (e2Var2.A1 && (originalThreadInfo = e2Var2.z1) != null) {
                 if (originalThreadInfo.x) {
                     if (originalThreadInfo.r != null) {
                         return B0;
@@ -620,35 +620,35 @@ public class k extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             StatisticItem statisticItem = new StatisticItem(str);
-            d2 d2Var = this.f18222e;
-            if (d2Var != null) {
-                if (d2Var.L() == null) {
-                    statisticItem.param("fid", this.f18222e.U());
-                    statisticItem.param("tid", this.f18222e.v1());
-                    statisticItem.param("fname", this.f18222e.a0());
+            e2 e2Var = this.f17778e;
+            if (e2Var != null) {
+                if (e2Var.L() == null) {
+                    statisticItem.param("fid", this.f17778e.U());
+                    statisticItem.param("tid", this.f17778e.v1());
+                    statisticItem.param("fname", this.f17778e.a0());
                 } else {
-                    statisticItem.param("tid", this.f18222e.L().oriUgcNid);
+                    statisticItem.param("tid", this.f17778e.L().oriUgcNid);
                 }
-                if (this.f18222e.H2()) {
+                if (this.f17778e.H2()) {
                     i2 = 2;
-                } else if (this.f18222e.h2()) {
+                } else if (this.f17778e.h2()) {
                     i2 = 4;
                 } else {
-                    d2 d2Var2 = this.f18222e;
-                    if (d2Var2.B1) {
+                    e2 e2Var2 = this.f17778e;
+                    if (e2Var2.A1) {
                         i2 = 5;
-                    } else if (d2Var2.P1()) {
+                    } else if (e2Var2.P1()) {
                         i2 = 6;
-                    } else if (this.f18222e.Q1()) {
+                    } else if (this.f17778e.Q1()) {
                         i2 = 7;
-                    } else if (this.f18222e.S1()) {
+                    } else if (this.f17778e.S1()) {
                         i2 = 8;
                     } else {
-                        i2 = this.f18222e.R1() ? 9 : 1;
+                        i2 = this.f17778e.R1() ? 9 : 1;
                     }
                 }
                 statisticItem.param("obj_type", i2);
-                statisticItem.param("obj_id", this.f18222e.J().getUserId());
+                statisticItem.param("obj_id", this.f17778e.J().getUserId());
                 statisticItem.param("obj_param1", F() ? 2 : 1);
             }
             return statisticItem;
@@ -664,10 +664,10 @@ public class k extends b {
             if (X()) {
                 return w(f0);
             }
-            if (l.T(this.f18222e)) {
+            if (l.T(this.f17778e)) {
                 StatisticItem y = y(t0, true);
                 if (y != null && getThreadData() != null) {
-                    d2 threadData = getThreadData();
+                    e2 threadData = getThreadData();
                     if (threadData.L() != null) {
                         y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.L().oriUgcNid);
                         y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.L().oriUgcVid);
@@ -680,7 +680,7 @@ public class k extends b {
             if (x != null) {
                 x.param("ab_tag", g()).param(TiebaStatic.Params.AB_ACTION, "click");
                 if (getThreadData() != null) {
-                    d2 threadData2 = getThreadData();
+                    e2 threadData2 = getThreadData();
                     if (threadData2.L() != null) {
                         x.param(TiebaStatic.Params.OBJ_PARAM4, threadData2.L().oriUgcNid);
                     }

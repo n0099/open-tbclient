@@ -23,18 +23,18 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f7135d;
+    public static final boolean f6982d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Set<String> f7136e;
+    public static final Set<String> f6983e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f7137b;
+    public final Object f6984b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f7138c;
+    public final int f6985c;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -43,13 +43,13 @@ public final class c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f7139b;
+        public Object f6986b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f7140c;
+        public int f6987c;
 
         /* renamed from: d  reason: collision with root package name */
-        public RuntimeException f7141d;
+        public RuntimeException f6988d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -71,38 +71,38 @@ public final class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f7141d != null) {
-                    if (c.f7135d) {
-                        throw this.f7141d;
+                if (this.f6988d != null) {
+                    if (c.f6982d) {
+                        throw this.f6988d;
                     }
                     return null;
                 } else if (this.a == null) {
-                    this.f7141d = new IllegalStateException("key == null");
-                    if (c.f7135d) {
-                        throw this.f7141d;
+                    this.f6988d = new IllegalStateException("key == null");
+                    if (c.f6982d) {
+                        throw this.f6988d;
                     }
                     return null;
                 } else {
                     synchronized (a.class) {
-                        if (c.f7136e.contains(this.a)) {
-                            this.f7141d = new IllegalStateException("the key of switch has been occupied");
-                            if (c.f7135d) {
-                                throw this.f7141d;
+                        if (c.f6983e.contains(this.a)) {
+                            this.f6988d = new IllegalStateException("the key of switch has been occupied");
+                            if (c.f6982d) {
+                                throw this.f6988d;
                             }
                             return null;
-                        } else if (this.f7139b == null) {
-                            this.f7141d = new IllegalStateException("defaultValue == null");
-                            if (c.f7135d) {
-                                throw this.f7141d;
+                        } else if (this.f6986b == null) {
+                            this.f6988d = new IllegalStateException("defaultValue == null");
+                            if (c.f6982d) {
+                                throw this.f6988d;
                             }
                             return null;
-                        } else if (c.c(this.f7140c, this.f7139b)) {
-                            c.f7136e.add(this.a);
+                        } else if (c.c(this.f6987c, this.f6986b)) {
+                            c.f6983e.add(this.a);
                             return new c(this);
                         } else {
-                            this.f7141d = new IllegalStateException("valueType error");
-                            if (c.f7135d) {
-                                throw this.f7141d;
+                            this.f6988d = new IllegalStateException("valueType error");
+                            if (c.f6982d) {
+                                throw this.f6988d;
                             }
                             return null;
                         }
@@ -116,7 +116,7 @@ public final class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                this.f7139b = obj;
+                this.f6986b = obj;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -125,7 +125,7 @@ public final class c {
         public Exception c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7141d : (Exception) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6988d : (Exception) invokeV.objValue;
         }
 
         @SuppressLint({"BDThrowableCheck"})
@@ -134,19 +134,19 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 if (TextUtils.isEmpty(str)) {
-                    this.f7141d = new IllegalArgumentException("the key of switch must not be empty");
-                    if (!c.f7135d) {
+                    this.f6988d = new IllegalArgumentException("the key of switch must not be empty");
+                    if (!c.f6982d) {
                         this.a = null;
                         return this;
                     }
-                    throw this.f7141d;
+                    throw this.f6988d;
                 } else if (TextUtils.equals(Config.SID, str)) {
-                    this.f7141d = new IllegalArgumentException("sid must not equal \"sids\"");
-                    if (!c.f7135d) {
+                    this.f6988d = new IllegalArgumentException("sid must not equal \"sids\"");
+                    if (!c.f6982d) {
                         this.a = null;
                         return this;
                     }
-                    throw this.f7141d;
+                    throw this.f6988d;
                 } else {
                     this.a = str;
                     return this;
@@ -159,7 +159,7 @@ public final class c {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.f7140c = i2;
+                this.f6987c = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -179,8 +179,8 @@ public final class c {
                 return;
             }
         }
-        f7135d = k.a;
-        f7136e = new HashSet();
+        f6982d = k.a;
+        f6983e = new HashSet();
     }
 
     public c(@NonNull a aVar) {
@@ -199,8 +199,8 @@ public final class c {
             }
         }
         this.a = aVar.a;
-        this.f7137b = aVar.f7139b;
-        this.f7138c = aVar.f7140c;
+        this.f6984b = aVar.f6986b;
+        this.f6985c = aVar.f6987c;
     }
 
     public static boolean c(int i2, Object obj) {
@@ -230,7 +230,7 @@ public final class c {
     public Object d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7137b : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6984b : invokeV.objValue;
     }
 
     public String e() {
@@ -242,7 +242,7 @@ public final class c {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7138c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6985c : invokeV.intValue;
     }
 
     @NonNull
@@ -250,8 +250,8 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (f7135d) {
-                return "SwanLocalABTestSwitch{key='" + this.a + ExtendedMessageFormat.QUOTE + ", defaultValue=" + this.f7137b + ", valueType=" + this.f7138c + ExtendedMessageFormat.END_FE;
+            if (f6982d) {
+                return "SwanLocalABTestSwitch{key='" + this.a + ExtendedMessageFormat.QUOTE + ", defaultValue=" + this.f6984b + ", valueType=" + this.f6985c + ExtendedMessageFormat.END_FE;
             }
             return super.toString();
         }

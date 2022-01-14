@@ -20,7 +20,7 @@ public abstract class e {
     public static final SparseIntArray a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SparseArray<BdUniqueId> f25920b;
+    public static final SparseArray<BdUniqueId> f25158b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public abstract class e {
             }
         }
         a = new SparseIntArray();
-        f25920b = new SparseArray<>();
+        f25158b = new SparseArray<>();
     }
 
     public e() {

@@ -35,43 +35,43 @@ public class k extends z {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.g1.f f6275b;
+        public final /* synthetic */ c.a.r0.a.g1.f f6136b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.g f6276c;
+        public final /* synthetic */ c.a.r0.a.h0.g.g f6137c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.m1.b f6277d;
+        public final /* synthetic */ c.a.r0.a.m1.b f6138d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6278e;
+        public final /* synthetic */ CallbackHandler f6139e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6279f;
+        public final /* synthetic */ UnitedSchemeEntity f6140f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f6280g;
+        public final /* synthetic */ Context f6141g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f6281h;
+        public final /* synthetic */ String f6142h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ k f6282i;
+        public final /* synthetic */ k f6143i;
 
         /* renamed from: c.a.r0.a.f2.f.o0.k$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0325a implements a.f {
+        public class C0334a implements a.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a.e a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f6283b;
+            public final /* synthetic */ JSONObject f6144b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ a f6284c;
+            public final /* synthetic */ a f6145c;
 
-            public C0325a(a aVar, a.e eVar, JSONObject jSONObject) {
+            public C0334a(a aVar, a.e eVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,24 +86,24 @@ public class k extends z {
                         return;
                     }
                 }
-                this.f6284c = aVar;
+                this.f6145c = aVar;
                 this.a = eVar;
-                this.f6283b = jSONObject;
+                this.f6144b = jSONObject;
             }
 
             @Override // c.a.r0.a.h0.t.a.f
             public void onReady() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.r0.a.u1.i.e(this.a, this.f6284c.a);
+                    c.a.r0.a.u1.i.e(this.a, this.f6145c.a);
                     c.a.r0.a.p.e.b bVar = this.a.a;
-                    a aVar = this.f6284c;
-                    c.a.r0.a.f2.f.o0.a.e(bVar, aVar.f6277d, aVar.a);
-                    c.a.r0.a.u1.i.c(5, this.f6284c.a);
-                    a aVar2 = this.f6284c;
-                    aVar2.f6282i.n(aVar2.f6276c, aVar2.f6277d, aVar2.a);
-                    a aVar3 = this.f6284c;
-                    UnitedSchemeUtility.callCallback(aVar3.f6278e, aVar3.f6279f, UnitedSchemeUtility.wrapCallbackParams(this.f6283b, 0));
+                    a aVar = this.f6145c;
+                    c.a.r0.a.f2.f.o0.a.e(bVar, aVar.f6138d, aVar.a);
+                    c.a.r0.a.u1.i.c(5, this.f6145c.a);
+                    a aVar2 = this.f6145c;
+                    aVar2.f6143i.n(aVar2.f6137c, aVar2.f6138d, aVar2.a);
+                    a aVar3 = this.f6145c;
+                    UnitedSchemeUtility.callCallback(aVar3.f6139e, aVar3.f6140f, UnitedSchemeUtility.wrapCallbackParams(this.f6144b, 0));
                 }
             }
         }
@@ -123,15 +123,15 @@ public class k extends z {
                     return;
                 }
             }
-            this.f6282i = kVar;
+            this.f6143i = kVar;
             this.a = str;
-            this.f6275b = fVar;
-            this.f6276c = gVar;
-            this.f6277d = bVar;
-            this.f6278e = callbackHandler;
-            this.f6279f = unitedSchemeEntity;
-            this.f6280g = context;
-            this.f6281h = str2;
+            this.f6136b = fVar;
+            this.f6137c = gVar;
+            this.f6138d = bVar;
+            this.f6139e = callbackHandler;
+            this.f6140f = unitedSchemeEntity;
+            this.f6141g = context;
+            this.f6142h = str2;
         }
 
         @Override // c.a.r0.a.f2.f.o0.g.e
@@ -139,21 +139,21 @@ public class k extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 c.a.r0.a.u1.i.d(this.a);
-                this.f6275b.o();
-                c.a.r0.a.h0.g.f l = this.f6276c.l();
-                if (l != null && !TextUtils.isEmpty(l.q3(this.f6277d.f7846h))) {
-                    JSONObject c2 = c.a.r0.a.f2.f.o0.a.c(l.q3(this.f6277d.f7846h));
+                this.f6136b.o();
+                c.a.r0.a.h0.g.f l = this.f6137c.l();
+                if (l != null && !TextUtils.isEmpty(l.q3(this.f6138d.f7675h))) {
+                    JSONObject c2 = c.a.r0.a.f2.f.o0.a.c(l.q3(this.f6138d.f7675h));
                     c.a.r0.a.u1.i.c(4, this.a);
-                    this.f6282i.n(this.f6276c, this.f6277d, this.a);
-                    UnitedSchemeUtility.callCallback(this.f6278e, this.f6279f, UnitedSchemeUtility.wrapCallbackParams(c2, 0));
+                    this.f6143i.n(this.f6137c, this.f6138d, this.a);
+                    UnitedSchemeUtility.callCallback(this.f6139e, this.f6140f, UnitedSchemeUtility.wrapCallbackParams(c2, 0));
                     return;
                 }
-                a.e f2 = c.a.r0.a.h0.t.a.f(this.f6275b.getActivity(), c.a.r0.a.h0.t.f.a.c(this.f6277d.f7846h));
+                a.e f2 = c.a.r0.a.h0.t.a.f(this.f6136b.getActivity(), c.a.r0.a.h0.t.f.a.c(this.f6138d.f7675h));
                 JSONObject c3 = c.a.r0.a.f2.f.o0.a.c(str);
                 HybridUbcFlow q = c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, this.a);
                 q.F(new UbcFlowEvent("na_pre_load_slave_check"));
-                q.D("preload", f2.f7034b ? "1" : "0");
-                c.a.r0.a.h0.t.a.q(f2, new C0325a(this, f2, c3));
+                q.D("preload", f2.f6884b ? "1" : "0");
+                c.a.r0.a.h0.t.a.q(f2, new C0334a(this, f2, c3));
             }
         }
 
@@ -161,15 +161,15 @@ public class k extends z {
         public void b(int i2, c.a.r0.a.u2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar) == null) {
-                this.f6275b.o();
-                if (z.f6340b) {
-                    Context context = this.f6280g;
-                    c.a.r0.a.c2.b.f.e.g(context, this.f6280g.getString(c.a.r0.a.h.aiapps_open_pages_failed) + i2).G();
+                this.f6136b.o();
+                if (z.f6201b) {
+                    Context context = this.f6141g;
+                    c.a.r0.a.c2.b.f.e.g(context, this.f6141g.getString(c.a.r0.a.h.aiapps_open_pages_failed) + i2).G();
                 }
-                if (!TextUtils.isEmpty(this.f6281h)) {
-                    c.a.r0.a.f2.f.o0.a.j(this.f6279f, this.f6278e, this.f6281h);
+                if (!TextUtils.isEmpty(this.f6142h)) {
+                    c.a.r0.a.f2.f.o0.a.j(this.f6140f, this.f6139e, this.f6142h);
                 }
-                c.a.r0.a.n2.i.j(this.f6277d, aVar);
+                c.a.r0.a.n2.i.j(this.f6138d, aVar);
             }
         }
     }
@@ -180,16 +180,16 @@ public class k extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.g f6285e;
+        public final /* synthetic */ c.a.r0.a.h0.g.g f6146e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.m1.b f6286f;
+        public final /* synthetic */ c.a.r0.a.m1.b f6147f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f6287g;
+        public final /* synthetic */ String f6148g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ k f6288h;
+        public final /* synthetic */ k f6149h;
 
         public b(k kVar, c.a.r0.a.h0.g.g gVar, c.a.r0.a.m1.b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -206,17 +206,17 @@ public class k extends z {
                     return;
                 }
             }
-            this.f6288h = kVar;
-            this.f6285e = gVar;
-            this.f6286f = bVar;
-            this.f6287g = str;
+            this.f6149h = kVar;
+            this.f6146e = gVar;
+            this.f6147f = bVar;
+            this.f6148g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6288h.m(this.f6285e, this.f6286f, this.f6287g);
+                this.f6149h.m(this.f6146e, this.f6147f, this.f6148g);
             }
         }
     }
@@ -247,7 +247,7 @@ public class k extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "SwitchTabAction#handle entity: " + unitedSchemeEntity.toString();
             }
             String uuid = UUID.randomUUID().toString();
@@ -267,8 +267,8 @@ public class k extends z {
                 return false;
             }
             c.a.r0.a.m1.b e2 = c.a.r0.a.m1.b.e(o, U.z());
-            e2.f7847i = "4";
-            e2.f7848j = uuid;
+            e2.f7676i = "4";
+            e2.f7677j = uuid;
             c.a.r0.a.n2.i.g(e2);
             if (!q0.c(U.s(), e2)) {
                 c.a.r0.a.e0.d.c("switchTab", "tab params error");

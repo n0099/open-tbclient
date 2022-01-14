@@ -19,13 +19,13 @@ public class FrescoSystrace {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imagepipeline.systrace.FrescoSystrace$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ArgsBuilder {
         ArgsBuilder arg(String str, double d2);
 

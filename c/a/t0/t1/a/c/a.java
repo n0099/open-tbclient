@@ -24,24 +24,24 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public IMBlackListActivity f24337e;
+    public IMBlackListActivity f23654e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<BlackListItemData> f24338f;
+    public ArrayList<BlackListItemData> f23655f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f24339g;
+    public View.OnClickListener f23656g;
 
     /* renamed from: c.a.t0.t1.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1425a implements View.OnClickListener {
+    public class View$OnClickListenerC1440a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24340e;
+        public final /* synthetic */ a f23657e;
 
-        public View$OnClickListenerC1425a(a aVar) {
+        public View$OnClickListenerC1440a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f24340e = aVar;
+            this.f23657e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -64,7 +64,7 @@ public class a extends BaseAdapter {
             Object tag;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (tag = view.getTag()) != null && (tag instanceof BlackListItemData)) {
-                this.f24340e.f24337e.handler(view, (BlackListItemData) tag);
+                this.f23657e.f23654e.handler(view, (BlackListItemData) tag);
             }
         }
     }
@@ -76,13 +76,13 @@ public class a extends BaseAdapter {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f24341b;
+        public HeadImageView f23658b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f24342c;
+        public TextView f23659c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Button f24343d;
+        public Button f23660d;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -100,7 +100,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, View$OnClickListenerC1425a view$OnClickListenerC1425a) {
+        public /* synthetic */ b(a aVar, View$OnClickListenerC1440a view$OnClickListenerC1440a) {
             this(aVar);
         }
     }
@@ -120,8 +120,8 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f24339g = new View$OnClickListenerC1425a(this);
-        this.f24337e = iMBlackListActivity;
+        this.f23656g = new View$OnClickListenerC1440a(this);
+        this.f23654e = iMBlackListActivity;
     }
 
     public final b b(Object obj, BlackListItemData blackListItemData) {
@@ -135,9 +135,9 @@ public class a extends BaseAdapter {
                 bVar = (b) obj;
             }
             d(bVar, blackListItemData.w());
-            bVar.f24342c.setText(blackListItemData.x());
-            bVar.f24343d.setTag(blackListItemData);
-            this.f24337e.getLayoutMode().j(bVar.a);
+            bVar.f23659c.setText(blackListItemData.x());
+            bVar.f23660d.setTag(blackListItemData);
+            this.f23654e.getLayoutMode().j(bVar.a);
             return bVar;
         }
         return (b) invokeLL.objValue;
@@ -148,15 +148,15 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b bVar = new b(this, null);
-            View inflate = LayoutInflater.from(this.f24337e.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f23654e.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
             bVar.a = inflate;
             HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.header_view);
-            bVar.f24341b = headImageView;
+            bVar.f23658b = headImageView;
             headImageView.setIsRound(true);
-            bVar.f24342c = (TextView) bVar.a.findViewById(R.id.user_name);
-            bVar.f24343d = (Button) bVar.a.findViewById(R.id.remove_button);
+            bVar.f23659c = (TextView) bVar.a.findViewById(R.id.user_name);
+            bVar.f23660d = (Button) bVar.a.findViewById(R.id.remove_button);
             bVar.a.setTag(bVar);
-            bVar.f24343d.setOnClickListener(this.f24339g);
+            bVar.f23660d.setOnClickListener(this.f23656g);
             return bVar;
         }
         return (b) invokeV.objValue;
@@ -167,14 +167,14 @@ public class a extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, str) == null) || str == null) {
             return;
         }
-        bVar.f24341b.setTag(str);
-        bVar.f24341b.startLoad(str, 12, false);
+        bVar.f23658b.setTag(str);
+        bVar.f23658b.startLoad(str, 12, false);
     }
 
     public void e(BlackListItemData blackListItemData) {
         ArrayList<BlackListItemData> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, blackListItemData) == null) || (arrayList = this.f24338f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, blackListItemData) == null) || (arrayList = this.f23655f) == null) {
             return;
         }
         arrayList.remove(blackListItemData);
@@ -183,7 +183,7 @@ public class a extends BaseAdapter {
     public void f(ArrayList<BlackListItemData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f24338f = arrayList;
+            this.f23655f = arrayList;
         }
     }
 
@@ -192,7 +192,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<BlackListItemData> arrayList = this.f24338f;
+            ArrayList<BlackListItemData> arrayList = this.f23655f;
             if (arrayList != null) {
                 return arrayList.size();
             }
@@ -206,7 +206,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            ArrayList<BlackListItemData> arrayList = this.f24338f;
+            ArrayList<BlackListItemData> arrayList = this.f23655f;
             if (arrayList != null) {
                 return arrayList.get(i2);
             }

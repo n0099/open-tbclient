@@ -24,7 +24,7 @@ import c.a.s0.g0.g;
 import c.a.s0.g0.h;
 import c.a.s0.s.a;
 import c.a.s0.s.c;
-import c.a.s0.s.i0.d;
+import c.a.s0.s.j0.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -1093,7 +1093,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             String name = getClass().getName();
             String str2 = getApplicationContext().getPackageName() + ".chat";
             if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str2)) {
-                n.M(getActivity(), str);
+                n.N(getActivity(), str);
             } else {
                 this.customToast.showToast(str, 2000);
             }
@@ -1357,7 +1357,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             String name = getClass().getName();
             String str = getApplicationContext().getPackageName() + ".chat";
             if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str)) {
-                n.L(getActivity(), i2);
+                n.M(getActivity(), i2);
             } else {
                 this.customToast.showToast(i2, 2000);
             }
@@ -1370,7 +1370,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (z) {
                 showToast(str);
             } else {
-                n.M(getActivity(), str);
+                n.N(getActivity(), str);
             }
         }
     }
@@ -1381,7 +1381,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (z) {
                 showToast(i2);
             } else {
-                n.L(getActivity(), i2);
+                n.M(getActivity(), i2);
             }
         }
     }

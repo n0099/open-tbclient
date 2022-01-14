@@ -24,13 +24,11 @@ public class b0 extends c implements p<x0>, q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public NEGFeedBackView f4218i;
+    public NEGFeedBackView f4151i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Align f4219j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f4220k;
+    public Align f4152j;
+    public boolean k;
 
     static {
         InterceptResult invokeClinit;
@@ -81,15 +79,15 @@ public class b0 extends c implements p<x0>, q {
             layoutParams.rightMargin = f3;
             layoutParams.topMargin = f4;
             h(layoutParams);
-            this.f4218i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f4218i.setPadding(0, 0, 0, 0);
-            this.f4218i.setLayoutParams(layoutParams);
+            this.f4151i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f4151i.setPadding(0, 0, 0, 0);
+            this.f4151i.setLayoutParams(layoutParams);
         }
     }
 
     public void k(Align align) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, align) == null) || this.f4219j == align) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, align) == null) || this.f4152j == align) {
             return;
         }
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
@@ -101,9 +99,9 @@ public class b0 extends c implements p<x0>, q {
             layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams.topMargin = dimenPixelSize2;
             h(layoutParams);
-            this.f4218i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f4218i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f4218i.setLayoutParams(layoutParams);
+            this.f4151i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f4151i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f4151i.setLayoutParams(layoutParams);
         } else if (align == Align.ALIGN_RIGHT_CENTER) {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
             layoutParams2.addRule(11);
@@ -111,9 +109,9 @@ public class b0 extends c implements p<x0>, q {
             layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams2.bottomMargin = 0;
             h(layoutParams2);
-            this.f4218i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f4218i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f4218i.setLayoutParams(layoutParams2);
+            this.f4151i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f4151i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f4151i.setLayoutParams(layoutParams2);
         } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
             int i2 = l;
             int f2 = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds30);
@@ -125,11 +123,11 @@ public class b0 extends c implements p<x0>, q {
             layoutParams3.rightMargin = f3;
             layoutParams3.bottomMargin = f4;
             h(layoutParams3);
-            this.f4218i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-            this.f4218i.setPadding(f2, f2, f2, f2);
-            this.f4218i.setLayoutParams(layoutParams3);
+            this.f4151i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+            this.f4151i.setPadding(f2, f2, f2, f2);
+            this.f4151i.setLayoutParams(layoutParams3);
         }
-        this.f4219j = align;
+        this.f4152j = align;
     }
 
     public void l(c.a.s0.s.q.a aVar) {
@@ -141,16 +139,16 @@ public class b0 extends c implements p<x0>, q {
             if (!aVar.showCardBottomOpWeight() && !aVar.isFromFrs()) {
                 k(Align.ALIGN_RIGHT_BOTTOM);
             } else if (aVar.isSupportTop()) {
-                u((!o(aVar) || c.a.s0.b.d.w0()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : n(R.dimen.tbds64));
+                u((!o(aVar) || c.a.s0.b.d.u0()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : n(R.dimen.tbds64));
             } else if (aVar.isSupportBottom()) {
-                l0 l0Var = this.f4224h;
+                l0 l0Var = this.f4156h;
                 if (l0Var != null) {
                     l0Var.n(this);
                 }
             } else {
                 k(Align.ALIGN_RIGHT_TOP);
             }
-        } else if (this.f4220k) {
+        } else if (this.k) {
             j();
         } else {
             q(aVar);
@@ -163,7 +161,7 @@ public class b0 extends c implements p<x0>, q {
     public NEGFeedBackView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4218i : (NEGFeedBackView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4151i : (NEGFeedBackView) invokeV.objValue;
     }
 
     public final int n(int i2) {
@@ -182,7 +180,7 @@ public class b0 extends c implements p<x0>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, i2) == null) {
-            this.f4218i.onChangeSkinType();
+            this.f4151i.onChangeSkinType();
         }
     }
 
@@ -193,12 +191,12 @@ public class b0 extends c implements p<x0>, q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, x0Var) == null) {
             if (x0Var == null) {
-                this.f4218i.setVisibility(8);
+                this.f4151i.setVisibility(8);
                 return;
             }
-            this.f4218i.setData(x0Var);
-            this.f4218i.setFirstRowSingleColumn(true);
-            this.f4218i.setVisibility(0);
+            this.f4151i.setData(x0Var);
+            this.f4151i.setFirstRowSingleColumn(true);
+            this.f4151i.setVisibility(0);
         }
     }
 
@@ -214,9 +212,9 @@ public class b0 extends c implements p<x0>, q {
                 layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
                 layoutParams.topMargin = dimenPixelSize2;
                 h(layoutParams);
-                this.f4218i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-                this.f4218i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-                this.f4218i.setLayoutParams(layoutParams);
+                this.f4151i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+                this.f4151i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+                this.f4151i.setLayoutParams(layoutParams);
                 return;
             }
             int i2 = l;
@@ -229,38 +227,38 @@ public class b0 extends c implements p<x0>, q {
             layoutParams2.rightMargin = f3;
             layoutParams2.topMargin = f4;
             h(layoutParams2);
-            this.f4218i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-            this.f4218i.setPadding(f2, f2, f2, f2);
-            this.f4218i.setLayoutParams(layoutParams2);
+            this.f4151i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+            this.f4151i.setPadding(f2, f2, f2, f2);
+            this.f4151i.setLayoutParams(layoutParams2);
         }
     }
 
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f4218i.setAutoProcess(z);
+            this.f4151i.setAutoProcess(z);
         }
     }
 
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f4218i.setHeadText(str);
+            this.f4151i.setHeadText(str);
         }
     }
 
     public void t(NEGFeedBackView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            this.f4218i.setEventCallback(bVar);
+            this.f4151i.setEventCallback(bVar);
         }
     }
 
     public final void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f4218i.getLayoutParams();
-            if (this.f4218i.getParent() == null || layoutParams == null || layoutParams.topMargin != i2) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f4151i.getLayoutParams();
+            if (this.f4151i.getParent() == null || layoutParams == null || layoutParams.topMargin != i2) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
                 layoutParams2.addRule(11);
@@ -268,9 +266,9 @@ public class b0 extends c implements p<x0>, q {
                 layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
                 layoutParams2.topMargin = i2;
                 h(layoutParams2);
-                this.f4218i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-                this.f4218i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-                this.f4218i.setLayoutParams(layoutParams2);
+                this.f4151i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+                this.f4151i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+                this.f4151i.setLayoutParams(layoutParams2);
             }
         }
     }
@@ -278,7 +276,7 @@ public class b0 extends c implements p<x0>, q {
     public void v(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f4218i.showWithNone(z);
+            this.f4151i.showWithNone(z);
         }
     }
 
@@ -299,9 +297,9 @@ public class b0 extends c implements p<x0>, q {
         }
         g(-1);
         NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(tbPageContext);
-        this.f4218i = nEGFeedBackView;
+        this.f4151i = nEGFeedBackView;
         nEGFeedBackView.setId(R.id.decor_item_right_id);
-        f(this.f4218i);
+        f(this.f4151i);
         k(align);
     }
 }

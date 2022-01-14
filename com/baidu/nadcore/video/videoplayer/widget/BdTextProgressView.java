@@ -7,8 +7,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.e0.a.d.b;
-import c.a.c0.h0.v;
+import c.a.c0.h0.a.d.b;
+import c.a.c0.k0.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.widget.BdPlayerProgressView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,25 +26,23 @@ public class BdTextProgressView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f38393e;
+    public float f37174e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38394f;
+    public int f37175f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38395g;
+    public String f37176g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f38396h;
+    public String f37177h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Paint f38397i;
+    public final Paint f37178i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f38398j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final int f38399k;
+    public final int f37179j;
+    public final int k;
 
     static {
         InterceptResult invokeClinit;
@@ -89,7 +87,7 @@ public class BdTextProgressView extends View {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            int i4 = this.f38398j;
+            int i4 = this.f37179j;
             if (i4 != 0) {
                 if (i4 == 1 || i4 != 2) {
                     return 0;
@@ -104,20 +102,20 @@ public class BdTextProgressView extends View {
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            Paint.FontMetricsInt fontMetricsInt = this.f38397i.getFontMetricsInt();
+            Paint.FontMetricsInt fontMetricsInt = this.f37178i.getFontMetricsInt();
             int i2 = fontMetricsInt.top;
             int measuredHeight = (((getMeasuredHeight() - fontMetricsInt.bottom) + i2) / 2) - i2;
-            canvas.drawText(this.f38395g, a(this.f38398j, (int) this.f38397i.measureText(this.f38395g)), measuredHeight, this.f38397i);
+            canvas.drawText(this.f37176g, a(this.f37179j, (int) this.f37178i.measureText(this.f37176g)), measuredHeight, this.f37178i);
         }
     }
 
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            Paint.FontMetricsInt fontMetricsInt = this.f38397i.getFontMetricsInt();
+            Paint.FontMetricsInt fontMetricsInt = this.f37178i.getFontMetricsInt();
             int i2 = fontMetricsInt.top;
             int measuredHeight = (((getMeasuredHeight() - fontMetricsInt.bottom) + i2) / 2) - i2;
-            canvas.drawText(this.f38396h, a(this.f38398j, (int) this.f38397i.measureText(this.f38396h)), measuredHeight, this.f38397i);
+            canvas.drawText(this.f37177h, a(this.f37179j, (int) this.f37178i.measureText(this.f37177h)), measuredHeight, this.f37178i);
         }
     }
 
@@ -142,7 +140,7 @@ public class BdTextProgressView extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            int measureText = (int) this.f38397i.measureText(this.f38399k == 1 ? BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT : BdPlayerProgressView.DEFAULT_TIME_TEXT);
+            int measureText = (int) this.f37178i.measureText(this.k == 1 ? BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT : BdPlayerProgressView.DEFAULT_TIME_TEXT);
             int mode = View.MeasureSpec.getMode(i2);
             return mode == 1073741824 ? View.MeasureSpec.getSize(i2) : mode == Integer.MIN_VALUE ? measureText : l;
         }
@@ -152,25 +150,25 @@ public class BdTextProgressView extends View {
     public String getPositionText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38395g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37176g : (String) invokeV.objValue;
     }
 
     public int getTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f38394f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37175f : invokeV.intValue;
     }
 
     public float getTextSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f38393e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f37174e : invokeV.floatValue;
     }
 
     public String getTimeText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f38396h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37177h : (String) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -178,7 +176,7 @@ public class BdTextProgressView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
             super.onDraw(canvas);
-            int i2 = this.f38399k;
+            int i2 = this.k;
             if (i2 == 1) {
                 b(canvas);
             } else if (i2 == 2) {
@@ -197,8 +195,8 @@ public class BdTextProgressView extends View {
 
     public void setPositionText(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && this.f38399k == 1) {
-            this.f38395g = str;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && this.k == 1) {
+            this.f37176g = str;
             postInvalidate();
         }
     }
@@ -206,23 +204,23 @@ public class BdTextProgressView extends View {
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f38394f = i2;
+            this.f37175f = i2;
         }
     }
 
     public void setTextSize(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-            this.f38393e = f2;
-            this.f38397i.setTextSize(f2);
+            this.f37174e = f2;
+            this.f37178i.setTextSize(f2);
             invalidate();
         }
     }
 
     public void setTimeText(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && this.f38399k == 2) {
-            this.f38396h = str;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && this.k == 2) {
+            this.f37177h = str;
             postInvalidate();
         }
     }
@@ -267,21 +265,21 @@ public class BdTextProgressView extends View {
                 return;
             }
         }
-        this.f38395g = BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
+        this.f37176g = BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, v.NadTextProgressView);
-            this.f38393e = typedArray.getDimension(v.NadTextProgressView_nad_progressTextSize, 15.0f);
-            this.f38394f = typedArray.getColor(v.NadTextProgressView_nad_progressTextColor, -1);
-            this.f38398j = typedArray.getInt(v.NadTextProgressView_nad_progressGravity, 1);
-            this.f38399k = typedArray.getInt(v.NadTextProgressView_nad_progressTextMode, 1);
+            typedArray = context.obtainStyledAttributes(attributeSet, q.NadTextProgressView);
+            this.f37174e = typedArray.getDimension(q.NadTextProgressView_nad_progressTextSize, 15.0f);
+            this.f37175f = typedArray.getColor(q.NadTextProgressView_nad_progressTextColor, -1);
+            this.f37179j = typedArray.getInt(q.NadTextProgressView_nad_progressGravity, 1);
+            this.k = typedArray.getInt(q.NadTextProgressView_nad_progressTextMode, 1);
             Paint paint = new Paint();
-            this.f38397i = paint;
+            this.f37178i = paint;
             paint.setAntiAlias(true);
-            this.f38397i.setColor(this.f38394f);
-            this.f38397i.setTextSize(this.f38393e);
-            if (this.f38399k == 2) {
-                this.f38397i.setFakeBoldText(true);
+            this.f37178i.setColor(this.f37175f);
+            this.f37178i.setTextSize(this.f37174e);
+            if (this.k == 2) {
+                this.f37178i.setFakeBoldText(true);
             }
         } finally {
             if (typedArray != null) {

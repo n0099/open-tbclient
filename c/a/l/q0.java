@@ -27,10 +27,8 @@ public class q0 extends c.a.l.a<c.a.s0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f4290j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f4291k;
+    public View f4210j;
+    public TextView k;
     public TextView l;
     public OriginalThreadCardView m;
     public c.a.s0.s.q.a n;
@@ -73,7 +71,7 @@ public class q0 extends c.a.l.a<c.a.s0.s.q.a> {
             String g0 = this.a.n.getThreadData().g0();
             c.a.t0.g0.m.a(g0);
             this.a.r(g0);
-            this.a.f4210e.o(new a.C0186a(1));
+            this.a.f4144e.o(new a.C0195a(1));
         }
     }
 
@@ -114,13 +112,13 @@ public class q0 extends c.a.l.a<c.a.s0.s.q.a> {
         this.o = false;
         this.p = new a(this);
         if (TbadkCoreApplication.getInst().getPersonalizeViewData().q != null && TbadkCoreApplication.getInst().getPersonalizeViewData().q.getParent() == null) {
-            this.f4290j = TbadkCoreApplication.getInst().getPersonalizeViewData().q;
+            this.f4210j = TbadkCoreApplication.getInst().getPersonalizeViewData().q;
         } else {
-            this.f4290j = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
+            this.f4210j = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
         }
-        this.f4291k = (TextView) this.f4290j.findViewById(R.id.thread_card_title);
-        this.l = (TextView) this.f4290j.findViewById(R.id.thread_card_abstract);
-        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f4290j.findViewById(R.id.original_thread_view);
+        this.k = (TextView) this.f4210j.findViewById(R.id.thread_card_title);
+        this.l = (TextView) this.f4210j.findViewById(R.id.thread_card_abstract);
+        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f4210j.findViewById(R.id.original_thread_view);
         this.m = originalThreadCardView;
         originalThreadCardView.setSubClickListener(this.p);
     }
@@ -129,7 +127,7 @@ public class q0 extends c.a.l.a<c.a.s0.s.q.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4290j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4210j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -157,15 +155,15 @@ public class q0 extends c.a.l.a<c.a.s0.s.q.a> {
             return;
         }
         this.n = aVar;
-        ThreadCardUtils.setTitle(this.f4291k, aVar.getThreadData(), this.o);
-        ThreadCardUtils.setAbstract(this.l, this.f4291k, aVar.getThreadData(), q, this.o);
-        this.m.fillData(aVar.getThreadData().A1);
+        ThreadCardUtils.setTitle(this.k, aVar.getThreadData(), this.o);
+        ThreadCardUtils.setAbstract(this.l, this.k, aVar.getThreadData(), q, this.o);
+        this.m.fillData(aVar.getThreadData().z1);
     }
 
     public final void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            c.a.t0.g0.m.l(this.f4291k, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            c.a.t0.g0.m.l(this.k, str, R.color.CAM_X0105, R.color.CAM_X0109);
             c.a.t0.g0.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
             this.m.setReadState(c.a.t0.g0.m.k(str));
         }

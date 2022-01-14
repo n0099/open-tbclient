@@ -36,13 +36,13 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f8945e;
+        public final /* synthetic */ List f8750e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f8946f;
+        public final /* synthetic */ TextView f8751f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Resources f8947g;
+        public final /* synthetic */ Resources f8752g;
 
         public a(List list, TextView textView, Resources resources) {
             Interceptable interceptable = $ic;
@@ -59,19 +59,19 @@ public final class c {
                     return;
                 }
             }
-            this.f8945e = list;
-            this.f8946f = textView;
-            this.f8947g = resources;
+            this.f8750e = list;
+            this.f8751f = textView;
+            this.f8752g = resources;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f8945e.size() > 0) {
-                    this.f8946f.setBackground(this.f8947g.getDrawable(c.a.r0.a.e.swan_app_auth_positive_bg_selector));
+                if (this.f8750e.size() > 0) {
+                    this.f8751f.setBackground(this.f8752g.getDrawable(c.a.r0.a.e.swan_app_auth_positive_bg_selector));
                 } else {
-                    this.f8946f.setBackground(this.f8947g.getDrawable(c.a.r0.a.e.swan_app_auth_pos_button_unable));
+                    this.f8751f.setBackground(this.f8752g.getDrawable(c.a.r0.a.e.swan_app_auth_pos_button_unable));
                 }
             }
         }
@@ -83,13 +83,13 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f8948e;
+        public final /* synthetic */ f f8753e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f8949f;
+        public final /* synthetic */ List f8754f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAlertDialog f8950g;
+        public final /* synthetic */ SwanAppAlertDialog f8755g;
 
         public b(f fVar, List list, SwanAppAlertDialog swanAppAlertDialog) {
             Interceptable interceptable = $ic;
@@ -106,33 +106,33 @@ public final class c {
                     return;
                 }
             }
-            this.f8948e = fVar;
-            this.f8949f = list;
-            this.f8950g = swanAppAlertDialog;
+            this.f8753e = fVar;
+            this.f8754f = list;
+            this.f8755g = swanAppAlertDialog;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) && this.f8948e.a(dialogInterface, i2, this.f8949f)) {
-                this.f8950g.dismiss();
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) && this.f8753e.a(dialogInterface, i2, this.f8754f)) {
+                this.f8755g.dismiss();
             }
         }
     }
 
     /* renamed from: c.a.r0.a.s0.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class View$OnClickListenerC0542c implements View.OnClickListener {
+    public static class View$OnClickListenerC0551c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAlertDialog f8951e;
+        public final /* synthetic */ SwanAppAlertDialog f8756e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnClickListener f8952f;
+        public final /* synthetic */ DialogInterface.OnClickListener f8757f;
 
-        public View$OnClickListenerC0542c(SwanAppAlertDialog swanAppAlertDialog, DialogInterface.OnClickListener onClickListener) {
+        public View$OnClickListenerC0551c(SwanAppAlertDialog swanAppAlertDialog, DialogInterface.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,16 +147,16 @@ public final class c {
                     return;
                 }
             }
-            this.f8951e = swanAppAlertDialog;
-            this.f8952f = onClickListener;
+            this.f8756e = swanAppAlertDialog;
+            this.f8757f = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f8951e.onButtonClick(-1);
-                this.f8952f.onClick(this.f8951e, -1);
+                this.f8756e.onButtonClick(-1);
+                this.f8757f.onClick(this.f8756e, -1);
             }
         }
     }
@@ -167,10 +167,10 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAlertDialog f8953e;
+        public final /* synthetic */ SwanAppAlertDialog f8758e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnClickListener f8954f;
+        public final /* synthetic */ DialogInterface.OnClickListener f8759f;
 
         public d(SwanAppAlertDialog swanAppAlertDialog, DialogInterface.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -187,16 +187,16 @@ public final class c {
                     return;
                 }
             }
-            this.f8953e = swanAppAlertDialog;
-            this.f8954f = onClickListener;
+            this.f8758e = swanAppAlertDialog;
+            this.f8759f = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f8953e.onButtonClick(-2);
-                this.f8954f.onClick(this.f8953e, -2);
+                this.f8758e.onButtonClick(-2);
+                this.f8759f.onClick(this.f8758e, -2);
             }
         }
     }
@@ -207,25 +207,23 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f8955e;
+        public boolean f8760e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f8956f;
+        public final /* synthetic */ TextView f8761f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Drawable f8957g;
+        public final /* synthetic */ Drawable f8762g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Drawable f8958h;
+        public final /* synthetic */ Drawable f8763h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f8959i;
+        public final /* synthetic */ int f8764i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ List f8960j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.s0.d f8961k;
+        public final /* synthetic */ List f8765j;
+        public final /* synthetic */ c.a.r0.a.s0.d k;
         public final /* synthetic */ View.OnClickListener l;
 
         public e(TextView textView, Drawable drawable, Drawable drawable2, int i2, List list, c.a.r0.a.s0.d dVar, View.OnClickListener onClickListener) {
@@ -243,28 +241,28 @@ public final class c {
                     return;
                 }
             }
-            this.f8956f = textView;
-            this.f8957g = drawable;
-            this.f8958h = drawable2;
-            this.f8959i = i2;
-            this.f8960j = list;
-            this.f8961k = dVar;
+            this.f8761f = textView;
+            this.f8762g = drawable;
+            this.f8763h = drawable2;
+            this.f8764i = i2;
+            this.f8765j = list;
+            this.k = dVar;
             this.l = onClickListener;
-            this.f8955e = true;
+            this.f8760e = true;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                boolean z = !this.f8955e;
-                this.f8955e = z;
-                this.f8956f.setCompoundDrawablesWithIntrinsicBounds(z ? this.f8957g : this.f8958h, (Drawable) null, (Drawable) null, (Drawable) null);
-                this.f8956f.setCompoundDrawablePadding(this.f8959i);
-                if (this.f8955e) {
-                    this.f8960j.add(this.f8961k);
+                boolean z = !this.f8760e;
+                this.f8760e = z;
+                this.f8761f.setCompoundDrawablesWithIntrinsicBounds(z ? this.f8762g : this.f8763h, (Drawable) null, (Drawable) null, (Drawable) null);
+                this.f8761f.setCompoundDrawablePadding(this.f8764i);
+                if (this.f8760e) {
+                    this.f8765j.add(this.k);
                 } else {
-                    this.f8960j.remove(this.f8961k);
+                    this.f8765j.remove(this.k);
                 }
                 this.l.onClick(view);
             }
@@ -309,7 +307,7 @@ public final class c {
             aVar.t(false);
             SwanAppAlertDialog c2 = aVar.c();
             b bVar = new b(fVar, arrayList, c2);
-            textView2.setOnClickListener(new View$OnClickListenerC0542c(c2, bVar));
+            textView2.setOnClickListener(new View$OnClickListenerC0551c(c2, bVar));
             textView.setOnClickListener(new d(c2, bVar));
             c2.setEnableImmersion(false);
             c2.setOnCancelListener(onCancelListener);
@@ -335,7 +333,7 @@ public final class c {
             layoutParams.setMargins(0, 16, 0, 16);
             textView.setLayoutParams(layoutParams);
             textView.setTextColor(c.a.r0.r.a.b.a.b(activity, c.a.r0.a.c.swan_app_msg_dialog_title));
-            textView.setText(dVar.f8962b);
+            textView.setText(dVar.f8766b);
             Drawable drawable = resources.getDrawable(c.a.r0.a.e.aiapps_subscribe_msg_unselected);
             Drawable drawable2 = resources.getDrawable(c.a.r0.a.e.aiapps_subscribe_msg_selected);
             textView.setCompoundDrawablesWithIntrinsicBounds(drawable2, (Drawable) null, (Drawable) null, (Drawable) null);

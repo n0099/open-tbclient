@@ -41,7 +41,7 @@ public final class r<E> extends w<E> {
     public final long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f0.a.d(this, x.f64488k) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f0.a.d(this, x.k) : invokeV.longValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
@@ -61,7 +61,7 @@ public final class r<E> extends w<E> {
     public final void k(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            f0.a.i(this, x.f64488k, j2);
+            f0.a.i(this, x.k, j2);
         }
     }
 
@@ -71,7 +71,7 @@ public final class r<E> extends w<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) {
             if (e2 != null) {
-                E[] eArr = this.f64484f;
+                E[] eArr = this.f62064f;
                 long j2 = this.producerIndex;
                 long a = a(j2);
                 if (e(eArr, a) != null) {
@@ -100,7 +100,7 @@ public final class r<E> extends w<E> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             long j2 = this.consumerIndex;
             long a = a(j2);
-            E[] eArr = this.f64484f;
+            E[] eArr = this.f62064f;
             E e2 = e(eArr, a);
             if (e2 == null) {
                 return null;

@@ -10,7 +10,7 @@ public class dt implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.f> {
             return;
         }
         fVar.a = jSONObject.optInt("phoneCount");
-        fVar.f57716b = jSONObject.optInt("activePhoneCount");
+        fVar.f55530b = jSONObject.optInt("activePhoneCount");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class dt implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.f> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "phoneCount", fVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "activePhoneCount", fVar.f57716b);
+        com.kwad.sdk.utils.t.a(jSONObject, "activePhoneCount", fVar.f55530b);
         return jSONObject;
     }
 }

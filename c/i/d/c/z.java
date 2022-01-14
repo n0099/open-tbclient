@@ -36,10 +36,10 @@ public abstract class z<K, V> extends d0<K, V> implements ConcurrentMap<K, V> {
     public abstract ConcurrentMap<K, V> delegate();
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
-    public V putIfAbsent(K k2, V v) {
+    public V putIfAbsent(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k2, v)) == null) ? delegate().putIfAbsent(k2, v) : (V) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) ? delegate().putIfAbsent(k, v) : (V) invokeLL.objValue;
     }
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
@@ -50,16 +50,16 @@ public abstract class z<K, V> extends d0<K, V> implements ConcurrentMap<K, V> {
     }
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
-    public V replace(K k2, V v) {
+    public V replace(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k2, v)) == null) ? delegate().replace(k2, v) : (V) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, v)) == null) ? delegate().replace(k, v) : (V) invokeLL.objValue;
     }
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
-    public boolean replace(K k2, V v, V v2) {
+    public boolean replace(K k, V v, V v2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, k2, v, v2)) == null) ? delegate().replace(k2, v, v2) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, k, v, v2)) == null) ? delegate().replace(k, v, v2) : invokeLLL.booleanValue;
     }
 }

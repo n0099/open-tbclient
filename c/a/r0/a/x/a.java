@@ -30,20 +30,20 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0604a implements c<Map<String, f>> {
+    public class C0613a implements c<Map<String, f>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9773e;
+        public final /* synthetic */ CallbackHandler f9560e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9774f;
+        public final /* synthetic */ String f9561f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f9775g;
+        public final /* synthetic */ a f9562g;
 
-        public C0604a(a aVar, CallbackHandler callbackHandler, String str) {
+        public C0613a(a aVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,9 +58,9 @@ public class a extends z {
                     return;
                 }
             }
-            this.f9775g = aVar;
-            this.f9773e = callbackHandler;
-            this.f9774f = str;
+            this.f9562g = aVar;
+            this.f9560e = callbackHandler;
+            this.f9561f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,9 +70,9 @@ public class a extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
                 if (map != null) {
-                    this.f9775g.l(this.f9774f, this.f9773e, map);
+                    this.f9562g.l(this.f9561f, this.f9560e, map);
                 } else {
-                    this.f9773e.handleSchemeDispatchCallback(this.f9774f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    this.f9560e.handleSchemeDispatchCallback(this.f9561f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 }
             }
         }
@@ -123,7 +123,7 @@ public class a extends z {
     public final void k(String str, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, callbackHandler) == null) {
-            c.a.r0.a.p1.r.c.a.h(new C0604a(this, callbackHandler, str));
+            c.a.r0.a.p1.r.c.a.h(new C0613a(this, callbackHandler, str));
         }
     }
 
@@ -135,10 +135,10 @@ public class a extends z {
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 return;
             }
-            boolean z = fVar.f7281d;
+            boolean z = fVar.f7125d;
             int c2 = p0.c();
             long e2 = p0.e();
-            List<String> list = fVar.f7286i;
+            List<String> list = fVar.f7130i;
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
             try {
@@ -149,12 +149,12 @@ public class a extends z {
                 jSONObject.put("visitDuration", e2);
                 jSONObject.put("forbidden", z);
                 jSONObject.put("ext", jSONArray);
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str3 = "launchCount:" + c2 + " visitDuration:" + e2 + " forbidden:" + z + " ext:" + jSONArray.toString();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             } catch (JSONException e3) {
-                if (z.f6340b) {
+                if (z.f6201b) {
                     e3.printStackTrace();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());

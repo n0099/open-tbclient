@@ -41,7 +41,7 @@ public class c extends c.a.r0.q.j.a {
     public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, e<String> eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, eVar) == null) {
-            httpRequestBuilder.url(f.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(c.a.r0.q.j.a.f11766b).cookieManager(c.a.r0.q.j.a.a).enableStat(true).build().executeStat(eVar);
+            httpRequestBuilder.url(f.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(c.a.r0.q.j.a.f11498b).cookieManager(c.a.r0.q.j.a.a).enableStat(true).build().executeStat(eVar);
         }
     }
 

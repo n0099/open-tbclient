@@ -27,13 +27,13 @@ public class c implements b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13124b;
+    public long f12802b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, c.a.s0.i0.e.a> f13125c;
+    public Map<String, c.a.s0.i0.e.a> f12803c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13126d;
+    public boolean f12804d;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -71,7 +71,7 @@ public class c implements b {
                 return;
             }
         }
-        this.f13125c = new HashMap();
+        this.f12803c = new HashMap();
     }
 
     public static final c d() {
@@ -85,7 +85,7 @@ public class c implements b {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<Map.Entry<String, c.a.s0.i0.e.a>> it = this.f13125c.entrySet().iterator();
+            Iterator<Map.Entry<String, c.a.s0.i0.e.a>> it = this.f12803c.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
@@ -97,7 +97,7 @@ public class c implements b {
                     break;
                 }
             }
-            this.f13126d = z;
+            this.f12804d = z;
             if (z) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921551, Boolean.TRUE));
             }
@@ -109,7 +109,7 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.f13126d && currentTimeMillis > f() && currentTimeMillis < e();
+            return this.f12804d && currentTimeMillis > f() && currentTimeMillis < e();
         }
         return invokeV.booleanValue;
     }
@@ -117,13 +117,13 @@ public class c implements b {
     public c.a.s0.i0.e.a c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f13125c.get(str) : (c.a.s0.i0.e.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f12803c.get(str) : (c.a.s0.i0.e.a) invokeL.objValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13124b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12802b : invokeV.longValue;
     }
 
     public long f() {
@@ -142,7 +142,7 @@ public class c implements b {
             } else {
                 uniqueId = currentActivity instanceof BaseFragmentActivity ? ((BaseFragmentActivity) currentActivity).getUniqueId() : null;
             }
-            for (Map.Entry<String, c.a.s0.i0.e.a> entry : this.f13125c.entrySet()) {
+            for (Map.Entry<String, c.a.s0.i0.e.a> entry : this.f12803c.entrySet()) {
                 if (entry.getValue() != null) {
                     entry.getValue().q(uniqueId);
                     entry.getValue().p(this);
@@ -156,36 +156,36 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
             this.a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
-            this.f13124b = jSONObject.optLong("end_time");
+            this.f12802b = jSONObject.optLong("end_time");
             JSONObject optJSONObject = jSONObject.optJSONObject("feed");
             if (optJSONObject != null) {
                 c.a.s0.i0.e.a aVar = new c.a.s0.i0.e.a();
                 aVar.o(optJSONObject);
-                this.f13125c.put("homePage", aVar);
+                this.f12803c.put("homePage", aVar);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
             if (optJSONObject2 != null) {
                 c.a.s0.i0.e.a aVar2 = new c.a.s0.i0.e.a();
                 aVar2.o(optJSONObject2);
-                this.f13125c.put("enterForum", aVar2);
+                this.f12803c.put("enterForum", aVar2);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("channel");
             if (optJSONObject3 != null) {
                 c.a.s0.i0.e.a aVar3 = new c.a.s0.i0.e.a();
                 aVar3.o(optJSONObject3);
-                this.f13125c.put("channel", aVar3);
+                this.f12803c.put("channel", aVar3);
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("news");
             if (optJSONObject4 != null) {
                 c.a.s0.i0.e.a aVar4 = new c.a.s0.i0.e.a();
                 aVar4.o(optJSONObject4);
-                this.f13125c.put("message", aVar4);
+                this.f12803c.put("message", aVar4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("personal");
             if (optJSONObject5 != null) {
                 c.a.s0.i0.e.a aVar5 = new c.a.s0.i0.e.a();
                 aVar5.o(optJSONObject5);
-                this.f13125c.put("person", aVar5);
+                this.f12803c.put("person", aVar5);
             }
         }
     }

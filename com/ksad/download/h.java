@@ -28,13 +28,13 @@ public class h implements com.kwai.filedownloader.kwai.b {
     public final OkHttpClient a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Request.Builder f57176b;
+    public final Request.Builder f55014b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Request f57177c;
+    public Request f55015c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Response f57178d;
+    public Response f55016d;
 
     /* renamed from: com.ksad.download.h$1  reason: invalid class name */
     /* loaded from: classes3.dex */
@@ -50,7 +50,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
         public OkHttpClient a;
 
         /* renamed from: b  reason: collision with root package name */
-        public OkHttpClient.Builder f57179b;
+        public OkHttpClient.Builder f55017b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
                     return;
                 }
             }
-            this.f57179b = z ? h.j() : h.i();
+            this.f55017b = z ? h.j() : h.i();
         }
 
         @Override // com.kwai.filedownloader.e.c.b
@@ -92,8 +92,8 @@ public class h implements com.kwai.filedownloader.kwai.b {
                 if (this.a == null) {
                     synchronized (a.class) {
                         if (this.a == null) {
-                            this.a = this.f57179b != null ? this.f57179b.build() : new OkHttpClient();
-                            this.f57179b = null;
+                            this.a = this.f55017b != null ? this.f55017b.build() : new OkHttpClient();
+                            this.f55017b = null;
                         }
                     }
                 }
@@ -143,7 +143,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
                 return;
             }
         }
-        this.f57176b = builder;
+        this.f55014b = builder;
         this.a = okHttpClient;
     }
 
@@ -190,7 +190,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Response response = this.f57178d;
+            Response response = this.f55016d;
             if (response != null) {
                 return com.kwad.sdk.core.h.b.a().b(response.body().byteStream());
             }
@@ -206,7 +206,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (!"Content-Disposition".equals(str)) {
-                Response response = this.f57178d;
+                Response response = this.f55016d;
                 if (response == null) {
                     return null;
                 }
@@ -216,12 +216,12 @@ public class h implements com.kwai.filedownloader.kwai.b {
             } catch (Exception unused) {
                 str2 = "";
             }
-            if (TextUtils.isEmpty(com.kwai.filedownloader.e.f.g(this.f57178d.header(str)))) {
-                List<String> pathSegments = this.f57178d.request().url().pathSegments();
+            if (TextUtils.isEmpty(com.kwai.filedownloader.e.f.g(this.f55016d.header(str)))) {
+                List<String> pathSegments = this.f55016d.request().url().pathSegments();
                 str2 = pathSegments.get(pathSegments.size() - 1);
                 return "attachment; filename=\"" + b(str2) + "\"";
             }
-            return this.f57178d.header(str);
+            return this.f55016d.header(str);
         }
         return (String) invokeL.objValue;
     }
@@ -230,7 +230,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            this.f57176b.addHeader(str, str2);
+            this.f55014b.addHeader(str, str2);
         }
     }
 
@@ -249,10 +249,10 @@ public class h implements com.kwai.filedownloader.kwai.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f57177c == null) {
-                this.f57177c = this.f57176b.build();
+            if (this.f55015c == null) {
+                this.f55015c = this.f55014b.build();
             }
-            return this.f57177c.headers().toMultimap();
+            return this.f55015c.headers().toMultimap();
         }
         return (Map) invokeV.objValue;
     }
@@ -262,7 +262,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Response response = this.f57178d;
+            Response response = this.f55016d;
             if (response == null) {
                 return null;
             }
@@ -275,10 +275,10 @@ public class h implements com.kwai.filedownloader.kwai.b {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f57177c == null) {
-                this.f57177c = this.f57176b.build();
+            if (this.f55015c == null) {
+                this.f55015c = this.f55014b.build();
             }
-            this.f57178d = this.a.newCall(this.f57177c).execute();
+            this.f55016d = this.a.newCall(this.f55015c).execute();
         }
     }
 
@@ -287,7 +287,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Response response = this.f57178d;
+            Response response = this.f55016d;
             if (response != null) {
                 return response.code();
             }
@@ -300,12 +300,12 @@ public class h implements com.kwai.filedownloader.kwai.b {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f57177c = null;
-            Response response = this.f57178d;
+            this.f55015c = null;
+            Response response = this.f55016d;
             if (response != null && response.body() != null) {
-                this.f57178d.body().close();
+                this.f55016d.body().close();
             }
-            this.f57178d = null;
+            this.f55016d = null;
         }
     }
 }

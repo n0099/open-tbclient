@@ -1,7 +1,7 @@
 package c.a.t0.z2;
 
 import android.widget.MediaController;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.tieba.play.TbVideoViewContainer;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import com.baidu.tieba.play.cyberPlayer.TbVideoViewSet;
@@ -65,7 +65,7 @@ public interface g extends MediaController.MediaPlayerControl {
 
     void setStageType(String str);
 
-    void setThreadDataForStatistic(d2 d2Var);
+    void setThreadDataForStatistic(e2 e2Var);
 
     void setTryUseViewInSet(boolean z);
 

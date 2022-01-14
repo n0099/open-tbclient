@@ -14,37 +14,35 @@ public final class j {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29625b;
+    public final int f28720b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f29626c;
+    public final long f28721c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f29627d;
+    public final long f28722d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f29628e;
+    public final long f28723e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Format f29629f;
+    public final Format f28724f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f29630g;
+    public final int f28725g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final long[] f29631h;
+    public final long[] f28726h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final long[] f29632i;
+    public final long[] f28727i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f29633j;
+    public final int f28728j;
     @Nullable
-
-    /* renamed from: k  reason: collision with root package name */
-    public final k[] f29634k;
+    public final k[] k;
 
     public j(int i2, int i3, long j2, long j3, long j4, Format format, int i4, @Nullable k[] kVarArr, int i5, @Nullable long[] jArr, @Nullable long[] jArr2) {
         Interceptable interceptable = $ic;
@@ -62,23 +60,23 @@ public final class j {
             }
         }
         this.a = i2;
-        this.f29625b = i3;
-        this.f29626c = j2;
-        this.f29627d = j3;
-        this.f29628e = j4;
-        this.f29629f = format;
-        this.f29630g = i4;
-        this.f29634k = kVarArr;
-        this.f29633j = i5;
-        this.f29631h = jArr;
-        this.f29632i = jArr2;
+        this.f28720b = i3;
+        this.f28721c = j2;
+        this.f28722d = j3;
+        this.f28723e = j4;
+        this.f28724f = format;
+        this.f28725g = i4;
+        this.k = kVarArr;
+        this.f28728j = i5;
+        this.f28726h = jArr;
+        this.f28727i = jArr2;
     }
 
     public k a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            k[] kVarArr = this.f29634k;
+            k[] kVarArr = this.k;
             if (kVarArr == null) {
                 return null;
             }

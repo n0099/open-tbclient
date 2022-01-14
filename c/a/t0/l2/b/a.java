@@ -20,17 +20,17 @@ public class a implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f19624h;
+    public static final BdUniqueId f19119h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f19625e;
+    public boolean f19120e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<i> f19626f;
+    public List<i> f19121f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f19627g;
+    public boolean f19122g;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class a implements n {
                 return;
             }
         }
-        f19624h = BdUniqueId.gen();
+        f19119h = BdUniqueId.gen();
     }
 
     public a() {
@@ -67,23 +67,23 @@ public class a implements n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f19625e = jSONObject.optInt("need_profile", 0) == 1;
+        this.f19120e = jSONObject.optInt("need_profile", 0) == 1;
         JSONArray optJSONArray = jSONObject.optJSONArray("nearby_person_list");
         if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.f19626f = new ArrayList();
+            this.f19121f = new ArrayList();
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 i iVar = new i();
                 iVar.a(optJSONArray.optJSONObject(i2));
-                this.f19626f.add(iVar);
+                this.f19121f.add(iVar);
             }
         }
-        this.f19627g = jSONObject.optInt("has_more", 0) == 1;
+        this.f19122g = jSONObject.optInt("has_more", 0) == 1;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19624h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19119h : (BdUniqueId) invokeV.objValue;
     }
 }

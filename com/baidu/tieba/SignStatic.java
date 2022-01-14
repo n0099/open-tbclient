@@ -5,6 +5,8 @@ import android.location.Address;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
+import c.a.s0.s.q.z1;
+import c.a.t0.t3.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -91,6 +93,9 @@ public class SignStatic {
                             if (!TextUtils.isEmpty(TbSingleton.getInstance().getActivityId())) {
                                 netWork.addPostData("activity_id", TbSingleton.getInstance().getActivityId());
                             }
+                            if (!TextUtils.isEmpty(TbSingleton.getInstance().getSampleId())) {
+                                netWork.addPostData(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
+                            }
                             SignStatic.a(netWork);
                             netWork.getNetContext().getRequest().mIsNeedTbs = true;
                             netWork.setNeedSig(true);
@@ -132,11 +137,44 @@ public class SignStatic {
     }
 
     /* loaded from: classes12.dex */
-    public static class b implements UrlManager.UrlDealListener {
+    public static class b implements CustomMessageTask.CustomRunnable<c.a.t0.t3.h.c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<c.a.t0.t3.h.c> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && (customMessage.getData() instanceof z1)) {
+                    new e().f((z1) customMessage.getData());
+                }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes12.dex */
+    public static class c implements UrlManager.UrlDealListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,6 +229,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
         b();
+        d();
         c();
     }
 
@@ -228,13 +267,22 @@ public class SignStatic {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            UrlManager.getInstance().addListener(new b());
+            UrlManager.getInstance().addListener(new c());
         }
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921663, new b());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             CustomMessageTask customMessageTask = new CustomMessageTask(2001425, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);

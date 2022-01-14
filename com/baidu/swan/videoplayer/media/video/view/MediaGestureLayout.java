@@ -24,25 +24,23 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.y.l.b.c.a f41406e;
+    public c.a.r0.y.l.b.c.a f40001e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f41407f;
+    public b f40002f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MediaVolume f41408g;
+    public MediaVolume f40003g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MediaBrightness f41409h;
+    public MediaBrightness f40004h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MediaFastForward f41410i;
+    public MediaFastForward f40005i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SwanVideoView f41411j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.r0.y.l.b.c.c f41412k;
+    public SwanVideoView f40006j;
+    public c.a.r0.y.l.b.c.c k;
 
     /* loaded from: classes11.dex */
     public class a implements View.OnTouchListener {
@@ -50,7 +48,7 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaGestureLayout f41413e;
+        public final /* synthetic */ MediaGestureLayout f40007e;
 
         public a(MediaGestureLayout mediaGestureLayout) {
             Interceptable interceptable = $ic;
@@ -67,7 +65,7 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
                     return;
                 }
             }
-            this.f41413e = mediaGestureLayout;
+            this.f40007e = mediaGestureLayout;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -75,7 +73,7 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         public boolean onTouch(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f41413e.f41406e.a(motionEvent) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f40007e.f40001e.a(motionEvent) : invokeLL.booleanValue;
         }
     }
 
@@ -151,9 +149,9 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             c.a.r0.y.l.b.c.a aVar = new c.a.r0.y.l.b.c.a(context);
-            this.f41406e = aVar;
+            this.f40001e = aVar;
             aVar.d(this);
-            this.f41412k = new c.b().f();
+            this.k = new c.b().f();
             setOnTouchListener(new a(this));
         }
     }
@@ -161,14 +159,14 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
     public void bindGestureProperty(@NonNull c.a.r0.y.l.b.c.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f41412k = cVar;
+            this.k = cVar;
         }
     }
 
     public void bindMediaControl(@NonNull SwanVideoView swanVideoView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanVideoView) == null) {
-            this.f41411j = swanVideoView;
+            this.f40006j = swanVideoView;
         }
     }
 
@@ -176,17 +174,17 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             MediaVolume mediaVolume = new MediaVolume(context);
-            this.f41408g = mediaVolume;
+            this.f40003g = mediaVolume;
             mediaVolume.setVisibility(8);
-            addView(this.f41408g);
+            addView(this.f40003g);
             MediaBrightness mediaBrightness = new MediaBrightness(context);
-            this.f41409h = mediaBrightness;
+            this.f40004h = mediaBrightness;
             mediaBrightness.setVisibility(8);
-            addView(this.f41409h);
+            addView(this.f40004h);
             MediaFastForward mediaFastForward = new MediaFastForward(context);
-            this.f41410i = mediaFastForward;
+            this.f40005i = mediaFastForward;
             mediaFastForward.setVisibility(8);
-            addView(this.f41410i);
+            addView(this.f40005i);
         }
     }
 
@@ -195,14 +193,14 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (!(this.f41412k.f() && this.f41412k.b()) && (this.f41412k.f() || !this.f41412k.e())) {
+            if (!(this.k.f() && this.k.b()) && (this.k.f() || !this.k.e())) {
                 return false;
             }
-            float a2 = this.f41409h.a() + (((motionEvent.getY() - motionEvent2.getY()) * this.f41409h.b()) / (getHeight() * 0.8f));
-            this.f41409h.f(a2);
-            this.f41409h.g(e.swanapp_video_brightness_high);
-            this.f41409h.h((int) ((a2 / this.f41409h.b()) * 100.0f));
-            this.f41409h.e();
+            float a2 = this.f40004h.a() + (((motionEvent.getY() - motionEvent2.getY()) * this.f40004h.b()) / (getHeight() * 0.8f));
+            this.f40004h.f(a2);
+            this.f40004h.g(e.swanapp_video_brightness_high);
+            this.f40004h.h((int) ((a2 / this.f40004h.b()) * 100.0f));
+            this.f40004h.e();
             return true;
         }
         return invokeCommon.booleanValue;
@@ -214,7 +212,7 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            if (!this.f41412k.a() || (bVar = this.f41407f) == null) {
+            if (!this.k.a() || (bVar = this.f40002f) == null) {
                 return true;
             }
             bVar.onDoubleTap(motionEvent);
@@ -228,16 +226,16 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            SwanVideoView swanVideoView = this.f41411j;
+            SwanVideoView swanVideoView = this.f40006j;
             if (swanVideoView == null) {
                 return true;
             }
-            this.f41412k.i(swanVideoView.isInPlaybackState());
-            this.f41412k.j(this.f41411j.getTipState());
-            if (this.f41412k.c()) {
-                this.f41410i.e(this.f41411j.getCurrentPosition(), this.f41411j.getDuration());
-                this.f41408g.e();
-                this.f41409h.d();
+            this.k.i(swanVideoView.isInPlaybackState());
+            this.k.j(this.f40006j.getTipState());
+            if (this.k.c()) {
+                this.f40005i.e(this.f40006j.getCurrentPosition(), this.f40006j.getDuration());
+                this.f40003g.e();
+                this.f40004h.d();
                 return true;
             }
             return false;
@@ -250,11 +248,11 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (this.f41412k.d()) {
+            if (this.k.d()) {
                 float x = motionEvent2.getX() - motionEvent.getX();
-                this.f41410i.h((int) (this.f41410i.b() + ((this.f41410i.c() * x) / (getWidth() * 0.8f))));
-                this.f41410i.g(x > 0.0f ? e.swanapp_video_fast_forward : e.swanapp_video_fast_rewind);
-                this.f41410i.f();
+                this.f40005i.h((int) (this.f40005i.b() + ((this.f40005i.c() * x) / (getWidth() * 0.8f))));
+                this.f40005i.g(x > 0.0f ? e.swanapp_video_fast_forward : e.swanapp_video_fast_rewind);
+                this.f40005i.f();
                 return true;
             }
             return false;
@@ -267,7 +265,7 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            b bVar = this.f41407f;
+            b bVar = this.f40002f;
             if (bVar != null) {
                 bVar.onSingleTap(motionEvent);
                 return true;
@@ -282,7 +280,7 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048585, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f41406e.c(getWidth());
+            this.f40001e.c(getWidth());
         }
     }
 
@@ -291,13 +289,13 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, motionEvent, mediaGestureMode)) == null) {
-            this.f41410i.setVisibility(8);
-            this.f41408g.setVisibility(8);
-            this.f41409h.setVisibility(8);
-            if (this.f41407f != null && mediaGestureMode == MediaGestureMode.FAST_FORWARD && this.f41412k.d()) {
-                this.f41407f.a(this.f41410i.a());
+            this.f40005i.setVisibility(8);
+            this.f40003g.setVisibility(8);
+            this.f40004h.setVisibility(8);
+            if (this.f40002f != null && mediaGestureMode == MediaGestureMode.FAST_FORWARD && this.k.d()) {
+                this.f40002f.a(this.f40005i.a());
             }
-            b bVar = this.f41407f;
+            b bVar = this.f40002f;
             if (bVar != null) {
                 bVar.onTouchUp(motionEvent, mediaGestureMode);
                 return true;
@@ -312,13 +310,13 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (!(this.f41412k.f() && this.f41412k.b()) && (this.f41412k.f() || !this.f41412k.e())) {
+            if (!(this.k.f() && this.k.b()) && (this.k.f() || !this.k.e())) {
                 return false;
             }
-            float b2 = this.f41408g.b() + (((motionEvent.getY() - motionEvent2.getY()) * this.f41408g.c()) / (getHeight() * 0.8f));
-            this.f41408g.g(e.swanapp_video_mute_off);
-            this.f41408g.h(b2);
-            this.f41408g.f();
+            float b2 = this.f40003g.b() + (((motionEvent.getY() - motionEvent2.getY()) * this.f40003g.c()) / (getHeight() * 0.8f));
+            this.f40003g.g(e.swanapp_video_mute_off);
+            this.f40003g.h(b2);
+            this.f40003g.f();
             return true;
         }
         return invokeCommon.booleanValue;
@@ -327,7 +325,7 @@ public final class MediaGestureLayout extends FrameLayout implements c.a.r0.y.l.
     public void setMediaGestureListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.f41407f = bVar;
+            this.f40002f = bVar;
         }
     }
 

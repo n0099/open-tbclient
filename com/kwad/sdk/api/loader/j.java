@@ -11,24 +11,24 @@ public class j {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f57588b;
+    public final String f55403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f57589c;
+    public final String f55404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Resources f57590d;
+    public Resources f55405d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ClassLoader f57591e;
+    public ClassLoader f55406e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IKsAdSDK f57592f;
+    public IKsAdSDK f55407f;
 
     public j(String str, String str2, String str3) {
         this.a = str;
-        this.f57588b = str2;
-        this.f57589c = str3;
+        this.f55403b = str2;
+        this.f55404c = str3;
     }
 
     public static synchronized j a(Context context, String str) {
@@ -60,11 +60,11 @@ public class j {
     private void a(Context context) {
         d();
         Resources a = o.a(context, context.getResources(), this.a);
-        ClassLoader a2 = d.a(context, this.a, this.f57588b, this.f57589c);
+        ClassLoader a2 = d.a(context, this.a, this.f55403b, this.f55404c);
         IKsAdSDK a3 = Loader.a(a2);
-        this.f57590d = a;
-        this.f57591e = a2;
-        this.f57592f = a3;
+        this.f55405d = a;
+        this.f55406e = a2;
+        this.f55407f = a3;
         int sDKType = a3.getSDKType();
         if (sDKType == 1) {
             return;
@@ -83,18 +83,18 @@ public class j {
     }
 
     public Resources a() {
-        return this.f57590d;
+        return this.f55405d;
     }
 
     public ClassLoader b() {
-        return this.f57591e;
+        return this.f55406e;
     }
 
     public IKsAdSDK c() {
-        return this.f57592f;
+        return this.f55407f;
     }
 
     public String toString() {
-        return "ExternalPackage{mApk='" + this.a + ExtendedMessageFormat.QUOTE + ", mDexDir='" + this.f57588b + ExtendedMessageFormat.QUOTE + ", mNativeLibDir='" + this.f57589c + ExtendedMessageFormat.QUOTE + ", mResource=" + this.f57590d + ", mClassLoader=" + this.f57591e + ", mKsSdk=" + this.f57592f + ExtendedMessageFormat.END_FE;
+        return "ExternalPackage{mApk='" + this.a + ExtendedMessageFormat.QUOTE + ", mDexDir='" + this.f55403b + ExtendedMessageFormat.QUOTE + ", mNativeLibDir='" + this.f55404c + ExtendedMessageFormat.QUOTE + ", mResource=" + this.f55405d + ", mClassLoader=" + this.f55406e + ", mKsSdk=" + this.f55407f + ExtendedMessageFormat.END_FE;
     }
 }

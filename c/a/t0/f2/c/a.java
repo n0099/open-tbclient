@@ -26,21 +26,21 @@ public class a {
     public BaseFragmentActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f17756b;
+    public Context f17326b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f17757c;
+    public View f17327c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CoverFlowView<c.a.t0.f2.c.k.b> f17758d;
+    public CoverFlowView<c.a.t0.f2.c.k.b> f17328d;
 
     /* renamed from: c.a.t0.f2.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1085a implements c.a.s0.s.w.a {
+    public class C1099a implements c.a.s0.s.w.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1085a(a aVar) {
+        public C1099a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,7 +138,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 TiebaStatic.log("c10446");
-                MemberCenterStatic.a((TbPageContext) j.a(this.a.f17756b), new String[]{str});
+                MemberCenterStatic.a((TbPageContext) j.a(this.a.f17326b), new String[]{str});
             }
         }
 
@@ -168,7 +168,7 @@ public class a {
             }
         }
         this.a = baseFragmentActivity;
-        this.f17756b = baseFragmentActivity.getActivity();
+        this.f17326b = baseFragmentActivity.getActivity();
         c(view);
     }
 
@@ -181,8 +181,8 @@ public class a {
         if (a.size() > 5) {
             a = a.subList(0, 4);
         }
-        this.f17758d.setData(a);
-        this.f17758d.setVisibility(0);
+        this.f17328d.setData(a);
+        this.f17328d.setVisibility(0);
     }
 
     public final void c(View view) {
@@ -190,9 +190,9 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null) {
             return;
         }
-        this.f17757c = view;
+        this.f17327c = view;
         CoverFlowView<c.a.t0.f2.c.k.b> coverFlowView = (CoverFlowView) view.findViewById(R.id.coverflowview);
-        this.f17758d = coverFlowView;
+        this.f17328d = coverFlowView;
         coverFlowView.setDisableParentEvent(false);
         e();
     }
@@ -200,22 +200,22 @@ public class a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.s0.x0.a.a(this.a.getPageContext(), this.f17757c);
-            CoverFlowView<c.a.t0.f2.c.k.b> coverFlowView = this.f17758d;
+            c.a.s0.x0.a.a(this.a.getPageContext(), this.f17327c);
+            CoverFlowView<c.a.t0.f2.c.k.b> coverFlowView = this.f17328d;
             if (coverFlowView == null || coverFlowView.getVisibility() != 0) {
                 return;
             }
-            this.f17758d.onChangeSkinType();
+            this.f17328d.onChangeSkinType();
         }
     }
 
     public final void e() {
         CoverFlowView<c.a.t0.f2.c.k.b> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (coverFlowView = this.f17758d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (coverFlowView = this.f17328d) == null) {
             return;
         }
-        coverFlowView.setCoverFlowFactory(new C1085a(this));
-        this.f17758d.setCallback(new b(this));
+        coverFlowView.setCoverFlowFactory(new C1099a(this));
+        this.f17328d.setCallback(new b(this));
     }
 }

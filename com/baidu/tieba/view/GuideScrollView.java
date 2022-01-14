@@ -15,7 +15,7 @@ public class GuideScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f51065e;
+    public a f49116e;
 
     /* loaded from: classes12.dex */
     public interface a {
@@ -45,7 +45,7 @@ public class GuideScrollView extends ScrollView {
     public a getScrollChangedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51065e : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49116e : (a) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -53,7 +53,7 @@ public class GuideScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            a aVar = this.f51065e;
+            a aVar = this.f49116e;
             if (aVar != null) {
                 aVar.onScrollChanged(i2, i3, i4, i5);
             }
@@ -63,7 +63,7 @@ public class GuideScrollView extends ScrollView {
     public void setScrollChangedListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f51065e = aVar;
+            this.f49116e = aVar;
         }
     }
 

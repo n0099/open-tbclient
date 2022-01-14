@@ -89,7 +89,7 @@ public class j0 extends n<h0, PbPageNewsInfoHolder> {
     public PbPageNewsInfoHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPageNewsInfoHolder(this.n.getPageContext(), LayoutInflater.from(this.f3299e).inflate(c.a.t0.s2.j.pb_page_news, viewGroup, false), this.t) : (PbPageNewsInfoHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPageNewsInfoHolder(this.n.getPageContext(), LayoutInflater.from(this.f3258e).inflate(c.a.t0.s2.j.pb_page_news, viewGroup, false), this.t) : (PbPageNewsInfoHolder) invokeL.objValue;
     }
 
     public View d0(int i2, View view, ViewGroup viewGroup, h0 h0Var, PbPageNewsInfoHolder pbPageNewsInfoHolder) {

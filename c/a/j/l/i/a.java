@@ -17,34 +17,34 @@ import java.util.Map;
 public class a extends TouchDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<View, C0182a> a;
+    public Map<View, C0191a> a;
 
     /* renamed from: c.a.j.l.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0182a {
+    public class C0191a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Rect a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4137b;
+        public int f4072b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f4138c;
+        public int f4073c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f4139d;
+        public int f4074d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4140e;
+        public int f4075e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Rect f4141f;
+        public Rect f4076f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f4142g;
+        public boolean f4077g;
 
-        public C0182a(a aVar, Rect rect, int i2, int i3, int i4, int i5) {
+        public C0191a(a aVar, Rect rect, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,10 +59,10 @@ public class a extends TouchDelegate {
                     return;
                 }
             }
-            this.f4137b = i2;
+            this.f4072b = i2;
             this.a = rect;
-            this.f4138c = i4;
-            this.f4139d = i5;
+            this.f4073c = i4;
+            this.f4074d = i5;
         }
     }
 
@@ -92,21 +92,21 @@ public class a extends TouchDelegate {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (Map.Entry<View, C0182a> entry : this.a.entrySet()) {
+            for (Map.Entry<View, C0191a> entry : this.a.entrySet()) {
                 View key = entry.getKey();
-                C0182a value = entry.getValue();
+                C0191a value = entry.getValue();
                 key.getGlobalVisibleRect(value.a);
                 Rect rect = value.a;
                 int i2 = rect.left;
-                int i3 = value.f4137b;
+                int i3 = value.f4072b;
                 rect.left = i2 - i3;
-                rect.right += value.f4138c;
+                rect.right += value.f4073c;
                 rect.top -= i3;
-                rect.bottom += value.f4139d;
-                value.f4140e = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
+                rect.bottom += value.f4074d;
+                value.f4075e = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
                 Rect rect2 = new Rect(value.a);
-                value.f4141f = rect2;
-                int i4 = value.f4140e;
+                value.f4076f = rect2;
+                int i4 = value.f4075e;
                 rect2.inset(-i4, -i4);
             }
         }
@@ -115,7 +115,7 @@ public class a extends TouchDelegate {
     public void b(View view, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.a.put(view, new C0182a(this, new Rect(), i2, i3, i4, i5));
+            this.a.put(view, new C0191a(this, new Rect(), i2, i3, i4, i5));
         }
     }
 
@@ -130,35 +130,35 @@ public class a extends TouchDelegate {
             boolean z = false;
             boolean z2 = false;
             boolean z3 = true;
-            for (Map.Entry<View, C0182a> entry : this.a.entrySet()) {
+            for (Map.Entry<View, C0191a> entry : this.a.entrySet()) {
                 View key = entry.getKey();
                 if (key.getVisibility() != 0) {
                     break;
                 }
-                C0182a value = entry.getValue();
+                C0191a value = entry.getValue();
                 int action = motionEvent.getAction();
                 if (action != 0) {
                     if (action == 1 || action == 2) {
-                        z2 = value.f4142g;
-                        if (z2 && !value.f4141f.contains(rawX, rawY)) {
+                        z2 = value.f4077g;
+                        if (z2 && !value.f4076f.contains(rawX, rawY)) {
                             z3 = false;
                         }
                     } else if (action == 3) {
-                        z2 = value.f4142g;
-                        value.f4142g = false;
+                        z2 = value.f4077g;
+                        value.f4077g = false;
                     }
                 } else if (value.a.contains(rawX, rawY)) {
-                    value.f4142g = true;
+                    value.f4077g = true;
                     z2 = true;
                 } else {
-                    value.f4142g = false;
+                    value.f4077g = false;
                     z2 = false;
                 }
                 if (z2) {
                     if (z3) {
                         motionEvent.setLocation(key.getWidth() / 2, key.getHeight() / 2);
                     } else {
-                        float f2 = -(value.f4140e * 2);
+                        float f2 = -(value.f4075e * 2);
                         motionEvent.setLocation(f2, f2);
                     }
                     z = key.dispatchTouchEvent(motionEvent);

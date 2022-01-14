@@ -28,34 +28,32 @@ public class a {
     public FoldCommentActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f23158b;
+    public BdTypeListView f22519b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.s2.u.f.d1.a f23159c;
+    public c.a.t0.s2.u.f.d1.a f22520c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.s2.u.f.d1.c f23160d;
+    public c.a.t0.s2.u.f.d1.c f22521d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View.OnClickListener f23161e;
+    public View.OnClickListener f22522e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f23162f;
+    public View.OnClickListener f22523f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbRichTextView.y f23163g;
+    public TbRichTextView.y f22524g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.s2.s.c f23164h;
+    public c.a.t0.s2.s.c f22525h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnLongClickListener f23165i;
+    public View.OnLongClickListener f22526i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SubPbReplyAdapter f23166j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public b f23167k;
+    public SubPbReplyAdapter f22527j;
+    public b k;
     public List<c.a.d.n.e.a> l;
     public f m;
     public ArrayList<n> n;
@@ -78,51 +76,51 @@ public class a {
         this.l = new ArrayList();
         this.n = new ArrayList<>();
         this.a = foldCommentActivity;
-        this.f23158b = bdTypeListView;
+        this.f22519b = bdTypeListView;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.a, c.a.t0.s2.u.h.g.b.f23846f);
-            this.f23166j = subPbReplyAdapter;
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.a, c.a.t0.s2.u.h.g.b.f23186f);
+            this.f22527j = subPbReplyAdapter;
             subPbReplyAdapter.b0(false);
-            this.l.add(this.f23166j);
+            this.l.add(this.f22527j);
             FoldCommentActivity foldCommentActivity = this.a;
             b bVar = new b(foldCommentActivity, PostData.A0, foldCommentActivity.getPageContext());
-            this.f23167k = bVar;
-            bVar.J0(this.f23159c);
-            this.f23167k.K0(this.f23160d);
-            this.f23167k.M0(this.a);
-            this.f23167k.m(this.f23161e);
-            this.f23167k.e(this.f23162f);
-            this.f23167k.p(this.f23163g);
-            this.f23167k.L0(this.f23164h);
-            this.f23167k.d(this.f23165i);
-            this.l.add(this.f23167k);
-            this.f23158b.addAdapters(this.l);
+            this.k = bVar;
+            bVar.J0(this.f22520c);
+            this.k.K0(this.f22521d);
+            this.k.M0(this.a);
+            this.k.m(this.f22522e);
+            this.k.e(this.f22523f);
+            this.k.p(this.f22524g);
+            this.k.L0(this.f22525h);
+            this.k.d(this.f22526i);
+            this.l.add(this.k);
+            this.f22519b.addAdapters(this.l);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f23158b.getAdapter2() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f22519b.getAdapter2() == null) {
             return;
         }
-        this.f23158b.getAdapter2().notifyDataSetChanged();
+        this.f22519b.getAdapter2().notifyDataSetChanged();
     }
 
     public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f23162f = onClickListener;
+            this.f22523f = onClickListener;
         }
     }
 
     public void d(boolean z) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (bVar = this.f23167k) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (bVar = this.k) == null) {
             return;
         }
         bVar.setFromCDN(z);
@@ -131,21 +129,21 @@ public class a {
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f23161e = onClickListener;
+            this.f22522e = onClickListener;
         }
     }
 
     public void f(TbRichTextView.y yVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, yVar) == null) {
-            this.f23163g = yVar;
+            this.f22524g = yVar;
         }
     }
 
     public void g(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onLongClickListener) == null) {
-            this.f23165i = onLongClickListener;
+            this.f22526i = onLongClickListener;
         }
     }
 
@@ -154,7 +152,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
             this.m = fVar;
-            b bVar2 = this.f23167k;
+            b bVar2 = this.k;
             if (bVar2 != null) {
                 bVar2.t(fVar);
             }
@@ -172,7 +170,7 @@ public class a {
                     }
                 }
             }
-            if (fVar.O() != null && fVar.O().J() != null && (bVar = this.f23167k) != null) {
+            if (fVar.O() != null && fVar.O().J() != null && (bVar = this.k) != null) {
                 bVar.q(fVar.O().J().getUserId());
             }
             if (this.m != null) {
@@ -183,29 +181,29 @@ public class a {
                 statisticItem.param("tid", this.m.Q());
                 TiebaStatic.log(statisticItem);
             }
-            this.f23158b.setData(this.n);
-            this.f23158b.getAdapter2().notifyDataSetChanged();
+            this.f22519b.setData(this.n);
+            this.f22519b.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void i(c.a.t0.s2.u.f.d1.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f23159c = aVar;
+            this.f22520c = aVar;
         }
     }
 
     public void j(c.a.t0.s2.u.f.d1.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.f23160d = cVar;
+            this.f22521d = cVar;
         }
     }
 
     public void k(c.a.t0.s2.s.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.f23164h = cVar;
+            this.f22525h = cVar;
         }
     }
 }

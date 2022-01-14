@@ -27,34 +27,32 @@ public class q implements j {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64720b;
+    public int f62291b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64721c;
+    public int f62292c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f64722d;
+    public Context f62293d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j.a.a.e.n.b f64723e;
+    public j.a.a.e.n.b f62294e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PayUIKitConfig f64724f;
+    public PayUIKitConfig f62295f;
 
     /* renamed from: g  reason: collision with root package name */
-    public k f64725g;
+    public k f62296g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f64726h;
+    public i f62297h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f64727i;
+    public e f62298i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SparseArray<Integer> f64728j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public SparseArray<f> f64729k;
+    public SparseArray<Integer> f62299j;
+    public SparseArray<f> k;
     public SparseArray<PayFlowModel> l;
 
     public q(Context context, int i2, int i3, j.a.a.e.n.b bVar, k kVar, PayUIKitConfig payUIKitConfig) {
@@ -73,20 +71,20 @@ public class q implements j {
             }
         }
         this.a = "YYPayController";
-        this.f64728j = new SparseArray<>(2);
-        this.f64729k = new SparseArray<>();
+        this.f62299j = new SparseArray<>(2);
+        this.k = new SparseArray<>();
         this.l = new SparseArray<>();
         this.a += "@" + hashCode();
-        this.f64720b = i2;
-        this.f64722d = context;
-        this.f64723e = bVar;
-        this.f64721c = i3;
-        this.f64725g = kVar;
-        this.f64724f = payUIKitConfig;
-        this.f64726h = new p(i2, i3, bVar, payUIKitConfig);
-        this.f64727i = new m(this.f64720b, this.f64721c, this.f64724f, this.f64723e);
-        this.f64728j.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), 0);
-        this.f64728j.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), 0);
+        this.f62291b = i2;
+        this.f62293d = context;
+        this.f62294e = bVar;
+        this.f62292c = i3;
+        this.f62296g = kVar;
+        this.f62295f = payUIKitConfig;
+        this.f62297h = new p(i2, i3, bVar, payUIKitConfig);
+        this.f62298i = new m(this.f62291b, this.f62292c, this.f62295f, this.f62294e);
+        this.f62299j.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), 0);
+        this.f62299j.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), 0);
         RLog.info(this.a, "create YYPayController:" + this + " appId:" + i2 + " userChannel:" + i3);
     }
 
@@ -127,12 +125,12 @@ public class q implements j {
                 }
                 PayFlowModel payFlowModel = this.l.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
                 if (payFlowModel != null) {
-                    bVar.f65381c = payFlowModel.appCustomExpand;
-                    bVar.f65383e = payFlowModel.viewEventListener;
+                    bVar.f62941c = payFlowModel.appCustomExpand;
+                    bVar.f62943e = payFlowModel.viewEventListener;
                 }
                 String str2 = this.a;
                 RLog.info(str2, "startPayChannelDialog payFlowModel:" + payFlowModel);
-                f fVar = this.f64729k.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
+                f fVar = this.k.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
                 if (fVar == null) {
                     RLog.error(this.a, "startPayChannelDialog error walletPayFlowHandler null", new Object[0]);
                 } else {
@@ -147,11 +145,11 @@ public class q implements j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, payFlowType) == null) {
             synchronized (this) {
-                f fVar = this.f64729k.get(payFlowType.getTypeId());
+                f fVar = this.k.get(payFlowType.getTypeId());
                 if (fVar != null) {
                     fVar.release();
                 }
-                this.f64729k.remove(payFlowType.getTypeId());
+                this.k.remove(payFlowType.getTypeId());
                 this.l.remove(payFlowType.getTypeId());
                 n("releasePayFlow payFlowType:" + payFlowType + " payFlowHandler:" + fVar);
             }
@@ -170,11 +168,11 @@ public class q implements j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, payFlowType) == null) {
             synchronized (this) {
-                int intValue = this.f64728j.get(payFlowType.getTypeId()).intValue();
+                int intValue = this.f62299j.get(payFlowType.getTypeId()).intValue();
                 int i2 = intValue + 1;
                 String str2 = this.a;
                 RLog.info(str2, "payActivityVisitRecord name:" + str + " payFlowType:" + payFlowType.name() + " oldActivityCount:" + intValue + " newAcitivityCount:" + i2);
-                this.f64728j.put(payFlowType.getTypeId(), Integer.valueOf(i2));
+                this.f62299j.put(payFlowType.getTypeId(), Integer.valueOf(i2));
             }
         }
     }
@@ -185,7 +183,7 @@ public class q implements j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, payFlowType)) == null) {
             synchronized (this) {
-                f fVar = this.f64729k.get(payFlowType.getTypeId());
+                f fVar = this.k.get(payFlowType.getTypeId());
                 boolean z = true;
                 if (fVar == null) {
                     String str = this.a;
@@ -195,12 +193,12 @@ public class q implements j {
                     if (fVar.n() != PayDialogType.PAY_NONE_DIALOG) {
                         z = false;
                     }
-                    int intValue = this.f64728j.get(payFlowType.getTypeId()).intValue();
+                    int intValue = this.f62299j.get(payFlowType.getTypeId()).intValue();
                     String str2 = this.a;
                     RLog.info(str2, "shouldReleasePayFlow  payFlowType:" + payFlowType + " activityCount:" + intValue + " payDialogType:" + fVar.n() + " shouldRelease" + z);
                     return z;
                 } else {
-                    int intValue2 = this.f64728j.get(payFlowType.getTypeId()).intValue();
+                    int intValue2 = this.f62299j.get(payFlowType.getTypeId()).intValue();
                     if (intValue2 != 0 || fVar.n() != PayDialogType.PAY_NONE_DIALOG) {
                         z = false;
                     }
@@ -222,12 +220,12 @@ public class q implements j {
                 RLog.info(str, "startPayDialog viewParams:" + viewParams);
                 l(PayFlowType.DIOALOG_PAY_FLOW);
                 o(PayFlowType.DIOALOG_PAY_FLOW, viewParams);
-                j.a.a.e.a.d(this.f64720b, this.f64721c, PayFlowType.DIOALOG_PAY_FLOW);
-                o oVar = new o(this.f64722d, this.f64720b, this.f64721c, this.f64725g, this.f64726h, this.f64727i, new l(PayFlowType.DIOALOG_PAY_FLOW, this.f64726h), PayFlowType.DIOALOG_PAY_FLOW, this.f64724f);
-                this.f64729k.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), oVar);
+                j.a.a.e.a.d(this.f62291b, this.f62292c, PayFlowType.DIOALOG_PAY_FLOW);
+                o oVar = new o(this.f62293d, this.f62291b, this.f62292c, this.f62296g, this.f62297h, this.f62298i, new l(PayFlowType.DIOALOG_PAY_FLOW, this.f62297h), PayFlowType.DIOALOG_PAY_FLOW, this.f62295f);
+                this.k.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), oVar);
                 n("startPayDialog showPayAmountDialog");
                 oVar.e(activity, iPayCallback, viewParams);
-                j.a.a.e.o.b.b(this.f64720b, this.f64721c, UiEventType.purchaseshow);
+                j.a.a.e.o.b.b(this.f62291b, this.f62292c, UiEventType.purchaseshow);
             }
         }
     }
@@ -241,12 +239,12 @@ public class q implements j {
                 RLog.info(str, "startWalletActivity viewParams:" + viewParams);
                 l(PayFlowType.WALLET_PAY_FLOW);
                 o(PayFlowType.WALLET_PAY_FLOW, viewParams);
-                j.a.a.e.a.d(this.f64720b, this.f64721c, PayFlowType.WALLET_PAY_FLOW);
-                this.f64729k.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), new o(this.f64722d, this.f64720b, this.f64721c, this.f64725g, this.f64726h, this.f64727i, new l(PayFlowType.WALLET_PAY_FLOW, this.f64726h), PayFlowType.WALLET_PAY_FLOW, this.f64724f));
-                String c2 = j.a.a.e.n.e.c(this.f64724f);
+                j.a.a.e.a.d(this.f62291b, this.f62292c, PayFlowType.WALLET_PAY_FLOW);
+                this.k.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), new o(this.f62293d, this.f62291b, this.f62292c, this.f62296g, this.f62297h, this.f62298i, new l(PayFlowType.WALLET_PAY_FLOW, this.f62297h), PayFlowType.WALLET_PAY_FLOW, this.f62295f));
+                String c2 = j.a.a.e.n.e.c(this.f62295f);
                 n("startWalletActivity walletUrl:" + j.a.a.e.p.p.a(c2));
-                j.a.a.e.p.f.a(PayFlowType.WALLET_PAY_FLOW, this.f64720b, this.f64721c, this.f64724f, activity, c2, "我的钱包");
-                j.a.a.e.o.b.b(this.f64720b, this.f64721c, UiEventType.walletshow);
+                j.a.a.e.p.f.a(PayFlowType.WALLET_PAY_FLOW, this.f62291b, this.f62292c, this.f62295f, activity, c2, "我的钱包");
+                j.a.a.e.o.b.b(this.f62291b, this.f62292c, UiEventType.walletshow);
             }
         }
     }
@@ -256,10 +254,10 @@ public class q implements j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, payFlowType) == null) {
             synchronized (this) {
-                int intValue = this.f64728j.get(payFlowType.getTypeId()).intValue();
+                int intValue = this.f62299j.get(payFlowType.getTypeId()).intValue();
                 int i2 = intValue - 1;
                 RLog.info(this.a, "payActivityDestroyRecord name:" + str + " payFlowType:" + payFlowType.name() + " oldActivityCount:" + intValue + " newAcitivityCountt:" + i2);
-                this.f64728j.put(payFlowType.getTypeId(), Integer.valueOf(i2));
+                this.f62299j.put(payFlowType.getTypeId(), Integer.valueOf(i2));
             }
         }
     }
@@ -289,9 +287,9 @@ public class q implements j {
             RLog.info(str, "innerReleasePayFlow payFlowType:" + payFlowType);
             d(payFlowType);
             if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
-                j.a.a.e.p.k.c(this.f64722d);
+                j.a.a.e.p.k.c(this.f62293d);
             } else if (payFlowType == PayFlowType.DIOALOG_PAY_FLOW) {
-                j.a.a.e.p.k.b(this.f64722d);
+                j.a.a.e.p.k.b(this.f62293d);
             }
         }
     }
@@ -309,7 +307,7 @@ public class q implements j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             synchronized (this) {
-                int size = this.f64729k.size();
+                int size = this.k.size();
                 int size2 = this.l.size();
                 String str2 = this.a;
                 RLog.info(str2, ("reportPayFlowMapSize from: " + str) + " payFlowHanderMapSize:" + size + " payFlowModelMapSize:" + size2);
@@ -327,11 +325,11 @@ public class q implements j {
                 this.l.put(payFlowType.getTypeId(), null);
                 return;
             }
-            PayFlowModel k2 = k(viewParams);
+            PayFlowModel k = k(viewParams);
             String str2 = this.a;
-            RLog.info(str2, "updatePayFlowModel payFlowModel :" + k2);
-            if (k2 != null) {
-                this.l.put(payFlowType.getTypeId(), k2);
+            RLog.info(str2, "updatePayFlowModel payFlowModel :" + k);
+            if (k != null) {
+                this.l.put(payFlowType.getTypeId(), k);
             }
         }
     }
@@ -343,7 +341,7 @@ public class q implements j {
             synchronized (this) {
                 RLog.info(this.a, "release()");
                 m();
-                this.f64729k.clear();
+                this.k.clear();
                 this.l.clear();
             }
         }

@@ -98,7 +98,7 @@ public class TransitionInflater {
         return invokeLLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:84:0x0181, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x0185, code lost:
         return r3;
      */
     /*
@@ -181,7 +181,7 @@ public class TransitionInflater {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0058, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x005a, code lost:
         return r1;
      */
     /*

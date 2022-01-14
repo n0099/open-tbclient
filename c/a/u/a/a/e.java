@@ -23,13 +23,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IMPushPb.ActionType f26995e;
+        public final /* synthetic */ IMPushPb.ActionType f26194e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f26996f;
+        public final /* synthetic */ Context f26195f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f26997g;
+        public final /* synthetic */ Object f26196g;
 
         public a(IMPushPb.ActionType actionType, Context context, Object obj) {
             Interceptable interceptable = $ic;
@@ -46,21 +46,21 @@ public class e {
                     return;
                 }
             }
-            this.f26995e = actionType;
-            this.f26996f = context;
-            this.f26997g = obj;
+            this.f26194e = actionType;
+            this.f26195f = context;
+            this.f26196g = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = b.a[this.f26995e.ordinal()];
+                int i2 = b.a[this.f26194e.ordinal()];
                 if (i2 == 1) {
-                    f.f(this.f26996f, (Connection) this.f26997g);
+                    f.f(this.f26195f, (Connection) this.f26196g);
                 } else if (i2 != 2) {
                 } else {
-                    f.g(this.f26996f, (Request) this.f26997g);
+                    f.g(this.f26195f, (Request) this.f26196g);
                 }
             }
         }
@@ -105,7 +105,7 @@ public class e {
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Request f26998b;
+        public Request f26197b;
 
         public c(Context context) {
             Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public class e {
                 }
             }
             Request request = new Request();
-            this.f26998b = request;
+            this.f26197b = request;
             this.a = context;
             request.method = "";
             request.requestId = "";
@@ -138,7 +138,7 @@ public class e {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                this.f26998b.aliasId = j2;
+                this.f26197b.aliasId = j2;
                 return this;
             }
             return (c) invokeJ.objValue;
@@ -147,7 +147,7 @@ public class e {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                e.b(this.a, IMPushPb.ActionType.REQUEST, this.f26998b);
+                e.b(this.a, IMPushPb.ActionType.REQUEST, this.f26197b);
             }
         }
 
@@ -155,7 +155,7 @@ public class e {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                this.f26998b.errorCode = j2;
+                this.f26197b.errorCode = j2;
                 return this;
             }
             return (c) invokeJ.objValue;
@@ -165,7 +165,7 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f26998b.ext = str;
+                this.f26197b.ext = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -175,7 +175,7 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f26998b.method = str;
+                this.f26197b.method = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -185,7 +185,7 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f26998b.requestId = str;
+                this.f26197b.requestId = str;
                 return this;
             }
             return (c) invokeL.objValue;

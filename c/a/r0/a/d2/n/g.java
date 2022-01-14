@@ -26,34 +26,32 @@ public class g {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5699b;
+    public String f5574b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5700c;
+    public String f5575c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5701d;
+    public String f5576d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f5702e;
+    public int f5577e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f5703f;
+    public boolean f5578f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f5704g;
+    public String f5579g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f5705h;
+    public boolean f5580h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f5706i;
+    public boolean f5581i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f5707j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f5708k;
+    public String f5582j;
+    public boolean k;
     public boolean l;
     public boolean m;
     public boolean n;
@@ -89,16 +87,16 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, dVar) == null) {
                 dVar.writeInt(gVar.a);
-                dVar.f(gVar.f5699b);
-                dVar.f(gVar.f5700c);
-                dVar.f(gVar.f5701d);
-                dVar.writeInt(gVar.f5702e);
-                dVar.writeBoolean(gVar.f5703f);
-                dVar.f(gVar.f5704g);
-                dVar.writeBoolean(gVar.f5705h);
-                dVar.writeBoolean(gVar.f5706i);
-                dVar.f(gVar.f5707j);
-                dVar.writeBoolean(gVar.f5708k);
+                dVar.f(gVar.f5574b);
+                dVar.f(gVar.f5575c);
+                dVar.f(gVar.f5576d);
+                dVar.writeInt(gVar.f5577e);
+                dVar.writeBoolean(gVar.f5578f);
+                dVar.f(gVar.f5579g);
+                dVar.writeBoolean(gVar.f5580h);
+                dVar.writeBoolean(gVar.f5581i);
+                dVar.f(gVar.f5582j);
+                dVar.writeBoolean(gVar.k);
                 dVar.writeBoolean(gVar.l);
                 dVar.writeBoolean(gVar.m);
                 dVar.writeBoolean(gVar.n);
@@ -139,16 +137,16 @@ public class g {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
                 g gVar = new g();
                 gVar.a = cVar.readInt();
-                gVar.f5699b = cVar.g();
-                gVar.f5700c = cVar.g();
-                gVar.f5701d = cVar.g();
-                gVar.f5702e = cVar.readInt();
-                gVar.f5703f = cVar.readBoolean();
-                gVar.f5704g = cVar.g();
-                gVar.f5705h = cVar.readBoolean();
-                gVar.f5706i = cVar.readBoolean();
-                gVar.f5707j = cVar.g();
-                gVar.f5708k = cVar.readBoolean();
+                gVar.f5574b = cVar.g();
+                gVar.f5575c = cVar.g();
+                gVar.f5576d = cVar.g();
+                gVar.f5577e = cVar.readInt();
+                gVar.f5578f = cVar.readBoolean();
+                gVar.f5579g = cVar.g();
+                gVar.f5580h = cVar.readBoolean();
+                gVar.f5581i = cVar.readBoolean();
+                gVar.f5582j = cVar.g();
+                gVar.k = cVar.readBoolean();
                 gVar.l = cVar.readBoolean();
                 gVar.m = cVar.readBoolean();
                 gVar.n = cVar.readBoolean();
@@ -200,10 +198,10 @@ public class g {
         this.o = false;
         this.p = false;
         this.a = -16777216;
-        this.f5700c = "#ffffff";
-        this.f5707j = "default";
-        this.f5702e = -1;
-        this.f5703f = false;
+        this.f5575c = "#ffffff";
+        this.f5582j = "default";
+        this.f5577e = -1;
+        this.f5578f = false;
     }
 
     public static g a(JSONObject jSONObject) {
@@ -255,16 +253,16 @@ public class g {
             if (TextUtils.isEmpty(optString2)) {
                 optString2 = "white";
             }
-            gVar.f5700c = optString2;
-            gVar.f5699b = optJSONObject.optString("navigationBarTitleText");
-            gVar.f5701d = optJSONObject.optString("backgroundTextStyle", "black");
-            gVar.f5702e = SwanAppConfigData.t(optJSONObject.optString("backgroundColor"));
-            gVar.f5703f = optJSONObject.optBoolean("enablePullDownRefresh");
-            gVar.f5704g = optJSONObject.optString("onReachBottomDistance");
-            gVar.f5705h = optJSONObject.optBoolean("enableOpacityNavigationBar");
-            gVar.f5706i = optJSONObject.optBoolean("enableOpacityNavigationBarText");
-            gVar.f5707j = optJSONObject.optString("navigationStyle", "default");
-            gVar.f5708k = optJSONObject.optBoolean("navigationHomeButtonHidden");
+            gVar.f5575c = optString2;
+            gVar.f5574b = optJSONObject.optString("navigationBarTitleText");
+            gVar.f5576d = optJSONObject.optString("backgroundTextStyle", "black");
+            gVar.f5577e = SwanAppConfigData.t(optJSONObject.optString("backgroundColor"));
+            gVar.f5578f = optJSONObject.optBoolean("enablePullDownRefresh");
+            gVar.f5579g = optJSONObject.optString("onReachBottomDistance");
+            gVar.f5580h = optJSONObject.optBoolean("enableOpacityNavigationBar");
+            gVar.f5581i = optJSONObject.optBoolean("enableOpacityNavigationBarText");
+            gVar.f5582j = optJSONObject.optString("navigationStyle", "default");
+            gVar.k = optJSONObject.optBoolean("navigationHomeButtonHidden");
             gVar.q = optJSONObject.optString("textSizeAdjust");
             gVar.s = optJSONObject.optString("htmlFontSize");
             optJSONObject.optJSONArray("fontFace");
@@ -292,20 +290,20 @@ public class g {
             g gVar2 = new g();
             String optString = jSONObject.optString("navigationBarBackgroundColor");
             gVar2.a = TextUtils.isEmpty(optString) ? gVar.a : SwanAppConfigData.t(optString);
-            gVar2.f5699b = jSONObject.optString("navigationBarTitleText", gVar.f5699b);
+            gVar2.f5574b = jSONObject.optString("navigationBarTitleText", gVar.f5574b);
             String optString2 = jSONObject.optString("navigationBarTextStyle");
             if (TextUtils.isEmpty(optString2)) {
-                optString2 = gVar.f5700c;
+                optString2 = gVar.f5575c;
             }
-            gVar2.f5700c = optString2;
-            gVar2.f5701d = jSONObject.optString("backgroundTextStyle", gVar.f5701d);
-            gVar2.f5702e = jSONObject.has("backgroundColor") ? SwanAppConfigData.t(jSONObject.optString("backgroundColor")) : gVar.f5702e;
-            gVar2.f5703f = jSONObject.optBoolean("enablePullDownRefresh", gVar.f5703f);
-            gVar2.f5704g = jSONObject.optString("onReachBottomDistance", gVar.f5704g);
-            gVar2.f5705h = jSONObject.optBoolean("enableOpacityNavigationBar", gVar.f5705h);
-            gVar2.f5706i = jSONObject.optBoolean("enableOpacityNavigationBarText", gVar.f5706i);
-            gVar2.f5707j = jSONObject.optString("navigationStyle", gVar.f5707j);
-            gVar2.f5708k = jSONObject.optBoolean("navigationHomeButtonHidden", gVar.f5708k);
+            gVar2.f5575c = optString2;
+            gVar2.f5576d = jSONObject.optString("backgroundTextStyle", gVar.f5576d);
+            gVar2.f5577e = jSONObject.has("backgroundColor") ? SwanAppConfigData.t(jSONObject.optString("backgroundColor")) : gVar.f5577e;
+            gVar2.f5578f = jSONObject.optBoolean("enablePullDownRefresh", gVar.f5578f);
+            gVar2.f5579g = jSONObject.optString("onReachBottomDistance", gVar.f5579g);
+            gVar2.f5580h = jSONObject.optBoolean("enableOpacityNavigationBar", gVar.f5580h);
+            gVar2.f5581i = jSONObject.optBoolean("enableOpacityNavigationBarText", gVar.f5581i);
+            gVar2.f5582j = jSONObject.optString("navigationStyle", gVar.f5582j);
+            gVar2.k = jSONObject.optBoolean("navigationHomeButtonHidden", gVar.k);
             gVar2.l = jSONObject.optBoolean("disableSwipeBack", false);
             gVar2.m = jSONObject.optBoolean("disableFullscreenSwipeBack", false);
             gVar2.n = jSONObject.optBoolean("pageFavoriteEnable", true);
@@ -325,7 +323,7 @@ public class g {
             if (gVar == null) {
                 return false;
             }
-            return gVar.f5705h || TextUtils.equals(gVar.f5707j, "custom");
+            return gVar.f5580h || TextUtils.equals(gVar.f5582j, "custom");
         }
         return invokeL.booleanValue;
     }

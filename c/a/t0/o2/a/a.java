@@ -10,26 +10,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21347e;
+    public int f20783e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f21348f;
+    public final Context f20784f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<c.a.t0.o2.c.b> f21349g;
+    public List<c.a.t0.o2.c.b> f20785g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC1286a f21350h;
+    public InterfaceC1300a f20786h;
 
     /* renamed from: c.a.t0.o2.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1286a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC1300a {
         void onSelectCountChanged(int i2);
     }
 
@@ -48,8 +48,8 @@ public abstract class a extends BaseAdapter {
                 return;
             }
         }
-        this.f21349g = list;
-        this.f21348f = context;
+        this.f20785g = list;
+        this.f20784f = context;
     }
 
     public List<c.a.t0.o2.c.b> a() {
@@ -57,7 +57,7 @@ public abstract class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (c.a.t0.o2.c.b bVar : this.f21349g) {
+            for (c.a.t0.o2.c.b bVar : this.f20785g) {
                 if (bVar.g()) {
                     arrayList.add(bVar);
                 }
@@ -67,17 +67,17 @@ public abstract class a extends BaseAdapter {
         return (List) invokeV.objValue;
     }
 
-    public void b(InterfaceC1286a interfaceC1286a) {
+    public void b(InterfaceC1300a interfaceC1300a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1286a) == null) {
-            this.f21350h = interfaceC1286a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1300a) == null) {
+            this.f20786h = interfaceC1300a;
         }
     }
 
     public void c(List<c.a.t0.o2.c.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f21349g = list;
+            this.f20785g = list;
         }
     }
 
@@ -85,9 +85,9 @@ public abstract class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             if (bVar.g()) {
-                this.f21347e++;
+                this.f20783e++;
             } else {
-                this.f21347e--;
+                this.f20783e--;
             }
         }
     }
@@ -97,7 +97,7 @@ public abstract class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<c.a.t0.o2.c.b> list = this.f21349g;
+            List<c.a.t0.o2.c.b> list = this.f20785g;
             if (list == null) {
                 return 0;
             }

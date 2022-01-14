@@ -26,10 +26,10 @@ public class PushServiceReceiver extends BroadcastReceiver {
     public static HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f63105b;
+    public static Handler f60727b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f63106c;
+    public static a f60728c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -39,7 +39,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63107b;
+        public String f60729b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
         public static /* synthetic */ void a(a aVar, Context context, String str) {
             aVar.a = ContextDelegate.getContext(context);
-            aVar.f63107b = str;
+            aVar.f60729b = str;
         }
 
         @Override // java.lang.Runnable
@@ -66,14 +66,14 @@ public class PushServiceReceiver extends BroadcastReceiver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 NetworkInfo a = r.a(this.a);
                 if (!(a != null ? a.isConnectedOrConnecting() : false)) {
-                    p.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.f63107b);
+                    p.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.f60729b);
                     Context context = this.a;
-                    p.a(context, "触发静态广播:无网络(" + this.f63107b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
+                    p.a(context, "触发静态广播:无网络(" + this.f60729b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
                     return;
                 }
-                p.d("PushServiceReceiver", this.a.getPackageName() + ": 执行开始出发动作: " + this.f63107b);
+                p.d("PushServiceReceiver", this.a.getPackageName() + ": 执行开始出发动作: " + this.f60729b);
                 Context context2 = this.a;
-                p.a(context2, "触发静态广播(" + this.f63107b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
+                p.a(context2, "触发静态广播(" + this.f60729b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
                 e.a().a(this.a);
                 if (ClientConfigManagerImpl.getInstance(this.a).isCancleBroadcastReceiver()) {
                     return;
@@ -96,7 +96,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f63106c = new a();
+        f60728c = new a();
     }
 
     public PushServiceReceiver() {
@@ -124,12 +124,12 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     HandlerThread handlerThread = new HandlerThread("PushServiceReceiver");
                     a = handlerThread;
                     handlerThread.start();
-                    f63105b = new Handler(a.getLooper());
+                    f60727b = new Handler(a.getLooper());
                 }
-                p.d("PushServiceReceiver", context2.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + f63105b);
-                a.a(f63106c, context2, action);
-                f63105b.removeCallbacks(f63106c);
-                f63105b.postDelayed(f63106c, 2000L);
+                p.d("PushServiceReceiver", context2.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + f60727b);
+                a.a(f60728c, context2, action);
+                f60727b.removeCallbacks(f60728c);
+                f60727b.postDelayed(f60728c, 2000L);
             }
         }
     }

@@ -31,13 +31,13 @@ public class l1 {
     public static String a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f57320b = null;
+    public static String f55149b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f57321c = "16";
+    public static final String f55150c = "16";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f57322d = "62c80c436b7547a68a12774c67519836";
+    public static final String f55151d = "62c80c436b7547a68a12774c67519836";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class l1 {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f57323b;
+        public final /* synthetic */ Context f55152b;
 
         public a(String str, Context context) {
             Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public class l1 {
                 }
             }
             this.a = str;
-            this.f57323b = context;
+            this.f55152b = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g1.a(this.a, this.f57323b);
+                g1.a(this.a, this.f55152b);
             }
         }
     }
@@ -143,7 +143,7 @@ public class l1 {
             return;
         }
         try {
-            JSONObject a2 = new d1(str, q0.f57389f).a(context);
+            JSONObject a2 = new d1(str, q0.f55214f).a(context);
             if (map == null || map.size() <= 0) {
                 a2.put("module_section", new JSONObject());
             } else {
@@ -303,20 +303,20 @@ public class l1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (TextUtils.isEmpty(a) || TextUtils.isEmpty(f57320b)) {
-                String k2 = new d(context).k();
-                if (TextUtils.isEmpty(k2)) {
+            if (TextUtils.isEmpty(a) || TextUtils.isEmpty(f55149b)) {
+                String k = new d(context).k();
+                if (TextUtils.isEmpty(k)) {
                     return new String[2];
                 }
-                String[] split = k2.split("-");
+                String[] split = k.split("-");
                 if (split == null || split.length != 2) {
                     return new String[2];
                 }
                 a = split[0];
-                f57320b = split[1];
+                f55149b = split[1];
                 return split;
             }
-            return new String[]{a, f57320b};
+            return new String[]{a, f55149b};
         }
         return (String[]) invokeL.objValue;
     }
@@ -341,13 +341,13 @@ public class l1 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 String userId = n.i().b().getUserId();
-                String k2 = k();
+                String k = k();
                 String channel = n.i().b().getChannel();
                 String j2 = j();
                 String m = m();
                 String str = "";
                 jSONObject.put("userId", TextUtils.isEmpty(userId) ? "" : URLEncoder.encode(userId, "UTF-8"));
-                jSONObject.put(Constants.PARAM_PLATFORM, TextUtils.isEmpty(k2) ? "" : URLEncoder.encode(k2, "UTF-8"));
+                jSONObject.put(Constants.PARAM_PLATFORM, TextUtils.isEmpty(k) ? "" : URLEncoder.encode(k, "UTF-8"));
                 jSONObject.put("channel", TextUtils.isEmpty(channel) ? "" : URLEncoder.encode(channel, "UTF-8"));
                 try {
                     if (new d(context).b(d.Z0)) {
@@ -608,7 +608,7 @@ public class l1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, null, str, str2) == null) {
             a = str;
-            f57320b = str2;
+            f55149b = str2;
         }
     }
 

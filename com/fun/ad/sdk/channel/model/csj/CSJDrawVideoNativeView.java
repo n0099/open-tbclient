@@ -20,7 +20,7 @@ public final class CSJDrawVideoNativeView extends e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f56213f;
+    public FrameLayout f54080f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJDrawVideoNativeView(Context context) {
@@ -94,8 +94,8 @@ public final class CSJDrawVideoNativeView extends e0 {
                 ((ViewGroup) adView.getParent()).removeView(adView);
             }
             if (adView != null) {
-                this.f56213f.removeAllViews();
-                this.f56213f.addView(adView);
+                this.f54080f.removeAllViews();
+                this.f54080f.addView(adView);
             }
         }
     }
@@ -105,7 +105,7 @@ public final class CSJDrawVideoNativeView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f56213f = (FrameLayout) findViewById(R.id.ad_video);
+            this.f54080f = (FrameLayout) findViewById(R.id.ad_video);
         }
     }
 }

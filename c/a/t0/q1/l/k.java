@@ -11,7 +11,7 @@ public class k {
     public static int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f22169b = 2;
+    public static int f21564b = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

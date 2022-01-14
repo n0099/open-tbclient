@@ -31,12 +31,12 @@ public class a {
 
     /* renamed from: c.a.r0.m.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0776a {
+    public static class C0785a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject a;
 
-        public C0776a() {
+        public C0785a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,10 +52,10 @@ public class a {
             this.a = new JSONObject();
         }
 
-        public static C0776a a() {
+        public static C0785a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C0776a() : (C0776a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C0785a() : (C0785a) invokeV.objValue;
         }
 
         public JSONObject b() {
@@ -64,7 +64,7 @@ public class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (JSONObject) invokeV.objValue;
         }
 
-        public C0776a c(String str, Object obj) {
+        public C0785a c(String str, Object obj) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
@@ -77,7 +77,7 @@ public class a {
                 }
                 return this;
             }
-            return (C0776a) invokeLL.objValue;
+            return (C0785a) invokeLL.objValue;
         }
     }
 
@@ -100,21 +100,21 @@ public class a {
     public static void a(c cVar, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, cVar, dVar) == null) {
-            C0776a a2 = C0776a.a();
-            a2.c("mapId", cVar.f11649j);
-            a2.c("markerId", dVar.f7376e);
+            C0785a a2 = C0785a.a();
+            a2.c("mapId", cVar.f11388j);
+            a2.c("markerId", dVar.f7216e);
             JSONObject b2 = a2.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("vtype", "callouttap");
                 jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11648i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11387i);
             } catch (JSONException e2) {
                 if (a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.r0.a.a3.g.c.a.d(cVar.f11648i, cVar.f11649j, "map", "callouttap", jSONObject);
+            c.a.r0.a.a3.g.c.a.d(cVar.f11387i, cVar.f11388j, "map", "callouttap", jSONObject);
         }
     }
 
@@ -123,22 +123,22 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, view, cVar) == null) {
             c.a.r0.m.o.a G = cVar.G(view);
-            String str = (G == null || (bVar = G.a) == null) ? "" : bVar.f7370e;
-            C0776a a2 = C0776a.a();
-            a2.c("mapId", cVar.f11649j);
+            String str = (G == null || (bVar = G.a) == null) ? "" : bVar.f7210e;
+            C0785a a2 = C0785a.a();
+            a2.c("mapId", cVar.f11388j);
             a2.c("controlId", str);
             JSONObject b2 = a2.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("vtype", "controltap");
                 jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11648i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11387i);
             } catch (JSONException e2) {
                 if (a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.r0.a.a3.g.c.a.d(cVar.f11648i, cVar.f11649j, "map", "controltap", jSONObject);
+            c.a.r0.a.a3.g.c.a.d(cVar.f11387i, cVar.f11388j, "map", "controltap", jSONObject);
         }
     }
 
@@ -146,12 +146,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, cVar, mapPoi) == null) {
             LatLng position = mapPoi.getPosition();
-            C0776a a2 = C0776a.a();
+            C0785a a2 = C0785a.a();
             a2.c("latitude", Double.valueOf(position.latitude));
             a2.c("longitude", Double.valueOf(position.longitude));
             a2.b();
-            C0776a a3 = C0776a.a();
-            a3.c("mapId", cVar.f11649j);
+            C0785a a3 = C0785a.a();
+            a3.c("mapId", cVar.f11388j);
             a3.c("name", mapPoi.getName());
             a3.c("latitude", Double.valueOf(position.latitude));
             a3.c("longitude", Double.valueOf(position.longitude));
@@ -160,58 +160,58 @@ public class a {
             try {
                 jSONObject.put("vtype", "poitap");
                 jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11648i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11387i);
             } catch (JSONException e2) {
                 if (a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.r0.a.a3.g.c.a.d(cVar.f11648i, cVar.f11649j, "map", "poitap", jSONObject);
+            c.a.r0.a.a3.g.c.a.d(cVar.f11387i, cVar.f11388j, "map", "poitap", jSONObject);
         }
     }
 
     public static void d(c cVar, LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cVar, latLng) == null) {
-            C0776a a2 = C0776a.a();
+            C0785a a2 = C0785a.a();
             a2.c("latitude", Double.valueOf(latLng.latitude));
             a2.c("longitude", Double.valueOf(latLng.longitude));
             JSONObject b2 = a2.b();
-            C0776a a3 = C0776a.a();
-            a3.c("mapId", cVar.f11649j);
+            C0785a a3 = C0785a.a();
+            a3.c("mapId", cVar.f11388j);
             a3.c("position", b2);
             JSONObject b3 = a3.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("vtype", TKBaseEvent.TK_CLICK_EVENT_NAME);
                 jSONObject.put("data", b3.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11648i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11387i);
             } catch (JSONException e2) {
                 if (a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.r0.a.a3.g.c.a.d(cVar.f11648i, cVar.f11649j, "map", TKBaseEvent.TK_CLICK_EVENT_NAME, jSONObject);
+            c.a.r0.a.a3.g.c.a.d(cVar.f11387i, cVar.f11388j, "map", TKBaseEvent.TK_CLICK_EVENT_NAME, jSONObject);
         }
     }
 
     public static void e(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, cVar) == null) {
-            C0776a a2 = C0776a.a();
-            a2.c("mapId", cVar.f11649j);
+            C0785a a2 = C0785a.a();
+            a2.c("mapId", cVar.f11388j);
             JSONObject b2 = a2.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("vtype", "updated");
                 jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11648i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11387i);
             } catch (JSONException e2) {
                 if (a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.r0.a.a3.g.c.a.d(cVar.f11648i, cVar.f11649j, "map", "updated", jSONObject);
+            c.a.r0.a.a3.g.c.a.d(cVar.f11387i, cVar.f11388j, "map", "updated", jSONObject);
         }
     }
 
@@ -220,38 +220,38 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, marker, cVar) == null) {
             c.a.r0.m.o.b H = cVar.H(marker);
-            String str = (H == null || (dVar = H.a) == null) ? "" : dVar.f7376e;
-            C0776a a2 = C0776a.a();
-            a2.c("mapId", cVar.f11649j);
+            String str = (H == null || (dVar = H.a) == null) ? "" : dVar.f7216e;
+            C0785a a2 = C0785a.a();
+            a2.c("mapId", cVar.f11388j);
             a2.c("markerId", str);
             JSONObject b2 = a2.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("vtype", "markertap");
                 jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11648i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11387i);
             } catch (JSONException e2) {
                 if (a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.r0.a.a3.g.c.a.d(cVar.f11648i, cVar.f11649j, "map", "markertap", jSONObject);
+            c.a.r0.a.a3.g.c.a.d(cVar.f11387i, cVar.f11388j, "map", "markertap", jSONObject);
         }
     }
 
     public static void g(c cVar, MapStatus mapStatus, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65543, null, cVar, mapStatus, i2) == null) {
-            C0776a a2 = C0776a.a();
+            C0785a a2 = C0785a.a();
             a2.c("latitude", Double.valueOf(mapStatus.bound.northeast.latitude));
             a2.c("longitude", Double.valueOf(mapStatus.bound.northeast.longitude));
             JSONObject b2 = a2.b();
-            C0776a a3 = C0776a.a();
+            C0785a a3 = C0785a.a();
             a3.c("latitude", Double.valueOf(mapStatus.bound.southwest.latitude));
             a3.c("longitude", Double.valueOf(mapStatus.bound.southwest.longitude));
             JSONObject b3 = a3.b();
-            C0776a a4 = C0776a.a();
-            a4.c("mapId", cVar.f11649j);
+            C0785a a4 = C0785a.a();
+            a4.c("mapId", cVar.f11388j);
             a4.c("northeast", b2);
             a4.c("southwest", b3);
             a4.c(AnimationProperty.SCALE, Float.valueOf(mapStatus.zoom));
@@ -261,13 +261,13 @@ public class a {
             try {
                 jSONObject.put("vtype", "regionchange");
                 jSONObject.put("data", b4.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11648i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11387i);
             } catch (JSONException e2) {
                 if (a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.r0.a.a3.g.c.a.d(cVar.f11648i, cVar.f11649j, "map", "regionchange", jSONObject);
+            c.a.r0.a.a3.g.c.a.d(cVar.f11387i, cVar.f11388j, "map", "regionchange", jSONObject);
         }
     }
 }

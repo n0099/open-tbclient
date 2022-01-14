@@ -17,13 +17,13 @@ public class o extends a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f5223b;
+    public float f5114b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f5224c;
+    public boolean f5115c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5225d;
+    public boolean f5116d;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class o extends a {
             }
         }
         this.a = TypefaceCompatApi28Impl.DEFAULT_FAMILY;
-        this.f5223b = c.a.r0.a.z2.n0.g(10.0f);
-        this.f5224c = false;
-        this.f5225d = false;
+        this.f5114b = c.a.r0.a.z2.n0.g(10.0f);
+        this.f5115c = false;
+        this.f5116d = false;
     }
 
     @Override // c.a.r0.a.a0.a.j.a
@@ -49,15 +49,15 @@ public class o extends a {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) {
-            if (this.f5224c && this.f5225d) {
+            if (this.f5115c && this.f5116d) {
                 i2 = 3;
-            } else if (this.f5224c) {
+            } else if (this.f5115c) {
                 i2 = 1;
             } else {
-                i2 = this.f5225d ? 2 : 0;
+                i2 = this.f5116d ? 2 : 0;
             }
-            bVar.f5182i.setTypeface(Typeface.create(this.a, i2));
-            bVar.f5182i.setTextSize(this.f5223b);
+            bVar.f5074i.setTypeface(Typeface.create(this.a, i2));
+            bVar.f5074i.setTextSize(this.f5114b);
         }
     }
 
@@ -70,11 +70,11 @@ public class o extends a {
                 if (jSONArray.length() > 0) {
                     for (String str : jSONArray.optString(0).split(" ")) {
                         if (str.contains(SpanItem.STYLE_ITALIC)) {
-                            this.f5225d = true;
+                            this.f5116d = true;
                         } else if (str.contains("oblique")) {
-                            this.f5225d = true;
+                            this.f5116d = true;
                         } else if (str.contains(SpanItem.STYLE_BOLD)) {
-                            this.f5224c = true;
+                            this.f5115c = true;
                         } else if (!str.contains("normal")) {
                             if (Character.isDigit(str.charAt(0))) {
                                 int length = str.length();
@@ -89,7 +89,7 @@ public class o extends a {
                                         i2++;
                                     }
                                 }
-                                this.f5223b = c.a.r0.a.z2.n0.g(Float.parseFloat(str.substring(0, length)));
+                                this.f5114b = c.a.r0.a.z2.n0.g(Float.parseFloat(str.substring(0, length)));
                             } else {
                                 this.a = str;
                             }

@@ -41,16 +41,16 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f48923e;
+    public HeadImageView f47089e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48924f;
+    public TextView f47090f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f48925g;
+    public ImageView f47091g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f48926h;
+    public c f47092h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppItemView(Context context) {
@@ -93,27 +93,27 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null) {
             return;
         }
-        this.f48926h = cVar;
-        this.f48925g.setVisibility(8);
+        this.f47092h = cVar;
+        this.f47091g.setVisibility(8);
         if (cVar instanceof m) {
             m mVar = (m) cVar;
-            this.f48923e.startLoad(mVar.c(), 10, false, false);
+            this.f47089e.startLoad(mVar.c(), 10, false, false);
             String g2 = mVar.g();
             if (!c.a.d.f.p.m.isEmpty(g2)) {
-                this.f48924f.setText(UtilHelper.getFixedText(g2, 5));
+                this.f47090f.setText(UtilHelper.getFixedText(g2, 5));
             } else {
-                this.f48924f.setText(R.string.intelligent_smart_app);
+                this.f47090f.setText(R.string.intelligent_smart_app);
             }
             if (cVar.getType() == 1) {
-                SkinManager.setImageResource(this.f48925g, R.drawable.icon_personal_recommend);
-                this.f48925g.setVisibility(0);
+                SkinManager.setImageResource(this.f47091g, R.drawable.icon_personal_recommend);
+                this.f47091g.setVisibility(0);
             } else {
-                this.f48925g.setVisibility(8);
+                this.f47091g.setVisibility(8);
             }
             setOnClickListener(this);
         } else if (cVar instanceof l) {
-            SkinManager.setImageResource(this.f48923e, R.drawable.icon_personal_more);
-            this.f48924f.setText(R.string.more);
+            SkinManager.setImageResource(this.f47089e, R.drawable.icon_personal_more);
+            this.f47090f.setText(R.string.more);
             setOnClickListener(this);
         }
     }
@@ -121,7 +121,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f48924f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f47090f, R.color.CAM_X0105);
         }
     }
 
@@ -129,7 +129,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            c cVar = this.f48926h;
+            c cVar = this.f47092h;
             if (cVar instanceof m) {
                 m mVar = (m) cVar;
                 if (!a.b(mVar.b(), mVar.f(), "1191000600000000", mVar.e())) {
@@ -162,13 +162,13 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
             int action = motionEvent.getAction();
             if (action == 0) {
                 SkinManager.setBackgroundColor(this, R.color.cp_bg_line_d_alpha50);
-                SkinManager.setViewTextColor(this.f48924f, R.color.cp_cont_b_alpha50);
+                SkinManager.setViewTextColor(this.f47090f, R.color.cp_cont_b_alpha50);
             } else if (action == 1) {
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(this.f48924f, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f47090f, R.color.CAM_X0105);
             } else if (action == 3) {
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(this.f48924f, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f47090f, R.color.CAM_X0105);
             }
             return super.onTouchEvent(motionEvent);
         }
@@ -217,12 +217,12 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         }
         LayoutInflater.from(context).inflate(R.layout.person_center_smart_app_item_layout, (ViewGroup) this, true);
         HeadImageView headImageView = (HeadImageView) findViewById(R.id.iv_person_center_smart_app_page_item_avatar);
-        this.f48923e = headImageView;
+        this.f47089e = headImageView;
         headImageView.setIsRound(true);
-        this.f48923e.setDefaultResource(R.color.CAM_X0204);
-        this.f48923e.setPlaceHolder(1);
-        this.f48924f = (TextView) findViewById(R.id.tv_person_center_smart_app_page_item_name);
-        this.f48925g = (ImageView) findViewById(R.id.lv_person_center_smart_app_page_item_recommend);
+        this.f47089e.setDefaultResource(R.color.CAM_X0204);
+        this.f47089e.setPlaceHolder(1);
+        this.f47090f = (TextView) findViewById(R.id.tv_person_center_smart_app_page_item_name);
+        this.f47091g = (ImageView) findViewById(R.id.lv_person_center_smart_app_page_item_recommend);
         onChangeSkinType();
     }
 }

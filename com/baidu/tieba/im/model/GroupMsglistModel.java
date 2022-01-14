@@ -163,10 +163,10 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f46786c = 20;
+            aVar.f45056c = 20;
             aVar.a = null;
-            aVar.f46785b = null;
-            aVar.f46787d = this.mGroup.getGroupId() + "";
+            aVar.f45055b = null;
+            aVar.f45057d = this.mGroup.getGroupId() + "";
             LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(aVar);
             loadGroupHistoryMessage.setCallback(cVar);
             super.sendMessage(loadGroupHistoryMessage);
@@ -185,7 +185,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f46786c = 20;
+            aVar.f45056c = 20;
             MsgPageData msgPageData = this.mDatas;
             long j3 = 0;
             if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
@@ -195,8 +195,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 j2 = this.mDatas.getChatMessages().get(0).getRecordId();
             }
             aVar.a = String.valueOf(j3);
-            aVar.f46785b = String.valueOf(j2);
-            aVar.f46787d = this.mGroup.getGroupId() + "";
+            aVar.f45055b = String.valueOf(j2);
+            aVar.f45057d = this.mGroup.getGroupId() + "";
             super.sendMessage(new LoadGroupHistoryMessage(aVar));
             return false;
         }
@@ -222,7 +222,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             if (groupData == null || groupData.getGroupId() == 0) {
                 return false;
             }
-            aVar.f46800b = String.valueOf(this.mGroup.getGroupId());
+            aVar.f45070b = String.valueOf(this.mGroup.getGroupId());
             aVar.a = str;
             super.sendMessage(new GroupSaveDraftMessage(aVar));
             return true;

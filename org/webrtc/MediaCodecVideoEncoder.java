@@ -136,7 +136,7 @@ public class MediaCodecVideoEncoder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f64877e;
+        public Exception f62447e;
         public final /* synthetic */ MediaCodecVideoEncoder this$0;
 
         public C1CaughtException(MediaCodecVideoEncoder mediaCodecVideoEncoder) {
@@ -1552,7 +1552,7 @@ public class MediaCodecVideoEncoder {
                                 this.this$0.mediaCodec.release();
                             } catch (Exception e3) {
                                 Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder release failed", e3);
-                                this.val$caughtException.f64877e = e3;
+                                this.val$caughtException.f62447e = e3;
                             }
                             Logging.d(MediaCodecVideoEncoder.TAG, "Java releaseEncoder on release thread done");
                             this.val$releaseDone.countDown();
@@ -1589,11 +1589,11 @@ public class MediaCodecVideoEncoder {
                     errorCallback.onMediaCodecVideoEncoderCriticalError(codecErrors);
                 }
                 throw new RuntimeException("Media encoder release timeout.");
-            } else if (c1CaughtException.f64877e == null) {
+            } else if (c1CaughtException.f62447e == null) {
                 Logging.d(TAG, "Java releaseEncoder done");
             } else {
-                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f64877e);
-                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f64877e.getStackTrace(), runtimeException.getStackTrace()));
+                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f62447e);
+                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f62447e.getStackTrace(), runtimeException.getStackTrace()));
                 throw runtimeException;
             }
         }

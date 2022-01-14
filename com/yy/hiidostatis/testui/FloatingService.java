@@ -16,7 +16,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -258,7 +257,7 @@ public final class FloatingService {
             listView.setPadding(10, 10, 10, 10);
             this.listView = listView;
             if (Build.VERSION.SDK_INT >= 26) {
-                this.layoutParams.type = SpeedStatsStampTable.INIT_MSG_SIX_STAMP_KEY;
+                this.layoutParams.type = 2038;
             } else {
                 this.layoutParams.type = 2002;
             }

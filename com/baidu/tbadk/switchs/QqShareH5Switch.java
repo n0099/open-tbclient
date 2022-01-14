@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import c.a.d.f.f.a;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +33,7 @@ public class QqShareH5Switch extends a {
     public static boolean isOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b.j().k("key_qq_share_h5_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b.k().l("key_qq_share_h5_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     @Override // c.a.d.f.f.a

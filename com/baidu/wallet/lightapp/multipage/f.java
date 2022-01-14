@@ -80,11 +80,11 @@ public class f implements i.b {
             if (this.a) {
                 return langbridgeSettings;
             }
-            LangbridgeSettings m94clone = langbridgeSettings.m94clone();
-            m94clone.MW_ON = false;
-            m94clone.MW_USE_OLD = true;
+            LangbridgeSettings m104clone = langbridgeSettings.m104clone();
+            m104clone.MW_ON = false;
+            m104clone.MW_USE_OLD = true;
             LogUtil.d("LangbridgeSettings", "");
-            return m94clone;
+            return m104clone;
         }
         return (LangbridgeSettings) invokeLL.objValue;
     }

@@ -2,7 +2,6 @@ package c.a.s0.e1;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
@@ -20,24 +19,24 @@ public class d0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static d0 f12651g;
+    public static d0 f12354g;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12652b;
+    public String f12355b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12653c;
+    public String f12356c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12654d;
+    public int f12357d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12655e;
+    public String f12358e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f12656f;
+    public Runnable f12359f;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -45,7 +44,7 @@ public class d0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d0 f12657e;
+        public final /* synthetic */ d0 f12360e;
 
         public a(d0 d0Var) {
             Interceptable interceptable = $ic;
@@ -62,7 +61,7 @@ public class d0 {
                     return;
                 }
             }
-            this.f12657e = d0Var;
+            this.f12360e = d0Var;
         }
 
         @Override // java.lang.Runnable
@@ -70,24 +69,22 @@ public class d0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("from", String.valueOf(this.f12657e.a));
-                hashMap.put("field_id", this.f12657e.f12652b);
-                hashMap.put("type", Integer.valueOf(this.f12657e.f12654d));
-                hashMap.put("type_name", this.f12657e.f12655e);
-                if (this.f12657e.a == 2) {
-                    hashMap.put("fid", this.f12657e.f12653c);
+                hashMap.put("from", String.valueOf(this.f12360e.a));
+                hashMap.put("field_id", this.f12360e.f12355b);
+                hashMap.put("type", Integer.valueOf(this.f12360e.f12357d));
+                hashMap.put("type_name", this.f12360e.f12358e);
+                if (this.f12360e.a == 2) {
+                    hashMap.put("fid", this.f12360e.f12356c);
                 }
                 hashMap.put("animated", Boolean.FALSE);
                 hashMap.put(OpenFlutter.EXTRA_TRANSPARANT, Boolean.TRUE);
                 hashMap.put("swipeback", Boolean.FALSE);
-                if (PluginPackageManager.u().l("com.baidu.tieba.pluginFlutter")) {
-                    if (MessageManager.getInstance().findTask(2002015) == null) {
-                        c.a.d.f.m.e.a().postDelayed(this.f12657e.f12656f, 0L);
-                        return;
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.t0.w3.j0.n(TbadkApplication.getInst().getApplicationContext(), "GodInvitePage", hashMap)));
-                    c.a.s0.s.g0.b.j().w("key_new_god_dialog_showed_time", System.currentTimeMillis());
+                if (MessageManager.getInstance().findTask(2002015) == null) {
+                    c.a.d.f.m.e.a().postDelayed(this.f12360e.f12359f, 0L);
+                    return;
                 }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.t0.w3.j0.n(TbadkApplication.getInst().getApplicationContext(), "GodInvitePage", hashMap)));
+                c.a.s0.s.h0.b.k().x("key_new_god_dialog_showed_time", System.currentTimeMillis());
             }
         }
     }
@@ -120,7 +117,7 @@ public class d0 {
                 return;
             }
         }
-        this.f12656f = new a(this);
+        this.f12359f = new a(this);
     }
 
     public static synchronized d0 g() {
@@ -129,10 +126,10 @@ public class d0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             synchronized (d0.class) {
-                if (f12651g == null) {
-                    f12651g = new d0();
+                if (f12354g == null) {
+                    f12354g = new d0();
                 }
-                d0Var = f12651g;
+                d0Var = f12354g;
             }
             return d0Var;
         }
@@ -144,7 +141,7 @@ public class d0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, newGodData)) == null) {
             if (i2 != 5) {
-                return (((((System.currentTimeMillis() - c.a.s0.s.g0.b.j().l("key_new_god_dialog_showed_time", 0L)) + 3000) > 259200000L ? 1 : (((System.currentTimeMillis() - c.a.s0.s.g0.b.j().l("key_new_god_dialog_showed_time", 0L)) + 3000) == 259200000L ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+                return (((((System.currentTimeMillis() - c.a.s0.s.h0.b.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) > 259200000L ? 1 : (((System.currentTimeMillis() - c.a.s0.s.h0.b.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) == 259200000L ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
             }
             return true;
         }
@@ -154,14 +151,14 @@ public class d0 {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.d.f.m.e.a().removeCallbacks(this.f12656f);
+            c.a.d.f.m.e.a().removeCallbacks(this.f12359f);
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f12653c = str;
+            this.f12356c = str;
         }
     }
 
@@ -177,10 +174,10 @@ public class d0 {
         if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), newGodData, Boolean.valueOf(z)}) == null) && h(i2, newGodData)) {
             i();
             this.a = i2;
-            this.f12652b = newGodData.getFieldId();
-            this.f12654d = newGodData.getType();
-            this.f12655e = newGodData.getTypeName();
-            c.a.d.f.m.e.a().postDelayed(this.f12656f, z ? 3000L : 0L);
+            this.f12355b = newGodData.getFieldId();
+            this.f12357d = newGodData.getType();
+            this.f12358e = newGodData.getTypeName();
+            c.a.d.f.m.e.a().postDelayed(this.f12359f, z ? 3000L : 0L);
         }
     }
 }

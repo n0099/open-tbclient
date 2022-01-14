@@ -107,7 +107,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public SceneImpl m110clone() {
+    public SceneImpl m122clone() {
         String jSONObject = toJson().toString();
         try {
             SceneImpl sceneImpl = new SceneImpl();
@@ -272,13 +272,13 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         a aVar2 = new a();
         this.mKsAdLabel = aVar2;
         aVar2.a = aVar.a();
-        this.mKsAdLabel.f59224b = aVar.b();
-        this.mKsAdLabel.f59225c = aVar.c();
-        this.mKsAdLabel.f59226d = aVar.d();
-        this.mKsAdLabel.f59227e = aVar.e();
-        this.mKsAdLabel.f59228f = aVar.f();
-        this.mKsAdLabel.f59229g = aVar.g();
-        this.mKsAdLabel.f59230h = aVar.h();
+        this.mKsAdLabel.f56993b = aVar.b();
+        this.mKsAdLabel.f56994c = aVar.c();
+        this.mKsAdLabel.f56995d = aVar.d();
+        this.mKsAdLabel.f56996e = aVar.e();
+        this.mKsAdLabel.f56997f = aVar.f();
+        this.mKsAdLabel.f56998g = aVar.g();
+        this.mKsAdLabel.f56999h = aVar.h();
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -332,7 +332,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         t.a(jSONObject, "height", this.height);
         a aVar = this.mKsAdLabel;
         if (aVar != null) {
-            long j2 = aVar.f59230h;
+            long j2 = aVar.f56999h;
             if (j2 != 0) {
                 t.a(jSONObject, "cpmBidFloor", j2);
             }

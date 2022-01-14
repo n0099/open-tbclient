@@ -59,25 +59,23 @@ public class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f11970e;
+        public final /* synthetic */ View f11696e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Transition f11971f;
+        public final /* synthetic */ Transition f11697f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f11972g;
+        public final /* synthetic */ View f11698g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ f f11973h;
+        public final /* synthetic */ f f11699h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Map f11974i;
+        public final /* synthetic */ Map f11700i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ Map f11975j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f11976k;
+        public final /* synthetic */ Map f11701j;
+        public final /* synthetic */ ArrayList k;
 
         public b(View view, Transition transition, View view2, f fVar, Map map, Map map2, ArrayList arrayList) {
             Interceptable interceptable = $ic;
@@ -94,13 +92,13 @@ public class p {
                     return;
                 }
             }
-            this.f11970e = view;
-            this.f11971f = transition;
-            this.f11972g = view2;
-            this.f11973h = fVar;
-            this.f11974i = map;
-            this.f11975j = map2;
-            this.f11976k = arrayList;
+            this.f11696e = view;
+            this.f11697f = transition;
+            this.f11698g = view2;
+            this.f11699h = fVar;
+            this.f11700i = map;
+            this.f11701j = map2;
+            this.k = arrayList;
         }
 
         @Override // android.view.ViewTreeObserver.OnPreDrawListener
@@ -108,28 +106,28 @@ public class p {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f11970e.getViewTreeObserver().removeOnPreDrawListener(this);
-                Transition transition = this.f11971f;
+                this.f11696e.getViewTreeObserver().removeOnPreDrawListener(this);
+                Transition transition = this.f11697f;
                 if (transition != null) {
-                    transition.removeTarget(this.f11972g);
+                    transition.removeTarget(this.f11698g);
                 }
-                View view = this.f11973h.getView();
+                View view = this.f11699h.getView();
                 if (view != null) {
-                    if (!this.f11974i.isEmpty()) {
-                        p.m(this.f11975j, view);
-                        this.f11975j.keySet().retainAll(this.f11974i.values());
-                        for (Map.Entry entry : this.f11974i.entrySet()) {
-                            View view2 = (View) this.f11975j.get((String) entry.getValue());
+                    if (!this.f11700i.isEmpty()) {
+                        p.m(this.f11701j, view);
+                        this.f11701j.keySet().retainAll(this.f11700i.values());
+                        for (Map.Entry entry : this.f11700i.entrySet()) {
+                            View view2 = (View) this.f11701j.get((String) entry.getValue());
                             if (view2 != null) {
                                 view2.setTransitionName((String) entry.getKey());
                             }
                         }
                     }
-                    if (this.f11971f != null) {
-                        p.h(this.f11976k, view);
-                        this.f11976k.removeAll(this.f11975j.values());
-                        this.f11976k.add(this.f11972g);
-                        p.c(this.f11971f, this.f11976k);
+                    if (this.f11697f != null) {
+                        p.h(this.k, view);
+                        this.k.removeAll(this.f11701j.values());
+                        this.k.add(this.f11698g);
+                        p.c(this.f11697f, this.k);
                         return true;
                     }
                     return true;
@@ -147,7 +145,7 @@ public class p {
         public Rect a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f11977b;
+        public final /* synthetic */ e f11702b;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -164,7 +162,7 @@ public class p {
                     return;
                 }
             }
-            this.f11977b = eVar;
+            this.f11702b = eVar;
         }
 
         @Override // android.transition.Transition.EpicenterCallback
@@ -173,7 +171,7 @@ public class p {
             View view;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, transition)) == null) {
-                if (this.a == null && (view = this.f11977b.a) != null) {
+                if (this.a == null && (view = this.f11702b.a) != null) {
                     this.a = p.n(view);
                 }
                 return this.a;
@@ -188,25 +186,23 @@ public class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f11978e;
+        public final /* synthetic */ View f11703e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Transition f11979f;
+        public final /* synthetic */ Transition f11704f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f11980g;
+        public final /* synthetic */ ArrayList f11705g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Transition f11981h;
+        public final /* synthetic */ Transition f11706h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f11982i;
+        public final /* synthetic */ ArrayList f11707i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ Transition f11983j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f11984k;
+        public final /* synthetic */ Transition f11708j;
+        public final /* synthetic */ ArrayList k;
         public final /* synthetic */ Map l;
         public final /* synthetic */ ArrayList m;
         public final /* synthetic */ Transition n;
@@ -227,13 +223,13 @@ public class p {
                     return;
                 }
             }
-            this.f11978e = view;
-            this.f11979f = transition;
-            this.f11980g = arrayList;
-            this.f11981h = transition2;
-            this.f11982i = arrayList2;
-            this.f11983j = transition3;
-            this.f11984k = arrayList3;
+            this.f11703e = view;
+            this.f11704f = transition;
+            this.f11705g = arrayList;
+            this.f11706h = transition2;
+            this.f11707i = arrayList2;
+            this.f11708j = transition3;
+            this.k = arrayList3;
             this.l = map;
             this.m = arrayList4;
             this.n = transition4;
@@ -245,18 +241,18 @@ public class p {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f11978e.getViewTreeObserver().removeOnPreDrawListener(this);
-                Transition transition = this.f11979f;
+                this.f11703e.getViewTreeObserver().removeOnPreDrawListener(this);
+                Transition transition = this.f11704f;
                 if (transition != null) {
-                    p.s(transition, this.f11980g);
+                    p.s(transition, this.f11705g);
                 }
-                Transition transition2 = this.f11981h;
+                Transition transition2 = this.f11706h;
                 if (transition2 != null) {
-                    p.s(transition2, this.f11982i);
+                    p.s(transition2, this.f11707i);
                 }
-                Transition transition3 = this.f11983j;
+                Transition transition3 = this.f11708j;
                 if (transition3 != null) {
-                    p.s(transition3, this.f11984k);
+                    p.s(transition3, this.k);
                 }
                 for (Map.Entry entry : this.l.entrySet()) {
                     ((View) entry.getValue()).setTransitionName((String) entry.getKey());

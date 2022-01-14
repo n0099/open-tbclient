@@ -13,31 +13,31 @@ public final class UMathKt {
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: max-J1ME1BU  reason: not valid java name */
-    public static final int m1894maxJ1ME1BU(int i2, int i3) {
-        return UComparisonsKt___UComparisonsKt.m1866maxOfJ1ME1BU(i2, i3);
+    public static final int m1906maxJ1ME1BU(int i2, int i3) {
+        return UComparisonsKt___UComparisonsKt.m1878maxOfJ1ME1BU(i2, i3);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: max-eb3DHEI  reason: not valid java name */
-    public static final long m1895maxeb3DHEI(long j2, long j3) {
-        return UComparisonsKt___UComparisonsKt.m1874maxOfeb3DHEI(j2, j3);
+    public static final long m1907maxeb3DHEI(long j2, long j3) {
+        return UComparisonsKt___UComparisonsKt.m1886maxOfeb3DHEI(j2, j3);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: min-J1ME1BU  reason: not valid java name */
-    public static final int m1896minJ1ME1BU(int i2, int i3) {
-        return UComparisonsKt___UComparisonsKt.m1878minOfJ1ME1BU(i2, i3);
+    public static final int m1908minJ1ME1BU(int i2, int i3) {
+        return UComparisonsKt___UComparisonsKt.m1890minOfJ1ME1BU(i2, i3);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: min-eb3DHEI  reason: not valid java name */
-    public static final long m1897mineb3DHEI(long j2, long j3) {
-        return UComparisonsKt___UComparisonsKt.m1886minOfeb3DHEI(j2, j3);
+    public static final long m1909mineb3DHEI(long j2, long j3) {
+        return UComparisonsKt___UComparisonsKt.m1898minOfeb3DHEI(j2, j3);
     }
 }

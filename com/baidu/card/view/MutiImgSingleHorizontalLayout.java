@@ -16,7 +16,7 @@ import c.a.l.p;
 import c.a.s0.b.g.b;
 import c.a.s0.s.k;
 import c.a.s0.s.q.a;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.d0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -41,23 +41,23 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f34321g;
+    public static final int f33222g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f34322h;
+    public static final int f33223h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f34323i;
+    public static final int f33224i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f34324j;
+    public static final int f33225j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f34325e;
+    public boolean f33226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d0<a> f34326f;
+    public d0<a> f33227f;
     public ImageView mPlayIcon;
     public TextView mTitle;
     public TbImageView singalImg;
@@ -75,12 +75,12 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
                 return;
             }
         }
-        f34321g = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-        int k2 = n.k(TbadkCoreApplication.getInst());
-        f34322h = k2;
-        int i2 = k2 - f34321g;
-        f34323i = i2;
-        f34324j = i2 / 2;
+        f33222g = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+        int k = n.k(TbadkCoreApplication.getInst());
+        f33223h = k;
+        int i2 = k - f33222g;
+        f33224i = i2;
+        f33225j = i2 / 2;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -104,10 +104,10 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         }
     }
 
-    private void setImageData(d2 d2Var) {
+    private void setImageData(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, d2Var) == null) {
-            ArrayList<MediaData> F0 = d2Var.F0();
+        if (interceptable == null || interceptable.invokeL(65539, this, e2Var) == null) {
+            ArrayList<MediaData> F0 = e2Var.F0();
             if (k.c().g() && ListUtils.getCount(F0) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i2 = 0; i2 < F0.size(); i2++) {
@@ -158,7 +158,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.multi_image_single_h_layout, (ViewGroup) this, true);
             setOrientation(1);
-            setLayoutParams(new ViewGroup.LayoutParams(-1, f34324j));
+            setLayoutParams(new ViewGroup.LayoutParams(-1, f33225j));
             TextView textView = (TextView) findViewById(R.id.thread_card_title);
             this.mTitle = textView;
             b.m(textView, R.dimen.tbds7, R.dimen.tbds10);
@@ -173,7 +173,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{mediaData, tbImageView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i2)}) == null) {
             String a = a(mediaData);
-            int i3 = this.f34325e ? 46 : 47;
+            int i3 = this.f33226e ? 46 : 47;
             if (!StringHelper.equals(a, tbImageView.getUrl())) {
                 tbImageView.reset();
             }
@@ -192,7 +192,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public d0<a> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34326f : (d0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33227f : (d0) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -206,7 +206,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f34325e = z;
+            this.f33226e = z;
         }
     }
 
@@ -230,7 +230,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public void setSubClickListener(d0<a> d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, d0Var) == null) {
-            this.f34326f = d0Var;
+            this.f33227f = d0Var;
         }
     }
 
@@ -253,7 +253,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
                 return;
             }
         }
-        this.f34325e = true;
+        this.f33226e = true;
         b();
     }
 
@@ -262,7 +262,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public void onBindDataToView(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            d2 threadData = aVar.getThreadData();
+            e2 threadData = aVar.getThreadData();
             ThreadCardUtils.setTitle(this.mTitle, threadData);
             setImageData(threadData);
         }

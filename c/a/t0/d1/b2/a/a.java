@@ -1,97 +1,112 @@
 package c.a.t0.d1.b2.a;
 
-import c.a.d.n.e.n;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
+import c.a.d.f.p.n;
+import c.a.t0.d1.k;
+import c.a.t0.g0.f0.o;
+import c.a.t0.g0.p;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class a {
+public class a extends k<o, C1013a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<c.a.d.n.e.a> a;
+    public boolean x;
 
-    /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f16124b;
+    /* renamed from: c.a.t0.d1.b2.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes7.dex */
+    public class C1013a extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public p a;
 
-    /* renamed from: c  reason: collision with root package name */
-    public d f16125c;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public C1013a(a aVar, p pVar) {
+            super(pVar.j());
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, pVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pVar;
+        }
+    }
 
-    /* renamed from: d  reason: collision with root package name */
-    public c f16126d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public b f16127e;
-
-    public a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumRulesShowActivity, bdTypeRecyclerView};
+            Object[] objArr = {tbPageContext, bdUniqueId, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        a(forumRulesShowActivity, bdTypeRecyclerView);
+        this.x = z;
     }
 
-    public final void a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.d.n.e.a
+    /* renamed from: m0 */
+    public C1013a M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, forumRulesShowActivity, bdTypeRecyclerView) == null) {
-            this.f16124b = bdTypeRecyclerView;
-            this.f16125c = new d(forumRulesShowActivity, c.a.t0.d1.b2.c.b.q);
-            this.f16126d = new c(forumRulesShowActivity, c.a.t0.d1.b2.c.c.f16145h);
-            this.f16127e = new b(forumRulesShowActivity, c.a.t0.d1.b2.c.a.f16132j);
-            this.a.add(this.f16125c);
-            this.a.add(this.f16126d);
-            this.a.add(this.f16127e);
-            bdTypeRecyclerView.addAdapters(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            p pVar = new p(this.o);
+            pVar.t(null, TbadkCoreStatisticKey.FRS_HOT_TOPIC_ITEM_CLICK);
+            return new C1013a(this, pVar);
         }
+        return (C1013a) invokeL.objValue;
     }
 
-    public void b(int i2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.t0.d1.k, c.a.d.n.e.a
+    /* renamed from: n0 */
+    public View S(int i2, View view, ViewGroup viewGroup, o oVar, C1013a c1013a) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, oVar, c1013a})) == null) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW));
+            if (oVar != null) {
+                oVar.f17808j = i2 + 1;
+                c1013a.a.u(n.d(this.o.getPageActivity(), 7.0f));
+                c1013a.a.w(this.x);
+                c1013a.a.l(this.o, TbadkCoreApplication.getInst().getSkinType());
+            }
+            c1013a.a.k(oVar);
+            return c1013a.getView();
         }
-    }
-
-    public void c(List<n> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.f16124b;
-            if (bdTypeRecyclerView != null) {
-                bdTypeRecyclerView.setData(list);
-            }
-            c cVar = this.f16126d;
-            if (cVar != null) {
-                cVar.d0(list);
-            }
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            d dVar = this.f16125c;
-            if (dVar != null) {
-                dVar.setFrom(str);
-            }
-            b bVar = this.f16127e;
-            if (bVar != null) {
-                bVar.setFrom(str);
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

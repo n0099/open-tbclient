@@ -27,7 +27,7 @@ public class p extends c.a.r0.a.y1.a.a.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f8143f;
+    public static final boolean f7964f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public class p extends c.a.r0.a.y1.a.a.a {
                 return;
             }
         }
-        f8143f = c.a.r0.a.k.a;
+        f7964f = c.a.r0.a.k.a;
     }
 
     public p() {
@@ -99,7 +99,7 @@ public class p extends c.a.r0.a.y1.a.a.a {
                     jSONObject2.put("reportExtInfo", jSONObject);
                 }
             } catch (JSONException e2) {
-                if (f8143f) {
+                if (f7964f) {
                     e2.printStackTrace();
                 }
             }
@@ -125,7 +125,7 @@ public class p extends c.a.r0.a.y1.a.a.a {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                boolean z = f8143f;
+                boolean z = f7964f;
                 e2.printStackTrace();
             }
             if (jSONObject == null) {
@@ -138,7 +138,7 @@ public class p extends c.a.r0.a.y1.a.a.a {
                     e3.printStackTrace();
                 }
             }
-            if (f8143f) {
+            if (f7964f) {
                 String str2 = "report info: " + jSONObject.toString();
             }
             c.b bVar = new c.b(10002);

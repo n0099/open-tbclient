@@ -42,7 +42,7 @@ public class a {
             } else {
                 bVar = null;
             }
-            if (bVar == null || (bArr = bVar.f2749b) == null) {
+            if (bVar == null || (bArr = bVar.f2728b) == null) {
                 return null;
             }
             return bArr;

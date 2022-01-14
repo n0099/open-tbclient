@@ -71,16 +71,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f33321b;
+    public static final String[] f32263b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f33322c = -1;
+    public static int f32264c = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -96,7 +96,7 @@ public final class m {
                 return;
             }
         }
-        f33321b = new String[]{s.a, "android.permission.ACCESS_NETWORK_STATE"};
+        f32263b = new String[]{s.a, "android.permission.ACCESS_NETWORK_STATE"};
     }
 
     public static boolean A(Context context) {
@@ -756,7 +756,7 @@ public final class m {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f33323b;
+                public final /* synthetic */ boolean f32265b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -774,7 +774,7 @@ public final class m {
                         }
                     }
                     this.a = context;
-                    this.f33323b = z;
+                    this.f32265b = z;
                 }
 
                 @Override // com.vivo.push.IPushActionListener
@@ -783,7 +783,7 @@ public final class m {
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                         if (i2 == 101) {
                             com.baidu.android.pushservice.e.c(this.a, 0);
-                            if (this.f33323b) {
+                            if (this.f32265b) {
                                 return;
                             }
                             com.baidu.android.pushservice.a.a(this.a, true);
@@ -794,7 +794,7 @@ public final class m {
                         }
                         if (i2 == 0 || i2 == 1) {
                             i.a(this.a, "vi_push_proxy_mode", 1);
-                            if (!this.f33323b && !com.baidu.android.pushservice.b.d.c(this.a)) {
+                            if (!this.f32265b && !com.baidu.android.pushservice.b.d.c(this.a)) {
                                 com.baidu.android.pushservice.a.a(this.a, false);
                             }
                             String regId = PushClient.getInstance(this.a).getRegId();
@@ -1456,7 +1456,7 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65606, null)) == null) {
             try {
-                return Build.MANUFACTURER.toUpperCase().contains(com.kuaishou.weapon.un.g.f57226j);
+                return Build.MANUFACTURER.toUpperCase().contains(com.kuaishou.weapon.un.g.f55062j);
             } catch (Exception unused) {
                 return false;
             }
@@ -1857,7 +1857,7 @@ public final class m {
                 if (a(context, strArr2)) {
                     return "permission Push-SDK for oppo proxy need is not exist !";
                 }
-                for (String str : f33321b) {
+                for (String str : f32263b) {
                     if (!a(str, strArr2)) {
                         return str + " permission Push-SDK need is not exist !";
                     }

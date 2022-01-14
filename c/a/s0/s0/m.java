@@ -37,15 +37,15 @@ public class m extends j {
             c.a.d.f.n.a a = j.a();
             a.b("action", "time");
             a.b("ishttp", hVar.s ? "1" : "0");
-            a.b("issuccess", hVar.f14070b ? "1" : "0");
+            a.b("issuccess", hVar.f13742b ? "1" : "0");
             a.b("nettype", k.d().f());
             a.b("wt", String.valueOf(hVar.p));
-            a.b("qt", String.valueOf(hVar.f14074f));
-            a.b("connt", String.valueOf(hVar.f14075g));
-            a.b("rwt", String.valueOf(hVar.f14076h));
-            a.b("fbt", String.valueOf(hVar.f14077i));
-            a.b("abt", String.valueOf(hVar.f14078j));
-            a.b("dect", String.valueOf(hVar.f14079k));
+            a.b("qt", String.valueOf(hVar.f13746f));
+            a.b("connt", String.valueOf(hVar.f13747g));
+            a.b("rwt", String.valueOf(hVar.f13748h));
+            a.b("fbt", String.valueOf(hVar.f13749i));
+            a.b("abt", String.valueOf(hVar.f13750j));
+            a.b("dect", String.valueOf(hVar.k));
             a.b("parset", String.valueOf(hVar.l));
             a.b("tqt", String.valueOf(hVar.n));
             a.b("rendert", String.valueOf(hVar.o));
@@ -69,9 +69,9 @@ public class m extends j {
             if (hVar.y) {
                 a.b("pt", "1");
             } else {
-                a.b("sysct", String.valueOf(hVar.f14071c));
-                a.b("ct", String.valueOf(hVar.f14073e));
-                a.b("lt", String.valueOf(hVar.f14072d));
+                a.b("sysct", String.valueOf(hVar.f13743c));
+                a.b("ct", String.valueOf(hVar.f13745e));
+                a.b("lt", String.valueOf(hVar.f13744d));
                 a.b("df", String.valueOf(hVar.m));
             }
             if (hVar.s) {
@@ -121,15 +121,15 @@ public class m extends j {
                     if (z) {
                         a.b("put", String.valueOf(hVar.B));
                     } else {
-                        a.b(b.c.f33649c, String.valueOf(hVar.C));
+                        a.b(b.c.f32581c, String.valueOf(hVar.C));
                     }
                     a.b("ishttp", hVar.s ? "1" : "0");
-                    a.b("issuccess", hVar.f14070b ? "1" : "0");
+                    a.b("issuccess", hVar.f13742b ? "1" : "0");
                     a.b("nettype", k.d().f());
-                    a.b("qt", String.valueOf(hVar.f14074f));
-                    a.b("connt", String.valueOf(hVar.f14075g));
-                    a.b("rwt", String.valueOf(hVar.f14076h));
-                    a.b("dect", String.valueOf(hVar.f14079k));
+                    a.b("qt", String.valueOf(hVar.f13746f));
+                    a.b("connt", String.valueOf(hVar.f13747g));
+                    a.b("rwt", String.valueOf(hVar.f13748h));
+                    a.b("dect", String.valueOf(hVar.k));
                     a.b("parset", String.valueOf(hVar.l));
                     a.b("rendert", String.valueOf(hVar.o));
                     a.b("ss", String.valueOf(hVar.q));

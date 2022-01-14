@@ -90,7 +90,7 @@ public class PermissionRequestDialog extends a {
             String str = this.mRequestPermission;
             int hashCode = str.hashCode();
             if (hashCode == -63024214) {
-                if (str.equals(s.f57424h)) {
+                if (str.equals(s.f55247h)) {
                     c2 = 2;
                 }
                 c2 = 65535;

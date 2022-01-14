@@ -23,13 +23,13 @@ public class b extends c.a.r0.a.u.e.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9476e;
+        public final /* synthetic */ String f9270e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9477f;
+        public final /* synthetic */ String f9271f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f9478g;
+        public final /* synthetic */ b f9272g;
 
         public a(b bVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -46,28 +46,28 @@ public class b extends c.a.r0.a.u.e.p.a {
                     return;
                 }
             }
-            this.f9478g = bVar;
-            this.f9476e = str;
-            this.f9477f = str2;
+            this.f9272g = bVar;
+            this.f9270e = str;
+            this.f9271f = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                byte[] bytes = this.f9476e.getBytes(StandardCharsets.UTF_8);
+                byte[] bytes = this.f9270e.getBytes(StandardCharsets.UTF_8);
                 if (bytes.length > 3145728) {
-                    this.f9478g.d(this.f9477f, new c.a.r0.a.u.h.b(202, "Data Too Large."));
+                    this.f9272g.d(this.f9271f, new c.a.r0.a.u.h.b(202, "Data Too Large."));
                     return;
                 }
                 String d2 = c.a.r0.w.f.d(bytes, false);
                 if (TextUtils.isEmpty(d2)) {
-                    this.f9478g.d(this.f9477f, new c.a.r0.a.u.h.b(1001, "Execute Fail."));
+                    this.f9272g.d(this.f9271f, new c.a.r0.a.u.h.b(1001, "Execute Fail."));
                     return;
                 }
                 c.a.r0.a.u.h.b bVar = new c.a.r0.a.u.h.b(0);
                 bVar.g("result", d2);
-                this.f9478g.d(this.f9477f, bVar);
+                this.f9272g.d(this.f9271f, bVar);
             }
         }
     }

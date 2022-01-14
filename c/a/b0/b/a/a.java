@@ -33,34 +33,32 @@ public class a {
     public final LinkedList<Runnable> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f1635b;
+    public final String f1617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f1636c;
+    public final String f1618c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1637d;
+    public int f1619d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f1638e;
+    public int f1620e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f1639f;
+    public int f1621f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f1640g;
+    public int f1622g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1641h;
+    public int f1623h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f1642i;
+    public int f1624i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f1643j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f1644k;
+    public int f1625j;
+    public boolean k;
     public int l;
     public final SparseArray<String> m;
     public final SparseArray<ShaderParams> n;
@@ -84,6 +82,311 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f1626e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ float[] f1627f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ a f1628g;
+
+        public RunnableC0036a(a aVar, int i2, float[] fArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2), fArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1628g = aVar;
+            this.f1626e = i2;
+            this.f1627f = fArr;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f1628g.g();
+                GLES20.glUniformMatrix4fv(this.f1626e, 1, false, this.f1627f, 0);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ a f1629e;
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1629e = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f1629e.g();
+                GLES20.glUniform1f(this.f1629e.f1623h, 1.0f);
+                this.f1629e.w();
+                this.f1629e.z();
+                this.f1629e.y();
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f1630e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ float f1631f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ a f1632g;
+
+        public c(a aVar, int i2, float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2), Float.valueOf(f2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1632g = aVar;
+            this.f1630e = i2;
+            this.f1631f = f2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f1632g.g();
+                GLES20.glUniform1f(this.f1630e, this.f1631f);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f1633e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ float[] f1634f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ a f1635g;
+
+        public d(a aVar, int i2, float[] fArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2), fArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1635g = aVar;
+            this.f1633e = i2;
+            this.f1634f = fArr;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f1635g.g();
+                GLES20.glUniform2fv(this.f1633e, 1, FloatBuffer.wrap(this.f1634f));
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f1636e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ float[] f1637f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ a f1638g;
+
+        public e(a aVar, int i2, float[] fArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2), fArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1638g = aVar;
+            this.f1636e = i2;
+            this.f1637f = fArr;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f1638g.g();
+                GLES20.glUniform3fv(this.f1636e, 1, FloatBuffer.wrap(this.f1637f));
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f1639e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ float[] f1640f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ a f1641g;
+
+        public f(a aVar, int i2, float[] fArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2), fArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1641g = aVar;
+            this.f1639e = i2;
+            this.f1640f = fArr;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f1641g.g();
+                GLES20.glUniform4fv(this.f1639e, 1, FloatBuffer.wrap(this.f1640f));
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f1642e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ float[] f1643f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ a f1644g;
+
+        public g(a aVar, int i2, float[] fArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2), fArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1644g = aVar;
+            this.f1642e = i2;
+            this.f1643f = fArr;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f1644g.g();
+                int i2 = this.f1642e;
+                float[] fArr = this.f1643f;
+                GLES20.glUniform1fv(i2, fArr.length, FloatBuffer.wrap(fArr));
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class h implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ int f1645e;
 
         /* renamed from: f  reason: collision with root package name */
@@ -92,7 +395,7 @@ public class a {
         /* renamed from: g  reason: collision with root package name */
         public final /* synthetic */ a f1647g;
 
-        public RunnableC0036a(a aVar, int i2, float[] fArr) {
+        public h(a aVar, int i2, float[] fArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,312 +420,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.f1647g.g();
-                GLES20.glUniformMatrix4fv(this.f1645e, 1, false, this.f1646f, 0);
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1648e;
-
-        public b(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f1648e = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1648e.g();
-                GLES20.glUniform1f(this.f1648e.f1641h, 1.0f);
-                this.f1648e.w();
-                this.f1648e.z();
-                this.f1648e.y();
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1649e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float f1650f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f1651g;
-
-        public c(a aVar, int i2, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), Float.valueOf(f2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f1651g = aVar;
-            this.f1649e = i2;
-            this.f1650f = f2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1651g.g();
-                GLES20.glUniform1f(this.f1649e, this.f1650f);
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1652e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float[] f1653f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f1654g;
-
-        public d(a aVar, int i2, float[] fArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), fArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f1654g = aVar;
-            this.f1652e = i2;
-            this.f1653f = fArr;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1654g.g();
-                GLES20.glUniform2fv(this.f1652e, 1, FloatBuffer.wrap(this.f1653f));
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1655e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float[] f1656f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f1657g;
-
-        public e(a aVar, int i2, float[] fArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), fArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f1657g = aVar;
-            this.f1655e = i2;
-            this.f1656f = fArr;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1657g.g();
-                GLES20.glUniform3fv(this.f1655e, 1, FloatBuffer.wrap(this.f1656f));
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1658e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float[] f1659f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f1660g;
-
-        public f(a aVar, int i2, float[] fArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), fArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f1660g = aVar;
-            this.f1658e = i2;
-            this.f1659f = fArr;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1660g.g();
-                GLES20.glUniform4fv(this.f1658e, 1, FloatBuffer.wrap(this.f1659f));
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1661e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float[] f1662f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f1663g;
-
-        public g(a aVar, int i2, float[] fArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), fArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f1663g = aVar;
-            this.f1661e = i2;
-            this.f1662f = fArr;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1663g.g();
-                int i2 = this.f1661e;
-                float[] fArr = this.f1662f;
-                GLES20.glUniform1fv(i2, fArr.length, FloatBuffer.wrap(fArr));
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class h implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1664e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float[] f1665f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f1666g;
-
-        public h(a aVar, int i2, float[] fArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), fArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f1666g = aVar;
-            this.f1664e = i2;
-            this.f1665f = fArr;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1666g.g();
-                GLES20.glUniformMatrix3fv(this.f1664e, 1, false, this.f1665f, 0);
+                GLES20.glUniformMatrix3fv(this.f1645e, 1, false, this.f1646f, 0);
             }
         }
     }
@@ -621,7 +619,7 @@ public class a {
     public void D(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            G(this.f1641h, f2, true);
+            G(this.f1623h, f2, true);
         }
     }
 
@@ -735,8 +733,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048589, this, fArr, f2) == null) {
             float[] fArr2 = new float[16];
-            int i2 = this.f1642i;
-            int i3 = this.f1643j;
+            int i2 = this.f1624i;
+            int i3 = this.f1625j;
             if (i2 > i3) {
                 float f3 = i2 / i3;
                 Matrix.orthoM(fArr2, 0, -f3, f3, -1.0f, 1.0f, -1.0f, 1.0f);
@@ -750,7 +748,7 @@ public class a {
             Matrix.multiplyMM(fArr3, 0, fArr2, 0, fArr, 0);
             S(i(), fArr3, false);
             if (f2 != 1.0f) {
-                GLES20.glUniform1f(this.f1641h, f2);
+                GLES20.glUniform1f(this.f1623h, f2);
             }
         }
     }
@@ -886,9 +884,9 @@ public class a {
                 }
                 GLES20.glUniform1f(i2, f3);
             } else if (ShaderParams.IMAGE_WIDTH.equals(shaderParams.name)) {
-                GLES20.glUniform1f(i2, this.f1642i);
+                GLES20.glUniform1f(i2, this.f1624i);
             } else if (ShaderParams.IMAGE_HEIGHT.equals(shaderParams.name)) {
-                GLES20.glUniform1f(i2, this.f1643j);
+                GLES20.glUniform1f(i2, this.f1625j);
             }
         }
     }
@@ -918,7 +916,7 @@ public class a {
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || this.f1644k) {
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || this.k) {
             return;
         }
         l();
@@ -927,8 +925,8 @@ public class a {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f1644k = false;
-            GLES20.glDeleteProgram(this.f1637d);
+            this.k = false;
+            GLES20.glDeleteProgram(this.f1619d);
             o();
         }
     }
@@ -945,7 +943,7 @@ public class a {
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f1637d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f1619d : invokeV.intValue;
     }
 
     public final float k(long j2, long j3, MediaOneAEffect mediaOneAEffect) {
@@ -973,7 +971,7 @@ public class a {
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || this.f1644k) {
+        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || this.k) {
             return;
         }
         t();
@@ -990,29 +988,29 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048605, this, i2, floatBuffer, floatBuffer2) == null) {
             c.a.b0.b.a.g.a("draw start");
-            GLES20.glUseProgram(this.f1637d);
+            GLES20.glUseProgram(this.f1619d);
             c.a.b0.b.a.g.a("glUseProgram");
             C();
-            if (this.f1644k) {
+            if (this.k) {
                 if (i2 != -1) {
                     GLES20.glActiveTexture(33984);
                     GLES20.glBindTexture(this.l, i2);
-                    GLES20.glUniform1i(this.f1639f, 0);
+                    GLES20.glUniform1i(this.f1621f, 0);
                 }
                 floatBuffer.position(0);
-                GLES20.glEnableVertexAttribArray(this.f1638e);
+                GLES20.glEnableVertexAttribArray(this.f1620e);
                 c.a.b0.b.a.g.a("glEnableVertexAttribPositionArray");
-                GLES20.glVertexAttribPointer(this.f1638e, 2, 5126, false, 0, (Buffer) floatBuffer);
+                GLES20.glVertexAttribPointer(this.f1620e, 2, 5126, false, 0, (Buffer) floatBuffer);
                 c.a.b0.b.a.g.a("glVertexAttribPositionPointer");
                 floatBuffer2.position(0);
-                GLES20.glEnableVertexAttribArray(this.f1640g);
+                GLES20.glEnableVertexAttribArray(this.f1622g);
                 c.a.b0.b.a.g.a("glEnableVertexAttribTextureArray");
-                GLES20.glVertexAttribPointer(this.f1640g, 2, 5126, false, 0, (Buffer) floatBuffer2);
+                GLES20.glVertexAttribPointer(this.f1622g, 2, 5126, false, 0, (Buffer) floatBuffer2);
                 c.a.b0.b.a.g.a("glVertexAttribTexturePointer");
                 r();
                 GLES20.glDrawArrays(5, 0, 4);
-                GLES20.glDisableVertexAttribArray(this.f1638e);
-                GLES20.glDisableVertexAttribArray(this.f1640g);
+                GLES20.glDisableVertexAttribArray(this.f1620e);
+                GLES20.glDisableVertexAttribArray(this.f1622g);
                 q();
                 GLES20.glBindTexture(this.l, 0);
                 GLES20.glUseProgram(0);
@@ -1041,13 +1039,13 @@ public class a {
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            int e2 = c.a.b0.b.a.g.e(this.f1635b, this.f1636c);
-            this.f1637d = e2;
-            this.f1638e = GLES20.glGetAttribLocation(e2, "position");
-            this.f1639f = GLES20.glGetUniformLocation(this.f1637d, "inputImageTexture");
-            this.f1640g = GLES20.glGetAttribLocation(this.f1637d, "inputTextureCoordinate");
-            this.f1641h = GLES20.glGetUniformLocation(this.f1637d, AnimationProperty.OPACITY);
-            this.f1644k = true;
+            int e2 = c.a.b0.b.a.g.e(this.f1617b, this.f1618c);
+            this.f1619d = e2;
+            this.f1620e = GLES20.glGetAttribLocation(e2, "position");
+            this.f1621f = GLES20.glGetUniformLocation(this.f1619d, "inputImageTexture");
+            this.f1622g = GLES20.glGetAttribLocation(this.f1619d, "inputTextureCoordinate");
+            this.f1623h = GLES20.glGetUniformLocation(this.f1619d, AnimationProperty.OPACITY);
+            this.k = true;
         }
     }
 
@@ -1060,8 +1058,8 @@ public class a {
     public void v(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048611, this, i2, i3) == null) {
-            this.f1642i = i2;
-            this.f1643j = i3;
+            this.f1624i = i2;
+            this.f1625j = i3;
         }
     }
 
@@ -1086,9 +1084,9 @@ public class a {
         float f2 = 1.0f;
         for (MediaOneAEffect mediaOneAEffect : this.t) {
             if (f(mediaOneAEffect, j2) && mediaOneAEffect.aParams != null) {
-                float k2 = k(j2, j3, mediaOneAEffect);
-                if (k2 >= 0.0f && k2 <= 1.0f) {
-                    f2 = P(f2, fArr, k2, mediaOneAEffect.aParams);
+                float k = k(j2, j3, mediaOneAEffect);
+                if (k >= 0.0f && k <= 1.0f) {
+                    f2 = P(f2, fArr, k, mediaOneAEffect.aParams);
                 }
             }
         }
@@ -1243,8 +1241,8 @@ public class a {
         this.a = new LinkedList<>();
         this.m = new SparseArray<>();
         this.n = new SparseArray<>();
-        this.f1635b = str;
-        this.f1636c = str2;
+        this.f1617b = str;
+        this.f1618c = str2;
         if (TextUtils.isEmpty(str2) || !str2.contains("samplerExternalOES") || str2.contains("sampler2D")) {
             return;
         }

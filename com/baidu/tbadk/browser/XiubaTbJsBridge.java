@@ -92,7 +92,7 @@ public class XiubaTbJsBridge implements c.a.t0.w3.n0.b {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f41491b;
+        public final /* synthetic */ XiubaTbJsBridge f40081b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(XiubaTbJsBridge xiubaTbJsBridge, int i2) {
@@ -112,7 +112,7 @@ public class XiubaTbJsBridge implements c.a.t0.w3.n0.b {
                     return;
                 }
             }
-            this.f41491b = xiubaTbJsBridge;
+            this.f40081b = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,13 +129,13 @@ public class XiubaTbJsBridge implements c.a.t0.w3.n0.b {
                         if (downloadData.getStatus() == 5) {
                             if (!this.a) {
                                 this.a = true;
-                                this.f41491b.callDownloadListener(1);
+                                this.f40081b.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
-                            this.f41491b.callDownloadListener(2);
+                            this.f40081b.callDownloadListener(2);
                             this.a = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
-                            this.f41491b.callDownloadListener(0);
+                            this.f40081b.callDownloadListener(0);
                             this.a = false;
                         }
                     }

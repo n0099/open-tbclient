@@ -2,10 +2,10 @@ package com.baidu.ar.auth;
 
 import android.content.Context;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface k {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(Set<Integer> set);
     }

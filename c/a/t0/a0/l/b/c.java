@@ -26,10 +26,10 @@ public class c extends c.a.d.n.e.a<c.a.t0.a0.l.d.f, CardViewHolder<c.a.t0.a0.l.h
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.a0.l.d.f f15269e;
+        public final /* synthetic */ c.a.t0.a0.l.d.f f14891e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f15270f;
+        public final /* synthetic */ c f14892f;
 
         public a(c cVar, c.a.t0.a0.l.d.f fVar) {
             Interceptable interceptable = $ic;
@@ -46,22 +46,22 @@ public class c extends c.a.d.n.e.a<c.a.t0.a0.l.d.f, CardViewHolder<c.a.t0.a0.l.h
                     return;
                 }
             }
-            this.f15270f = cVar;
-            this.f15269e = fVar;
+            this.f14892f = cVar;
+            this.f14891e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f15270f.a0(this.f15269e);
+                this.f14892f.a0(this.f14891e);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.f.f15312f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.f.f14933f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,14 +92,14 @@ public class c extends c.a.d.n.e.a<c.a.t0.a0.l.d.f, CardViewHolder<c.a.t0.a0.l.h
         } else {
             TiebaStatic.log("c11857");
         }
-        String p = c.a.s0.s.g0.b.j().p("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
-        if (p == null) {
+        String q = c.a.s0.s.h0.b.k().q("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
+        if (q == null) {
             return;
         }
-        if (p.endsWith("/")) {
-            p = p.substring(0, p.length() - 1);
+        if (q.endsWith("/")) {
+            q = q.substring(0, q.length() - 1);
         }
-        c.a.s0.m.a.m(this.m.getPageActivity(), p);
+        c.a.s0.m.a.m(this.m.getPageActivity(), q);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

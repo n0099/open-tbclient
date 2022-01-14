@@ -26,7 +26,7 @@ public class v extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f6312e;
+        public final /* synthetic */ Context f6173e;
 
         public a(v vVar, Context context) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class v extends z {
                     return;
                 }
             }
-            this.f6312e = context;
+            this.f6173e = context;
         }
 
         @Override // java.lang.Runnable
@@ -52,7 +52,7 @@ public class v extends z {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Bundle bundle = new Bundle();
                 bundle.putString("bundle_key_preload_preload_scene", "5");
-                c.a.r0.a.y1.c.f.b.k(this.f6312e, bundle);
+                c.a.r0.a.y1.c.f.b.k(this.f6173e, bundle);
             }
         }
     }
@@ -83,7 +83,7 @@ public class v extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             if (!ProcessUtils.isMainProcess()) {
@@ -95,7 +95,7 @@ public class v extends z {
             if (optInt < 0) {
                 optInt = 0;
             }
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str2 = "delay: " + optInt;
             }
             q0.b0(new a(this, context), optInt);

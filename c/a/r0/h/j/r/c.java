@@ -29,11 +29,11 @@ public class c extends e {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (e.f8156j) {
+        if (e.f7976j) {
             String str = "setCommonData: " + aVar.a();
         }
         this.a = aVar.a;
-        this.f8161f = aVar.f10898c;
-        this.f8158c = aVar.f10897b;
+        this.f7981f = aVar.f10655c;
+        this.f7978c = aVar.f10654b;
     }
 }

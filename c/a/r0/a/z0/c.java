@@ -20,7 +20,7 @@ public class c {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a.g f10054b;
+    public static a.g f9831b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class c {
     public static void a(a.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
-            f10054b = gVar;
+            f9831b = gVar;
         }
     }
 
@@ -55,7 +55,7 @@ public class c {
 
     public static void c(c.a.r0.a.c0.c.f.b bVar, EditText editText, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65539, null, bVar, editText, i2) == null) || editText == null || f10054b == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65539, null, bVar, editText, i2) == null) || editText == null || f9831b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -71,7 +71,7 @@ public class c {
         }
         bVar.k(editText.getText().toString());
         bVar.m(editText.getSelectionStart(), editText.getSelectionEnd());
-        f10054b.a(String.valueOf(editText.getTag()), jSONObject);
+        f9831b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
     public static void d(EditText editText, int i2) {
@@ -83,7 +83,7 @@ public class c {
 
     public static void e(EditText editText, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i2) == null) || editText == null || f10054b == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i2) == null) || editText == null || f9831b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -97,7 +97,7 @@ public class c {
                 e2.printStackTrace();
             }
         }
-        f10054b.a(String.valueOf(editText.getTag()), jSONObject);
+        f9831b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
     public static void f(EditText editText, int i2) {

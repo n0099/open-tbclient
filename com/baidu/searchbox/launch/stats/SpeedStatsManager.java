@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SpeedStatsManager extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STAGE_ACTIVITY = 3;
@@ -238,31 +238,38 @@ public class SpeedStatsManager extends AbstractSpeedStats {
         }
     }
 
+    public void setAdSource(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.mAdSpeedStats.setAdSource(str);
+        }
+    }
+
     public void setMainProcessFlag(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             this.mIsMainProcess = z;
         }
     }
 
     public void setStageStatus(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
             this.mStageStatus = i2;
         }
     }
 
     public void setStatsFlag(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             this.mIsInStatsPeriod = z;
         }
     }
 
     public void setTaskRunTime(String str, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048600, this, str, j2) == null) && this.mIsMainProcess) {
-            if (SpeedStatsMainTable.MAIN_THREAD_TASK_LIST.contains(str)) {
+        if ((interceptable == null || interceptable.invokeLJ(1048601, this, str, j2) == null) && this.mIsMainProcess) {
+            if (str != null && str.startsWith(SpeedStatsMainTable.APP_CREATE_FLAG)) {
                 this.mAppCreateSpeedStats.addStatsDuration(str, j2);
             } else {
                 this.mAsyncTaskSpeedStats.addStatsDuration(str, j2);

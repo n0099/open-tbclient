@@ -42,7 +42,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterMoreActivity f48903b;
+        public final /* synthetic */ PersonCenterMoreActivity f47070b;
 
         public a(PersonCenterMoreActivity personCenterMoreActivity) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                     return;
                 }
             }
-            this.f48903b = personCenterMoreActivity;
+            this.f47070b = personCenterMoreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,12 +68,12 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         public void a(View view, h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, hVar) == null) {
-                this.f48903b.mItemData = hVar;
-                if (this.f48903b.mItemData == null || this.f48903b.requestPermission()) {
+                this.f47070b.mItemData = hVar;
+                if (this.f47070b.mItemData == null || this.f47070b.requestPermission()) {
                     return;
                 }
-                PersonCenterMoreActivity personCenterMoreActivity = this.f48903b;
-                personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.f25306k);
+                PersonCenterMoreActivity personCenterMoreActivity = this.f47070b;
+                personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.k);
             }
         }
     }
@@ -120,7 +120,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                n.L(getPageContext().getPageActivity(), g.cosume_record_plugin_not_install_tip);
+                n.M(getPageContext().getPageActivity(), g.cosume_record_plugin_not_install_tip);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
@@ -177,7 +177,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, strArr, iArr) == null) && 25040 == i2 && iArr[0] == 0) {
-            dealUrlMapClick(this.mItemData.f25306k);
+            dealUrlMapClick(this.mItemData.k);
         }
     }
 }

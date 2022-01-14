@@ -30,10 +30,10 @@ public class j implements b {
     public final SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12207b;
+    public String f11923b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f12208c;
+    public final Context f11924c;
 
     public j(String str) {
         Interceptable interceptable = $ic;
@@ -50,12 +50,12 @@ public class j implements b {
                 return;
             }
         }
-        this.f12208c = AppRuntime.getAppContext();
+        this.f11924c = AppRuntime.getAppContext();
         String str2 = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? "default" : str;
-        this.f12207b = str2;
+        this.f11923b = str2;
         if ("default".equals(str2)) {
-            this.a = PreferenceManager.getDefaultSharedPreferences(this.f12208c);
-            this.f12207b = this.f12208c.getPackageName() + "_preferences";
+            this.a = PreferenceManager.getDefaultSharedPreferences(this.f11924c);
+            this.f11923b = this.f11924c.getPackageName() + "_preferences";
             return;
         }
         this.a = KVStorageFactory.getSharedPreferences(str, 0);
@@ -164,7 +164,7 @@ public class j implements b {
     public File getFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? e(this.f12208c, this.f12207b) : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? e(this.f11924c, this.f11923b) : (File) invokeV.objValue;
     }
 
     @Override // android.content.SharedPreferences

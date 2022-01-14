@@ -27,7 +27,7 @@ public class b {
                 File file = new File(str);
                 if (file.exists()) {
                     if (c(file)) {
-                        c.a.d.n.d.a aVar = a.C0097a.b().get(str);
+                        c.a.d.n.d.a aVar = a.C0106a.b().get(str);
                         if (aVar != null) {
                             bitmap = aVar.p();
                         }

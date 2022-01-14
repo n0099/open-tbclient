@@ -15,7 +15,7 @@ import com.facebook.common.util.StreamUtil;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ProgressiveJpegParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 16384;

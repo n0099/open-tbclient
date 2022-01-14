@@ -24,16 +24,16 @@ public class c {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f25146b;
+    public NavigationBar f24443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeListView f25147c;
+    public BdTypeListView f24444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.u2.i.a f25148d;
+    public c.a.t0.u2.i.a f24445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d0<h> f25149e;
+    public d0<h> f24446e;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -41,7 +41,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f25150e;
+        public final /* synthetic */ c f24447e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class c {
                     return;
                 }
             }
-            this.f25150e = cVar;
+            this.f24447e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25150e.a.getPageActivity().finish();
+                this.f24447e.a.getPageActivity().finish();
             }
         }
     }
@@ -91,20 +91,20 @@ public class c {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f25146b.setCenterTextTitle(this.a.getString(g.person_center_more));
-            this.f25146b.showBottomLine();
-            this.f25146b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.f25146b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+            this.f24443b.setCenterTextTitle(this.a.getString(g.person_center_more));
+            this.f24443b.showBottomLine();
+            this.f24443b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.f24443b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void c(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f25146b = (NavigationBar) view.findViewById(d.person_more_navigation_bar);
+            this.f24443b = (NavigationBar) view.findViewById(d.person_more_navigation_bar);
             BdTypeListView bdTypeListView = (BdTypeListView) view.findViewById(d.person_more_listview);
-            this.f25147c = bdTypeListView;
-            this.f25148d = new c.a.t0.u2.i.a(this.a, bdTypeListView, this.f25149e);
+            this.f24444c = bdTypeListView;
+            this.f24445d = new c.a.t0.u2.i.a(this.a, bdTypeListView, this.f24446e);
             b();
         }
     }
@@ -112,23 +112,23 @@ public class c {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f25148d.a();
-            SkinManager.setBackgroundColor(this.f25147c, c.a.t0.y2.a.CAM_X0201);
-            this.f25146b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+            this.f24445d.a();
+            SkinManager.setBackgroundColor(this.f24444c, c.a.t0.y2.a.CAM_X0201);
+            this.f24443b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void e(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f25147c.setData(list);
+            this.f24444c.setData(list);
         }
     }
 
     public void f(d0<h> d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, d0Var) == null) {
-            this.f25149e = d0Var;
+            this.f24446e = d0Var;
         }
     }
 }

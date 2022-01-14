@@ -1,6 +1,6 @@
 package com.baidu.tieba.videoplay.data;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tieba.video.VideoItemData;
@@ -73,9 +73,9 @@ public class VideoAttentionPersonListData implements Serializable {
         }
         for (int i2 = 0; i2 < list.size(); i2++) {
             VideoItemData videoItemData = new VideoItemData();
-            d2 d2Var = new d2();
-            d2Var.c3(list.get(i2));
-            videoItemData.parseProto(d2Var);
+            e2 e2Var = new e2();
+            e2Var.c3(list.get(i2));
+            videoItemData.parseProto(e2Var);
             this.mVideoItemDatas.add(videoItemData);
         }
         this.mUserData.parserProtobuf(user);

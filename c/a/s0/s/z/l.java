@@ -15,7 +15,7 @@ public abstract class l {
     public final WebView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f14029b;
+    public final b f13702b;
 
     public l(WebView webView, b bVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public abstract class l {
             }
         }
         this.a = webView;
-        this.f14029b = bVar;
+        this.f13702b = bVar;
     }
 
     public abstract void c(m mVar);

@@ -50,7 +50,7 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
             b b2 = b.b(a.d());
             if (!this.adInfo.shouldDownloadVideo()) {
                 AdInfo adInfo = this.adInfo;
-                adInfo.videoLocalPath = b2.f26396d;
+                adInfo.videoLocalPath = b2.f25612d;
                 a.g(adInfo);
             } else if (l.z() && l.H()) {
                 c.a.t0.y.a.h.a searchTask = searchTask(this.adInfo.adVideoUrl);

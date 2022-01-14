@@ -17,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
@@ -25,7 +26,7 @@ public abstract class c extends z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8621c;
+    public static final boolean f8435c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -35,10 +36,10 @@ public abstract class c extends z {
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8622b;
+        public final /* synthetic */ String f8436b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f8623c;
+        public final /* synthetic */ c f8437c;
 
         public a(c cVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -55,16 +56,16 @@ public abstract class c extends z {
                     return;
                 }
             }
-            this.f8623c = cVar;
+            this.f8437c = cVar;
             this.a = callbackHandler;
-            this.f8622b = str;
+            this.f8436b = str;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.a.handleSchemeDispatchCallback(this.f8622b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
+                this.a.handleSchemeDispatchCallback(this.f8436b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
             }
         }
 
@@ -80,7 +81,7 @@ public abstract class c extends z {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f8623c.j(response, this.a, this.f8622b);
+                this.f8437c.j(response, this.a, this.f8436b);
                 return response;
             }
             return invokeLI.objValue;
@@ -100,7 +101,7 @@ public abstract class c extends z {
                 return;
             }
         }
-        f8621c = k.a;
+        f8435c = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,7 +137,7 @@ public abstract class c extends z {
             if (a2 == null) {
                 return l(unitedSchemeEntity, 202, "illegal params");
             }
-            String param = unitedSchemeEntity.getParam("callback");
+            String param = unitedSchemeEntity.getParam(WebChromeClient.KEY_ARG_CALLBACK);
             if (TextUtils.isEmpty(param)) {
                 return l(unitedSchemeEntity, 202, "illegal callback");
             }
@@ -144,7 +145,7 @@ public abstract class c extends z {
             if (TextUtils.isEmpty(optString)) {
                 return l(unitedSchemeEntity, 202, "illegal cb");
             }
-            if (f8621c) {
+            if (f8435c) {
                 String str = "schema params : " + a2.toString();
                 String str2 = "schema cb : " + optString;
             }

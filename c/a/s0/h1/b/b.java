@@ -42,7 +42,7 @@ public class b {
         public final /* synthetic */ AlertDialog a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f13096b;
+        public final /* synthetic */ Activity f12775b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2, AlertDialog alertDialog, Activity activity) {
@@ -63,7 +63,7 @@ public class b {
                 }
             }
             this.a = alertDialog;
-            this.f13096b = activity;
+            this.f12775b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +74,7 @@ public class b {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
                     this.a.dismiss();
-                    new BdTopToast(this.f13096b, 2000).setIcon(true).setContent(this.f13096b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13096b.findViewById(16908290));
+                    new BdTopToast(this.f12775b, 2000).setIcon(true).setContent(this.f12775b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f12775b.findViewById(16908290));
                 }
             }
         }
@@ -82,16 +82,16 @@ public class b {
 
     /* renamed from: c.a.s0.h1.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0840b extends CustomMessageListener {
+    public static class C0850b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlertDialog a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f13097b;
+        public final /* synthetic */ Activity f12776b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0840b(int i2, AlertDialog alertDialog, Activity activity) {
+        public C0850b(int i2, AlertDialog alertDialog, Activity activity) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -109,7 +109,7 @@ public class b {
                 }
             }
             this.a = alertDialog;
-            this.f13097b = activity;
+            this.f12776b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -120,7 +120,7 @@ public class b {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
                     this.a.dismiss();
-                    new BdTopToast(this.f13097b, 2000).setIcon(true).setContent(this.f13097b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13097b.findViewById(16908290));
+                    new BdTopToast(this.f12776b, 2000).setIcon(true).setContent(this.f12776b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f12776b.findViewById(16908290));
                 }
             }
         }
@@ -160,7 +160,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f13098e;
+        public final /* synthetic */ Activity f12777e;
 
         public d(Activity activity) {
             Interceptable interceptable = $ic;
@@ -177,14 +177,14 @@ public class b {
                     return;
                 }
             }
-            this.f13098e = activity;
+            this.f12777e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MainTabActivityConfig.toExitApp(this.f13098e);
+                MainTabActivityConfig.toExitApp(this.f12777e);
             }
         }
     }
@@ -195,7 +195,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f13099e;
+        public final /* synthetic */ Activity f12778e;
 
         public e(Activity activity) {
             Interceptable interceptable = $ic;
@@ -212,14 +212,14 @@ public class b {
                     return;
                 }
             }
-            this.f13099e = activity;
+            this.f12778e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f13099e);
+                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f12778e);
                 youngsterPasswordActivityConfig.setYoungsterPasswordPageType(6);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, youngsterPasswordActivityConfig));
             }
@@ -232,7 +232,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f13100e;
+        public final /* synthetic */ Activity f12779e;
 
         public f(Activity activity) {
             Interceptable interceptable = $ic;
@@ -249,16 +249,16 @@ public class b {
                     return;
                 }
             }
-            this.f13100e = activity;
+            this.f12779e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f13100e);
+                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f12779e);
                 youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
-                if (this.f13100e.getComponentName().getClassName().contains("MainTabActivity")) {
+                if (this.f12779e.getComponentName().getClassName().contains("MainTabActivity")) {
                     youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
                 } else {
                     youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(1);
@@ -275,7 +275,7 @@ public class b {
         public final /* synthetic */ AlertDialog a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f13101b;
+        public final /* synthetic */ Activity f12780b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(int i2, AlertDialog alertDialog, Activity activity) {
@@ -296,7 +296,7 @@ public class b {
                 }
             }
             this.a = alertDialog;
-            this.f13101b = activity;
+            this.f12780b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -307,7 +307,7 @@ public class b {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
                     this.a.dismiss();
-                    new BdTopToast(this.f13101b, 2000).setIcon(true).setContent(this.f13101b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13101b.findViewById(16908290));
+                    new BdTopToast(this.f12780b, 2000).setIcon(true).setContent(this.f12780b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f12780b.findViewById(16908290));
                 }
             }
         }
@@ -320,7 +320,7 @@ public class b {
         public final /* synthetic */ AlertDialog a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f13102b;
+        public final /* synthetic */ Activity f12781b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(int i2, AlertDialog alertDialog, Activity activity) {
@@ -341,7 +341,7 @@ public class b {
                 }
             }
             this.a = alertDialog;
-            this.f13102b = activity;
+            this.f12781b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -353,7 +353,7 @@ public class b {
                 int intValue = data instanceof Integer ? ((Integer) data).intValue() : 0;
                 if (intValue == 6) {
                     this.a.dismiss();
-                    new BdTopToast(this.f13102b, 2000).setIcon(true).setContent(this.f13102b.getString(R.string.youngster_dialog_close_time_success_message)).show((ViewGroup) this.f13102b.findViewById(16908290));
+                    new BdTopToast(this.f12781b, 2000).setIcon(true).setContent(this.f12781b.getString(R.string.youngster_dialog_close_time_success_message)).show((ViewGroup) this.f12781b.findViewById(16908290));
                 } else if (intValue == 7) {
                     this.a.dismiss();
                 }
@@ -368,7 +368,7 @@ public class b {
         public final /* synthetic */ AlertDialog a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f13103b;
+        public final /* synthetic */ Activity f12782b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(int i2, AlertDialog alertDialog, Activity activity) {
@@ -389,7 +389,7 @@ public class b {
                 }
             }
             this.a = alertDialog;
-            this.f13103b = activity;
+            this.f12782b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -400,7 +400,7 @@ public class b {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
                     this.a.dismiss();
-                    new BdTopToast(this.f13103b, 2000).setIcon(true).setContent(this.f13103b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13103b.findViewById(16908290));
+                    new BdTopToast(this.f12782b, 2000).setIcon(true).setContent(this.f12782b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f12782b.findViewById(16908290));
                 }
             }
         }
@@ -412,7 +412,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f13104e;
+        public final /* synthetic */ Activity f12783e;
 
         public j(Activity activity) {
             Interceptable interceptable = $ic;
@@ -429,14 +429,14 @@ public class b {
                     return;
                 }
             }
-            this.f13104e = activity;
+            this.f12783e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MainTabActivityConfig.toExitApp(this.f13104e);
+                MainTabActivityConfig.toExitApp(this.f12783e);
             }
         }
     }
@@ -447,7 +447,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f13105e;
+        public final /* synthetic */ Activity f12784e;
 
         public k(Activity activity) {
             Interceptable interceptable = $ic;
@@ -464,16 +464,16 @@ public class b {
                     return;
                 }
             }
-            this.f13105e = activity;
+            this.f12784e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f13105e);
+                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f12784e);
                 youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
-                if (this.f13105e.getComponentName().getClassName().contains("MainTabActivity")) {
+                if (this.f12784e.getComponentName().getClassName().contains("MainTabActivity")) {
                     youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
                 } else {
                     youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(1);
@@ -486,14 +486,14 @@ public class b {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            c.a.s0.s.g0.b.j().w("key_youngster_use_time_dialog_show_time", System.currentTimeMillis());
+            c.a.s0.s.h0.b.k().x("key_youngster_use_time_dialog_show_time", System.currentTimeMillis());
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            c.a.s0.s.g0.b.j().w("key_youngster_use_time_dialog_show_time", 0L);
+            c.a.s0.s.h0.b.k().x("key_youngster_use_time_dialog_show_time", 0L);
         }
     }
 
@@ -501,8 +501,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            long l = c.a.s0.s.g0.b.j().l("key_youngster_use_time_dialog_show_time", 0L);
-            return l > System.currentTimeMillis() || System.currentTimeMillis() - l <= 600000;
+            long m = c.a.s0.s.h0.b.k().m("key_youngster_use_time_dialog_show_time", 0L);
+            return m > System.currentTimeMillis() || System.currentTimeMillis() - m <= 600000;
         }
         return invokeV.booleanValue;
     }
@@ -538,18 +538,18 @@ public class b {
                 mVar.g(false);
                 AlertDialog u = mVar.u();
                 a aVar = new a(2921484, u, currentActivity);
-                C0840b c0840b = new C0840b(2921486, u, currentActivity);
+                C0850b c0850b = new C0850b(2921486, u, currentActivity);
                 if (currentActivity instanceof BaseActivity) {
                     BdUniqueId uniqueId = ((BaseActivity) currentActivity).getUniqueId();
                     aVar.setTag(uniqueId);
-                    c0840b.setTag(uniqueId);
+                    c0850b.setTag(uniqueId);
                 } else if (currentActivity instanceof BaseFragmentActivity) {
                     BdUniqueId uniqueId2 = ((BaseFragmentActivity) currentActivity).getUniqueId();
                     aVar.setTag(uniqueId2);
-                    c0840b.setTag(uniqueId2);
+                    c0850b.setTag(uniqueId2);
                 }
                 MessageManager.getInstance().registerListener(aVar);
-                MessageManager.getInstance().registerListener(c0840b);
+                MessageManager.getInstance().registerListener(c0850b);
                 return true;
             }
             return true;

@@ -17,7 +17,7 @@ public class h extends e {
     public static HashMap<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, e> f3856b;
+    public static HashMap<String, e> f3796b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -63,7 +63,7 @@ public class h extends e {
             }
         }
         a = new HashMap<>();
-        f3856b = new HashMap<>();
+        f3796b = new HashMap<>();
     }
 
     public /* synthetic */ h(a aVar) {
@@ -87,7 +87,7 @@ public class h extends e {
                 gVar.g(b2, a.get(b2));
             }
             String e2 = gVar.e(true);
-            if (TextUtils.isEmpty(e2) || (eVar = f3856b.get(e2)) == null) {
+            if (TextUtils.isEmpty(e2) || (eVar = f3796b.get(e2)) == null) {
                 return false;
             }
             return eVar.b(context, gVar, aVar);
@@ -111,7 +111,7 @@ public class h extends e {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, eVar) == null) || TextUtils.isEmpty(str) || eVar == null) {
             return;
         }
-        f3856b.put(str, eVar);
+        f3796b.put(str, eVar);
     }
 
     public void g(e eVar) {

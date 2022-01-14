@@ -15,16 +15,16 @@ public class u1 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13818b;
+    public String f13505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13819c;
+    public String f13506c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13820d;
+    public String f13507d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13821e;
+    public int f13508e;
 
     public u1() {
         Interceptable interceptable = $ic;
@@ -40,28 +40,28 @@ public class u1 {
             }
         }
         this.a = "";
-        this.f13818b = "";
-        this.f13819c = "";
-        this.f13820d = "";
-        this.f13821e = -1;
+        this.f13505b = "";
+        this.f13506c = "";
+        this.f13507d = "";
+        this.f13508e = -1;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13820d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13507d : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13821e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13508e : invokeV.intValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13819c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13506c : (String) invokeV.objValue;
     }
 
     public String d() {
@@ -73,7 +73,7 @@ public class u1 {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13818b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13505b : (String) invokeV.objValue;
     }
 
     public void f(SchoolRecomUserInfo schoolRecomUserInfo) {
@@ -82,9 +82,9 @@ public class u1 {
             return;
         }
         this.a = StringUtils.string(schoolRecomUserInfo.uid);
-        this.f13818b = schoolRecomUserInfo.uname;
-        this.f13819c = schoolRecomUserInfo.portrait;
-        this.f13820d = schoolRecomUserInfo.institute;
-        this.f13821e = schoolRecomUserInfo.is_liked.intValue();
+        this.f13505b = schoolRecomUserInfo.uname;
+        this.f13506c = schoolRecomUserInfo.portrait;
+        this.f13507d = schoolRecomUserInfo.institute;
+        this.f13508e = schoolRecomUserInfo.is_liked.intValue();
     }
 }

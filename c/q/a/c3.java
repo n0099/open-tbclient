@@ -15,13 +15,13 @@ public class c3 {
     public static final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f31275b;
+    public static final String[] f30298b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f31276c;
+    public static final String[] f30299c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f31277d;
+    public static final String[] f30300d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,9 +38,9 @@ public class c3 {
             }
         }
         a = new String[]{"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
-        f31275b = new String[]{"ins", "bd", "wdtr", "witr"};
-        f31276c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe", "hte"};
-        f31277d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii", "rle"};
+        f30298b = new String[]{"ins", "bd", "wdtr", "witr"};
+        f30299c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe", "hte"};
+        f30300d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii", "rle"};
     }
 
     public c3() {
@@ -76,20 +76,20 @@ public class c3 {
         g2.key("e").value(str).key("timeis").value(f());
         if (g3Var != null) {
             g2.key("pid").value(g3Var.a);
-            if (g3Var.f31305b != null) {
+            if (g3Var.f30327b != null) {
                 JSONStringer key = g2.key("traceid");
-                String traceid = g3Var.f31305b.getTraceid();
+                String traceid = g3Var.f30327b.getTraceid();
                 try {
                     traceid = r0.g(traceid);
                 } catch (Exception unused) {
                 }
                 JSONStringer key2 = key.value(traceid).key("cid");
-                String id = g3Var.f31305b.getId();
+                String id = g3Var.f30327b.getId();
                 try {
                     id = r0.g(id);
                 } catch (Exception unused2) {
                 }
-                key2.value(id).key("type").value(g3Var.f31305b.getType());
+                key2.value(id).key("type").value(g3Var.f30327b.getType());
             }
         }
         return g2;

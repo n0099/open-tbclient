@@ -25,7 +25,7 @@ public final class d extends b {
         try {
             str2 = g.d(file);
         } catch (Exception e3) {
-            this.f58764b += e3 + StringUtils.LF;
+            this.f56550b += e3 + StringUtils.LF;
             str2 = null;
         }
         if (str2 != null) {
@@ -35,7 +35,7 @@ public final class d extends b {
                     javaExceptionMessage.parseJson(new JSONObject(str2));
                 } catch (Exception e4) {
                     e2 = e4;
-                    this.f58764b += e2 + StringUtils.LF;
+                    this.f56550b += e2 + StringUtils.LF;
                     javaExceptionMessage2 = javaExceptionMessage;
                     if (javaExceptionMessage2 == null) {
                     }
@@ -46,7 +46,7 @@ public final class d extends b {
                     f.a(file, javaExceptionMessage2.toString());
                     f.a(file3, file);
                     file.renameTo(file3);
-                    if (!TextUtils.isEmpty(this.f58764b)) {
+                    if (!TextUtils.isEmpty(this.f56550b)) {
                     }
                     return javaExceptionMessage2;
                 }
@@ -71,11 +71,11 @@ public final class d extends b {
             f.a(file3, file);
             file.renameTo(file3);
         } catch (Throwable th) {
-            this.f58764b += th + StringUtils.LF;
+            this.f56550b += th + StringUtils.LF;
             com.kwad.sdk.core.d.a.b(th);
         }
-        if (!TextUtils.isEmpty(this.f58764b)) {
-            javaExceptionMessage2.mErrorMessage += this.f58764b;
+        if (!TextUtils.isEmpty(this.f56550b)) {
+            javaExceptionMessage2.mErrorMessage += this.f56550b;
         }
         return javaExceptionMessage2;
     }

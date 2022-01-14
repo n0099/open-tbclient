@@ -117,7 +117,7 @@ public interface HttpDataSource extends e {
         public final Map<String, String> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f56500b;
+        public Map<String, String> f54355b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -141,10 +141,10 @@ public interface HttpDataSource extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this) {
-                    if (this.f56500b == null) {
-                        this.f56500b = Collections.unmodifiableMap(new HashMap(this.a));
+                    if (this.f54355b == null) {
+                        this.f54355b = Collections.unmodifiableMap(new HashMap(this.a));
                     }
-                    map = this.f56500b;
+                    map = this.f54355b;
                 }
                 return map;
             }

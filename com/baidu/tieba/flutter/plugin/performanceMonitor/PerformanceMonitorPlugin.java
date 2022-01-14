@@ -155,7 +155,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 }
             }
         };
-        c.a.p.e.a.b().c(new a.InterfaceC0212a(this) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.2
+        c.a.p.e.a.b().c(new a.InterfaceC0221a(this) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PerformanceMonitorPlugin this$0;
@@ -178,7 +178,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 this.this$0 = this;
             }
 
-            @Override // c.a.p.e.a.InterfaceC0212a
+            @Override // c.a.p.e.a.InterfaceC0221a
             public void report(String str, HashMap<String, Object> hashMap) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, hashMap) == null) {
@@ -405,7 +405,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         statsItem.c("try", params.get("tryTimes"));
         statsItem.c("ct", params.get("contentType"));
         statsItem.c("dc", params.get("dartCodecCost"));
-        statsItem.c(com.baidu.fsg.base.statistics.k.f34940h, params.get("loadingCost"));
+        statsItem.c(com.baidu.fsg.base.statistics.k.f33814h, params.get("loadingCost"));
         statsItem.c("trans", params.get("channelTransTime"));
         statsItem.c("cc", params.get("codecCost"));
         statsItem.c("tc", params.get("totalCost"));

@@ -23,11 +23,11 @@ public class PagerSnapHelper extends SnapHelper {
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public d f43618d;
+    public d f42040d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public d f43619e;
+    public d f42041e;
 
     /* loaded from: classes12.dex */
     public class a extends LinearSmoothScroller {
@@ -210,11 +210,11 @@ public class PagerSnapHelper extends SnapHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, layoutManager)) == null) {
-            d dVar = this.f43619e;
+            d dVar = this.f42041e;
             if (dVar == null || dVar.a != layoutManager) {
-                this.f43619e = d.a(layoutManager);
+                this.f42041e = d.a(layoutManager);
             }
-            return this.f43619e;
+            return this.f42041e;
         }
         return (d) invokeL.objValue;
     }
@@ -224,11 +224,11 @@ public class PagerSnapHelper extends SnapHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutManager)) == null) {
-            d dVar = this.f43618d;
+            d dVar = this.f42040d;
             if (dVar == null || dVar.a != layoutManager) {
-                this.f43618d = d.b(layoutManager);
+                this.f42040d = d.b(layoutManager);
             }
-            return this.f43618d;
+            return this.f42040d;
         }
         return (d) invokeL.objValue;
     }

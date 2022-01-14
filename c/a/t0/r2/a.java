@@ -25,25 +25,25 @@ public class a extends c.a.d.a.d<PayVcodeActivity> {
     public PayVcodeActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f22454b;
+    public ViewGroup f21835b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f22455c;
+    public View f21836c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f22456d;
+    public ViewGroup f21837d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f22457e;
+    public TextView f21838e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseWebView f22458f;
+    public BaseWebView f21839f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22459g;
+    public TextView f21840g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ProgressBar f22460h;
+    public ProgressBar f21841h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(PayVcodeActivity payVcodeActivity) {
@@ -71,74 +71,74 @@ public class a extends c.a.d.a.d<PayVcodeActivity> {
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22455c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21836c : (View) invokeV.objValue;
     }
 
     public TextView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22459g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21840g : (TextView) invokeV.objValue;
     }
 
     public TextView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22457e : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21838e : (TextView) invokeV.objValue;
     }
 
     public ViewGroup f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22456d : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21837d : (ViewGroup) invokeV.objValue;
     }
 
     public BaseWebView g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22458f : (BaseWebView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21839f : (BaseWebView) invokeV.objValue;
     }
 
     public final void h(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, payVcodeActivity) == null) {
-            this.f22454b = (ViewGroup) this.a.findViewById(R.id.payvcode_parent);
+            this.f21835b = (ViewGroup) this.a.findViewById(R.id.payvcode_parent);
             TextView textView = (TextView) this.a.findViewById(R.id.payment_performance);
-            this.f22457e = textView;
+            this.f21838e = textView;
             SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.f22457e, R.color.CAM_X0101, 1);
-            this.f22458f = (BaseWebView) payVcodeActivity.findViewById(R.id.vcode_webview);
-            this.f22459g = (TextView) payVcodeActivity.findViewById(R.id.webview_fail_view);
-            this.f22455c = payVcodeActivity.findViewById(R.id.payvcode_empty_layout);
-            this.f22456d = (ViewGroup) payVcodeActivity.findViewById(R.id.payvcode_layout);
-            this.f22460h = (ProgressBar) payVcodeActivity.findViewById(R.id.payvcode_progress);
-            this.f22458f.setHorizontalScrollBarEnabled(false);
-            this.f22458f.setHorizontalScrollbarOverlay(false);
-            this.f22458f.setScrollBarStyle(33554432);
-            this.f22458f.getSettings().setJavaScriptEnabled(true);
+            SkinManager.setViewTextColor(this.f21838e, R.color.CAM_X0101, 1);
+            this.f21839f = (BaseWebView) payVcodeActivity.findViewById(R.id.vcode_webview);
+            this.f21840g = (TextView) payVcodeActivity.findViewById(R.id.webview_fail_view);
+            this.f21836c = payVcodeActivity.findViewById(R.id.payvcode_empty_layout);
+            this.f21837d = (ViewGroup) payVcodeActivity.findViewById(R.id.payvcode_layout);
+            this.f21841h = (ProgressBar) payVcodeActivity.findViewById(R.id.payvcode_progress);
+            this.f21839f.setHorizontalScrollBarEnabled(false);
+            this.f21839f.setHorizontalScrollbarOverlay(false);
+            this.f21839f.setScrollBarStyle(33554432);
+            this.f21839f.getSettings().setJavaScriptEnabled(true);
         }
     }
 
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f22459g.setVisibility(z ? 0 : 8);
+            this.f21840g.setVisibility(z ? 0 : 8);
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f22460h.setVisibility(z ? 0 : 8);
+            this.f21841h.setVisibility(z ? 0 : 8);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            c.a.s0.x0.a.a(this.a.getPageContext(), this.f22454b);
-            SkinManager.setBgColor(this.f22459g, i2);
-            SkinManager.setBackgroundResource(this.f22457e, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.f22457e, R.color.CAM_X0101, 1);
+            c.a.s0.x0.a.a(this.a.getPageContext(), this.f21835b);
+            SkinManager.setBgColor(this.f21840g, i2);
+            SkinManager.setBackgroundResource(this.f21838e, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.f21838e, R.color.CAM_X0101, 1);
         }
     }
 }

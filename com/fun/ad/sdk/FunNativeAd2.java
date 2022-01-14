@@ -23,10 +23,10 @@ public interface FunNativeAd2 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f56208b;
+        public final boolean f54075b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f56209c;
+        public final boolean f54076c;
 
         static {
             InterceptResult invokeClinit;
@@ -68,8 +68,8 @@ public interface FunNativeAd2 {
                     return;
                 }
             }
-            this.f56208b = z;
-            this.f56209c = z2;
+            this.f54075b = z;
+            this.f54076c = z2;
         }
 
         public static NativeType valueOf(String str) {
@@ -87,13 +87,13 @@ public interface FunNativeAd2 {
         public boolean supportCustom() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56208b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54075b : invokeV.booleanValue;
         }
 
         public boolean supportExpress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56209c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54076c : invokeV.booleanValue;
         }
     }
 

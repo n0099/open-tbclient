@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class a extends b.C1319b {
+public class a extends b.C1310b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +34,7 @@ public class a extends b.C1319b {
         }
     }
 
-    @Override // c.a.t0.p1.a.b.C1319b, c.a.t0.p1.a.b.a
+    @Override // c.a.t0.p1.a.b.C1310b, c.a.t0.p1.a.b.a
     @TargetApi(11)
     public boolean a() {
         InterceptResult invokeV;
@@ -42,7 +42,7 @@ public class a extends b.C1319b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.isHardwareAccelerated() : invokeV.booleanValue;
     }
 
-    @Override // c.a.t0.p1.a.b.C1319b, c.a.t0.p1.a.b.a
+    @Override // c.a.t0.p1.a.b.C1310b, c.a.t0.p1.a.b.a
     @TargetApi(14)
     public void c(int i2) {
         Interceptable interceptable = $ic;

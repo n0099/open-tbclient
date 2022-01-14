@@ -26,25 +26,23 @@ public class a extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24034e;
+    public String f23365e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24035f;
+    public String f23366f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f24036g;
+    public String f23367g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f24037h;
+    public String f23368h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f24038i;
+    public String f23369i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Long f24039j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f24040k;
+    public Long f23370j;
+    public boolean k;
     public boolean l;
     public String m;
     public String n;
@@ -81,20 +79,20 @@ public class a extends BaseCardInfo {
                 return;
             }
         }
-        this.f24040k = false;
+        this.k = false;
         this.p = false;
     }
 
     public Long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24039j : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23370j : (Long) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24034e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23365e : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
@@ -107,42 +105,42 @@ public class a extends BaseCardInfo {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24036g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23367g : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24037h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23368h : (String) invokeV.objValue;
     }
 
     public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24038i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23369i : (String) invokeV.objValue;
     }
 
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f24035f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23366f : (String) invokeV.objValue;
     }
 
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24040k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
     public void t(@NonNull AlaLiveInfo alaLiveInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, alaLiveInfo) == null) {
-            this.f24034e = alaLiveInfo.first_headline;
-            this.f24035f = alaLiveInfo.second_headline;
+            this.f23365e = alaLiveInfo.first_headline;
+            this.f23366f = alaLiveInfo.second_headline;
             String str = alaLiveInfo.cover_wide;
-            this.f24036g = str;
+            this.f23367g = str;
             if (str == null || TextUtils.isEmpty(str)) {
-                this.f24036g = alaLiveInfo.cover;
+                this.f23367g = alaLiveInfo.cover;
             }
             alaLiveInfo.live_id.longValue();
             YyExtData yyExtData = new YyExtData();
@@ -154,10 +152,10 @@ public class a extends BaseCardInfo {
             this.m = alaLiveInfo.third_live_type;
             this.n = alaLiveInfo.third_room_id;
             String str2 = alaLiveInfo.router_type;
-            this.f24037h = "";
-            this.f24038i = TbadkCoreApplication.getInst().getString(l.pb_ala_enter);
-            this.f24039j = 1L;
-            this.f24040k = true;
+            this.f23368h = "";
+            this.f23369i = TbadkCoreApplication.getInst().getString(l.pb_ala_enter);
+            this.f23370j = 1L;
+            this.k = true;
             this.p = false;
         }
     }
@@ -165,13 +163,13 @@ public class a extends BaseCardInfo {
     public void w(Promotion promotion) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, promotion) == null) {
-            this.f24034e = promotion.title;
-            this.f24035f = promotion.sub_title;
-            this.f24036g = promotion.image;
-            this.f24037h = promotion.link;
-            this.f24038i = promotion.link_text;
-            this.f24039j = promotion.appear_time;
-            this.f24040k = false;
+            this.f23365e = promotion.title;
+            this.f23366f = promotion.sub_title;
+            this.f23367g = promotion.image;
+            this.f23368h = promotion.link;
+            this.f23369i = promotion.link_text;
+            this.f23370j = promotion.appear_time;
+            this.k = false;
             this.p = false;
         }
     }

@@ -25,7 +25,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f40875e;
+        public final /* synthetic */ AccountSmsLoginView f39503e;
 
         public a(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f40875e = accountSmsLoginView;
+            this.f39503e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.a(this.f40875e.w, ((FragmentActivity) this.f40875e.w).getWindow().getDecorView().getWindowToken());
+                x.a(this.f39503e.w, ((FragmentActivity) this.f39503e.w).getWindow().getDecorView().getWindowToken());
             }
         }
     }
@@ -60,7 +60,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f40876e;
+        public final /* synthetic */ AccountSmsLoginView f39504e;
 
         public b(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f40876e = accountSmsLoginView;
+            this.f39504e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.b(this.f40876e.w, false);
+                x.b(this.f39504e.w, false);
             }
         }
     }

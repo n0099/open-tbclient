@@ -18,13 +18,13 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements X509TrustManager {
     public static /* synthetic */ Interceptable $ic;
     public static final X509Certificate[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TrustManager[] f33701b;
+    public static TrustManager[] f32631b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -91,8 +91,8 @@ public class a implements X509TrustManager {
                     return invokeLL.booleanValue;
                 }
             });
-            if (f33701b == null) {
-                f33701b = new TrustManager[]{new a()};
+            if (f32631b == null) {
+                f32631b = new TrustManager[]{new a()};
             }
             try {
                 sSLContext = SSLContext.getInstance("TLS");
@@ -104,7 +104,7 @@ public class a implements X509TrustManager {
                 e2 = e5;
             }
             try {
-                sSLContext.init(null, f33701b, null);
+                sSLContext.init(null, f32631b, null);
             } catch (KeyManagementException e6) {
                 e3 = e6;
                 e3.printStackTrace();

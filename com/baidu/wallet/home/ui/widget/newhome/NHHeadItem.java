@@ -220,7 +220,7 @@ public class NHHeadItem extends BaseItemView {
                     public final /* synthetic */ HomeCfgResponse.DataButton a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ NHHeadItem f53294b;
+                    public final /* synthetic */ NHHeadItem f51246b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -237,7 +237,7 @@ public class NHHeadItem extends BaseItemView {
                                 return;
                             }
                         }
-                        this.f53294b = this;
+                        this.f51246b = this;
                         this.a = dataButton;
                     }
 
@@ -247,7 +247,7 @@ public class NHHeadItem extends BaseItemView {
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                             return;
                         }
-                        b walletInterface = this.f53294b.getWalletInterface();
+                        b walletInterface = this.f51246b.getWalletInterface();
                         HomeCfgResponse.DataButton dataButton2 = this.a;
                         walletInterface.jump(dataButton2.name, dataButton2.type, dataButton2.link_addr, false);
                     }

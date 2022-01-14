@@ -16,16 +16,16 @@ public class a {
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f1350b;
+    public c f1343b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f1351c;
+    public b f1344c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.a1.p.g.c f1352d;
+    public c.a.a1.p.g.c f1345d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f1353e;
+    public boolean f1346e;
 
     /* renamed from: c.a.a1.p.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -40,7 +40,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1354e;
+        public final /* synthetic */ a f1347e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class a {
                     return;
                 }
             }
-            this.f1354e = aVar;
+            this.f1347e = aVar;
         }
 
         public /* synthetic */ b(a aVar, C0020a c0020a) {
@@ -71,33 +71,33 @@ public class a {
                 Process.setThreadPriority(-19);
                 try {
                     try {
-                        this.f1354e.f1350b = new c(-100);
-                        if (this.f1354e.f1350b.d() != null) {
-                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(c.f1450d);
-                            this.f1354e.f1350b.c();
-                            if (this.f1354e.f1350b.e() != 3) {
+                        this.f1347e.f1343b = new c(-100);
+                        if (this.f1347e.f1343b.d() != null) {
+                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(c.f1439d);
+                            this.f1347e.f1343b.c();
+                            if (this.f1347e.f1343b.e() != 3) {
                                 return;
                             }
-                            while (!this.f1354e.a) {
+                            while (!this.f1347e.a) {
                                 allocateDirect.clear();
-                                int a = this.f1354e.f1350b.a(allocateDirect, c.f1450d);
+                                int a = this.f1347e.f1343b.a(allocateDirect, c.f1439d);
                                 if (a > 0) {
                                     double a2 = c.a.a1.p.i.a.a(allocateDirect, a);
-                                    if (this.f1354e.f1352d != null && a2 > 0.0d) {
-                                        this.f1354e.f1352d.a(a2);
+                                    if (this.f1347e.f1345d != null && a2 > 0.0d) {
+                                        this.f1347e.f1345d.a(a2);
                                     }
                                 }
                             }
-                        } else if (this.f1354e.f1352d != null) {
-                            this.f1354e.f1352d.a("failed to initialize AudioRecord", true);
+                        } else if (this.f1347e.f1345d != null) {
+                            this.f1347e.f1345d.a("failed to initialize AudioRecord", true);
                         }
                     } catch (Exception unused) {
-                        if (this.f1354e.f1352d != null) {
-                            this.f1354e.f1352d.a("failed to initialize AudioRecord", true);
+                        if (this.f1347e.f1345d != null) {
+                            this.f1347e.f1345d.a("failed to initialize AudioRecord", true);
                         }
                     }
                 } finally {
-                    this.f1354e.i();
+                    this.f1347e.i();
                 }
             }
         }
@@ -122,10 +122,10 @@ public class a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1353e = true;
+            this.f1346e = true;
             this.a = false;
             b bVar = new b(this, null);
-            this.f1351c = bVar;
+            this.f1344c = bVar;
             bVar.start();
         }
     }
@@ -133,7 +133,7 @@ public class a {
     public void d(c.a.a1.p.g.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f1352d = cVar;
+            this.f1345d = cVar;
         }
     }
 
@@ -141,27 +141,27 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = true;
-            this.f1353e = false;
+            this.f1346e = false;
         }
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1353e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1346e : invokeV.booleanValue;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a = false;
-            this.f1353e = false;
-            c cVar = this.f1350b;
+            this.f1346e = false;
+            c cVar = this.f1343b;
             if (cVar != null) {
                 cVar.b();
             }
-            if (this.f1351c != null) {
-                this.f1351c = null;
+            if (this.f1344c != null) {
+                this.f1344c = null;
             }
         }
     }

@@ -184,7 +184,7 @@ public class RequsetNetworkUtils {
             if (context == null) {
                 return mTelephonyManager;
             }
-            if (context.checkCallingOrSelfPermission(s.f57419c) == 0 && mTelephonyManager == null) {
+            if (context.checkCallingOrSelfPermission(s.f55242c) == 0 && mTelephonyManager == null) {
                 mTelephonyManager = (TelephonyManager) context.getSystemService("phone");
             }
             return mTelephonyManager;
@@ -197,7 +197,7 @@ public class RequsetNetworkUtils {
         WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission(s.f57420d) != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (context.checkCallingOrSelfPermission(s.f55243d) != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return "nonWifiIp";
             }
             int ipAddress = connectionInfo.getIpAddress();

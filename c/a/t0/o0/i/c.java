@@ -26,40 +26,40 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f20635d;
+    public static c f20085d;
     public transient /* synthetic */ FieldHolder $fh;
     public Wire a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, c.a.t0.o0.i.a> f20636b;
+    public Map<String, c.a.t0.o0.i.a> f20086b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f20637c;
+    public Runnable f20087c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f20638e;
+        public final /* synthetic */ c f20088e;
 
         /* renamed from: c.a.t0.o0.i.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C1247a extends k0<Void> {
+        /* loaded from: classes8.dex */
+        public class C1261a extends k0<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Map a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f20639b;
+            public final /* synthetic */ a f20089b;
 
-            public C1247a(a aVar, Map map) {
+            public C1261a(a aVar, Map map) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public class c {
                         return;
                     }
                 }
-                this.f20639b = aVar;
+                this.f20089b = aVar;
                 this.a = map;
             }
 
@@ -93,9 +93,9 @@ public class c {
                             builder.connect_point_list.add(c2);
                         }
                     }
-                    this.f20639b.f20638e.g(builder.build(true).toByteArray());
+                    this.f20089b.f20088e.g(builder.build(true).toByteArray());
                     synchronized (c.class) {
-                        this.f20639b.f20638e.f20636b = null;
+                        this.f20089b.f20088e.f20086b = null;
                     }
                     return null;
                 }
@@ -118,7 +118,7 @@ public class c {
                     return;
                 }
             }
-            this.f20638e = cVar;
+            this.f20088e = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -127,17 +127,17 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (c.class) {
-                    map = this.f20638e.f20636b;
+                    map = this.f20088e.f20086b;
                 }
                 if (map == null) {
                     return;
                 }
-                n0.b(new C1247a(this, map), null);
+                n0.b(new C1261a(this, map), null);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends k0<WriteHistroyDataReqIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,13 +184,13 @@ public class c {
     }
 
     /* renamed from: c.a.t0.o0.i.c$c  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1248c implements s<WriteHistroyDataReqIdl> {
+    /* loaded from: classes8.dex */
+    public class C1262c implements s<WriteHistroyDataReqIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ s a;
 
-        public C1248c(c cVar, s sVar) {
+        public C1262c(c cVar, s sVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -250,22 +250,22 @@ public class c {
             }
         }
         this.a = new Wire(new Class[0]);
-        this.f20636b = null;
-        this.f20637c = new a(this);
+        this.f20086b = null;
+        this.f20087c = new a(this);
     }
 
     public static final c h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f20635d == null) {
+            if (f20085d == null) {
                 synchronized (c.class) {
-                    if (f20635d == null) {
-                        f20635d = new c();
+                    if (f20085d == null) {
+                        f20085d = new c();
                     }
                 }
             }
-            return f20635d;
+            return f20085d;
         }
         return (c) invokeV.objValue;
     }
@@ -371,7 +371,7 @@ public class c {
     public void i(s<WriteHistroyDataReqIdl> sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sVar) == null) {
-            n0.b(new b(this), new C1248c(this, sVar));
+            n0.b(new b(this), new C1262c(this, sVar));
         }
     }
 
@@ -379,12 +379,12 @@ public class c {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, map) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && map != null) {
             synchronized (c.class) {
-                this.f20636b = map;
+                this.f20086b = map;
             }
             if (e.a().hasMessages(0, this)) {
                 return;
             }
-            Message obtain = Message.obtain(e.a(), this.f20637c);
+            Message obtain = Message.obtain(e.a(), this.f20087c);
             obtain.what = 0;
             obtain.obj = this;
             e.a().sendMessageDelayed(obtain, 30000L);
@@ -395,7 +395,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             e.a().removeMessages(0, this);
-            e.a().post(this.f20637c);
+            e.a().post(this.f20087c);
         }
     }
 }

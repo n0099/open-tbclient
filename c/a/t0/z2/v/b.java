@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
 import c.a.s0.e1.y;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
@@ -25,7 +25,7 @@ public class b extends d {
     public transient /* synthetic */ FieldHolder $fh;
     public VideoItemData M0;
     public VideoSerializeVideoThreadInfo N0;
-    public d2 O0;
+    public e2 O0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, View view) {
@@ -46,7 +46,7 @@ public class b extends d {
                 return;
             }
         }
-        this.f26892e = 5000;
+        this.f26094e = 5000;
     }
 
     @Override // c.a.t0.z2.v.d
@@ -54,7 +54,7 @@ public class b extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int i2 = this.r;
-            if (i2 == this.f26895h || i2 == this.q) {
+            if (i2 == this.f26097h || i2 == this.q) {
                 v0();
             }
         }
@@ -64,7 +64,7 @@ public class b extends d {
     public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f26896i = 32;
+            this.f26098i = 32;
         }
     }
 
@@ -106,7 +106,7 @@ public class b extends d {
             return;
         }
         if (!l.z()) {
-            n.L(this.Q, R.string.no_network_guide);
+            n.M(this.Q, R.string.no_network_guide);
         } else {
             u0(ThreadCardUtils.computeViewArea(this.S));
         }
@@ -125,25 +125,25 @@ public class b extends d {
     }
 
     @Override // c.a.t0.z2.v.d, c.a.t0.z2.v.a
-    public void setData(d2 d2Var) {
+    public void setData(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, d2Var) == null) {
-            super.setData(d2Var);
-            this.O0 = d2Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, e2Var) == null) {
+            super.setData(e2Var);
+            this.O0 = e2Var;
             if (this.V) {
                 VideoItemData videoItemData = new VideoItemData();
                 this.M0 = videoItemData;
-                videoItemData.buildWithThreadData(d2Var);
+                videoItemData.buildWithThreadData(e2Var);
                 return;
             }
             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
             this.N0 = videoSerializeVideoThreadInfo;
-            videoSerializeVideoThreadInfo.copyFromThreadInfo(d2Var);
+            videoSerializeVideoThreadInfo.copyFromThreadInfo(e2Var);
             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.N0;
-            videoSerializeVideoThreadInfo2.source = d2Var.Z0;
-            videoSerializeVideoThreadInfo2.extra = d2Var.c1;
-            videoSerializeVideoThreadInfo2.ab_tag = d2Var.b1;
-            videoSerializeVideoThreadInfo2.weight = d2Var.a1;
+            videoSerializeVideoThreadInfo2.source = e2Var.Z0;
+            videoSerializeVideoThreadInfo2.extra = e2Var.c1;
+            videoSerializeVideoThreadInfo2.ab_tag = e2Var.b1;
+            videoSerializeVideoThreadInfo2.weight = e2Var.a1;
         }
     }
 
@@ -159,8 +159,8 @@ public class b extends d {
         this.M0.buildWithThreadData(this.O0);
         arrayList.add(this.M0);
         String str = null;
-        d2 d2Var = this.O0;
-        if (d2Var != null && d2Var.L() != null) {
+        e2 e2Var = this.O0;
+        if (e2Var != null && e2Var.L() != null) {
             str = this.O0.L().oriUgcNid;
         }
         Context context = this.Q;
@@ -172,7 +172,7 @@ public class b extends d {
     public void v0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            l0(this.f26896i);
+            l0(this.f26098i);
         }
     }
 

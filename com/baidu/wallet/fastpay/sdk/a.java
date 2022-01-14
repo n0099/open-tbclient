@@ -47,17 +47,17 @@ public final class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Integer, b> f53058b;
+    public final Map<Integer, b> f51015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53059c;
+    public String f51016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f53060d;
+    public final String f51017d;
 
     /* loaded from: classes13.dex */
     public interface b {
-        void onFastPayFail(int i2, int i3, C1969a c1969a);
+        void onFastPayFail(int i2, int i3, C1986a c1986a);
 
         void onFastPaySuccess(int i2, int i3, Object obj);
     }
@@ -88,10 +88,10 @@ public final class a {
     public void b(int i2) {
         Map<Integer, b> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (map = this.f53058b) == null || map.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (map = this.f51015b) == null || map.size() <= 0) {
             return;
         }
-        this.f53058b.remove(Integer.valueOf(i2));
+        this.f51015b.remove(Integer.valueOf(i2));
     }
 
     public a() {
@@ -107,24 +107,24 @@ public final class a {
                 return;
             }
         }
-        this.f53060d = "0";
-        this.f53058b = new HashMap();
+        this.f51017d = "0";
+        this.f51015b = new HashMap();
     }
 
     /* renamed from: com.baidu.wallet.fastpay.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public static class C1969a {
+    public static class C1986a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53075b;
+        public String f51032b;
 
         /* renamed from: c  reason: collision with root package name */
-        public SimpleOrderInfo f53076c;
+        public SimpleOrderInfo f51033c;
 
-        public C1969a() {
+        public C1986a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,12 +137,12 @@ public final class a {
                     return;
                 }
             }
-            this.f53075b = "";
-            this.f53076c = null;
+            this.f51032b = "";
+            this.f51033c = null;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C1969a(int i2, String str) {
+        public C1986a(int i2, String str) {
             this();
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -160,11 +160,11 @@ public final class a {
                 }
             }
             this.a = i2;
-            this.f53075b = str;
+            this.f51032b = str;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C1969a(int i2, String str, SimpleOrderInfo simpleOrderInfo) {
+        public C1986a(int i2, String str, SimpleOrderInfo simpleOrderInfo) {
             this(i2, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -182,7 +182,7 @@ public final class a {
                     return;
                 }
             }
-            this.f53076c = simpleOrderInfo;
+            this.f51033c = simpleOrderInfo;
         }
     }
 
@@ -204,11 +204,11 @@ public final class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            Map<Integer, b> map = this.f53058b;
+            Map<Integer, b> map = this.f51015b;
             if (map == null || map.size() <= 0) {
                 return null;
             }
-            return this.f53058b.get(Integer.valueOf(i2));
+            return this.f51015b.get(Integer.valueOf(i2));
         }
         return (b) invokeI.objValue;
     }
@@ -223,7 +223,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i2) == null) {
             this.a = DxmApplicationContextImpl.getApplicationContext(context);
-            this.f53059c = "BaiduWallet_APP_common_charge";
+            this.f51016c = "BaiduWallet_APP_common_charge";
         }
     }
 
@@ -244,20 +244,20 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048580, this, eVar, i2, str, bVar) == null) {
             LogUtil.d("BaiduFastPay", "getChargeCards. mobile = " + str);
-            this.f53058b.put(Integer.valueOf(i2), bVar);
+            this.f51015b.put(Integer.valueOf(i2), bVar);
             if (!a(str)) {
                 LogUtil.d("BaiduFastPay", "getChargeCards. wrong mobile number.");
                 FastPayCallBackManager.a(i2, 0, -57353, ResUtils.getString(this.a, "wallet_fp_wrong_number"), null);
                 return;
             }
-            eVar.a(str, this.f53059c);
+            eVar.a(str, this.f51016c);
             eVar.setResponseCallback(new IBeanResponseCallback(this, i2) { // from class: com.baidu.wallet.fastpay.sdk.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f53061b;
+                public final /* synthetic */ a f51018b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -274,7 +274,7 @@ public final class a {
                             return;
                         }
                     }
-                    this.f53061b = this;
+                    this.f51018b = this;
                     this.a = i2;
                 }
 
@@ -283,7 +283,7 @@ public final class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i3, i4, str2) == null) {
                         if (45313 == i3 && i4 == -4) {
-                            str2 = ResUtils.getString(this.f53061b.a, "wallet_fp_no_faces");
+                            str2 = ResUtils.getString(this.f51018b.a, "wallet_fp_no_faces");
                         }
                         FastPayCallBackManager.a(this.a, 0, i4, str2, null);
                     }
@@ -304,7 +304,7 @@ public final class a {
     public void a(int i2, Map<String, String> map, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, map, bVar) == null) {
-            this.f53058b.put(Integer.valueOf(i2), bVar);
+            this.f51015b.put(Integer.valueOf(i2), bVar);
             String str = map.get("key_mobile");
             if (!a(str)) {
                 LogUtil.d("BaiduFastPay", "toCharge. wrong mobile number.");
@@ -317,16 +317,16 @@ public final class a {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Map f53062b;
+                public final /* synthetic */ Map f51019b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f53063c;
+                public final /* synthetic */ String f51020c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ b f53064d;
+                public final /* synthetic */ b f51021d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f53065e;
+                public final /* synthetic */ a f51022e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -343,18 +343,18 @@ public final class a {
                             return;
                         }
                     }
-                    this.f53065e = this;
+                    this.f51022e = this;
                     this.a = i2;
-                    this.f53062b = map;
-                    this.f53063c = str;
-                    this.f53064d = bVar;
+                    this.f51019b = map;
+                    this.f51020c = str;
+                    this.f51021d = bVar;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i3, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str2) == null) {
-                        FastPayCallBackManager.a(this.a, 0, -5, ResUtils.getString(this.f53065e.a, "fp_not_login"), null);
+                        FastPayCallBackManager.a(this.a, 0, -5, ResUtils.getString(this.f51022e.a, "fp_not_login"), null);
                     }
                 }
 
@@ -362,7 +362,7 @@ public final class a {
                 public void onSuccess(int i3, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str2) == null) {
-                        this.f53065e.a(this.a, (String) this.f53062b.get("param_key_face_value"), this.f53063c, (String) this.f53062b.get("userType"), "", this.f53064d);
+                        this.f51022e.a(this.a, (String) this.f51019b.get("param_key_face_value"), this.f51020c, (String) this.f51019b.get("userType"), "", this.f51021d);
                     }
                 }
             }));
@@ -374,26 +374,26 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i2), str, str2, str3, str4, bVar}) == null) {
             com.baidu.wallet.fastpay.beans.c cVar = (com.baidu.wallet.fastpay.beans.c) FastPayBeanFactory.getInstance().getBean(this.a, FastPayBeanFactory.BEAN_ID_GET_ORDER, "BaiduFastPay");
-            cVar.a(str2, str, "0", this.f53059c);
+            cVar.a(str2, str, "0", this.f51016c);
             cVar.setResponseCallback(new IBeanResponseCallback(this, str, str2, i2, str3, str4) { // from class: com.baidu.wallet.fastpay.sdk.a.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f53066b;
+                public final /* synthetic */ String f51023b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f53067c;
+                public final /* synthetic */ int f51024c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f53068d;
+                public final /* synthetic */ String f51025d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f53069e;
+                public final /* synthetic */ String f51026e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ a f53070f;
+                public final /* synthetic */ a f51027f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -410,19 +410,19 @@ public final class a {
                             return;
                         }
                     }
-                    this.f53070f = this;
+                    this.f51027f = this;
                     this.a = str;
-                    this.f53066b = str2;
-                    this.f53067c = i2;
-                    this.f53068d = str3;
-                    this.f53069e = str4;
+                    this.f51023b = str2;
+                    this.f51024c = i2;
+                    this.f51025d = str3;
+                    this.f51026e = str4;
                 }
 
                 @Override // com.baidu.apollon.beans.IBeanResponseCallback
                 public void onBeanExecFailure(int i3, int i4, String str5) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i3, i4, str5) == null) {
-                        FastPayCallBackManager.a(this.f53067c, 0, i4, str5, null);
+                        FastPayCallBackManager.a(this.f51024c, 0, i4, str5, null);
                     }
                 }
 
@@ -433,7 +433,7 @@ public final class a {
                         GetOrderResponse getOrderResponse = (GetOrderResponse) obj;
                         SimpleOrderInfo simpleOrderInfo = new SimpleOrderInfo();
                         simpleOrderInfo.mFaceValue = this.a;
-                        simpleOrderInfo.mMobile = this.f53066b;
+                        simpleOrderInfo.mMobile = this.f51023b;
                         simpleOrderInfo.mOrderNo = getOrderResponse.order_no;
                         simpleOrderInfo.mOrderInfo = getOrderResponse.url;
                         simpleOrderInfo.mPayDesc = getOrderResponse.pay_desc;
@@ -445,7 +445,7 @@ public final class a {
                             public final /* synthetic */ SimpleOrderInfo a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass3 f53071b;
+                            public final /* synthetic */ AnonymousClass3 f51028b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -462,7 +462,7 @@ public final class a {
                                         return;
                                     }
                                 }
-                                this.f53071b = this;
+                                this.f51028b = this;
                                 this.a = simpleOrderInfo;
                             }
 
@@ -470,12 +470,12 @@ public final class a {
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    AnonymousClass3 anonymousClass3 = this.f53071b;
-                                    anonymousClass3.f53070f.a(anonymousClass3.f53067c, this.a, anonymousClass3.f53068d, anonymousClass3.f53069e);
+                                    AnonymousClass3 anonymousClass3 = this.f51028b;
+                                    anonymousClass3.f51027f.a(anonymousClass3.f51024c, this.a, anonymousClass3.f51025d, anonymousClass3.f51026e);
                                 }
                             }
                         });
-                        FastPayCallBackManager.a(this.f53067c, obj);
+                        FastPayCallBackManager.a(this.f51024c, obj);
                     }
                 }
             });
@@ -500,10 +500,10 @@ public final class a {
                     public final /* synthetic */ SimpleOrderInfo a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f53072b;
+                    public final /* synthetic */ int f51029b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f53073c;
+                    public final /* synthetic */ a f51030c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -520,9 +520,9 @@ public final class a {
                                 return;
                             }
                         }
-                        this.f53073c = this;
+                        this.f51030c = this;
                         this.a = simpleOrderInfo;
-                        this.f53072b = i2;
+                        this.f51029b = i2;
                     }
 
                     @Override // com.baidu.wallet.router.RouterCallback
@@ -536,15 +536,15 @@ public final class a {
                                 int intValue = ((Integer) hashMap2.get(EnterDxmPayServiceAction.SERVICE_STATUS_CODE)).intValue();
                                 String str3 = (String) hashMap2.get("payDesc");
                                 if (intValue != 0 && intValue != 1) {
-                                    FastPayCallBackManager.a(this.f53072b, 1, intValue, "", this.a);
+                                    FastPayCallBackManager.a(this.f51029b, 1, intValue, "", this.a);
                                     return;
                                 }
-                                ArrayList arrayList2 = new ArrayList(Arrays.asList(this.f53073c.b(this.a.mFaceValue)));
+                                ArrayList arrayList2 = new ArrayList(Arrays.asList(this.f51030c.b(this.a.mFaceValue)));
                                 arrayList2.addAll(com.baidu.wallet.fastpay.a.a.a().b());
                                 DXMSdkSAUtils.onEventWithValues("mobileRechargePaySuccess", arrayList2);
                                 SimpleOrderInfo simpleOrderInfo2 = this.a;
                                 if (simpleOrderInfo2 != null && !TextUtils.isEmpty(simpleOrderInfo2.mOrderNo) && this.a.isGotoResultActivity()) {
-                                    Context context = this.f53073c.a;
+                                    Context context = this.f51030c.a;
                                     SimpleOrderInfo simpleOrderInfo3 = this.a;
                                     WalletMobileResultActivity.gotoBusniessResultPage(context, true, simpleOrderInfo3.mOrderNo, simpleOrderInfo3.mPayDesc, intValue == 1, new ResultPageStateListener(this, intValue) { // from class: com.baidu.wallet.fastpay.sdk.a.4.1
                                         public static /* synthetic */ Interceptable $ic;
@@ -552,7 +552,7 @@ public final class a {
                                         public final /* synthetic */ int a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass4 f53074b;
+                                        public final /* synthetic */ AnonymousClass4 f51031b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -569,7 +569,7 @@ public final class a {
                                                     return;
                                                 }
                                             }
-                                            this.f53074b = this;
+                                            this.f51031b = this;
                                             this.a = intValue;
                                         }
 
@@ -578,10 +578,10 @@ public final class a {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                                 FastPayCallBackManager.PayStateContent payStateContent = new FastPayCallBackManager.PayStateContent();
-                                                AnonymousClass4 anonymousClass4 = this.f53074b;
+                                                AnonymousClass4 anonymousClass4 = this.f51031b;
                                                 SimpleOrderInfo simpleOrderInfo4 = anonymousClass4.a;
                                                 payStateContent.order_no = simpleOrderInfo4.mOrderNo;
-                                                FastPayCallBackManager.a(anonymousClass4.f53072b, this.a, simpleOrderInfo4, payStateContent);
+                                                FastPayCallBackManager.a(anonymousClass4.f51029b, this.a, simpleOrderInfo4, payStateContent);
                                             }
                                         }
                                     });
@@ -590,7 +590,7 @@ public final class a {
                                 FastPayCallBackManager.PayStateContent payStateContent = new FastPayCallBackManager.PayStateContent();
                                 SimpleOrderInfo simpleOrderInfo4 = this.a;
                                 payStateContent.order_no = simpleOrderInfo4.mOrderNo;
-                                FastPayCallBackManager.a(this.f53072b, intValue, simpleOrderInfo4, payStateContent);
+                                FastPayCallBackManager.a(this.f51029b, intValue, simpleOrderInfo4, payStateContent);
                                 return;
                             }
                             HashMap hashMap3 = new HashMap();

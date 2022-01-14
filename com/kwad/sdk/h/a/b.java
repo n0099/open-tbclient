@@ -7,16 +7,16 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f59190b;
+    public long f56962b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f59191c;
+    public long f56963c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f59192d;
+    public long f56964d;
 
     @NonNull
     public String toString() {
-        return "PageMonitorInfo{pageName='" + this.a + ExtendedMessageFormat.QUOTE + ", pageLaunchTime=" + this.f59190b + ", pageCreateTime=" + this.f59191c + ", pageResumeTime=" + this.f59192d + ExtendedMessageFormat.END_FE;
+        return "PageMonitorInfo{pageName='" + this.a + ExtendedMessageFormat.QUOTE + ", pageLaunchTime=" + this.f56962b + ", pageCreateTime=" + this.f56963c + ", pageResumeTime=" + this.f56964d + ExtendedMessageFormat.END_FE;
     }
 }

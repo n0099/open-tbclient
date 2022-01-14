@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.data;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.a0.f.c.f.b.b;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.searchbox.live.interfaces.DI;
@@ -19,11 +19,11 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public List<b> followCloseList;
     public int followCloseNum;
-    public List<d2> followList;
+    public List<e2> followList;
     public int followStatus;
     public boolean hasMore;
     public int pn;
-    public List<d2> recommendList;
+    public List<e2> recommendList;
     public int totalFollowCount;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,9 +67,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                     if (optJSONObject2 != null) {
-                        d2 d2Var = new d2();
-                        d2Var.b3(optJSONObject2);
-                        this.followList.add(d2Var);
+                        e2 e2Var = new e2();
+                        e2Var.b3(optJSONObject2);
+                        this.followList.add(e2Var);
                     }
                 }
             }
@@ -90,9 +90,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 for (int i5 = 0; i5 < optJSONArray3.length(); i5++) {
                     JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i5);
                     if (optJSONObject4 != null) {
-                        d2 d2Var2 = new d2();
-                        d2Var2.b3(optJSONObject4);
-                        this.recommendList.add(d2Var2);
+                        e2 e2Var2 = new e2();
+                        e2Var2.b3(optJSONObject4);
+                        this.recommendList.add(e2Var2);
                     }
                 }
             }

@@ -1,7 +1,7 @@
 package c.a.t0.g0.f0;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -53,12 +53,12 @@ public class l extends b implements IVideoData {
         g0 = "";
     }
 
-    public l(d2 d2Var) {
+    public l(e2 e2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d2Var};
+            Object[] objArr = {e2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -71,13 +71,13 @@ public class l extends b implements IVideoData {
         this.W = false;
         this.X = true;
         this.Y = 0;
-        this.f18222e = d2Var;
+        this.f17778e = e2Var;
     }
 
-    public static boolean T(d2 d2Var) {
+    public static boolean T(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, d2Var)) == null) ? (d2Var == null || d2Var.t1() == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e2Var)) == null) ? (e2Var == null || e2Var.t1() == null) ? false : true : invokeL.booleanValue;
     }
 
     @Override // c.a.t0.g0.f0.b
@@ -88,7 +88,7 @@ public class l extends b implements IVideoData {
             int i2 = 1;
             StatisticItem y = y(c0, true);
             if (y != null && getThreadData() != null) {
-                d2 threadData = getThreadData();
+                e2 threadData = getThreadData();
                 y.param("obj_name", (threadData.y1() == null || (threadData.y1().N() == null && threadData.y1().Z() == null)) ? 0 : 1);
                 if (threadData.J() != null) {
                     y.param(TiebaStatic.Params.AB_TYPE, threadData.J().hadConcerned() ? 1 : 0);
@@ -127,7 +127,7 @@ public class l extends b implements IVideoData {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StatisticItem y = y(d0, true);
             if (getThreadData() != null) {
-                d2 threadData = getThreadData();
+                e2 threadData = getThreadData();
                 if (threadData.L() != null) {
                     y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.L().oriUgcNid);
                     y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.L().oriUgcVid);
@@ -150,23 +150,23 @@ public class l extends b implements IVideoData {
         return invokeV.booleanValue;
     }
 
-    public StatisticItem P(d2 d2Var) {
+    public StatisticItem P(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d2Var)) == null) ? Q(d2Var, -1) : (StatisticItem) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, e2Var)) == null) ? Q(e2Var, -1) : (StatisticItem) invokeL.objValue;
     }
 
-    public StatisticItem Q(d2 d2Var, int i2) {
+    public StatisticItem Q(e2 e2Var, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, d2Var, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, e2Var, i2)) == null) {
             StatisticItem y = y(d0, true);
             if (y != null) {
                 if (i2 != -1) {
                     y.param(TiebaStatic.Params.CLICK_LOCATE, i2);
                 }
                 if (getThreadData() != null) {
-                    d2 threadData = getThreadData();
+                    e2 threadData = getThreadData();
                     if (threadData.L() != null) {
                         y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.L().oriUgcNid);
                         y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.L().oriUgcVid);
@@ -185,7 +185,7 @@ public class l extends b implements IVideoData {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             StatisticItem y = y(g0, true);
             if (y != null && getThreadData() != null) {
-                d2 threadData = getThreadData();
+                e2 threadData = getThreadData();
                 if (threadData.L() != null) {
                     y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.L().oriUgcNid);
                     y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.L().oriUgcVid);
@@ -197,13 +197,13 @@ public class l extends b implements IVideoData {
         return (StatisticItem) invokeV.objValue;
     }
 
-    public StatisticItem S(d2 d2Var) {
+    public StatisticItem S(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, d2Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, e2Var)) == null) {
             StatisticItem y = y(a0, true);
             if (y != null && getThreadData() != null) {
-                d2 threadData = getThreadData();
+                e2 threadData = getThreadData();
                 if (threadData.L() != null) {
                     y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.L().oriUgcNid);
                     y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.L().oriUgcVid);
@@ -227,17 +227,17 @@ public class l extends b implements IVideoData {
         return (StatisticItem) invokeL.objValue;
     }
 
-    public int U(d2 d2Var) {
+    public int U(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, e2Var)) == null) {
+            if (e2Var == null) {
                 return 1;
             }
-            if (d2Var.R1() || d2Var.Q1()) {
+            if (e2Var.R1() || e2Var.Q1()) {
                 return 2;
             }
-            return (d2Var.P1() || d2Var.S1()) ? 3 : 1;
+            return (e2Var.P1() || e2Var.S1()) ? 3 : 1;
         }
         return invokeL.intValue;
     }
@@ -247,30 +247,30 @@ public class l extends b implements IVideoData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            d2 d2Var = this.f18222e;
-            if (d2Var == null) {
+            e2 e2Var = this.f17778e;
+            if (e2Var == null) {
                 return null;
             }
-            return d2Var.d1;
+            return e2Var.d1;
         }
         return (String) invokeV.objValue;
     }
 
     @Override // c.a.t0.g0.f0.b, c.a.s0.s.q.a
-    public d2 getThreadData() {
+    public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            d2 d2Var = this.f18222e;
-            if (d2Var == null) {
+            e2 e2Var = this.f17778e;
+            if (e2Var == null) {
                 return null;
             }
-            if (d2Var.W0() != 5) {
-                this.f18222e.s4(1);
+            if (e2Var.W0() != 5) {
+                this.f17778e.s4(1);
             }
-            return this.f18222e;
+            return this.f17778e;
         }
-        return (d2) invokeV.objValue;
+        return (e2) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
@@ -278,15 +278,15 @@ public class l extends b implements IVideoData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            d2 d2Var = this.f18222e;
-            if (d2Var == null) {
+            e2 e2Var = this.f17778e;
+            if (e2Var == null) {
                 return k.v0;
             }
             if (this.G) {
                 if (this.s) {
-                    return d2.j3;
+                    return e2.j3;
                 }
-                return d2Var.getType();
+                return e2Var.getType();
             } else if (this.r) {
                 return k.G0;
             } else {
@@ -328,11 +328,11 @@ public class l extends b implements IVideoData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            d2 d2Var = this.f18222e;
-            if (d2Var == null || d2Var.t1() == null || this.f18222e.t1().video_url == null) {
+            e2 e2Var = this.f17778e;
+            if (e2Var == null || e2Var.t1() == null || this.f17778e.t1().video_url == null) {
                 return null;
             }
-            return this.f18222e.t1().video_url;
+            return this.f17778e.t1().video_url;
         }
         return (String) invokeV.objValue;
     }
@@ -343,20 +343,20 @@ public class l extends b implements IVideoData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             StatisticItem statisticItem = new StatisticItem(str);
-            d2 d2Var = this.f18222e;
-            if (d2Var != null) {
-                statisticItem.param("fid", d2Var.U());
-                statisticItem.param("tid", this.f18222e.v1());
-                if (this.f18222e.S1()) {
+            e2 e2Var = this.f17778e;
+            if (e2Var != null) {
+                statisticItem.param("fid", e2Var.U());
+                statisticItem.param("tid", this.f17778e.v1());
+                if (this.f17778e.S1()) {
                     statisticItem.param("obj_type", 8);
-                } else if (this.f18222e.R1()) {
+                } else if (this.f17778e.R1()) {
                     statisticItem.param("obj_type", 9);
-                } else if (this.f18222e.H2()) {
+                } else if (this.f17778e.H2()) {
                     statisticItem.param("obj_type", 2);
                 }
                 statisticItem.param("obj_param1", F() ? 2 : 1);
-                if (this.f18222e.J() != null) {
-                    statisticItem.param("obj_id", this.f18222e.J().getUserId());
+                if (this.f17778e.J() != null) {
+                    statisticItem.param("obj_id", this.f17778e.J().getUserId());
                 }
             }
             return statisticItem;
@@ -371,7 +371,7 @@ public class l extends b implements IVideoData {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             StatisticItem y = y(b0, true);
             if (y != null && getThreadData() != null) {
-                d2 threadData = getThreadData();
+                e2 threadData = getThreadData();
                 if (threadData.L() != null) {
                     y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.L().oriUgcNid);
                     y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.L().oriUgcVid);

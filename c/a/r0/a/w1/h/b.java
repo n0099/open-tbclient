@@ -113,7 +113,7 @@ public class b {
             sb.append("(");
             for (int i2 = 0; i2 < size; i2++) {
                 sb.append("'");
-                sb.append(list.get(i2).f9757e);
+                sb.append(list.get(i2).f9545e);
                 sb.append("'");
                 if (i2 == size - 1) {
                     sb.append(SmallTailInfo.EMOTION_SUFFIX);
@@ -139,7 +139,7 @@ public class b {
                 c.a.r0.a.w1.e.a.b("getDownloadKey, app.json is null");
                 return null;
             }
-            SwanAppConfigData.m mVar = b2.f40705d;
+            SwanAppConfigData.m mVar = b2.f39342d;
             if (mVar == null) {
                 c.a.r0.a.w1.e.a.b("getDownloadKey, sub pkg obj is null");
                 return null;
@@ -198,7 +198,7 @@ public class b {
             e L = e.L();
             if (L != null && (P = L.P()) != null && (list = P.l) != null) {
                 for (i iVar : list) {
-                    if (TextUtils.equals(str, iVar.f11761g)) {
+                    if (TextUtils.equals(str, iVar.f11494g)) {
                         return iVar;
                     }
                 }
@@ -249,12 +249,12 @@ public class b {
                         String optString = optJSONObject.optString("plugin_id");
                         if (!TextUtils.isEmpty(optString)) {
                             i iVar = new i();
-                            iVar.f11761g = optString;
-                            iVar.f11763i = optJSONObject.optLong("version_code", 0L);
-                            iVar.f11764j = optJSONObject.optString("version_name", com.kuaishou.weapon.un.d.S);
+                            iVar.f11494g = optString;
+                            iVar.f11496i = optJSONObject.optLong("version_code", 0L);
+                            iVar.f11497j = optJSONObject.optString("version_name", com.kuaishou.weapon.un.d.S);
                             iVar.p = optJSONObject.optString("token");
                             iVar.q = optJSONObject.optString("domains");
-                            iVar.f11762h = 4;
+                            iVar.f11495h = 4;
                             iVar.r = optJSONObject.optString("app_key");
                             iVar.s = optJSONObject.optString("app_name");
                             iVar.l = "";
@@ -289,7 +289,7 @@ public class b {
                 JSONObject jSONObject = new JSONObject();
                 for (c cVar : i2) {
                     if (cVar != null && cVar.a()) {
-                        w.f(jSONObject, cVar.f9757e, cVar.f9761i);
+                        w.f(jSONObject, cVar.f9545e, cVar.f9549i);
                     }
                 }
                 String jSONObject2 = jSONObject.toString();

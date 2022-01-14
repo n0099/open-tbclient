@@ -20,7 +20,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11447b = null;
+    public static final String f11190b = null;
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> a;
 
@@ -67,9 +67,9 @@ public class c {
             String g2 = g(i2);
             String N = c.a.r0.a.d2.e.L() == null ? null : c.a.r0.a.d2.e.L().N();
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f8157b = "click";
-            eVar.f8162g = g2;
-            eVar.f8160e = str;
+            eVar.f7977b = "click";
+            eVar.f7982g = g2;
+            eVar.f7980e = str;
             if (str2 != null) {
                 eVar.a("target_appkey", str2);
             }
@@ -87,8 +87,8 @@ public class c {
             String g2 = g(i2);
             JSONArray f2 = f(aVar);
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f8157b = "show";
-            eVar.f8162g = g2;
+            eVar.f7977b = "show";
+            eVar.f7982g = g2;
             if (f2 != null) {
                 eVar.a(GameGuideConfigInfo.KEY_GAME_LIST, f2);
             }
@@ -106,9 +106,9 @@ public class c {
             }
             String N = c.a.r0.a.d2.e.L() == null ? null : c.a.r0.a.d2.e.L().N();
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f8157b = "click";
-            eVar.f8162g = g2;
-            eVar.f8160e = str;
+            eVar.f7977b = "click";
+            eVar.f7982g = g2;
+            eVar.f7980e = str;
             if (str2 != null) {
                 eVar.a("target_appkey", str2);
             }
@@ -124,8 +124,8 @@ public class c {
             String g2 = g(i2);
             JSONArray f2 = f(aVar);
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f8157b = "show";
-            eVar.f8162g = g2;
+            eVar.f7977b = "show";
+            eVar.f7982g = g2;
             if (f2 != null) {
                 eVar.a(GameGuideConfigInfo.KEY_GAME_LIST, f2);
             }
@@ -138,11 +138,11 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
-            if (aVar == null || aVar.f11456b == null) {
+            if (aVar == null || aVar.f11199b == null) {
                 return null;
             }
             JSONArray jSONArray = new JSONArray();
-            for (RecommendItemModel recommendItemModel : aVar.f11456b) {
+            for (RecommendItemModel recommendItemModel : aVar.f11199b) {
                 jSONArray.put(recommendItemModel.appKey);
             }
             return jSONArray;

@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes12.dex */
 public class TiebaUtilityOpenPageAuto {
@@ -477,6 +478,8 @@ public class TiebaUtilityOpenPageAuto {
         public String bannerHyperLink;
         public String bannerImageUrl;
         public Boolean isVipMember;
+        public String levelUp;
+        public ArrayList signetArray;
 
         public SignProcessParam() {
             Interceptable interceptable = $ic;
@@ -500,6 +503,8 @@ public class TiebaUtilityOpenPageAuto {
                 signProcessParam.bannerImageUrl = (String) hashMap.get("bannerImageUrl");
                 signProcessParam.bannerHyperLink = (String) hashMap.get("bannerHyperLink");
                 signProcessParam.isVipMember = (Boolean) hashMap.get("isVipMember");
+                signProcessParam.signetArray = (ArrayList) hashMap.get("signetArray");
+                signProcessParam.levelUp = (String) hashMap.get("levelUp");
                 return signProcessParam;
             }
             return (SignProcessParam) invokeL.objValue;
@@ -523,35 +528,63 @@ public class TiebaUtilityOpenPageAuto {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isVipMember : (Boolean) invokeV.objValue;
         }
 
+        public String getLevelUp() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.levelUp : (String) invokeV.objValue;
+        }
+
+        public ArrayList getSignetArray() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.signetArray : (ArrayList) invokeV.objValue;
+        }
+
         public void setBannerHyperLink(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
                 this.bannerHyperLink = str;
             }
         }
 
         public void setBannerImageUrl(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
                 this.bannerImageUrl = str;
             }
         }
 
         public void setIsVipMember(Boolean bool) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, bool) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, bool) == null) {
                 this.isVipMember = bool;
+            }
+        }
+
+        public void setLevelUp(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+                this.levelUp = str;
+            }
+        }
+
+        public void setSignetArray(ArrayList arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, arrayList) == null) {
+                this.signetArray = arrayList;
             }
         }
 
         public HashMap toMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("bannerImageUrl", this.bannerImageUrl);
                 hashMap.put("bannerHyperLink", this.bannerHyperLink);
                 hashMap.put("isVipMember", this.isVipMember);
+                hashMap.put("signetArray", this.signetArray);
+                hashMap.put("levelUp", this.levelUp);
                 return hashMap;
             }
             return (HashMap) invokeV.objValue;

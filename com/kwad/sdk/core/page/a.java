@@ -19,16 +19,16 @@ public class a extends com.kwad.sdk.h.b implements p.b {
     public AdBaseFrameLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f58112b;
+    public e f55915b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f58113c;
+    public AdTemplate f55916c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f58114d;
+    public com.kwad.sdk.core.download.a.b f55917d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58115e = true;
+    public boolean f55918e = true;
 
     public static void a(Context context, AdTemplate adTemplate) {
         KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.FragmentActivity8.class, a.class);
@@ -43,9 +43,9 @@ public class a extends com.kwad.sdk.h.b implements p.b {
             return;
         }
         try {
-            this.f58113c = new AdTemplate();
-            this.f58113c.parseJson(new JSONObject(stringExtra));
-            this.f58114d = new com.kwad.sdk.core.download.a.b(this.f58113c);
+            this.f55916c = new AdTemplate();
+            this.f55916c.parseJson(new JSONObject(stringExtra));
+            this.f55917d = new com.kwad.sdk.core.download.a.b(this.f55916c);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
@@ -55,7 +55,7 @@ public class a extends com.kwad.sdk.h.b implements p.b {
     public void a(p.a aVar) {
         e eVar;
         com.kwad.sdk.core.d.a.a("AdPlayableActivityProxy", "updatePageStatus status: " + aVar);
-        if (aVar.a != 1 || (eVar = this.f58112b) == null) {
+        if (aVar.a != 1 || (eVar = this.f55915b) == null) {
             return;
         }
         eVar.c();
@@ -73,16 +73,16 @@ public class a extends com.kwad.sdk.h.b implements p.b {
         a(getIntent());
         this.a = (AdBaseFrameLayout) findViewById(R.id.ksad_playable_activity_root);
         e eVar = new e((KsAdWebView) findViewById(R.id.ksad_playable_webview));
-        this.f58112b = eVar;
-        eVar.a(this.f58113c, this.a, this.f58114d);
-        this.f58112b.a(this);
-        this.f58112b.b();
+        this.f55915b = eVar;
+        eVar.a(this.f55916c, this.a, this.f55917d);
+        this.f55915b.a(this);
+        this.f55915b.b();
     }
 
     @Override // com.kwad.sdk.h.b, com.kwad.sdk.api.proxy.IActivityProxy
     public void onDestroy() {
         super.onDestroy();
-        this.f58112b.a((p.b) null);
+        this.f55915b.a((p.b) null);
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy

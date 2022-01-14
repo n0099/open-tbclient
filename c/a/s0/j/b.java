@@ -20,7 +20,7 @@ public abstract class b {
     public static WeakReference<TbPageContext<?>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f13129b;
+    public static boolean f12807b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -74,7 +74,7 @@ public abstract class b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f13129b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f12807b : invokeV.booleanValue;
     }
 
     public abstract void c();

@@ -18,10 +18,10 @@ public class a {
     public static b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f13127b;
+    public static a f12805b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f13128c;
+    public static boolean f12806c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,10 +59,10 @@ public class a {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            if (f13127b == null) {
+            if (f12805b == null) {
                 synchronized (a.class) {
-                    if (f13127b == null) {
-                        f13127b = new a();
+                    if (f12805b == null) {
+                        f12805b = new a();
                         a = b.a(baseFragmentActivity);
                     }
                 }
@@ -72,12 +72,12 @@ public class a {
                     bVar2.j(baseFragmentActivity.getPageContext());
                 }
             }
-            if (f13128c && (bVar = a) != null) {
+            if (f12806c && (bVar = a) != null) {
                 bVar.d();
                 a.c();
-                f13128c = false;
+                f12806c = false;
             }
-            return f13127b;
+            return f12805b;
         }
         return (a) invokeL.objValue;
     }
@@ -87,15 +87,15 @@ public class a {
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             try {
                 if (a != null) {
-                    if (f13127b != null) {
-                        f13127b.j();
+                    if (f12805b != null) {
+                        f12805b.j();
                     }
                     a.e();
                     a.i();
                     a = null;
                 }
-                if (f13127b != null) {
-                    f13127b = null;
+                if (f12805b != null) {
+                    f12805b = null;
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -116,7 +116,7 @@ public class a {
             b bVar = a;
             if (bVar != null) {
                 bVar.d();
-                f13128c = false;
+                f12806c = false;
             }
         }
     }
@@ -128,7 +128,7 @@ public class a {
             b bVar = a;
             if (bVar != null) {
                 bVar.c();
-                f13128c = false;
+                f12806c = false;
             }
         }
     }
@@ -225,7 +225,7 @@ public class a {
             b bVar = a;
             if (bVar != null) {
                 bVar.m();
-                f13128c = true;
+                f12806c = true;
             }
         }
     }

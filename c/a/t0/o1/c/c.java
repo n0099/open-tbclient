@@ -1,7 +1,7 @@
 package c.a.t0.o1.c;
 
 import android.view.View;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -16,15 +16,15 @@ import java.util.List;
 import tbclient.DiscoverHotForum;
 import tbclient.DiscoverTabCard;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(d2 d2Var, int i2) {
+    public static void a(e2 e2Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, d2Var, i2) == null) {
-            TiebaStatic.log(i2 != 1 ? null : c.a.t0.v3.a.n("c13692", d2Var, 3));
+        if (interceptable == null || interceptable.invokeLI(65536, null, e2Var, i2) == null) {
+            TiebaStatic.log(i2 != 1 ? null : c.a.t0.v3.a.n("c13692", e2Var, 3));
         }
     }
 
@@ -34,10 +34,10 @@ public class c {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
-        d2 threadData = aVar.getThreadData();
+        e2 threadData = aVar.getThreadData();
         if (threadData.h2()) {
             statisticItem.param("obj_type", 4);
-        } else if (threadData.B1) {
+        } else if (threadData.A1) {
             statisticItem.param("obj_type", 5);
         } else if (threadData.P1()) {
             statisticItem.param("obj_type", 6);
@@ -47,7 +47,7 @@ public class c {
             statisticItem.param("obj_type", 8);
         } else if (threadData.R1()) {
             statisticItem.param("obj_type", 9);
-        } else if (threadData.getType() == d2.i3) {
+        } else if (threadData.getType() == e2.i3) {
             statisticItem.param("obj_type", 1);
         } else if (threadData.H2()) {
             statisticItem.param("obj_type", 2);

@@ -21,19 +21,19 @@ public class c {
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public q f18362b;
+    public q f17911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f18363c;
+    public b f17912c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18364d;
+    public int f17913d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18365e;
+    public boolean f17914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.d.c.g.a f18366f;
+    public c.a.d.c.g.a f17915f;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.d.c.g.a {
@@ -67,28 +67,28 @@ public class c {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f18362b = null;
+                this.a.f17911b = null;
                 if (responsedMessage == null) {
                     return;
                 }
                 if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.a.a) {
                     if (responsedMessage instanceof RecommendGodSocketResponseMessage) {
-                        this.a.f18362b = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
+                        this.a.f17911b = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
                     } else if (responsedMessage instanceof RecommendGodHttpResponseMessage) {
-                        this.a.f18362b = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
+                        this.a.f17911b = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
                     }
-                    if (this.a.f18362b != null) {
+                    if (this.a.f17911b != null) {
                         c cVar = this.a;
-                        cVar.f18364d = cVar.f18362b.a;
+                        cVar.f17913d = cVar.f17911b.a;
                     }
                     int error = responsedMessage.getError();
-                    if (error != 0 || this.a.f18362b == null) {
+                    if (error != 0 || this.a.f17911b == null) {
                         error = 1;
-                    } else if (ListUtils.isEmpty(this.a.f18362b.f26236b)) {
-                        error = this.a.f18365e ? 3 : 2;
+                    } else if (ListUtils.isEmpty(this.a.f17911b.f25457b)) {
+                        error = this.a.f17914e ? 3 : 2;
                     }
-                    if (this.a.f18363c != null) {
-                        this.a.f18363c.a(this.a.f18362b, error);
+                    if (this.a.f17912c != null) {
+                        this.a.f17912c.a(this.a.f17911b, error);
                     }
                 }
             }
@@ -115,12 +115,12 @@ public class c {
                 return;
             }
         }
-        this.f18364d = 0;
+        this.f17913d = 0;
         a aVar = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, 309684);
-        this.f18366f = aVar;
+        this.f17915f = aVar;
         this.a = bdUniqueId;
         aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f18366f);
+        MessageManager.getInstance().registerListener(this.f17915f);
     }
 
     public void g() {
@@ -136,12 +136,12 @@ public class c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
             recommendGodReqMsg.portrait = str;
-            if (this.f18364d == 0) {
-                this.f18365e = false;
+            if (this.f17913d == 0) {
+                this.f17914e = false;
             } else {
-                this.f18365e = true;
+                this.f17914e = true;
             }
-            recommendGodReqMsg.pageNum = this.f18364d + 1;
+            recommendGodReqMsg.pageNum = this.f17913d + 1;
             recommendGodReqMsg.setTag(this.a);
             MessageManager.getInstance().sendMessage(recommendGodReqMsg);
         }
@@ -150,7 +150,7 @@ public class c {
     public void i(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
-            this.f18364d = i2;
+            this.f17913d = i2;
             h(str);
         }
     }
@@ -158,7 +158,7 @@ public class c {
     public void j(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f18363c = bVar;
+            this.f17912c = bVar;
         }
     }
 }

@@ -8,40 +8,38 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public static final k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final k f33341b;
+    public static final k f32283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final k f33342c;
+    public static final k f32284c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final k f33343d;
+    public static final k f32285d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final k f33344e;
+    public static final k f32286e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final k f33345f;
+    public static final k f32287f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final k f33346g;
+    public static final k f32288g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final k f33347h;
+    public static final k f32289h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final k f33348i;
+    public static final k f32290i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final k f33349j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final k f33350k;
+    public static final k f32291j;
+    public static final k k;
     public static final /* synthetic */ k[] m;
     public transient /* synthetic */ FieldHolder $fh;
     public int l;
@@ -60,18 +58,18 @@ public final class k {
             }
         }
         a = new k("MSG_TYPE_INVALID", 0, -1);
-        f33341b = new k("MSG_TYPE_SINGLE_PRIVATE", 1, 0);
-        f33342c = new k("MSG_TYPE_MULTI_PRIVATE", 2, 1);
-        f33343d = new k("MSG_TYPE_SINGLE_PUBLIC", 3, 2);
-        f33344e = new k("MSG_TYPE_MULTI_PUBLIC", 4, 3);
-        f33345f = new k("MSG_TYPE_MULTI_PRIVATE_NOTIFICATION", 5, 5);
-        f33346g = new k("MSG_TYPE_PRIVATE_MESSAGE", 6, 6);
-        f33347h = new k("MSG_TYPE_CLEAR_MESSAGE", 7, 8);
-        f33348i = new k("MSG_TYPE_APP_PRIORITY", 8, 30);
-        f33349j = new k("MSG_TYPE_INNERBIND", 9, 101);
+        f32283b = new k("MSG_TYPE_SINGLE_PRIVATE", 1, 0);
+        f32284c = new k("MSG_TYPE_MULTI_PRIVATE", 2, 1);
+        f32285d = new k("MSG_TYPE_SINGLE_PUBLIC", 3, 2);
+        f32286e = new k("MSG_TYPE_MULTI_PUBLIC", 4, 3);
+        f32287f = new k("MSG_TYPE_MULTI_PRIVATE_NOTIFICATION", 5, 5);
+        f32288g = new k("MSG_TYPE_PRIVATE_MESSAGE", 6, 6);
+        f32289h = new k("MSG_TYPE_CLEAR_MESSAGE", 7, 8);
+        f32290i = new k("MSG_TYPE_APP_PRIORITY", 8, 30);
+        f32291j = new k("MSG_TYPE_INNERBIND", 9, 101);
         k kVar = new k("MSG_TYPE_APPSTAT_COMMAND", 10, 104);
-        f33350k = kVar;
-        m = new k[]{a, f33341b, f33342c, f33343d, f33344e, f33345f, f33346g, f33347h, f33348i, f33349j, kVar};
+        k = kVar;
+        m = new k[]{a, f32283b, f32284c, f32285d, f32286e, f32287f, f32288g, f32289h, f32290i, f32291j, kVar};
     }
 
     public k(String str, int i2, int i3) {
@@ -98,7 +96,7 @@ public final class k {
     public static k a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? a : f33350k : f33349j : f33348i : f33347h : f33346g : f33345f : f33344e : f33343d : f33342c : f33341b : (k) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? a : k : f32291j : f32290i : f32289h : f32288g : f32287f : f32286e : f32285d : f32284c : f32283b : (k) invokeI.objValue;
     }
 
     public static k[] a() {

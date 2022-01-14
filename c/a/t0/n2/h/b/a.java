@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SimpleDragSortListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final C1218a f20237b;
+    public final C1232a f19704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.s0.g1.e.a f20238c;
+    public final c.a.s0.g1.e.a f19705c;
 
     /* renamed from: c.a.t0.n2.h.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1218a extends b {
+    /* loaded from: classes8.dex */
+    public static class C1232a extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int J;
@@ -35,7 +35,7 @@ public class a {
         public ListView L;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1218a(c.a.s0.g1.e.a aVar, ListView listView) {
+        public C1232a(c.a.s0.g1.e.a aVar, ListView listView) {
             super(aVar, listView, 0, 2, 0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -133,34 +133,34 @@ public class a {
         }
         this.a = simpleDragSortListView;
         c.a.s0.g1.e.a aVar = new c.a.s0.g1.e.a(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
-        this.f20238c = aVar;
+        this.f19705c = aVar;
         simpleDragSortListView.setDragSortViewEventDelegate(aVar);
-        C1218a c1218a = new C1218a(this.f20238c, simpleDragSortListView);
-        this.f20237b = c1218a;
-        c1218a.e(-1);
-        this.f20238c.s0(this.f20237b);
-        this.f20238c.u0(this.f20237b);
-        simpleDragSortListView.setOnTouchListener(this.f20237b);
+        C1232a c1232a = new C1232a(this.f19705c, simpleDragSortListView);
+        this.f19704b = c1232a;
+        c1232a.e(-1);
+        this.f19705c.s0(this.f19704b);
+        this.f19705c.u0(this.f19704b);
+        simpleDragSortListView.setOnTouchListener(this.f19704b);
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f20238c.o0(z);
+            this.f19705c.o0(z);
         }
     }
 
     public void b(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.f20237b.C(i2, i3);
+            this.f19704b.C(i2, i3);
         }
     }
 
     public void c(a.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.f20238c.t0(iVar);
+            this.f19705c.t0(iVar);
         }
     }
 }

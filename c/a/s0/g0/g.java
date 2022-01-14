@@ -27,34 +27,32 @@ public class g extends c.a.s0.g0.a {
     public ContinuousAnimationView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f12786b;
+    public String[] f12484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f12787c;
+    public TextView f12485c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f12788d;
+    public TextView f12486d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12789e;
+    public int f12487e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f12790f;
+    public final int f12488f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12791g;
+    public int f12489g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f12792h;
+    public Runnable f12490h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12793i;
+    public boolean f12491i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ValueAnimator.AnimatorUpdateListener f12794j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final Animator.AnimatorListener f12795k;
+    public ValueAnimator.AnimatorUpdateListener f12492j;
+    public final Animator.AnimatorListener k;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -62,7 +60,7 @@ public class g extends c.a.s0.g0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f12796e;
+        public final /* synthetic */ g f12493e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -79,19 +77,19 @@ public class g extends c.a.s0.g0.a {
                     return;
                 }
             }
-            this.f12796e = gVar;
+            this.f12493e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.f12796e.isViewAttached()) {
-                    TbadkCoreApplication.getInst().handler.removeCallbacks(this.f12796e.f12792h);
+                if (!this.f12493e.isViewAttached()) {
+                    TbadkCoreApplication.getInst().handler.removeCallbacks(this.f12493e.f12490h);
                     return;
                 }
-                this.f12796e.f12787c.setText(this.f12796e.f12786b[this.f12796e.k()]);
-                TbadkCoreApplication.getInst().handler.postDelayed(this.f12796e.f12792h, 200L);
+                this.f12493e.f12485c.setText(this.f12493e.f12484b[this.f12493e.k()]);
+                TbadkCoreApplication.getInst().handler.postDelayed(this.f12493e.f12490h, 200L);
             }
         }
     }
@@ -102,7 +100,7 @@ public class g extends c.a.s0.g0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f12797e;
+        public final /* synthetic */ g f12494e;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -119,16 +117,16 @@ public class g extends c.a.s0.g0.a {
                     return;
                 }
             }
-            this.f12797e = gVar;
+            this.f12494e = gVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) || this.f12797e.f12793i) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) || this.f12494e.f12491i) {
                 return;
             }
-            this.f12797e.a.setAlpha(Math.min(1.0f, (valueAnimator.getAnimatedFraction() * 24.0f) / 6.0f));
+            this.f12494e.a.setAlpha(Math.min(1.0f, (valueAnimator.getAnimatedFraction() * 24.0f) / 6.0f));
         }
     }
 
@@ -138,7 +136,7 @@ public class g extends c.a.s0.g0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f12798e;
+        public final /* synthetic */ g f12495e;
 
         public c(g gVar) {
             Interceptable interceptable = $ic;
@@ -155,7 +153,7 @@ public class g extends c.a.s0.g0.a {
                     return;
                 }
             }
-            this.f12798e = gVar;
+            this.f12495e = gVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -176,7 +174,7 @@ public class g extends c.a.s0.g0.a {
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.f12798e.f12793i = true;
+                this.f12495e.f12491i = true;
             }
         }
 
@@ -184,7 +182,7 @@ public class g extends c.a.s0.g0.a {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f12798e.f12793i = false;
+                this.f12495e.f12491i = false;
             }
         }
     }
@@ -218,7 +216,7 @@ public class g extends c.a.s0.g0.a {
             if (continuousAnimationView != null) {
                 continuousAnimationView.cancelAnimation();
             }
-            TbadkCoreApplication.getInst().handler.removeCallbacks(this.f12792h);
+            TbadkCoreApplication.getInst().handler.removeCallbacks(this.f12490h);
             super.dettachView(view);
         }
     }
@@ -241,19 +239,19 @@ public class g extends c.a.s0.g0.a {
     public TextView j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12788d : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12486d : (TextView) invokeV.objValue;
     }
 
     public final int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.f12789e + 1;
-            this.f12789e = i2;
-            if (i2 >= this.f12790f) {
-                this.f12789e = 0;
+            int i2 = this.f12487e + 1;
+            this.f12487e = i2;
+            if (i2 >= this.f12488f) {
+                this.f12487e = 0;
             }
-            return this.f12789e;
+            return this.f12487e;
         }
         return invokeV.intValue;
     }
@@ -261,23 +259,23 @@ public class g extends c.a.s0.g0.a {
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f12787c, R.color.CAM_X0108, 1, i2);
-            SkinManager.setViewTextColor(this.f12788d, R.color.CAM_X0108, 1, i2);
+            SkinManager.setViewTextColor(this.f12485c, R.color.CAM_X0108, 1, i2);
+            SkinManager.setViewTextColor(this.f12486d, R.color.CAM_X0108, 1, i2);
             SkinManager.setLottieAnimation(this.a, R.raw.lottie_full_screen_refresh);
             if (isViewAttached()) {
-                r();
+                s();
             }
-            TbadkCoreApplication.getInst().handler.removeCallbacks(this.f12792h);
-            TbadkCoreApplication.getInst().handler.postDelayed(this.f12792h, 200L);
-            this.f12791g = i2;
+            TbadkCoreApplication.getInst().handler.removeCallbacks(this.f12490h);
+            TbadkCoreApplication.getInst().handler.postDelayed(this.f12490h, 200L);
+            this.f12489g = i2;
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            s();
-            TbadkCoreApplication.getInst().handler.removeCallbacks(this.f12792h);
+            t();
+            TbadkCoreApplication.getInst().handler.removeCallbacks(this.f12490h);
         }
     }
 
@@ -293,7 +291,7 @@ public class g extends c.a.s0.g0.a {
     public void o(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.a == null || (textView = this.f12788d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.a == null || (textView = this.f12486d) == null) {
             return;
         }
         if (textView.getVisibility() == 8) {
@@ -306,11 +304,11 @@ public class g extends c.a.s0.g0.a {
             }
             return;
         }
-        ViewGroup.LayoutParams layoutParams2 = this.f12788d.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.f12486d.getLayoutParams();
         if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
             marginLayoutParams2.bottomMargin = i2;
-            this.f12788d.setLayoutParams(marginLayoutParams2);
+            this.f12486d.setLayoutParams(marginLayoutParams2);
         }
     }
 
@@ -318,13 +316,13 @@ public class g extends c.a.s0.g0.a {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.f12791g == -1) {
-                this.f12791g = TbadkCoreApplication.getInst().getSkinType();
+            if (this.f12489g == -1) {
+                this.f12489g = TbadkCoreApplication.getInst().getSkinType();
             }
             if (isViewAttached()) {
-                SkinManager.setViewTextColor(this.f12787c, R.color.CAM_X0108, 1, this.f12791g);
-                SkinManager.setViewTextColor(this.f12788d, R.color.CAM_X0108, 1, this.f12791g);
-                r();
+                SkinManager.setViewTextColor(this.f12485c, R.color.CAM_X0108, 1, this.f12489g);
+                SkinManager.setViewTextColor(this.f12486d, R.color.CAM_X0108, 1, this.f12489g);
+                s();
             }
         }
     }
@@ -333,16 +331,16 @@ public class g extends c.a.s0.g0.a {
     public void onViewAttached() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.f12791g == -1) {
-                this.f12791g = TbadkCoreApplication.getInst().getSkinType();
+            if (this.f12489g == -1) {
+                this.f12489g = TbadkCoreApplication.getInst().getSkinType();
             }
             SkinManager.setLottieAnimation(this.a, R.raw.lottie_full_screen_refresh);
-            r();
-            SkinManager.setViewTextColor(this.f12787c, R.color.CAM_X0108, 1, this.f12791g);
-            SkinManager.setViewTextColor(this.f12788d, R.color.CAM_X0108, 1, this.f12791g);
-            this.f12787c.setText(this.f12786b[0]);
-            TbadkCoreApplication.getInst().handler.removeCallbacks(this.f12792h);
-            TbadkCoreApplication.getInst().handler.postDelayed(this.f12792h, 200L);
+            s();
+            SkinManager.setViewTextColor(this.f12485c, R.color.CAM_X0108, 1, this.f12489g);
+            SkinManager.setViewTextColor(this.f12486d, R.color.CAM_X0108, 1, this.f12489g);
+            this.f12485c.setText(this.f12484b[0]);
+            TbadkCoreApplication.getInst().handler.removeCallbacks(this.f12490h);
+            TbadkCoreApplication.getInst().handler.postDelayed(this.f12490h, 200L);
             this.attachedView.setClickable(true);
         }
     }
@@ -358,14 +356,21 @@ public class g extends c.a.s0.g0.a {
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f12791g = i2;
+            this.f12486d.setText(i2);
         }
     }
 
     public void q(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.f12489g = i2;
+        }
+    }
+
+    public void r(int i2) {
         ContinuousAnimationView continuousAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (continuousAnimationView = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (continuousAnimationView = this.a) == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = continuousAnimationView.getLayoutParams();
@@ -376,19 +381,19 @@ public class g extends c.a.s0.g0.a {
         }
     }
 
-    public final void r() {
+    public final void s() {
         ContinuousAnimationView continuousAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (continuousAnimationView = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (continuousAnimationView = this.a) == null) {
             return;
         }
         continuousAnimationView.playAnimation();
     }
 
-    public final void s() {
+    public final void t() {
         ContinuousAnimationView continuousAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (continuousAnimationView = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (continuousAnimationView = this.a) == null) {
             return;
         }
         continuousAnimationView.pauseAnimation();
@@ -412,11 +417,11 @@ public class g extends c.a.s0.g0.a {
                 return;
             }
         }
-        this.f12789e = 0;
-        this.f12791g = -1;
-        this.f12792h = new a(this);
-        this.f12794j = new b(this);
-        this.f12795k = new c(this);
+        this.f12487e = 0;
+        this.f12489g = -1;
+        this.f12490h = new a(this);
+        this.f12492j = new b(this);
+        this.k = new c(this);
         ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
         this.a = continuousAnimationView;
         if (i2 > 0) {
@@ -430,13 +435,13 @@ public class g extends c.a.s0.g0.a {
         SkinManager.setLottieAnimation(this.a, R.raw.lottie_full_screen_refresh);
         this.a.setMinAndMaxProgress(0.0f, 1.0f);
         this.a.setRepeatMode(1);
-        this.a.addAnimatorUpdateListener(this.f12794j);
-        this.a.addAnimatorListener(this.f12795k);
+        this.a.addAnimatorUpdateListener(this.f12492j);
+        this.a.addAnimatorListener(this.k);
         this.a.setSpeed(1.2f);
-        this.f12787c = (TextView) this.attachedView.findViewById(R.id.loading_anim_ellipsis);
-        this.f12788d = (TextView) this.attachedView.findViewById(R.id.loading_text);
+        this.f12485c = (TextView) this.attachedView.findViewById(R.id.loading_anim_ellipsis);
+        this.f12486d = (TextView) this.attachedView.findViewById(R.id.loading_text);
         String[] stringArray = context.getResources().getStringArray(R.array.loading_anim_text_array);
-        this.f12786b = stringArray;
-        this.f12790f = stringArray.length;
+        this.f12484b = stringArray;
+        this.f12488f = stringArray.length;
     }
 }

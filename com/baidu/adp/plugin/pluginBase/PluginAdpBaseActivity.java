@@ -43,7 +43,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseActivity f32259e;
+        public final /* synthetic */ PluginAdpBaseActivity f31244e;
 
         public a(PluginAdpBaseActivity pluginAdpBaseActivity) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
                     return;
                 }
             }
-            this.f32259e = pluginAdpBaseActivity;
+            this.f31244e = pluginAdpBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseActivity pluginAdpBaseActivity = this.f32259e;
+                PluginAdpBaseActivity pluginAdpBaseActivity = this.f31244e;
                 pluginAdpBaseActivity.onPreLoad(pluginAdpBaseActivity.onGetPreLoadListView());
             }
         }
@@ -153,7 +153,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
-            b.g().o(getActivity());
+            b.f().n(getActivity());
         }
     }
 
@@ -165,7 +165,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
-            b.g().m(getActivity());
+            b.f().l(getActivity());
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
@@ -320,7 +320,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            n.M(getApplicationContext(), str);
+            n.N(getApplicationContext(), str);
         }
     }
 

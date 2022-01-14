@@ -18,7 +18,7 @@ public class k {
     public final Map<String, PidLoaderCreator> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Ssp.Pid, PidLoader> f29312b;
+    public final Map<Ssp.Pid, PidLoader> f28420b;
 
     public k(Map<String, PidLoaderCreator> map) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class k {
                 return;
             }
         }
-        this.f29312b = new HashMap();
+        this.f28420b = new HashMap();
         this.a = map;
     }
 
@@ -43,8 +43,8 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            synchronized (this.f29312b) {
-                PidLoader pidLoader = this.f29312b.get(pid);
+            synchronized (this.f28420b) {
+                PidLoader pidLoader = this.f28420b.get(pid);
                 if (pidLoader != null) {
                     return pidLoader;
                 }
@@ -59,7 +59,7 @@ public class k {
                     return null;
                 }
                 q0 q0Var = new q0(create);
-                this.f29312b.put(pid, q0Var);
+                this.f28420b.put(pid, q0Var);
                 return q0Var;
             }
         }

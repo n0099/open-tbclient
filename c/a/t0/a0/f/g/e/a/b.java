@@ -78,8 +78,8 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.h.b.b> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.m.n(bVar.f15029e);
-        this.n.n(bVar.f15030f);
+        this.m.n(bVar.f14666e);
+        this.n.n(bVar.f14667f);
     }
 
     public void q(c.a.t0.a0.f.h.b.b bVar, int i2, long j2, String str) {
@@ -87,8 +87,8 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.h.b.b> {
         if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{bVar, Integer.valueOf(i2), Long.valueOf(j2), str}) == null) || bVar == null) {
             return;
         }
-        this.m.o(bVar.f15029e, i2, j2, str);
-        this.n.o(bVar.f15030f, i2, j2, str);
+        this.m.o(bVar.f14666e, i2, j2, str);
+        this.n.o(bVar.f14667f, i2, j2, str);
     }
 
     public void s(f fVar) {

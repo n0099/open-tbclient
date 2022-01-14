@@ -30,28 +30,28 @@ public final class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final WeakHashMap<ViewGroup, c.a.r0.a.c2.b.d.b> f5545b;
+    public static final WeakHashMap<ViewGroup, c.a.r0.a.c2.b.d.b> f5427b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.c2.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0277a implements Runnable {
+    public static class RunnableC0286a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.c2.b.c.a f5546e;
+        public final /* synthetic */ c.a.r0.a.c2.b.c.a f5428e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f5547f;
+        public final /* synthetic */ Context f5429f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5548g;
+        public final /* synthetic */ String f5430g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f5549h;
+        public final /* synthetic */ boolean f5431h;
 
-        public RunnableC0277a(c.a.r0.a.c2.b.c.a aVar, Context context, String str, boolean z) {
+        public RunnableC0286a(c.a.r0.a.c2.b.c.a aVar, Context context, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,10 +66,10 @@ public final class a {
                     return;
                 }
             }
-            this.f5546e = aVar;
-            this.f5547f = context;
-            this.f5548g = str;
-            this.f5549h = z;
+            this.f5428e = aVar;
+            this.f5429f = context;
+            this.f5430g = str;
+            this.f5431h = z;
         }
 
         @Override // java.lang.Runnable
@@ -77,22 +77,22 @@ public final class a {
             LoadingView loadingView;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View d2 = this.f5546e.d();
+                View d2 = this.f5428e.d();
                 if (d2 instanceof LoadingView) {
                     loadingView = (LoadingView) d2;
                 } else {
-                    loadingView = new LoadingView(this.f5547f);
-                    FrameLayout frameLayout = new FrameLayout(this.f5547f);
+                    loadingView = new LoadingView(this.f5429f);
+                    FrameLayout frameLayout = new FrameLayout(this.f5429f);
                     frameLayout.setPadding(0, 0, 0, n0.g(160.0f));
                     frameLayout.addView(loadingView);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                     layoutParams.gravity = 17;
-                    this.f5546e.o(frameLayout, layoutParams);
+                    this.f5428e.o(frameLayout, layoutParams);
                 }
-                if (!TextUtils.isEmpty(this.f5548g)) {
-                    loadingView.setMsg(this.f5548g);
+                if (!TextUtils.isEmpty(this.f5430g)) {
+                    loadingView.setMsg(this.f5430g);
                 }
-                this.f5546e.k(this.f5549h);
+                this.f5428e.k(this.f5431h);
             }
         }
     }
@@ -103,7 +103,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f5550e;
+        public final /* synthetic */ d f5432e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -120,14 +120,14 @@ public final class a {
                     return;
                 }
             }
-            this.f5550e = dVar;
+            this.f5432e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             c.a.r0.a.c2.b.c.a floatLayer;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (floatLayer = ((a.InterfaceC0276a) this.f5550e).getFloatLayer()) != null && (floatLayer.d() instanceof FrameLayout) && (((FrameLayout) floatLayer.d()).getChildAt(0) instanceof LoadingView)) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (floatLayer = ((a.InterfaceC0285a) this.f5432e).getFloatLayer()) != null && (floatLayer.d() instanceof FrameLayout) && (((FrameLayout) floatLayer.d()).getChildAt(0) instanceof LoadingView)) {
                 floatLayer.g();
             }
         }
@@ -147,19 +147,19 @@ public final class a {
             }
         }
         a = k.a & true;
-        f5545b = new WeakHashMap<>();
+        f5427b = new WeakHashMap<>();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            for (ViewGroup viewGroup : f5545b.keySet()) {
-                c.a.r0.a.c2.b.d.b bVar = f5545b.get(viewGroup);
+            for (ViewGroup viewGroup : f5427b.keySet()) {
+                c.a.r0.a.c2.b.d.b bVar = f5427b.get(viewGroup);
                 if (bVar != null && bVar.getLoadingView() != null) {
                     viewGroup.removeView(bVar.getLoadingView());
                 }
             }
-            f5545b.clear();
+            f5427b.clear();
         }
     }
 
@@ -172,7 +172,7 @@ public final class a {
             if (viewGroup == null) {
                 return false;
             }
-            c.a.r0.a.c2.b.d.b bVar2 = f5545b.get(viewGroup);
+            c.a.r0.a.c2.b.d.b bVar2 = f5427b.get(viewGroup);
             if (bVar2 != null && bVar2.getLoadingView() != null) {
                 bVar2.getLoadingView().setVisibility(8);
                 return true;
@@ -180,10 +180,10 @@ public final class a {
             for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                 if ((viewGroup.getChildAt(i2) instanceof c.a.r0.a.c2.b.d.b) && (loadingView = (bVar = (c.a.r0.a.c2.b.d.b) viewGroup.getChildAt(i2)).getLoadingView()) != null) {
                     loadingView.setVisibility(8);
-                    f5545b.put(viewGroup, bVar);
+                    f5427b.put(viewGroup, bVar);
                     if (a) {
-                        String str = "The count of cached loading views is : " + f5545b.size();
-                        String str2 = "The content of cached views is : " + f5545b.toString();
+                        String str = "The count of cached loading views is : " + f5427b.size();
+                        String str2 = "The content of cached views is : " + f5427b.toString();
                     }
                     return true;
                 }
@@ -195,7 +195,7 @@ public final class a {
 
     public static void c(@NonNull d dVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, dVar) == null) && (dVar instanceof a.InterfaceC0276a)) {
+        if ((interceptable == null || interceptable.invokeL(65539, null, dVar) == null) && (dVar instanceof a.InterfaceC0285a)) {
             q0.e0(new b(dVar));
         }
     }
@@ -209,7 +209,7 @@ public final class a {
             if (viewGroup == null) {
                 return false;
             }
-            c.a.r0.a.c2.b.d.b bVar2 = f5545b.get(viewGroup);
+            c.a.r0.a.c2.b.d.b bVar2 = f5427b.get(viewGroup);
             if (bVar2 != null) {
                 View loadingView2 = bVar2.getLoadingView();
                 if (loadingView2 != null) {
@@ -218,10 +218,10 @@ public final class a {
                     }
                     loadingView2.setVisibility(8);
                     viewGroup.removeView(loadingView2);
-                    f5545b.remove(viewGroup);
+                    f5427b.remove(viewGroup);
                     if (a) {
-                        String str = "The count of cached loading views is : " + f5545b.size();
-                        String str2 = "The content of cached views is : " + f5545b.toString();
+                        String str = "The count of cached loading views is : " + f5427b.size();
+                        String str2 = "The content of cached views is : " + f5427b.toString();
                     }
                 }
                 return true;
@@ -230,10 +230,10 @@ public final class a {
                 if ((viewGroup.getChildAt(i2) instanceof c.a.r0.a.c2.b.d.b) && (loadingView = (bVar = (c.a.r0.a.c2.b.d.b) viewGroup.getChildAt(i2)).getLoadingView()) != null) {
                     loadingView.setVisibility(8);
                     viewGroup.removeView((View) bVar);
-                    f5545b.remove(viewGroup);
+                    f5427b.remove(viewGroup);
                     if (a) {
-                        String str3 = "The count of cached loading views is : " + f5545b.size();
-                        String str4 = "The content of cached views is : " + f5545b.toString();
+                        String str3 = "The count of cached loading views is : " + f5427b.size();
+                        String str4 = "The content of cached views is : " + f5427b.toString();
                     }
                     return true;
                 }
@@ -252,7 +252,7 @@ public final class a {
             if (viewGroup == null) {
                 return false;
             }
-            c.a.r0.a.c2.b.d.b bVar2 = f5545b.get(viewGroup);
+            c.a.r0.a.c2.b.d.b bVar2 = f5427b.get(viewGroup);
             if (bVar2 != null && bVar2.getLoadingView() != null) {
                 bVar2.getLoadingView().setVisibility(0);
                 return true;
@@ -260,10 +260,10 @@ public final class a {
             for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                 if ((viewGroup.getChildAt(i2) instanceof c.a.r0.a.c2.b.d.b) && (loadingView = (bVar = (c.a.r0.a.c2.b.d.b) viewGroup.getChildAt(i2)).getLoadingView()) != null) {
                     loadingView.setVisibility(0);
-                    f5545b.put(viewGroup, bVar);
+                    f5427b.put(viewGroup, bVar);
                     if (a) {
-                        String str = "The count of cached loading views is : " + f5545b.size();
-                        String str2 = "The content of cached views is : " + f5545b.toString();
+                        String str = "The count of cached loading views is : " + f5427b.size();
+                        String str2 = "The content of cached views is : " + f5427b.toString();
                     }
                     return true;
                 }
@@ -276,7 +276,7 @@ public final class a {
     public static void f(@NonNull c.a.r0.a.c2.b.c.a aVar, @NonNull Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{aVar, context, str, Boolean.valueOf(z)}) == null) {
-            q0.e0(new RunnableC0277a(aVar, context, str, z));
+            q0.e0(new RunnableC0286a(aVar, context, str, z));
         }
     }
 
@@ -319,11 +319,11 @@ public final class a {
                     layoutParams3.gravity = 17;
                     viewGroup.addView(loadingView2, layoutParams3);
                 }
-                f5545b.put(viewGroup, loadingView);
+                f5427b.put(viewGroup, loadingView);
                 loadingView2.setVisibility(0);
                 if (a) {
-                    String str2 = "The count of cached loading views is : " + f5545b.size();
-                    String str3 = "The content of cached views is : " + f5545b.toString();
+                    String str2 = "The count of cached loading views is : " + f5427b.size();
+                    String str3 = "The content of cached views is : " + f5427b.toString();
                 }
                 return true;
             }

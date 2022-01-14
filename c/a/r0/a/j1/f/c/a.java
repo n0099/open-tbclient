@@ -36,34 +36,32 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.j1.f.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0435a implements c<i<b.e>> {
+    public class C0444a implements c<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7640e;
+        public final /* synthetic */ CallbackHandler f7475e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7641f;
+        public final /* synthetic */ UnitedSchemeEntity f7476f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.j1.f.b f7642g;
+        public final /* synthetic */ c.a.r0.a.j1.f.b f7477g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f7643h;
+        public final /* synthetic */ String f7478h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Context f7644i;
+        public final /* synthetic */ Context f7479i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.j1.f.a f7645j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ String f7646k;
+        public final /* synthetic */ c.a.r0.a.j1.f.a f7480j;
+        public final /* synthetic */ String k;
         public final /* synthetic */ e l;
         public final /* synthetic */ a m;
 
-        public C0435a(a aVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, c.a.r0.a.j1.f.b bVar, String str, Context context, c.a.r0.a.j1.f.a aVar2, String str2, e eVar) {
+        public C0444a(a aVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, c.a.r0.a.j1.f.b bVar, String str, Context context, c.a.r0.a.j1.f.a aVar2, String str2, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,13 +77,13 @@ public class a extends z {
                 }
             }
             this.m = aVar;
-            this.f7640e = callbackHandler;
-            this.f7641f = unitedSchemeEntity;
-            this.f7642g = bVar;
-            this.f7643h = str;
-            this.f7644i = context;
-            this.f7645j = aVar2;
-            this.f7646k = str2;
+            this.f7475e = callbackHandler;
+            this.f7476f = unitedSchemeEntity;
+            this.f7477g = bVar;
+            this.f7478h = str;
+            this.f7479i = context;
+            this.f7480j = aVar2;
+            this.k = str2;
             this.l = eVar;
         }
 
@@ -96,14 +94,14 @@ public class a extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!d.h(iVar)) {
-                    d.p(iVar, this.f7640e, this.f7641f);
+                    d.p(iVar, this.f7475e, this.f7476f);
                     int b2 = iVar == null ? 10001 : iVar.b();
-                    this.m.o(this.f7642g, b2, d.f(b2));
-                } else if (c.a.r0.a.j1.f.e.a.k().q(this.f7643h)) {
-                    this.m.o(this.f7642g, 2001, "error execute time");
+                    this.m.o(this.f7477g, b2, d.f(b2));
+                } else if (c.a.r0.a.j1.f.e.a.k().q(this.f7478h)) {
+                    this.m.o(this.f7477g, 2001, "error execute time");
                     c.a.r0.a.e0.d.c(BundleOpProvider.METHOD_BUNDLE_RECORD, "error execute time");
                 } else {
-                    this.m.r(this.f7644i, this.f7641f, this.f7640e, this.f7643h, this.f7645j, this.f7642g, this.f7646k, this.l.f5660f);
+                    this.m.r(this.f7479i, this.f7476f, this.f7475e, this.f7478h, this.f7480j, this.f7477g, this.k, this.l.f5537f);
                 }
             }
         }
@@ -115,25 +113,23 @@ public class a extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7647e;
+        public final /* synthetic */ CallbackHandler f7481e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7648f;
+        public final /* synthetic */ UnitedSchemeEntity f7482f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f7649g;
+        public final /* synthetic */ String f7483g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f7650h;
+        public final /* synthetic */ Context f7484h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.j1.f.a f7651i;
+        public final /* synthetic */ c.a.r0.a.j1.f.a f7485i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.j1.f.b f7652j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ String f7653k;
+        public final /* synthetic */ c.a.r0.a.j1.f.b f7486j;
+        public final /* synthetic */ String k;
         public final /* synthetic */ String l;
         public final /* synthetic */ a m;
 
@@ -153,13 +149,13 @@ public class a extends z {
                 }
             }
             this.m = aVar;
-            this.f7647e = callbackHandler;
-            this.f7648f = unitedSchemeEntity;
-            this.f7649g = str;
-            this.f7650h = context;
-            this.f7651i = aVar2;
-            this.f7652j = bVar;
-            this.f7653k = str2;
+            this.f7481e = callbackHandler;
+            this.f7482f = unitedSchemeEntity;
+            this.f7483g = str;
+            this.f7484h = context;
+            this.f7485i = aVar2;
+            this.f7486j = bVar;
+            this.k = str2;
             this.l = str3;
         }
 
@@ -167,10 +163,10 @@ public class a extends z {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str2 = str + "";
                 }
-                this.m.p(this.f7647e, this.f7648f, this.f7649g, this.f7650h, this.f7651i, this.f7652j, this.f7653k, this.l);
+                this.m.p(this.f7481e, this.f7482f, this.f7483g, this.f7484h, this.f7485i, this.f7486j, this.k, this.l);
             }
         }
 
@@ -178,11 +174,11 @@ public class a extends z {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str2 = str + "";
                 }
                 c.a.r0.a.e0.d.c(BundleOpProvider.METHOD_BUNDLE_RECORD, str);
-                this.m.o(this.f7652j, 10005, "system deny");
+                this.m.o(this.f7486j, 10005, "system deny");
             }
         }
     }
@@ -213,7 +209,7 @@ public class a extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
                 return false;
             }
@@ -227,17 +223,17 @@ public class a extends z {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str2 = "handleSubAction subAction: " + str;
             }
             if (eVar == null) {
                 c.a.r0.a.e0.d.c(BundleOpProvider.METHOD_BUNDLE_RECORD, "param is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 return false;
             }
             if (eVar.m0()) {
-                boolean z2 = z.f6340b;
+                boolean z2 = z.f6201b;
                 char c2 = 65535;
                 int hashCode = str.hashCode();
                 if (hashCode != -944894266) {
@@ -255,10 +251,10 @@ public class a extends z {
                     return false;
                 }
             }
-            if (TextUtils.isEmpty(eVar.f5660f)) {
+            if (TextUtils.isEmpty(eVar.f5537f)) {
                 c.a.r0.a.e0.d.c(BundleOpProvider.METHOD_BUNDLE_RECORD, "aiapp id is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none swanApp id");
-                boolean z3 = z.f6340b;
+                boolean z3 = z.f6201b;
                 return false;
             } else if (c.a.r0.a.j1.f.e.a.k().p(str)) {
                 JSONObject q = q(unitedSchemeEntity.getParam("params"));
@@ -279,8 +275,8 @@ public class a extends z {
                     unitedSchemeEntity.result = c3;
                     return false;
                 }
-                c.a.r0.a.j1.f.b a2 = c.a.r0.a.j1.f.b.a(callbackHandler, unitedSchemeEntity, a.f7630g, c.a.r0.a.j1.f.e.a.k().i());
-                String x = c.a.r0.a.o2.b.x(eVar.f5660f);
+                c.a.r0.a.j1.f.b a2 = c.a.r0.a.j1.f.b.a(callbackHandler, unitedSchemeEntity, a.f7465g, c.a.r0.a.j1.f.e.a.k().i());
+                String x = c.a.r0.a.o2.b.x(eVar.f5537f);
                 if (TextUtils.isEmpty(x)) {
                     c.a.r0.a.e0.d.c(BundleOpProvider.METHOD_BUNDLE_RECORD, "none tmp path");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -290,8 +286,8 @@ public class a extends z {
                     c.a.r0.a.e0.d.c(BundleOpProvider.METHOD_BUNDLE_RECORD, "handle action, but context is not Activity");
                     return false;
                 } else {
-                    eVar.d0().g(context, PermissionProxy.SCOPE_ID_RECORD, new C0435a(this, callbackHandler, unitedSchemeEntity, a2, str, context, a, x, eVar));
-                    if (z.f6340b) {
+                    eVar.d0().g(context, PermissionProxy.SCOPE_ID_RECORD, new C0444a(this, callbackHandler, unitedSchemeEntity, a2, str, context, a, x, eVar));
+                    if (z.f6201b) {
                         String str3 = "subAction is : " + str;
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -307,7 +303,7 @@ public class a extends z {
     public final void o(c.a.r0.a.j1.f.b bVar, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, bVar, i2, str) == null) {
-            if (bVar != null && !TextUtils.isEmpty(c.a.r0.a.j1.f.b.f7636h)) {
+            if (bVar != null && !TextUtils.isEmpty(c.a.r0.a.j1.f.b.f7471h)) {
                 bVar.d(i2, str);
                 return;
             }
@@ -386,7 +382,7 @@ public class a extends z {
                 try {
                     return new JSONObject(str);
                 } catch (JSONException e2) {
-                    if (z.f6340b) {
+                    if (z.f6201b) {
                         Log.getStackTraceString(e2);
                     }
                 }

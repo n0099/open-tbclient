@@ -26,25 +26,25 @@ public class i implements c.a.t0.h.b.d {
     public List<Object> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.h.e.c f18853b;
+    public c.a.t0.h.e.c f18383b;
 
     /* renamed from: c  reason: collision with root package name */
-    public u f18854c;
+    public u f18384c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.d.n.e.a f18855d;
+    public c.a.d.n.e.a f18385d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.n.e.a f18856e;
+    public c.a.d.n.e.a f18386e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.d.n.e.a f18857f;
+    public c.a.d.n.e.a f18387f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.n.e.a f18858g;
+    public c.a.d.n.e.a f18388g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.n.e.a f18859h;
+    public c.a.d.n.e.a f18389h;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -108,15 +108,15 @@ public class i implements c.a.t0.h.b.d {
                         c.a.s0.s.q.e eVar = new c.a.s0.s.q.e();
                         advertAppInfo.o4 = eVar;
                         eVar.a = "FRS";
-                        eVar.f13666c = String.valueOf(z);
+                        eVar.f13351c = String.valueOf(z);
                         c.a.s0.s.q.e eVar2 = advertAppInfo.o4;
-                        eVar2.f13665b = i2;
-                        eVar2.f13667d = str;
-                        eVar2.f13668e = str2;
-                        eVar2.f13669f = str3;
-                        eVar2.f13670g = str4;
-                        eVar2.f13671h = advertAppInfo.m4;
-                        eVar2.f13672i = false;
+                        eVar2.f13350b = i2;
+                        eVar2.f13352d = str;
+                        eVar2.f13353e = str2;
+                        eVar2.f13354f = str3;
+                        eVar2.f13355g = str4;
+                        eVar2.f13356h = advertAppInfo.m4;
+                        eVar2.f13357i = false;
                         hashSet.add(advertAppInfo);
                     }
                 }
@@ -135,15 +135,15 @@ public class i implements c.a.t0.h.b.d {
             if (obj instanceof AdvertAppInfo) {
                 BdUniqueId type = ((AdvertAppInfo) obj).getType();
                 if (type == AdvertAppInfo.D4) {
-                    aVar = this.f18856e;
+                    aVar = this.f18386e;
                 } else if (type == AdvertAppInfo.A4) {
-                    aVar = this.f18855d;
+                    aVar = this.f18385d;
                 } else if (type == AdvertAppInfo.E4) {
-                    aVar = this.f18857f;
+                    aVar = this.f18387f;
                 } else if (type == AdvertAppInfo.F4) {
-                    aVar = this.f18858g;
+                    aVar = this.f18388g;
                 } else {
-                    aVar = type == AdvertAppInfo.G4 ? this.f18859h : null;
+                    aVar = type == AdvertAppInfo.G4 ? this.f18389h : null;
                 }
                 if (aVar != null) {
                     return aVar.N(viewGroup, obj);
@@ -173,7 +173,7 @@ public class i implements c.a.t0.h.b.d {
                 it.remove();
             }
         }
-        int k2 = c.a.t0.x1.o.k.a.k(list);
+        int k = c.a.t0.x1.o.k.a.k(list);
         int i3 = 0;
         int i4 = 0;
         for (c.a.t0.h.b.c cVar : list) {
@@ -181,14 +181,14 @@ public class i implements c.a.t0.h.b.d {
                 i4++;
             }
         }
-        int k3 = c.a.t0.x1.o.k.a.k(arrayList);
-        if (k3 < 1) {
+        int k2 = c.a.t0.x1.o.k.a.k(arrayList);
+        if (k2 < 1) {
             return;
         }
-        int i5 = k2 - i4;
+        int i5 = k - i4;
         HashSet hashSet = new HashSet();
         int i6 = 0;
-        while (i6 < k3) {
+        while (i6 < k2) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) c.a.t0.x1.o.k.a.d(arrayList, i6);
             advertAppInfo.p4 = "FRS";
             int Y4 = advertAppInfo.Y4();
@@ -208,8 +208,8 @@ public class i implements c.a.t0.h.b.d {
                     c.a.t0.j3.l0.d.i(advertAppInfo, i2, 29);
                 } else if (e2 < 0) {
                     c.a.t0.j3.l0.d.i(advertAppInfo, i2, 33);
-                } else if (e2 >= k2 && i5 > 3) {
-                    c.a.t0.j3.l0.d.j(advertAppInfo, i2, 2, e2, k2);
+                } else if (e2 >= k && i5 > 3) {
+                    c.a.t0.j3.l0.d.j(advertAppInfo, i2, 2, e2, k);
                 } else {
                     c.a.t0.h.b.c cVar2 = new c.a.t0.h.b.c();
                     cVar2.d(advertAppInfo);
@@ -220,17 +220,17 @@ public class i implements c.a.t0.h.b.d {
                             c.a.t0.j3.l0.d.i(advertAppInfo, i2, 3);
                         } else if (!TextUtils.isEmpty(advertAppInfo.x4) && !TextUtils.isEmpty(advertAppInfo.s4)) {
                             hashSet.add(Integer.valueOf(e2));
-                            if (e2 < k2) {
+                            if (e2 < k) {
                                 c.a.t0.x1.o.k.a.b(list, cVar2, e2);
-                            } else if (e2 == k2) {
+                            } else if (e2 == k) {
                                 c.a.t0.x1.o.k.a.a(list, cVar2);
                             }
                         }
                     } else if (advertAppInfo.X4()) {
                         hashSet.add(Integer.valueOf(e2));
-                        if (e2 < k2) {
+                        if (e2 < k) {
                             c.a.t0.x1.o.k.a.b(list, cVar2, e2);
-                        } else if (e2 == k2) {
+                        } else if (e2 == k) {
                             c.a.t0.x1.o.k.a.a(list, cVar2);
                         }
                     } else {
@@ -261,15 +261,15 @@ public class i implements c.a.t0.h.b.d {
                 AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
                 BdUniqueId type = advertAppInfo.getType();
                 if (type == AdvertAppInfo.D4) {
-                    aVar = this.f18856e;
+                    aVar = this.f18386e;
                 } else if (type == AdvertAppInfo.A4) {
-                    aVar = this.f18855d;
+                    aVar = this.f18385d;
                 } else if (type == AdvertAppInfo.E4) {
-                    aVar = this.f18857f;
+                    aVar = this.f18387f;
                 } else if (type == AdvertAppInfo.F4) {
-                    aVar = this.f18858g;
+                    aVar = this.f18388g;
                 } else {
-                    aVar = type == AdvertAppInfo.G4 ? this.f18859h : null;
+                    aVar = type == AdvertAppInfo.G4 ? this.f18389h : null;
                 }
                 if (aVar != null) {
                     return aVar.E(i2, view, viewGroup, advertAppInfo);
@@ -288,15 +288,15 @@ public class i implements c.a.t0.h.b.d {
             c.a.d.n.e.a aVar = null;
             BdUniqueId type = ((AdvertAppInfo) obj).getType();
             if (type == AdvertAppInfo.D4) {
-                aVar = this.f18856e;
+                aVar = this.f18386e;
             } else if (type == AdvertAppInfo.A4) {
-                aVar = this.f18855d;
+                aVar = this.f18385d;
             } else if (type == AdvertAppInfo.E4) {
-                aVar = this.f18857f;
+                aVar = this.f18387f;
             } else if (type == AdvertAppInfo.F4) {
-                aVar = this.f18858g;
+                aVar = this.f18388g;
             } else if (type == AdvertAppInfo.G4) {
-                aVar = this.f18859h;
+                aVar = this.f18389h;
             }
             if (aVar != null) {
                 aVar.T(i2, viewGroup, viewHolder, obj);
@@ -326,7 +326,7 @@ public class i implements c.a.t0.h.b.d {
                 it.remove();
             }
         }
-        int k2 = c.a.t0.x1.o.k.a.k(list);
+        int k = c.a.t0.x1.o.k.a.k(list);
         int i5 = 0;
         int i6 = 0;
         for (c.a.t0.h.b.c cVar : list) {
@@ -334,8 +334,8 @@ public class i implements c.a.t0.h.b.d {
                 i6++;
             }
         }
-        int k3 = c.a.t0.x1.o.k.a.k(arrayList2);
-        if (k3 < 1) {
+        int k2 = c.a.t0.x1.o.k.a.k(arrayList2);
+        if (k2 < 1) {
             return;
         }
         int i7 = 9;
@@ -343,10 +343,10 @@ public class i implements c.a.t0.h.b.d {
             i7 = e2;
         }
         int e3 = c.a.d.f.m.b.e(((AdvertAppInfo) c.a.t0.x1.o.k.a.d(arrayList2, 0)).l4, 0) - 1;
-        int i8 = k2 - i6;
+        int i8 = k - i6;
         HashSet hashSet = new HashSet();
         int i9 = 0;
-        while (i9 < k3) {
+        while (i9 < k2) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) c.a.t0.x1.o.k.a.d(arrayList2, i9);
             advertAppInfo.p4 = "SMART_FRS";
             int Y4 = advertAppInfo.Y4();
@@ -369,10 +369,10 @@ public class i implements c.a.t0.h.b.d {
             } else {
                 int e4 = c.a.d.f.m.b.e(advertAppInfo.l4, i5);
                 int i10 = (e4 + i6) - 1;
-                if (i10 < 0 || hashSet.contains(Integer.valueOf(i10)) || i10 > k2) {
+                if (i10 < 0 || hashSet.contains(Integer.valueOf(i10)) || i10 > k) {
                     arrayList = arrayList2;
-                    if (i10 > k2) {
-                        c.a.t0.j3.l0.d.j(advertAppInfo, i2, 2, i10, k2);
+                    if (i10 > k) {
+                        c.a.t0.j3.l0.d.j(advertAppInfo, i2, 2, i10, k);
                         i9++;
                         arrayList2 = arrayList;
                         i5 = 0;
@@ -383,10 +383,10 @@ public class i implements c.a.t0.h.b.d {
                     if (e4 <= (i8 - i7) + e3 || !z) {
                         arrayList = arrayList2;
                     } else if (!c.a.t0.x1.o.k.a.e(list2)) {
-                        int k4 = c.a.t0.x1.o.k.a.k(list2);
+                        int k3 = c.a.t0.x1.o.k.a.k(list2);
                         int i11 = (i7 - ((i8 - e4) + 1)) - 1;
                         int i12 = 0;
-                        while (i12 < k4 && i12 < i11) {
+                        while (i12 < k3 && i12 < i11) {
                             arrayList = arrayList2;
                             if (((c.a.t0.h.b.c) c.a.t0.x1.o.k.a.d(list2, i12)).a() instanceof AdvertAppInfo) {
                                 i4 = 0;
@@ -422,17 +422,17 @@ public class i implements c.a.t0.h.b.d {
                             c.a.t0.j3.l0.d.i(advertAppInfo, i2, 3);
                         } else if (!TextUtils.isEmpty(advertAppInfo.x4) && !TextUtils.isEmpty(advertAppInfo.s4)) {
                             hashSet.add(Integer.valueOf(i10));
-                            if (i10 < k2) {
+                            if (i10 < k) {
                                 c.a.t0.x1.o.k.a.b(list, cVar2, i10);
-                            } else if (i10 == k2) {
+                            } else if (i10 == k) {
                                 c.a.t0.x1.o.k.a.a(list, cVar2);
                             }
                         }
                     } else if (advertAppInfo.X4()) {
                         hashSet.add(Integer.valueOf(i10));
-                        if (i10 < k2) {
+                        if (i10 < k) {
                             c.a.t0.x1.o.k.a.b(list, cVar2, i10);
-                        } else if (i10 == k2) {
+                        } else if (i10 == k) {
                             c.a.t0.x1.o.k.a.a(list, cVar2);
                         }
                     }
@@ -450,16 +450,16 @@ public class i implements c.a.t0.h.b.d {
     public void n(c.a.t0.h.e.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.f18853b = cVar;
+            this.f18383b = cVar;
             if (cVar == null || !(cVar.a() instanceof u)) {
                 return;
             }
-            this.f18854c = (u) this.f18853b.a();
-            this.f18855d = new c.a.t0.j3.c0.c(this.f18854c, AdvertAppInfo.A4);
-            this.f18856e = new c.a.t0.j3.c0.d(this.f18854c, AdvertAppInfo.D4);
-            this.f18857f = new c.a.t0.j3.c0.d(this.f18854c, AdvertAppInfo.E4);
-            this.f18858g = new c.a.t0.j3.c0.d(this.f18854c, AdvertAppInfo.F4);
-            this.f18859h = new c.a.t0.j3.c0.d(this.f18854c, AdvertAppInfo.G4);
+            this.f18384c = (u) this.f18383b.a();
+            this.f18385d = new c.a.t0.j3.c0.c(this.f18384c, AdvertAppInfo.A4);
+            this.f18386e = new c.a.t0.j3.c0.d(this.f18384c, AdvertAppInfo.D4);
+            this.f18387f = new c.a.t0.j3.c0.d(this.f18384c, AdvertAppInfo.E4);
+            this.f18388g = new c.a.t0.j3.c0.d(this.f18384c, AdvertAppInfo.F4);
+            this.f18389h = new c.a.t0.j3.c0.d(this.f18384c, AdvertAppInfo.G4);
         }
     }
 

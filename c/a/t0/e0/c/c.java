@@ -22,25 +22,23 @@ public class c implements b, View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f17548e;
+    public TbPageContext f17121e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f17549f;
+    public LinearLayout f17122f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17550g;
+    public TextView f17123g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17551h;
+    public TextView f17124h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17552i;
+    public TextView f17125i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f17553j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f17554k;
+    public TextView f17126j;
+    public TextView k;
     public a l;
     public b.a m;
     public int n;
@@ -63,7 +61,7 @@ public class c implements b, View.OnClickListener {
         }
         this.n = 0;
         this.o = new HashMap();
-        this.f17548e = tbPageContext;
+        this.f17121e = tbPageContext;
         this.l = aVar;
         this.m = aVar2;
         e();
@@ -80,14 +78,14 @@ public class c implements b, View.OnClickListener {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17549f.getVisibility() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17122f.getVisibility() : invokeV.intValue;
     }
 
     @Override // c.a.t0.e0.c.b
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f17549f.setVisibility(i2);
+            this.f17122f.setVisibility(i2);
         }
     }
 
@@ -116,25 +114,25 @@ public class c implements b, View.OnClickListener {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f17549f = (LinearLayout) this.f17548e.getPageActivity().findViewById(R.id.capture_speed_container);
-            this.f17550g = (TextView) this.f17548e.getPageActivity().findViewById(R.id.speed_slowest);
-            this.f17551h = (TextView) this.f17548e.getPageActivity().findViewById(R.id.speed_slow);
-            this.f17552i = (TextView) this.f17548e.getPageActivity().findViewById(R.id.speed_normal);
-            this.f17553j = (TextView) this.f17548e.getPageActivity().findViewById(R.id.speed_fast);
-            this.f17554k = (TextView) this.f17548e.getPageActivity().findViewById(R.id.speed_fastest);
-            this.f17550g.setOnClickListener(this);
-            this.f17551h.setOnClickListener(this);
-            this.f17552i.setOnClickListener(this);
-            this.f17553j.setOnClickListener(this);
-            this.f17554k.setOnClickListener(this);
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f17549f);
+            this.f17122f = (LinearLayout) this.f17121e.getPageActivity().findViewById(R.id.capture_speed_container);
+            this.f17123g = (TextView) this.f17121e.getPageActivity().findViewById(R.id.speed_slowest);
+            this.f17124h = (TextView) this.f17121e.getPageActivity().findViewById(R.id.speed_slow);
+            this.f17125i = (TextView) this.f17121e.getPageActivity().findViewById(R.id.speed_normal);
+            this.f17126j = (TextView) this.f17121e.getPageActivity().findViewById(R.id.speed_fast);
+            this.k = (TextView) this.f17121e.getPageActivity().findViewById(R.id.speed_fastest);
+            this.f17123g.setOnClickListener(this);
+            this.f17124h.setOnClickListener(this);
+            this.f17125i.setOnClickListener(this);
+            this.f17126j.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f17122f);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0214);
-            h(this.f17552i, true);
-            h(this.f17550g, false);
-            h(this.f17551h, false);
-            h(this.f17553j, false);
-            h(this.f17554k, false);
+            h(this.f17125i, true);
+            h(this.f17123g, false);
+            h(this.f17124h, false);
+            h(this.f17126j, false);
+            h(this.k, false);
         }
     }
 
@@ -154,7 +152,7 @@ public class c implements b, View.OnClickListener {
     public final void h(TextView textView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048583, this, textView, z) == null) {
-            textView.setTextColor(this.f17548e.getResources().getColor(z ? R.color.CAM_X0302 : R.color.CAM_X0101));
+            textView.setTextColor(this.f17121e.getResources().getColor(z ? R.color.CAM_X0302 : R.color.CAM_X0101));
             textView.setTextSize(0, UtilHelper.getDimenPixelSize(z ? R.dimen.T_X05 : R.dimen.T_X07));
         }
     }
@@ -163,16 +161,16 @@ public class c implements b, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (i2 == 0) {
-                h(this.f17552i, z);
+                h(this.f17125i, z);
             } else if (i2 == 1) {
-                h(this.f17551h, z);
+                h(this.f17124h, z);
             } else if (i2 == 2) {
-                h(this.f17550g, z);
+                h(this.f17123g, z);
             } else if (i2 == 3) {
-                h(this.f17553j, z);
+                h(this.f17126j, z);
             } else if (i2 != 4) {
             } else {
-                h(this.f17554k, z);
+                h(this.k, z);
             }
         }
     }

@@ -1,6 +1,6 @@
 package c.a.i0.a.b;
 
-import c.a.c0.i.h;
+import c.a.c0.l.h;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +13,7 @@ public class d {
     public static b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f3791b;
+    public static c f3737b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class d {
                         a = (b) ServiceManager.getService(b.a);
                     }
                     if (a == null) {
-                        a = b.f3789b;
+                        a = b.f3735b;
                     }
                 }
             }
@@ -54,17 +54,17 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f3791b == null) {
+            if (f3737b == null) {
                 synchronized (h.class) {
-                    if (f3791b == null) {
-                        f3791b = (c) ServiceManager.getService(c.a);
+                    if (f3737b == null) {
+                        f3737b = (c) ServiceManager.getService(c.a);
                     }
-                    if (f3791b == null) {
-                        f3791b = c.f3790b;
+                    if (f3737b == null) {
+                        f3737b = c.f3736b;
                     }
                 }
             }
-            return f3791b;
+            return f3737b;
         }
         return (c) invokeV.objValue;
     }

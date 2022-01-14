@@ -33,28 +33,28 @@ public class c {
     public Animation a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Animation f22263b;
+    public Animation f21652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f22264c;
+    public View f21653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f22265d;
+    public ViewGroup f21654d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f22266e;
+    public View f21655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterfaceC1331c f22267f;
+    public InterfaceC1345c f21656f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.t0.q1.o.f.b f22268g;
+    public c.a.t0.q1.o.f.b f21657g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f22269h;
+    public boolean f21658h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f22270i;
+    public int f21659i;
 
     /* loaded from: classes8.dex */
     public class a implements AdapterView.OnItemClickListener {
@@ -62,10 +62,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f22271e;
+        public final /* synthetic */ Context f21660e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f22272f;
+        public final /* synthetic */ c f21661f;
 
         public a(c cVar, Context context) {
             Interceptable interceptable = $ic;
@@ -82,16 +82,16 @@ public class c {
                     return;
                 }
             }
-            this.f22272f = cVar;
-            this.f22271e = context;
+            this.f21661f = cVar;
+            this.f21660e = context;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001433, this.f22272f.f22268g.getItem(i2)));
-                this.f22272f.f(this.f22271e);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001433, this.f21661f.f21657g.getItem(i2)));
+                this.f21661f.f(this.f21660e);
             }
         }
     }
@@ -124,18 +124,18 @@ public class c {
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.f22269h = false;
-                if (this.a.f22267f != null) {
-                    this.a.f22267f.a();
+                this.a.f21658h = false;
+                if (this.a.f21656f != null) {
+                    this.a.f21656f.a();
                 }
-                this.a.f22265d.removeView(this.a.f22264c);
+                this.a.f21654d.removeView(this.a.f21653c);
             }
         }
     }
 
     /* renamed from: c.a.t0.q1.o.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC1331c {
+    public interface InterfaceC1345c {
         void a();
     }
 
@@ -154,14 +154,14 @@ public class c {
                 return;
             }
         }
-        this.f22269h = false;
-        this.f22265d = viewGroup;
+        this.f21658h = false;
+        this.f21654d = viewGroup;
     }
 
     public void f(Context context) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view = this.f22264c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view = this.f21653c) == null) {
             return;
         }
         view.startAnimation(i(context));
@@ -172,14 +172,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, i2)) == null) {
             View inflate = LayoutInflater.from(context).inflate(f.topic_scroll_fragment_more, (ViewGroup) null);
-            this.f22266e = inflate.findViewById(e.topic_more_top_view);
-            k(this.f22270i);
+            this.f21655e = inflate.findViewById(e.topic_more_top_view);
+            k(this.f21659i);
             GridView gridView = (GridView) inflate.findViewById(e.topic_scroll_fragment_more_content);
             gridView.setSelector(new ColorDrawable(17170445));
             c.a.t0.q1.o.f.b bVar = new c.a.t0.q1.o.f.b(context, i2);
-            this.f22268g = bVar;
+            this.f21657g = bVar;
             bVar.b(list);
-            gridView.setAdapter((ListAdapter) this.f22268g);
+            gridView.setAdapter((ListAdapter) this.f21657g);
             gridView.setOnItemClickListener(new a(this, context));
             return inflate;
         }
@@ -202,11 +202,11 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (this.f22263b == null) {
-                this.f22263b = AnimationUtils.loadAnimation(context, c.a.t0.q1.a.dialog_ani_t2b_exit);
+            if (this.f21652b == null) {
+                this.f21652b = AnimationUtils.loadAnimation(context, c.a.t0.q1.a.dialog_ani_t2b_exit);
             }
-            this.f22263b.setAnimationListener(new b(this));
-            return this.f22263b;
+            this.f21652b.setAnimationListener(new b(this));
+            return this.f21652b;
         }
         return (Animation) invokeL.objValue;
     }
@@ -214,48 +214,48 @@ public class c {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22269h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21658h : invokeV.booleanValue;
     }
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f22266e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f21655e.getLayoutParams();
             layoutParams.height = i2;
-            this.f22266e.setLayoutParams(layoutParams);
+            this.f21655e.setLayoutParams(layoutParams);
         }
     }
 
-    public void l(InterfaceC1331c interfaceC1331c) {
+    public void l(InterfaceC1345c interfaceC1345c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC1331c) == null) {
-            this.f22267f = interfaceC1331c;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC1345c) == null) {
+            this.f21656f = interfaceC1345c;
         }
     }
 
     public void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f22270i = i2;
+            this.f21659i = i2;
         }
     }
 
     public void n(Context context, List<p> list, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, list, i2) == null) || this.f22269h) {
+        if (!(interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, list, i2) == null) || this.f21658h) {
             return;
         }
-        this.f22269h = true;
+        this.f21658h = true;
         View g2 = g(context, list, i2);
-        this.f22264c = g2;
-        this.f22265d.addView(g2);
+        this.f21653c = g2;
+        this.f21654d.addView(g2);
         if (1 != TbadkCoreApplication.getInst().getSkinType() && 4 != TbadkCoreApplication.getInst().getSkinType()) {
-            View view = this.f22264c;
+            View view = this.f21653c;
             view.setBackgroundColor(view.getContext().getResources().getColor(c.a.t0.q1.b.topic_more_background));
         } else {
-            View view2 = this.f22264c;
+            View view2 = this.f21653c;
             view2.setBackgroundColor(view2.getContext().getResources().getColor(c.a.t0.q1.b.topic_more_background_1));
         }
-        this.f22264c.startAnimation(h(context));
+        this.f21653c.startAnimation(h(context));
     }
 }

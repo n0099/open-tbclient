@@ -9,6 +9,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,41 +19,39 @@ import java.util.Arrays;
 import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class u {
     public static /* synthetic */ Interceptable $ic = null;
     public static long A = 0;
     public static String a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f39860b = 0;
+    public static long f38540b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39861c = null;
+    public static String f38541c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f39862d = 0;
+    public static long f38542d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f39863e = null;
+    public static String f38543e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f39864f = 0;
+    public static long f38544f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f39865g = null;
+    public static String f38545g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f39866h = 0;
+    public static long f38546h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f39867i = null;
+    public static String f38547i = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static long f39868j = 0;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static String f39869k = null;
+    public static long f38548j = 0;
+    public static String k = null;
     public static long l = 0;
     public static String m = null;
     public static long n = 0;
@@ -92,8 +91,8 @@ public final class u {
         }
         try {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-            a2.f39765b.putString("p_s_p_c", jSONObject.toString());
-            a2.f39765b.commit();
+            a2.f38448b.putString("p_s_p_c", jSONObject.toString());
+            a2.f38448b.commit();
             a(jSONObject);
         } catch (Throwable unused) {
             c.a();
@@ -131,42 +130,42 @@ public final class u {
             if (context != null) {
                 try {
                     if (r && v.a(context)) {
-                        if (System.currentTimeMillis() - f39866h < 86400000) {
-                            return f39865g;
+                        if (System.currentTimeMillis() - f38546h < 86400000) {
+                            return f38545g;
                         }
                         com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f39865g)) {
-                            f39865g = a2.z();
-                            f39866h = a2.a.getLong("p_s_e_c_t_t", 0L);
-                            if (System.currentTimeMillis() - f39866h < 86400000) {
-                                return f39865g;
+                        if (TextUtils.isEmpty(f38545g)) {
+                            f38545g = a2.z();
+                            f38546h = a2.a.getLong("p_s_e_c_t_t", 0L);
+                            if (System.currentTimeMillis() - f38546h < 86400000) {
+                                return f38545g;
                             }
                         }
                         if (!t.b(context)) {
-                            return f39865g;
+                            return f38545g;
                         }
                         if (!n(context)) {
-                            return f39865g;
+                            return f38545g;
                         }
                         String e2 = e.e(context);
                         if (!TextUtils.isEmpty(e2)) {
-                            f39865g = e2;
-                            f39866h = System.currentTimeMillis();
-                            String str = f39865g;
+                            f38545g = e2;
+                            f38546h = System.currentTimeMillis();
+                            String str = f38545g;
                             if (TextUtils.isEmpty(str)) {
-                                a2.f39765b.putString("p_s_e_c_t", "");
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_e_c_t", "");
+                                a2.f38448b.commit();
                             } else {
-                                a2.f39765b.putString("p_s_e_c_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_e_c_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                                a2.f38448b.commit();
                             }
-                            a2.g(f39866h);
+                            a2.g(f38546h);
                         } else {
                             long currentTimeMillis = System.currentTimeMillis();
-                            f39866h = currentTimeMillis;
+                            f38546h = currentTimeMillis;
                             a2.g(currentTimeMillis);
                         }
-                        return f39865g;
+                        return f38545g;
                     }
                 } catch (Throwable unused) {
                     c.a();
@@ -185,43 +184,43 @@ public final class u {
             if (context != null) {
                 try {
                     if (q && v.a(context)) {
-                        if (System.currentTimeMillis() - f39864f < 86400000) {
-                            return f39863e;
+                        if (System.currentTimeMillis() - f38544f < 86400000) {
+                            return f38543e;
                         }
                         com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f39865g)) {
-                            f39863e = a2.A();
-                            f39864f = a2.a.getLong("p_s_s_c_t_t", 0L);
-                            if (System.currentTimeMillis() - f39864f < 86400000) {
-                                return f39863e;
+                        if (TextUtils.isEmpty(f38545g)) {
+                            f38543e = a2.A();
+                            f38544f = a2.a.getLong("p_s_s_c_t_t", 0L);
+                            if (System.currentTimeMillis() - f38544f < 86400000) {
+                                return f38543e;
                             }
                         }
                         if (!n(context)) {
-                            return f39863e;
+                            return f38543e;
                         }
                         String d2 = e.d(context);
                         if (!TextUtils.isEmpty(d2)) {
-                            f39863e = d2;
-                            f39864f = System.currentTimeMillis();
-                            String str = f39863e;
+                            f38543e = d2;
+                            f38544f = System.currentTimeMillis();
+                            String str = f38543e;
                             if (TextUtils.isEmpty(str)) {
-                                a2.f39765b.putString("p_s_s_c_t", "");
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_s_c_t", "");
+                                a2.f38448b.commit();
                             } else {
                                 try {
-                                    a2.f39765b.putString("p_s_s_c_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                    a2.f39765b.commit();
+                                    a2.f38448b.putString("p_s_s_c_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                                    a2.f38448b.commit();
                                 } catch (Throwable unused) {
                                     c.a();
                                 }
                             }
-                            a2.h(f39864f);
+                            a2.h(f38544f);
                         } else {
                             long currentTimeMillis = System.currentTimeMillis();
-                            f39864f = currentTimeMillis;
+                            f38544f = currentTimeMillis;
                             a2.h(currentTimeMillis);
                         }
-                        return f39863e;
+                        return f38543e;
                     }
                 } catch (Throwable unused2) {
                     c.a();
@@ -240,7 +239,7 @@ public final class u {
             if (context != null) {
                 try {
                     if (o && v.a(context)) {
-                        if (System.currentTimeMillis() - f39860b < 86400000) {
+                        if (System.currentTimeMillis() - f38540b < 86400000) {
                             return a;
                         }
                         if ("com.baidu.input_huawei".equals(context.getPackageName())) {
@@ -249,8 +248,8 @@ public final class u {
                         com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                         if (TextUtils.isEmpty(a)) {
                             a = a2.x();
-                            f39860b = a2.a.getLong("p_s_i_t_t", 0L);
-                            if (System.currentTimeMillis() - f39860b < 86400000) {
+                            f38540b = a2.a.getLong("p_s_i_t_t", 0L);
+                            if (System.currentTimeMillis() - f38540b < 86400000) {
                                 return a;
                             }
                         }
@@ -263,19 +262,19 @@ public final class u {
                         String deviceId = Build.VERSION.SDK_INT < 29 ? ((TelephonyManager) context.getSystemService("phone")).getDeviceId() : "";
                         if (!TextUtils.isEmpty(deviceId)) {
                             a = deviceId;
-                            f39860b = System.currentTimeMillis();
+                            f38540b = System.currentTimeMillis();
                             String str = a;
                             if (TextUtils.isEmpty(str)) {
-                                a2.f39765b.putString("p_s_i_t", "");
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_i_t", "");
+                                a2.f38448b.commit();
                             } else {
-                                a2.f39765b.putString("p_s_i_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_i_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                                a2.f38448b.commit();
                             }
-                            a2.e(f39860b);
+                            a2.e(f38540b);
                         } else {
                             long currentTimeMillis = System.currentTimeMillis();
-                            f39860b = currentTimeMillis;
+                            f38540b = currentTimeMillis;
                             a2.e(currentTimeMillis);
                         }
                         return a;
@@ -297,39 +296,39 @@ public final class u {
             if (context != null) {
                 try {
                     if (p && v.a(context)) {
-                        if (System.currentTimeMillis() - f39862d < 86400000) {
-                            return f39861c;
+                        if (System.currentTimeMillis() - f38542d < 86400000) {
+                            return f38541c;
                         }
                         com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f39861c)) {
-                            f39861c = a2.y();
-                            f39862d = a2.a.getLong("p_s_a_i_t_t", 0L);
-                            if (System.currentTimeMillis() - f39862d < 86400000) {
-                                return f39861c;
+                        if (TextUtils.isEmpty(f38541c)) {
+                            f38541c = a2.y();
+                            f38542d = a2.a.getLong("p_s_a_i_t_t", 0L);
+                            if (System.currentTimeMillis() - f38542d < 86400000) {
+                                return f38541c;
                             }
                         }
                         if (!n(context)) {
-                            return f39861c;
+                            return f38541c;
                         }
-                        String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
+                        String string = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                         if (!TextUtils.isEmpty(string)) {
-                            f39861c = string;
-                            f39862d = System.currentTimeMillis();
-                            String str = f39861c;
+                            f38541c = string;
+                            f38542d = System.currentTimeMillis();
+                            String str = f38541c;
                             if (TextUtils.isEmpty(str)) {
-                                a2.f39765b.putString("p_s_a_i_t", "");
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_a_i_t", "");
+                                a2.f38448b.commit();
                             } else {
-                                a2.f39765b.putString("p_s_a_i_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_a_i_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                                a2.f38448b.commit();
                             }
-                            a2.f(f39862d);
+                            a2.f(f38542d);
                         } else {
                             long currentTimeMillis = System.currentTimeMillis();
-                            f39862d = currentTimeMillis;
+                            f38542d = currentTimeMillis;
                             a2.f(currentTimeMillis);
                         }
-                        return f39861c;
+                        return f38541c;
                     }
                 } catch (Throwable unused) {
                     c.a();
@@ -348,43 +347,43 @@ public final class u {
             if (context != null) {
                 try {
                     if (x && v.a(context)) {
-                        if (System.currentTimeMillis() - f39868j < 86400000) {
-                            return f39867i;
+                        if (System.currentTimeMillis() - f38548j < 86400000) {
+                            return f38547i;
                         }
                         com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f39867i)) {
-                            f39867i = a2.B();
-                            f39868j = a2.a.getLong("p_s_o_d_t_t", 0L);
-                            if (System.currentTimeMillis() - f39868j < 86400000) {
-                                return f39867i;
+                        if (TextUtils.isEmpty(f38547i)) {
+                            f38547i = a2.B();
+                            f38548j = a2.a.getLong("p_s_o_d_t_t", 0L);
+                            if (System.currentTimeMillis() - f38548j < 86400000) {
+                                return f38547i;
                             }
                         }
                         if (!n(context)) {
-                            return f39867i;
+                            return f38547i;
                         }
                         String b2 = com.baidu.sofire.k.a.a().b();
                         if (!TextUtils.isEmpty(b2)) {
-                            f39867i = b2;
-                            f39868j = System.currentTimeMillis();
-                            String str = f39867i;
+                            f38547i = b2;
+                            f38548j = System.currentTimeMillis();
+                            String str = f38547i;
                             if (TextUtils.isEmpty(str)) {
-                                a2.f39765b.putString("p_s_o_d_t", "");
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_o_d_t", "");
+                                a2.f38448b.commit();
                             } else {
                                 try {
-                                    a2.f39765b.putString("p_s_o_d_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                    a2.f39765b.commit();
+                                    a2.f38448b.putString("p_s_o_d_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                                    a2.f38448b.commit();
                                 } catch (Throwable unused) {
                                     c.a();
                                 }
                             }
-                            a2.i(f39868j);
+                            a2.i(f38548j);
                         } else {
                             long currentTimeMillis = System.currentTimeMillis();
-                            f39868j = currentTimeMillis;
+                            f38548j = currentTimeMillis;
                             a2.i(currentTimeMillis);
                         }
-                        return f39867i;
+                        return f38547i;
                     }
                 } catch (Throwable unused2) {
                     c.a();
@@ -404,30 +403,30 @@ public final class u {
                 try {
                     if (u && v.a(context)) {
                         if (System.currentTimeMillis() - l < 86400000) {
-                            return f39869k;
+                            return k;
                         }
                         com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f39869k)) {
-                            f39869k = a2.C();
+                        if (TextUtils.isEmpty(k)) {
+                            k = a2.C();
                             l = a2.a.getLong("p_s_s_o_t_t", 0L);
                             if (System.currentTimeMillis() - l < 86400000) {
-                                return f39869k;
+                                return k;
                             }
                         }
                         if (!n(context)) {
-                            return f39869k;
+                            return k;
                         }
                         String simOperatorName = ((TelephonyManager) context.getSystemService("phone")).getSimOperatorName();
                         if (!TextUtils.isEmpty(simOperatorName)) {
-                            f39869k = simOperatorName;
+                            k = simOperatorName;
                             l = System.currentTimeMillis();
-                            String str = f39869k;
+                            String str = k;
                             if (TextUtils.isEmpty(str)) {
-                                a2.f39765b.putString("p_s_s_o_t", "");
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_s_o_t", "");
+                                a2.f38448b.commit();
                             } else {
-                                a2.f39765b.putString("p_s_s_o_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_s_o_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                                a2.f38448b.commit();
                             }
                             a2.j(l);
                         } else {
@@ -435,7 +434,7 @@ public final class u {
                             l = currentTimeMillis;
                             a2.j(currentTimeMillis);
                         }
-                        return f39869k;
+                        return k;
                     }
                 } catch (Throwable unused) {
                     c.a();
@@ -474,11 +473,11 @@ public final class u {
                             n = System.currentTimeMillis();
                             String str = m;
                             if (TextUtils.isEmpty(str)) {
-                                a2.f39765b.putString("p_s_n_o_t", "");
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_n_o_t", "");
+                                a2.f38448b.commit();
                             } else {
-                                a2.f39765b.putString("p_s_n_o_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                a2.f39765b.commit();
+                                a2.f38448b.putString("p_s_n_o_t", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                                a2.f38448b.commit();
                             }
                             a2.k(n);
                         } else {

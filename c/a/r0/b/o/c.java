@@ -21,7 +21,7 @@ public class c extends ProviderDelegation {
         public final /* synthetic */ Bundle a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f10328b;
+        public final /* synthetic */ c f10104b;
 
         public a(c cVar, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class c extends ProviderDelegation {
                     return;
                 }
             }
-            this.f10328b = cVar;
+            this.f10104b = cVar;
             this.a = bundle;
         }
 
@@ -48,7 +48,7 @@ public class c extends ProviderDelegation {
         public Bundle create() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10328b.a(this.a) : (Bundle) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10104b.a(this.a) : (Bundle) invokeV.objValue;
         }
     }
 

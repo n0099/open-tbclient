@@ -9,9 +9,9 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import c.a.s0.a.w;
+import c.a.s0.e1.v0;
 import c.a.s0.e1.w0;
 import c.a.s0.e1.x;
-import c.a.s0.e1.x0;
 import c.a.s0.u.l;
 import c.a.s0.u.o;
 import c.a.t0.s2.u.f.n0;
@@ -125,15 +125,15 @@ public class PbActivityStatic {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null) {
                         for (o oVar : TiePlusHelper.w) {
-                            if (!StringUtils.isNull(oVar.f14492f) && oVar.f14492f.equals(downloadData.getId())) {
+                            if (!StringUtils.isNull(oVar.f14154f) && oVar.f14154f.equals(downloadData.getId())) {
                                 int status = downloadData.getStatus();
                                 if (status != 0) {
                                     if (status == 1) {
-                                        oVar.f14491e = false;
+                                        oVar.f14153e = false;
                                     }
-                                } else if (!oVar.f14491e) {
-                                    oVar.f14491e = true;
-                                    TiePlusStat.e(oVar.a, oVar.f14488b, oVar.f14489c, oVar.f14490d);
+                                } else if (!oVar.f14153e) {
+                                    oVar.f14153e = true;
+                                    TiePlusStat.e(oVar.a, oVar.f14150b, oVar.f14151c, oVar.f14152d);
                                 }
                             }
                         }
@@ -466,7 +466,7 @@ public class PbActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                x0.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
+                w0.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -506,18 +506,17 @@ public class PbActivityStatic {
             boolean z4;
             boolean z5;
             String substring;
-            boolean z6;
             PbActivityConfig createNormalCfg;
             int i2;
             String str2;
-            boolean z7;
+            boolean z6;
             String str3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
                 if (strArr != null && strArr.length != 0) {
                     int i3 = 0;
                     if (strArr[0] != null) {
-                        boolean z8 = strArr.length > 1 && !StringUtils.isNull(strArr[1]) && strArr[1].toLowerCase().contains("n/video/opersquare");
+                        boolean z7 = strArr.length > 1 && !StringUtils.isNull(strArr[1]) && strArr[1].toLowerCase().contains("n/video/opersquare");
                         String lowerCase = strArr[0].toLowerCase();
                         Matcher matcher = this.a.matcher(lowerCase);
                         String str4 = "push";
@@ -579,12 +578,12 @@ public class PbActivityStatic {
                                     if (TbadkCoreApplication.getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
                                         return 3;
                                     }
-                                    n.L(tbPageContext.getPageActivity(), c.a.t0.s2.l.manga_plugin_not_install_tip);
+                                    n.M(tbPageContext.getPageActivity(), c.a.t0.s2.l.manga_plugin_not_install_tip);
                                     return 0;
                                 } else if (TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
                                     return 3;
                                 } else {
-                                    n.L(tbPageContext.getPageActivity(), c.a.t0.s2.l.book_plugin_not_install_tip);
+                                    n.M(tbPageContext.getPageActivity(), c.a.t0.s2.l.book_plugin_not_install_tip);
                                     return 0;
                                 }
                             }
@@ -612,10 +611,10 @@ public class PbActivityStatic {
                                         group = str3;
                                     }
                                     str2 = group;
-                                    z7 = c.a.d.f.m.b.b(w0.c(lowerCase, "is_from_push="), false);
+                                    z6 = c.a.d.f.m.b.b(v0.c(lowerCase, "is_from_push="), false);
                                 } else {
                                     str2 = group;
-                                    z7 = false;
+                                    z6 = false;
                                 }
                                 if (lowerCase != null && lowerCase.contains("?")) {
                                     String[] split2 = lowerCase.substring(lowerCase.indexOf("?") + 1, lowerCase.length()).split("&");
@@ -624,17 +623,17 @@ public class PbActivityStatic {
                                     while (i4 < length) {
                                         String str9 = split2[i4];
                                         if (str9.startsWith("playstatkey=")) {
-                                            z5 = z7;
+                                            z5 = z6;
                                             str4 = str9.substring(12);
                                             break;
                                         }
                                         i4++;
-                                        z7 = z7;
+                                        z6 = z6;
                                     }
                                 }
-                                z5 = z7;
+                                z5 = z6;
                                 if (lowerCase != null) {
-                                    String c3 = w0.c(lowerCase, "sttype=");
+                                    String c3 = v0.c(lowerCase, "sttype=");
                                     if (!StringUtils.isNull(c3)) {
                                         str8 = c3;
                                     }
@@ -656,11 +655,11 @@ public class PbActivityStatic {
                                         while (true) {
                                             if (i5 >= split3.length) {
                                                 c2 = null;
-                                                z6 = false;
+                                                z2 = false;
                                                 break;
                                             } else if (split3[i5] != null && split3[i5].startsWith("kz=")) {
                                                 c2 = split3[i5].substring(3);
-                                                z6 = true;
+                                                z2 = true;
                                                 break;
                                             } else {
                                                 i5++;
@@ -674,9 +673,8 @@ public class PbActivityStatic {
                                         }
                                     } else {
                                         c2 = null;
-                                        z6 = false;
+                                        z2 = false;
                                     }
-                                    z2 = z6;
                                     z = false;
                                 } else {
                                     if (!TextUtils.isEmpty(lowerCase) && lowerCase.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB)) {
@@ -698,7 +696,7 @@ public class PbActivityStatic {
                                         } else if (TextUtils.isEmpty(lowerCase) || !lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) || !lowerCase.contains("kz=")) {
                                             return 3;
                                         } else {
-                                            c2 = w0.c(lowerCase, "kz=");
+                                            c2 = v0.c(lowerCase, "kz=");
                                             z = false;
                                         }
                                         z2 = false;
@@ -740,10 +738,11 @@ public class PbActivityStatic {
                                 } else {
                                     createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(c2, str5, str8);
                                 }
-                                if (TextUtils.isEmpty(lowerCase) && lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(w0.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
-                                    createNormalCfg.setUserName(w0.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
+                                if (TextUtils.isEmpty(lowerCase) && lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(v0.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
+                                    createNormalCfg.setUserName(v0.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
                                 }
                                 createNormalCfg.setVideo_source(str4);
+                                createNormalCfg.setStartFrom(25);
                                 if (z5) {
                                     createNormalCfg.setFromPushNotify();
                                     i2 = 7;
@@ -761,7 +760,7 @@ public class PbActivityStatic {
                                     createNormalCfg.setJumpToCommentArea(true);
                                 }
                                 tbPageContext.sendMessage(new CustomMessage(2004001, createNormalCfg));
-                                if (!TextUtils.isEmpty(lowerCase) || lowerCase.contains("from=threadcard2") || z8) {
+                                if (!TextUtils.isEmpty(lowerCase) || lowerCase.contains("from=threadcard2") || z7) {
                                     return 0;
                                 }
                             }

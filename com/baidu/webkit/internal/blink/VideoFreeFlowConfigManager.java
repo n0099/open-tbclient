@@ -42,16 +42,16 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54833b;
+        public String f52748b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f54834c;
+        public String f52749c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f54835d;
+        public int f52750d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f54836e;
+        public String f52751e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -69,10 +69,10 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                 }
             }
             this.a = null;
-            this.f54833b = null;
-            this.f54834c = null;
-            this.f54835d = 2;
-            this.f54836e = null;
+            this.f52748b = null;
+            this.f52749c = null;
+            this.f52750d = 2;
+            this.f52751e = null;
             if (TextUtils.isEmpty(str) || !str.contains("#")) {
                 return;
             }
@@ -83,23 +83,23 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                     if (i4 == 0) {
                         this.a = split[i4];
                     } else if (i4 == 1) {
-                        this.f54833b = split[i4];
+                        this.f52748b = split[i4];
                     } else if (i4 == 2) {
                         String str2 = split[i4];
-                        this.f54834c = str2;
+                        this.f52749c = str2;
                         if (!TextUtils.isEmpty(str2)) {
                             String trim = str2.trim();
-                            this.f54834c = trim;
+                            this.f52749c = trim;
                             if (trim.startsWith(VideoFreeFlowConfigManager.DIRECT)) {
-                                this.f54835d = 2;
-                            } else if (this.f54834c.startsWith(VideoFreeFlowConfigManager.PROXY)) {
-                                this.f54835d = 1;
-                                String str3 = this.f54834c;
+                                this.f52750d = 2;
+                            } else if (this.f52749c.startsWith(VideoFreeFlowConfigManager.PROXY)) {
+                                this.f52750d = 1;
+                                String str3 = this.f52749c;
                                 String trim2 = str3.substring(str3.indexOf(VideoFreeFlowConfigManager.PROXY) + 5).trim();
                                 if (!TextUtils.isEmpty(trim2)) {
                                     String[] split2 = trim2.split(";");
                                     if (split2.length > 0 && !TextUtils.isEmpty(split2[0])) {
-                                        this.f54836e = split2[0];
+                                        this.f52751e = split2[0];
                                     }
                                 }
                             }
@@ -173,7 +173,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:38:0x00a3, code lost:
-        if (r3.indexOf(r6.f54833b) != (-1)) goto L55;
+        if (r3.indexOf(r6.f52748b) != (-1)) goto L55;
      */
     /* JADX WARN: Removed duplicated region for block: B:52:0x00cf A[Catch: all -> 0x00e4, TryCatch #0 {, blocks: (B:12:0x0016, B:14:0x0028, B:16:0x0037, B:18:0x003f, B:20:0x0047, B:23:0x0051, B:52:0x00cf, B:54:0x00d3, B:55:0x00d5, B:57:0x00d7, B:59:0x00dc, B:61:0x00de, B:26:0x005e, B:28:0x0068, B:30:0x006e, B:32:0x007a, B:35:0x0092, B:37:0x009d, B:40:0x00a6, B:42:0x00b0, B:45:0x00b9, B:47:0x00c3, B:62:0x00e2), top: B:71:0x0016 }] */
     /* JADX WARN: Removed duplicated region for block: B:75:0x00de A[SYNTHETIC] */
@@ -191,23 +191,23 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                     String host = Uri.parse(str).getHost();
                     for (int i2 = 0; i2 < size; i2++) {
                         a aVar = this.mPacRulesList.get(i2);
-                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(aVar.a) && !TextUtils.isEmpty(aVar.f54833b) && !TextUtils.isEmpty(aVar.f54834c)) {
-                            if (!aVar.f54833b.equals(ProxyConfig.MATCH_ALL_SCHEMES)) {
+                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(aVar.a) && !TextUtils.isEmpty(aVar.f52748b) && !TextUtils.isEmpty(aVar.f52749c)) {
+                            if (!aVar.f52748b.equals(ProxyConfig.MATCH_ALL_SCHEMES)) {
                                 if (aVar.a.equals(HOST_MATCH)) {
-                                    if (!TextUtils.isEmpty(host) && host.length() >= aVar.f54833b.length() && host.substring(host.length() - aVar.f54833b.length()).equals(aVar.f54833b)) {
+                                    if (!TextUtils.isEmpty(host) && host.length() >= aVar.f52748b.length() && host.substring(host.length() - aVar.f52748b.length()).equals(aVar.f52748b)) {
                                     }
                                 } else if (!aVar.a.equals(HOST_STR)) {
                                     if (aVar.a.equals(HOST_STR_MATCH)) {
-                                        if (host.equals(aVar.f54833b)) {
+                                        if (host.equals(aVar.f52748b)) {
                                         }
-                                    } else if (aVar.a.equals(URL_MATCH) && str.indexOf(aVar.f54833b) != -1) {
+                                    } else if (aVar.a.equals(URL_MATCH) && str.indexOf(aVar.f52748b) != -1) {
                                     }
                                 }
                                 if (z) {
-                                    if (aVar.f54835d == 1) {
-                                        return aVar.f54836e;
+                                    if (aVar.f52750d == 1) {
+                                        return aVar.f52751e;
                                     }
-                                    if (aVar.f54835d == 2) {
+                                    if (aVar.f52750d == 2) {
                                         return null;
                                     }
                                 }

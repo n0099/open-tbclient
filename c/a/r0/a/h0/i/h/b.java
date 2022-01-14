@@ -18,15 +18,15 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f6655d;
+    public static final boolean f6514d;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.a.r0.a.h0.i.g.b.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.r0.a.h0.i.g.d.b f6656b;
+    public final c.a.r0.a.h0.i.g.d.b f6515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.r0.a.h0.i.g.a.c f6657c;
+    public final c.a.r0.a.h0.i.g.a.c f6516c;
 
     /* loaded from: classes.dex */
     public class a implements a.b {
@@ -35,10 +35,10 @@ public class b {
         public final /* synthetic */ c.a.r0.a.h0.i.g.d.d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.i.g.a.e f6658b;
+        public final /* synthetic */ c.a.r0.a.h0.i.g.a.e f6517b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f6659c;
+        public final /* synthetic */ b f6518c;
 
         public a(b bVar, c.a.r0.a.h0.i.g.d.d dVar, c.a.r0.a.h0.i.g.a.e eVar) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public class b {
                     return;
                 }
             }
-            this.f6659c = bVar;
+            this.f6518c = bVar;
             this.a = dVar;
-            this.f6658b = eVar;
+            this.f6517b = eVar;
         }
 
         @Override // c.a.r0.a.h0.i.g.b.a.b
@@ -67,22 +67,22 @@ public class b {
                 c.a.r0.a.h0.i.e.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
                 StringBuilder sb = new StringBuilder();
                 sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
-                sb.append(this.f6658b.a());
+                sb.append(this.f6517b.a());
                 sb.append(this.a.d());
                 sb.append(networkStatus.getDesc());
                 sb.append(this.a.c());
-                if (b.f6655d) {
+                if (b.f6514d) {
                     String str = ">> " + sb.toString();
                 }
                 c.a.r0.a.h0.i.f.g(sb.toString());
-                this.f6659c.d(networkStatus);
+                this.f6518c.d(networkStatus);
             }
         }
     }
 
     /* renamed from: c.a.r0.a.h0.i.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0366b {
+    public static /* synthetic */ class C0375b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class b {
                 return;
             }
         }
-        f6655d = k.a;
+        f6514d = k.a;
     }
 
     public b() {
@@ -142,26 +142,26 @@ public class b {
                 return;
             }
         }
-        this.f6657c = c.a.r0.a.h0.i.g.a.c.d();
+        this.f6516c = c.a.r0.a.h0.i.g.a.c.d();
         this.a = new c.a.r0.a.h0.i.g.b.a();
-        this.f6656b = c.a.r0.a.h0.i.g.d.b.d();
+        this.f6515b = c.a.r0.a.h0.i.g.d.b.d();
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z = f6655d;
+            boolean z = f6514d;
             c.a.r0.a.h0.i.g.d.b.d().j();
             c.a.r0.a.h0.i.g.a.c.d().j();
-            c.a.r0.a.h0.i.g.a.e f2 = this.f6657c.f();
-            this.a.a(new a(this, this.f6656b.f(), f2));
+            c.a.r0.a.h0.i.g.a.e f2 = this.f6516c.f();
+            this.a.a(new a(this, this.f6515b.f(), f2));
         }
     }
 
     public final void d(NetworkStatus networkStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
-            int i2 = C0366b.a[networkStatus.ordinal()];
+            int i2 = C0375b.a[networkStatus.ordinal()];
             if (i2 != 1 && i2 != 2) {
                 c.a.r0.a.h0.i.d.f(h.swanapp_tip_waiting_and_retry);
             } else {

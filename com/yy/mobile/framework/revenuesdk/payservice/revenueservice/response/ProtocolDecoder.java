@@ -118,7 +118,7 @@ public final class ProtocolDecoder {
                 case 2005:
                     GetUserAccountResponse getUserAccountResponse = new GetUserAccountResponse(str);
                     return newResponse(1005, getUserAccountResponse.seq, new MyBalanceResult(new MyBalanceInfo(getUserAccountResponse.accountList, getUserAccountResponse.accountPeriodList, getUserAccountResponse.minAmountLimit, getUserAccountResponse.imid)), getUserAccountResponse.result, getUserAccountResponse.message);
-                case 2021:
+                case RevenueServerConst.GetChargeCurrencyConfigResponse /* 2021 */:
                     GetChargeCurrencyConfigResponse getChargeCurrencyConfigResponse = new GetChargeCurrencyConfigResponse(str);
                     Object productListResult = new ProductListResult(getChargeCurrencyConfigResponse.currencyType, getChargeCurrencyConfigResponse.currencyName, getChargeCurrencyConfigResponse.paysSettingInfo, getChargeCurrencyConfigResponse.confList, getChargeCurrencyConfigResponse.payWayInfoList, getChargeCurrencyConfigResponse.defaultCid);
                     StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
@@ -126,7 +126,7 @@ public final class ProtocolDecoder {
                     Intrinsics.checkExpressionValueIsNotNull(format, "java.lang.String.format(format, *args)");
                     RLog.debug("ProtocolDecoder", format);
                     return newResponse(1021, getChargeCurrencyConfigResponse.seq, productListResult, getChargeCurrencyConfigResponse.result, "");
-                case 2022:
+                case RevenueServerConst.ChargeCurrencyResponse /* 2022 */:
                     ChargeCurrencyResponse chargeCurrencyResponse = new ChargeCurrencyResponse(str);
                     Object payOrderResult = new PayOrderResult(chargeCurrencyResponse.result, chargeCurrencyResponse.payUrl, chargeCurrencyResponse.payChannel, chargeCurrencyResponse.orderId, chargeCurrencyResponse.payMethod, chargeCurrencyResponse.closeRiskEnhance, chargeCurrencyResponse.expand, chargeCurrencyResponse.pollingModeInfo);
                     StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
@@ -134,22 +134,22 @@ public final class ProtocolDecoder {
                     Intrinsics.checkExpressionValueIsNotNull(format2, "java.lang.String.format(format, *args)");
                     RLog.debug("ProtocolDecoder", format2);
                     return newResponse(1022, chargeCurrencyResponse.seq, payOrderResult, chargeCurrencyResponse.result, chargeCurrencyResponse.message);
-                case 2025:
+                case RevenueServerConst.ExchangeCurrencyResponse /* 2025 */:
                     ExchangeCurrencyResponse exchangeCurrencyResponse = new ExchangeCurrencyResponse(str);
                     return newResponse(1025, exchangeCurrencyResponse.getSeq(), exchangeCurrencyResponse.getResponse(), exchangeCurrencyResponse.getResult(), exchangeCurrencyResponse.getMessage());
                 case RevenueServerConst.GetHasChargeInActivityResponse /* 2026 */:
                     GetHasChargeInActivityResponse getHasChargeInActivityResponse = new GetHasChargeInActivityResponse(str);
                     return newResponse(1026, getHasChargeInActivityResponse.seq, new HasChargeInActivityResult(getHasChargeInActivityResponse.activityId, getHasChargeInActivityResponse.startTime, getHasChargeInActivityResponse.endTime, getHasChargeInActivityResponse.hasCharge, getHasChargeInActivityResponse.tip, getHasChargeInActivityResponse.chargeCount), getHasChargeInActivityResponse.result, getHasChargeInActivityResponse.message);
-                case 2045:
+                case RevenueServerConst.ReportPurchaseResponse /* 2045 */:
                     ReportPurchaseResponse reportPurchaseResponse = new ReportPurchaseResponse(str);
                     return newResponse(RevenueServerConst.ReportPurchaseRequest, reportPurchaseResponse.seq, new ReportPurchaseResult(reportPurchaseResponse.purchaseData, reportPurchaseResponse.purchaseSign, reportPurchaseResponse.orderId), reportPurchaseResponse.result, reportPurchaseResponse.message);
-                case 2046:
+                case RevenueServerConst.GetUserAccountHistoryResponse /* 2046 */:
                     GetUserAccountHistoryResponse getUserAccountHistoryResponse = new GetUserAccountHistoryResponse(str);
                     return newResponse(RevenueServerConst.GetUserAccountHistoryRequest, getUserAccountHistoryResponse.seq, new RevenueRecordResult(getUserAccountHistoryResponse.userAccountHistoryInfos, getUserAccountHistoryResponse.hasMore), getUserAccountHistoryResponse.result, getUserAccountHistoryResponse.message);
-                case 2047:
+                case RevenueServerConst.GetUserCouponStoreResponse /* 2047 */:
                     GetUserCouponStoreResponse getUserCouponStoreResponse = new GetUserCouponStoreResponse(str);
                     return newResponse(RevenueServerConst.GetUserCouponStoreRequest, getUserCouponStoreResponse.seq, new UserCouponStoreResult(getUserCouponStoreResponse.serverCurrentTime, getUserCouponStoreResponse.userCouponStoreList), getUserCouponStoreResponse.result, getUserCouponStoreResponse.message);
-                case 2052:
+                case RevenueServerConst.GetChargeCouponDiscountResponse /* 2052 */:
                     GetChargeCouponDiscountResponse getChargeCouponDiscountResponse = new GetChargeCouponDiscountResponse(str);
                     return newResponse(RevenueServerConst.GetChargeCouponDiscountRequest, getChargeCouponDiscountResponse.seq, new CouponDiscountResult(getChargeCouponDiscountResponse.userCouponId, getChargeCouponDiscountResponse.couponDiscountInfoList), getChargeCouponDiscountResponse.result, getChargeCouponDiscountResponse.message);
                 case RevenueServerConst.ChargeCurrencyHistoryResponse /* 2054 */:

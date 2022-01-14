@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f33482b;
+    public final b f32419b;
 
     public a(b bVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f33482b = bVar;
+        this.f32419b = bVar;
         this.a = new e();
     }
 
@@ -51,7 +51,7 @@ public class a implements Runnable {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             d a = this.a.a();
             if (a != null) {
-                this.f33482b.a(a);
+                this.f32419b.a(a);
                 return;
             }
             throw new IllegalStateException("No pending post available");

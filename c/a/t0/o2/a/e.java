@@ -24,19 +24,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends c.a.d.n.e.a<c.a.t0.o2.c.d, InterestedForumStyleAForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.t0.o2.f.c m;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21371e;
+        public final /* synthetic */ e f20807e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class e extends c.a.d.n.e.a<c.a.t0.o2.c.d, InterestedForumStyleAForumView
                     return;
                 }
             }
-            this.f21371e = eVar;
+            this.f20807e = eVar;
         }
 
         @Override // c.a.d.n.e.w
@@ -64,13 +64,13 @@ public class e extends c.a.d.n.e.a<c.a.t0.o2.c.d, InterestedForumStyleAForumView
                 dVar.u(!dVar.l());
                 InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder = (InterestedForumStyleAForumViewHolder) view.getTag();
                 if (interestedForumStyleAForumViewHolder != null) {
-                    this.f21371e.i0(interestedForumStyleAForumViewHolder.mInterestedForumSelect, dVar.l());
+                    this.f20807e.i0(interestedForumStyleAForumViewHolder.mInterestedForumSelect, dVar.l());
                 }
-                if (this.f21371e.m != null) {
-                    this.f21371e.m.a();
+                if (this.f20807e.m != null) {
+                    this.f20807e.m.a();
                 }
                 if (dVar.l()) {
-                    this.f21371e.c0(dVar);
+                    this.f20807e.c0(dVar);
                 }
             }
         }
@@ -95,8 +95,8 @@ public class e extends c.a.d.n.e.a<c.a.t0.o2.c.d, InterestedForumStyleAForumView
                 return;
             }
         }
-        this.f3299e = context;
-        this.f3302h = bdUniqueId;
+        this.f3258e = context;
+        this.f3261h = bdUniqueId;
         V(new a(this));
     }
 
@@ -126,10 +126,10 @@ public class e extends c.a.d.n.e.a<c.a.t0.o2.c.d, InterestedForumStyleAForumView
         View inflate;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            if (c.a.s0.b.d.D()) {
-                inflate = LayoutInflater.from(this.f3299e).inflate(R.layout.item_interested_forum_style_a_forum, viewGroup, false);
+            if (c.a.s0.b.d.A()) {
+                inflate = LayoutInflater.from(this.f3258e).inflate(R.layout.item_interested_forum_style_a_forum, viewGroup, false);
             } else {
-                inflate = c.a.s0.b.d.F() ? LayoutInflater.from(this.f3299e).inflate(R.layout.item_interested_forum_style_b_forum, viewGroup, false) : null;
+                inflate = c.a.s0.b.d.C() ? LayoutInflater.from(this.f3258e).inflate(R.layout.item_interested_forum_style_b_forum, viewGroup, false) : null;
             }
             return new InterestedForumStyleAForumViewHolder(inflate);
         }
@@ -160,14 +160,14 @@ public class e extends c.a.d.n.e.a<c.a.t0.o2.c.d, InterestedForumStyleAForumView
             interestedForumStyleAForumViewHolder.mInterestedForumIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
             interestedForumStyleAForumViewHolder.mInterestedForumIcon.setPlaceHolder(1);
             interestedForumStyleAForumViewHolder.mInterestedForumIcon.startLoad(dVar.a(), 10, false);
-            interestedForumStyleAForumViewHolder.mInterestedForumTitle.setText(dVar.g() + this.f3299e.getString(R.string.forum));
+            interestedForumStyleAForumViewHolder.mInterestedForumTitle.setText(dVar.g() + this.f3258e.getString(R.string.forum));
             if (!StringUtils.isNull(dVar.i())) {
-                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f3299e.getString(R.string.interested_forum_introduce, dVar.i()));
+                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f3258e.getString(R.string.interested_forum_introduce, dVar.i()));
             } else {
-                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f3299e.getString(R.string.interested_forum_no_introduce_content));
+                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f3258e.getString(R.string.interested_forum_no_introduce_content));
             }
-            interestedForumStyleAForumViewHolder.mInterestedForumAttentionContent.setText(String.format(this.f3299e.getString(R.string.concern), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.h())));
-            interestedForumStyleAForumViewHolder.mInterestedForumPbContent.setText(String.format(this.f3299e.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.k())));
+            interestedForumStyleAForumViewHolder.mInterestedForumAttentionContent.setText(String.format(this.f3258e.getString(R.string.concern), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.h())));
+            interestedForumStyleAForumViewHolder.mInterestedForumPbContent.setText(String.format(this.f3258e.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.k())));
             i0(interestedForumStyleAForumViewHolder.mInterestedForumSelect, dVar.l());
         }
     }

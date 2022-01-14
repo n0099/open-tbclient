@@ -36,7 +36,7 @@ public class g0 {
                 return;
             }
         }
-        a = c.a.r0.a.z2.c1.a.f10173b;
+        a = c.a.r0.a.z2.c1.a.f9949b;
     }
 
     @SuppressLint({"PrivateApi", "ObsoleteSdkInt"})
@@ -133,7 +133,7 @@ public class g0 {
                     return Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) != 0;
                 }
                 if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
-                    return str.equalsIgnoreCase("XIAOMI") ? Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) != 0 : str.equalsIgnoreCase("VIVO") ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase(a) ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase(com.kuaishou.weapon.un.g.f57226j) ? Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) != 0 : Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0;
+                    return str.equalsIgnoreCase("XIAOMI") ? Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) != 0 : str.equalsIgnoreCase("VIVO") ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase(a) ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase(com.kuaishou.weapon.un.g.f55062j) ? Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) != 0 : Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0;
                 }
                 return Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) != 0;
             } catch (Exception e2) {

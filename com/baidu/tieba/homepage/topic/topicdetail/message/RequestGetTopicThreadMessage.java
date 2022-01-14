@@ -19,7 +19,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f46195common;
+    public CommonReq f44494common;
     public long lastFeedId;
     public long pageNo;
     public long topicId;
@@ -49,7 +49,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f65261common = this.f46195common;
+            builder.f62821common = this.f44494common;
             builder.topic_id = Long.valueOf(this.topicId);
             builder.page_no = Long.valueOf(this.pageNo);
             builder.last_feed_id = Long.valueOf(this.lastFeedId);
@@ -74,7 +74,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f46195common = commonReq;
+            this.f44494common = commonReq;
         }
     }
 

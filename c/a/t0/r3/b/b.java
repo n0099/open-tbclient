@@ -33,4 +33,6 @@ public interface b {
     int h();
 
     boolean i();
+
+    long j();
 }

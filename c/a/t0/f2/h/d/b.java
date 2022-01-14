@@ -33,13 +33,13 @@ public class b extends m {
                 return;
             }
         }
-        this.f14529b = TbadkCoreApplication.getInst().getResources().getString(R.string.member);
-        this.f14538k = new PrivilegeDeskView(context);
+        this.f14189b = TbadkCoreApplication.getInst().getResources().getString(R.string.member);
+        this.k = new PrivilegeDeskView(context);
         this.m = true;
-        this.f14534g = false;
-        this.f14535h = true;
-        this.f14531d = R.drawable.icon_pure_post_vip24;
-        this.f14532e = R.drawable.icon_pure_post_vip24_selection;
+        this.f14194g = false;
+        this.f14195h = true;
+        this.f14191d = R.drawable.icon_pure_post_vip24;
+        this.f14192e = R.drawable.icon_pure_post_vip24_selection;
         this.l = 6;
         this.n = new int[]{1};
     }

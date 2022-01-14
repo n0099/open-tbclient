@@ -25,34 +25,32 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12421b;
+    public String f12129b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12422c;
+    public String f12130c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12423d;
+    public String f12131d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12424e;
+    public String f12132e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12425f;
+    public String f12133f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12426g;
+    public String f12134g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12427h;
+    public String f12135h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12428i;
+    public int f12136i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f12429j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public Integer f12430k;
+    public String f12137j;
+    public Integer k;
 
     static {
         InterceptResult invokeClinit;
@@ -87,37 +85,37 @@ public class h {
             }
         }
         this.a = "";
-        this.f12421b = "";
-        this.f12422c = "";
-        this.f12423d = "";
-        this.f12424e = "";
-        this.f12425f = "";
-        this.f12426g = "";
-        this.f12427h = "";
+        this.f12129b = "";
+        this.f12130c = "";
+        this.f12131d = "";
+        this.f12132e = "";
+        this.f12133f = "";
+        this.f12134g = "";
+        this.f12135h = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12425f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12133f : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12424e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12132e : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12421b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12129b : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12422c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12130c : (String) invokeV.objValue;
     }
 
     public String e() {
@@ -129,56 +127,56 @@ public class h {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12423d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12131d : (String) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12428i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12136i : invokeV.intValue;
     }
 
     public void h(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) {
             int intValue = dataRes.type.intValue();
-            this.f12428i = intValue;
+            this.f12136i = intValue;
             if (intValue != 0 && intValue != 1) {
                 if (intValue == 2) {
                     this.a = dataRes.title;
-                    this.f12423d = dataRes.url;
+                    this.f12131d = dataRes.url;
                     return;
                 } else if (intValue != 4 && intValue == 3) {
-                    this.f12423d = dataRes.url;
+                    this.f12131d = dataRes.url;
                     this.a = dataRes.title;
-                    this.f12421b = dataRes.img;
-                    this.f12422c = dataRes.tips;
-                    this.f12424e = dataRes.btn_sure;
-                    this.f12425f = dataRes.btn_cancel;
+                    this.f12129b = dataRes.img;
+                    this.f12130c = dataRes.tips;
+                    this.f12132e = dataRes.btn_sure;
+                    this.f12133f = dataRes.btn_cancel;
                     return;
                 } else {
                     return;
                 }
             }
             this.a = StringUtils.isNull(dataRes.title) ? l : dataRes.title;
-            this.f12421b = dataRes.img;
-            this.f12422c = StringUtils.isNull(dataRes.tips) ? m : dataRes.tips;
+            this.f12129b = dataRes.img;
+            this.f12130c = StringUtils.isNull(dataRes.tips) ? m : dataRes.tips;
             if (!StringUtils.isNull(dataRes.url)) {
                 try {
                     JSONObject jSONObject = new JSONObject(dataRes.url);
-                    this.f12426g = jSONObject.optString("appid");
-                    this.f12427h = jSONObject.optString("appname");
+                    this.f12134g = jSONObject.optString("appid");
+                    this.f12135h = jSONObject.optString("appname");
                     String optString = jSONObject.optString("url");
                     Integer valueOf = Integer.valueOf(jSONObject.optInt("is_game"));
-                    this.f12430k = valueOf;
-                    this.f12423d = c.a.t0.z.a.a(this.f12426g, optString, "9104", valueOf);
-                    this.f12429j = jSONObject.optString("swan_app_id");
+                    this.k = valueOf;
+                    this.f12131d = c.a.t0.z.a.a(this.f12134g, optString, "9104", valueOf);
+                    this.f12137j = jSONObject.optString("swan_app_id");
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
             }
-            this.f12424e = StringUtils.isNull(dataRes.btn_sure) ? o : dataRes.btn_sure;
-            this.f12425f = StringUtils.isNull(dataRes.btn_cancel) ? n : dataRes.btn_cancel;
+            this.f12132e = StringUtils.isNull(dataRes.btn_sure) ? o : dataRes.btn_sure;
+            this.f12133f = StringUtils.isNull(dataRes.btn_cancel) ? n : dataRes.btn_cancel;
         }
     }
 }

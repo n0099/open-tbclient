@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import c.a.d.f.p.i;
 import c.a.d.f.p.o;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
@@ -50,10 +50,10 @@ public class FatalErrorService extends BdBaseService {
         public Intent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetWork f49621b;
+        public NetWork f47754b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FatalErrorService f49622c;
+        public final /* synthetic */ FatalErrorService f47755c;
 
         public a(FatalErrorService fatalErrorService, Intent intent) {
             Interceptable interceptable = $ic;
@@ -70,8 +70,8 @@ public class FatalErrorService extends BdBaseService {
                     return;
                 }
             }
-            this.f49622c = fatalErrorService;
-            this.f49621b = null;
+            this.f47755c = fatalErrorService;
+            this.f47754b = null;
             this.a = intent;
         }
 
@@ -138,13 +138,13 @@ public class FatalErrorService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                NetWork netWork = this.f49621b;
+                NetWork netWork = this.f47754b;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f49622c.mTask = null;
+                this.f47755c.mTask = null;
                 super.cancel(true);
-                this.f49622c.stopSelf();
+                this.f47755c.stopSelf();
             }
         }
 
@@ -270,15 +270,15 @@ public class FatalErrorService extends BdBaseService {
                                             }
                                         }
                                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + str);
-                                        this.f49621b = netWork;
+                                        this.f47754b = netWork;
                                         netWork.addPostData("logfile", byteArray);
                                         if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
-                                            this.f49621b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
+                                            this.f47754b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
                                         }
-                                        this.f49621b.postMultiNetData();
+                                        this.f47754b.postMultiNetData();
                                         byteArrayOutputStream.close();
                                         fileInputStream.close();
-                                        if (this.f49621b.getNetContext().getResponse().isRequestSuccess()) {
+                                        if (this.f47754b.getNetContext().getResponse().isRequestSuccess()) {
                                             if (z2) {
                                                 d(file);
                                             }
@@ -441,10 +441,10 @@ public class FatalErrorService extends BdBaseService {
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
                     f();
-                    if (TbConfig.getVersion().equals(b.j().p("native_crash_dump_version", ""))) {
+                    if (TbConfig.getVersion().equals(b.k().q("native_crash_dump_version", ""))) {
                         z = true;
                     } else {
-                        b.j().x("native_crash_dump_version", TbConfig.getVersion());
+                        b.k().y("native_crash_dump_version", TbConfig.getVersion());
                         z = false;
                     }
                     File GetFile = FileHelper.GetFile(TbConfig.FATAL_ERROR_NATIVE_DIR);
@@ -474,8 +474,8 @@ public class FatalErrorService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
                 super.onPostExecute((a) str);
-                this.f49622c.mTask = null;
-                this.f49622c.stopSelf();
+                this.f47755c.mTask = null;
+                this.f47755c.stopSelf();
             }
         }
     }

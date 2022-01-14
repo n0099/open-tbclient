@@ -18,7 +18,7 @@ public class c {
     public INetWorkCore a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpNetContext f18758b;
+    public HttpNetContext f18290b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class c {
             }
         }
         this.a = null;
-        this.f18758b = null;
+        this.f18290b = null;
         d();
     }
 
@@ -57,15 +57,15 @@ public class c {
     public HttpNetContext c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18758b : (HttpNetContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18290b : (HttpNetContext) invokeV.objValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f18758b = new HttpNetContext();
-            this.a = new d(this.f18758b);
-            this.f18758b.getRequest().getNetWorkParam().mNetType = NetWorkUtil.getNetType();
+            this.f18290b = new HttpNetContext();
+            this.a = new d(this.f18290b);
+            this.f18290b.getRequest().getNetWorkParam().mNetType = NetWorkUtil.getNetType();
             c.a.d.f.j.b.a.o(TbadkCoreApplication.getInst().getCuid());
             c.a.d.f.j.b.a.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
             c.a.d.f.j.b.a.r(TbadkCoreApplication.getInst().getCuidGid());
@@ -84,7 +84,7 @@ public class c {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f18758b.getRequest().getNetWorkParam().mUrl = str;
+            this.f18290b.getRequest().getNetWorkParam().mUrl = str;
         }
     }
 }

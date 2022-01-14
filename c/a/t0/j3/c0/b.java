@@ -45,10 +45,10 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
         public final /* synthetic */ AdvertAppInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f18726b;
+        public final /* synthetic */ int f18258b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f18727c;
+        public final /* synthetic */ String f18259c;
 
         public a(b bVar, AdvertAppInfo advertAppInfo, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -66,8 +66,8 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
                 }
             }
             this.a = advertAppInfo;
-            this.f18726b = i2;
-            this.f18727c = str;
+            this.f18258b = i2;
+            this.f18259c = str;
         }
 
         @Override // c.a.t0.x1.o.a
@@ -77,9 +77,9 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
                 return;
             }
             if (z.q(i2)) {
-                c.a.t0.j3.l0.d.h(this.a, this.f18726b, hashMap, i2);
+                c.a.t0.j3.l0.d.h(this.a, this.f18258b, hashMap, i2);
             } else {
-                c.a.t0.j3.l0.d.p(this.a, this.f18726b, this.f18727c, null, hashMap);
+                c.a.t0.j3.l0.d.p(this.a, this.f18258b, this.f18259c, null, hashMap);
             }
             c.a.t0.x1.o.h.c.h(c.a.t0.x1.o.h.c.e(this.a));
         }
@@ -87,15 +87,15 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
 
     /* renamed from: c.a.t0.j3.c0.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1130b implements c.a.t0.x1.o.c {
+    public class C1144b implements c.a.t0.x1.o.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f18728b;
+        public final /* synthetic */ b f18260b;
 
-        public C1130b(b bVar, String str) {
+        public C1144b(b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
                     return;
                 }
             }
-            this.f18728b = bVar;
+            this.f18260b = bVar;
             this.a = str;
         }
 
@@ -118,7 +118,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
         public void a(AdvertAppInfo advertAppInfo, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, advertAppInfo, i2) == null) {
-                j.b(this.f18728b.m.getPageActivity(), advertAppInfo, i2, this.f18728b.i0(advertAppInfo, this.a));
+                j.b(this.f18260b.m.getPageActivity(), advertAppInfo, i2, this.f18260b.i0(advertAppInfo, this.a));
             }
         }
     }
@@ -129,7 +129,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f18729e;
+        public final /* synthetic */ b f18261e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -146,14 +146,14 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
                     return;
                 }
             }
-            this.f18729e = bVar;
+            this.f18261e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((CardAppLegoViewHolder) this.f18729e.f3305k).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
+                ((CardAppLegoViewHolder) this.f18261e.k).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
             }
         }
     }
@@ -189,18 +189,18 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f3305k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.k == null) {
                 return;
             }
             if (!(customResponsedMessage.getData() instanceof Boolean)) {
-                ((CardAppLegoViewHolder) this.a.f3305k).stopPlay();
+                ((CardAppLegoViewHolder) this.a.k).stopPlay();
             } else if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                ((CardAppLegoViewHolder) this.a.f3305k).stopPlay();
+                ((CardAppLegoViewHolder) this.a.k).stopPlay();
             } else {
-                int playStatus = ((CardAppLegoViewHolder) this.a.f3305k).getPlayStatus();
-                if (!((CardAppLegoViewHolder) this.a.f3305k).canPlay()) {
+                int playStatus = ((CardAppLegoViewHolder) this.a.k).getPlayStatus();
+                if (!((CardAppLegoViewHolder) this.a.k).canPlay()) {
                     if (playStatus != -1) {
-                        ((CardAppLegoViewHolder) this.a.f3305k).stopPlay();
+                        ((CardAppLegoViewHolder) this.a.k).stopPlay();
                     }
                 } else if (playStatus == -1) {
                     c.a.d.f.m.e.a().removeCallbacks(this.a.q);
@@ -266,13 +266,13 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, dVar})) == null) {
-            if (dVar == null || (advertAppInfo = dVar.f18229e) == null || (iLegoAdvert = advertAppInfo.n4) == null) {
+            if (dVar == null || (advertAppInfo = dVar.f17784e) == null || (iLegoAdvert = advertAppInfo.n4) == null) {
                 return null;
             }
             this.p = iLegoAdvert;
             if (k0(view)) {
                 CardAppLegoViewHolder M = M(viewGroup);
-                this.f3305k = M;
+                this.k = M;
                 if (M != null) {
                     view = M.getView();
                 }
@@ -281,7 +281,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
             if (view2 != null) {
                 view2 = S(i2, view2, viewGroup, dVar, (CardAppLegoViewHolder) view2.getTag());
                 if (r.class.isAssignableFrom(view2.getClass())) {
-                    ((CardAppLegoViewHolder) this.f3305k).setAdVideoView(((r) view2).getVideoOrVrView());
+                    ((CardAppLegoViewHolder) this.k).setAdVideoView(((r) view2).getVideoOrVrView());
                 }
             }
             return view2;
@@ -302,7 +302,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
         V v;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, view)) == null) {
-            if (view == null || view.getTag() == null || (v = this.f3305k) == 0 || this.p == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.f3305k).getClass()) || !(view.getTag(R.id.tag_first) instanceof AdvertAppInfo.ILegoAdvert)) {
+            if (view == null || view.getTag() == null || (v = this.k) == 0 || this.p == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.k).getClass()) || !(view.getTag(R.id.tag_first) instanceof AdvertAppInfo.ILegoAdvert)) {
                 return true;
             }
             return !this.p.isReusable((AdvertAppInfo.ILegoAdvert) view.getTag(R.id.tag_first));
@@ -336,7 +336,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, viewGroup, dVar)) == null) {
-            if (dVar == null || (advertAppInfo = dVar.f18229e) == null || (iLegoAdvert = advertAppInfo.n4) == null) {
+            if (dVar == null || (advertAppInfo = dVar.f17784e) == null || (iLegoAdvert = advertAppInfo.n4) == null) {
                 return null;
             }
             this.p = iLegoAdvert;
@@ -353,12 +353,12 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
         AdvertAppInfo advertAppInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), view, viewGroup, dVar, cardAppLegoViewHolder})) == null) {
-            if (this.m != null && dVar != null && (advertAppInfo = dVar.f18229e) != null) {
+            if (this.m != null && dVar != null && (advertAppInfo = dVar.f17784e) != null) {
                 AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.n4;
                 this.p = iLegoAdvert;
                 if (iLegoAdvert != null && view != null) {
-                    if (this.f3305k == 0) {
-                        this.f3305k = cardAppLegoViewHolder;
+                    if (this.k == 0) {
+                        this.k = cardAppLegoViewHolder;
                     }
                     c.a.s0.s.q.e.d(dVar);
                     this.m.getLayoutMode().k(this.n == 1);
@@ -368,10 +368,10 @@ public class b extends c.a.d.n.e.a<c.a.t0.g0.f0.d, CardAppLegoViewHolder> implem
                     this.p.setAdvertAppInfo(g2);
                     eVar.setFromCDN(this.o);
                     eVar.update(this.p);
-                    int i3 = dVar.f18231g;
-                    String str = dVar.f18230f;
+                    int i3 = dVar.f17786g;
+                    String str = dVar.f17785f;
                     eVar.setAfterClickSchemeListener(new a(this, g2, i3, str));
-                    eVar.setDownloadAppCallback(new C1130b(this, str));
+                    eVar.setDownloadAppCallback(new C1144b(this, str));
                     if (r.class.isAssignableFrom(view.getClass())) {
                         cardAppLegoViewHolder.setAdVideoView(((r) view).getVideoOrVrView());
                     }

@@ -15,25 +15,25 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f31886b;
+    public static final a f30886b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f31887c;
+    public static final a f30887c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f31888d;
+    public static final a f30888d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f31889e;
+    public static final a f30889e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f31890f;
+    public static final a f30890f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f31891g;
+    public static final a f30891g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ a[] f31892h;
+    public static final /* synthetic */ a[] f30892h;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -50,14 +50,14 @@ public final class a {
                 return;
             }
         }
-        f31886b = new a("None", 0, "none");
-        f31887c = new a("WapPay", 1, "js://wappay");
-        f31888d = new a("Update", 2, "js://update");
-        f31889e = new a("OpenWeb", 3, "loc:openweb");
-        f31890f = new a("SetResult", 4, "loc:setResult");
+        f30886b = new a("None", 0, "none");
+        f30887c = new a("WapPay", 1, "js://wappay");
+        f30888d = new a("Update", 2, "js://update");
+        f30889e = new a("OpenWeb", 3, "loc:openweb");
+        f30890f = new a("SetResult", 4, "loc:setResult");
         a aVar = new a("Exit", 5, "loc:exit");
-        f31891g = aVar;
-        f31892h = new a[]{f31886b, f31887c, f31888d, f31889e, f31890f, aVar};
+        f30891g = aVar;
+        f30892h = new a[]{f30886b, f30887c, f30888d, f30889e, f30890f, aVar};
     }
 
     public a(String str, int i2, String str2) {
@@ -87,9 +87,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f31886b;
+                return f30886b;
             }
-            a aVar = f31886b;
+            a aVar = f30886b;
             for (a aVar2 : values()) {
                 if (str.startsWith(aVar2.a)) {
                     return aVar2;
@@ -109,6 +109,6 @@ public final class a {
     public static a[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (a[]) f31892h.clone() : (a[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (a[]) f30892h.clone() : (a[]) invokeV.objValue;
     }
 }

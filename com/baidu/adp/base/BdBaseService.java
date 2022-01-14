@@ -61,7 +61,7 @@ public abstract class BdBaseService extends Service {
             super.onCreate();
             e eVar = sCallBack;
             if (eVar != null) {
-                eVar.a();
+                eVar.onServiceCreate();
             }
         }
     }

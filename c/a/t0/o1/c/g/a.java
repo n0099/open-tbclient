@@ -1,7 +1,7 @@
 package c.a.t0.o1.c.g;
 
 import c.a.d.n.e.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.f0.j;
 import c.a.t0.g0.f0.k;
 import c.a.t0.g0.f0.l;
@@ -26,7 +26,7 @@ import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,15 +91,15 @@ public class a {
                                 linkedList.add(aVar);
                             }
                         } else {
-                            d2 d2Var = new d2();
-                            d2Var.N3(true);
-                            c.a.s0.b.f.a.e(d2Var);
-                            d2Var.c3(concernData.thread_list);
+                            e2 e2Var = new e2();
+                            e2Var.N3(true);
+                            c.a.s0.b.f.a.e(e2Var);
+                            e2Var.c3(concernData.thread_list);
                             JSONObject b2 = c.a.t0.j3.l0.b.b(concernData.thread_list);
                             if (b2 != null) {
                                 arrayList.add(b2);
                             }
-                            linkedList.addAll(e(d2Var, i3, concernData));
+                            linkedList.addAll(e(e2Var, i3, concernData));
                         }
                         i3++;
                     }
@@ -144,7 +144,7 @@ public class a {
                 }
             }
         }
-        this.a.f21129b = ListUtils.getCount(list) - count;
+        this.a.f20564b = ListUtils.getCount(list) - count;
     }
 
     public final void d(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i2) {
@@ -158,39 +158,39 @@ public class a {
         builder.hot_recomforum = builder2.hot_recomforum;
     }
 
-    public List<n> e(d2 d2Var, int i2, ConcernData concernData) {
+    public List<n> e(e2 e2Var, int i2, ConcernData concernData) {
         InterceptResult invokeLIL;
         c.a.t0.g0.f0.b kVar;
         ThreadInfo threadInfo;
         boolean hadConcerned;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, d2Var, i2, concernData)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, e2Var, i2, concernData)) == null) {
             ArrayList arrayList = new ArrayList();
-            if ((k.Y(d2Var) || l.T(d2Var) || m.Y(d2Var)) && d2Var.getType() != d2.L3) {
-                if (m.Y(d2Var)) {
-                    kVar = new m(d2Var);
-                } else if (l.T(d2Var)) {
-                    kVar = new l(d2Var);
+            if ((k.Y(e2Var) || l.T(e2Var) || m.Y(e2Var)) && e2Var.getType() != e2.L3) {
+                if (m.Y(e2Var)) {
+                    kVar = new m(e2Var);
+                } else if (l.T(e2Var)) {
+                    kVar = new l(e2Var);
                 } else {
                     kVar = new k();
-                    d2Var.h2();
-                    d2Var.z2();
-                    if (!d2Var.h2() && !d2Var.z2()) {
-                        d2Var.c2();
+                    e2Var.h2();
+                    e2Var.z2();
+                    if (!e2Var.h2() && !e2Var.z2()) {
+                        e2Var.c2();
                     }
-                    kVar.f18222e = d2Var;
+                    kVar.f17778e = e2Var;
                 }
-                kVar.l = d2Var.v1();
-                if (k.Y(d2Var)) {
+                kVar.l = e2Var.v1();
+                if (k.Y(e2Var)) {
                     kVar.N("1");
-                } else if (l.T(d2Var)) {
+                } else if (l.T(e2Var)) {
                     kVar.N("2");
                 }
                 kVar.G = true;
-                if (c.a.s0.b.d.j() && kVar.getThreadData() != null && kVar.getThreadData().J() != null) {
-                    if (!kVar.getThreadData().J().hadConcerned() && !ThreadCardUtils.isSelf(d2Var)) {
+                if (c.a.s0.b.d.i() && kVar.getThreadData() != null && kVar.getThreadData().J() != null) {
+                    if (!kVar.getThreadData().J().hadConcerned() && !ThreadCardUtils.isSelf(e2Var)) {
                         e.r(kVar);
-                        e.o(d2Var);
+                        e.o(e2Var);
                     } else {
                         e.t(kVar);
                     }
@@ -199,16 +199,16 @@ public class a {
                 } else {
                     e.t(kVar);
                 }
-                kVar.f18222e.J1();
+                kVar.f17778e.J1();
                 if (kVar instanceof k) {
-                    if (d2Var.Q1()) {
+                    if (e2Var.Q1()) {
                         e.u(kVar);
-                    } else if (d2Var.h3() == 1) {
+                    } else if (e2Var.h3() == 1) {
                         e.w(kVar);
-                        int[] h0 = d2Var.h0();
+                        int[] h0 = e2Var.h0();
                         kVar.o = h0[0];
                         kVar.p = h0[1];
-                    } else if (d2Var.h3() >= 2) {
+                    } else if (e2Var.h3() >= 2) {
                         e.v(kVar);
                     } else {
                         e.x(kVar);
@@ -219,11 +219,11 @@ public class a {
                 if (kVar instanceof m) {
                     e.z(kVar);
                 }
-                if (d2Var.t0() != null) {
+                if (e2Var.t0() != null) {
                     e.A(kVar);
                 }
-                if (!ListUtils.isEmpty(d2Var.B0()) || !ListUtils.isEmpty(d2Var.d0())) {
-                    if (ListUtils.getCount(d2Var.B0()) + ListUtils.getCount(d2Var.d0()) == 1) {
+                if (!ListUtils.isEmpty(e2Var.B0()) || !ListUtils.isEmpty(e2Var.d0())) {
+                    if (ListUtils.getCount(e2Var.B0()) + ListUtils.getCount(e2Var.d0()) == 1) {
                         e.D(kVar);
                     } else {
                         e.B(kVar);
@@ -238,43 +238,43 @@ public class a {
                 kVar.position = i2;
                 arrayList.add(kVar);
             } else {
-                if (c.a.s0.b.d.j() && d2Var.getThreadData() != null && d2Var.getThreadData().J() != null && !(hadConcerned = d2Var.getThreadData().J().hadConcerned()) && (hadConcerned || !ThreadCardUtils.isSelf(d2Var))) {
-                    e.o(d2Var);
+                if (c.a.s0.b.d.i() && e2Var.getThreadData() != null && e2Var.getThreadData().J() != null && !(hadConcerned = e2Var.getThreadData().J().hadConcerned()) && (hadConcerned || !ThreadCardUtils.isSelf(e2Var))) {
+                    e.o(e2Var);
                 }
-                if (d2Var.B1) {
+                if (e2Var.A1) {
                     k kVar2 = new k();
-                    kVar2.f18222e = d2Var;
+                    kVar2.f17778e = e2Var;
                     kVar2.position = i2;
                     arrayList.add(kVar2);
-                } else if (l.T(d2Var)) {
-                    l lVar = new l(d2Var);
-                    lVar.l = d2Var.v1();
+                } else if (l.T(e2Var)) {
+                    l lVar = new l(e2Var);
+                    lVar.l = e2Var.v1();
                     if (concernData != null) {
                         lVar.M(concernData.source.intValue());
                     }
                     if (lVar.isValid()) {
                         arrayList.add(lVar);
                     }
-                } else if (j.Y(d2Var)) {
-                    j jVar = new j(d2Var);
-                    jVar.l = d2Var.v1();
+                } else if (j.Y(e2Var)) {
+                    j jVar = new j(e2Var);
+                    jVar.l = e2Var.v1();
                     jVar.N("3");
                     if (jVar.isValid()) {
                         arrayList.add(jVar);
                     }
-                } else if (c.a.t0.g0.f0.e.Y(d2Var) && d2Var.P1()) {
-                    c.a.t0.g0.f0.e eVar = new c.a.t0.g0.f0.e(d2Var);
+                } else if (c.a.t0.g0.f0.e.Y(e2Var) && e2Var.P1()) {
+                    c.a.t0.g0.f0.e eVar = new c.a.t0.g0.f0.e(e2Var);
                     eVar.position = i2;
                     arrayList.add(eVar);
                 } else {
                     k kVar3 = new k();
-                    kVar3.f18222e = d2Var;
-                    kVar3.N(d2Var.h2() ? "4" : "1");
+                    kVar3.f17778e = e2Var;
+                    kVar3.N(e2Var.h2() ? "4" : "1");
                     kVar3.position = i2;
                     if (concernData != null) {
                         kVar3.M(concernData.source.intValue());
                     }
-                    if (kVar3.f18222e != null && kVar3.isValid() && !StringUtils.isNull(kVar3.f18222e.g0()) && !"0".equals(kVar3.f18222e.v1())) {
+                    if (kVar3.f17778e != null && kVar3.isValid() && !StringUtils.isNull(kVar3.f17778e.g0()) && !"0".equals(kVar3.f17778e.v1())) {
                         arrayList.add(kVar3);
                     }
                 }

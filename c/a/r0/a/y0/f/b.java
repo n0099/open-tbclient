@@ -15,7 +15,7 @@ public class b extends c.a.r0.a.y0.b<c.a.r0.a.y0.f.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a implements a.InterfaceC0613a {
+    public class a implements a.InterfaceC0622a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -38,22 +38,22 @@ public class b extends c.a.r0.a.y0.b<c.a.r0.a.y0.f.a> {
             this.a = bVar;
         }
 
-        @Override // c.a.r0.a.y0.f.a.InterfaceC0613a
+        @Override // c.a.r0.a.y0.f.a.InterfaceC0622a
         public void a(Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onMediaMetadataExtracted", bundle);
+            this.a.f9586b.onCallback(this.a, "onMediaMetadataExtracted", bundle);
         }
 
-        @Override // c.a.r0.a.y0.f.a.InterfaceC0613a
+        @Override // c.a.r0.a.y0.f.a.InterfaceC0622a
         public void onRelease() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b = null;
+            this.a.f9586b = null;
         }
     }
 
@@ -75,7 +75,7 @@ public class b extends c.a.r0.a.y0.b<c.a.r0.a.y0.f.a> {
                 return;
             }
         }
-        ((c.a.r0.a.y0.f.a) this.f9801c).w(new a(this));
+        ((c.a.r0.a.y0.f.a) this.f9587c).w(new a(this));
         this.a.a(new c.a.r0.a.y0.f.d.a());
         this.a.a(new c.a.r0.a.y0.f.d.b());
     }

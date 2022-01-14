@@ -142,7 +142,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SmartAppBrowseHistoryActivity f49030e;
+        public final /* synthetic */ SmartAppBrowseHistoryActivity f47193e;
 
         public c(SmartAppBrowseHistoryActivity smartAppBrowseHistoryActivity) {
             Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49030e = smartAppBrowseHistoryActivity;
+            this.f47193e = smartAppBrowseHistoryActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -171,7 +171,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                     if (m.isEmpty(smartApp.h5_url)) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(this.f49030e.getPageContext(), new String[]{smartApp.h5_url});
+                    UrlManager.getInstance().dealOneLink(this.f47193e.getPageContext(), new String[]{smartApp.h5_url});
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -180,8 +180,8 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                 statisticItem.param("obj_name", smartApp.name);
                 statisticItem.param("obj_param1", smartApp.is_game.intValue());
                 TiebaStatic.log(statisticItem);
-                if (this.f49030e.mAdapter != null) {
-                    this.f49030e.mAdapter.moveItemToHead(smartApp);
+                if (this.f47193e.mAdapter != null) {
+                    this.f47193e.mAdapter.moveItemToHead(smartApp);
                 }
             }
         }
@@ -193,7 +193,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SmartAppBrowseHistoryActivity f49031e;
+        public final /* synthetic */ SmartAppBrowseHistoryActivity f47194e;
 
         public d(SmartAppBrowseHistoryActivity smartAppBrowseHistoryActivity) {
             Interceptable interceptable = $ic;
@@ -210,7 +210,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49031e = smartAppBrowseHistoryActivity;
+            this.f47194e = smartAppBrowseHistoryActivity;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -220,13 +220,13 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
                 if (view.getTag() instanceof SmartApp) {
                     SmartApp smartApp = (SmartApp) view.getTag();
-                    if (this.f49031e.mHistoryRecordMoreDialog == null) {
-                        this.f49031e.mHistoryRecordMoreDialog = new j(this.f49031e.getPageContext());
-                        this.f49031e.mHistoryRecordMoreDialog.e();
-                        this.f49031e.mHistoryRecordMoreDialog.f(this.f49031e.mItemMoreDialogCallBack);
+                    if (this.f47194e.mHistoryRecordMoreDialog == null) {
+                        this.f47194e.mHistoryRecordMoreDialog = new j(this.f47194e.getPageContext());
+                        this.f47194e.mHistoryRecordMoreDialog.e();
+                        this.f47194e.mHistoryRecordMoreDialog.f(this.f47194e.mItemMoreDialogCallBack);
                     }
-                    this.f49031e.mHistoryRecordMoreDialog.d(smartApp);
-                    this.f49031e.mHistoryRecordMoreDialog.g();
+                    this.f47194e.mHistoryRecordMoreDialog.d(smartApp);
+                    this.f47194e.mHistoryRecordMoreDialog.g();
                     return true;
                 }
                 return false;
@@ -241,7 +241,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SmartAppBrowseHistoryActivity f49032e;
+        public final /* synthetic */ SmartAppBrowseHistoryActivity f47195e;
 
         public e(SmartAppBrowseHistoryActivity smartAppBrowseHistoryActivity) {
             Interceptable interceptable = $ic;
@@ -258,19 +258,19 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49032e = smartAppBrowseHistoryActivity;
+            this.f47195e = smartAppBrowseHistoryActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.A()) {
-                if (this.f49032e.mNetRefreshView != null) {
-                    this.f49032e.mNetRefreshView.dettachView(this.f49032e.mListContainer);
-                    this.f49032e.mNetRefreshView = null;
+                if (this.f47195e.mNetRefreshView != null) {
+                    this.f47195e.mNetRefreshView.dettachView(this.f47195e.mListContainer);
+                    this.f47195e.mNetRefreshView = null;
                 }
-                this.f49032e.loadData();
-                this.f49032e.mRecyclerView.setVisibility(0);
+                this.f47195e.loadData();
+                this.f47195e.mRecyclerView.setVisibility(0);
             }
         }
     }
@@ -281,7 +281,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SmartAppBrowseHistoryActivity f49033e;
+        public final /* synthetic */ SmartAppBrowseHistoryActivity f47196e;
 
         public f(SmartAppBrowseHistoryActivity smartAppBrowseHistoryActivity) {
             Interceptable interceptable = $ic;
@@ -298,14 +298,14 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49033e = smartAppBrowseHistoryActivity;
+            this.f47196e = smartAppBrowseHistoryActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && !q.a() && l.A()) {
-                this.f49033e.loadData();
+                this.f47196e.loadData();
             }
         }
     }

@@ -18,25 +18,25 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25375b;
+    public int f24664b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MultiMediaData f25376c;
+    public MultiMediaData f24665c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f25377d;
+    public float f24666d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f25378e;
+    public boolean f24667e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25379f;
+    public String f24668f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f25380g;
+    public boolean f24669g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Buffer f25381h;
+    public Buffer f24670h;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -45,34 +45,32 @@ public class b {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f25382b;
+        public int f24671b;
 
         /* renamed from: c  reason: collision with root package name */
-        public MultiMediaData f25383c;
+        public MultiMediaData f24672c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<LocalAlbumInfo> f25384d;
+        public List<LocalAlbumInfo> f24673d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f25385e;
+        public float f24674e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f25386f;
+        public String f24675f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f25387g;
+        public boolean f24676g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f25388h;
+        public boolean f24677h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f25389i;
+        public String f24678i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f25390j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public Buffer f25391k;
+        public boolean f24679j;
+        public Buffer k;
         public long l;
 
         public a() {
@@ -89,11 +87,11 @@ public class b {
                 }
             }
             this.a = RecordConstants.VIDEO_CONSTANT_WIDTH;
-            this.f25382b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
-            this.f25385e = 0.0f;
-            this.f25387g = false;
-            this.f25388h = false;
-            this.f25390j = false;
+            this.f24671b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+            this.f24674e = 0.0f;
+            this.f24676g = false;
+            this.f24677h = false;
+            this.f24679j = false;
         }
 
         public b m() {
@@ -106,7 +104,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer)) == null) {
-                this.f25391k = buffer;
+                this.k = buffer;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -116,7 +114,7 @@ public class b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f25382b = i2;
+                this.f24671b = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -126,7 +124,7 @@ public class b {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f25390j = z;
+                this.f24679j = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -136,7 +134,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, multiMediaData)) == null) {
-                this.f25383c = multiMediaData;
+                this.f24672c = multiMediaData;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -146,7 +144,7 @@ public class b {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f2)) == null) {
-                this.f25385e = f2;
+                this.f24674e = f2;
                 return this;
             }
             return (a) invokeF.objValue;
@@ -156,7 +154,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f25389i = str;
+                this.f24678i = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -189,16 +187,16 @@ public class b {
             }
         }
         this.a = aVar.a;
-        this.f25375b = aVar.f25382b;
-        this.f25377d = aVar.f25385e;
-        String unused = aVar.f25386f;
-        this.f25376c = aVar.f25383c;
-        List unused2 = aVar.f25384d;
-        this.f25378e = aVar.f25387g;
-        boolean unused3 = aVar.f25388h;
-        this.f25379f = aVar.f25389i;
-        this.f25380g = aVar.f25390j;
-        this.f25381h = aVar.f25391k;
+        this.f24664b = aVar.f24671b;
+        this.f24666d = aVar.f24674e;
+        String unused = aVar.f24675f;
+        this.f24665c = aVar.f24672c;
+        List unused2 = aVar.f24673d;
+        this.f24667e = aVar.f24676g;
+        boolean unused3 = aVar.f24677h;
+        this.f24668f = aVar.f24678i;
+        this.f24669g = aVar.f24679j;
+        this.f24670h = aVar.k;
         long unused4 = aVar.l;
     }
 }

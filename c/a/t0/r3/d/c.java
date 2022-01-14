@@ -13,9 +13,6 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,13 +27,13 @@ public class c implements c.a.t0.r3.b.a {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.t0.r3.b.c f22485b;
+    public final c.a.t0.r3.b.c f21868b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.s0.b1.a f22486c;
+    public c.a.s0.b1.a f21869c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Runnable f22487d;
+    public final Runnable f21870d;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -44,7 +41,7 @@ public class c implements c.a.t0.r3.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f22488e;
+        public final /* synthetic */ c f21871e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -61,14 +58,14 @@ public class c implements c.a.t0.r3.b.a {
                     return;
                 }
             }
-            this.f22488e = cVar;
+            this.f21871e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f22488e.f22485b.a();
+                this.f21871e.f21868b.a();
                 BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", "true");
             }
         }
@@ -89,16 +86,16 @@ public class c implements c.a.t0.r3.b.a {
                 return;
             }
         }
-        this.f22487d = new a(this);
+        this.f21870d = new a(this);
         this.a = bVar;
-        this.f22485b = cVar;
+        this.f21868b = cVar;
     }
 
     @Override // c.a.t0.r3.b.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.s0.b1.a aVar = this.f22486c;
+            c.a.s0.b1.a aVar = this.f21869c;
             if (aVar != null) {
                 aVar.release();
             }
@@ -118,11 +115,10 @@ public class c implements c.a.t0.r3.b.a {
                 return false;
             }
             c.a.s0.b1.a aVar = (c.a.s0.b1.a) runTask.getData();
-            this.f22486c = aVar;
-            aVar.b(new b(this.a, this.f22485b, this));
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 2).param("obj_locate", 2).param("obj_type", "a064"));
+            this.f21869c = aVar;
+            aVar.b(new b(this.a, this.f21868b, this));
             f();
-            this.f22486c.a();
+            this.f21869c.a();
             l.b().j(System.currentTimeMillis() - currentTimeMillis);
             return true;
         }
@@ -132,7 +128,7 @@ public class c implements c.a.t0.r3.b.a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            e.a().removeCallbacks(this.f22487d);
+            e.a().removeCallbacks(this.f21870d);
         }
     }
 
@@ -140,7 +136,7 @@ public class c implements c.a.t0.r3.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.s0.b1.a aVar = this.f22486c;
+            c.a.s0.b1.a aVar = this.f21869c;
             if (aVar != null) {
                 return aVar.getView();
             }
@@ -152,8 +148,8 @@ public class c implements c.a.t0.r3.b.a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int k2 = c.a.s0.s.g0.b.j().k("video_splash_timeout", 1);
-            e.a().postDelayed(this.f22487d, (k2 > 0 ? k2 : 1) * 1000);
+            int l = c.a.s0.s.h0.b.k().l("video_splash_timeout", 1);
+            e.a().postDelayed(this.f21870d, (l > 0 ? l : 1) * 1000);
         }
     }
 
@@ -161,24 +157,24 @@ public class c implements c.a.t0.r3.b.a {
     public void onConfigurationChanged(Configuration configuration) {
         c.a.s0.b1.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, configuration) == null) || (aVar = this.f22486c) == null || aVar.getView() == null || this.f22486c.getView().getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, configuration) == null) || (aVar = this.f21869c) == null || aVar.getView() == null || this.f21869c.getView().getParent() == null) {
             return;
         }
         boolean z = false;
-        if (this.f22486c.getView() != null) {
-            if (this.f22486c.getView().getHeight() == n.i(this.a.getActivity())) {
+        if (this.f21869c.getView() != null) {
+            if (this.f21869c.getView().getHeight() == n.i(this.a.getActivity())) {
                 z = true;
             }
         }
-        int k2 = n.k(this.a.getActivity());
+        int k = n.k(this.a.getActivity());
         int i2 = n.i(this.a.getActivity());
         if (!z) {
             i2 = (int) (n.i(this.a.getActivity()) * 0.8125d);
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f22486c.getView().getLayoutParams();
-        layoutParams.width = k2;
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f21869c.getView().getLayoutParams();
+        layoutParams.width = k;
         layoutParams.height = i2;
-        this.f22486c.getView().setLayoutParams(layoutParams);
+        this.f21869c.getView().setLayoutParams(layoutParams);
     }
 
     @Override // c.a.t0.r3.b.a

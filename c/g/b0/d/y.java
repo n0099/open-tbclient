@@ -15,10 +15,10 @@ public class y implements KsAppDownloadListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f29260e;
+    public Button f28368e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29261f;
+    public String f28369f;
 
     public y(String str, Button button) {
         Interceptable interceptable = $ic;
@@ -35,18 +35,18 @@ public class y implements KsAppDownloadListener {
                 return;
             }
         }
-        this.f29261f = str;
-        this.f29260e = button;
+        this.f28369f = str;
+        this.f28368e = button;
     }
 
     @Override // com.kwad.sdk.api.KsAppDownloadListener
     public void onDownloadFailed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (TextUtils.isEmpty(this.f29261f)) {
-                this.f29260e.setText(R.string.fun_ad_interaction_type_download);
+            if (TextUtils.isEmpty(this.f28369f)) {
+                this.f28368e.setText(R.string.fun_ad_interaction_type_download);
             } else {
-                this.f29260e.setText(this.f29261f);
+                this.f28368e.setText(this.f28369f);
             }
         }
     }
@@ -55,7 +55,7 @@ public class y implements KsAppDownloadListener {
     public void onDownloadFinished() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f29260e.setText(R.string.fun_ad_interaction_type_install);
+            this.f28368e.setText(R.string.fun_ad_interaction_type_install);
         }
     }
 
@@ -70,10 +70,10 @@ public class y implements KsAppDownloadListener {
     public void onIdle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (TextUtils.isEmpty(this.f29261f)) {
-                this.f29260e.setText(R.string.fun_ad_interaction_type_download);
+            if (TextUtils.isEmpty(this.f28369f)) {
+                this.f28368e.setText(R.string.fun_ad_interaction_type_download);
             } else {
-                this.f29260e.setText(this.f29261f);
+                this.f28368e.setText(this.f28369f);
             }
         }
     }
@@ -82,7 +82,7 @@ public class y implements KsAppDownloadListener {
     public void onInstalled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f29260e.setText(R.string.fun_ad_interaction_type_open);
+            this.f28368e.setText(R.string.fun_ad_interaction_type_open);
         }
     }
 
@@ -90,7 +90,7 @@ public class y implements KsAppDownloadListener {
     public void onProgressUpdate(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            Button button = this.f29260e;
+            Button button = this.f28368e;
             button.setText(button.getContext().getResources().getString(R.string.fun_ad_interaction_type_downloading, String.format("%s/100", Integer.valueOf(i2))));
         }
     }

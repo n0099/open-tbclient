@@ -3,8 +3,8 @@ package c.a.t0.q1.l;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import c.a.s0.s.q.b1;
-import c.a.s0.s.q.c2;
 import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.r1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -23,7 +23,7 @@ import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.Hottopic.HotThread;
 import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
-public class d extends d2 {
+public class d extends e2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<c.a.t0.g0.f0.b> f4;
@@ -56,10 +56,10 @@ public class d extends d2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             for (ThreadInfo threadInfo : list) {
-                d2 d2Var = new d2();
-                d2Var.c3(threadInfo);
-                d2Var.J1();
-                this.j4.add(d2Var);
+                e2 e2Var = new e2();
+                e2Var.c3(threadInfo);
+                e2Var.J1();
+                this.j4.add(e2Var);
             }
         }
     }
@@ -75,87 +75,87 @@ public class d extends d2 {
             int i2 = 0;
             while (it.hasNext()) {
                 c.a.d.n.e.n next = it.next();
-                if (next instanceof d2) {
-                    d2 d2Var = (d2) next;
-                    int[] h0 = d2Var.h0();
-                    if (d2Var.getType() == d2.i3) {
-                        c2 c2Var = new c2();
-                        c2Var.w = d2Var;
-                        c2Var.position = i2;
-                        c2Var.f13640e = true;
-                        arrayList2.add(c2Var);
-                        c2 c2Var2 = new c2();
-                        c2Var2.w = d2Var;
-                        c2Var2.position = i2;
-                        if (d2Var.Q1()) {
-                            c2Var2.f13645j = true;
-                        } else if (d2Var.h3() == 1) {
-                            c2Var2.f13643h = true;
-                            c2Var2.x = h0[0];
-                            c2Var2.y = h0[1];
-                        } else if (d2Var.h3() >= 2) {
-                            c2Var2.f13644i = true;
-                        } else {
-                            c2Var2.f13641f = true;
-                        }
-                        arrayList2.add(c2Var2);
-                        if (d2Var.t0() != null) {
-                            c2 c2Var3 = new c2();
-                            c2Var3.r = true;
-                            c2Var3.w = d2Var;
-                            c2Var3.position = i2;
-                            arrayList2.add(c2Var3);
-                        }
-                        c2 c2Var4 = new c2();
-                        c2Var4.q = true;
-                        c2Var4.w = d2Var;
-                        c2Var4.position = i2;
-                        arrayList2.add(c2Var4);
-                        c2 c2Var5 = new c2();
-                        c2Var5.f13646k = true;
-                        c2Var5.w = d2Var;
-                        c2Var5.position = i2;
-                        arrayList2.add(c2Var5);
-                    } else if (d2Var.getType() == d2.G3) {
-                        c2 c2Var6 = new c2();
-                        c2Var6.w = d2Var;
-                        c2Var6.position = i2;
-                        c2Var6.f13640e = true;
-                        arrayList2.add(c2Var6);
-                        c2 c2Var7 = new c2();
-                        c2Var7.w = d2Var;
-                        c2Var7.position = i2;
-                        c2Var7.m = true;
-                        arrayList2.add(c2Var7);
-                        if (d2Var.t0() != null) {
-                            c2 c2Var8 = new c2();
-                            c2Var8.r = true;
-                            c2Var8.w = d2Var;
-                            c2Var8.position = i2;
-                            arrayList2.add(c2Var8);
-                        }
-                        c2 c2Var9 = new c2();
-                        c2Var9.q = true;
-                        c2Var9.w = d2Var;
-                        c2Var9.position = i2;
-                        arrayList2.add(c2Var9);
-                        c2 c2Var10 = new c2();
-                        c2Var10.f13646k = true;
-                        c2Var10.w = d2Var;
-                        c2Var10.position = i2;
-                        arrayList2.add(c2Var10);
-                    } else if (d2Var.getType() == d2.y3 && d2Var.P1()) {
+                if (next instanceof e2) {
+                    e2 e2Var = (e2) next;
+                    int[] h0 = e2Var.h0();
+                    if (e2Var.getType() == e2.i3) {
+                        d2 d2Var = new d2();
+                        d2Var.w = e2Var;
                         d2Var.position = i2;
+                        d2Var.f13343e = true;
                         arrayList2.add(d2Var);
-                    } else if (c.a.t0.g0.f0.j.Y(d2Var)) {
-                        c.a.t0.g0.f0.j jVar = new c.a.t0.g0.f0.j(d2Var);
-                        jVar.l = d2Var.v1();
+                        d2 d2Var2 = new d2();
+                        d2Var2.w = e2Var;
+                        d2Var2.position = i2;
+                        if (e2Var.Q1()) {
+                            d2Var2.f13348j = true;
+                        } else if (e2Var.h3() == 1) {
+                            d2Var2.f13346h = true;
+                            d2Var2.x = h0[0];
+                            d2Var2.y = h0[1];
+                        } else if (e2Var.h3() >= 2) {
+                            d2Var2.f13347i = true;
+                        } else {
+                            d2Var2.f13344f = true;
+                        }
+                        arrayList2.add(d2Var2);
+                        if (e2Var.t0() != null) {
+                            d2 d2Var3 = new d2();
+                            d2Var3.r = true;
+                            d2Var3.w = e2Var;
+                            d2Var3.position = i2;
+                            arrayList2.add(d2Var3);
+                        }
+                        d2 d2Var4 = new d2();
+                        d2Var4.q = true;
+                        d2Var4.w = e2Var;
+                        d2Var4.position = i2;
+                        arrayList2.add(d2Var4);
+                        d2 d2Var5 = new d2();
+                        d2Var5.k = true;
+                        d2Var5.w = e2Var;
+                        d2Var5.position = i2;
+                        arrayList2.add(d2Var5);
+                    } else if (e2Var.getType() == e2.G3) {
+                        d2 d2Var6 = new d2();
+                        d2Var6.w = e2Var;
+                        d2Var6.position = i2;
+                        d2Var6.f13343e = true;
+                        arrayList2.add(d2Var6);
+                        d2 d2Var7 = new d2();
+                        d2Var7.w = e2Var;
+                        d2Var7.position = i2;
+                        d2Var7.m = true;
+                        arrayList2.add(d2Var7);
+                        if (e2Var.t0() != null) {
+                            d2 d2Var8 = new d2();
+                            d2Var8.r = true;
+                            d2Var8.w = e2Var;
+                            d2Var8.position = i2;
+                            arrayList2.add(d2Var8);
+                        }
+                        d2 d2Var9 = new d2();
+                        d2Var9.q = true;
+                        d2Var9.w = e2Var;
+                        d2Var9.position = i2;
+                        arrayList2.add(d2Var9);
+                        d2 d2Var10 = new d2();
+                        d2Var10.k = true;
+                        d2Var10.w = e2Var;
+                        d2Var10.position = i2;
+                        arrayList2.add(d2Var10);
+                    } else if (e2Var.getType() == e2.y3 && e2Var.P1()) {
+                        e2Var.position = i2;
+                        arrayList2.add(e2Var);
+                    } else if (c.a.t0.g0.f0.j.Y(e2Var)) {
+                        c.a.t0.g0.f0.j jVar = new c.a.t0.g0.f0.j(e2Var);
+                        jVar.l = e2Var.v1();
                         arrayList2.add(jVar);
                     } else {
-                        c2 c2Var11 = new c2();
-                        c2Var11.w = d2Var;
-                        c2Var11.position = i2;
-                        arrayList2.add(c2Var11);
+                        d2 d2Var11 = new d2();
+                        d2Var11.w = e2Var;
+                        d2Var11.position = i2;
+                        arrayList2.add(d2Var11);
                     }
                 } else if (next instanceof BaseCardInfo) {
                     ((BaseCardInfo) next).position = i2;
@@ -201,7 +201,7 @@ public class d extends d2 {
             if (i2 >= size) {
                 break;
             }
-            if (arrayList.get(i2) instanceof d2) {
+            if (arrayList.get(i2) instanceof e2) {
                 if (r1Var.floorPosition == i3) {
                     ListUtils.add(arrayList, i2, r1Var);
                     break;
@@ -225,15 +225,15 @@ public class d extends d2 {
             this.f4 = new ArrayList();
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 if (threadInfo != null) {
-                    d2 d2Var = new d2();
-                    d2Var.c3(threadInfo);
-                    d2Var.s4(5);
+                    e2 e2Var = new e2();
+                    e2Var.c3(threadInfo);
+                    e2Var.s4(5);
                     c.a.t0.g0.f0.b bVar = null;
-                    if (c.a.t0.g0.f0.l.T(d2Var)) {
-                        bVar = new c.a.t0.g0.f0.l(d2Var);
-                    } else if (c.a.t0.g0.f0.k.Y(d2Var)) {
+                    if (c.a.t0.g0.f0.l.T(e2Var)) {
+                        bVar = new c.a.t0.g0.f0.l(e2Var);
+                    } else if (c.a.t0.g0.f0.k.Y(e2Var)) {
                         bVar = new c.a.t0.g0.f0.k();
-                        bVar.f18222e = d2Var;
+                        bVar.f17778e = e2Var;
                     }
                     if (bVar != null && bVar.isValid()) {
                         bVar.N("c10816");
@@ -261,18 +261,18 @@ public class d extends d2 {
             this.f4 = new ArrayList();
             for (ThreadInfo threadInfo : hotThread.thread_list) {
                 if (threadInfo != null) {
-                    d2 d2Var = new d2();
-                    d2Var.c3(threadInfo);
-                    d2Var.s4(5);
+                    e2 e2Var = new e2();
+                    e2Var.c3(threadInfo);
+                    e2Var.s4(5);
                     c.a.t0.g0.f0.b bVar = null;
-                    if (d2Var.B1) {
+                    if (e2Var.A1) {
                         bVar = new c.a.t0.g0.f0.k();
-                        bVar.f18222e = d2Var;
-                    } else if (c.a.t0.g0.f0.l.T(d2Var)) {
-                        bVar = new c.a.t0.g0.f0.l(d2Var);
-                    } else if (c.a.t0.g0.f0.k.Y(d2Var)) {
+                        bVar.f17778e = e2Var;
+                    } else if (c.a.t0.g0.f0.l.T(e2Var)) {
+                        bVar = new c.a.t0.g0.f0.l(e2Var);
+                    } else if (c.a.t0.g0.f0.k.Y(e2Var)) {
                         bVar = new c.a.t0.g0.f0.k();
-                        bVar.f18222e = d2Var;
+                        bVar.f17778e = e2Var;
                     }
                     if (bVar != null && bVar.isValid()) {
                         bVar.N("c10816");

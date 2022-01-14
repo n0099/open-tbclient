@@ -122,7 +122,7 @@ public class a {
                 statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().q);
             }
             if (!fVar.g0()) {
-                int i5 = fVar.f23039g;
+                int i5 = fVar.f22406g;
                 if (i5 == 2) {
                     i4 = 1;
                 } else if (i5 == 1) {
@@ -196,9 +196,9 @@ public class a {
         }
         StatisticItem statisticItem = new StatisticItem("common_click");
         if (aVar.getThreadData().Z() != null) {
-            statisticItem.param("obj_type", j(aVar.getThreadData().Z().f13872j));
+            statisticItem.param("obj_type", j(aVar.getThreadData().Z().f13281j));
         }
-        statisticItem.param("obj_locate", aVar.getThreadData().M2);
+        statisticItem.param("obj_locate", aVar.getThreadData().L2);
         statisticItem.param("tid", aVar.getThreadData().v1());
         statisticItem.param("fid", aVar.getThreadData().U());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -217,7 +217,7 @@ public class a {
         }
         StatisticItem statisticItem = new StatisticItem("common_exp");
         if (aVar.getThreadData().Z() != null) {
-            statisticItem.param("obj_type", j(aVar.getThreadData().Z().f13872j));
+            statisticItem.param("obj_type", j(aVar.getThreadData().Z().f13281j));
         }
         statisticItem.param("tid", aVar.getThreadData().v1());
         statisticItem.param("fid", aVar.getThreadData().U());

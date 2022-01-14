@@ -13,38 +13,36 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f13106j = 1;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static int f13107k = 2;
+    public static int f12785j = 1;
+    public static int k = 2;
     public static int l = 3;
     public static int m = 4;
     public transient /* synthetic */ FieldHolder $fh;
     public Fragment a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13108b;
+    public int f12786b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13109c;
+    public String f12787c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13110d;
+    public int f12788d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13111e;
+    public int f12789e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13112f;
+    public int f12790f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13113g;
+    public String f12791g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.s0.i0.e.a f13114h;
+    public c.a.s0.i0.e.a f12792h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13115i;
+    public int f12793i;
 
     static {
         InterceptResult invokeClinit;
@@ -74,6 +72,6 @@ public class c {
                 return;
             }
         }
-        this.f13115i = f13106j;
+        this.f12793i = f12785j;
     }
 }

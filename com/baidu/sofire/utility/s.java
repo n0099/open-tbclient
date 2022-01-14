@@ -26,15 +26,15 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f39858b;
+    public static final byte[] f38538b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static OkHttpClient f39859c;
+    public static OkHttpClient f38539c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -51,7 +51,7 @@ public class s {
                 return;
             }
         }
-        f39858b = new byte[1024];
+        f38538b = new byte[1024];
     }
 
     public s(Context context) {
@@ -76,9 +76,9 @@ public class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (f39859c == null) {
+            if (f38539c == null) {
                 synchronized (s.class) {
-                    if (f39859c == null) {
+                    if (f38539c == null) {
                         OkHttpClient.Builder builder = new OkHttpClient.Builder();
                         builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
                         builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
@@ -118,11 +118,11 @@ public class s {
                                 return (Response) invokeL.objValue;
                             }
                         });
-                        f39859c = builder.build();
+                        f38539c = builder.build();
                     }
                 }
             }
-            return f39859c;
+            return f38539c;
         }
         return (OkHttpClient) invokeV.objValue;
     }
@@ -207,9 +207,9 @@ public class s {
         try {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
             while (true) {
-                int read = inputStream.read(f39858b);
+                int read = inputStream.read(f38538b);
                 if (read != -1) {
-                    bufferedOutputStream.write(f39858b, 0, read);
+                    bufferedOutputStream.write(f38538b, 0, read);
                     bufferedOutputStream.flush();
                 } else {
                     bufferedOutputStream.flush();

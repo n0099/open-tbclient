@@ -106,8 +106,8 @@ public class ThreadDelegateStatic extends b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
             cVar.a = ThreadFragment.newInstance();
-            cVar.f13111e = 1;
-            cVar.f13108b = R.string.collect_thread;
+            cVar.f12789e = 1;
+            cVar.f12786b = R.string.collect_thread;
             return cVar;
         }
         return (c) invokeV.objValue;

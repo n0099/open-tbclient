@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.PushManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VersionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VersionUtils";

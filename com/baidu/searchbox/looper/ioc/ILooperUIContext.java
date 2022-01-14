@@ -1,5 +1,5 @@
 package com.baidu.searchbox.looper.ioc;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ILooperUIContext {
     boolean displayNotification();
 }

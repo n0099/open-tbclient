@@ -26,10 +26,10 @@ public class k extends z {
         public final /* synthetic */ c.a.r0.a.h2.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7260b;
+        public final /* synthetic */ CallbackHandler f7104b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f7261c;
+        public final /* synthetic */ String f7105c;
 
         public a(k kVar, c.a.r0.a.h2.a aVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class k extends z {
                 }
             }
             this.a = aVar;
-            this.f7260b = callbackHandler;
-            this.f7261c = str;
+            this.f7104b = callbackHandler;
+            this.f7105c = str;
         }
 
         @Override // c.a.r0.a.h2.a.j
@@ -56,7 +56,7 @@ public class k extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.F(this);
-                c.a.r0.a.u.e.k.c.L(this.f7260b, this.f7261c);
+                c.a.r0.a.u.e.k.c.L(this.f7104b, this.f7105c);
             }
         }
     }
@@ -91,7 +91,7 @@ public class k extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             } else if (eVar.m0()) {
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {

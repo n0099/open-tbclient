@@ -1,103 +1,180 @@
 package c.a.t0.d1.z2;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import c.a.t0.d1.c1;
-import c.a.t0.d1.d1;
-import c.a.t0.d1.i1;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes7.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public NavigationBarCoverTip f17458b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f17459c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f17460d;
-
-    public m(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, navigationBarCoverTip};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            try {
+                SharedPreferences.Editor edit = c().edit();
+                edit.clear();
+                edit.commit();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
-        this.a = frsFragment;
-        this.f17458b = navigationBarCoverTip;
-        b();
     }
 
-    public void a(String str) {
-        int i2;
-        String str2;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || c.a.d.f.p.m.isEmpty(str) || this.f17458b == null || !this.a.isPrimary() || (i2 = this.f17460d) > 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
         }
-        this.f17460d = i2 + 1;
-        if (str.length() < 20) {
-            str2 = this.a.getResources().getString(i1.forum_ueg_tip) + StringUtils.LF + str;
-        } else if (str.length() < 34) {
-            str2 = this.a.getResources().getString(i1.forum_ueg_tip) + str;
-        } else {
-            str2 = this.a.getResources().getString(i1.forum_ueg_tip) + str.substring(0, 34);
-        }
-        this.f17459c.setText(str2);
-        SkinManager.setViewTextColor(this.f17459c, c1.CAM_X0101);
-        SkinManager.setBackgroundColor(this.f17458b, c1.cp_link_tip_a_alpha95);
-        this.f17458b.showTip(this.a.getActivity(), this.f17459c, 5000);
+        return (String) invokeV.objValue;
     }
 
-    public final void b() {
+    public static SharedPreferences c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f17460d = 0;
-            this.f17459c = new TextView(this.a.getActivity());
-            this.f17459c.setLayoutParams(new LinearLayout.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(d1.tbds112)));
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.f17459c.setPadding(this.a.getResources().getDimensionPixelSize(d1.ds34), this.a.getResources().getDimensionPixelSize(d1.ds1), this.a.getResources().getDimensionPixelSize(d1.ds34), 0);
-                this.f17459c.setGravity(3);
-            } else {
-                this.f17459c.setPadding(this.a.getResources().getDimensionPixelSize(d1.ds34), 0, this.a.getResources().getDimensionPixelSize(d1.ds34), 0);
-                this.f17459c.setGravity(19);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences(b(), 0) : (SharedPreferences) invokeV.objValue;
+    }
+
+    public static int d(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 != 5) {
+                        if (i2 != 6) {
+                            if (i2 != 7) {
+                                return i2 != 8 ? -1 : 4;
+                            }
+                            return 3;
+                        }
+                        return 2;
+                    }
+                    return 0;
+                }
+                return 1;
             }
-            this.f17459c.setTextSize(0, this.a.getResources().getDimensionPixelSize(d1.ds28));
-            this.f17459c.setLineSpacing(this.a.getResources().getDimensionPixelSize(d1.ds2), 1.0f);
-            this.f17459c.setMaxLines(2);
-            this.f17459c.setEllipsize(TextUtils.TruncateAt.END);
+            return 0;
         }
+        return invokeI.intValue;
     }
 
-    public void c() {
-        NavigationBarCoverTip navigationBarCoverTip;
+    public static int e(int i2, FrsRequestData frsRequestData) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (navigationBarCoverTip = this.f17458b) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, frsRequestData)) == null) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 != 5) {
+                        if (i2 != 6) {
+                            if (i2 != 7) {
+                                if (i2 == 8 && frsRequestData != null) {
+                                    frsRequestData.setSortType(4);
+                                    frsRequestData.K(0);
+                                }
+                            } else if (frsRequestData != null) {
+                                frsRequestData.setSortType(3);
+                                frsRequestData.K(0);
+                            }
+                        } else if (frsRequestData != null) {
+                            frsRequestData.setSortType(2);
+                            frsRequestData.K(0);
+                        }
+                    } else if (frsRequestData != null) {
+                        frsRequestData.setSortType(0);
+                        frsRequestData.K(1);
+                    }
+                } else if (frsRequestData != null) {
+                    frsRequestData.setSortType(1);
+                    frsRequestData.K(0);
+                }
+            } else if (frsRequestData != null) {
+                frsRequestData.setSortType(0);
+                frsRequestData.K(0);
+            }
+            return 1;
+        }
+        return invokeIL.intValue;
+    }
+
+    public static int f(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            return i2 != 4 ? -1 : 8;
+                        }
+                        return 7;
+                    }
+                    return 6;
+                }
+                return 3;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int g(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 == 3) {
+                            return 1;
+                        }
+                        if (i2 != 4) {
+                            return -1;
+                        }
+                    }
+                    return 4;
+                }
+                return 3;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return -1;
+            }
+            try {
+                return c().getInt(str, -1);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static void i(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65544, null, str, i2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        navigationBarCoverTip.onDestroy();
+        try {
+            SharedPreferences.Editor edit = c().edit();
+            edit.putInt(str, i2);
+            edit.apply();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
     }
 }

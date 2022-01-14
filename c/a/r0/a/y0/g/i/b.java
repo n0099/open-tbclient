@@ -14,16 +14,16 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f9840b;
+    public long f9626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9841c;
+    public String f9627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9842d;
+    public String f9628d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9843e;
+    public String f9629e;
 
     public b(String str, long j2, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
@@ -41,23 +41,23 @@ public class b {
             }
         }
         this.a = str;
-        this.f9840b = j2;
-        this.f9841c = str2;
-        this.f9842d = str3;
-        this.f9843e = str4;
+        this.f9626b = j2;
+        this.f9627c = str2;
+        this.f9628d = str3;
+        this.f9629e = str4;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f9841c) || TextUtils.isEmpty(this.f9842d) || TextUtils.isEmpty(this.f9843e) || !c.a.r0.a.y0.g.g.a.a(this.f9840b)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f9627c) || TextUtils.isEmpty(this.f9628d) || TextUtils.isEmpty(this.f9629e) || !c.a.r0.a.y0.g.g.a.a(this.f9626b)) ? false : true : invokeV.booleanValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "roomName=" + this.a + ";localUserId=" + this.f9840b + ";displayName=" + this.f9841c + ";rtcAppId=" + this.f9842d + ";token=" + this.f9843e;
+            return "roomName=" + this.a + ";localUserId=" + this.f9626b + ";displayName=" + this.f9627c + ";rtcAppId=" + this.f9628d + ";token=" + this.f9629e;
         }
         return (String) invokeV.objValue;
     }

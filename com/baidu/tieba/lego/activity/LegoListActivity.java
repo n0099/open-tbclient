@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentTransaction;
-import c.a.s0.e1.u0;
+import c.a.s0.e1.t0;
 import c.a.t0.j3.y;
 import c.a.t0.w3.w;
 import c.a.t0.x1.j;
@@ -127,10 +127,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47210e;
+        public final /* synthetic */ String f45462e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LegoListActivity f47211f;
+        public final /* synthetic */ LegoListActivity f45463f;
 
         public b(LegoListActivity legoListActivity, String str) {
             Interceptable interceptable = $ic;
@@ -147,17 +147,17 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                     return;
                 }
             }
-            this.f47211f = legoListActivity;
-            this.f47210e = str;
+            this.f45463f = legoListActivity;
+            this.f45462e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f47210e)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f45462e)) {
                 return;
             }
-            w.c(this.f47211f.getPageContext(), this.f47210e);
+            w.c(this.f45463f.getPageContext(), this.f45462e);
         }
     }
 
@@ -167,7 +167,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoListActivity f47212e;
+        public final /* synthetic */ LegoListActivity f45464e;
 
         public c(LegoListActivity legoListActivity) {
             Interceptable interceptable = $ic;
@@ -184,15 +184,15 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                     return;
                 }
             }
-            this.f47212e = legoListActivity;
+            this.f45464e = legoListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                LegoListActivity legoListActivity = this.f47212e;
-                if (view == legoListActivity.navigationBarViewHolder.f25895e) {
+                LegoListActivity legoListActivity = this.f45464e;
+                if (view == legoListActivity.navigationBarViewHolder.f25134e) {
                     legoListActivity.finish();
                 }
             }
@@ -463,9 +463,9 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             registerListener(this.mShowComponentViewListener);
             e eVar = new e();
             eVar.a = this.pageId;
-            eVar.f26021b = this.itemId;
-            eVar.f26023d = this.rn;
-            eVar.f26024e = this.params;
+            eVar.f25253b = this.itemId;
+            eVar.f25255d = this.rn;
+            eVar.f25256e = this.params;
             eVar.b();
             VoiceManager voiceManager = getVoiceManager();
             this.mVoiceManager = voiceManager;
@@ -576,7 +576,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             this.lastResumeTime = System.currentTimeMillis();
             WeakReference<Context> weakReference = new WeakReference<>(TbadkCoreApplication.getInst());
             this.weakContext = weakReference;
-            u0.f(weakReference, true);
+            t0.f(weakReference, true);
         }
     }
 
@@ -614,7 +614,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             if (voiceManager != null) {
                 voiceManager.onStop(getPageContext());
             }
-            u0.f(this.weakContext, false);
+            t0.f(this.weakContext, false);
         }
     }
 

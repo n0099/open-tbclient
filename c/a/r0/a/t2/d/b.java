@@ -33,7 +33,7 @@ public class b extends z {
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f9093b;
+        public final /* synthetic */ b f8895b;
 
         public a(b bVar, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class b extends z {
                     return;
                 }
             }
-            this.f9093b = bVar;
+            this.f8895b = bVar;
             this.a = callbackHandler;
         }
 
@@ -58,7 +58,7 @@ public class b extends z {
         public void a(String str, String str2, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                this.f9093b.k(str, str2, this.a, 0, jSONObject);
+                this.f8895b.k(str, str2, this.a, 0, jSONObject);
             }
         }
     }
@@ -89,7 +89,7 @@ public class b extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -125,7 +125,7 @@ public class b extends z {
             }
             c.a.r0.a.c0.b.c insert = new c.a.r0.a.c0.c.g.a(context, bVar, activity, o, new a(this, callbackHandler)).insert();
             if (!insert.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.f5427b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.f5313b);
                 return false;
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

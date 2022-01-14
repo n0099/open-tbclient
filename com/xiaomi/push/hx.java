@@ -22,7 +22,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public static final jg f603a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f63655b;
+    public static final iy f61262b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -49,7 +49,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         }
         f603a = new jg("XmPushActionCheckClientInfo");
         a = new iy("", (byte) 8, (short) 1);
-        f63655b = new iy("", (byte) 8, (short) 2);
+        f61262b = new iy("", (byte) 8, (short) 2);
     }
 
     public hx() {
@@ -78,11 +78,11 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hxVar)) == null) {
             if (hx.class.equals(hxVar.getClass())) {
-                int compareTo = Boolean.valueOf(m479a()).compareTo(Boolean.valueOf(hxVar.m479a()));
+                int compareTo = Boolean.valueOf(m491a()).compareTo(Boolean.valueOf(hxVar.m491a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m479a() || (a3 = ir.a(this.f604a, hxVar.f604a)) == 0) {
+                if (!m491a() || (a3 = ir.a(this.f604a, hxVar.f604a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hxVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -120,17 +120,17 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public void a(jb jbVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jbVar) == null) {
-            jbVar.m576a();
+            jbVar.m588a();
             while (true) {
-                iy m572a = jbVar.m572a();
-                byte b2 = m572a.a;
+                iy m584a = jbVar.m584a();
+                byte b2 = m584a.a;
                 if (b2 == 0) {
                     break;
                 }
-                short s = m572a.f815a;
+                short s = m584a.f815a;
                 if (s != 1) {
                     if (s == 2 && b2 == 8) {
-                        this.f606b = jbVar.m570a();
+                        this.f606b = jbVar.m582a();
                         b(true);
                         jbVar.g();
                     }
@@ -138,7 +138,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
                     jbVar.g();
                 } else {
                     if (b2 == 8) {
-                        this.f604a = jbVar.m570a();
+                        this.f604a = jbVar.m582a();
                         a(true);
                         jbVar.g();
                     }
@@ -147,7 +147,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
                 }
             }
             jbVar.f();
-            if (!m479a()) {
+            if (!m491a()) {
                 throw new jc("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
             } else if (b()) {
                 a();
@@ -165,14 +165,14 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m479a() {
+    public boolean m491a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f605a.get(0) : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m480a(hx hxVar) {
+    public boolean m492a(hx hxVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hxVar)) == null) ? hxVar != null && this.f604a == hxVar.f604a && this.f606b == hxVar.f606b : invokeL.booleanValue;
@@ -198,11 +198,11 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
             jbVar.a(a);
             jbVar.a(this.f604a);
             jbVar.b();
-            jbVar.a(f63655b);
+            jbVar.a(f61262b);
             jbVar.a(this.f606b);
             jbVar.b();
             jbVar.c();
-            jbVar.m580a();
+            jbVar.m592a();
         }
     }
 
@@ -224,7 +224,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
             if (obj != null && (obj instanceof hx)) {
-                return m480a((hx) obj);
+                return m492a((hx) obj);
             }
             return false;
         }

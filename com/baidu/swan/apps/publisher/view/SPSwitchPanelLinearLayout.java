@@ -25,7 +25,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.a.z1.i.b f40374e;
+    public c.a.r0.a.z1.i.b f39038e;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +67,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40374e = new c.a.r0.a.z1.i.b(this);
+            this.f39038e = new c.a.r0.a.z1.i.b(this);
         }
     }
 
@@ -75,7 +75,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f40374e.handleHide();
+            this.f39038e.handleHide();
         }
     }
 
@@ -90,13 +90,13 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public boolean isSoftInputShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40374e.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39038e.b() : invokeV.booleanValue;
     }
 
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40374e.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39038e.c() : invokeV.booleanValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -106,7 +106,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
             if (DEBUG) {
                 String str = "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i3);
             }
-            int[] d2 = this.f40374e.d(i2, i3);
+            int[] d2 = this.f39038e.d(i2, i3);
             if (DEBUG) {
                 String str2 = "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(d2[1]);
             }
@@ -118,7 +118,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f40374e.f(z);
+            this.f39038e.f(z);
         }
     }
 
@@ -126,14 +126,14 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public void refreshHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f40374e.e(i2);
+            this.f39038e.e(i2);
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f40374e.a(i2)) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f39038e.a(i2)) {
             return;
         }
         super.setVisibility(i2);

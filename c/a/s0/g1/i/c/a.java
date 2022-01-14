@@ -16,7 +16,7 @@ public class a {
     public final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f12923b;
+    public Context f12612b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a {
             }
         }
         this.a = new int[2];
-        this.f12923b = context;
+        this.f12612b = context;
     }
 
     public BitmapRegionDecoder a(byte[] bArr) throws IOException {

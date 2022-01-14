@@ -17,7 +17,7 @@ public final class a implements Runnable {
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ZeusPluginListener f55192b;
+    public ZeusPluginListener f53095b;
 
     public a(File file, ZeusPluginListener zeusPluginListener) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public final class a implements Runnable {
             }
         }
         this.a = file;
-        this.f55192b = zeusPluginListener;
+        this.f53095b = zeusPluginListener;
     }
 
     public final boolean a() {
@@ -48,19 +48,19 @@ public final class a implements Runnable {
                 Plugin plugin2 = PluginManager.getInstance().getPlugin(a.a);
                 if (plugin2 != null) {
                     z = plugin2.install(this.a, a);
-                    ZeusPluginListener zeusPluginListener = this.f55192b;
+                    ZeusPluginListener zeusPluginListener = this.f53095b;
                     if (zeusPluginListener != null) {
                         zeusPluginListener.onEvent(z ? 21 : 22, "install result = ".concat(String.valueOf(z)));
                     }
                 } else {
-                    ZeusPluginListener zeusPluginListener2 = this.f55192b;
+                    ZeusPluginListener zeusPluginListener2 = this.f53095b;
                     if (zeusPluginListener2 != null) {
                         zeusPluginListener2.onEvent(22, "cannot query valid plugin !!! packageName = " + a.a);
                     }
                     ZeusLogger.w(ZeusLogger.TAG_INSTALL, "PluginInstallRunnable cannot query valid plugin !!! packageName = " + a.a);
                 }
             } else {
-                ZeusPluginListener zeusPluginListener3 = this.f55192b;
+                ZeusPluginListener zeusPluginListener3 = this.f53095b;
                 if (zeusPluginListener3 != null) {
                     zeusPluginListener3.onEvent(22, "read local file package info failed !!!" + this.a.getAbsolutePath() + " exists:" + this.a.exists());
                 }

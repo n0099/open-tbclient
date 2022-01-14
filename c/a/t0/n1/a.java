@@ -16,7 +16,7 @@ public class a extends CustomMessageTask {
 
     /* renamed from: c.a.t0.n1.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1207a {
+    public static /* synthetic */ class C1221a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -48,9 +48,9 @@ public class a extends CustomMessageTask {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof d)) {
                     d data = customMessage.getData();
-                    if (data.d() == null && (c2 = c.a.t0.x1.r.b.d().c(data.c(), data.f())) != null) {
-                        c2.b(new c.a.t0.n1.b(data.e()));
-                        data.i(c2);
+                    if (data.d() == null && (c2 = c.a.t0.x1.r.b.d().c(data.c(), data.g())) != null) {
+                        c2.b(new c.a.t0.n1.b(data.f()));
+                        data.j(c2);
                     }
                 }
                 return null;
@@ -58,7 +58,7 @@ public class a extends CustomMessageTask {
             return (CustomResponsedMessage) invokeL.objValue;
         }
 
-        public /* synthetic */ b(C1207a c1207a) {
+        public /* synthetic */ b(C1221a c1221a) {
             this();
         }
     }

@@ -26,7 +26,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f14546e;
+        public final /* synthetic */ n f14205e;
 
         public a(n nVar) {
             Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class c {
                     return;
                 }
             }
-            this.f14546e = nVar;
+            this.f14205e = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             n nVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (nVar = this.f14546e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (nVar = this.f14205e) == null) {
                 return;
             }
             nVar.sendAction(new c.a.s0.x.a(14, -1, Boolean.TRUE));

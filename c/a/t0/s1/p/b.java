@@ -28,15 +28,15 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f22834d;
+    public static b f22205d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f22835b;
+    public c f22206b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f22836c;
+    public CustomMessageListener f22207c;
 
     /* loaded from: classes8.dex */
     public class a extends c {
@@ -77,12 +77,12 @@ public class b {
 
     /* renamed from: c.a.t0.s1.p.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1359b extends CustomMessageListener {
+    public class C1374b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1359b(b bVar, int i2) {
+        public C1374b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -145,8 +145,8 @@ public class b {
             }
         }
         new ArrayList();
-        this.f22835b = new a(this, 202006);
-        this.f22836c = new C1359b(this, 0);
+        this.f22206b = new a(this, 202006);
+        this.f22207c = new C1374b(this, 0);
     }
 
     public static synchronized b b() {
@@ -155,10 +155,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (b.class) {
-                if (f22834d == null) {
-                    f22834d = new b();
+                if (f22205d == null) {
+                    f22205d = new b();
                 }
-                bVar = f22834d;
+                bVar = f22205d;
             }
             return bVar;
         }
@@ -212,8 +212,8 @@ public class b {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.f22835b);
-            MessageManager.getInstance().registerListener(2016014, this.f22836c);
+            MessageManager.getInstance().registerListener(this.f22206b);
+            MessageManager.getInstance().registerListener(2016014, this.f22207c);
         }
     }
 

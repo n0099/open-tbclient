@@ -44,13 +44,13 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f8598e;
+        public final /* synthetic */ int f8412e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f8599f;
+        public final /* synthetic */ long f8413f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f8600g;
+        public final /* synthetic */ int f8414g;
 
         public a(int i2, long j2, int i3) {
             Interceptable interceptable = $ic;
@@ -67,9 +67,9 @@ public final class b {
                     return;
                 }
             }
-            this.f8598e = i2;
-            this.f8599f = j2;
-            this.f8600g = i3;
+            this.f8412e = i2;
+            this.f8413f = j2;
+            this.f8414g = i3;
         }
 
         @Override // java.lang.Runnable
@@ -77,9 +77,9 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.b bVar = new c.b(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION);
-                bVar.k(String.valueOf(this.f8598e));
-                bVar.l(String.valueOf(this.f8599f));
-                bVar.j(String.valueOf(this.f8600g));
+                bVar.k(String.valueOf(this.f8412e));
+                bVar.l(String.valueOf(this.f8413f));
+                bVar.j(String.valueOf(this.f8414g));
                 bVar.m();
             }
         }
@@ -87,11 +87,11 @@ public final class b {
 
     /* renamed from: c.a.r0.a.q2.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0511b extends ProviderDelegation {
+    public static class C0520b extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0511b() {
+        public C0520b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -269,11 +269,11 @@ public final class b {
             if (ProcessUtils.isMainProcess()) {
                 return e(i2);
             }
-            g c2 = e.c(C0511b.class, null);
+            g c2 = e.c(C0520b.class, null);
             if (a) {
-                String str = "getSwanCoreVersionIPC:" + ProcessUtils.getCurProcessName() + " swan core: " + C0511b.b(c2.a, i2);
+                String str = "getSwanCoreVersionIPC:" + ProcessUtils.getCurProcessName() + " swan core: " + C0520b.b(c2.a, i2);
             }
-            return C0511b.b(c2.a, i2);
+            return C0520b.b(c2.a, i2);
         }
         return (SwanCoreVersion) invokeI.objValue;
     }
@@ -360,7 +360,7 @@ public final class b {
     public static void o(int i2, c.a.r0.a.z2.g1.c<Exception> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65551, null, i2, cVar) == null) {
-            b.C0515b b2 = b.C0515b.b();
+            b.C0524b b2 = b.C0524b.b();
             b2.c(true);
             b2.d("openSwanApp");
             p(b2.a(), i2, cVar);

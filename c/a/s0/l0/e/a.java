@@ -11,10 +11,10 @@ public abstract class a<T> extends b<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13181f;
+    public String f12861f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Class<T> f13182g;
+    public Class<T> f12862g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(int i2, String str, Class<T> cls) {
@@ -34,8 +34,8 @@ public abstract class a<T> extends b<T> {
                 return;
             }
         }
-        this.f13181f = str;
-        this.f13182g = cls;
+        this.f12861f = str;
+        this.f12862g = cls;
     }
 
     public T a() {
@@ -43,7 +43,7 @@ public abstract class a<T> extends b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return this.f13182g.newInstance();
+                return this.f12862g.newInstance();
             } catch (ExceptionInInitializerError e2) {
                 e2.printStackTrace();
                 return null;

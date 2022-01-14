@@ -22,17 +22,17 @@ public class a {
 
     /* renamed from: c.a.r0.a.h0.o.g.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0390a implements Runnable {
+    public static class RunnableC0399a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6943e;
+        public final /* synthetic */ String f6794e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PrefetchEvent f6944f;
+        public final /* synthetic */ PrefetchEvent f6795f;
 
-        public RunnableC0390a(String str, PrefetchEvent prefetchEvent) {
+        public RunnableC0399a(String str, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,16 +47,16 @@ public class a {
                     return;
                 }
             }
-            this.f6943e = str;
-            this.f6944f = prefetchEvent;
+            this.f6794e = str;
+            this.f6795f = prefetchEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.d(this.f6943e);
-                a.d(a.e(this.f6943e, this.f6944f.pageUrl));
+                a.d(this.f6794e);
+                a.d(a.e(this.f6794e, this.f6795f.pageUrl));
             }
         }
     }
@@ -66,7 +66,7 @@ public class a {
         if ((interceptable == null || interceptable.invokeL(65538, null, prefetchEvent) == null) && e.a()) {
             String str = prefetchEvent.appPath;
             if (!TextUtils.isEmpty(str) && new File(str).exists()) {
-                q.k(new RunnableC0390a(str, prefetchEvent), "addFileResToMemoryCache");
+                q.k(new RunnableC0399a(str, prefetchEvent), "addFileResToMemoryCache");
             }
         }
     }

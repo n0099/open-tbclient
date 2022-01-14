@@ -23,7 +23,7 @@ public final class c {
             f a = com.alipay.apmobilesecuritysdk.e.e.a(context);
             String a2 = com.alipay.security.mobile.module.b.b.a(context);
             String b3 = com.alipay.security.mobile.module.b.b.b(context);
-            String k2 = com.alipay.security.mobile.module.b.b.k(context);
+            String k = com.alipay.security.mobile.module.b.b.k(context);
             String m = com.alipay.security.mobile.module.b.b.m(context);
             if (a != null) {
                 if (com.alipay.security.mobile.module.a.a.a(a2)) {
@@ -32,20 +32,20 @@ public final class c {
                 if (com.alipay.security.mobile.module.a.a.a(b3)) {
                     b3 = a.b();
                 }
-                if (com.alipay.security.mobile.module.a.a.a(k2)) {
-                    k2 = a.c();
+                if (com.alipay.security.mobile.module.a.a.a(k)) {
+                    k = a.c();
                 }
                 if (com.alipay.security.mobile.module.a.a.a(m)) {
                     m = a.e();
                 }
             }
-            f fVar = new f(a2, b3, k2, "", m);
+            f fVar = new f(a2, b3, k, "", m);
             if (context != null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("imei", fVar.a());
                     jSONObject.put(BaseStatisContent.IMSI, fVar.b());
-                    jSONObject.put(BaseStatisContent.MAC, fVar.c());
+                    jSONObject.put("mac", fVar.c());
                     jSONObject.put("bluetoothmac", fVar.d());
                     jSONObject.put("gsi", fVar.e());
                     String jSONObject2 = jSONObject.toString();
@@ -61,7 +61,7 @@ public final class c {
             hashMap.put("AD5", com.alipay.security.mobile.module.b.b.h(context));
             hashMap.put("AD6", com.alipay.security.mobile.module.b.b.i(context));
             hashMap.put("AD7", com.alipay.security.mobile.module.b.b.j(context));
-            hashMap.put("AD8", k2);
+            hashMap.put("AD8", k);
             hashMap.put("AD9", com.alipay.security.mobile.module.b.b.l(context));
             hashMap.put("AD10", m);
             hashMap.put("AD11", com.alipay.security.mobile.module.b.b.e());

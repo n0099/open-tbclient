@@ -19,18 +19,18 @@ public class OpenLocationMenuItem {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f41267e;
+    public static final int f39872e;
     public transient /* synthetic */ FieldHolder $fh;
     public MenuItemType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f41268b;
+    public b f39873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f41269c;
+    public TextView f39874c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f41270d;
+    public int f39875d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes11.dex */
@@ -110,7 +110,7 @@ public class OpenLocationMenuItem {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OpenLocationMenuItem f41271e;
+        public final /* synthetic */ OpenLocationMenuItem f39876e;
 
         public a(OpenLocationMenuItem openLocationMenuItem) {
             Interceptable interceptable = $ic;
@@ -127,16 +127,16 @@ public class OpenLocationMenuItem {
                     return;
                 }
             }
-            this.f41271e = openLocationMenuItem;
+            this.f39876e = openLocationMenuItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f41271e.f41268b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39876e.f39873b == null) {
                 return;
             }
-            this.f41271e.f41268b.onMenuItemClick(this.f41271e);
+            this.f39876e.f39873b.onMenuItemClick(this.f39876e);
         }
     }
 
@@ -158,7 +158,7 @@ public class OpenLocationMenuItem {
                 return;
             }
         }
-        f41267e = n0.g(45.0f);
+        f39872e = n0.g(45.0f);
     }
 
     public OpenLocationMenuItem(Context context, String str, MenuItemType menuItemType) {
@@ -176,32 +176,32 @@ public class OpenLocationMenuItem {
                 return;
             }
         }
-        this.f41269c = new TextView(context);
-        this.f41270d = n0.g(1.0f);
-        this.f41269c.setText(str);
-        this.f41269c.setTextSize(16.0f);
-        this.f41269c.setBackground(context.getResources().getDrawable(e.openlocation_bottommenu_itemclick_selector));
-        this.f41269c.setTextColor(-16777216);
-        this.f41269c.setGravity(17);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, f41267e);
-        layoutParams.bottomMargin = this.f41270d;
+        this.f39874c = new TextView(context);
+        this.f39875d = n0.g(1.0f);
+        this.f39874c.setText(str);
+        this.f39874c.setTextSize(16.0f);
+        this.f39874c.setBackground(context.getResources().getDrawable(e.openlocation_bottommenu_itemclick_selector));
+        this.f39874c.setTextColor(-16777216);
+        this.f39874c.setGravity(17);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, f39872e);
+        layoutParams.bottomMargin = this.f39875d;
         layoutParams.gravity = 17;
-        this.f41269c.setLayoutParams(layoutParams);
+        this.f39874c.setLayoutParams(layoutParams);
         d(str);
         e(menuItemType);
-        this.f41269c.setOnClickListener(new a(this));
+        this.f39874c.setOnClickListener(new a(this));
     }
 
     public TextView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41269c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39874c : (TextView) invokeV.objValue;
     }
 
     public void c(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f41268b = bVar;
+            this.f39873b = bVar;
         }
     }
 

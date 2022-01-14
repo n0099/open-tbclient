@@ -39,24 +39,24 @@ public class AuthnHelper {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: c  reason: collision with root package name */
-    public static AuthnHelper f55457c;
+    public static AuthnHelper f53352c;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.cmic.sso.sdk.auth.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f55458b;
+    public final Context f53353b;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f55459d;
+    public long f53354d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Handler f55460e;
+    public final Handler f53355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f55461f;
+    public String f53356f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f55462g;
+    public final Object f53357g;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -65,7 +65,7 @@ public class AuthnHelper {
         public final /* synthetic */ AuthnHelper a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final com.cmic.sso.sdk.a f55482b;
+        public final com.cmic.sso.sdk.a f53377b;
 
         public a(AuthnHelper authnHelper, com.cmic.sso.sdk.a aVar) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class AuthnHelper {
                 }
             }
             this.a = authnHelper;
-            this.f55482b = aVar;
+            this.f53377b = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -91,12 +91,12 @@ public class AuthnHelper {
             JSONObject a;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!t.a(this.a.f55458b).a() && this.f55482b.b("doNetworkSwitch", false)) {
+                if (!t.a(this.a.f53353b).a() && this.f53377b.b("doNetworkSwitch", false)) {
                     a = c.a("102508", "数据网络切换失败");
                 } else {
                     a = c.a("200023", "登录超时");
                 }
-                this.a.callBackResult(a.optString(MiPushCommandMessage.KEY_RESULT_CODE, "200023"), a.optString("resultString", "登录超时"), this.f55482b, a);
+                this.a.callBackResult(a.optString(MiPushCommandMessage.KEY_RESULT_CODE, "200023"), a.optString("resultString", "登录超时"), this.f53377b, a);
             }
         }
     }
@@ -131,14 +131,14 @@ public class AuthnHelper {
                 return;
             }
         }
-        this.f55459d = 8000L;
-        this.f55462g = new Object();
-        this.f55458b = context.getApplicationContext();
-        this.f55460e = new Handler(this.f55458b.getMainLooper());
-        this.a = com.cmic.sso.sdk.auth.a.a(this.f55458b);
-        t.a(this.f55458b);
-        k.a(this.f55458b);
-        j.a(this.f55458b);
+        this.f53354d = 8000L;
+        this.f53357g = new Object();
+        this.f53353b = context.getApplicationContext();
+        this.f53355e = new Handler(this.f53353b.getMainLooper());
+        this.a = com.cmic.sso.sdk.auth.a.a(this.f53353b);
+        t.a(this.f53353b);
+        k.a(this.f53353b);
+        j.a(this.f53353b);
         o.a(new o.a(this) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public class AuthnHelper {
                     if (TextUtils.isEmpty(b2)) {
                         this.a.a();
                     }
-                    if (com.cmic.sso.sdk.d.b.a(this.a.f55458b, true)) {
+                    if (com.cmic.sso.sdk.d.b.a(this.a.f53353b, true)) {
                         com.cmic.sso.sdk.d.c.b("AuthnHelper", "生成androidkeystore成功");
                     } else {
                         com.cmic.sso.sdk.d.c.b("AuthnHelper", "生成androidkeystore失败");
@@ -185,14 +185,14 @@ public class AuthnHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            if (f55457c == null) {
+            if (f53352c == null) {
                 synchronized (AuthnHelper.class) {
-                    if (f55457c == null) {
-                        f55457c = new AuthnHelper(context);
+                    if (f53352c == null) {
+                        f53352c = new AuthnHelper(context);
                     }
                 }
             }
-            return f55457c;
+            return f53352c;
         }
         return (AuthnHelper) invokeL.objValue;
     }
@@ -231,16 +231,16 @@ public class AuthnHelper {
                         a2 = c.a(str, str2, aVar, jSONObject);
                     }
                     a2.put("scripExpiresIn", String.valueOf(h.b()));
-                    this.f55460e.post(new Runnable(this, c2, a2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.6
+                    this.f53355e.post(new Runnable(this, c2, a2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.6
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ TokenListener a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ JSONObject f55476b;
+                        public final /* synthetic */ JSONObject f53371b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ AuthnHelper f55477c;
+                        public final /* synthetic */ AuthnHelper f53372c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -257,20 +257,20 @@ public class AuthnHelper {
                                     return;
                                 }
                             }
-                            this.f55477c = this;
+                            this.f53372c = this;
                             this.a = c2;
-                            this.f55476b = a2;
+                            this.f53371b = a2;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.a.onGetTokenComplete(this.f55476b);
+                                this.a.onGetTokenComplete(this.f53371b);
                             }
                         }
                     });
-                    a(this.f55458b, str, aVar);
+                    a(this.f53353b, str, aVar);
                     if (aVar.b("isNeedToGetCert", false) || q.a()) {
                         o.a(new o.a(this, aVar) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.7
                             public static /* synthetic */ Interceptable $ic;
@@ -278,7 +278,7 @@ public class AuthnHelper {
                             public final /* synthetic */ com.cmic.sso.sdk.a a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AuthnHelper f55478b;
+                            public final /* synthetic */ AuthnHelper f53373b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -295,7 +295,7 @@ public class AuthnHelper {
                                         return;
                                     }
                                 }
-                                this.f55478b = this;
+                                this.f53373b = this;
                                 this.a = aVar;
                             }
 
@@ -309,7 +309,7 @@ public class AuthnHelper {
                         });
                     }
                     if (e.a()) {
-                        t.a(this.f55458b).b();
+                        t.a(this.f53353b).b();
                     }
                 }
             } catch (Exception e2) {
@@ -336,7 +336,7 @@ public class AuthnHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                com.cmic.sso.sdk.a.b.a().a(context, g.a(context, s.f57419c));
+                com.cmic.sso.sdk.a.b.a().a(context, g.a(context, s.f55242c));
                 String a2 = j.a().a(true);
                 int a3 = n.a(context, a2);
                 jSONObject.put("operatortype", a2);
@@ -369,22 +369,22 @@ public class AuthnHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, tokenListener) == null) {
             com.cmic.sso.sdk.a a2 = a(tokenListener);
-            o.a(new o.a(this, this.f55458b, a2, a2, str, str2, tokenListener) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.4
+            o.a(new o.a(this, this.f53353b, a2, a2, str, str2, tokenListener) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.cmic.sso.sdk.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f55471b;
+                public final /* synthetic */ String f53366b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f55472c;
+                public final /* synthetic */ String f53367c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ TokenListener f55473d;
+                public final /* synthetic */ TokenListener f53368d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ AuthnHelper f55474e;
+                public final /* synthetic */ AuthnHelper f53369e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -405,18 +405,18 @@ public class AuthnHelper {
                             return;
                         }
                     }
-                    this.f55474e = this;
+                    this.f53369e = this;
                     this.a = a2;
-                    this.f55471b = str;
-                    this.f55472c = str2;
-                    this.f55473d = tokenListener;
+                    this.f53366b = str;
+                    this.f53367c = str2;
+                    this.f53368d = tokenListener;
                 }
 
                 @Override // com.cmic.sso.sdk.d.o.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f55474e.a(this.a, this.f55471b, this.f55472c, "preGetMobile", 3, this.f55473d)) {
-                        this.f55474e.a(this.a);
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f53369e.a(this.a, this.f53366b, this.f53367c, "preGetMobile", 3, this.f53368d)) {
+                        this.f53369e.a(this.a);
                     }
                 }
             });
@@ -427,22 +427,22 @@ public class AuthnHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, tokenListener) == null) {
             com.cmic.sso.sdk.a a2 = a(tokenListener);
-            o.a(new o.a(this, this.f55458b, a2, a2, str, str2, tokenListener) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.2
+            o.a(new o.a(this, this.f53353b, a2, a2, str, str2, tokenListener) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.cmic.sso.sdk.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f55463b;
+                public final /* synthetic */ String f53358b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f55464c;
+                public final /* synthetic */ String f53359c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ TokenListener f55465d;
+                public final /* synthetic */ TokenListener f53360d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ AuthnHelper f55466e;
+                public final /* synthetic */ AuthnHelper f53361e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -463,18 +463,18 @@ public class AuthnHelper {
                             return;
                         }
                     }
-                    this.f55466e = this;
+                    this.f53361e = this;
                     this.a = a2;
-                    this.f55463b = str;
-                    this.f55464c = str2;
-                    this.f55465d = tokenListener;
+                    this.f53358b = str;
+                    this.f53359c = str2;
+                    this.f53360d = tokenListener;
                 }
 
                 @Override // com.cmic.sso.sdk.d.o.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f55466e.a(this.a, this.f55463b, this.f55464c, "loginAuth", 1, this.f55465d)) {
-                        this.f55466e.a(this.a);
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f53361e.a(this.a, this.f53358b, this.f53359c, "loginAuth", 1, this.f53360d)) {
+                        this.f53361e.a(this.a);
                     }
                 }
             });
@@ -485,22 +485,22 @@ public class AuthnHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, tokenListener) == null) {
             com.cmic.sso.sdk.a a2 = a(tokenListener);
-            o.a(new o.a(this, this.f55458b, a2, a2, str, str2, tokenListener) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.3
+            o.a(new o.a(this, this.f53353b, a2, a2, str, str2, tokenListener) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.cmic.sso.sdk.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f55467b;
+                public final /* synthetic */ String f53362b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f55468c;
+                public final /* synthetic */ String f53363c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ TokenListener f55469d;
+                public final /* synthetic */ TokenListener f53364d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ AuthnHelper f55470e;
+                public final /* synthetic */ AuthnHelper f53365e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -521,18 +521,18 @@ public class AuthnHelper {
                             return;
                         }
                     }
-                    this.f55470e = this;
+                    this.f53365e = this;
                     this.a = a2;
-                    this.f55467b = str;
-                    this.f55468c = str2;
-                    this.f55469d = tokenListener;
+                    this.f53362b = str;
+                    this.f53363c = str2;
+                    this.f53364d = tokenListener;
                 }
 
                 @Override // com.cmic.sso.sdk.d.o.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f55470e.a(this.a, this.f55467b, this.f55468c, "mobileAuth", 0, this.f55469d)) {
-                        this.f55470e.a(this.a);
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f53365e.a(this.a, this.f53362b, this.f53363c, "mobileAuth", 0, this.f53364d)) {
+                        this.f53365e.a(this.a);
                     }
                 }
             });
@@ -542,7 +542,7 @@ public class AuthnHelper {
     public void setOverTime(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.f55459d = j2;
+            this.f53354d = j2;
         }
     }
 
@@ -562,14 +562,14 @@ public class AuthnHelper {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, context, str)) == null) {
-            if (f55457c == null) {
+            if (f53352c == null) {
                 synchronized (AuthnHelper.class) {
-                    if (f55457c == null) {
-                        f55457c = new AuthnHelper(context, str);
+                    if (f53352c == null) {
+                        f53352c = new AuthnHelper(context, str);
                     }
                 }
             }
-            return f55457c;
+            return f53352c;
         }
         return (AuthnHelper) invokeLL.objValue;
     }
@@ -609,7 +609,7 @@ public class AuthnHelper {
                 return;
             }
         }
-        this.f55461f = str;
+        this.f53356f = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -617,14 +617,14 @@ public class AuthnHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, aVar) == null) {
             a aVar2 = new a(this, aVar);
-            this.f55460e.postDelayed(aVar2, this.f55459d);
+            this.f53355e.postDelayed(aVar2, this.f53354d);
             this.a.a(aVar, new b(this, aVar2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AuthnHelper f55475b;
+                public final /* synthetic */ AuthnHelper f53370b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -641,7 +641,7 @@ public class AuthnHelper {
                             return;
                         }
                     }
-                    this.f55475b = this;
+                    this.f53370b = this;
                     this.a = aVar2;
                 }
 
@@ -649,8 +649,8 @@ public class AuthnHelper {
                 public void a(String str, String str2, com.cmic.sso.sdk.a aVar3, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLLL(1048576, this, str, str2, aVar3, jSONObject) == null) {
-                        this.f55475b.f55460e.removeCallbacks(this.a);
-                        this.f55475b.callBackResult(str, str2, aVar3, jSONObject);
+                        this.f53370b.f53355e.removeCallbacks(this.a);
+                        this.f53370b.callBackResult(str, str2, aVar3, jSONObject);
                     }
                 }
             });
@@ -664,18 +664,18 @@ public class AuthnHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{aVar, str, str2, str3, Integer.valueOf(i2), tokenListener})) == null) {
             aVar.a("CLOSE_CERT_VERIFY", q.j());
-            aVar.a("use2048PublicKey", "rsa2048".equals(this.f55461f));
+            aVar.a("use2048PublicKey", "rsa2048".equals(this.f53356f));
             aVar.a("systemStartTime", SystemClock.elapsedRealtime());
             aVar.a(LaunchedTaskSpeedStats.KEY_START_TIME, p.a());
             aVar.a("loginMethod", str3);
             aVar.a("appkey", str2);
             aVar.a("appid", str);
-            aVar.a("timeOut", String.valueOf(this.f55459d));
-            boolean a3 = g.a(this.f55458b, s.f57419c);
+            aVar.a("timeOut", String.valueOf(this.f53354d));
+            boolean a3 = g.a(this.f53353b, s.f55242c);
             com.cmic.sso.sdk.d.c.a("AuthnHelper", "有READ_PHONE_STATE权限？" + a3);
             aVar.a("hsaReadPhoneStatePermission", a3);
-            com.cmic.sso.sdk.a.b.a().a(this.f55458b, a3);
-            aVar.a("networkClass", com.cmic.sso.sdk.a.b.a().a(this.f55458b));
+            com.cmic.sso.sdk.a.b.a().a(this.f53353b, a3);
+            aVar.a("networkClass", com.cmic.sso.sdk.a.b.a().a(this.f53353b));
             aVar.a("simCardNum", String.valueOf(com.cmic.sso.sdk.a.b.a().b().h()));
             String b2 = j.a().b();
             String e2 = j.a().e();
@@ -705,14 +705,14 @@ public class AuthnHelper {
                 aVar.a("scripType", "operator");
                 aVar.a("scripKey", a4);
             }
-            int a5 = n.a(this.f55458b, a4);
+            int a5 = n.a(this.f53353b, a4);
             aVar.a("networktype", a5);
-            synchronized (this.f55462g) {
+            synchronized (this.f53357g) {
                 a2 = h.a(aVar);
                 if (a2) {
                     aVar.a("securityphone", k.b("securityphone", ""));
                     if (3 != i2 && a5 != 0) {
-                        String a6 = h.a(this.f55458b);
+                        String a6 = h.a(this.f53353b);
                         if (TextUtils.isEmpty(a6)) {
                             a2 = false;
                         } else {
@@ -801,13 +801,13 @@ public class AuthnHelper {
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f55479b;
+            public final /* synthetic */ Context f53374b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ com.cmic.sso.sdk.a f55480c;
+            public final /* synthetic */ com.cmic.sso.sdk.a f53375c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ AuthnHelper f55481d;
+            public final /* synthetic */ AuthnHelper f53376d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -824,10 +824,10 @@ public class AuthnHelper {
                         return;
                     }
                 }
-                this.f55481d = this;
+                this.f53376d = this;
                 this.a = str;
-                this.f55479b = context;
-                this.f55480c = aVar;
+                this.f53374b = context;
+                this.f53375c = aVar;
             }
 
             @Override // com.cmic.sso.sdk.d.o.a
@@ -837,7 +837,7 @@ public class AuthnHelper {
                     if ("200023".equals(this.a)) {
                         SystemClock.sleep(8000L);
                     }
-                    new com.cmic.sso.sdk.c.b().a(this.f55479b, this.a, this.f55480c);
+                    new com.cmic.sso.sdk.c.b().a(this.f53374b, this.a, this.f53375c);
                 }
             }
         });

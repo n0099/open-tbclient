@@ -14,19 +14,19 @@ public final class l implements h {
     public final c.i.b.a.i0.l a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.i.b.a.a0.m f29819b;
+    public c.i.b.a.a0.m f28901b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29820c;
+    public boolean f28902c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f29821d;
+    public long f28903d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29822e;
+    public int f28904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29823f;
+    public int f28905f;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -48,33 +48,33 @@ public final class l implements h {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f29820c = false;
+            this.f28902c = false;
         }
     }
 
     @Override // c.i.b.a.a0.t.h
     public void c(c.i.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) && this.f29820c) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) && this.f28902c) {
             int a = lVar.a();
-            int i2 = this.f29823f;
+            int i2 = this.f28905f;
             if (i2 < 10) {
                 int min = Math.min(a, 10 - i2);
-                System.arraycopy(lVar.a, lVar.c(), this.a.a, this.f29823f, min);
-                if (this.f29823f + min == 10) {
+                System.arraycopy(lVar.a, lVar.c(), this.a.a, this.f28905f, min);
+                if (this.f28905f + min == 10) {
                     this.a.J(0);
                     if (73 == this.a.x() && 68 == this.a.x() && 51 == this.a.x()) {
                         this.a.K(3);
-                        this.f29822e = this.a.w() + 10;
+                        this.f28904e = this.a.w() + 10;
                     } else {
-                        this.f29820c = false;
+                        this.f28902c = false;
                         return;
                     }
                 }
             }
-            int min2 = Math.min(a, this.f29822e - this.f29823f);
-            this.f29819b.a(lVar, min2);
-            this.f29823f += min2;
+            int min2 = Math.min(a, this.f28904e - this.f28905f);
+            this.f28901b.a(lVar, min2);
+            this.f28905f += min2;
         }
     }
 
@@ -82,9 +82,9 @@ public final class l implements h {
     public void d() {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f29820c && (i2 = this.f29822e) != 0 && this.f29823f == i2) {
-            this.f29819b.c(this.f29821d, 1, i2, 0, null);
-            this.f29820c = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f28902c && (i2 = this.f28904e) != 0 && this.f28905f == i2) {
+            this.f28901b.c(this.f28903d, 1, i2, 0, null);
+            this.f28902c = false;
         }
     }
 
@@ -92,10 +92,10 @@ public final class l implements h {
     public void e(long j2, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) && z) {
-            this.f29820c = true;
-            this.f29821d = j2;
-            this.f29822e = 0;
-            this.f29823f = 0;
+            this.f28902c = true;
+            this.f28903d = j2;
+            this.f28904e = 0;
+            this.f28905f = 0;
         }
     }
 
@@ -105,7 +105,7 @@ public final class l implements h {
         if (interceptable == null || interceptable.invokeLL(1048580, this, gVar, dVar) == null) {
             dVar.a();
             c.i.b.a.a0.m a = gVar.a(dVar.c(), 4);
-            this.f29819b = a;
+            this.f28901b = a;
             a.b(Format.createSampleFormat(dVar.b(), "application/id3", null, -1, null));
         }
     }

@@ -7,7 +7,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
@@ -27,7 +26,10 @@ public class j {
     public final BaseFragmentActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.k0.e f18646b;
+    public c.a.t0.k0.e f18182b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final long f18183c;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -67,12 +69,12 @@ public class j {
         }
     }
 
-    public j(@NonNull BaseFragmentActivity baseFragmentActivity) {
+    public j(@NonNull BaseFragmentActivity baseFragmentActivity, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
+            Object[] objArr = {baseFragmentActivity, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -83,6 +85,7 @@ public class j {
             }
         }
         this.a = baseFragmentActivity;
+        this.f18183c = j2;
         c();
     }
 
@@ -92,6 +95,7 @@ public class j {
             MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a).createNormalCfg(i2);
             if (z) {
                 createNormalCfg.getIntent().putExtra(MainTabActivityConfig.SHOW_AD_FRAGMENT, true);
+                createNormalCfg.getIntent().putExtra("splash_unique_id", this.f18183c);
             }
             if (TbSingleton.getInstance().getFirstOpenScheme() != null) {
                 createNormalCfg.getIntent().setData(TbSingleton.getInstance().getFirstOpenScheme());
@@ -109,14 +113,14 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.registerListener(new a(this, 2921639));
-            this.f18646b = new c.a.t0.k0.e(this.a);
+            this.f18182b = new c.a.t0.k0.e(this.a);
         }
     }
 
     public void d() {
         c.a.t0.k0.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (eVar = this.f18646b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (eVar = this.f18182b) == null) {
             return;
         }
         eVar.i();
@@ -125,7 +129,7 @@ public class j {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.t0.k0.d.b(this.a).a();
+            c.a.t0.k0.d.b(this.a).a(this.f18183c);
             LogoActivityConfig.mFromSpacial = false;
         }
     }
@@ -134,22 +138,16 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                this.f18646b.j();
-                return;
-            }
-            if (z) {
-                LaunchTaskSchedule.getInstance().start(4);
-            }
-            if (!c.a.t0.r3.b.d.a(this.a.getIntent()) && !c.a.t0.r3.b.d.b(this.a.getIntent())) {
+                this.f18182b.j();
+            } else if (!c.a.t0.r3.b.d.a(this.a.getIntent()) && !c.a.t0.r3.b.d.b(this.a.getIntent())) {
                 if (this.a.isTaskRoot()) {
                     b(2, true);
-                    return;
                 } else {
                     this.a.finish();
-                    return;
                 }
+            } else {
+                e();
             }
-            e();
         }
     }
 }

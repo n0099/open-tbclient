@@ -79,12 +79,12 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
             return;
         }
         Intrinsics.checkNotNullExpressionValue(stringBuilder, "stringBuilder");
-        textPaint = defaultRenderer.f50781d;
+        textPaint = defaultRenderer.f48854d;
         StaticLayout h2 = defaultRenderer.h(stringBuilder, textPaint, canvas.getWidth() - 6);
-        textPaint2 = defaultRenderer.f50780c;
+        textPaint2 = defaultRenderer.f48853c;
         StaticLayout h3 = defaultRenderer.h(stringBuilder, textPaint2, canvas.getWidth() - 6);
-        textPaint3 = defaultRenderer.f50780c;
-        textPaint4 = defaultRenderer.f50780c;
+        textPaint3 = defaultRenderer.f48853c;
+        textPaint4 = defaultRenderer.f48853c;
         canvas.save();
         canvas.translate(0.0f, (((textPaint3.getFontMetrics().descent + 17.43f) - textPaint4.getFontMetrics().bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3)) + bVar.e());
         h2.draw(canvas);
@@ -92,14 +92,14 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
         canvas.restore();
         if (bVar.g() == 8) {
             float[] y = a.y(R.string.J_X04);
-            paint = defaultRenderer.f50782e;
+            paint = defaultRenderer.f48855e;
             float strokeWidth = paint.getStrokeWidth() * 0.2f;
             i2 = defaultRenderer.a;
-            paint2 = defaultRenderer.f50782e;
+            paint2 = defaultRenderer.f48855e;
             i3 = defaultRenderer.a;
             float f2 = y[0];
             float f3 = y[1];
-            paint3 = defaultRenderer.f50782e;
+            paint3 = defaultRenderer.f48855e;
             canvas.drawRoundRect(strokeWidth, i2, canvas.getWidth() - (paint2.getStrokeWidth() * 0.2f), canvas.getHeight() - i3, f2, f3, paint3);
         }
     }

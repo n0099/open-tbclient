@@ -40,16 +40,16 @@ public class BottomMenuView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44851e;
+    public int f43229e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f44852f;
+    public a f43230f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f44853g;
+    public View f43231g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f44854h;
+    public LinearLayout f43232h;
 
     /* loaded from: classes12.dex */
     public static class MenuItemView extends LinearLayout implements View.OnClickListener {
@@ -58,25 +58,23 @@ public class BottomMenuView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f44855e;
+        public int f43233e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbPageContext<?> f44856f;
+        public TbPageContext<?> f43234f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ImageView f44857g;
+        public ImageView f43235g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f44858h;
+        public TextView f43236h;
 
         /* renamed from: i  reason: collision with root package name */
-        public BottomMenu f44859i;
+        public BottomMenu f43237i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f44860j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public a f44861k;
+        public boolean f43238j;
+        public a k;
         public b l;
 
         static {
@@ -113,13 +111,13 @@ public class BottomMenuView extends LinearLayout {
                     return;
                 }
             }
-            this.f44855e = m;
+            this.f43233e = m;
             setGravity(17);
             setOnClickListener(this);
             LayoutInflater.from(getContext()).inflate(g1.bottom_menu_item, this);
-            this.f44856f = tbPageContext;
-            this.f44857g = (ImageView) findViewById(f1.item_image);
-            this.f44858h = (TextView) findViewById(f1.item_text);
+            this.f43234f = tbPageContext;
+            this.f43235g = (ImageView) findViewById(f1.item_image);
+            this.f43236h = (TextView) findViewById(f1.item_text);
         }
 
         private b getSubMenuGenerator() {
@@ -129,7 +127,7 @@ public class BottomMenuView extends LinearLayout {
                 if (this.l == null) {
                     b bVar = new b();
                     this.l = bVar;
-                    bVar.a(this.f44861k);
+                    bVar.a(this.k);
                 }
                 return this.l;
             }
@@ -139,28 +137,28 @@ public class BottomMenuView extends LinearLayout {
         private void setMenuIcon(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
-                this.f44855e = i2;
-                if (this.f44860j) {
-                    this.f44857g.setVisibility(0);
-                    this.f44857g.setImageResource(i2);
-                    SkinManager.setImageResource(this.f44857g, i2);
+                this.f43233e = i2;
+                if (this.f43238j) {
+                    this.f43235g.setVisibility(0);
+                    this.f43235g.setImageResource(i2);
+                    SkinManager.setImageResource(this.f43235g, i2);
                     return;
                 }
-                this.f44857g.setVisibility(8);
+                this.f43235g.setVisibility(8);
             }
         }
 
         public f getPageContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44856f : (f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43234f : (f) invokeV.objValue;
         }
 
         public void onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
-                setMenuIcon(this.f44855e);
-                SkinManager.setViewTextColor(this.f44858h, c1.CAM_X0105);
+                setMenuIcon(this.f43233e);
+                SkinManager.setViewTextColor(this.f43236h, c1.CAM_X0105);
                 SkinManager.setBackgroundResource(this, e1.addresslist_item_bg);
             }
         }
@@ -169,12 +167,12 @@ public class BottomMenuView extends LinearLayout {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-                if (this.f44860j) {
-                    getSubMenuGenerator().b(this, this.f44859i.submenu);
+                if (this.f43238j) {
+                    getSubMenuGenerator().b(this, this.f43237i.submenu);
                 }
-                a aVar = this.f44861k;
+                a aVar = this.k;
                 if (aVar != null) {
-                    aVar.b(this, this.f44859i);
+                    aVar.b(this, this.f43237i);
                 }
             }
         }
@@ -184,16 +182,16 @@ public class BottomMenuView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048579, this, bottomMenu) == null) || bottomMenu == null) {
                 return;
             }
-            this.f44859i = bottomMenu;
-            this.f44860j = ListUtils.getCount(bottomMenu.submenu) > 0;
-            this.f44858h.setText(bottomMenu.name);
-            onChangeSkinType(this.f44856f, 0);
+            this.f43237i = bottomMenu;
+            this.f43238j = ListUtils.getCount(bottomMenu.submenu) > 0;
+            this.f43236h.setText(bottomMenu.name);
+            onChangeSkinType(this.f43234f, 0);
         }
 
         public void setOnMenuItemClickListener(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-                this.f44861k = aVar;
+                this.k = aVar;
             }
         }
     }
@@ -204,13 +202,13 @@ public class BottomMenuView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f44862e;
+        public TextView f43239e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f44863f;
+        public View f43240f;
 
         /* renamed from: g  reason: collision with root package name */
-        public SubBottomMenu f44864g;
+        public SubBottomMenu f43241g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SubMenuItemView(Context context) {
@@ -232,14 +230,14 @@ public class BottomMenuView extends LinearLayout {
             }
             LayoutInflater.from(context).inflate(g1.bottom_submenu_item, this);
             setOrientation(1);
-            this.f44862e = (TextView) findViewById(f1.item_text);
-            this.f44863f = findViewById(f1.divider_line);
+            this.f43239e = (TextView) findViewById(f1.item_text);
+            this.f43240f = findViewById(f1.divider_line);
         }
 
         public SubBottomMenu getSubMenuData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44864g : (SubBottomMenu) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43241g : (SubBottomMenu) invokeV.objValue;
         }
 
         public void setSubMenuData(SubBottomMenu subBottomMenu, int i2, boolean z) {
@@ -247,16 +245,16 @@ public class BottomMenuView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{subBottomMenu, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || subBottomMenu == null) {
                 return;
             }
-            this.f44864g = subBottomMenu;
-            this.f44862e.setText(subBottomMenu.name);
-            SkinManager.setViewTextColor(this.f44862e, c1.CAM_X0106);
+            this.f43241g = subBottomMenu;
+            this.f43239e.setText(subBottomMenu.name);
+            SkinManager.setViewTextColor(this.f43239e, c1.CAM_X0106);
             SkinManager.setBackgroundResource(this, i2 == 0 ? e1.bottom_menu_item_bg_corner_selector : e1.bottom_menu_item_bg_selector);
             if (z) {
-                this.f44863f.setVisibility(8);
+                this.f43240f.setVisibility(8);
                 return;
             }
-            this.f44863f.setVisibility(0);
-            SkinManager.setBackgroundColor(this.f44863f, c1.CAM_X0204);
+            this.f43240f.setVisibility(0);
+            SkinManager.setBackgroundColor(this.f43240f, c1.CAM_X0204);
         }
     }
 
@@ -273,16 +271,16 @@ public class BottomMenuView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public a f44865e;
+        public a f43242e;
 
         /* renamed from: f  reason: collision with root package name */
-        public PopupWindow f44866f;
+        public PopupWindow f43243f;
 
         /* renamed from: g  reason: collision with root package name */
-        public RelativeLayout f44867g;
+        public RelativeLayout f43244g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int[] f44868h;
+        public final int[] f43245h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -297,13 +295,13 @@ public class BottomMenuView extends LinearLayout {
                     return;
                 }
             }
-            this.f44868h = new int[2];
+            this.f43245h = new int[2];
         }
 
         public void a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f44865e = aVar;
+                this.f43242e = aVar;
             }
         }
 
@@ -314,9 +312,9 @@ public class BottomMenuView extends LinearLayout {
             }
             Activity pageActivity = menuItemView.getPageContext().getPageActivity();
             RelativeLayout relativeLayout = new RelativeLayout(pageActivity);
-            this.f44867g = relativeLayout;
+            this.f43244g = relativeLayout;
             relativeLayout.setBackgroundColor(SkinManager.getColor(c1.CAM_X0608));
-            this.f44867g.setOnClickListener(this);
+            this.f43244g.setOnClickListener(this);
             LinearLayout linearLayout = new LinearLayout(pageActivity);
             linearLayout.setOrientation(1);
             int size = list.size();
@@ -328,20 +326,20 @@ public class BottomMenuView extends LinearLayout {
                 linearLayout.addView(subMenuItemView);
                 i2++;
             }
-            this.f44867g.addView(linearLayout);
-            menuItemView.getLocationInWindow(this.f44868h);
+            this.f43244g.addView(linearLayout);
+            menuItemView.getLocationInWindow(this.f43245h);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) linearLayout.getLayoutParams();
             layoutParams.width = menuItemView.getWidth();
             layoutParams.addRule(12);
-            layoutParams.leftMargin = this.f44868h[0];
-            PopupWindow popupWindow = new PopupWindow(this.f44867g, -1, this.f44868h[1]);
-            this.f44866f = popupWindow;
+            layoutParams.leftMargin = this.f43245h[0];
+            PopupWindow popupWindow = new PopupWindow(this.f43244g, -1, this.f43245h[1]);
+            this.f43243f = popupWindow;
             popupWindow.setOutsideTouchable(true);
-            this.f44866f.setFocusable(true);
-            this.f44866f.setClippingEnabled(false);
-            this.f44866f.setBackgroundDrawable(new ColorDrawable());
-            this.f44866f.setSoftInputMode(16);
-            g.m(this.f44866f, menuItemView, 51, 0, 0);
+            this.f43243f.setFocusable(true);
+            this.f43243f.setClippingEnabled(false);
+            this.f43243f.setBackgroundDrawable(new ColorDrawable());
+            this.f43243f.setSoftInputMode(16);
+            g.m(this.f43243f, menuItemView, 51, 0, 0);
         }
 
         @Override // android.view.View.OnClickListener
@@ -349,14 +347,14 @@ public class BottomMenuView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
                 if (view instanceof SubMenuItemView) {
-                    g.c(this.f44866f);
+                    g.c(this.f43243f);
                     SubMenuItemView subMenuItemView = (SubMenuItemView) view;
-                    a aVar = this.f44865e;
+                    a aVar = this.f43242e;
                     if (aVar != null) {
                         aVar.a(subMenuItemView, subMenuItemView.getSubMenuData());
                     }
-                } else if (view == this.f44867g) {
-                    g.c(this.f44866f);
+                } else if (view == this.f43244g) {
+                    g.c(this.f43243f);
                 }
             }
         }
@@ -386,13 +384,13 @@ public class BottomMenuView extends LinearLayout {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, tbPageContext, i2) == null) || i2 == this.f44851e || (linearLayout = this.f44854h) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, tbPageContext, i2) == null) || i2 == this.f43229e || (linearLayout = this.f43232h) == null) {
             return;
         }
-        this.f44851e = i2;
+        this.f43229e = i2;
         int childCount = linearLayout.getChildCount();
         for (int i3 = 0; i3 < childCount; i3++) {
-            View childAt = this.f44854h.getChildAt(i3);
+            View childAt = this.f43232h.getChildAt(i3);
             if (childAt == null) {
                 return;
             }
@@ -402,13 +400,13 @@ public class BottomMenuView extends LinearLayout {
                 SkinManager.setBackgroundColor(childAt, c1.CAM_X0204);
             }
         }
-        SkinManager.setBackgroundColor(this.f44853g, c1.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f43231g, c1.CAM_X0204);
     }
 
     public void setOnMenuItemClickListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f44852f = aVar;
+            this.f43230f = aVar;
         }
     }
 
@@ -418,15 +416,15 @@ public class BottomMenuView extends LinearLayout {
             return;
         }
         removeAllViews();
-        this.f44853g = new View(getContext());
-        this.f44853g.setLayoutParams(new LinearLayout.LayoutParams(-1, n.f(getContext(), d1.tbds16)));
-        this.f44853g.setBackgroundResource(e1.bottom_view_shadow);
-        addView(this.f44853g);
+        this.f43231g = new View(getContext());
+        this.f43231g.setLayoutParams(new LinearLayout.LayoutParams(-1, n.f(getContext(), d1.tbds16)));
+        this.f43231g.setBackgroundResource(e1.bottom_view_shadow);
+        addView(this.f43231g);
         LinearLayout linearLayout = new LinearLayout(getContext());
-        this.f44854h = linearLayout;
+        this.f43232h = linearLayout;
         linearLayout.setOrientation(0);
-        this.f44854h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        addView(this.f44854h);
+        this.f43232h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        addView(this.f43232h);
         int size = list.size();
         for (int i2 = 0; i2 < size; i2++) {
             MenuItemView menuItemView = new MenuItemView(tbPageContext);
@@ -434,8 +432,8 @@ public class BottomMenuView extends LinearLayout {
             layoutParams.weight = 1.0f;
             menuItemView.setLayoutParams(layoutParams);
             menuItemView.setMenuData(list.get(i2));
-            menuItemView.setOnMenuItemClickListener(this.f44852f);
-            this.f44854h.addView(menuItemView);
+            menuItemView.setOnMenuItemClickListener(this.f43230f);
+            this.f43232h.addView(menuItemView);
         }
     }
 
@@ -479,6 +477,6 @@ public class BottomMenuView extends LinearLayout {
                 return;
             }
         }
-        this.f44851e = 3;
+        this.f43229e = 3;
     }
 }

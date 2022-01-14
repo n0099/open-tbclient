@@ -25,25 +25,23 @@ public class CategoryView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47619e;
+    public Context f45849e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47620f;
+    public View f45850f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47621g;
+    public TextView f45851g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f47622h;
+    public TextView f45852h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f47623i;
+    public ImageView f45853i;
 
     /* renamed from: j  reason: collision with root package name */
-    public d f47624j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View.OnClickListener f47625k;
+    public d f45854j;
+    public View.OnClickListener k;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -51,7 +49,7 @@ public class CategoryView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CategoryView f47626e;
+        public final /* synthetic */ CategoryView f45855e;
 
         public a(CategoryView categoryView) {
             Interceptable interceptable = $ic;
@@ -68,16 +66,16 @@ public class CategoryView extends LinearLayout {
                     return;
                 }
             }
-            this.f47626e = categoryView;
+            this.f45855e = categoryView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f47626e.f47624j == null || StringUtils.isNull(this.f47626e.f47624j.d()) || StringUtils.isNull(this.f47626e.f47624j.c())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f45855e.f45854j == null || StringUtils.isNull(this.f45855e.f45854j.d()) || StringUtils.isNull(this.f45855e.f45854j.c())) {
                 return;
             }
-            int b2 = this.f47626e.f47624j.b();
+            int b2 = this.f45855e.f45854j.b();
             if (b2 == 1) {
                 TiebaStatic.log("c10441");
             } else if (b2 == 2) {
@@ -85,7 +83,7 @@ public class CategoryView extends LinearLayout {
             } else if (b2 == 3) {
                 TiebaStatic.log("c10449");
             }
-            MemberCenterStatic.a((TbPageContext) j.a(this.f47626e.f47619e), new String[]{this.f47626e.f47624j.d()});
+            MemberCenterStatic.a((TbPageContext) j.a(this.f45855e.f45849e), new String[]{this.f45855e.f45854j.d()});
         }
     }
 
@@ -107,21 +105,21 @@ public class CategoryView extends LinearLayout {
                 return;
             }
         }
-        this.f47625k = new a(this);
-        this.f47619e = context;
+        this.k = new a(this);
+        this.f45849e = context;
         c();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f47619e).inflate(R.layout.index_category, this);
-            this.f47620f = inflate;
-            this.f47621g = (TextView) inflate.findViewById(R.id.class_name);
-            this.f47622h = (TextView) this.f47620f.findViewById(R.id.sprend_name);
-            this.f47623i = (ImageView) this.f47620f.findViewById(R.id.spread_icon);
-            this.f47620f.setOnClickListener(this.f47625k);
-            this.f47623i.setOnClickListener(this.f47625k);
+            View inflate = LayoutInflater.from(this.f45849e).inflate(R.layout.index_category, this);
+            this.f45850f = inflate;
+            this.f45851g = (TextView) inflate.findViewById(R.id.class_name);
+            this.f45852h = (TextView) this.f45850f.findViewById(R.id.sprend_name);
+            this.f45853i = (ImageView) this.f45850f.findViewById(R.id.spread_icon);
+            this.f45850f.setOnClickListener(this.k);
+            this.f45853i.setOnClickListener(this.k);
         }
     }
 
@@ -130,26 +128,26 @@ public class CategoryView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f47624j = dVar;
-        this.f47621g.setText(dVar.a());
+        this.f45854j = dVar;
+        this.f45851g.setText(dVar.a());
         if (StringUtils.isNull(dVar.d())) {
-            this.f47623i.setVisibility(8);
-            this.f47622h.setVisibility(8);
+            this.f45853i.setVisibility(8);
+            this.f45852h.setVisibility(8);
             return;
         }
         if (StringUtils.isNull(dVar.c())) {
-            this.f47622h.setVisibility(8);
+            this.f45852h.setVisibility(8);
         } else {
-            this.f47622h.setVisibility(0);
-            this.f47622h.setText(dVar.c());
+            this.f45852h.setVisibility(0);
+            this.f45852h.setText(dVar.c());
         }
-        this.f47623i.setVisibility(0);
+        this.f45853i.setVisibility(0);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.s0.x0.a.a((TbPageContext) j.a(this.f47619e), this.f47620f);
+            c.a.s0.x0.a.a((TbPageContext) j.a(this.f45849e), this.f45850f);
         }
     }
 
@@ -172,8 +170,8 @@ public class CategoryView extends LinearLayout {
                 return;
             }
         }
-        this.f47625k = new a(this);
-        this.f47619e = context;
+        this.k = new a(this);
+        this.f45849e = context;
         c();
     }
 
@@ -196,8 +194,8 @@ public class CategoryView extends LinearLayout {
                 return;
             }
         }
-        this.f47625k = new a(this);
-        this.f47619e = context;
+        this.k = new a(this);
+        this.f45849e = context;
         c();
     }
 }

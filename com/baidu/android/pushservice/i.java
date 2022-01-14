@@ -23,29 +23,29 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile i f33299b;
+    public static volatile i f32241b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f33300c;
+    public static Context f32242c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicInteger f33301d;
+    public final AtomicInteger f32243d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, String> f33302e;
+    public HashMap<String, String> f32244e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f33303f;
+    public LinkedHashMap<String, Integer> f32245f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, TokenBindListener> f33304g;
+    public HashMap<String, TokenBindListener> f32246g;
 
     static {
         InterceptResult invokeClinit;
@@ -75,22 +75,22 @@ public class i {
                 return;
             }
         }
-        this.f33301d = new AtomicInteger();
+        this.f32243d = new AtomicInteger();
     }
 
     public static i a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f33299b == null) {
+            if (f32241b == null) {
                 synchronized (i.class) {
-                    if (f33299b == null) {
-                        f33299b = new i();
-                        f33300c = context;
+                    if (f32241b == null) {
+                        f32241b = new i();
+                        f32242c = context;
                     }
                 }
             }
-            return f33299b;
+            return f32241b;
         }
         return (i) invokeL.objValue;
     }
@@ -100,11 +100,11 @@ public class i {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
-            String str = g.f32981h;
+            String str = g.f31934h;
             if (i2 == 1) {
                 str = "/v2/bccs/upload";
             }
-            return g.f32976c + str;
+            return g.f31929c + str;
         }
         return (String) invokeI.objValue;
     }
@@ -117,20 +117,20 @@ public class i {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, com.baidu.android.pushservice.i.i.a(f33300c, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
+                jSONObject2.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, com.baidu.android.pushservice.i.i.a(f32242c, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
                 jSONObject2.put("timestamp", (System.currentTimeMillis() / 1000) + "");
-                jSONObject2.put("cid", com.baidu.android.pushservice.i.i.a(f33300c, "cid"));
+                jSONObject2.put("cid", com.baidu.android.pushservice.i.i.a(f32242c, "cid"));
                 jSONObject2.put(HttpConstants.DEVICE_TYPE, "3");
                 jSONObject2.put("sdk_int", Build.VERSION.SDK_INT + "");
                 jSONObject2.put("push_sdk_version", ((int) a.a()) + "");
-                String m = m.m(f33300c);
+                String m = m.m(f32242c);
                 if (!TextUtils.isEmpty(m)) {
                     jSONObject2.put("app_version", m);
                 }
                 if (m.n()) {
-                    jSONObject2.put("rom", m.l(f33300c));
+                    jSONObject2.put("rom", m.l(f32242c));
                 }
-                int i3 = m.o(f33300c) ? 3 : 2;
+                int i3 = m.o(f32242c) ? 3 : 2;
                 jSONObject2.put("connect_version", i3 + "");
                 jSONObject2.put("bind_name", Build.MODEL);
                 if (!TextUtils.isEmpty(str)) {
@@ -138,7 +138,7 @@ public class i {
                 }
                 jSONObject2.put(HttpConstants.OS_VERSION, Build.DISPLAY);
                 jSONObject2.put(HttpConstants.HTTP_MANUFACTURER, m.a(false));
-                jSONObject2.put("bind_notify_status", com.baidu.android.pushservice.i.h.b(f33300c));
+                jSONObject2.put("bind_notify_status", com.baidu.android.pushservice.i.h.b(f32242c));
                 if (i2 == 1) {
                     jSONObject2.put("iid", str2);
                     jSONObject2.put("source", 1);
@@ -193,23 +193,23 @@ public class i {
     public void a(int i2, String str, TokenBindListener tokenBindListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, tokenBindListener) == null) {
-            if (this.f33304g == null || this.f33303f == null || this.f33302e == null) {
-                this.f33304g = new HashMap<>();
-                this.f33303f = new LinkedHashMap<>();
-                this.f33302e = new HashMap<>();
+            if (this.f32246g == null || this.f32245f == null || this.f32244e == null) {
+                this.f32246g = new HashMap<>();
+                this.f32245f = new LinkedHashMap<>();
+                this.f32244e = new HashMap<>();
             }
-            String str2 = "key" + System.currentTimeMillis() + this.f33301d.incrementAndGet();
-            this.f33304g.put(str2, tokenBindListener);
-            this.f33303f.put(str2, Integer.valueOf(i2));
-            this.f33302e.put(str2, str);
+            String str2 = "key" + System.currentTimeMillis() + this.f32243d.incrementAndGet();
+            this.f32246g.put(str2, tokenBindListener);
+            this.f32245f.put(str2, Integer.valueOf(i2));
+            this.f32244e.put(str2, str);
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String key = this.f33303f.entrySet().iterator().next().getKey();
-            a(str, this.f33303f.remove(key).intValue(), this.f33302e.remove(key), this.f33304g.remove(key));
+            String key = this.f32245f.entrySet().iterator().next().getKey();
+            a(str, this.f32245f.remove(key).intValue(), this.f32244e.remove(key), this.f32246g.remove(key));
         }
     }
 
@@ -224,19 +224,19 @@ public class i {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ TokenBindListener f33305b;
+                public final /* synthetic */ TokenBindListener f32247b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f33306c;
+                public final /* synthetic */ int f32248c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f33307d;
+                public final /* synthetic */ String f32249d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ HashMap f33308e;
+                public final /* synthetic */ HashMap f32250e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ i f33309f;
+                public final /* synthetic */ i f32251f;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -257,34 +257,34 @@ public class i {
                             return;
                         }
                     }
-                    this.f33309f = this;
+                    this.f32251f = this;
                     this.a = str;
-                    this.f33305b = tokenBindListener;
-                    this.f33306c = i2;
-                    this.f33307d = str2;
-                    this.f33308e = hashMap;
+                    this.f32247b = tokenBindListener;
+                    this.f32248c = i2;
+                    this.f32249d = str2;
+                    this.f32250e = hashMap;
                 }
 
                 @Override // com.baidu.android.pushservice.g.c
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String b2 = this.f33309f.b(this.a);
-                        this.f33309f.a(this.f33305b, b2, this.a);
-                        com.baidu.android.pushservice.d.b a2 = com.baidu.android.pushservice.d.c.a(i.f33300c, this.f33309f.a(this.f33306c), "POST", this.f33309f.a(this.a, this.f33306c, this.f33307d), this.f33308e, "application/json");
+                        String b2 = this.f32251f.b(this.a);
+                        this.f32251f.a(this.f32247b, b2, this.a);
+                        com.baidu.android.pushservice.d.b a2 = com.baidu.android.pushservice.d.c.a(i.f32242c, this.f32251f.a(this.f32248c), "POST", this.f32251f.a(this.a, this.f32248c, this.f32249d), this.f32250e, "application/json");
                         if (a2 != null) {
-                            String a3 = m.a(i.f33300c, a2.a());
+                            String a3 = m.a(i.f32242c, a2.a());
                             int b3 = a2.b();
                             try {
                                 JSONObject jSONObject = new JSONObject(a3);
                                 b3 = jSONObject.getInt("error_code");
-                                com.baidu.android.pushservice.i.i.a(i.f33300c, "cid", jSONObject.getJSONObject("response_params").getString("cid"));
+                                com.baidu.android.pushservice.i.i.a(i.f32242c, "cid", jSONObject.getJSONObject("response_params").getString("cid"));
                                 if (!TextUtils.isEmpty(b2)) {
-                                    com.baidu.android.pushservice.i.i.a(i.f33300c, "token", b2);
+                                    com.baidu.android.pushservice.i.i.a(i.f32242c, "token", b2);
                                 }
                             } catch (JSONException unused) {
                             }
-                            TokenBindListener tokenBindListener2 = this.f33305b;
+                            TokenBindListener tokenBindListener2 = this.f32247b;
                             if (tokenBindListener2 == null || b3 != 0) {
                                 return;
                             }

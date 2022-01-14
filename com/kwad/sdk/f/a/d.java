@@ -6,10 +6,10 @@ import com.kwad.sdk.R;
 public class d extends com.kwad.sdk.f.kwai.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f59032b;
+    public View f56809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f59033c = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.f.a.d.1
+    public com.kwad.sdk.contentalliance.detail.video.d f56810c = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.f.a.d.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void c() {
             super.c();
@@ -25,32 +25,32 @@ public class d extends com.kwad.sdk.f.kwai.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f59032b.getVisibility() != 0) {
+        if (this.f56809b.getVisibility() != 0) {
             return;
         }
-        this.f59032b.setVisibility(8);
+        this.f56809b.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.f.kwai.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        if (com.ksad.download.c.b.a(this.f59032b.getContext())) {
-            this.f59032b.setVisibility(8);
+        if (com.ksad.download.c.b.a(this.f56809b.getContext())) {
+            this.f56809b.setVisibility(8);
             return;
         }
-        this.f59032b.setVisibility(0);
-        ((com.kwad.sdk.f.kwai.a) this).a.f59086f.a(this.f59033c);
+        this.f56809b.setVisibility(0);
+        ((com.kwad.sdk.f.kwai.a) this).a.f56861f.a(this.f56810c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        ((com.kwad.sdk.f.kwai.a) this).a.f59086f.b(this.f59033c);
+        ((com.kwad.sdk.f.kwai.a) this).a.f56861f.b(this.f56810c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f59032b = a(R.id.ksad_video_network_unavailable);
+        this.f56809b = a(R.id.ksad_video_network_unavailable);
     }
 }

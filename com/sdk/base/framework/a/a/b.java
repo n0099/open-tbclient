@@ -86,16 +86,16 @@ public final class b<K, V> extends ConcurrentHashMap<K, Long> {
     /* JADX WARN: Multi-variable type inference failed */
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
     /* renamed from: a */
-    public final synchronized Long put(K k2, Long l) {
+    public final synchronized Long put(K k, Long l) {
         InterceptResult invokeLL;
         Long l2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2, l)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k, l)) == null) {
             synchronized (this) {
-                if (containsKey(k2)) {
-                    remove(k2);
+                if (containsKey(k)) {
+                    remove(k);
                 }
-                l2 = (Long) super.put(k2, l);
+                l2 = (Long) super.put(k, l);
             }
             return l2;
         }

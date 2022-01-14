@@ -18,7 +18,7 @@ import c.a.d.f.p.n;
 import c.a.s0.e1.j0;
 import c.a.s0.e1.k0;
 import c.a.s0.e1.n0;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import c.a.s0.s.q.t0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -63,34 +63,32 @@ public class e implements c.a.t0.c2.i.b {
     public BaseActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.c2.i.d f15848b;
+    public c.a.t0.c2.i.d f15445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f15849c;
+    public View f15446c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f15850d;
+    public boolean f15447d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HotSearchInfoData f15851e;
+    public HotSearchInfoData f15448e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f15852f;
+    public boolean f15449f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15853g;
+    public String f15450g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Stack<String> f15854h;
+    public Stack<String> f15451h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.c2.i.c f15855i;
+    public c.a.t0.c2.i.c f15452i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f15856j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final CustomMessageListener f15857k;
+    public CustomMessageListener f15453j;
+    public final CustomMessageListener k;
 
     /* loaded from: classes7.dex */
     public class a implements BaseWebView.d {
@@ -98,7 +96,7 @@ public class e implements c.a.t0.c2.i.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f15858e;
+        public final /* synthetic */ e f15454e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -115,7 +113,7 @@ public class e implements c.a.t0.c2.i.b {
                     return;
                 }
             }
-            this.f15858e = eVar;
+            this.f15454e = eVar;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
@@ -125,26 +123,26 @@ public class e implements c.a.t0.c2.i.b {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
                 c.a.s0.s.b0.a.a("search", -1L, 0, "OverrideUrl", 0, "", "requesturl", str);
                 if (!TbadkCoreApplication.isLogin() && str != null && j0.e(str) && j0.a()) {
-                    t0 t0Var = new t0(this.f15858e.a, "sousuo_dianji");
+                    t0 t0Var = new t0(this.f15454e.a, "sousuo_dianji");
                     t0Var.i(str);
                     DialogLoginHelper.checkUpIsLogin(t0Var);
                     return true;
-                } else if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f15858e.a.getPageContext(), new String[]{str}) != 3) {
+                } else if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f15454e.a.getPageContext(), new String[]{str}) != 3) {
                     return true;
                 } else {
                     if (str == null || !str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                        Intent parseIntentFromUrl = BaseWebViewActivity.parseIntentFromUrl(this.f15858e.a.getApplicationContext(), str);
+                        Intent parseIntentFromUrl = BaseWebViewActivity.parseIntentFromUrl(this.f15454e.a.getApplicationContext(), str);
                         if (parseIntentFromUrl != null) {
                             try {
-                                ArrayList<String> arrayList = (ArrayList) this.f15858e.a.getCurrentPageSourceKeyList();
-                                String currentPageKey = this.f15858e.a.getCurrentPageKey();
+                                ArrayList<String> arrayList = (ArrayList) this.f15454e.a.getCurrentPageSourceKeyList();
+                                String currentPageKey = this.f15454e.a.getCurrentPageKey();
                                 if (arrayList != null && !StringUtils.isNull(currentPageKey) && !arrayList.contains(currentPageKey)) {
                                     arrayList.add(currentPageKey);
                                 }
                                 if (!ListUtils.isEmpty(arrayList)) {
                                     parseIntentFromUrl.putStringArrayListExtra("obj_source", arrayList);
                                 }
-                                this.f15858e.a.startActivity(parseIntentFromUrl);
+                                this.f15454e.a.startActivity(parseIntentFromUrl);
                             } catch (Throwable th) {
                                 BdLog.detailException(th);
                             }
@@ -152,7 +150,7 @@ public class e implements c.a.t0.c2.i.b {
                         }
                         return false;
                     }
-                    UrlManager.getInstance().dealOneLink(this.f15858e.a.getPageContext(), new String[]{str}, true);
+                    UrlManager.getInstance().dealOneLink(this.f15454e.a.getPageContext(), new String[]{str}, true);
                     return true;
                 }
             }
@@ -230,7 +228,7 @@ public class e implements c.a.t0.c2.i.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                this.a.f15848b.I(!((Boolean) customResponsedMessage.getData()).booleanValue());
+                this.a.f15445b.I(!((Boolean) customResponsedMessage.getData()).booleanValue());
             }
         }
     }
@@ -274,14 +272,14 @@ public class e implements c.a.t0.c2.i.b {
 
     /* renamed from: c.a.t0.c2.i.e$e  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class View$OnFocusChangeListenerC0979e implements View.OnFocusChangeListener {
+    public class View$OnFocusChangeListenerC0992e implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f15859e;
+        public final /* synthetic */ e f15455e;
 
-        public View$OnFocusChangeListenerC0979e(e eVar) {
+        public View$OnFocusChangeListenerC0992e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -296,7 +294,7 @@ public class e implements c.a.t0.c2.i.b {
                     return;
                 }
             }
-            this.f15859e = eVar;
+            this.f15455e = eVar;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -304,15 +302,15 @@ public class e implements c.a.t0.c2.i.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (!z) {
-                    n.w(this.f15859e.a.getPageContext().getPageActivity(), view);
+                    n.w(this.f15455e.a.getPageContext().getPageActivity(), view);
                     return;
                 }
-                if (this.f15859e.f15848b != null && this.f15859e.f15848b.g() != null) {
-                    e eVar = this.f15859e;
-                    eVar.f15853g = eVar.f15848b.g().getText().toString();
+                if (this.f15455e.f15445b != null && this.f15455e.f15445b.g() != null) {
+                    e eVar = this.f15455e;
+                    eVar.f15450g = eVar.f15445b.g().getText().toString();
                 }
-                if (StringUtils.isNull(this.f15859e.f15853g)) {
-                    this.f15859e.n();
+                if (StringUtils.isNull(this.f15455e.f15450g)) {
+                    this.f15455e.n();
                 }
             }
         }
@@ -348,13 +346,13 @@ public class e implements c.a.t0.c2.i.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 3) {
-                    if (StringUtils.isNull(this.a.f15853g)) {
+                    if (StringUtils.isNull(this.a.f15450g)) {
                         n.w(this.a.a.getPageContext().getPageActivity(), textView);
                         this.a.w();
                     } else {
                         e eVar = this.a;
-                        eVar.a(eVar.f15853g, false, 1);
-                        TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", this.a.f15853g).param("obj_source", "1").param("obj_type", "1"));
+                        eVar.a(eVar.f15450g, false, 1);
+                        TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", this.a.f15450g).param("obj_source", "1").param("obj_type", "1"));
                     }
                     return true;
                 }
@@ -370,7 +368,7 @@ public class e implements c.a.t0.c2.i.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f15860e;
+        public final /* synthetic */ e f15456e;
 
         public g(e eVar) {
             Interceptable interceptable = $ic;
@@ -387,7 +385,7 @@ public class e implements c.a.t0.c2.i.b {
                     return;
                 }
             }
-            this.f15860e = eVar;
+            this.f15456e = eVar;
         }
 
         @Override // android.text.TextWatcher
@@ -396,11 +394,11 @@ public class e implements c.a.t0.c2.i.b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable == null) {
                 return;
             }
-            if (this.f15860e.f15852f) {
-                this.f15860e.f15853g = editable.toString();
-                this.f15860e.B();
+            if (this.f15456e.f15449f) {
+                this.f15456e.f15450g = editable.toString();
+                this.f15456e.B();
             }
-            this.f15860e.f15848b.r(!StringUtils.isNull(editable.toString()));
+            this.f15456e.f15445b.r(!StringUtils.isNull(editable.toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -424,7 +422,7 @@ public class e implements c.a.t0.c2.i.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f15861e;
+        public final /* synthetic */ e f15457e;
 
         /* loaded from: classes7.dex */
         public class a implements Runnable {
@@ -432,7 +430,7 @@ public class e implements c.a.t0.c2.i.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h f15862e;
+            public final /* synthetic */ h f15458e;
 
             public a(h hVar) {
                 Interceptable interceptable = $ic;
@@ -449,14 +447,14 @@ public class e implements c.a.t0.c2.i.b {
                         return;
                     }
                 }
-                this.f15862e = hVar;
+                this.f15458e = hVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f15862e.f15861e.a.finish();
+                    this.f15458e.f15457e.a.finish();
                 }
             }
         }
@@ -476,25 +474,25 @@ public class e implements c.a.t0.c2.i.b {
                     return;
                 }
             }
-            this.f15861e = eVar;
+            this.f15457e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view != this.f15861e.f15848b.g() || this.f15861e.f15848b.g().getText() == null) {
-                    if (view == this.f15861e.f15848b.d()) {
-                        n.w(this.f15861e.a.getPageContext().getPageActivity(), this.f15861e.f15848b.g());
+                if (view != this.f15457e.f15445b.g() || this.f15457e.f15445b.g().getText() == null) {
+                    if (view == this.f15457e.f15445b.d()) {
+                        n.w(this.f15457e.a.getPageContext().getPageActivity(), this.f15457e.f15445b.g());
                         c.a.d.f.m.e.a().postDelayed(new a(this), 1000L);
                         return;
                     }
                     return;
                 }
-                e eVar = this.f15861e;
-                eVar.f15853g = eVar.f15848b.g().getText().toString();
-                if (StringUtils.isNull(this.f15861e.f15853g)) {
-                    this.f15861e.A();
+                e eVar = this.f15457e;
+                eVar.f15450g = eVar.f15445b.g().getText().toString();
+                if (StringUtils.isNull(this.f15457e.f15450g)) {
+                    this.f15457e.A();
                 }
             }
         }
@@ -606,26 +604,26 @@ public class e implements c.a.t0.c2.i.b {
                 return;
             }
         }
-        this.f15852f = true;
-        this.f15854h = new Stack<>();
-        this.f15856j = new c(this, 2921444);
-        this.f15857k = new d(this, 2921595);
+        this.f15449f = true;
+        this.f15451h = new Stack<>();
+        this.f15453j = new c(this, 2921444);
+        this.k = new d(this, 2921595);
         this.a = baseActivity;
-        this.f15850d = z;
+        this.f15447d = z;
         q();
     }
 
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f15855i.r();
+            this.f15452i.r();
         }
     }
 
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!StringUtils.isNull(this.f15853g)) {
+            if (!StringUtils.isNull(this.f15450g)) {
                 v();
             } else {
                 A();
@@ -646,22 +644,22 @@ public class e implements c.a.t0.c2.i.b {
                     str = matcher.group(2);
                 }
                 if (z) {
-                    this.f15852f = false;
-                    this.f15848b.A(str);
-                    this.f15852f = true;
+                    this.f15449f = false;
+                    this.f15445b.A(str);
+                    this.f15449f = true;
                 }
-                n.w(this.a.getPageContext().getPageActivity(), this.f15848b.g());
-                this.f15848b.w();
+                n.w(this.a.getPageContext().getPageActivity(), this.f15445b.g());
+                this.f15445b.w();
                 String str2 = "https://tieba.baidu.com/mo/q/hybrid/search?keyword=" + str + "&sub_type=" + i2;
                 try {
                     str2 = "https://tieba.baidu.com/mo/q/hybrid/search?keyword=" + URLEncoder.encode(str, "utf-8");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                this.f15848b.f().loadUrl(str2);
-                this.f15854h.push(str);
+                this.f15445b.f().loadUrl(str2);
+                this.f15451h.push(str);
                 n0.b(new b(this, str), null);
-                this.f15855i.k(str);
+                this.f15452i.k(str);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921345, str));
             }
         }
@@ -670,8 +668,8 @@ public class e implements c.a.t0.c2.i.b {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f15848b.f().addJsPromptInterface(new UegTbJsBridge(this.a.getPageContext()));
-            this.f15848b.f().addJsPromptInterface(new SearchJsBridge());
+            this.f15445b.f().addJsPromptInterface(new UegTbJsBridge(this.a.getPageContext()));
+            this.f15445b.f().addJsPromptInterface(new SearchJsBridge());
         }
     }
 
@@ -682,30 +680,30 @@ public class e implements c.a.t0.c2.i.b {
             j jVar = new j(this);
             k kVar = new k(this);
             a aVar = new a(this);
-            this.f15848b.F(iVar);
-            this.f15848b.H(jVar);
-            this.f15848b.G(kVar);
-            this.f15848b.E(aVar);
+            this.f15445b.F(iVar);
+            this.f15445b.H(jVar);
+            this.f15445b.G(kVar);
+            this.f15445b.E(aVar);
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View$OnFocusChangeListenerC0979e view$OnFocusChangeListenerC0979e = new View$OnFocusChangeListenerC0979e(this);
+            View$OnFocusChangeListenerC0992e view$OnFocusChangeListenerC0992e = new View$OnFocusChangeListenerC0992e(this);
             f fVar = new f(this);
             g gVar = new g(this);
             h hVar = new h(this);
-            this.f15848b.y(view$OnFocusChangeListenerC0979e);
-            this.f15848b.x(fVar);
-            this.f15848b.B(gVar);
-            this.f15848b.v(hVar);
+            this.f15445b.y(view$OnFocusChangeListenerC0992e);
+            this.f15445b.x(fVar);
+            this.f15445b.B(gVar);
+            this.f15445b.v(hVar);
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f15848b.n()) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f15445b.n()) {
             return;
         }
         v();
@@ -714,13 +712,13 @@ public class e implements c.a.t0.c2.i.b {
     public View o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15848b.g() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15445b.g() : (View) invokeV.objValue;
     }
 
     public BaseWebView p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f15848b.f() : (BaseWebView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f15445b.f() : (BaseWebView) invokeV.objValue;
     }
 
     public final void q() {
@@ -728,7 +726,7 @@ public class e implements c.a.t0.c2.i.b {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             try {
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.new_home_dialog_search, (ViewGroup) null);
-                this.f15849c = inflate;
+                this.f15446c = inflate;
                 this.a.setContentView(inflate);
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -740,7 +738,7 @@ public class e implements c.a.t0.c2.i.b {
                         c.a.t0.c2.i.a.b(str);
                         try {
                             View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.new_home_dialog_search, (ViewGroup) null);
-                            this.f15849c = inflate2;
+                            this.f15446c = inflate2;
                             this.a.setContentView(inflate2);
                             break;
                         } catch (Exception e3) {
@@ -757,43 +755,43 @@ public class e implements c.a.t0.c2.i.b {
                     return;
                 }
             }
-            View view = this.f15849c;
+            View view = this.f15446c;
             if (view == null) {
                 this.a.finish();
                 return;
             }
             c.a.t0.c2.i.d dVar = new c.a.t0.c2.i.d(view, this.a.getPageContext().getPageActivity());
-            this.f15848b = dVar;
-            this.f15855i = new c.a.t0.c2.i.c(this.a, this, dVar);
+            this.f15445b = dVar;
+            this.f15452i = new c.a.t0.c2.i.c(this.a, this, dVar);
             m();
             l();
             k();
             x();
             B();
-            w0.g(this.f15848b.f(), this.a.getUniqueId());
-            w0.g(this.f15848b.e(), this.a.getUniqueId());
-            this.a.registerListener(this.f15856j);
-            this.f15857k.setTag(this.a.getUniqueId());
-            this.f15857k.setSelfListener(true);
-            this.a.registerListener(this.f15857k);
+            v0.g(this.f15445b.f(), this.a.getUniqueId());
+            v0.g(this.f15445b.e(), this.a.getUniqueId());
+            this.a.registerListener(this.f15453j);
+            this.k.setTag(this.a.getUniqueId());
+            this.k.setSelfListener(true);
+            this.a.registerListener(this.k);
         }
     }
 
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f15848b.o(this.a.getPageContext(), i2);
+            this.f15445b.o(this.a.getPageContext(), i2);
         }
     }
 
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            c.a.t0.c2.i.d dVar = this.f15848b;
+            c.a.t0.c2.i.d dVar = this.f15445b;
             if (dVar != null) {
                 dVar.p();
             }
-            c.a.t0.c2.i.c cVar = this.f15855i;
+            c.a.t0.c2.i.c cVar = this.f15452i;
             if (cVar != null) {
                 cVar.s();
             }
@@ -803,7 +801,7 @@ public class e implements c.a.t0.c2.i.b {
     public void t() {
         c.a.t0.c2.i.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (dVar = this.f15848b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (dVar = this.f15445b) == null) {
             return;
         }
         dVar.q();
@@ -813,33 +811,33 @@ public class e implements c.a.t0.c2.i.b {
         c.a.t0.c2.i.d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.f15854h.size() > 1) {
-                this.f15854h.pop();
-                String peek = this.f15854h.peek();
-                if (TextUtils.isEmpty(peek) || (dVar = this.f15848b) == null) {
+            if (this.f15451h.size() > 1) {
+                this.f15451h.pop();
+                String peek = this.f15451h.peek();
+                if (TextUtils.isEmpty(peek) || (dVar = this.f15445b) == null) {
                     return;
                 }
-                boolean z = this.f15852f;
-                this.f15852f = false;
+                boolean z = this.f15449f;
+                this.f15449f = false;
                 dVar.A(peek);
-                this.f15852f = z;
-                this.f15848b.w();
+                this.f15449f = z;
+                this.f15445b.w();
                 return;
             }
-            this.f15854h.clear();
+            this.f15451h.clear();
         }
     }
 
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (StringUtils.isNull(this.f15853g)) {
+            if (StringUtils.isNull(this.f15450g)) {
                 A();
                 return;
             }
             SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
-            searchListNetMessage.mKey = this.f15853g.trim();
-            searchListNetMessage.isForum = Integer.valueOf(this.f15850d ? 1 : 0);
+            searchListNetMessage.mKey = this.f15450g.trim();
+            searchListNetMessage.isForum = Integer.valueOf(this.f15447d ? 1 : 0);
             this.a.sendMessage(searchListNetMessage);
         }
     }
@@ -847,30 +845,30 @@ public class e implements c.a.t0.c2.i.b {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            HotSearchInfoData hotSearchInfoData = this.f15851e;
+            HotSearchInfoData hotSearchInfoData = this.f15448e;
             if (hotSearchInfoData == null) {
                 BaseActivity baseActivity = this.a;
                 baseActivity.showToast(baseActivity.getResources().getString(R.string.write_keyword));
                 return;
             }
-            if (hotSearchInfoData.getType() != 0 && this.f15851e.getType() != 2) {
-                if (this.f15851e.getType() == 1 && !c.a.s0.u0.a.b(this.a.getPageContext())) {
-                    this.a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.a.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.f15851e.getId()), this.f15851e.getName(), "4")));
+            if (hotSearchInfoData.getType() != 0 && this.f15448e.getType() != 2) {
+                if (this.f15448e.getType() == 1 && !c.a.s0.u0.a.b(this.a.getPageContext())) {
+                    this.a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.a.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.f15448e.getId()), this.f15448e.getName(), "4")));
                 }
             } else {
-                a(this.f15851e.getName(), true, 1);
+                a(this.f15448e.getName(), true, 1);
             }
-            TiebaStatic.log(new StatisticItem("c10355").param("obj_name", this.f15851e.getName()).param("obj_type", this.f15851e.getType() == 0 ? 2 : 1));
+            TiebaStatic.log(new StatisticItem("c10355").param("obj_name", this.f15448e.getName()).param("obj_type", this.f15448e.getType() == 0 ? 2 : 1));
         }
     }
 
     public final void x() {
         c.a.t0.c2.i.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (dVar = this.f15848b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (dVar = this.f15445b) == null) {
             return;
         }
-        HotSearchInfoData hotSearchInfoData = this.f15851e;
+        HotSearchInfoData hotSearchInfoData = this.f15448e;
         if (hotSearchInfoData == null) {
             dVar.z(this.a.getResources().getString(R.string.search_bar));
         } else {
@@ -881,15 +879,15 @@ public class e implements c.a.t0.c2.i.b {
     public void y(HotSearchInfoData hotSearchInfoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, hotSearchInfoData) == null) {
-            this.f15851e = hotSearchInfoData;
+            this.f15448e = hotSearchInfoData;
             x();
         }
     }
 
     public void z(DataRes dataRes, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048594, this, dataRes, str) == null) && !TextUtils.isEmpty(str) && str.equals(this.f15853g)) {
-            this.f15848b.C(dataRes, this.f15853g);
+        if ((interceptable == null || interceptable.invokeLL(1048594, this, dataRes, str) == null) && !TextUtils.isEmpty(str) && str.equals(this.f15450g)) {
+            this.f15445b.C(dataRes, this.f15450g);
         }
     }
 }

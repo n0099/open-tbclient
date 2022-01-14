@@ -35,27 +35,27 @@ public class b implements ICommandStatistics<ActionData> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f4630h;
+    public static final boolean f4528h;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4631b;
+    public int f4529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONArray f4632c;
+    public JSONArray f4530c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4633d;
+    public int f4531d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4634e;
+    public int f4532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4635f;
+    public int f4533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<Pair<String, String>> f4636g;
+    public final List<Pair<String, String>> f4534g;
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +70,7 @@ public class b implements ICommandStatistics<ActionData> {
                 return;
             }
         }
-        f4630h = AppConfig.isDebug();
+        f4528h = AppConfig.isDebug();
     }
 
     public b(List<Pair<String, String>> list) {
@@ -88,8 +88,8 @@ public class b implements ICommandStatistics<ActionData> {
                 return;
             }
         }
-        this.f4632c = new JSONArray();
-        this.f4636g = list;
+        this.f4530c = new JSONArray();
+        this.f4534g = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,9 +106,9 @@ public class b implements ICommandStatistics<ActionData> {
             jSONObject.put("version", actionData == null ? "-1" : actionData.version);
             jSONObject.put("valid", z ? "1" : "0");
             if (z) {
-                this.f4634e++;
+                this.f4532e++;
             }
-            this.f4632c.put(jSONObject);
+            this.f4530c.put(jSONObject);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -124,11 +124,11 @@ public class b implements ICommandStatistics<ActionData> {
             }
             try {
                 j2 = Long.parseLong(str2);
-                if (f4630h) {
+                if (f4528h) {
                     String str3 = "action = " + str + " support imsdk long connect,new data version is  " + str2;
                 }
             } catch (NumberFormatException unused) {
-                if (f4630h) {
+                if (f4528h) {
                     String str4 = "action = " + str + " support imsdk long connect,version is not right--> " + str2;
                 }
             }
@@ -150,10 +150,10 @@ public class b implements ICommandStatistics<ActionData> {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UpdateConstants.RECEIVE_TS_KEY, this.a);
-                jSONObject.put("detail", this.f4632c);
-                jSONObject.put("totalCount", this.f4633d);
-                jSONObject.put("successCount", this.f4634e);
-                jSONObject.put("versionFilterCount", this.f4635f);
+                jSONObject.put("detail", this.f4530c);
+                jSONObject.put("totalCount", this.f4531d);
+                jSONObject.put("successCount", this.f4532e);
+                jSONObject.put("versionFilterCount", this.f4533f);
                 return jSONObject;
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -167,7 +167,7 @@ public class b implements ICommandStatistics<ActionData> {
     public void doStatistics() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            UpdateRuntime.getUpdateContext().doStatistics(this.f4631b, d());
+            UpdateRuntime.getUpdateContext().doStatistics(this.f4529b, d());
         }
     }
 
@@ -194,12 +194,12 @@ public class b implements ICommandStatistics<ActionData> {
                 jsonReader.beginObject();
                 while (jsonReader.hasNext()) {
                     String nextName2 = jsonReader.nextName();
-                    this.f4633d++;
-                    if (f4630h) {
+                    this.f4531d++;
+                    if (f4528h) {
                         r0 = "read action " + nextName + " " + nextName2;
                     }
                     Pair pair = new Pair(nextName, nextName2);
-                    List<Pair<String, String>> list = this.f4636g;
+                    List<Pair<String, String>> list = this.f4534g;
                     boolean z3 = list != null && list.contains(pair);
                     try {
                         Object read = gson.getAdapter(TypeToken.get(JsonElement.class)).read(jsonReader);
@@ -218,11 +218,11 @@ public class b implements ICommandStatistics<ActionData> {
                                             if (c(AppRuntime.getAppContext(), nextName, nextName2, actionData2, jSONObject)) {
                                                 z = true;
                                             } else {
-                                                boolean z4 = f4630h;
+                                                boolean z4 = f4528h;
                                                 collectInfo(nextName + "/" + nextName2, actionData, false);
                                                 z = true;
                                                 try {
-                                                    this.f4635f++;
+                                                    this.f4533f++;
                                                 } catch (Throwable th) {
                                                     th = th;
                                                     try {
@@ -287,7 +287,7 @@ public class b implements ICommandStatistics<ActionData> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, reader, i2, jSONObject)) == null) {
             this.a = String.valueOf(System.currentTimeMillis());
-            this.f4631b = i2;
+            this.f4529b = i2;
             Map f2 = f(new JsonReader(reader), jSONObject);
             doStatistics();
             return f2;

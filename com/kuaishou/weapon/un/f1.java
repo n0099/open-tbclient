@@ -34,13 +34,13 @@ public class f1 {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f57491b;
+                    return y0.f55309b;
                 }
                 String networkCountryIso = telephonyManager.getNetworkCountryIso();
-                return TextUtils.isEmpty(networkCountryIso) ? y0.f57492c : networkCountryIso;
+                return TextUtils.isEmpty(networkCountryIso) ? y0.f55310c : networkCountryIso;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f57493d;
+                return y0.f55311d;
             }
         }
         return (String) invokeL.objValue;
@@ -53,13 +53,13 @@ public class f1 {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f57491b;
+                    return y0.f55309b;
                 }
                 String networkOperator = telephonyManager.getNetworkOperator();
-                return TextUtils.isEmpty(networkOperator) ? y0.f57492c : networkOperator;
+                return TextUtils.isEmpty(networkOperator) ? y0.f55310c : networkOperator;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f57493d;
+                return y0.f55311d;
             }
         }
         return (String) invokeL.objValue;

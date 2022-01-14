@@ -129,28 +129,28 @@ public class WalletStatic {
                     Activity activity;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        if (customMessage == null || (data = customMessage.getData()) == null || (activity = data.f13288d) == null) {
+                        if (customMessage == null || (data = customMessage.getData()) == null || (activity = data.f12968d) == null) {
                             return null;
                         }
                         BdUniqueId bdUniqueId = data.a;
-                        String str = data.f13287c;
-                        int i2 = data.f13286b;
+                        String str = data.f12967c;
+                        int i2 = data.f12966b;
                         if (i2 == 1) {
-                            WalletPluginManager.getInstance().doBaiduPay(data.f13288d, str, bdUniqueId);
+                            WalletPluginManager.getInstance().doBaiduPay(data.f12968d, str, bdUniqueId);
                         } else if (i2 == 2) {
-                            WalletPluginManager.getInstance().doAliPay(data.f13288d, str, bdUniqueId);
+                            WalletPluginManager.getInstance().doAliPay(data.f12968d, str, bdUniqueId);
                         } else if (i2 == 3) {
-                            WalletPluginManager.getInstance().doBaiduLBSPay(data.f13288d, data.f13289e, data.f13287c, bdUniqueId);
-                        } else if (i2 == 4 && data.f13290f != null) {
+                            WalletPluginManager.getInstance().doBaiduLBSPay(data.f12968d, data.f12969e, data.f12967c, bdUniqueId);
+                        } else if (i2 == 4 && data.f12970f != null) {
                             IWXAPI createWXAPI = WXAPIFactory.createWXAPI(activity, TbConfig.WEIXIN_SHARE_APP_ID);
                             PayReq payReq = new PayReq();
-                            payReq.appId = data.f13290f.get("appid");
-                            payReq.partnerId = data.f13290f.get("partnerid");
-                            payReq.prepayId = data.f13290f.get("prepayid");
-                            payReq.packageValue = data.f13290f.get("packagealias");
-                            payReq.nonceStr = data.f13290f.get("noncestr");
-                            payReq.timeStamp = data.f13290f.get("timestamp");
-                            payReq.sign = data.f13290f.get("sign");
+                            payReq.appId = data.f12970f.get("appid");
+                            payReq.partnerId = data.f12970f.get("partnerid");
+                            payReq.prepayId = data.f12970f.get("prepayid");
+                            payReq.packageValue = data.f12970f.get("packagealias");
+                            payReq.nonceStr = data.f12970f.get("noncestr");
+                            payReq.timeStamp = data.f12970f.get("timestamp");
+                            payReq.sign = data.f12970f.get("sign");
                             createWXAPI.registerApp(payReq.appId);
                             createWXAPI.sendReq(payReq);
                         }
@@ -194,7 +194,7 @@ public class WalletStatic {
                             return null;
                         }
                         WalletPluginManager.getInstance().invokePlugin(null);
-                        return new CustomResponsedMessage<>(2921539, WalletPluginManager.getInstance().doAliPay(customMessage.getData().a, customMessage.getData().f12635b, customMessage.getData().f12636c));
+                        return new CustomResponsedMessage<>(2921539, WalletPluginManager.getInstance().doAliPay(customMessage.getData().a, customMessage.getData().f12338b, customMessage.getData().f12339c));
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
@@ -808,7 +808,7 @@ public class WalletStatic {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
                         WalletPluginManager.getInstance().invokePlugin(null);
-                        return new CustomResponsedMessage<>(2921432, WalletPluginManager.getInstance().doTiebaPay(b.g().b()));
+                        return new CustomResponsedMessage<>(2921432, WalletPluginManager.getInstance().doTiebaPay(b.f().b()));
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }

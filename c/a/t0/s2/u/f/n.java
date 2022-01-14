@@ -92,11 +92,11 @@ public abstract class n<T, V extends TypeAdapter.ViewHolder> extends c.a.d.n.e.a
         this.o = videoPbFragment;
         PbFragment pbFragment = this.n;
         if (pbFragment != null) {
-            this.f3299e = pbFragment.getActivity();
+            this.f3258e = pbFragment.getActivity();
         } else if (videoPbFragment != null) {
-            this.f3299e = videoPbFragment.getActivity();
+            this.f3258e = videoPbFragment.getActivity();
         } else {
-            this.f3299e = null;
+            this.f3258e = null;
         }
     }
 

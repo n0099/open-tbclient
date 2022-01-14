@@ -28,10 +28,10 @@ public class c {
     public final c.a.t0.s2.y.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f23276b;
+    public final HttpMessageListener f22633b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f23277c;
+    public final HttpMessageListener f22634c;
 
     /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
@@ -123,8 +123,8 @@ public class c {
                 return;
             }
         }
-        this.f23276b = new a(this, CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
-        this.f23277c = new b(this, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+        this.f22633b = new a(this, CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
+        this.f22634c = new b(this, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
         if (bVar != null) {
             this.a = bVar;
             f();
@@ -141,7 +141,7 @@ public class c {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void b(AgreeData agreeData) {
-        c.a.s0.o0.c k2;
+        c.a.s0.o0.c k;
         BaijiahaoData baijiahaoData;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, agreeData) == null) || agreeData == null) {
@@ -163,9 +163,9 @@ public class c {
                 httpMessage.addParam("obj_type", agreeData.objType);
                 httpMessage.addParam("agree_type", agreeData.agreeType);
                 httpMessage.addParam("forum_id", agreeData.forumId);
-                k2 = TbPageExtraHelper.k(this.a.getPbActivity());
-                if (k2 != null) {
-                    httpMessage.addParam("obj_source", k2.a());
+                k = TbPageExtraHelper.k(this.a.getPbActivity());
+                if (k != null) {
+                    httpMessage.addParam("obj_source", k.a());
                 }
                 if (!TextUtils.isEmpty(agreeData.postId)) {
                     httpMessage.addParam("post_id", agreeData.postId);
@@ -202,8 +202,8 @@ public class c {
         httpMessage2.addParam("obj_type", agreeData.objType);
         httpMessage2.addParam("agree_type", agreeData.agreeType);
         httpMessage2.addParam("forum_id", agreeData.forumId);
-        k2 = TbPageExtraHelper.k(this.a.getPbActivity());
-        if (k2 != null) {
+        k = TbPageExtraHelper.k(this.a.getPbActivity());
+        if (k != null) {
         }
         if (!TextUtils.isEmpty(agreeData.postId)) {
         }
@@ -253,8 +253,8 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             c.a.t0.s2.y.b bVar = this.a;
             if (bVar != null) {
-                bVar.registerListener(this.f23276b);
-                this.a.registerListener(this.f23277c);
+                bVar.registerListener(this.f22633b);
+                this.a.registerListener(this.f22634c);
                 return true;
             }
             return true;
@@ -266,8 +266,8 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f23276b);
-            MessageManager.getInstance().unRegisterListener(this.f23277c);
+            MessageManager.getInstance().unRegisterListener(this.f22633b);
+            MessageManager.getInstance().unRegisterListener(this.f22634c);
             return true;
         }
         return invokeV.booleanValue;

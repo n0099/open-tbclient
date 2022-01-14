@@ -20,10 +20,10 @@ public class a extends com.sdk.base.framework.f.a {
     public static final String a = "com.sdk.base.framework.f.i.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f61597b;
+    public static boolean f59263b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f61598c;
+    public static String f59264c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,8 +39,8 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f61597b = f.f61569b;
-        f61598c = "a6Hy5Hb8IfX46D1f";
+        f59263b = f.f59236b;
+        f59264c = "a6Hy5Hb8IfX46D1f";
     }
 
     public a() {
@@ -95,7 +95,7 @@ public class a extends com.sdk.base.framework.f.a {
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? b(str, str2, f61598c) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? b(str, str2, f59264c) : (String) invokeLL.objValue;
     }
 
     public static String a(String str, String str2, String str3) {
@@ -106,13 +106,13 @@ public class a extends com.sdk.base.framework.f.a {
                 try {
                     if (str.length() != 0 && str.trim().length() != 0) {
                         if (str2 == null) {
-                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt key is null", f61597b);
+                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt key is null", f59263b);
                             return null;
                         } else if (str2.length() != 16) {
-                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt key length error", f61597b);
+                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt key length error", f59263b);
                             return null;
                         } else if (str3.length() != 16) {
-                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "ivStr length error", f61597b);
+                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "ivStr length error", f59263b);
                             return null;
                         } else {
                             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -121,11 +121,11 @@ public class a extends com.sdk.base.framework.f.a {
                         }
                     }
                 } catch (Exception e2) {
-                    com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", e2.getMessage(), f61597b);
+                    com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", e2.getMessage(), f59263b);
                     return null;
                 }
             }
-            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt content is null", f61597b);
+            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt content is null", f59263b);
             return null;
         }
         return (String) invokeLLL.objValue;

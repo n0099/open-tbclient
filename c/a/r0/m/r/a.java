@@ -31,14 +31,14 @@ public class a extends c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f11676i;
+    public static final boolean f11414i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f11677j;
+    public static final int f11415j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public DrivingRouteLine f11678h;
+    public DrivingRouteLine f11416h;
 
     static {
         InterceptResult invokeClinit;
@@ -53,8 +53,8 @@ public class a extends c {
                 return;
             }
         }
-        f11676i = k.a;
-        f11677j = Color.argb(178, 0, 78, 255);
+        f11414i = k.a;
+        f11415j = Color.argb(178, 0, 78, 255);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,7 +75,7 @@ public class a extends c {
                 return;
             }
         }
-        this.f11678h = null;
+        this.f11416h = null;
     }
 
     @Override // c.a.r0.m.r.c
@@ -83,11 +83,11 @@ public class a extends c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f11678h == null) {
+            if (this.f11416h == null) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            List<DrivingRouteLine.DrivingStep> allStep = this.f11678h.getAllStep();
+            List<DrivingRouteLine.DrivingStep> allStep = this.f11416h.getAllStep();
             if (allStep != null && allStep.size() > 0) {
                 for (DrivingRouteLine.DrivingStep drivingStep : allStep) {
                     Bundle bundle = new Bundle();
@@ -120,7 +120,7 @@ public class a extends c {
                     }
                 }
                 boolean z = arrayList3.size() > 0;
-                PolylineOptions zIndex = new PolylineOptions().points(arrayList2).textureIndex(arrayList3).width(14).dottedLine(z).focus(true).color(f() != 0 ? f() : f11677j).zIndex(0);
+                PolylineOptions zIndex = new PolylineOptions().points(arrayList2).textureIndex(arrayList3).width(14).dottedLine(z).focus(true).color(f() != 0 ? f() : f11415j).zIndex(0);
                 if (z) {
                     zIndex.customTextureList(e());
                 }
@@ -152,10 +152,10 @@ public class a extends c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (this.f11678h.getAllStep() == null || this.f11678h.getAllStep().get(i2) == null) {
+            if (this.f11416h.getAllStep() == null || this.f11416h.getAllStep().get(i2) == null) {
                 return false;
             }
-            boolean z = f11676i;
+            boolean z = f11414i;
             return false;
         }
         return invokeI.booleanValue;
@@ -164,14 +164,14 @@ public class a extends c {
     public void h(DrivingRouteLine drivingRouteLine) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drivingRouteLine) == null) {
-            this.f11678h = drivingRouteLine;
+            this.f11416h = drivingRouteLine;
         }
     }
 
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            for (Overlay overlay : this.f11682g) {
+            for (Overlay overlay : this.f11419g) {
                 if (overlay instanceof Polyline) {
                     ((Polyline) overlay).setFocus(z);
                     return;
@@ -185,7 +185,7 @@ public class a extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, marker)) == null) {
-            for (Overlay overlay : this.f11682g) {
+            for (Overlay overlay : this.f11419g) {
                 if ((overlay instanceof Marker) && overlay.equals(marker) && marker.getExtraInfo() != null) {
                     g(marker.getExtraInfo().getInt("index"));
                 }
@@ -201,7 +201,7 @@ public class a extends c {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, polyline)) == null) {
-            Iterator<Overlay> it = this.f11682g.iterator();
+            Iterator<Overlay> it = this.f11419g.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;

@@ -1,99 +1,122 @@
 package c.a.s0.t.c;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class o0 {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final o0 f13872d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f14199b;
+    public String f13873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f14200c;
+    public final boolean f13874c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public long f14201d;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92420185, "Lc/a/s0/t/c/o0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-92420185, "Lc/a/s0/t/c/o0;");
+                return;
+            }
+        }
+        f13872d = new o0(false);
+    }
 
-    /* renamed from: e  reason: collision with root package name */
-    public String f14202e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f14203f;
-
-    public o0() {
+    public o0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f13874c = z;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public static o0 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14200c : invokeV.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return f13872d;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("video_activity");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("image_url");
+                String optString2 = optJSONObject.optString("url");
+                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2)) {
+                    o0 o0Var = new o0(true);
+                    o0Var.g(optString);
+                    o0Var.f(optString2);
+                    return o0Var;
+                }
+            }
+            return f13872d;
+        }
+        return (o0) invokeL.objValue;
+    }
+
+    public boolean a(o0 o0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o0Var)) == null) ? this.f13873b.equals(o0Var.b()) && this.a.equals(o0Var.c()) : invokeL.booleanValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14203f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13873b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14202e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public long d() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14201d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13874c : invokeV.booleanValue;
     }
 
-    public long e() {
-        InterceptResult invokeV;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14199b : invokeV.longValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f13873b = str;
+        }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || c.a.d.f.p.m.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.a = jSONObject.optString("splash_video_url");
-            this.f14199b = jSONObject.optLong("splash_video_start_time") * 1000;
-            this.f14200c = jSONObject.optLong("splash_video_end_time") * 1000;
-            this.f14201d = jSONObject.optLong("splash_video_interval_time") * 1000;
-            this.f14202e = jSONObject.optString("splash_video_h5_url");
-            this.f14203f = jSONObject.optString("splash_video_h5_text");
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
         }
     }
 }

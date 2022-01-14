@@ -2,6 +2,7 @@ package com.baidu.turbonet.base;
 
 import android.os.StrictMode;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +58,7 @@ public class SysUtils {
             Pattern compile = Pattern.compile("^MemTotal:\\s+([0-9]+) kB$");
             StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
             try {
-                fileReader = new FileReader("/proc/meminfo");
+                fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
             } catch (Exception unused) {
             } catch (Throwable th) {
                 StrictMode.setThreadPolicy(allowThreadDiskReads);

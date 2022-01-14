@@ -15,25 +15,25 @@ public final class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12211b;
+    public int f11927b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12212c;
+    public int f11928c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12213d;
+    public int f11929d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12214e;
+    public int f11930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12215f;
+    public int f11931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12216g;
+    public int f11932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12217h;
+    public int f11933h;
 
     public b(View view) {
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public final class b {
                 return;
             }
         }
-        this.f12217h = 0;
+        this.f11933h = 0;
         new WeakReference(view);
     }
 
@@ -78,15 +78,15 @@ public final class b {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            int i6 = this.f12214e;
+            int i6 = this.f11930e;
             if (i6 == 90 || i6 == 270) {
                 i3 = i2;
                 i2 = i3;
             }
             int defaultSize = View.getDefaultSize(this.a, i2);
-            int defaultSize2 = View.getDefaultSize(this.f12211b, i3);
-            if (this.f12217h != 3) {
-                if (this.a <= 0 || this.f12211b <= 0) {
+            int defaultSize2 = View.getDefaultSize(this.f11927b, i3);
+            if (this.f11933h != 3) {
+                if (this.a <= 0 || this.f11927b <= 0) {
                     i2 = defaultSize;
                     i3 = defaultSize2;
                 } else {
@@ -98,22 +98,22 @@ public final class b {
                         float f3 = i2;
                         float f4 = i3;
                         float f5 = f3 / f4;
-                        int i7 = this.f12217h;
+                        int i7 = this.f11933h;
                         if (i7 == 4) {
-                            int i8 = this.f12214e;
+                            int i8 = this.f11930e;
                             f2 = (i8 == 90 || i8 == 270) ? 0.5625f : 1.7777778f;
                         } else if (i7 != 5) {
-                            f2 = this.a / this.f12211b;
-                            int i9 = this.f12212c;
-                            if (i9 > 0 && (i5 = this.f12213d) > 0) {
+                            f2 = this.a / this.f11927b;
+                            int i9 = this.f11928c;
+                            if (i9 > 0 && (i5 = this.f11929d) > 0) {
                                 f2 = (f2 * i9) / i5;
                             }
                         } else {
-                            int i10 = this.f12214e;
+                            int i10 = this.f11930e;
                             f2 = (i10 == 90 || i10 == 270) ? 0.75f : 1.3333334f;
                         }
                         boolean z = f2 > f5;
-                        int i11 = this.f12217h;
+                        int i11 = this.f11933h;
                         if (i11 != 0) {
                             if (i11 != 1) {
                                 if (i11 != 4 && i11 != 5) {
@@ -121,7 +121,7 @@ public final class b {
                                         i2 = Math.min(this.a, i2);
                                         i3 = (int) (i2 / f2);
                                     } else {
-                                        i3 = Math.min(this.f12211b, i3);
+                                        i3 = Math.min(this.f11927b, i3);
                                         i2 = (int) (i3 * f2);
                                     }
                                 }
@@ -130,73 +130,73 @@ public final class b {
                     } else if (mode == 1073741824 && mode2 == 1073741824) {
                         int i12 = this.a;
                         int i13 = i12 * i3;
-                        int i14 = this.f12211b;
+                        int i14 = this.f11927b;
                         if (i13 < i2 * i14) {
                             i2 = (i12 * i3) / i14;
                         } else if (i12 * i3 > i2 * i14) {
                             i3 = (i14 * i2) / i12;
                         }
                     } else if (mode == 1073741824) {
-                        int i15 = (this.f12211b * i2) / this.a;
+                        int i15 = (this.f11927b * i2) / this.a;
                         if (mode2 != Integer.MIN_VALUE || i15 <= i3) {
                             i3 = i15;
                         }
                     } else if (mode2 == 1073741824) {
-                        i4 = (this.a * i3) / this.f12211b;
+                        i4 = (this.a * i3) / this.f11927b;
                         if (mode == Integer.MIN_VALUE) {
                         }
                         i2 = i4;
                     } else {
                         i4 = this.a;
-                        int i16 = this.f12211b;
+                        int i16 = this.f11927b;
                         if (mode2 != Integer.MIN_VALUE || i16 <= i3) {
                             i3 = i16;
                         } else {
                             i4 = (i4 * i3) / i16;
                         }
                         if (mode == Integer.MIN_VALUE && i4 > i2) {
-                            i3 = (this.f12211b * i2) / this.a;
+                            i3 = (this.f11927b * i2) / this.a;
                         }
                         i2 = i4;
                     }
                 }
             }
-            this.f12215f = i2;
-            this.f12216g = i3;
+            this.f11931f = i2;
+            this.f11932g = i3;
         }
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12216g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11932g : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12215f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11931f : invokeV.intValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f12217h = i2;
+            this.f11933h = i2;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f12214e = i2;
+            this.f11930e = i2;
         }
     }
 
     public void f(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            this.f12212c = i2;
-            this.f12213d = i3;
+            this.f11928c = i2;
+            this.f11929d = i3;
         }
     }
 
@@ -204,7 +204,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
             this.a = i2;
-            this.f12211b = i3;
+            this.f11927b = i3;
         }
     }
 }

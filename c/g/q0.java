@@ -25,10 +25,10 @@ public class q0 implements PidLoader {
     public final PidLoader a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f29340b;
+    public final long f28447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f29341c;
+    public long f28448c;
 
     /* loaded from: classes9.dex */
     public class a implements i {
@@ -37,7 +37,7 @@ public class q0 implements PidLoader {
         public final i a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ q0 f29342b;
+        public final /* synthetic */ q0 f28449b;
 
         public a(q0 q0Var, i iVar) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class q0 implements PidLoader {
                     return;
                 }
             }
-            this.f29342b = q0Var;
+            this.f28449b = q0Var;
             this.a = iVar;
         }
 
@@ -110,7 +110,7 @@ public class q0 implements PidLoader {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.f29342b.f29341c = System.currentTimeMillis();
+                this.f28449b.f28448c = System.currentTimeMillis();
                 this.a.d();
             }
         }
@@ -140,7 +140,7 @@ public class q0 implements PidLoader {
             }
         }
         this.a = pidLoader;
-        this.f29340b = pidLoader.getPid().tmout * 60 * 1000;
+        this.f28447b = pidLoader.getPid().tmout * 60 * 1000;
     }
 
     @Override // com.fun.ad.sdk.internal.api.PidLoader
@@ -191,7 +191,7 @@ public class q0 implements PidLoader {
     public boolean isLoaded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.isLoaded() && System.currentTimeMillis() - this.f29341c < this.f29340b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.isLoaded() && System.currentTimeMillis() - this.f28448c < this.f28447b : invokeV.booleanValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.PidLoader

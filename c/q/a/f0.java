@@ -18,7 +18,7 @@ public class f0 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f31294e;
+    public final /* synthetic */ Context f30316e;
 
     public f0(i0 i0Var, Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class f0 implements Runnable {
                 return;
             }
         }
-        this.f31294e = context;
+        this.f30316e = context;
     }
 
     @Override // java.lang.Runnable
@@ -44,7 +44,7 @@ public class f0 implements Runnable {
         String userAgentString;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context context = this.f31294e;
+            Context context = this.f30316e;
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
                     try {

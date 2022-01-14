@@ -1,41 +1,66 @@
 package c.a.t0.d1.r1;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import c.a.d.f.p.n;
+import android.net.Uri;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import androidx.core.view.InputDeviceCompat;
 import c.a.t0.d1.c1;
-import c.a.t0.d1.d1;
-import c.a.t0.d1.e1;
-import c.a.t0.d1.f1;
-import c.a.t0.d1.g1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.atomData.AchievementActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class b extends c.a.t0.g0.b<c> {
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView m;
-    public TextView n;
-    public TextView o;
-    public View p;
-    public RelativeLayout q;
-    public ConstrainImageGroup r;
+    public TbPageContext a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    /* renamed from: b  reason: collision with root package name */
+    public String f16424b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f16425c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f16426d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f16427e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f16428f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f16429g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f16430h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f16431i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f16432j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+
+    public b(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,126 +70,266 @@ public class b extends c.a.t0.g0.b<c> {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View j2 = j();
-        this.m = (TbImageView) j2.findViewById(f1.ad_portrait);
-        this.n = (TextView) j2.findViewById(f1.ad_title);
-        this.o = (TextView) j2.findViewById(f1.ad_desc);
-        this.r = (ConstrainImageGroup) j2.findViewById(f1.ad_img_layout);
-        this.p = j2.findViewById(f1.item_divider);
-        this.q = (RelativeLayout) j2.findViewById(f1.frs_ad_list_item_view);
-        j2.setOnClickListener(this);
+        this.a = tbPageContext;
     }
 
-    @Override // c.a.t0.g0.b
-    public int f() {
+    public final SpannableStringBuilder a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) ("忍不住想告诉你个好消息，" + str + "吧的成员数量突破了"));
+            StringBuilder sb = new StringBuilder();
+            sb.append(str2);
+            sb.append("人");
+            spannableStringBuilder.append((CharSequence) d(sb.toString()));
+            spannableStringBuilder.append((CharSequence) ("！作为吧主，我邀请你加入" + str + "吧！\n\n"));
+            spannableStringBuilder.append((CharSequence) "在我担任吧主的这");
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) ("，为" + str + "吧创造了良好的社区氛围，近期发现了"));
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "篇优质贴子，最火热的一篇");
+            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
+            spannableStringBuilder.append((CharSequence) "竟然盖了");
+            spannableStringBuilder.append((CharSequence) d(str7 + "层"));
+            spannableStringBuilder.append((CharSequence) "楼。\n\n");
+            spannableStringBuilder.append((CharSequence) "我很喜欢");
+            spannableStringBuilder.append((CharSequence) i(str));
+            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public final SpannableStringBuilder b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) "给你安利一个有趣的社区——");
+            spannableStringBuilder.append((CharSequence) (str + "吧！现在成员数已经突破"));
+            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
+            spannableStringBuilder.append((CharSequence) "了！\n\n");
+            spannableStringBuilder.append((CharSequence) "我加入");
+            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) "了，近期发表了");
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "篇贴子，最火的一篇");
+            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
+            spannableStringBuilder.append((CharSequence) "收到了");
+            spannableStringBuilder.append((CharSequence) d(str7 + "条"));
+            spannableStringBuilder.append((CharSequence) "回复、");
+            spannableStringBuilder.append((CharSequence) d(str8 + "个"));
+            spannableStringBuilder.append((CharSequence) "赞！\n\n");
+            spannableStringBuilder.append((CharSequence) "我很喜欢");
+            spannableStringBuilder.append((CharSequence) i(str));
+            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public final SpannableStringBuilder c(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) "给你安利一个有趣的社区——");
+            spannableStringBuilder.append((CharSequence) (str + "吧！现在成员数已经突破"));
+            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
+            spannableStringBuilder.append((CharSequence) "了！\n\n");
+            spannableStringBuilder.append((CharSequence) "我加入");
+            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) "了，近期参与了");
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "主题贴的讨论，写了");
+            spannableStringBuilder.append((CharSequence) d(str5 + "条"));
+            spannableStringBuilder.append((CharSequence) "评论。\n\n");
+            spannableStringBuilder.append((CharSequence) "我很喜欢");
+            spannableStringBuilder.append((CharSequence) i(str));
+            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public final SpannableString d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(c1.CAM_X0305)), 0, spannableString.length(), 33);
+            return spannableString;
+        }
+        return (SpannableString) invokeL.objValue;
+    }
+
+    public final SpannableStringBuilder e(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) (str + "吧成员数突破了"));
+            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
+            spannableStringBuilder.append((CharSequence) "！感谢你的一路相伴，见证了这个特别的时刻。\n\n你加入");
+            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) "了，最近发表了");
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "篇贴子，最火的一篇");
+            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
+            spannableStringBuilder.append((CharSequence) "收到了");
+            spannableStringBuilder.append((CharSequence) d(str7 + "条"));
+            spannableStringBuilder.append((CharSequence) "回复、");
+            spannableStringBuilder.append((CharSequence) d(str8 + "个"));
+            spannableStringBuilder.append((CharSequence) "赞！近一个月累计签到了");
+            spannableStringBuilder.append((CharSequence) (str9 + "天"));
+            spannableStringBuilder.append((CharSequence) "。\n\n");
+            spannableStringBuilder.append((CharSequence) (str + "吧因为有你而精彩！"));
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public final SpannableStringBuilder f(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) (str + "吧成员数突破了"));
+            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
+            spannableStringBuilder.append((CharSequence) "！感谢你的一路相伴，见证了这个特别的时刻。\n\n你加入");
+            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) "了，近期参与了");
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "个主题贴的讨论，写了");
+            spannableStringBuilder.append((CharSequence) d(str5 + "条"));
+            spannableStringBuilder.append((CharSequence) "评论。近一个月累计签到了");
+            spannableStringBuilder.append((CharSequence) (str6 + "天。\n\n"));
+            spannableStringBuilder.append((CharSequence) (str + "吧因为有你而精彩！"));
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public final SpannableStringBuilder g(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) ("恭喜！" + str + "吧成员数突破"));
+            StringBuilder sb = new StringBuilder();
+            sb.append(str2);
+            sb.append("人");
+            spannableStringBuilder.append((CharSequence) d(sb.toString()));
+            spannableStringBuilder.append((CharSequence) "！\n\n");
+            spannableStringBuilder.append((CharSequence) "感谢你在过去");
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) "的辛勤付出，火眼金睛的你最近挑选出了");
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "篇精品贴子，处理了大量违规内容。\n\n衷心感谢你为吧友提供了和谐快乐的社区氛围。截止目前");
+            spannableStringBuilder.append((CharSequence) i(str));
+            spannableStringBuilder.append((CharSequence) "吧共有");
+            spannableStringBuilder.append((CharSequence) d(str5 + "篇"));
+            spannableStringBuilder.append((CharSequence) "贴子，最火热的一篇贴子");
+            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
+            spannableStringBuilder.append((CharSequence) "竟然盖了");
+            spannableStringBuilder.append((CharSequence) d(str7 + "层"));
+            spannableStringBuilder.append((CharSequence) "楼。\n\n继续加油吧！期望你能带领");
+            spannableStringBuilder.append((CharSequence) i(str));
+            spannableStringBuilder.append((CharSequence) "吧走得更远！");
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public SpannableStringBuilder h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? g1.frs_ad_list_item_view : invokeV.intValue;
-    }
-
-    @Override // c.a.t0.g0.b
-    public void l(TbPageContext<?> tbPageContext, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f18209e == i2) {
-            return;
-        }
-        this.f18209e = i2;
-        SkinManager.setViewTextColor(this.n, c1.CAM_X0105);
-        SkinManager.setViewTextColor(this.o, c1.CAM_X0109);
-        SkinManager.setBackgroundResource(this.q, e1.ad_list_item_bg);
-        this.r.onChangeSkinType();
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.t0.g0.b
-    /* renamed from: p */
-    public void k(c cVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) || cVar == null) {
-            return;
-        }
-        this.m.setPlaceHolder(1);
-        this.m.startLoad(cVar.k(), 10, false);
-        this.m.setRadius(n.f(getContext(), d1.tbds26));
-        this.m.setDrawerType(1);
-        this.m.setDrawBorder(true);
-        this.m.setBorderColor(SkinManager.getColor(c1.black_alpha15));
-        this.m.setBorderWidth(n.f(getContext(), d1.tbds1));
-        this.m.setDefaultResource(e1.transparent_bg);
-        this.m.setDefaultBgResource(e1.transparent_bg);
-        this.n.setText(cVar.i());
-        this.o.setText(cVar.g());
-        SkinManager.setViewTextColor(this.n, c1.CAM_X0105);
-        SkinManager.setViewTextColor(this.o, c1.CAM_X0109);
-        SkinManager.setBackgroundResource(this.q, e1.ad_list_item_bg);
-        if (ListUtils.getCount(cVar.q()) > 0) {
-            c.a.s0.g1.j.f fVar = new c.a.s0.g1.j.f(3);
-            fVar.d(1.0d);
-            this.r.setVisibility(0);
-            this.r.setFromCDN(true);
-            this.r.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d1.tbds20));
-            this.r.setImageProcessor(fVar);
-            this.r.setImageMediaList(cVar.q());
-            if (!cVar.p()) {
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, n.f(getContext(), d1.tbds16));
-                layoutParams.addRule(12);
-                this.p.setLayoutParams(layoutParams);
-                SkinManager.setBackgroundColor(this.p, c1.CAM_X0204);
-                this.p.setVisibility(0);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = this.m;
+            if (str == null) {
+                return null;
             }
-            this.p.setVisibility(8);
-            return;
+            if (str.equals("bazhu")) {
+                return a(this.f16428f, this.f16429g, this.f16430h, this.f16431i, this.f16432j, this.k, this.l);
+            }
+            if (this.m.equals("active-a")) {
+                return b(this.f16428f, this.f16429g, this.n, this.o, this.f16432j, this.k, this.p, this.q, this.r);
+            }
+            if (this.m.equals("active-b")) {
+                return c(this.f16428f, this.f16429g, this.n, this.s, this.t, this.r);
+            }
+            return null;
         }
-        this.r.setVisibility(8);
-        if (!cVar.p()) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, n.f(getContext(), d1.tbds1));
-            layoutParams2.addRule(12);
-            this.p.setLayoutParams(layoutParams2);
-            SkinManager.setBackgroundColor(this.p, c1.CAM_X0204);
-            this.p.setVisibility(0);
-            return;
-        }
-        this.p.setVisibility(8);
+        return (SpannableStringBuilder) invokeV.objValue;
     }
 
-    public void q(c.a.d.f.k.b<TbImageView> bVar) {
-        ConstrainImageGroup constrainImageGroup;
+    public final String i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || (constrainImageGroup = this.r) == null) {
-            return;
-        }
-        constrainImageGroup.setImageViewPool(bVar);
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
     }
 
-    public void s(c.a.d.f.k.b<ConstrainImageLayout> bVar) {
-        ConstrainImageGroup constrainImageGroup;
+    public SpannableStringBuilder j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || (constrainImageGroup = this.r) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            String str = this.m;
+            if (str == null) {
+                return null;
+            }
+            if (str.equals("bazhu")) {
+                return g(this.f16428f, this.f16429g, this.f16430h, this.f16431i, this.f16432j, this.k, this.l);
+            }
+            if (this.m.equals("active-a")) {
+                return e(this.f16428f, this.f16429g, this.n, this.o, this.f16432j, this.k, this.p, this.q, this.r);
+            }
+            if (this.m.equals("active-b")) {
+                return f(this.f16428f, this.f16429g, this.n, this.s, this.t, this.r);
+            }
+            return null;
         }
-        constrainImageGroup.setConstrainLayoutPool(bVar);
+        return (SpannableStringBuilder) invokeV.objValue;
     }
 
-    public void t(double d2) {
-        ConstrainImageGroup constrainImageGroup;
+    public void k() {
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d2)}) == null) || (constrainImageGroup = this.r) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.a.getPageActivity() == null || this.a.getPageActivity().getIntent() == null) {
             return;
         }
-        constrainImageGroup.setSingleImageRatio(d2);
+        this.f16424b = this.a.getPageActivity().getIntent().getStringExtra("key_url");
+        this.f16425c = this.a.getPageActivity().getIntent().getStringExtra(AchievementActivityConfig.KEY_SHARE_URL);
+        if (TextUtils.isEmpty(this.f16424b) || (parse = Uri.parse(this.f16424b)) == null) {
+            return;
+        }
+        this.f16426d = parse.getQueryParameter("nickname");
+        this.f16427e = parse.getQueryParameter("fid");
+        this.f16428f = parse.getQueryParameter("fname");
+        this.f16429g = parse.getQueryParameter("subcribe-num");
+        this.f16430h = parse.getQueryParameter("bazhu-days");
+        this.f16431i = parse.getQueryParameter("goods-num");
+        this.f16432j = parse.getQueryParameter("tid-num");
+        String queryParameter = parse.getQueryParameter("most-hot-name");
+        this.k = queryParameter;
+        this.k = StringHelper.cutStringWithSuffix(queryParameter, 20, "...");
+        this.l = parse.getQueryParameter("most-hot-floors");
+        this.m = parse.getQueryParameter("achievement");
+        this.n = parse.getQueryParameter("join-days");
+        this.o = parse.getQueryParameter("send-tids");
+        this.p = parse.getQueryParameter("reply-num");
+        this.q = parse.getQueryParameter("zan-num");
+        this.r = parse.getQueryParameter("sign-days");
+        this.s = parse.getQueryParameter("join-topicnum");
+        this.t = parse.getQueryParameter("write-num");
     }
 }

@@ -1,23 +1,23 @@
 package c.a.s0.s.q;
 
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.Topic;
+import tbclient.FrsPage.TopNotice;
 /* loaded from: classes6.dex */
 public class h2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13724b;
+    public String f13414b;
 
     public h2() {
         Interceptable interceptable = $ic;
@@ -32,43 +32,44 @@ public class h2 {
                 return;
             }
         }
-        this.a = 0;
-        this.f13724b = "";
+        this.a = null;
+        this.f13414b = null;
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13724b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13414b : (String) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("is_lpost", 0);
-            jSONObject.optInt(TiebaStatic.Params.TOPIC_TYPE, 0);
-            this.f13724b = jSONObject.optString("link", "");
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            try {
+                this.a = jSONObject.getString("title");
+                this.f13414b = jSONObject.getString("title_link");
+                jSONObject.getString(NotificationCompat.CarExtender.KEY_AUTHOR);
+                jSONObject.getInt("id");
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
-    public void d(Topic topic) {
+    public void d(TopNotice topNotice) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, topic) == null) || topic == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, topNotice) == null) || topNotice == null) {
             return;
         }
-        this.a = topic.is_lpost.intValue();
-        topic.topic_type.intValue();
-        this.f13724b = topic.link;
+        this.a = topNotice.title;
+        this.f13414b = topNotice.title_link;
+        String str = topNotice.author;
+        topNotice.id.intValue();
     }
 }

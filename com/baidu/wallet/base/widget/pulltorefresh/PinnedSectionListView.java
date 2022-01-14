@@ -31,34 +31,32 @@ public class PinnedSectionListView extends ListView {
     public AbsListView.OnScrollListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f52868b;
+    public a f50829b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f52869c;
+    public a f50830c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52870d;
+    public int f50831d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f52871e;
+    public final Rect f50832e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final PointF f52872f;
+    public final PointF f50833f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52873g;
+    public int f50834g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f52874h;
+    public View f50835h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MotionEvent f52875i;
+    public MotionEvent f50836i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f52876j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final AbsListView.OnScrollListener f52877k;
+    public int f50837j;
+    public final AbsListView.OnScrollListener k;
     public final DataSetObserver l;
 
     /* loaded from: classes13.dex */
@@ -73,10 +71,10 @@ public class PinnedSectionListView extends ListView {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f52878b;
+        public int f50838b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f52879c;
+        public long f50839c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -112,9 +110,9 @@ public class PinnedSectionListView extends ListView {
                 return;
             }
         }
-        this.f52871e = new Rect();
-        this.f52872f = new PointF();
-        this.f52877k = new AbsListView.OnScrollListener(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
+        this.f50832e = new Rect();
+        this.f50833f = new PointF();
+        this.k = new AbsListView.OnScrollListener(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PinnedSectionListView a;
@@ -222,19 +220,19 @@ public class PinnedSectionListView extends ListView {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            setOnScrollListener(this.f52877k);
-            this.f52873g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+            setOnScrollListener(this.k);
+            this.f50834g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.f52874h = null;
-            MotionEvent motionEvent = this.f52875i;
+            this.f50835h = null;
+            MotionEvent motionEvent = this.f50836i;
             if (motionEvent != null) {
                 motionEvent.recycle();
-                this.f52875i = null;
+                this.f50836i = null;
             }
         }
     }
@@ -244,16 +242,16 @@ public class PinnedSectionListView extends ListView {
         AdapterView.OnItemClickListener onItemClickListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            if (this.f52869c == null || (onItemClickListener = getOnItemClickListener()) == null || !getAdapter().isEnabled(this.f52869c.f52878b)) {
+            if (this.f50830c == null || (onItemClickListener = getOnItemClickListener()) == null || !getAdapter().isEnabled(this.f50830c.f50838b)) {
                 return false;
             }
-            View view = this.f52869c.a;
+            View view = this.f50830c.a;
             playSoundEffect(0);
             if (view != null) {
                 view.sendAccessibilityEvent(1);
             }
-            a aVar = this.f52869c;
-            onItemClickListener.onItemClick(this, view, aVar.f52878b, aVar.f52879c);
+            a aVar = this.f50830c;
+            onItemClickListener.onItemClick(this, view, aVar.f50838b, aVar.f50839c);
             return true;
         }
         return invokeV.booleanValue;
@@ -274,8 +272,8 @@ public class PinnedSectionListView extends ListView {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            a aVar = this.f52868b;
-            this.f52868b = null;
+            a aVar = this.f50829b;
+            this.f50829b = null;
             if (aVar == null) {
                 aVar = new a();
             }
@@ -296,11 +294,11 @@ public class PinnedSectionListView extends ListView {
             }
             view.measure(View.MeasureSpec.makeMeasureSpec((getWidth() - getListPaddingLeft()) - getListPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec(size, mode));
             view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-            this.f52870d = 0;
+            this.f50831d = 0;
             aVar.a = view;
-            aVar.f52878b = i2;
-            aVar.f52879c = getAdapter().getItemId(i2);
-            this.f52869c = aVar;
+            aVar.f50838b = i2;
+            aVar.f50839c = getAdapter().getItemId(i2);
+            this.f50830c = aVar;
         }
     }
 
@@ -335,14 +333,14 @@ public class PinnedSectionListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (this.f52869c != null) {
+            if (this.f50830c != null) {
                 int listPaddingLeft = getListPaddingLeft();
                 int listPaddingTop = getListPaddingTop();
-                View view = this.f52869c.a;
+                View view = this.f50830c.a;
                 canvas.save();
                 canvas.clipRect(listPaddingLeft, listPaddingTop, view.getWidth() + listPaddingLeft, view.getHeight() + listPaddingTop);
-                canvas.translate(listPaddingLeft, listPaddingTop + this.f52870d);
-                drawChild(canvas, this.f52869c.a, getDrawingTime());
+                canvas.translate(listPaddingLeft, listPaddingTop + this.f50831d);
+                drawChild(canvas, this.f50830c.a, getDrawingTime());
                 canvas.restore();
             }
         }
@@ -357,17 +355,17 @@ public class PinnedSectionListView extends ListView {
             float x = motionEvent.getX();
             float y = motionEvent.getY();
             int action = motionEvent.getAction();
-            if (action == 0 && this.f52874h == null && (aVar = this.f52869c) != null && a(aVar.a, x, y)) {
-                this.f52874h = this.f52869c.a;
-                PointF pointF = this.f52872f;
+            if (action == 0 && this.f50835h == null && (aVar = this.f50830c) != null && a(aVar.a, x, y)) {
+                this.f50835h = this.f50830c.a;
+                PointF pointF = this.f50833f;
                 pointF.x = x;
                 pointF.y = y;
-                this.f52875i = MotionEvent.obtain(motionEvent);
+                this.f50836i = MotionEvent.obtain(motionEvent);
             }
-            View view = this.f52874h;
+            View view = this.f50835h;
             if (view != null) {
                 if (a(view, x, y)) {
-                    this.f52874h.dispatchTouchEvent(motionEvent);
+                    this.f50835h.dispatchTouchEvent(motionEvent);
                 }
                 if (action == 1) {
                     super.dispatchTouchEvent(motionEvent);
@@ -375,12 +373,12 @@ public class PinnedSectionListView extends ListView {
                     d();
                 } else if (action == 3) {
                     d();
-                } else if (action == 2 && Math.abs(y - this.f52872f.y) > this.f52873g) {
+                } else if (action == 2 && Math.abs(y - this.f50833f.y) > this.f50834g) {
                     MotionEvent obtain = MotionEvent.obtain(motionEvent);
                     obtain.setAction(3);
-                    this.f52874h.dispatchTouchEvent(obtain);
+                    this.f50835h.dispatchTouchEvent(obtain);
                     obtain.recycle();
-                    super.dispatchTouchEvent(this.f52875i);
+                    super.dispatchTouchEvent(this.f50836i);
                     super.dispatchTouchEvent(motionEvent);
                     d();
                 }
@@ -396,7 +394,7 @@ public class PinnedSectionListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (this.f52869c == null || ((i4 - i2) - getPaddingLeft()) - getPaddingRight() == this.f52869c.a.getWidth()) {
+            if (this.f50830c == null || ((i4 - i2) - getPaddingLeft()) - getPaddingRight() == this.f50830c.a.getWidth()) {
                 return;
             }
             b();
@@ -446,7 +444,7 @@ public class PinnedSectionListView extends ListView {
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onScrollListener) == null) {
-            if (onScrollListener == this.f52877k) {
+            if (onScrollListener == this.k) {
                 super.setOnScrollListener(onScrollListener);
             } else {
                 this.a = onScrollListener;
@@ -492,9 +490,9 @@ public class PinnedSectionListView extends ListView {
                 return;
             }
         }
-        this.f52871e = new Rect();
-        this.f52872f = new PointF();
-        this.f52877k = new AbsListView.OnScrollListener(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
+        this.f50832e = new Rect();
+        this.f50833f = new PointF();
+        this.k = new AbsListView.OnScrollListener(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PinnedSectionListView a;
@@ -632,9 +630,9 @@ public class PinnedSectionListView extends ListView {
                 return;
             }
         }
-        this.f52871e = new Rect();
-        this.f52872f = new PointF();
-        this.f52877k = new AbsListView.OnScrollListener(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
+        this.f50832e = new Rect();
+        this.f50833f = new PointF();
+        this.k = new AbsListView.OnScrollListener(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PinnedSectionListView a;
@@ -742,11 +740,11 @@ public class PinnedSectionListView extends ListView {
     public void a() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f52869c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f50830c) == null) {
             return;
         }
-        this.f52868b = aVar;
-        this.f52869c = null;
+        this.f50829b = aVar;
+        this.f50830c = null;
     }
 
     public void a(int i2, int i3, int i4) {
@@ -756,29 +754,29 @@ public class PinnedSectionListView extends ListView {
                 a();
                 return;
             }
-            a aVar = this.f52869c;
-            if (aVar != null && aVar.f52878b != i2) {
+            a aVar = this.f50830c;
+            if (aVar != null && aVar.f50838b != i2) {
                 a();
             }
-            if (this.f52869c == null) {
+            if (this.f50830c == null) {
                 a(i2);
             }
             int i5 = i2 + 1;
             if (i5 < getCount()) {
                 int a2 = a(i5, i4 - (i5 - i3));
                 if (a2 > -1) {
-                    int top = getChildAt(a2 - i3).getTop() - (this.f52869c.a.getBottom() + getPaddingTop());
-                    this.f52876j = top;
+                    int top = getChildAt(a2 - i3).getTop() - (this.f50830c.a.getBottom() + getPaddingTop());
+                    this.f50837j = top;
                     if (top < 0) {
-                        this.f52870d = top;
+                        this.f50831d = top;
                         return;
                     } else {
-                        this.f52870d = 0;
+                        this.f50831d = 0;
                         return;
                     }
                 }
-                this.f52870d = 0;
-                this.f52876j = Integer.MAX_VALUE;
+                this.f50831d = 0;
+                this.f50837j = Integer.MAX_VALUE;
             }
         }
     }
@@ -810,15 +808,15 @@ public class PinnedSectionListView extends ListView {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            view.getHitRect(this.f52871e);
-            Rect rect = this.f52871e;
+            view.getHitRect(this.f50832e);
+            Rect rect = this.f50832e;
             int i2 = rect.top;
-            int i3 = this.f52870d;
+            int i3 = this.f50831d;
             rect.top = i2 + i3;
             rect.bottom += i3 + getPaddingTop();
-            this.f52871e.left += getPaddingLeft();
-            this.f52871e.right -= getPaddingRight();
-            return this.f52871e.contains((int) f2, (int) f3);
+            this.f50832e.left += getPaddingLeft();
+            this.f50832e.right -= getPaddingRight();
+            return this.f50832e.contains((int) f2, (int) f3);
         }
         return invokeCommon.booleanValue;
     }

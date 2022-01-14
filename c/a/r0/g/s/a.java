@@ -46,20 +46,20 @@ public class a implements c.a.r0.a.y2.a {
 
     /* renamed from: c.a.r0.g.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0682a extends ResponseCallback<JSONObject> {
+    public class C0691a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a.InterfaceC0630a a;
+        public final /* synthetic */ a.InterfaceC0639a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10622b;
+        public final /* synthetic */ String f10393b;
 
-        public C0682a(a aVar, a.InterfaceC0630a interfaceC0630a, String str) {
+        public C0691a(a aVar, a.InterfaceC0639a interfaceC0639a, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, interfaceC0630a, str};
+                Object[] objArr = {aVar, interfaceC0639a, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -69,20 +69,20 @@ public class a implements c.a.r0.a.y2.a {
                     return;
                 }
             }
-            this.a = interfaceC0630a;
-            this.f10622b = str;
+            this.a = interfaceC0639a;
+            this.f10393b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
-            a.InterfaceC0630a interfaceC0630a;
+            a.InterfaceC0639a interfaceC0639a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) || (interfaceC0630a = this.a) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) || (interfaceC0639a = this.a) == null) {
                 return;
             }
-            interfaceC0630a.c(jSONObject, this.f10622b);
+            interfaceC0639a.c(jSONObject, this.f10393b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -104,12 +104,12 @@ public class a implements c.a.r0.a.y2.a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            a.InterfaceC0630a interfaceC0630a;
+            a.InterfaceC0639a interfaceC0639a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (interfaceC0630a = this.a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (interfaceC0639a = this.a) == null) {
                 return;
             }
-            interfaceC0630a.c(null, null);
+            interfaceC0639a.c(null, null);
         }
     }
 
@@ -207,15 +207,15 @@ public class a implements c.a.r0.a.y2.a {
         PutObjectResponse putObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, aVar)) == null) {
-            if (!TextUtils.isEmpty(str) && aVar != null && !TextUtils.isEmpty(aVar.a) && !TextUtils.isEmpty(aVar.f7748b) && !TextUtils.isEmpty(aVar.f7749c) && !TextUtils.isEmpty(aVar.f7752f)) {
+            if (!TextUtils.isEmpty(str) && aVar != null && !TextUtils.isEmpty(aVar.a) && !TextUtils.isEmpty(aVar.f7579b) && !TextUtils.isEmpty(aVar.f7580c) && !TextUtils.isEmpty(aVar.f7583f)) {
                 try {
                     BosClientConfiguration bosClientConfiguration = new BosClientConfiguration();
-                    bosClientConfiguration.setCredentials(new DefaultBceSessionCredentials(aVar.a, aVar.f7748b, aVar.f7749c));
+                    bosClientConfiguration.setCredentials(new DefaultBceSessionCredentials(aVar.a, aVar.f7579b, aVar.f7580c));
                     bosClientConfiguration.setEndpoint("bj.bcebos.com");
                     bosClientConfiguration.setProtocol(Protocol.HTTPS);
                     BosClient bosClient = new BosClient(bosClientConfiguration);
                     File file = new File(str);
-                    if (file.exists() && (putObject = bosClient.putObject(new PutObjectRequest(aVar.f7750d, aVar.f7752f, file))) != null) {
+                    if (file.exists() && (putObject = bosClient.putObject(new PutObjectRequest(aVar.f7581d, aVar.f7583f, file))) != null) {
                         if (!TextUtils.isEmpty(putObject.getETag())) {
                             return true;
                         }
@@ -232,15 +232,15 @@ public class a implements c.a.r0.a.y2.a {
     }
 
     @Override // c.a.r0.a.y2.a
-    public void b(Context context, String str, a.InterfaceC0630a interfaceC0630a) {
+    public void b(Context context, String str, a.InterfaceC0639a interfaceC0639a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, interfaceC0630a) == null) || context == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, interfaceC0639a) == null) || context == null || TextUtils.isEmpty(str)) {
             return;
         }
         String v = c.v(c.a.r0.a.c1.a.o().e());
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
-        for (Map.Entry<String, String> entry : c.a.r0.a.d0.b.b().f5634d.entrySet()) {
+        for (Map.Entry<String, String> entry : c.a.r0.a.d0.b.b().f5512d.entrySet()) {
             v = o0.a(v, entry.getKey(), entry.getValue());
         }
         String c2 = c(d(context), str.substring(str.lastIndexOf(".")));
@@ -248,12 +248,12 @@ public class a implements c.a.r0.a.y2.a {
         if (e2 == null) {
             return;
         }
-        c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(v, e2, new C0682a(this, interfaceC0630a, c2));
+        c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(v, e2, new C0691a(this, interfaceC0639a, c2));
         if (c.a.r0.p.e.a.g().c()) {
-            aVar.f11718f = true;
+            aVar.f11453f = true;
         }
-        aVar.f11719g = false;
-        aVar.f11715c = hashMap;
+        aVar.f11454g = false;
+        aVar.f11450c = hashMap;
         c.a.r0.p.e.a.g().e(aVar);
     }
 }

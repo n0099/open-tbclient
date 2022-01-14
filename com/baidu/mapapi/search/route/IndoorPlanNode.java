@@ -14,7 +14,7 @@ public class IndoorPlanNode {
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36808b;
+    public String f35596b;
 
     public IndoorPlanNode(LatLng latLng, String str) {
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public class IndoorPlanNode {
             }
         }
         this.a = null;
-        this.f36808b = null;
+        this.f35596b = null;
         this.a = latLng;
-        this.f36808b = str;
+        this.f35596b = str;
     }
 
     public String getFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36808b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35596b : (String) invokeV.objValue;
     }
 
     public LatLng getLocation() {

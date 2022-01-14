@@ -10,15 +10,15 @@ public class b extends j {
     public final j a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.b.g.c f60902b;
+    public com.meizu.cloud.pushsdk.b.g.c f58595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f60903c;
+    public d f58596c;
 
     public b(j jVar, com.meizu.cloud.pushsdk.b.d.a aVar) {
         this.a = jVar;
         if (aVar != null) {
-            this.f60903c = new d(aVar);
+            this.f58596c = new d(aVar);
         }
     }
 
@@ -27,17 +27,17 @@ public class b extends j {
             public long a = 0;
 
             /* renamed from: b  reason: collision with root package name */
-            public long f60904b = 0;
+            public long f58597b = 0;
 
             @Override // com.meizu.cloud.pushsdk.b.g.f, com.meizu.cloud.pushsdk.b.g.l
             public void a(com.meizu.cloud.pushsdk.b.g.b bVar, long j2) throws IOException {
                 super.a(bVar, j2);
-                if (this.f60904b == 0) {
-                    this.f60904b = b.this.b();
+                if (this.f58597b == 0) {
+                    this.f58597b = b.this.b();
                 }
                 this.a += j2;
-                if (b.this.f60903c != null) {
-                    b.this.f60903c.obtainMessage(1, new com.meizu.cloud.pushsdk.b.f.a(this.a, this.f60904b)).sendToTarget();
+                if (b.this.f58596c != null) {
+                    b.this.f58596c.obtainMessage(1, new com.meizu.cloud.pushsdk.b.f.a(this.a, this.f58597b)).sendToTarget();
                 }
             }
         };
@@ -50,11 +50,11 @@ public class b extends j {
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
     public void a(com.meizu.cloud.pushsdk.b.g.c cVar) throws IOException {
-        if (this.f60902b == null) {
-            this.f60902b = com.meizu.cloud.pushsdk.b.g.g.a(a((l) cVar));
+        if (this.f58595b == null) {
+            this.f58595b = com.meizu.cloud.pushsdk.b.g.g.a(a((l) cVar));
         }
-        this.a.a(this.f60902b);
-        this.f60902b.flush();
+        this.a.a(this.f58595b);
+        this.f58595b.flush();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.c.j

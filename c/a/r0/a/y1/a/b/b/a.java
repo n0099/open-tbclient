@@ -20,27 +20,27 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f9901d;
+    public static final boolean f9687d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f9902e;
+    public static volatile a f9688e;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcurrentHashMap<String, c.a.r0.a.y1.a.b.c.a<c.a.r0.a.y1.a.b.a.b>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Runnable> f9903b;
+    public ConcurrentHashMap<String, Runnable> f9689b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HandlerC0623a f9904c;
+    public HandlerC0632a f9690c;
 
     /* renamed from: c.a.r0.a.y1.a.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class HandlerC0623a extends Handler {
+    public static class HandlerC0632a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0623a(Looper looper) {
+        public HandlerC0632a(Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -66,10 +66,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<a> f9905e;
+        public WeakReference<a> f9691e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f9906f;
+        public String f9692f;
 
         public b(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -86,21 +86,21 @@ public class a {
                     return;
                 }
             }
-            this.f9905e = new WeakReference<>(aVar);
-            this.f9906f = str;
+            this.f9691e = new WeakReference<>(aVar);
+            this.f9692f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f9905e.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f9691e.get()) == null) {
                 return;
             }
-            if (a.f9901d) {
-                String str = "run: observer timeout " + this.f9906f;
+            if (a.f9687d) {
+                String str = "run: observer timeout " + this.f9692f;
             }
-            c.a.r0.a.y1.a.b.a.b bVar = new c.a.r0.a.y1.a.b.a.b(this.f9906f);
+            c.a.r0.a.y1.a.b.a.b bVar = new c.a.r0.a.y1.a.b.a.b(this.f9692f);
             bVar.setResult(null);
             aVar.c(bVar);
         }
@@ -119,7 +119,7 @@ public class a {
                 return;
             }
         }
-        f9901d = k.a;
+        f9687d = k.a;
     }
 
     public a() {
@@ -136,22 +136,22 @@ public class a {
             }
         }
         this.a = new ConcurrentHashMap<>();
-        this.f9903b = new ConcurrentHashMap<>();
-        this.f9904c = new HandlerC0623a(Looper.getMainLooper());
+        this.f9689b = new ConcurrentHashMap<>();
+        this.f9690c = new HandlerC0632a(Looper.getMainLooper());
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f9902e == null) {
+            if (f9688e == null) {
                 synchronized (a.class) {
-                    if (f9902e == null) {
-                        f9902e = new a();
+                    if (f9688e == null) {
+                        f9688e = new a();
                     }
                 }
             }
-            return f9902e;
+            return f9688e;
         }
         return (a) invokeV.objValue;
     }
@@ -161,23 +161,23 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             c.a.r0.a.y1.a.b.c.a<c.a.r0.a.y1.a.b.a.b> aVar = this.a.get(bVar.b());
             if (aVar == null) {
-                boolean z = f9901d;
+                boolean z = f9687d;
                 return;
             }
             String b2 = aVar.b();
-            if (f9901d) {
+            if (f9687d) {
                 String str = "notify observer: " + b2;
             }
             aVar.onEvent(bVar);
-            if (this.f9903b.containsKey(b2)) {
-                if (f9901d) {
+            if (this.f9689b.containsKey(b2)) {
+                if (f9687d) {
                     String str2 = "remove observer: " + b2 + " timeout runnable";
                 }
-                this.f9904c.removeCallbacks(this.f9903b.get(b2));
-                this.f9903b.remove(b2);
+                this.f9690c.removeCallbacks(this.f9689b.get(b2));
+                this.f9689b.remove(b2);
             }
             if (aVar.c()) {
-                if (f9901d) {
+                if (f9687d) {
                     String str3 = "auto unregister disposable observer: " + b2;
                 }
                 f(aVar);
@@ -188,19 +188,19 @@ public class a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean z = f9901d;
-            if (f9902e == null) {
+            boolean z = f9687d;
+            if (f9688e == null) {
                 return;
             }
             this.a.clear();
-            for (Map.Entry<String, Runnable> entry : this.f9903b.entrySet()) {
-                if (f9901d) {
+            for (Map.Entry<String, Runnable> entry : this.f9689b.entrySet()) {
+                if (f9687d) {
                     String str = "remove observer: " + entry.getKey() + " timeout runnable";
                 }
-                this.f9904c.removeCallbacks(entry.getValue());
+                this.f9690c.removeCallbacks(entry.getValue());
             }
-            this.f9903b.clear();
-            f9902e = null;
+            this.f9689b.clear();
+            f9688e = null;
         }
     }
 
@@ -208,18 +208,18 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             if (aVar == null) {
-                boolean z = f9901d;
+                boolean z = f9687d;
                 return;
             }
             String b2 = aVar.b();
             if (this.a.containsKey(b2)) {
-                if (f9901d) {
+                if (f9687d) {
                     String str = "multiple register observer：" + b2;
                     return;
                 }
                 return;
             }
-            if (f9901d) {
+            if (f9687d) {
                 String str2 = "register observer: " + b2;
             }
             this.a.put(b2, aVar);
@@ -227,12 +227,12 @@ public class a {
             if (a <= 0 || !aVar.c()) {
                 return;
             }
-            if (f9901d) {
+            if (f9687d) {
                 String str3 = "post observer: " + b2 + " " + a + "ms timeout runnable";
             }
             b bVar = new b(this, b2);
-            this.f9903b.put(b2, bVar);
-            this.f9904c.postDelayed(bVar, a);
+            this.f9689b.put(b2, bVar);
+            this.f9690c.postDelayed(bVar, a);
         }
     }
 
@@ -240,15 +240,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (aVar == null) {
-                boolean z = f9901d;
+                boolean z = f9687d;
                 return;
             }
             String b2 = aVar.b();
             if (!this.a.containsKey(b2)) {
-                boolean z2 = f9901d;
+                boolean z2 = f9687d;
                 return;
             }
-            if (f9901d) {
+            if (f9687d) {
                 String str = "unregister observer: " + b2;
             }
             this.a.remove(b2);

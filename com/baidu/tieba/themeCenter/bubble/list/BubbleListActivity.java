@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.bubble.list;
 
 import android.os.Bundle;
 import c.a.s0.q0.d;
-import c.a.s0.s.i0.f;
+import c.a.s0.s.j0.f;
 import c.a.t0.c4.h.e;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -73,7 +73,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BubbleListActivity f50354e;
+        public final /* synthetic */ BubbleListActivity f48449e;
 
         public b(BubbleListActivity bubbleListActivity) {
             Interceptable interceptable = $ic;
@@ -90,16 +90,16 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     return;
                 }
             }
-            this.f50354e = bubbleListActivity;
+            this.f48449e = bubbleListActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50354e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48449e.mModel == null) {
                 return;
             }
-            this.f50354e.mModel.w();
+            this.f48449e.mModel.w();
         }
     }
 
@@ -109,7 +109,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BubbleListActivity f50355e;
+        public final /* synthetic */ BubbleListActivity f48450e;
 
         public c(BubbleListActivity bubbleListActivity) {
             Interceptable interceptable = $ic;
@@ -126,16 +126,16 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     return;
                 }
             }
-            this.f50355e = bubbleListActivity;
+            this.f48450e = bubbleListActivity;
         }
 
-        @Override // c.a.s0.s.i0.f.g
+        @Override // c.a.s0.s.j0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f50355e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f48450e.mModel == null) {
                 return;
             }
-            this.f50355e.mModel.loadData();
+            this.f48450e.mModel.loadData();
         }
     }
 

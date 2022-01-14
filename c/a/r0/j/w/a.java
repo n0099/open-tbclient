@@ -49,43 +49,43 @@ public class a extends UnitedSchemeBaseInterceptor {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f11533b;
+    public static final Set<String> f11275b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.j.w.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0767a implements d.c {
+    public class C0776a implements d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f11534b;
+        public final /* synthetic */ c f11276b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f11535c;
+        public final /* synthetic */ CallbackHandler f11277c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f11536d;
+        public final /* synthetic */ UnitedSchemeEntity f11278d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11537e;
+        public final /* synthetic */ a f11279e;
 
         /* renamed from: c.a.r0.j.w.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0768a implements Runnable {
+        public class RunnableC0777a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0767a f11538e;
+            public final /* synthetic */ C0776a f11280e;
 
-            public RunnableC0768a(C0767a c0767a) {
+            public RunnableC0777a(C0776a c0776a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0767a};
+                    Object[] objArr = {c0776a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -95,14 +95,14 @@ public class a extends UnitedSchemeBaseInterceptor {
                         return;
                     }
                 }
-                this.f11538e = c0767a;
+                this.f11280e = c0776a;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    e.g(this.f11538e.a, "小游戏包下载成功").G();
+                    e.g(this.f11280e.a, "小游戏包下载成功").G();
                 }
             }
         }
@@ -112,14 +112,14 @@ public class a extends UnitedSchemeBaseInterceptor {
         public class b implements c.a.r0.a.a1.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ C0767a a;
+            public final /* synthetic */ C0776a a;
 
-            public b(C0767a c0767a) {
+            public b(C0776a c0776a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0767a};
+                    Object[] objArr = {c0776a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -129,7 +129,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                         return;
                     }
                 }
-                this.a = c0767a;
+                this.a = c0776a;
             }
 
             @Override // c.a.r0.a.a1.b
@@ -138,22 +138,22 @@ public class a extends UnitedSchemeBaseInterceptor {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIL(1048576, this, i2, aVar) == null) {
                     a.c cVar = (a.c) aVar;
-                    if (i2 != 0 || cVar == null || (aVar2 = cVar.f11512c) == null) {
+                    if (i2 != 0 || cVar == null || (aVar2 = cVar.f11255c) == null) {
                         return;
                     }
-                    this.a.f11534b.Q0(aVar2.f11185b);
-                    C0767a c0767a = this.a;
-                    Intent g1 = c.g1(c0767a.a, c0767a.f11534b);
+                    this.a.f11276b.Q0(aVar2.f10937b);
+                    C0776a c0776a = this.a;
+                    Intent g1 = c.g1(c0776a.a, c0776a.f11276b);
                     g1.setAction(SwanAppLauncherActivity.SWAN_APP_LAUNCH_ACTION);
                     g1.setFlags(268435456);
                     this.a.a.startActivity(g1);
-                    C0767a c0767a2 = this.a;
-                    UnitedSchemeUtility.callCallback(c0767a2.f11535c, c0767a2.f11536d, UnitedSchemeUtility.wrapCallbackParams(0));
+                    C0776a c0776a2 = this.a;
+                    UnitedSchemeUtility.callCallback(c0776a2.f11277c, c0776a2.f11278d, UnitedSchemeUtility.wrapCallbackParams(0));
                 }
             }
         }
 
-        public C0767a(a aVar, Context context, c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+        public C0776a(a aVar, Context context, c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,11 +168,11 @@ public class a extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
-            this.f11537e = aVar;
+            this.f11279e = aVar;
             this.a = context;
-            this.f11534b = cVar;
-            this.f11535c = callbackHandler;
-            this.f11536d = unitedSchemeEntity;
+            this.f11276b = cVar;
+            this.f11277c = callbackHandler;
+            this.f11278d = unitedSchemeEntity;
         }
 
         @Override // c.a.r0.a.a1.d.c
@@ -185,8 +185,8 @@ public class a extends UnitedSchemeBaseInterceptor {
                 aVar.i(9L);
                 aVar.f("debug download pkg fail");
                 c.a.r0.a.u2.e.a().f(aVar);
-                c.a.r0.a.f1.d.a.e(this.a, aVar, 1, this.f11534b.H());
-                this.f11536d.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                c.a.r0.a.f1.d.a.e(this.a, aVar, 1, this.f11276b.H());
+                this.f11278d.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             }
         }
 
@@ -202,10 +202,10 @@ public class a extends UnitedSchemeBaseInterceptor {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 boolean unused = a.a;
-                q0.e0(new RunnableC0768a(this));
-                this.f11534b.a1("1.6.0");
-                this.f11534b.A0(true);
-                c.a.r0.a.f1.e.b d2 = this.f11537e.d(this.f11534b);
+                q0.e0(new RunnableC0777a(this));
+                this.f11276b.a1("1.6.0");
+                this.f11276b.A0(true);
+                c.a.r0.a.f1.e.b d2 = this.f11279e.d(this.f11276b);
                 if (d2 == null) {
                     return;
                 }
@@ -229,7 +229,7 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         a = k.a;
         HashSet hashSet = new HashSet();
-        f11533b = hashSet;
+        f11275b = hashSet;
         hashSet.add("_baiduboxapp");
     }
 
@@ -324,7 +324,7 @@ public class a extends UnitedSchemeBaseInterceptor {
     public final String g(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) ? o0.i(uri.getQuery(), f11533b) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) ? o0.i(uri.getQuery(), f11275b) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -337,14 +337,14 @@ public class a extends UnitedSchemeBaseInterceptor {
     public final void h(c cVar, String str, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048582, this, cVar, str, context, unitedSchemeEntity, callbackHandler) == null) {
-            d.C0251d c0251d = new d.C0251d();
+            d.C0260d c0260d = new d.C0260d();
             cVar.H();
-            c0251d.a = str;
+            c0260d.a = str;
             Context applicationContext = context.getApplicationContext();
             if (applicationContext == null) {
                 return;
             }
-            c.a.r0.j.t.a.h(c0251d, new C0767a(this, applicationContext, cVar, callbackHandler, unitedSchemeEntity));
+            c.a.r0.j.t.a.h(c0260d, new C0776a(this, applicationContext, cVar, callbackHandler, unitedSchemeEntity));
         }
     }
 

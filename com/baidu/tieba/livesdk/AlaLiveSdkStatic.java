@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -48,6 +48,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
@@ -60,13 +61,13 @@ public class AlaLiveSdkStatic {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f47457b;
+    public static CustomMessageListener f45695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static CustomMessageListener f47458c;
+    public static CustomMessageListener f45696c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static CustomMessageListener f47459d;
+    public static CustomMessageListener f45697d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes12.dex */
@@ -76,12 +77,12 @@ public class AlaLiveSdkStatic {
 
         /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class C1910a extends CustomMessageListener {
+        public class C1926a extends CustomMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C1910a(a aVar, int i2) {
+            public C1926a(a aVar, int i2) {
                 super(i2);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -128,7 +129,7 @@ public class AlaLiveSdkStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().registerListener(new C1910a(this, 2921569));
+                MessageManager.getInstance().registerListener(new C1926a(this, 2921569));
             }
         }
     }
@@ -145,11 +146,11 @@ public class AlaLiveSdkStatic {
 
             /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes12.dex */
-            public class RunnableC1911a implements Runnable {
+            public class RunnableC1927a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                public RunnableC1911a(a aVar) {
+                public RunnableC1927a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -197,7 +198,7 @@ public class AlaLiveSdkStatic {
                     String clipBoardContent = UtilHelper.getClipBoardContent();
                     if (!StringUtils.isNull(clipBoardContent) && clipBoardContent.startsWith("#bdtiebalive://") && clipBoardContent.endsWith("#")) {
                         AlaLiveSdkStatic.l();
-                        c.a.d.f.m.e.a().postDelayed(new RunnableC1911a(this), 1000L);
+                        c.a.d.f.m.e.a().postDelayed(new RunnableC1927a(this), 1000L);
                     }
                 }
             }
@@ -256,7 +257,7 @@ public class AlaLiveSdkStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f47459d);
+                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f45697d);
             }
         }
     }
@@ -424,7 +425,7 @@ public class AlaLiveSdkStatic {
             public final /* synthetic */ TbPageContext a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f47460b;
+            public final /* synthetic */ String f45698b;
 
             public b(f fVar, TbPageContext tbPageContext, String str) {
                 Interceptable interceptable = $ic;
@@ -442,7 +443,7 @@ public class AlaLiveSdkStatic {
                     }
                 }
                 this.a = tbPageContext;
-                this.f47460b = str;
+                this.f45698b = str;
             }
 
             @Override // c.a.t0.a2.k.a
@@ -465,7 +466,7 @@ public class AlaLiveSdkStatic {
                         if (!TextUtils.isEmpty(optString4)) {
                             jSONObject2.put("transitionId", optString4);
                         }
-                        AlaLiveSdkStatic.m(this.a, optInt, optString, jSONObject2, this.f47460b);
+                        AlaLiveSdkStatic.m(this.a, optInt, optString, jSONObject2, this.f45698b);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -505,7 +506,7 @@ public class AlaLiveSdkStatic {
                     }
                     AlaLiveSdkStatic.l();
                     if (strArr[0].contains(UrlSchemaHelper.GO_TO_MIX_LIVE)) {
-                        String d2 = w0.d(strArr[0], "url");
+                        String d2 = v0.d(strArr[0], "url");
                         if ("video/mixlive".equals(AlaLiveSdkStatic.o(d2))) {
                             Uri parse = Uri.parse(d2);
                             HashMap hashMap = new HashMap();
@@ -554,11 +555,11 @@ public class AlaLiveSdkStatic {
                                 hashMap4.put(str4, parse4.getQueryParameter(str4));
                             }
                             if (strArr[0].startsWith("bdtiebalive:video/live/tbean")) {
-                                String str5 = (String) hashMap4.get("callback");
+                                String str5 = (String) hashMap4.get(WebChromeClient.KEY_ARG_CALLBACK);
                                 c.a.t0.a2.n.a aVar = new c.a.t0.a2.n.a();
                                 aVar.a = str5;
-                                aVar.f15433c = (String) hashMap4.get("is_translucent");
-                                aVar.f15432b = TextUtils.equals((String) hashMap4.get("is_translucent"), "1");
+                                aVar.f15050c = (String) hashMap4.get("is_translucent");
+                                aVar.f15049b = TextUtils.equals((String) hashMap4.get("is_translucent"), "1");
                                 c.a.t0.a2.a.e(tbPageContext.getPageActivity(), aVar, new b(this, tbPageContext, str5));
                             } else if (strArr[0].startsWith("bdtiebalive://video/live/start")) {
                                 c.a.t0.a2.a.b(tbPageContext.getPageActivity(), strArr[0], hashMap4);
@@ -661,7 +662,7 @@ public class AlaLiveSdkStatic {
                             return 0;
                         }
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_JUMP_LIVE_ROOM)) {
-                        long g2 = c.a.d.f.m.b.g(w0.c(str, "liveId="), 0L);
+                        long g2 = c.a.d.f.m.b.g(v0.c(str, "liveId="), 0L);
                         if (g2 == 0) {
                             return 3;
                         }
@@ -936,7 +937,7 @@ public class AlaLiveSdkStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f47458c);
+                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f45696c);
             }
         }
     }
@@ -964,7 +965,7 @@ public class AlaLiveSdkStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f47457b);
+                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f45695b);
             }
         }
     }
@@ -1038,11 +1039,11 @@ public class AlaLiveSdkStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f42213c) || !updateAttentionMessage.getData().a || updateAttentionMessage.getData().f42215e) {
+                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f40743c) || !updateAttentionMessage.getData().a || updateAttentionMessage.getData().f40745e) {
                     return;
                 }
                 AlaLiveSdkStatic.l();
-                c.a.t0.a2.a.p(updateAttentionMessage.getData().f42213c, updateAttentionMessage.getData().f42214d);
+                c.a.t0.a2.a.p(updateAttentionMessage.getData().f40743c, updateAttentionMessage.getData().f40744d);
             }
         }
     }
@@ -1074,9 +1075,9 @@ public class AlaLiveSdkStatic {
         A();
         w();
         x();
-        f47457b = new p(2921406);
-        f47458c = new q(2001115);
-        f47459d = new b(2007002);
+        f45695b = new p(2921406);
+        f45696c = new q(2001115);
+        f45697d = new b(2007002);
     }
 
     public AlaLiveSdkStatic() {
@@ -1150,7 +1151,7 @@ public class AlaLiveSdkStatic {
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{tbPageContext, Integer.valueOf(i2), str, jSONObject, str2}) == null) {
             try {
                 if (TextUtils.isEmpty(str2)) {
-                    str2 = "callback";
+                    str2 = WebChromeClient.KEY_ARG_CALLBACK;
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("status", i2);

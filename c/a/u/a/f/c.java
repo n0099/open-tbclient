@@ -34,7 +34,7 @@ import okhttp3.Response;
 /* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-    public static C1568c a;
+    public static C1584c a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -110,11 +110,11 @@ public class c {
 
     /* renamed from: c.a.u.a.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1568c implements X509TrustManager {
+    public static class C1584c implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1568c() {
+        public C1584c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,7 +149,7 @@ public class c {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new X509Certificate[0] : (X509Certificate[]) invokeV.objValue;
         }
 
-        public /* synthetic */ C1568c(a aVar) {
+        public /* synthetic */ C1584c(a aVar) {
             this();
         }
     }
@@ -200,7 +200,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                a = new C1568c(null);
+                a = new C1584c(null);
                 SSLContext sSLContext = SSLContext.getInstance("TLS");
                 sSLContext.init(null, new TrustManager[]{a}, new SecureRandom());
                 return sSLContext.getSocketFactory();

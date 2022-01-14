@@ -66,7 +66,7 @@ public class e extends c {
                     }
                 } catch (Exception e2) {
                     k(callbackHandler, str, 1001, e2.getMessage());
-                    if (c.f8621c) {
+                    if (c.f8435c) {
                         e2.printStackTrace();
                         return;
                     }

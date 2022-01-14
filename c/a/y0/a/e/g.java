@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -34,7 +33,7 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f27658e;
+        public final /* synthetic */ Context f26826e;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -51,14 +50,14 @@ public final class g {
                     return;
                 }
             }
-            this.f27658e = context;
+            this.f26826e = context;
         }
 
         @Override // c.a.y0.a.f.c
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g.k(this.f27658e);
+                g.k(this.f26826e);
                 if (c.a.y0.a.c.h().i() != null && !c.a.y0.a.c.h().i().equals("")) {
                     c.a.y0.a.f.i.a("BaiDuAB sdk  init success");
                 } else {
@@ -82,7 +81,7 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f27660e;
+        public final /* synthetic */ String f26828e;
 
         /* loaded from: classes9.dex */
         public class a implements b.a<JSONObject> {
@@ -134,7 +133,7 @@ public final class g {
                     return;
                 }
             }
-            this.f27660e = str;
+            this.f26828e = str;
         }
 
         @Override // c.a.y0.a.f.c
@@ -144,7 +143,7 @@ public final class g {
                 return;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("exids", this.f27660e);
+            hashMap.put("exids", this.f26828e);
             c.a.y0.a.d.b.c(c.a.y0.a.d.b.d("http://absample.baidu.com/appabapp/appapi/updateStatus", hashMap), new a(this));
         }
     }
@@ -263,7 +262,7 @@ public final class g {
             c.a.y0.a.f.a.b("网络请求  cuid~~");
             HashMap hashMap = new HashMap();
             hashMap.put("imei", i.g(c.a.y0.a.c.h().getContext()));
-            hashMap.put(BaseStatisContent.MAC, i.h(c.a.y0.a.c.h().getContext()));
+            hashMap.put("mac", i.h(c.a.y0.a.c.h().getContext()));
             c.a.y0.a.d.b.c(c.a.y0.a.d.b.d("http://absample.baidu.com/appabapp/appapi/getcuid", hashMap), new d());
         }
     }
@@ -382,7 +381,7 @@ public final class g {
         public final /* synthetic */ long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f27659b;
+        public final /* synthetic */ Context f26827b;
 
         public c(long j2, Context context) {
             Interceptable interceptable = $ic;
@@ -400,7 +399,7 @@ public final class g {
                 }
             }
             this.a = j2;
-            this.f27659b = context;
+            this.f26827b = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -413,7 +412,7 @@ public final class g {
             c.a.y0.a.c.h().b(optString);
             c.a.y0.a.f.d.f("token", optString);
             c.a.y0.a.f.d.g("token_update_time", this.a);
-            c.a.y0.a.f.d.f("lastkey", g.i(this.f27659b));
+            c.a.y0.a.f.d.f("lastkey", g.i(this.f26827b));
         }
 
         @Override // c.a.y0.a.d.b.a

@@ -18,10 +18,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f63906b;
+    public static volatile a f61507b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f63907c;
+    public static final Uri f61508c;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
@@ -38,7 +38,7 @@ public class a {
                 return;
             }
         }
-        f63907c = Uri.parse("content://cn.nubia.identity/identity");
+        f61508c = Uri.parse("content://cn.nubia.identity/identity");
     }
 
     public a(Context context) {
@@ -63,14 +63,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f63906b == null) {
+            if (f61507b == null) {
                 synchronized (a.class) {
-                    if (f63906b == null) {
-                        f63906b = new a(context);
+                    if (f61507b == null) {
+                        f61507b = new a(context);
                     }
                 }
             }
-            return f63906b;
+            return f61507b;
         }
         return (a) invokeL.objValue;
     }
@@ -82,7 +82,7 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, str2)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 17) {
-                    ContentProviderClient acquireUnstableContentProviderClient = this.a.getContentResolver().acquireUnstableContentProviderClient(f63907c);
+                    ContentProviderClient acquireUnstableContentProviderClient = this.a.getContentResolver().acquireUnstableContentProviderClient(f61508c);
                     call = acquireUnstableContentProviderClient.call(str2, null, null);
                     if (acquireUnstableContentProviderClient != null) {
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -92,7 +92,7 @@ public class a {
                         }
                     }
                 } else {
-                    call = this.a.getContentResolver().call(f63907c, str2, (String) null, (Bundle) null);
+                    call = this.a.getContentResolver().call(f61508c, str2, (String) null, (Bundle) null);
                 }
                 return (call == null || call.getInt("code", -1) != 0) ? "" : call.getString("id");
             } catch (Throwable th) {
@@ -110,7 +110,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 17) {
-                    ContentProviderClient acquireUnstableContentProviderClient = this.a.getContentResolver().acquireUnstableContentProviderClient(f63907c);
+                    ContentProviderClient acquireUnstableContentProviderClient = this.a.getContentResolver().acquireUnstableContentProviderClient(f61508c);
                     call = acquireUnstableContentProviderClient.call("isSupport", null, null);
                     if (acquireUnstableContentProviderClient != null) {
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -120,7 +120,7 @@ public class a {
                         }
                     }
                 } else {
-                    call = this.a.getContentResolver().call(f63907c, "isSupport", (String) null, (Bundle) null);
+                    call = this.a.getContentResolver().call(f61508c, "isSupport", (String) null, (Bundle) null);
                 }
                 if (call.getInt("code", -1) == 0) {
                     return call.getBoolean("issupport", true);

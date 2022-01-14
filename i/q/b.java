@@ -16,13 +16,13 @@ public final class b implements i.c, k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.c f64490e;
+    public final i.c f62067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f64491f;
+    public k f62068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f64492g;
+    public boolean f62069g;
 
     public b(i.c cVar) {
         Interceptable interceptable = $ic;
@@ -39,25 +39,25 @@ public final class b implements i.c, k {
                 return;
             }
         }
-        this.f64490e = cVar;
+        this.f62067e = cVar;
     }
 
     @Override // i.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64492g || this.f64491f.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62069g || this.f62068f.isUnsubscribed() : invokeV.booleanValue;
     }
 
     @Override // i.c
     public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f64492g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f62069g) {
             return;
         }
-        this.f64492g = true;
+        this.f62069g = true;
         try {
-            this.f64490e.onCompleted();
+            this.f62067e.onCompleted();
         } catch (Throwable th) {
             i.m.a.e(th);
             throw new OnCompletedFailedException(th);
@@ -69,12 +69,12 @@ public final class b implements i.c, k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
             i.r.c.j(th);
-            if (this.f64492g) {
+            if (this.f62069g) {
                 return;
             }
-            this.f64492g = true;
+            this.f62069g = true;
             try {
-                this.f64490e.onError(th);
+                this.f62067e.onError(th);
             } catch (Throwable th2) {
                 i.m.a.e(th2);
                 throw new OnErrorFailedException(new CompositeException(th, th2));
@@ -86,9 +86,9 @@ public final class b implements i.c, k {
     public void onSubscribe(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) {
-            this.f64491f = kVar;
+            this.f62068f = kVar;
             try {
-                this.f64490e.onSubscribe(this);
+                this.f62067e.onSubscribe(this);
             } catch (Throwable th) {
                 i.m.a.e(th);
                 kVar.unsubscribe();
@@ -101,7 +101,7 @@ public final class b implements i.c, k {
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f64491f.unsubscribe();
+            this.f62068f.unsubscribe();
         }
     }
 }

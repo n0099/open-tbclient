@@ -28,12 +28,12 @@ public class b {
 
         /* renamed from: c.a.t0.s1.y.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C1367a extends k0<Integer> {
+        public class C1382a extends k0<Integer> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean a;
 
-            public C1367a(a aVar, boolean z) {
+            public C1382a(a aVar, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,11 +69,11 @@ public class b {
 
         /* renamed from: c.a.t0.s1.y.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C1368b implements s<Integer> {
+        public class C1383b implements s<Integer> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1368b(a aVar) {
+            public C1383b(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,7 +140,7 @@ public class b {
                 m.t().p();
                 l.t().p();
             }
-            n0.c(new C1367a(this, isNull), new C1368b(this));
+            n0.c(new C1382a(this, isNull), new C1383b(this));
         }
     }
 

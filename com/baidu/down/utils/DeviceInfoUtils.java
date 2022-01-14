@@ -120,7 +120,7 @@ public final class DeviceInfoUtils {
         }
         BufferedReader bufferedReader2 = null;
         try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", z.f57501b).start().getInputStream()));
+            bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", z.f55318b).start().getInputStream()));
             try {
                 long parseLong = Long.parseLong(bufferedReader.readLine());
                 try {

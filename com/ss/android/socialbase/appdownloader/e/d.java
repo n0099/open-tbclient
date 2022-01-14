@@ -16,13 +16,13 @@ public class d {
     public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<n> f62108b = new ArrayList();
+    public static List<n> f59764b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public static com.ss.android.socialbase.appdownloader.view.a f62109c;
+    public static com.ss.android.socialbase.appdownloader.view.a f59765c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static AlertDialog f62110d;
+    public static AlertDialog f59766d;
 
     public static void b(@NonNull Activity activity, @NonNull n nVar) {
         if (activity != null) {
@@ -30,13 +30,13 @@ public class d {
                 if (!activity.isFinishing()) {
                     FragmentManager fragmentManager = activity.getFragmentManager();
                     com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(a);
-                    f62109c = aVar;
+                    f59765c = aVar;
                     if (aVar == null) {
-                        f62109c = new com.ss.android.socialbase.appdownloader.view.a();
-                        fragmentManager.beginTransaction().add(f62109c, a).commitAllowingStateLoss();
+                        f59765c = new com.ss.android.socialbase.appdownloader.view.a();
+                        fragmentManager.beginTransaction().add(f59765c, a).commitAllowingStateLoss();
                         fragmentManager.executePendingTransactions();
                     }
-                    f62109c.a();
+                    f59765c.a();
                     return;
                 }
             } catch (Throwable th) {
@@ -65,11 +65,11 @@ public class d {
     public static synchronized void a(boolean z) {
         synchronized (d.class) {
             try {
-                if (f62110d != null) {
-                    f62110d.cancel();
-                    f62110d = null;
+                if (f59766d != null) {
+                    f59766d.cancel();
+                    f59766d = null;
                 }
-                for (n nVar : f62108b) {
+                for (n nVar : f59764b) {
                     if (nVar != null) {
                         if (z) {
                             nVar.a();
@@ -100,14 +100,14 @@ public class d {
                     int a3 = i.a(com.ss.android.socialbase.downloader.downloader.c.N(), "tt_appdownloader_notification_request_message");
                     int a4 = i.a(com.ss.android.socialbase.downloader.downloader.c.N(), "tt_appdownloader_notification_request_btn_yes");
                     int a5 = i.a(com.ss.android.socialbase.downloader.downloader.c.N(), "tt_appdownloader_notification_request_btn_no");
-                    f62108b.add(nVar);
-                    if (f62110d == null || !f62110d.isShowing()) {
-                        f62110d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.e.d.3
+                    f59764b.add(nVar);
+                    if (f59766d == null || !f59766d.isShowing()) {
+                        f59766d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.e.d.3
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialogInterface, int i2) {
                                 d.b(activity, nVar);
                                 dialogInterface.cancel();
-                                AlertDialog unused = d.f62110d = null;
+                                AlertDialog unused = d.f59766d = null;
                             }
                         }).setNegativeButton(a5, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.e.d.2
                             @Override // android.content.DialogInterface.OnClickListener

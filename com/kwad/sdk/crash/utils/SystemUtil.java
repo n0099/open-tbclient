@@ -8,6 +8,7 @@ import android.os.Process;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.kuaishou.weapon.adsdk.DeviceInfo;
 import java.io.BufferedReader;
@@ -25,19 +26,19 @@ public class SystemUtil {
     public static volatile String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Boolean f58767b;
+    public static volatile Boolean f56553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f58768c;
+    public static long f56554c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f58769d;
+    public static long f56555d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f58770e;
+    public static int f56556e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static LEVEL f58771f;
+    public static LEVEL f56557f;
 
     /* loaded from: classes3.dex */
     public enum LEVEL {
@@ -64,19 +65,19 @@ public class SystemUtil {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f58772b;
+        public long f56558b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f58773c;
+        public long f56559c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f58774d;
+        public long f56560d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f58775e;
+        public long f56561e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f58776f;
+        public int f56562f;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -90,7 +91,7 @@ public class SystemUtil {
         String readLine;
         try {
             try {
-                bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
+                bufferedReader = new BufferedReader(new FileReader(HardwareInfoUtils.MEM_INFO_FILE), 8192);
             } catch (IOException e3) {
                 com.kwad.sdk.core.d.a.b(e3);
                 return 0L;
@@ -270,11 +271,11 @@ public class SystemUtil {
     }
 
     public static boolean b(Context context) {
-        if (f58767b == null) {
+        if (f56553b == null) {
             String a2 = a(context);
-            f58767b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
+            f56553b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
         }
-        return f58767b.booleanValue();
+        return f56553b.booleanValue();
     }
 
     public static long c(Context context) {
@@ -299,15 +300,15 @@ public class SystemUtil {
                             if (readLine.startsWith("VmSize") && readLine.contains("kB")) {
                                 String a3 = a(readLine, "VmSize");
                                 if (a3 != null) {
-                                    aVar.f58772b = Long.valueOf(a3).longValue();
+                                    aVar.f56558b = Long.valueOf(a3).longValue();
                                 }
                             } else if (readLine.startsWith("VmRSS:") && readLine.contains("kB")) {
                                 String a4 = a(readLine, "VmRSS:");
                                 if (a4 != null) {
-                                    aVar.f58773c = Long.valueOf(a4).longValue();
+                                    aVar.f56559c = Long.valueOf(a4).longValue();
                                 }
                             } else if (readLine.startsWith("Threads:") && (a2 = a(readLine, "Threads:")) != null) {
-                                aVar.f58776f = Integer.valueOf(a2).intValue();
+                                aVar.f56562f = Integer.valueOf(a2).intValue();
                             }
                         }
                     } catch (IOException e2) {

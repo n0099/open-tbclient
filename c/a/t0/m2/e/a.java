@@ -6,5 +6,5 @@ public interface a {
     public static final BdUniqueId a = BdUniqueId.gen();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BdUniqueId f19859b = BdUniqueId.gen();
+    public static final BdUniqueId f19344b = BdUniqueId.gen();
 }

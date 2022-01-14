@@ -14,7 +14,7 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8789b;
+    public int f8596b;
     @V8JavascriptField
     public JsArrayBuffer data;
     @V8JavascriptField
@@ -35,14 +35,14 @@ public class a {
         }
         this.a = 0;
         this.a = 0 + 1;
-        this.f8789b = 0;
+        this.f8596b = 0;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ArrayBufferCallBack" + this.f8789b;
+            return "ArrayBufferCallBack" + this.f8596b;
         }
         return (String) invokeV.objValue;
     }

@@ -19,6 +19,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PropsInfo;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
@@ -56,7 +57,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 return;
             }
         }
-        this.cmd = 2021;
+        this.cmd = RevenueServerConst.GetChargeCurrencyConfigResponse;
         this.confList = new ArrayList();
         this.payWayInfoList = new ArrayList();
         parserResponse(str);

@@ -59,7 +59,7 @@ public class u0 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                String str = r0.a + r0.f57405b;
+                String str = r0.a + r0.f55229b;
                 String e2 = s0.e(this.a);
                 if (!TextUtils.isEmpty(e2)) {
                     str = str + "?" + e2;

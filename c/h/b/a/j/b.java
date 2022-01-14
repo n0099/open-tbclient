@@ -1,6 +1,7 @@
 package c.h.b.a.j;
 
 import android.app.ActivityManager;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ public class b {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f29431b;
+    public static long f28536b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -97,11 +98,11 @@ public class b {
         FileReader fileReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f29431b == 0) {
+            if (f28536b == 0) {
                 FileReader fileReader2 = null;
                 try {
                     try {
-                        fileReader = new FileReader("/proc/meminfo");
+                        fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
                     } catch (IOException unused) {
                     }
                 } catch (IOException unused2) {
@@ -119,8 +120,8 @@ public class b {
                     if (fileReader2 != null) {
                         fileReader2.close();
                     }
-                    f29431b = r1;
-                    return f29431b;
+                    f28536b = r1;
+                    return f28536b;
                 } catch (Throwable th2) {
                     th = th2;
                     fileReader2 = fileReader;
@@ -132,9 +133,9 @@ public class b {
                     }
                     throw th;
                 }
-                f29431b = r1;
+                f28536b = r1;
             }
-            return f29431b;
+            return f28536b;
         }
         return invokeV.longValue;
     }

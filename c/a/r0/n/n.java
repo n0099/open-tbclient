@@ -22,25 +22,23 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11693e;
+    public boolean f11430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11694f;
+    public int f11431f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f11695g;
+    public Context f11432g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11696h;
+    public int f11433h;
 
     /* renamed from: i  reason: collision with root package name */
-    public p f11697i;
+    public p f11434i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<o> f11698j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public List<o> f11699k;
+    public List<o> f11435j;
+    public List<o> k;
     public List<List<o>> l;
     public e m;
     public c.a.r0.n.r.b n;
@@ -140,56 +138,56 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
                 return;
             }
         }
-        this.f11693e = false;
-        this.f11694f = 0;
-        this.f11698j = new ArrayList();
-        this.f11699k = new ArrayList();
+        this.f11430e = false;
+        this.f11431f = 0;
+        this.f11435j = new ArrayList();
+        this.k = new ArrayList();
         this.l = new ArrayList();
         this.s = -1;
         this.t = false;
         if (i2 < 0) {
             return;
         }
-        this.f11695g = context;
-        this.f11696h = i2;
+        this.f11432g = context;
+        this.f11433h = i2;
         this.q = bVar;
         this.t = bVar.a();
-        List<o> b2 = q.b(this.f11696h);
-        this.f11698j = b2;
-        this.q.d(this.f11696h, b2);
-        this.q.e(this.f11696h, this.f11698j);
+        List<o> b2 = q.b(this.f11433h);
+        this.f11435j = b2;
+        this.q.d(this.f11433h, b2);
+        this.q.e(this.f11433h, this.f11435j);
         if (this.q.a()) {
-            this.q.c(this.f11696h, this.f11698j);
+            this.q.c(this.f11433h, this.f11435j);
         }
-        p pVar = new p(this.f11695g, view, aVar);
-        this.f11697i = pVar;
+        p pVar = new p(this.f11432g, view, aVar);
+        this.f11434i = pVar;
         pVar.I(new a(this));
     }
 
     public final void A(boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || this.f11698j == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || this.f11435j == null) {
             return;
         }
-        this.f11699k.clear();
+        this.k.clear();
         o(41);
         o z2 = z(k(38), i2);
         if (z2 != null && z2.j()) {
-            this.f11699k.add(z2);
+            this.k.add(z2);
         }
         o(48);
         o(45);
         o(4);
         o(101);
-        o k2 = k(35);
-        if (k2 != null && k2.j()) {
-            this.f11699k.add(k2);
+        o k = k(35);
+        if (k != null && k.j()) {
+            this.k.add(k);
         }
         o(39);
         o(42);
         o(9);
-        if (!this.f11693e) {
-            this.s = this.f11699k.size() - 1;
+        if (!this.f11430e) {
+            this.s = this.k.size() - 1;
         }
         o(37);
         if (this.r) {
@@ -197,7 +195,7 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
         }
         o D = D(k(5), z);
         if (D != null && D.j()) {
-            this.f11699k.add(D);
+            this.k.add(D);
         }
         o(46);
         o(47);
@@ -206,7 +204,7 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
         o(50);
         c.a.r0.n.b bVar = this.q;
         if (bVar != null) {
-            bVar.f(this.f11696h, this.f11698j, new b(this));
+            bVar.f(this.f11433h, this.f11435j, new b(this));
         }
     }
 
@@ -215,13 +213,13 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.q == null) {
             return;
         }
-        this.f11698j.clear();
-        List<o> b2 = q.b(this.f11696h);
-        this.f11698j = b2;
-        this.q.d(this.f11696h, b2);
-        this.q.e(this.f11696h, this.f11698j);
+        this.f11435j.clear();
+        List<o> b2 = q.b(this.f11433h);
+        this.f11435j = b2;
+        this.q.d(this.f11433h, b2);
+        this.q.e(this.f11433h, this.f11435j);
         if (this.q.a()) {
-            this.q.c(this.f11696h, this.f11698j);
+            this.q.c(this.f11433h, this.f11435j);
         }
         y();
         n();
@@ -236,7 +234,7 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
             if (i2 < 0) {
                 return;
             }
-            for (o oVar : this.f11699k) {
+            for (o oVar : this.k) {
                 if (oVar.c() == i2) {
                     valueOf = Long.valueOf(valueOf.longValue() + oVar.e());
                     oVar.o(valueOf.longValue() > 0 ? 1 : 0);
@@ -265,7 +263,7 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             D(k(5), z);
             y();
-            this.f11697i.R();
+            this.f11434i.R();
             n();
         }
     }
@@ -275,7 +273,7 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, oVar)) == null) {
-            if (u(oVar) && !this.f11693e) {
+            if (u(oVar) && !this.f11430e) {
                 j(true);
             }
             c.a.r0.n.r.b bVar = this.n;
@@ -312,7 +310,7 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
             boolean z = false;
-            for (o oVar : this.f11698j) {
+            for (o oVar : this.f11435j) {
                 if (oVar.c() == i2) {
                     z = true;
                 }
@@ -320,20 +318,20 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
             if (z || (a2 = q.a(i2)) == null) {
                 return;
             }
-            int size = this.f11698j.size();
+            int size = this.f11435j.size();
             if (i3 <= 0) {
                 i3 = 0;
             } else if (i3 >= size) {
                 i3 = size;
             }
-            this.f11698j.add(i3, a2);
+            this.f11435j.add(i3, a2);
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f11696h = i2;
+            this.f11433h = i2;
         }
     }
 
@@ -347,7 +345,7 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f11697i.S(z);
+            this.f11434i.S(z);
             c cVar = this.p;
             if (cVar != null) {
                 cVar.a(this, false);
@@ -359,8 +357,8 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            for (int i3 = 0; i3 < this.f11698j.size(); i3++) {
-                o oVar = this.f11698j.get(i3);
+            for (int i3 = 0; i3 < this.f11435j.size(); i3++) {
+                o oVar = this.f11435j.get(i3);
                 if (oVar != null && oVar.c() == i2) {
                     oVar.n(0L);
                     oVar.p(this);
@@ -376,7 +374,7 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            p pVar = this.f11697i;
+            p pVar = this.f11434i;
             return pVar != null && pVar.x();
         }
         return invokeV.booleanValue;
@@ -385,17 +383,17 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
     public void n() {
         p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (pVar = this.f11697i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (pVar = this.f11434i) == null) {
             return;
         }
         pVar.U();
     }
 
     public final void o(int i2) {
-        o k2;
+        o k;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048590, this, i2) == null) && (k2 = k(i2)) != null && k2.j()) {
-            this.f11699k.add(k2);
+        if ((interceptable == null || interceptable.invokeI(1048590, this, i2) == null) && (k = k(i2)) != null && k.j()) {
+            this.k.add(k);
         }
     }
 
@@ -415,24 +413,24 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
 
     public void p(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048592, this, i2) == null) || this.f11698j == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048592, this, i2) == null) || this.f11435j == null) {
             return;
         }
         int i3 = -1;
-        for (int i4 = 0; i4 < this.f11698j.size(); i4++) {
-            if (this.f11698j.get(i4).c() == i2) {
+        for (int i4 = 0; i4 < this.f11435j.size(); i4++) {
+            if (this.f11435j.get(i4).c() == i2) {
                 i3 = i4;
             }
         }
         if (i3 > -1) {
-            this.f11698j.remove(i3);
+            this.f11435j.remove(i3);
         }
     }
 
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f11697i.V(i2);
+            this.f11434i.V(i2);
         }
     }
 
@@ -446,7 +444,7 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f11694f = i2;
+            this.f11431f = i2;
         }
     }
 
@@ -489,7 +487,7 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
             }
             A(z, i2);
             y();
-            this.f11697i.W(this.l, view, z2, this.f11694f);
+            this.f11434i.W(this.l, view, z2, this.f11431f);
             c cVar = this.p;
             if (cVar != null) {
                 cVar.a(this, true);
@@ -502,20 +500,20 @@ public class n implements e, c.a.r0.n.r.b, View.OnKeyListener {
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             this.l.clear();
             if (this.q.a()) {
-                this.l.add(this.f11699k);
+                this.l.add(this.k);
                 return;
             }
-            int size = this.f11699k.size();
+            int size = this.k.size();
             if (size > 0 && size <= 5) {
-                this.l.add(this.f11699k);
+                this.l.add(this.k);
             } else if (size > 5 && size <= 10) {
-                int i2 = this.f11693e ? 5 : this.s;
-                this.l.add(this.f11699k.subList(0, i2));
-                this.l.add(this.f11699k.subList(i2, size));
+                int i2 = this.f11430e ? 5 : this.s;
+                this.l.add(this.k.subList(0, i2));
+                this.l.add(this.k.subList(i2, size));
             } else if (size > 10) {
-                int ceil = this.f11693e ? (int) Math.ceil(size / 2.0f) : this.s;
-                this.l.add(this.f11699k.subList(0, ceil));
-                this.l.add(this.f11699k.subList(ceil, size));
+                int ceil = this.f11430e ? (int) Math.ceil(size / 2.0f) : this.s;
+                this.l.add(this.k.subList(0, ceil));
+                this.l.add(this.k.subList(ceil, size));
             }
         }
     }

@@ -48,7 +48,7 @@ public class b {
         new c.b.b.q.a();
         new c.b.b.q.a();
         new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
-        int i4 = aVar.f27949f.f28217f;
+        int i4 = aVar.f27109f.f27361f;
         if (i4 != 0) {
             float[][] fArr = new float[i4];
             int[] iArr = new int[i4];

@@ -289,11 +289,11 @@ public class c extends c.a.d.n.e.a<c.a.t0.g0.f0.f, ThreadCardViewHolder<c.a.t0.g
 
     /* renamed from: c.a.t0.x2.c.q.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1510c extends d0<c.a.t0.g0.f0.f> {
+    public class C1526c extends d0<c.a.t0.g0.f0.f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1510c(c cVar) {
+        public C1526c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -320,7 +320,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.g0.f0.f, ThreadCardViewHolder<c.a.t0.g
             int id = view.getId();
             if (id == c.a.t0.y2.d.thread_card_root) {
                 StatisticItem w = fVar.w("c13543");
-                w.param("obj_type", fVar.P(fVar.f18222e));
+                w.param("obj_type", fVar.P(fVar.f17778e));
                 TiebaStatic.log(w);
                 c.a.t0.x2.a.a(view, fVar, 2);
             } else if (view instanceof TbImageView) {
@@ -341,7 +341,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.g0.f0.f, ThreadCardViewHolder<c.a.t0.g
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f26094e;
+        public final /* synthetic */ c f25324e;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -358,7 +358,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.g0.f0.f, ThreadCardViewHolder<c.a.t0.g
                     return;
                 }
             }
-            this.f26094e = cVar;
+            this.f25324e = cVar;
         }
 
         @Override // c.a.d.n.e.w
@@ -367,12 +367,12 @@ public class c extends c.a.d.n.e.a<c.a.t0.g0.f0.f, ThreadCardViewHolder<c.a.t0.g
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof c.a.t0.g0.f0.k) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 c.a.t0.g0.f0.f fVar = (c.a.t0.g0.f0.f) nVar;
-                fVar.f18228k = 1;
-                if (this.f26094e.v != null) {
-                    this.f26094e.v.a(threadCardViewHolder.getView(), fVar);
+                fVar.k = 1;
+                if (this.f25324e.v != null) {
+                    this.f25324e.v.a(threadCardViewHolder.getView(), fVar);
                 }
                 ThreadCardUtils.jumpToPB((c.a.s0.s.q.a) fVar, view.getContext(), 4, false);
-                threadCardViewHolder.getCardView().o(new a.C0186a(1));
+                threadCardViewHolder.getCardView().o(new a.C0195a(1));
             }
         }
     }
@@ -401,7 +401,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.g0.f0.f, ThreadCardViewHolder<c.a.t0.g
         this.r = 0;
         this.t = new c.a.d.f.k.b<>(new a(this), 12, 0);
         this.u = new c.a.d.f.k.b<>(new b(this), 20, 0);
-        this.v = new C1510c(this);
+        this.v = new C1526c(this);
         this.n = tbPageContext;
         b0();
     }
@@ -437,14 +437,14 @@ public class c extends c.a.d.n.e.a<c.a.t0.g0.f0.f, ThreadCardViewHolder<c.a.t0.g
             oVar.y(4);
             oVar.B(this.t, this.u);
             oVar.x(this.p);
-            oVar.q(c.a.d.f.p.n.f(this.f3299e, c.a.t0.y2.b.tbds20));
+            oVar.q(c.a.d.f.p.n.f(this.f3258e, c.a.t0.y2.b.tbds20));
             oVar.v(1);
             bVar.h(oVar);
             bVar.h(new c.a.l.k(this.n.getPageActivity()));
             n0 n0Var = new n0(this.n.getPageActivity());
             c.a.s0.s.q.f fVar = new c.a.s0.s.q.f();
-            fVar.f13685b = 3;
-            fVar.f13691h = 3;
+            fVar.f13371b = 3;
+            fVar.f13377h = 3;
             n0Var.u(fVar);
             n0Var.v(8);
             n0Var.z(6);
@@ -468,7 +468,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.g0.f0.f, ThreadCardViewHolder<c.a.t0.g
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, fVar, threadCardViewHolder})) == null) {
-            if (fVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || fVar.f18222e == null) {
+            if (fVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || fVar.f17778e == null) {
                 return null;
             }
             fVar.K(fVar.position + 1);

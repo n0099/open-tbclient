@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes11.dex */
 public final class TaskState {
@@ -31,7 +32,7 @@ public final class TaskState {
                 return;
             }
         }
-        INIT = new TaskState("INIT", 0, 0);
+        INIT = new TaskState(TornadoLiteRuntime.STATE_INIT, 0, 0);
         CALLING = new TaskState("CALLING", 1, 1);
         TaskState taskState = new TaskState("FINISHED", 2, 2);
         FINISHED = taskState;

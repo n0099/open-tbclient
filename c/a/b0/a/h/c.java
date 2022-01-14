@@ -17,25 +17,25 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1558b;
+    public String f1542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1559c;
+    public String f1543c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1560d;
+    public String f1544d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1561e;
+    public String f1545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1562f;
+    public String f1546f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f1563g;
+    public File f1547g;
 
     /* renamed from: h  reason: collision with root package name */
-    public File f1564h;
+    public File f1548h;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class c {
             }
         }
         this.a = "5.1_v2";
-        this.f1563g = null;
+        this.f1547g = null;
     }
 
     public static c f() {
@@ -59,14 +59,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             c cVar = new c();
-            cVar.f1560d = "source";
+            cVar.f1544d = "source";
             cVar.a = "5.1_v2";
-            cVar.f1562f = "resource_capture";
+            cVar.f1546f = "resource_capture";
             String a = cVar.a("resource_capture");
-            cVar.f1558b = a;
-            cVar.f1559c = f.b(a);
-            cVar.f1563g = cVar.k();
-            cVar.f1564h = cVar.d();
+            cVar.f1542b = a;
+            cVar.f1543c = f.b(a);
+            cVar.f1547g = cVar.k();
+            cVar.f1548h = cVar.d();
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -77,14 +77,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             c cVar = new c();
-            cVar.f1560d = "source";
+            cVar.f1544d = "source";
             cVar.a = "5.1_v2";
-            cVar.f1562f = "resource_live";
+            cVar.f1546f = "resource_live";
             String a = cVar.a("resource_live");
-            cVar.f1558b = a;
-            cVar.f1559c = f.b(a);
-            cVar.f1563g = cVar.k();
-            cVar.f1564h = cVar.d();
+            cVar.f1542b = a;
+            cVar.f1543c = f.b(a);
+            cVar.f1547g = cVar.k();
+            cVar.f1548h = cVar.d();
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -95,17 +95,17 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             c cVar = new c();
-            cVar.f1560d = "so";
-            cVar.f1561e = "so1";
+            cVar.f1544d = "so";
+            cVar.f1545e = "so1";
             cVar.a = "5.1_v2";
             String j2 = cVar.j("so1");
-            cVar.f1558b = j2;
-            cVar.f1559c = f.b(j2);
-            cVar.f1563g = cVar.k();
+            cVar.f1542b = j2;
+            cVar.f1543c = f.b(j2);
+            cVar.f1547g = cVar.k();
             if (c.a.b0.a.b.m()) {
-                c.a.b0.a.j.i.a("DuAr_", "so1 local file path = " + cVar.f1563g.getAbsolutePath());
+                c.a.b0.a.j.i.a("DuAr_", "so1 local file path = " + cVar.f1547g.getAbsolutePath());
             }
-            cVar.f1564h = cVar.d();
+            cVar.f1548h = cVar.d();
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -116,17 +116,17 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             c cVar = new c();
-            cVar.f1560d = "so";
-            cVar.f1561e = "so2";
+            cVar.f1544d = "so";
+            cVar.f1545e = "so2";
             cVar.a = "5.1_v2";
             String j2 = cVar.j("so2");
-            cVar.f1558b = j2;
-            cVar.f1559c = f.b(j2);
-            cVar.f1563g = cVar.k();
+            cVar.f1542b = j2;
+            cVar.f1543c = f.b(j2);
+            cVar.f1547g = cVar.k();
             if (c.a.b0.a.b.m()) {
-                c.a.b0.a.j.i.a("DuAr_", "So2 local file path = " + cVar.f1563g.getAbsolutePath());
+                c.a.b0.a.j.i.a("DuAr_", "So2 local file path = " + cVar.f1547g.getAbsolutePath());
             }
-            cVar.f1564h = cVar.d();
+            cVar.f1548h = cVar.d();
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -147,8 +147,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             boolean a = j.a(c.a.b0.a.b.getContext());
-            if (TextUtils.equals(this.f1560d, "so")) {
-                if (TextUtils.equals(this.f1561e, "so2")) {
+            if (TextUtils.equals(this.f1544d, "so")) {
+                if (TextUtils.equals(this.f1545e, "so2")) {
                     return d.f().getAbsolutePath();
                 }
                 return d.b(a).getAbsolutePath();
@@ -168,7 +168,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f1564h == null) {
+            if (this.f1548h == null) {
                 File c2 = c();
                 String absolutePath = c2 != null ? c2.getAbsolutePath() : null;
                 if (absolutePath == null) {
@@ -180,9 +180,9 @@ public class c {
                 if (!absolutePath.endsWith(".loading")) {
                     absolutePath = absolutePath + ".loading";
                 }
-                this.f1564h = new File(absolutePath);
+                this.f1548h = new File(absolutePath);
             }
-            return this.f1564h;
+            return this.f1548h;
         }
         return (File) invokeV.objValue;
     }
@@ -191,7 +191,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a + "-" + this.f1559c;
+            return this.a + "-" + this.f1543c;
         }
         return (String) invokeV.objValue;
     }
@@ -218,10 +218,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f1563g == null && !TextUtils.isEmpty(this.a)) {
-                this.f1563g = new File(b(), e());
+            if (this.f1547g == null && !TextUtils.isEmpty(this.a)) {
+                this.f1547g = new File(b(), e());
             }
-            return this.f1563g;
+            return this.f1547g;
         }
         return (File) invokeV.objValue;
     }

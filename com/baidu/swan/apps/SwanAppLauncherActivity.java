@@ -63,7 +63,7 @@ public class SwanAppLauncherActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLauncherActivity f39912e;
+        public final /* synthetic */ SwanAppLauncherActivity f38590e;
 
         public b(SwanAppLauncherActivity swanAppLauncherActivity) {
             Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class SwanAppLauncherActivity extends Activity {
                     return;
                 }
             }
-            this.f39912e = swanAppLauncherActivity;
+            this.f38590e = swanAppLauncherActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f39912e.finish();
+                this.f38590e.finish();
             }
         }
     }

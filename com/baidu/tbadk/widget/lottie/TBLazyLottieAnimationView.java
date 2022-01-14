@@ -13,9 +13,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EMPTY_LOTTIE_RES = -1;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f42879k;
+    public boolean k;
     public int l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -36,7 +34,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.f42879k = false;
+        this.k = false;
         this.l = -1;
     }
 
@@ -49,7 +47,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 super.setAnimation(i2);
                 this.l = -1;
             }
-            this.f42879k = true;
+            this.k = true;
             super.onDraw(canvas);
         }
     }
@@ -58,7 +56,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
     public void setAnimation(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (this.f42879k) {
+            if (this.k) {
                 super.setAnimation(i2);
             } else {
                 this.l = i2;
@@ -85,7 +83,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.f42879k = false;
+        this.k = false;
         this.l = -1;
     }
 
@@ -108,7 +106,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.f42879k = false;
+        this.k = false;
         this.l = -1;
     }
 }

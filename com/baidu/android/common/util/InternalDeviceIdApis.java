@@ -62,9 +62,9 @@ public class InternalDeviceIdApis {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            g.a k2 = a(context).k();
-            if (k2 != null) {
-                return k2.r();
+            g.a k = a(context).k();
+            if (k != null) {
+                return k.r();
             }
             return null;
         }

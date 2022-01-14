@@ -73,13 +73,13 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f56429b;
+        public final String f54290b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final a f56430c;
+        public final a f54291c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final List<Pair<String, Object>> f56431d;
+        public final List<Pair<String, Object>> f54292d;
 
         public a(a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -96,10 +96,10 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
                     return;
                 }
             }
-            this.f56430c = aVar;
+            this.f54291c = aVar;
             this.a = str;
-            this.f56429b = str2;
-            this.f56431d = new LinkedList();
+            this.f54290b = str2;
+            this.f54292d = new LinkedList();
         }
 
         public void a(Object obj) {
@@ -114,13 +114,13 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                for (int i2 = 0; i2 < this.f56431d.size(); i2++) {
-                    Pair<String, Object> pair = this.f56431d.get(i2);
+                for (int i2 = 0; i2 < this.f54292d.size(); i2++) {
+                    Pair<String, Object> pair = this.f54292d.get(i2);
                     if (((String) pair.first).equals(str)) {
                         return pair.second;
                     }
                 }
-                a aVar = this.f56430c;
+                a aVar = this.f54291c;
                 if (aVar == null) {
                     return null;
                 }
@@ -171,7 +171,7 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
                 }
                 if (eventType == 2) {
                     String name = xmlPullParser.getName();
-                    if (this.f56429b.equals(name)) {
+                    if (this.f54290b.equals(name)) {
                         n(xmlPullParser);
                         z = true;
                     } else if (z) {
@@ -315,7 +315,7 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         public final void p(String str, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048591, this, str, obj) == null) {
-                this.f56431d.add(Pair.create(str, obj));
+                this.f54292d.add(Pair.create(str, obj));
             }
         }
     }
@@ -326,13 +326,13 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f56432e;
+        public boolean f54293e;
 
         /* renamed from: f  reason: collision with root package name */
-        public UUID f56433f;
+        public UUID f54294f;
 
         /* renamed from: g  reason: collision with root package name */
-        public byte[] f56434g;
+        public byte[] f54295g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, String str) {
@@ -366,8 +366,8 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                UUID uuid = this.f56433f;
-                return new a.C1645a(uuid, h.a(uuid, this.f56434g));
+                UUID uuid = this.f54294f;
+                return new a.C1661a(uuid, h.a(uuid, this.f54295g));
             }
             return invokeV.objValue;
         }
@@ -383,7 +383,7 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         public void h(XmlPullParser xmlPullParser) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xmlPullParser) == null) && "ProtectionHeader".equals(xmlPullParser.getName())) {
-                this.f56432e = false;
+                this.f54293e = false;
             }
         }
 
@@ -391,16 +391,16 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         public void n(XmlPullParser xmlPullParser) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, xmlPullParser) == null) && "ProtectionHeader".equals(xmlPullParser.getName())) {
-                this.f56432e = true;
-                this.f56433f = UUID.fromString(q(xmlPullParser.getAttributeValue(null, "SystemID")));
+                this.f54293e = true;
+                this.f54294f = UUID.fromString(q(xmlPullParser.getAttributeValue(null, "SystemID")));
             }
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
         public void o(XmlPullParser xmlPullParser) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, xmlPullParser) == null) && this.f56432e) {
-                this.f56434g = Base64.decode(xmlPullParser.getText(), 0);
+            if ((interceptable == null || interceptable.invokeL(1048580, this, xmlPullParser) == null) && this.f54293e) {
+                this.f54295g = Base64.decode(xmlPullParser.getText(), 0);
             }
         }
     }
@@ -411,7 +411,7 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Format f56435e;
+        public Format f54296e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, String str) {
@@ -441,11 +441,11 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
                 ArrayList arrayList = new ArrayList();
                 if (!TextUtils.isEmpty(str)) {
                     byte[] n = v.n(str);
-                    byte[][] k2 = c.i.b.a.i0.c.k(n);
-                    if (k2 == null) {
+                    byte[][] k = c.i.b.a.i0.c.k(n);
+                    if (k == null) {
                         arrayList.add(n);
                     } else {
-                        Collections.addAll(arrayList, k2);
+                        Collections.addAll(arrayList, k);
                     }
                 }
                 return arrayList;
@@ -493,7 +493,7 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         public Object b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56435e : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54296e : invokeV.objValue;
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
@@ -502,27 +502,27 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xmlPullParser) == null) {
                 int intValue = ((Integer) c("Type")).intValue();
                 String attributeValue = xmlPullParser.getAttributeValue(null, "Index");
-                int k2 = k(xmlPullParser, "Bitrate");
+                int k = k(xmlPullParser, "Bitrate");
                 String r = r(m(xmlPullParser, "FourCC"));
                 if (intValue == 2) {
-                    this.f56435e = Format.createVideoContainerFormat(attributeValue, "video/mp4", r, null, k2, k(xmlPullParser, "MaxWidth"), k(xmlPullParser, "MaxHeight"), -1.0f, q(xmlPullParser.getAttributeValue(null, "CodecPrivateData")), 0);
+                    this.f54296e = Format.createVideoContainerFormat(attributeValue, "video/mp4", r, null, k, k(xmlPullParser, "MaxWidth"), k(xmlPullParser, "MaxHeight"), -1.0f, q(xmlPullParser.getAttributeValue(null, "CodecPrivateData")), 0);
                 } else if (intValue != 1) {
                     if (intValue == 3) {
-                        this.f56435e = Format.createTextContainerFormat(attributeValue, "application/mp4", r, null, k2, 0, (String) c("Language"));
+                        this.f54296e = Format.createTextContainerFormat(attributeValue, "application/mp4", r, null, k, 0, (String) c("Language"));
                     } else {
-                        this.f56435e = Format.createContainerFormat(attributeValue, "application/mp4", r, null, k2, 0, null);
+                        this.f54296e = Format.createContainerFormat(attributeValue, "application/mp4", r, null, k, 0, null);
                     }
                 } else {
                     if (r == null) {
                         r = "audio/mp4a-latm";
                     }
-                    int k3 = k(xmlPullParser, "Channels");
-                    int k4 = k(xmlPullParser, "SamplingRate");
+                    int k2 = k(xmlPullParser, "Channels");
+                    int k3 = k(xmlPullParser, "SamplingRate");
                     List<byte[]> q = q(xmlPullParser.getAttributeValue(null, "CodecPrivateData"));
                     if (q.isEmpty() && "audio/mp4a-latm".equals(r)) {
-                        q = Collections.singletonList(c.i.b.a.i0.c.b(k4, k3));
+                        q = Collections.singletonList(c.i.b.a.i0.c.b(k3, k2));
                     }
-                    this.f56435e = Format.createAudioContainerFormat(attributeValue, "audio/mp4", r, null, k2, k3, k4, q, 0, (String) c("Language"));
+                    this.f54296e = Format.createAudioContainerFormat(attributeValue, "audio/mp4", r, null, k, k2, k3, q, 0, (String) c("Language"));
                 }
             }
         }
@@ -534,27 +534,25 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final List<a.b> f56436e;
+        public final List<a.b> f54297e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f56437f;
+        public int f54298f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f56438g;
+        public int f54299g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f56439h;
+        public long f54300h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f56440i;
+        public long f54301i;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f56441j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public int f56442k;
+        public long f54302j;
+        public int k;
         public boolean l;
-        public a.C1645a m;
+        public a.C1661a m;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(a aVar, String str) {
@@ -575,9 +573,9 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
                     return;
                 }
             }
-            this.f56442k = -1;
+            this.k = -1;
             this.m = null;
-            this.f56436e = new LinkedList();
+            this.f54297e = new LinkedList();
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
@@ -585,10 +583,10 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (obj instanceof a.b) {
-                    this.f56436e.add((a.b) obj);
-                } else if (obj instanceof a.C1645a) {
+                    this.f54297e.add((a.b) obj);
+                } else if (obj instanceof a.C1661a) {
                     c.i.b.a.i0.a.f(this.m == null);
-                    this.m = (a.C1645a) obj;
+                    this.m = (a.C1661a) obj;
                 }
             }
         }
@@ -598,17 +596,17 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int size = this.f56436e.size();
+                int size = this.f54297e.size();
                 a.b[] bVarArr = new a.b[size];
-                this.f56436e.toArray(bVarArr);
+                this.f54297e.toArray(bVarArr);
                 if (this.m != null) {
-                    a.C1645a c1645a = this.m;
-                    DrmInitData drmInitData = new DrmInitData(new DrmInitData.SchemeData(c1645a.a, "video/mp4", c1645a.f30324b));
+                    a.C1661a c1661a = this.m;
+                    DrmInitData drmInitData = new DrmInitData(new DrmInitData.SchemeData(c1661a.a, "video/mp4", c1661a.f29375b));
                     for (int i2 = 0; i2 < size; i2++) {
                         a.b bVar = bVarArr[i2];
                         int i3 = 0;
                         while (true) {
-                            Format[] formatArr = bVar.f30326c;
+                            Format[] formatArr = bVar.f29377c;
                             if (i3 < formatArr.length) {
                                 formatArr[i3] = formatArr[i3].copyWithDrmInitData(drmInitData);
                                 i3++;
@@ -616,7 +614,7 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
                         }
                     }
                 }
-                return new c.i.b.a.d0.x.e.a(this.f56437f, this.f56438g, this.f56439h, this.f56440i, this.f56441j, this.f56442k, this.l, this.m, bVarArr);
+                return new c.i.b.a.d0.x.e.a(this.f54298f, this.f54299g, this.f54300h, this.f54301i, this.f54302j, this.k, this.l, this.m, bVarArr);
             }
             return invokeV.objValue;
         }
@@ -625,14 +623,14 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         public void n(XmlPullParser xmlPullParser) throws ParserException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xmlPullParser) == null) {
-                this.f56437f = k(xmlPullParser, "MajorVersion");
-                this.f56438g = k(xmlPullParser, "MinorVersion");
-                this.f56439h = j(xmlPullParser, "TimeScale", 10000000L);
-                this.f56440i = l(xmlPullParser, "Duration");
-                this.f56441j = j(xmlPullParser, "DVRWindowLength", 0L);
-                this.f56442k = i(xmlPullParser, "LookaheadCount", -1);
+                this.f54298f = k(xmlPullParser, "MajorVersion");
+                this.f54299g = k(xmlPullParser, "MinorVersion");
+                this.f54300h = j(xmlPullParser, "TimeScale", 10000000L);
+                this.f54301i = l(xmlPullParser, "Duration");
+                this.f54302j = j(xmlPullParser, "DVRWindowLength", 0L);
+                this.k = i(xmlPullParser, "LookaheadCount", -1);
                 this.l = g(xmlPullParser, "IsLive", false);
-                p("TimeScale", Long.valueOf(this.f56439h));
+                p("TimeScale", Long.valueOf(this.f54300h));
             }
         }
     }
@@ -643,25 +641,23 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f56443e;
+        public final String f54303e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final List<Format> f56444f;
+        public final List<Format> f54304f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f56445g;
+        public int f54305g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f56446h;
+        public String f54306h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f56447i;
+        public long f54307i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f56448j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public String f56449k;
+        public String f54308j;
+        public String k;
         public int l;
         public int m;
         public int n;
@@ -689,15 +685,15 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
                     return;
                 }
             }
-            this.f56443e = str;
-            this.f56444f = new LinkedList();
+            this.f54303e = str;
+            this.f54304f = new LinkedList();
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof Format)) {
-                this.f56444f.add((Format) obj);
+                this.f54304f.add((Format) obj);
             }
         }
 
@@ -706,9 +702,9 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Format[] formatArr = new Format[this.f56444f.size()];
-                this.f56444f.toArray(formatArr);
-                return new a.b(this.f56443e, this.f56449k, this.f56445g, this.f56446h, this.f56447i, this.f56448j, this.l, this.m, this.n, this.o, this.p, formatArr, this.q, this.r);
+                Format[] formatArr = new Format[this.f54304f.size()];
+                this.f54304f.toArray(formatArr);
+                return new a.b(this.f54303e, this.k, this.f54305g, this.f54306h, this.f54307i, this.f54308j, this.l, this.m, this.n, this.o, this.p, formatArr, this.q, this.r);
             }
             return invokeV.objValue;
         }
@@ -736,15 +732,15 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, xmlPullParser) == null) {
                 int s = s(xmlPullParser);
-                this.f56445g = s;
+                this.f54305g = s;
                 p("Type", Integer.valueOf(s));
-                if (this.f56445g == 3) {
-                    this.f56446h = m(xmlPullParser, "Subtype");
+                if (this.f54305g == 3) {
+                    this.f54306h = m(xmlPullParser, "Subtype");
                 } else {
-                    this.f56446h = xmlPullParser.getAttributeValue(null, "Subtype");
+                    this.f54306h = xmlPullParser.getAttributeValue(null, "Subtype");
                 }
-                this.f56448j = xmlPullParser.getAttributeValue(null, "Name");
-                this.f56449k = m(xmlPullParser, "Url");
+                this.f54308j = xmlPullParser.getAttributeValue(null, "Name");
+                this.k = m(xmlPullParser, "Url");
                 this.l = i(xmlPullParser, "MaxWidth", -1);
                 this.m = i(xmlPullParser, "MaxHeight", -1);
                 this.n = i(xmlPullParser, "DisplayWidth", -1);
@@ -753,9 +749,9 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
                 this.p = attributeValue;
                 p("Language", attributeValue);
                 long i2 = i(xmlPullParser, "TimeScale", -1);
-                this.f56447i = i2;
+                this.f54307i = i2;
                 if (i2 == -1) {
-                    this.f56447i = ((Long) c("TimeScale")).longValue();
+                    this.f54307i = ((Long) c("TimeScale")).longValue();
                 }
                 this.q = new ArrayList<>();
             }

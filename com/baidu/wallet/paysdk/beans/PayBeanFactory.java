@@ -202,7 +202,7 @@ public final class PayBeanFactory implements IBeanFactory {
                                                     public final /* synthetic */ BaseBean[] a;
 
                                                     /* renamed from: b  reason: collision with root package name */
-                                                    public final /* synthetic */ PayBeanFactory f53968b;
+                                                    public final /* synthetic */ PayBeanFactory f51905b;
 
                                                     {
                                                         Interceptable interceptable2 = $ic;
@@ -219,7 +219,7 @@ public final class PayBeanFactory implements IBeanFactory {
                                                                 return;
                                                             }
                                                         }
-                                                        this.f53968b = this;
+                                                        this.f51905b = this;
                                                         this.a = baseBeanArr;
                                                     }
 
@@ -252,7 +252,7 @@ public final class PayBeanFactory implements IBeanFactory {
                                                     public final /* synthetic */ BaseBean[] a;
 
                                                     /* renamed from: b  reason: collision with root package name */
-                                                    public final /* synthetic */ PayBeanFactory f53969b;
+                                                    public final /* synthetic */ PayBeanFactory f51906b;
 
                                                     {
                                                         Interceptable interceptable2 = $ic;
@@ -269,7 +269,7 @@ public final class PayBeanFactory implements IBeanFactory {
                                                                 return;
                                                             }
                                                         }
-                                                        this.f53969b = this;
+                                                        this.f51906b = this;
                                                         this.a = baseBeanArr2;
                                                     }
 

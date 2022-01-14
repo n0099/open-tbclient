@@ -59,7 +59,7 @@ public class a {
                 int responseCode = httpURLConnection2.getResponseCode();
                 cVar.a = responseCode;
                 if (responseCode == 200) {
-                    cVar.f58087b = a(httpURLConnection2.getInputStream());
+                    cVar.f55891b = a(httpURLConnection2.getInputStream());
                 }
                 if (httpURLConnection2 != null) {
                     httpURLConnection2.disconnect();
@@ -170,7 +170,7 @@ public class a {
                     sb.append(new String(bArr, 0, read));
                 }
             }
-            cVar.f58087b = sb.toString();
+            cVar.f55891b = sb.toString();
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();
             }
@@ -306,10 +306,10 @@ public class a {
     }
 
     public static void a(@NonNull c cVar, Exception exc) {
-        f fVar = exc instanceof SocketTimeoutException ? f.a : f.f58088b;
+        f fVar = exc instanceof SocketTimeoutException ? f.a : f.f55892b;
         cVar.a = fVar.n;
-        cVar.f58087b = fVar.o;
-        if (com.kwad.sdk.b.f57625c.booleanValue()) {
+        cVar.f55891b = fVar.o;
+        if (com.kwad.sdk.b.f55440c.booleanValue()) {
             com.kwad.sdk.core.d.a.b(exc);
         }
     }

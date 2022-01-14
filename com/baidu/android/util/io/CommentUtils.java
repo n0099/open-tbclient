@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.ZipFile;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CommentUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class CommentUtils {
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x005c: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:34:0x005c */
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x005d: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:34:0x005d */
     public static String readApk(File file) {
         InterceptResult invokeL;
         RandomAccessFile randomAccessFile;

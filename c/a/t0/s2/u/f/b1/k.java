@@ -22,7 +22,7 @@ public class k {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f23349b;
+    public static final int f22704b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -31,10 +31,10 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeListView f23350e;
+        public final /* synthetic */ BdTypeListView f22705e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f23351f;
+        public final /* synthetic */ String f22706f;
 
         public a(BdTypeListView bdTypeListView, String str) {
             Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public class k {
                     return;
                 }
             }
-            this.f23350e = bdTypeListView;
-            this.f23351f = str;
+            this.f22705e = bdTypeListView;
+            this.f22706f = str;
         }
 
         @Override // java.lang.Runnable
@@ -60,18 +60,18 @@ public class k {
             int a;
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a = k.a(this.f23350e, this.f23351f)) < 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a = k.a(this.f22705e, this.f22706f)) < 0) {
                 return;
             }
-            int height = this.f23350e.getHeight();
-            int width = this.f23350e.getWidth();
+            int height = this.f22705e.getHeight();
+            int width = this.f22705e.getWidth();
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(width, 1073741824);
-            BdTypeListView bdTypeListView = this.f23350e;
+            BdTypeListView bdTypeListView = this.f22705e;
             View childAt = bdTypeListView.getChildAt(a - bdTypeListView.getFirstVisiblePosition());
-            if ((childAt == null || childAt.getBottom() > height - k.f23349b) && (view = this.f23350e.getAdapter2().getView(a, null, this.f23350e)) != null) {
+            if ((childAt == null || childAt.getBottom() > height - k.f22704b) && (view = this.f22705e.getAdapter2().getView(a, null, this.f22705e)) != null) {
                 view.measure(makeMeasureSpec2, makeMeasureSpec);
-                this.f23350e.setSelectionFromTop(a, (height - view.getMeasuredHeight()) - k.f23349b);
+                this.f22705e.setSelectionFromTop(a, (height - view.getMeasuredHeight()) - k.f22704b);
             }
         }
     }
@@ -90,7 +90,7 @@ public class k {
             }
         }
         a = n.f(TbadkCoreApplication.getInst().getContext(), c.a.t0.s2.g.tbds240);
-        f23349b = n.f(TbadkCoreApplication.getInst().getContext(), c.a.t0.s2.g.tbds150);
+        f22704b = n.f(TbadkCoreApplication.getInst().getContext(), c.a.t0.s2.g.tbds150);
     }
 
     public static int a(BdTypeListView bdTypeListView, String str) {
@@ -173,7 +173,7 @@ public class k {
                 int size = data.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     c.a.d.n.e.n nVar = data.get(i2);
-                    if ((nVar instanceof q) && ((q) nVar).f23073f == q.m) {
+                    if ((nVar instanceof q) && ((q) nVar).f22438f == q.m) {
                         return i2 + headerViewsCount;
                     }
                 }

@@ -11,7 +11,7 @@ public abstract class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f1299b;
+    public a f1294b;
 
     /* loaded from: classes.dex */
     public interface a {

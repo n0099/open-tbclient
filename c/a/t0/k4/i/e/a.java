@@ -11,10 +11,10 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f19379b;
+    public int f18881b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f19380c;
+    public String f18882c;
 
     public a(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a {
             }
         }
         this.a = str;
-        this.f19379b = i2;
-        this.f19380c = str2;
+        this.f18881b = i2;
+        this.f18882c = str2;
     }
 }

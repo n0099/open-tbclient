@@ -18,39 +18,39 @@ public class a {
 
     /* renamed from: c.a.t0.s1.f.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1346a {
+    public static class C1361a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f22644b;
+        public String f22023b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f22645c;
+        public String f22024c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f22646d;
+        public long f22025d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22647e;
+        public String f22026e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f22648f;
+        public long f22027f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f22649g;
+        public String f22028g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f22650h;
+        public long f22029h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f22651i;
+        public int f22030i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f22652j;
+        public int f22031j;
 
-        public C1346a() {
+        public C1361a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,46 +64,46 @@ public class a {
                 }
             }
             this.a = null;
-            this.f22644b = null;
-            this.f22645c = null;
-            this.f22648f = 0L;
-            this.f22649g = null;
-            this.f22650h = 0L;
-            this.f22651i = 0;
-            this.f22652j = 0;
+            this.f22023b = null;
+            this.f22024c = null;
+            this.f22027f = 0L;
+            this.f22028g = null;
+            this.f22029h = 0L;
+            this.f22030i = 0;
+            this.f22031j = 0;
         }
     }
 
-    public static C1346a a(String str) {
+    public static C1361a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            C1346a c1346a = new C1346a();
+            C1361a c1361a = new C1361a();
             try {
                 JSONArray jSONArray = new JSONArray(str);
                 if (jSONArray.length() > 0) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                    c1346a.a = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
-                    c1346a.f22644b = optJSONObject.optString("user_id");
-                    c1346a.f22645c = optJSONObject.optString("nick_name");
-                    c1346a.f22646d = optJSONObject.optLong("caller_time");
-                    c1346a.f22647e = optJSONObject.optString("caller_content");
-                    c1346a.f22648f = optJSONObject.optLong("thread_id");
-                    c1346a.f22649g = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
+                    c1361a.a = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
+                    c1361a.f22023b = optJSONObject.optString("user_id");
+                    c1361a.f22024c = optJSONObject.optString("nick_name");
+                    c1361a.f22025d = optJSONObject.optLong("caller_time");
+                    c1361a.f22026e = optJSONObject.optString("caller_content");
+                    c1361a.f22027f = optJSONObject.optLong("thread_id");
+                    c1361a.f22028g = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
                     optJSONObject.optString("forum_name");
-                    c1346a.f22650h = optJSONObject.optLong("post_id");
-                    c1346a.f22651i = optJSONObject.optInt("msg_type");
-                    c1346a.f22652j = optJSONObject.optInt("remind_count");
+                    c1361a.f22029h = optJSONObject.optLong("post_id");
+                    c1361a.f22030i = optJSONObject.optInt("msg_type");
+                    c1361a.f22031j = optJSONObject.optInt("remind_count");
                 }
-                return c1346a;
+                return c1361a;
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (C1346a) invokeL.objValue;
+        return (C1361a) invokeL.objValue;
     }
 }

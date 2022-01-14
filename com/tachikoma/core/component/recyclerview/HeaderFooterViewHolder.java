@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.yoga.YogaUnit;
 import com.kwad.yoga.YogaValue;
 import com.tachikoma.core.yoga.layout.YogaLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HeaderFooterViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

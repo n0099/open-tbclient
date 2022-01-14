@@ -18,31 +18,31 @@ public class i1 {
     public ArrayList<UserData> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<UserData> f13725b;
+    public ArrayList<UserData> f13415b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b1 f13726c;
+    public b1 f13416c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13727d;
+    public int f13417d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13728e;
+    public int f13418e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13729f;
+    public boolean f13419f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13730g;
+    public String f13420g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13731h;
+    public int f13421h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f13732i;
+    public String f13422i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f13733j;
+    public int f13423j;
 
     public i1() {
         Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class i1 {
             }
         }
         this.a = new ArrayList<>();
-        this.f13725b = new ArrayList<>();
-        this.f13726c = new b1();
+        this.f13415b = new ArrayList<>();
+        this.f13416c = new b1();
     }
 
     public ArrayList<UserData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13725b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13415b : (ArrayList) invokeV.objValue;
     }
 
     public ArrayList<UserData> b() {
@@ -96,17 +96,17 @@ public class i1 {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i3));
                         userData2.mAttentionType = 1;
-                        this.f13725b.add(userData2);
+                        this.f13415b.add(userData2);
                     }
                 }
-                this.f13726c.i(jSONObject.optJSONObject("page"));
-                if (this.f13726c != null) {
-                    this.f13727d = this.f13726c.a();
-                    this.f13728e = this.f13726c.f();
-                    if (this.f13726c.b() != 1) {
+                this.f13416c.i(jSONObject.optJSONObject("page"));
+                if (this.f13416c != null) {
+                    this.f13417d = this.f13416c.a();
+                    this.f13418e = this.f13416c.f();
+                    if (this.f13416c.b() != 1) {
                         z = false;
                     }
-                    this.f13729f = z;
+                    this.f13419f = z;
                 }
                 jSONObject.optInt("tafriendnum", 0);
                 jSONObject.optInt("commonfriendnum", 0);
@@ -126,20 +126,20 @@ public class i1 {
                         userData4.parserJson(optJSONArray4.getJSONObject(i5));
                         userData4.mAttentionType = 1;
                         userData4.setHave_attention(1);
-                        this.f13725b.add(userData4);
+                        this.f13415b.add(userData4);
                     }
                 }
-                this.f13727d = jSONObject.optInt("pn");
-                this.f13728e = jSONObject.optInt("total_follow_num", 0);
+                this.f13417d = jSONObject.optInt("pn");
+                this.f13418e = jSONObject.optInt("total_follow_num", 0);
                 if (jSONObject.optInt("has_more", 0) != 1) {
                     z = false;
                 }
-                this.f13729f = z;
-                this.f13733j = jSONObject.optInt("follow_list_switch", 0);
+                this.f13419f = z;
+                this.f13423j = jSONObject.optInt("follow_list_switch", 0);
             }
-            this.f13732i = jSONObject.optString("tips_text");
-            this.f13731h = jSONObject.optInt("type", 0);
-            this.f13730g = jSONObject.optString("block_text");
+            this.f13422i = jSONObject.optString("tips_text");
+            this.f13421h = jSONObject.optInt("type", 0);
+            this.f13420g = jSONObject.optString("block_text");
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

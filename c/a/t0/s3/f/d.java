@@ -15,13 +15,13 @@ public class d {
     public List<RecommendForumInfo> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f24149b;
+    public List<String> f23474b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Page f24150c;
+    public Page f23475c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24151d;
+    public String f23476d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f24151d = dataRes.class_name;
-        this.f24150c = dataRes.page;
-        this.f24149b = dataRes.page_structure;
+        this.f23476d = dataRes.class_name;
+        this.f23475c = dataRes.page;
+        this.f23474b = dataRes.page_structure;
         this.a = dataRes.forum_info;
     }
 }

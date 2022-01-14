@@ -13,7 +13,7 @@ public class e {
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AgreeData f25551b;
+    public AgreeData f24836b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -29,6 +29,6 @@ public class e {
             }
         }
         this.a = null;
-        this.f25551b = null;
+        this.f24836b = null;
     }
 }

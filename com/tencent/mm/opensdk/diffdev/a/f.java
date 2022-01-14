@@ -14,9 +14,7 @@ import org.json.JSONObject;
 public final class f extends AsyncTask<Void, Void, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public OAuthListener f62835k;
+    public OAuthListener k;
     public String n;
     public int t;
     public String url;
@@ -124,7 +122,7 @@ public final class f extends AsyncTask<Void, Void, a> {
             }
         }
         this.n = str;
-        this.f62835k = oAuthListener;
+        this.k = oAuthListener;
         this.url = String.format("https://long.open.weixin.qq.com/connect/l/qrconnect?f=json&uuid=%s", str);
     }
 
@@ -166,7 +164,7 @@ public final class f extends AsyncTask<Void, Void, a> {
                 int i2 = b2.v;
                 this.t = i2;
                 if (i2 == g.y.getCode()) {
-                    this.f62835k.onQrcodeScanned();
+                    this.k.onQrcodeScanned();
                 } else if (b2.v != g.A.getCode() && b2.v == g.z.getCode()) {
                     String str3 = b2.u;
                     if (str3 == null || str3.length() == 0) {
@@ -188,6 +186,6 @@ public final class f extends AsyncTask<Void, Void, a> {
     @Override // android.os.AsyncTask
     public final /* synthetic */ void onPostExecute(a aVar) {
         a aVar2 = aVar;
-        this.f62835k.onAuthFinish(aVar2.m, aVar2.u);
+        this.k.onAuthFinish(aVar2.m, aVar2.u);
     }
 }

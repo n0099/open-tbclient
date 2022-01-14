@@ -18,28 +18,28 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10897b;
+    public String f10654b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10898c;
+    public String f10655c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10899d;
+    public String f10656d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10900e;
+    public String f10657e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10901f;
+    public String f10658f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10902g;
+    public String f10659g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f10903h;
+    public String f10660h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f10904i;
+    public String f10661i;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -55,24 +55,24 @@ public class a {
             }
         }
         this.a = "swan";
-        this.f10899d = "";
-        this.f10900e = "";
-        this.f10901f = "";
-        this.f10902g = "";
-        this.f10903h = "";
+        this.f10656d = "";
+        this.f10657e = "";
+        this.f10658f = "";
+        this.f10659g = "";
+        this.f10660h = "";
         if (e.a0() == null) {
             return;
         }
         b.a V = e.a0().V();
         this.a = n.n(V.G());
-        this.f10898c = V.H();
-        this.f10897b = V.T();
-        this.f10901f = V.s0().getString("aiapp_extra_need_download", "");
-        this.f10902g = V.W();
-        this.f10903h = V.e0();
-        this.f10904i = V.V();
-        this.f10899d = V.v1();
-        this.f10900e = V.w1();
+        this.f10655c = V.H();
+        this.f10654b = V.T();
+        this.f10658f = V.s0().getString("aiapp_extra_need_download", "");
+        this.f10659g = V.W();
+        this.f10660h = V.e0();
+        this.f10661i = V.V();
+        this.f10656d = V.v1();
+        this.f10657e = V.w1();
     }
 
     public String a() {
@@ -82,14 +82,14 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("from", this.a);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f10898c);
-                jSONObject.put("source", this.f10897b);
-                jSONObject.put("needDown", this.f10901f);
-                jSONObject.put("scheme", this.f10902g);
-                jSONObject.put("extPage", this.f10903h);
-                jSONObject.put("launchId", this.f10904i);
-                jSONObject.put("appVersion", this.f10899d);
-                jSONObject.put("thirdVersion", this.f10900e);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f10655c);
+                jSONObject.put("source", this.f10654b);
+                jSONObject.put("needDown", this.f10658f);
+                jSONObject.put("scheme", this.f10659g);
+                jSONObject.put("extPage", this.f10660h);
+                jSONObject.put("launchId", this.f10661i);
+                jSONObject.put("appVersion", this.f10656d);
+                jSONObject.put("thirdVersion", this.f10657e);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -114,22 +114,22 @@ public class a {
             }
         }
         this.a = "swan";
-        this.f10899d = "";
-        this.f10900e = "";
-        this.f10901f = "";
-        this.f10902g = "";
-        this.f10903h = "";
+        this.f10656d = "";
+        this.f10657e = "";
+        this.f10658f = "";
+        this.f10659g = "";
+        this.f10660h = "";
         if (jSONObject == null || jSONObject.length() == 0) {
             return;
         }
         this.a = jSONObject.optString("from", "swan");
-        this.f10898c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-        this.f10897b = jSONObject.optString("source");
-        this.f10901f = jSONObject.optString("needDown");
-        this.f10902g = jSONObject.optString("scheme");
-        this.f10903h = jSONObject.optString("extPage");
-        this.f10904i = jSONObject.optString("launchId", null);
-        this.f10899d = jSONObject.optString("appVersion");
-        this.f10900e = jSONObject.optString("thirdVersion");
+        this.f10655c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+        this.f10654b = jSONObject.optString("source");
+        this.f10658f = jSONObject.optString("needDown");
+        this.f10659g = jSONObject.optString("scheme");
+        this.f10660h = jSONObject.optString("extPage");
+        this.f10661i = jSONObject.optString("launchId", null);
+        this.f10656d = jSONObject.optString("appVersion");
+        this.f10657e = jSONObject.optString("thirdVersion");
     }
 }

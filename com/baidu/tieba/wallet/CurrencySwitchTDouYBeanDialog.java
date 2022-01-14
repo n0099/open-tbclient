@@ -84,9 +84,9 @@ public class CurrencySwitchTDouYBeanDialog {
             if (!z) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL_REASON).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", 2));
                 if (m.isEmpty(str)) {
-                    n.L(TbadkCoreApplication.getInst().getContext(), R.string.default_t_dou_switching_fail_toast);
+                    n.M(TbadkCoreApplication.getInst().getContext(), R.string.default_t_dou_switching_fail_toast);
                 } else {
-                    n.M(TbadkCoreApplication.getInst().getContext(), str);
+                    n.N(TbadkCoreApplication.getInst().getContext(), str);
                 }
                 showDialog();
             } else if (i2 == 0) {
@@ -100,9 +100,9 @@ public class CurrencySwitchTDouYBeanDialog {
             } else {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL_REASON).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", 1));
                 if (m.isEmpty(str)) {
-                    n.L(TbadkCoreApplication.getInst().getContext(), R.string.default_t_dou_switching_fail_toast);
+                    n.M(TbadkCoreApplication.getInst().getContext(), R.string.default_t_dou_switching_fail_toast);
                 } else {
-                    n.M(TbadkCoreApplication.getInst().getContext(), str);
+                    n.N(TbadkCoreApplication.getInst().getContext(), str);
                 }
                 showDialog();
             }

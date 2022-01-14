@@ -35,34 +35,32 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<CharSequence> f13883b;
+    public List<CharSequence> f13565b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InterfaceC0871c f13884c;
+    public InterfaceC0884c f13566c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Activity f13885d;
+    public final Activity f13567d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ViewGroup f13886e;
+    public final ViewGroup f13568e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ViewGroup f13887f;
+    public final ViewGroup f13569f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TextView f13888g;
+    public final TextView f13570g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final View f13889h;
+    public final View f13571h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13890i;
+    public int f13572i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f13891j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f13892k;
+    public int f13573j;
+    public int k;
     public int l;
     public boolean m;
     public AlertDialog n;
@@ -75,13 +73,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f13893e;
+        public final /* synthetic */ int f13574e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f13894f;
+        public final /* synthetic */ TextView f13575f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f13895g;
+        public final /* synthetic */ c f13576g;
 
         public a(c cVar, int i2, TextView textView) {
             Interceptable interceptable = $ic;
@@ -98,16 +96,16 @@ public class c {
                     return;
                 }
             }
-            this.f13895g = cVar;
-            this.f13893e = i2;
-            this.f13894f = textView;
+            this.f13576g = cVar;
+            this.f13574e = i2;
+            this.f13575f = textView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f13895g.f13884c.a(this.f13895g, this.f13893e, this.f13894f);
+                this.f13576g.f13566c.a(this.f13576g, this.f13574e, this.f13575f);
             }
         }
     }
@@ -137,7 +135,7 @@ public class c {
 
     /* renamed from: c.a.s0.s.s.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0871c {
+    public interface InterfaceC0884c {
         void a(c cVar, int i2, View view);
     }
 
@@ -175,18 +173,18 @@ public class c {
                 return;
             }
         }
-        this.f13891j = -1;
-        this.f13892k = -1;
+        this.f13573j = -1;
+        this.k = -1;
         this.l = -1;
         this.m = false;
         this.o = -1;
-        this.f13885d = activity;
+        this.f13567d = activity;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.dialog_bdlist, (ViewGroup) null);
-        this.f13886e = viewGroup;
-        this.f13888g = (TextView) viewGroup.findViewById(R.id.dialog_title_list);
-        this.f13887f = (ViewGroup) this.f13886e.findViewById(R.id.dialog_content);
-        this.f13889h = this.f13886e.findViewById(R.id.line_bg);
-        this.f13890i = R.layout.dialog_bdlist_item;
+        this.f13568e = viewGroup;
+        this.f13570g = (TextView) viewGroup.findViewById(R.id.dialog_title_list);
+        this.f13569f = (ViewGroup) this.f13568e.findViewById(R.id.dialog_content);
+        this.f13571h = this.f13568e.findViewById(R.id.line_bg);
+        this.f13572i = R.layout.dialog_bdlist_item;
     }
 
     public void b(c.a.d.a.f<?> fVar) {
@@ -196,9 +194,9 @@ public class c {
             if (fVar instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) fVar;
                 tbPageContext.getLayoutMode().k(skinType == 1);
-                tbPageContext.getLayoutMode().j(this.f13886e);
+                tbPageContext.getLayoutMode().j(this.f13568e);
             }
-            this.f13886e.setBackgroundResource(R.drawable.transparent_bg);
+            this.f13568e.setBackgroundResource(R.drawable.transparent_bg);
         }
     }
 
@@ -211,16 +209,16 @@ public class c {
             }
             this.m = true;
             if (!TextUtils.isEmpty(this.a)) {
-                this.f13888g.setText(this.a);
-                this.f13888g.setVisibility(0);
-                this.f13889h.setVisibility(0);
+                this.f13570g.setText(this.a);
+                this.f13570g.setVisibility(0);
+                this.f13571h.setVisibility(0);
             } else {
-                this.f13888g.setVisibility(8);
-                this.f13889h.setVisibility(8);
+                this.f13570g.setVisibility(8);
+                this.f13571h.setVisibility(8);
             }
-            List<CharSequence> list = this.f13883b;
+            List<CharSequence> list = this.f13565b;
             if (list != null && list.size() > 0) {
-                int size = this.f13883b.size();
+                int size = this.f13565b.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     d(i2);
                 }
@@ -235,7 +233,7 @@ public class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            View inflate = LayoutInflater.from(this.f13885d).inflate(this.f13890i, this.f13887f, false);
+            View inflate = LayoutInflater.from(this.f13567d).inflate(this.f13572i, this.f13569f, false);
             LinearLayout linearLayout = (LinearLayout) inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.dialog_item_btn);
             LinearLayout.LayoutParams layoutParams = this.p;
@@ -251,15 +249,15 @@ public class c {
                 textView.setGravity(this.o);
             }
             View findViewById = inflate.findViewById(R.id.line);
-            CharSequence charSequence = this.f13883b.get(i2);
+            CharSequence charSequence = this.f13565b.get(i2);
             if (charSequence.length() <= 0) {
                 charSequence = "";
             }
             textView.setText(charSequence);
-            if (i2 == this.f13883b.size() - 1) {
+            if (i2 == this.f13565b.size() - 1) {
                 findViewById.setVisibility(8);
                 SkinManager.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
-            } else if (this.f13883b.size() == 1) {
+            } else if (this.f13565b.size() == 1) {
                 findViewById.setVisibility(8);
                 SkinManager.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
             } else if (i2 == 0 && StringUtils.isNull(this.a)) {
@@ -267,10 +265,10 @@ public class c {
             } else {
                 SkinManager.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
             }
-            if (this.f13884c != null) {
+            if (this.f13566c != null) {
                 linearLayout.setOnClickListener(new a(this, i2, textView));
             }
-            this.f13887f.addView(inflate);
+            this.f13569f.addView(inflate);
             return inflate;
         }
         return (View) invokeI.objValue;
@@ -282,14 +280,14 @@ public class c {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (alertDialog = this.n) == null) {
             return;
         }
-        c.a.d.f.m.g.a(alertDialog, this.f13885d);
+        c.a.d.f.m.g.a(alertDialog, this.f13567d);
     }
 
     public View f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            ViewGroup viewGroup = this.f13887f;
+            ViewGroup viewGroup = this.f13569f;
             if (viewGroup == null) {
                 return null;
             }
@@ -297,7 +295,7 @@ public class c {
             if (i2 < 0 || i2 > childCount - 1) {
                 return null;
             }
-            return this.f13887f.getChildAt(i2);
+            return this.f13569f.getChildAt(i2);
         }
         return (View) invokeI.objValue;
     }
@@ -306,7 +304,7 @@ public class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f13891j = i2;
+            this.f13573j = i2;
             return this;
         }
         return (c) invokeI.objValue;
@@ -316,20 +314,20 @@ public class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f13892k = i2;
+            this.k = i2;
             return this;
         }
         return (c) invokeI.objValue;
     }
 
-    public c i(List<CharSequence> list, InterfaceC0871c interfaceC0871c) {
+    public c i(List<CharSequence> list, InterfaceC0884c interfaceC0884c) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, list, interfaceC0871c)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, list, interfaceC0884c)) == null) {
             if (list != null && list.size() > 0) {
-                this.f13883b = list;
-                if (interfaceC0871c != null) {
-                    this.f13884c = interfaceC0871c;
+                this.f13565b = list;
+                if (interfaceC0884c != null) {
+                    this.f13566c = interfaceC0884c;
                 }
             }
             return this;
@@ -337,12 +335,12 @@ public class c {
         return (c) invokeLL.objValue;
     }
 
-    public c j(CharSequence[] charSequenceArr, InterfaceC0871c interfaceC0871c) {
+    public c j(CharSequence[] charSequenceArr, InterfaceC0884c interfaceC0884c) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequenceArr, interfaceC0871c)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequenceArr, interfaceC0884c)) == null) {
             if (charSequenceArr != null && charSequenceArr.length > 0) {
-                i(Arrays.asList(charSequenceArr), interfaceC0871c);
+                i(Arrays.asList(charSequenceArr), interfaceC0884c);
             }
             return this;
         }
@@ -353,7 +351,7 @@ public class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            l(this.f13885d.getResources().getString(i2));
+            l(this.f13567d.getResources().getString(i2));
             return this;
         }
         return (c) invokeI.objValue;
@@ -376,25 +374,25 @@ public class c {
             if (this.m) {
                 AlertDialog alertDialog = this.n;
                 if (alertDialog != null) {
-                    c.a.d.f.m.g.i(alertDialog, this.f13885d);
+                    c.a.d.f.m.g.i(alertDialog, this.f13567d);
                     return this;
                 }
-                AlertDialog create = new AlertDialog.Builder(this.f13885d, R.style.NoBackDimEnableDialog).create();
+                AlertDialog create = new AlertDialog.Builder(this.f13567d, R.style.NoBackDimEnableDialog).create();
                 this.n = create;
                 create.setCanceledOnTouchOutside(true);
-                if (c.a.d.f.m.g.i(this.n, this.f13885d)) {
+                if (c.a.d.f.m.g.i(this.n, this.f13567d)) {
                     Window window = this.n.getWindow();
-                    if (this.f13891j == -1) {
-                        this.f13891j = b.a;
+                    if (this.f13573j == -1) {
+                        this.f13573j = b.a;
                     }
-                    if (this.f13892k == -1) {
-                        this.f13892k = 17;
+                    if (this.k == -1) {
+                        this.k = 17;
                     }
                     WindowManager.LayoutParams attributes = window.getAttributes();
                     attributes.dimAmount = 0.5f;
                     window.setAttributes(attributes);
-                    window.setGravity(this.f13892k);
-                    window.setContentView(this.f13886e);
+                    window.setGravity(this.k);
+                    window.setContentView(this.f13568e);
                     return this;
                 }
                 return this;

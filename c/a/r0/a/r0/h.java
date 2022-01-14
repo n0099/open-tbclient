@@ -18,22 +18,22 @@ public class h implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i f8776e;
+    public final i f8583e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Runnable f8777f;
+    public final Runnable f8584f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8778g;
+    public String f8585g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String[] f8779h;
+    public String[] f8586h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AtomicBoolean f8780i;
+    public AtomicBoolean f8587i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<h> f8781j;
+    public List<h> f8588j;
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
         Interceptable interceptable = $ic;
@@ -50,71 +50,71 @@ public class h implements Runnable {
                 return;
             }
         }
-        this.f8780i = new AtomicBoolean(false);
-        this.f8781j = Collections.synchronizedList(new ArrayList());
-        this.f8776e = iVar;
-        this.f8777f = runnable;
-        this.f8778g = str;
-        this.f8779h = strArr;
+        this.f8587i = new AtomicBoolean(false);
+        this.f8588j = Collections.synchronizedList(new ArrayList());
+        this.f8583e = iVar;
+        this.f8584f = runnable;
+        this.f8585g = str;
+        this.f8586h = strArr;
     }
 
     public void a(h hVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hVar) == null) || this.f8781j.contains(hVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, hVar) == null) || this.f8588j.contains(hVar)) {
             return;
         }
-        this.f8781j.add(hVar);
+        this.f8588j.add(hVar);
     }
 
     public String[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8779h : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8586h : (String[]) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8778g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8585g : (String) invokeV.objValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8781j.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8588j.isEmpty() : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f8780i.get() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f8587i.get() : invokeV.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            q.k(this, this.f8778g);
+            q.k(this, this.f8585g);
         }
     }
 
     public void g(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, hVar) == null) {
-            this.f8781j.remove(hVar);
+            this.f8588j.remove(hVar);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f8777f.run();
+            this.f8584f.run();
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f8780i.set(true);
+            this.f8587i.set(true);
         }
     }
 
@@ -125,7 +125,7 @@ public class h implements Runnable {
             try {
                 h();
             } finally {
-                this.f8776e.g(this);
+                this.f8583e.g(this);
             }
         }
     }

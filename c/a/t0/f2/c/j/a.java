@@ -21,19 +21,19 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f17830e;
+    public TbPageContext<BaseFragmentActivity> f17398e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<o> f17831f;
+    public List<o> f17399f;
 
     /* renamed from: c.a.t0.f2.c.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1087a {
+    public static class C1101a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BasicSeperateBaMemberItemView a;
 
-        public C1087a() {
+        public C1101a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,8 +63,8 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f17830e = tbPageContext;
-        this.f17831f = arrayList;
+        this.f17398e = tbPageContext;
+        this.f17399f = arrayList;
     }
 
     @Override // android.widget.Adapter
@@ -72,7 +72,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<o> list = this.f17831f;
+            List<o> list = this.f17399f;
             if (list == null) {
                 return 0;
             }
@@ -86,7 +86,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            List<o> list = this.f17831f;
+            List<o> list = this.f17399f;
             if (list == null) {
                 return null;
             }
@@ -100,7 +100,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<o> list = this.f17831f;
+            List<o> list = this.f17399f;
             if (list == null) {
                 return 0L;
             }
@@ -113,21 +113,21 @@ public class a extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         BasicSeperateBaMemberItemView basicSeperateBaMemberItemView;
-        C1087a c1087a;
+        C1101a c1101a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                c1087a = new C1087a();
-                BasicSeperateBaMemberItemView basicSeperateBaMemberItemView2 = new BasicSeperateBaMemberItemView(this.f17830e.getPageActivity());
-                c1087a.a = basicSeperateBaMemberItemView2;
-                basicSeperateBaMemberItemView2.setTag(c1087a);
+                c1101a = new C1101a();
+                BasicSeperateBaMemberItemView basicSeperateBaMemberItemView2 = new BasicSeperateBaMemberItemView(this.f17398e.getPageActivity());
+                c1101a.a = basicSeperateBaMemberItemView2;
+                basicSeperateBaMemberItemView2.setTag(c1101a);
                 basicSeperateBaMemberItemView = basicSeperateBaMemberItemView2;
             } else {
                 basicSeperateBaMemberItemView = view;
-                c1087a = (C1087a) view.getTag();
+                c1101a = (C1101a) view.getTag();
             }
-            c1087a.a.renderView(this.f17831f.get(i2));
-            c.a.s0.x0.a.a(this.f17830e, basicSeperateBaMemberItemView);
+            c1101a.a.renderView(this.f17399f.get(i2));
+            c.a.s0.x0.a.a(this.f17398e, basicSeperateBaMemberItemView);
             return basicSeperateBaMemberItemView;
         }
         return (View) invokeILL.objValue;

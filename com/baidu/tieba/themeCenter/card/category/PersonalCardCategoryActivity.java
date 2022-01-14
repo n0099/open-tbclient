@@ -59,7 +59,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                 return;
             }
-            if (aVar.a() == c.a.t0.c4.a.f15868k) {
+            if (aVar.a() == c.a.t0.c4.a.k) {
                 if (aVar.g() == 1 || this.a.mSetCardModel == null) {
                     return;
                 }
@@ -147,7 +147,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonalCardCategoryActivity f50363e;
+        public final /* synthetic */ PersonalCardCategoryActivity f48457e;
 
         public d(PersonalCardCategoryActivity personalCardCategoryActivity) {
             Interceptable interceptable = $ic;
@@ -164,16 +164,16 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
                     return;
                 }
             }
-            this.f50363e = personalCardCategoryActivity;
+            this.f48457e = personalCardCategoryActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50363e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48457e.mModel == null) {
                 return;
             }
-            this.f50363e.mModel.E();
+            this.f48457e.mModel.E();
         }
     }
 

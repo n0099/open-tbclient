@@ -29,29 +29,29 @@ public final class d {
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f55111b;
+        public static final a f53015b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f55112c;
+        public static final a f53016c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f55113d;
+        public static final a f53017d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f55114e;
+        public static final a f53018e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f55115f;
+        public static final a f53019f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f55116g;
+        public static final a f53020g;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ a[] f55117i;
+        public static final /* synthetic */ a[] f53021i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f55118h;
+        public final int f53022h;
 
         static {
             InterceptResult invokeClinit;
@@ -67,14 +67,14 @@ public final class d {
                 }
             }
             a = new a(RomUtils.UNKNOWN, 0, -1);
-            f55111b = new a(PolyActivity.NONE_PANEL_TYPE, 1, 0);
-            f55112c = new a("MOBILE", 2, 1);
-            f55113d = new a("MOBILE_2G", 3, 2);
-            f55114e = new a("MOBILE_3G", 4, 3);
-            f55115f = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 5, 4);
+            f53015b = new a(PolyActivity.NONE_PANEL_TYPE, 1, 0);
+            f53016c = new a("MOBILE", 2, 1);
+            f53017d = new a("MOBILE_2G", 3, 2);
+            f53018e = new a("MOBILE_3G", 4, 3);
+            f53019f = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 5, 4);
             a aVar = new a("MOBILE_4G", 6, 5);
-            f55116g = aVar;
-            f55117i = new a[]{a, f55111b, f55112c, f55113d, f55114e, f55115f, aVar};
+            f53020g = aVar;
+            f53021i = new a[]{a, f53015b, f53016c, f53017d, f53018e, f53019f, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -95,7 +95,7 @@ public final class d {
                     return;
                 }
             }
-            this.f55118h = i3;
+            this.f53022h = i3;
         }
 
         public static a valueOf(String str) {
@@ -107,7 +107,7 @@ public final class d {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f55117i.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f53021i.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -154,7 +154,7 @@ public final class d {
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        return a.f55115f;
+                        return a.f53019f;
                     }
                     if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -167,21 +167,21 @@ public final class d {
                             case 12:
                             case 14:
                             case 15:
-                                return a.f55114e;
+                                return a.f53018e;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                return a.f55112c;
+                                return a.f53016c;
                             case 13:
-                                return a.f55116g;
+                                return a.f53020g;
                         }
                     }
-                    return a.f55112c;
+                    return a.f53016c;
                 }
-                return a.f55111b;
+                return a.f53015b;
             } catch (Throwable unused) {
-                return a.f55112c;
+                return a.f53016c;
             }
         }
         return (a) invokeL.objValue;

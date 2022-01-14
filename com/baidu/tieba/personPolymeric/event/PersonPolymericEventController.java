@@ -59,7 +59,7 @@ public class PersonPolymericEventController extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f49057e;
+    public g f47218e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPolymericEventController(TbPageContext tbPageContext, g gVar) {
@@ -79,7 +79,7 @@ public class PersonPolymericEventController extends a {
                 return;
             }
         }
-        this.f49057e = gVar;
+        this.f47218e = gVar;
     }
 
     @Override // c.a.t0.x2.f.a, c.a.t0.n4.e
@@ -93,7 +93,7 @@ public class PersonPolymericEventController extends a {
             if (aVar == null) {
                 return;
             }
-            Bundle bundle = aVar.f25224b;
+            Bundle bundle = aVar.f24520b;
             String str2 = null;
             UserData userData = bundle != null ? (UserData) bundle.getSerializable(UserData.TYPE_USER) : null;
             int i3 = 1;
@@ -112,7 +112,7 @@ public class PersonPolymericEventController extends a {
                     qVar.h(true);
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(qVar);
-                    this.f49057e.o().r(qVar, arrayList, 0);
+                    this.f47218e.o().r(qVar, arrayList, 0);
                     return;
                 case 2:
                 case 3:
@@ -134,12 +134,12 @@ public class PersonPolymericEventController extends a {
                     this.a.getPageActivity().finish();
                     return;
                 case 9:
-                    g gVar = this.f49057e;
+                    g gVar = this.f47218e;
                     if (gVar == null || gVar.m() == null) {
                         return;
                     }
                     TiebaStatic.log("c12207");
-                    this.f49057e.m().e();
+                    this.f47218e.m().e();
                     return;
                 case 10:
                     if (userData != null) {
@@ -178,7 +178,7 @@ public class PersonPolymericEventController extends a {
                         personChangeData.setCanModifyAvatar(userData.canModifyAvatar());
                         personChangeData.setCantModifyAvatarDesc(userData.getCantModifyAvatarDesc());
                         personChangeData.setTiebaId(userData.getmTiebaUid());
-                        Bundle bundle2 = aVar.f25224b;
+                        Bundle bundle2 = aVar.f24520b;
                         if (bundle2 != null) {
                             personChangeData.setNickNameLeftDays(bundle2.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                         }
@@ -216,7 +216,7 @@ public class PersonPolymericEventController extends a {
                     return;
                 case 16:
                     b(7);
-                    c.a.t0.k3.a.v().L(7, false, this.f26239d);
+                    c.a.t0.k3.a.v().L(7, false, this.f25460d);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(this.a.getPageActivity())));
                     return;
                 case 17:
@@ -225,17 +225,17 @@ public class PersonPolymericEventController extends a {
                     return;
                 case 20:
                     b(2);
-                    c.a.t0.k3.a.v().L(3, false, this.f26239d);
+                    c.a.t0.k3.a.v().L(3, false, this.f25460d);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001259));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(this.a.getPageActivity())));
                     return;
                 case 21:
                     b(5);
-                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 2).param("obj_source", this.f26238c));
+                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 2).param("obj_source", this.f25459c));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(this.a.getPageActivity())));
                     return;
                 case 22:
-                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 3).param("obj_source", this.f26238c));
+                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 3).param("obj_source", this.f25459c));
                     if (userData == null) {
                         return;
                     }
@@ -243,7 +243,7 @@ public class PersonPolymericEventController extends a {
                     return;
                 case 24:
                     b(3);
-                    c.a.t0.k3.a.v().L(4, false, this.f26239d);
+                    c.a.t0.k3.a.v().L(4, false, this.f25460d);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001185));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddressListActivityConfig(this.a.getPageActivity())));
                     return;
@@ -261,17 +261,17 @@ public class PersonPolymericEventController extends a {
                     return;
                 case 30:
                     b(1);
-                    c.a.t0.k3.a.v().L(8, false, this.f26239d);
+                    c.a.t0.k3.a.v().L(8, false, this.f25460d);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.a.getPageActivity())));
                     return;
                 case 31:
                     b(9);
-                    UrlManager.getInstance().dealOneLink(this.a, new String[]{aVar.f25224b.getString("book_jump_link")}, true);
+                    UrlManager.getInstance().dealOneLink(this.a, new String[]{aVar.f24520b.getString("book_jump_link")}, true);
                     return;
                 case 32:
                     if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
                         b(4);
-                        c.a.t0.k3.a.v().L(1, false, this.f26239d);
+                        c.a.t0.k3.a.v().L(1, false, this.f25460d);
                         if (userData == null || !TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                             return;
                         }
@@ -326,8 +326,8 @@ public class PersonPolymericEventController extends a {
                     qVar2.h(false);
                     ArrayList arrayList2 = new ArrayList();
                     arrayList2.add(qVar2);
-                    if (this.f49057e.o() != null) {
-                        this.f49057e.o().s(qVar2, arrayList2, 0, true);
+                    if (this.f47218e.o() != null) {
+                        this.f47218e.o().s(qVar2, arrayList2, 0, true);
                         return;
                     }
                     return;

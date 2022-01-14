@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
 import c.a.s0.e1.o0;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.f;
 import c.a.t0.g0.b0;
 import c.a.t0.g0.m;
@@ -44,7 +44,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
+public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout A;
@@ -70,7 +70,7 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f15261e;
+        public final /* synthetic */ c f14883e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -87,16 +87,16 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                     return;
                 }
             }
-            this.f15261e = cVar;
+            this.f14883e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15261e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f14883e.g() == null) {
                 return;
             }
-            this.f15261e.g().a(view, this.f15261e.o);
+            this.f14883e.g().a(view, this.f14883e.o);
         }
     }
 
@@ -161,8 +161,8 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         this.p.hideDisagree();
         this.p.setShareReportFrom(1);
         f fVar = new f();
-        fVar.f13685b = 2;
-        fVar.f13691h = 2;
+        fVar.f13371b = 2;
+        fVar.f13377h = 2;
         this.p.setAgreeStatisticData(fVar);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) j2.findViewById(R.id.card_bottom_op_weight_layout);
         this.q = threadCommentAndPraiseInfoLayout2;
@@ -223,14 +223,14 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
     public void N(TbPageContext<?> tbPageContext) {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) || tbPageContext == null || (t = this.o) == 0 || ((d2) t).o1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) || tbPageContext == null || (t = this.o) == 0 || ((e2) t).o1() == null) {
             return;
         }
         if (!l.z()) {
-            n.L(tbPageContext.getPageActivity(), R.string.no_network_guide);
+            n.M(tbPageContext.getPageActivity(), R.string.no_network_guide);
             return;
         }
-        AlaInfoData o1 = ((d2) this.o).o1();
+        AlaInfoData o1 = ((e2) this.o).o1();
         if (o1.isLegalYYLiveData()) {
             TbPageContext<?> tbPageContext2 = this.m;
             YyExtData yyExtData = o1.mYyExtData;
@@ -244,17 +244,17 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
     public final void O(TbPageContext<?> tbPageContext) {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) || (t = this.o) == 0 || ((d2) t).o1() == null || ((d2) this.o).o1().share_info == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) || (t = this.o) == 0 || ((e2) t).o1() == null || ((e2) this.o).o1().share_info == null) {
             return;
         }
-        if (((d2) this.o).o1().share_info.record_tid <= 0) {
-            N(this.f18210f);
+        if (((e2) this.o).o1().share_info.record_tid <= 0) {
+            N(this.f17767f);
             return;
         }
-        PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(String.valueOf(((d2) this.o).o1().share_info.record_tid), null, FrsFragment.STAR_FRS);
-        createNormalCfg.setVideo_source(((d2) this.o).Z1() ? "floor5" : "frs");
-        createNormalCfg.setFromSmartFrs(((d2) this.o).A2());
-        createNormalCfg.setSmartFrsPosition(((d2) this.o).h1());
+        PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(String.valueOf(((e2) this.o).o1().share_info.record_tid), null, FrsFragment.STAR_FRS);
+        createNormalCfg.setVideo_source(((e2) this.o).Z1() ? "floor5" : "frs");
+        createNormalCfg.setFromSmartFrs(((e2) this.o).A2());
+        createNormalCfg.setSmartFrsPosition(((e2) this.o).h1());
         createNormalCfg.setStartFrom(3);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
     }
@@ -262,10 +262,10 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.t0.g0.b
     /* renamed from: P */
-    public void k(d2 d2Var) {
+    public void k(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, d2Var) == null) {
-            this.o = d2Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, e2Var) == null) {
+            this.o = e2Var;
             Q();
         }
     }
@@ -275,34 +275,34 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             T t = this.o;
             int i2 = 8;
-            if (t != 0 && ((d2) t).J() != null) {
+            if (t != 0 && ((e2) t).J() != null) {
                 this.A.setVisibility(0);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.A.getLayoutParams();
                 layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
                 layoutParams.bottomMargin = 0;
-                this.B.setData((d2) this.o);
+                this.B.setData((e2) this.o);
                 this.B.setUserAfterClickListener(this.O);
-                this.G.getController().d((d2) this.o, this.L, "", false);
+                this.G.getController().d((e2) this.o, this.L, "", false);
                 this.G.getController().c();
-                if (((d2) this.o).o1() != null && ((d2) this.o).o1().share_info != null && !StringUtils.isNull(((d2) this.o).o1().share_info.content)) {
+                if (((e2) this.o).o1() != null && ((e2) this.o).o1().share_info != null && !StringUtils.isNull(((e2) this.o).o1().share_info.content)) {
                     this.C.setVisibility(0);
-                    this.C.setText(((d2) this.o).o1().share_info.content);
+                    this.C.setText(((e2) this.o).o1().share_info.content);
                 } else {
                     this.C.setVisibility(8);
                 }
-                if (((d2) this.o).o1() != null && ((d2) this.o).o1().user_info != null) {
-                    String str = ((d2) this.o).o1().user_info.user_name;
+                if (((e2) this.o).o1() != null && ((e2) this.o).o1().user_info != null) {
+                    String str = ((e2) this.o).o1().user_info.user_name;
                     if (o0.d(str) > 14) {
                         str = o0.m(str, 14) + "...";
                     }
                     this.F.setText(str + ":");
-                    if (TextUtils.isEmpty(((d2) this.o).o1().user_info.portrait)) {
+                    if (TextUtils.isEmpty(((e2) this.o).o1().user_info.portrait)) {
                         this.E.setPlaceHolder(1);
                     } else {
-                        this.E.startLoad(((d2) this.o).o1().user_info.portrait, 10, false, false);
+                        this.E.startLoad(((e2) this.o).o1().user_info.portrait, 10, false, false);
                     }
                 }
-                String title = ((d2) this.o).getTitle();
+                String title = ((e2) this.o).getTitle();
                 if (!StringUtils.isNull(title)) {
                     this.D.setText(title);
                     this.D.setVisibility(0);
@@ -310,7 +310,7 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                     this.D.setVisibility(8);
                 }
                 S(L(1));
-                if (((d2) this.o).o1().mChallengeInfoData != null && ((d2) this.o).o1().mChallengeInfoData.challenge_id > 0) {
+                if (((e2) this.o).o1().mChallengeInfoData != null && ((e2) this.o).o1().mChallengeInfoData.challenge_id > 0) {
                     this.I.setVisibility(0);
                 } else {
                     this.I.setVisibility(8);
@@ -346,10 +346,10 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         }
         if (i2 == 1) {
             this.p.setVisibility(8);
-            this.J.setData((d2) this.o);
+            this.J.setData((e2) this.o);
             return;
         }
-        this.p.setData((d2) t);
+        this.p.setData((e2) t);
         this.J.setVisibility(8);
     }
 
@@ -380,7 +380,7 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, tbPageContext, i2) == null) {
-            if (this.f18209e != i2) {
+            if (this.f17766e != i2) {
                 v(tbPageContext, i2);
                 c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.A);
                 d2.n(R.string.J_X06);
@@ -392,7 +392,7 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                 }
                 this.B.onChangeSkinType(i(), TbadkCoreApplication.getInst().getSkinType());
                 this.p.onChangeSkinType();
-                this.f18209e = i2;
+                this.f17766e = i2;
                 HeadImageView headImageView = this.E;
                 if (headImageView != null) {
                     headImageView.setPlaceHolder(1);
@@ -403,7 +403,7 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                 }
             }
             T t = this.o;
-            if (t != 0 && m.k(((d2) t).g0())) {
+            if (t != 0 && m.k(((e2) t).g0())) {
                 SkinManager.setViewTextColor(this.C, R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.D, R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.F, R.color.CAM_X0109);
@@ -429,11 +429,11 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
                     g().a(view, this.o);
                 }
                 TiebaStatic.log(new StatisticItem("c12323"));
-                if (((d2) this.o).o1().live_status == 1) {
-                    N(this.f18210f);
+                if (((e2) this.o).o1().live_status == 1) {
+                    N(this.f17767f);
                     return;
                 } else {
-                    O(this.f18210f);
+                    O(this.f17767f);
                     return;
                 }
             }
@@ -441,24 +441,24 @@ public class c extends c.a.t0.g0.a<d2> implements b0, c.a.t0.t.e {
         }
         T t = this.o;
         if (t != 0) {
-            m.a(((d2) t).g0());
+            m.a(((e2) t).g0());
         }
         if (g() != null) {
             g().a(this.A, this.o);
         }
         TiebaStatic.log(new StatisticItem("c12323"));
-        if (((d2) this.o).o1().live_status == 1) {
-            N(this.f18210f);
+        if (((e2) this.o).o1().live_status == 1) {
+            N(this.f17767f);
             i2 = 5;
         } else {
-            O(this.f18210f);
+            O(this.f17767f);
         }
         if (view == this.p.getCommentContainer() || view == this.J.mSharePraiseView.getCommentContainer()) {
             StatisticItem statisticItem = new StatisticItem("c12942");
             statisticItem.param("obj_locate", 2);
-            statisticItem.param("tid", ((d2) this.o).v1());
+            statisticItem.param("tid", ((e2) this.o).v1());
             statisticItem.param("obj_type", i2);
-            statisticItem.param("nid", ((d2) this.o).G0());
+            statisticItem.param("nid", ((e2) this.o).G0());
             c.a.s0.o0.c f2 = TbPageExtraHelper.f(view);
             if (f2 != null) {
                 statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, f2.a());

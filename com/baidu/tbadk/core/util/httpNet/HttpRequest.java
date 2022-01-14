@@ -4,7 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import c.a.d.f.p.l;
 import c.a.s0.k0.f;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import c.a.s0.s.l.c;
 import c.a.s0.s.l.e;
 import c.a.s0.t.b.a;
@@ -24,10 +24,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.BaseStatisContent;
 /* loaded from: classes11.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String ANDROID_ID = "android_id";
+    public static final String ANDROID_ID_REVERSAL = "di_diordna";
     public static final String BDUSS = "BDUSS";
     public static final String CLIENT_ID = "_client_id";
     public static final String CLIENT_TYPE = "_client_type";
@@ -36,9 +37,14 @@ public class HttpRequest {
     public static final String IMAGE_FROM_FRS = "frs";
     public static final String IMAGE_FROM_OTHER = "other";
     public static final String IMAGE_FROM_PB = "pb";
+    public static final String MAC = "mac";
+    public static final String MAC_REVERSAL = "cam";
     public static final String NET_CLASS = "net";
     public static final String NET_TYPE = "net_type";
     public static final String PHONE_IMEI = "_phone_imei";
+    public static final String PHONE_IMEI_REVERSAL = "iemi";
+    public static final String PHONE_NEWIMEI = "_phone_newimei";
+    public static final String PHONE_NEWIMEI_REVERSAL = "iemiwen";
     public static final String STOKEN = "stoken";
     public static final String SUBAPP_TYPE = "subapp_type";
     public static final String TBS = "tbs";
@@ -120,7 +126,11 @@ public class HttpRequest {
             }
             iNetWorkCore.addPostData("_client_version", TbConfig.getVersion());
             if (TbadkCoreApplication.getInst().getImei() != null) {
-                iNetWorkCore.addPostData(PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
+                if (ComplianceParmasHelper.isNeedChange(this.netWorkParam.mUrl)) {
+                    iNetWorkCore.addPostData(ComplianceParmasHelper.getRenameKey(PHONE_IMEI), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getImei()));
+                } else {
+                    iNetWorkCore.addPostData(PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
+                }
             }
             String clientId = TbadkCoreApplication.getClientId();
             if (clientId != null) {
@@ -162,7 +172,6 @@ public class HttpRequest {
                     iNetWorkCore.addPostData(TBS, TbadkCoreApplication.getInst().getTbs());
                 }
             }
-            iNetWorkCore.addPostData("android_id", TbadkCoreApplication.getInst().getAndroidId());
             String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
             if (!TextUtils.isEmpty(lastCachedOid)) {
                 iNetWorkCore.addPostData("oaid", lastCachedOid);
@@ -173,11 +182,17 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
             iNetWorkCore.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
             iNetWorkCore.addPostData("model", Build.MODEL);
-            iNetWorkCore.addPostData(BaseStatisContent.MAC, PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
             iNetWorkCore.addPostData("brand", Build.BRAND);
             iNetWorkCore.addPostData("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
-            if (b.j().k("android_safe_sdk_open", 0) == 1) {
+            if (b.k().l("android_safe_sdk_open", 0) == 1) {
                 iNetWorkCore.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
+            }
+            if (ComplianceParmasHelper.isNeedChange(this.netWorkParam.mUrl)) {
+                iNetWorkCore.addPostData(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
+                iNetWorkCore.addPostData(ComplianceParmasHelper.getRenameKey(ANDROID_ID), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getAndroidId()));
+            } else {
+                iNetWorkCore.addPostData("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
+                iNetWorkCore.addPostData(ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
             }
             iNetWorkCore.addPostData("active_timestamp", String.valueOf(TbSingleton.getInstance().getActiveTimeStamp()));
             iNetWorkCore.addPostData("first_install_time", String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime()));

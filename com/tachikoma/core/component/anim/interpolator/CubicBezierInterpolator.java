@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CubicBezierInterpolator implements Interpolator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PointF a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PointF f62710b;
+    public PointF f60344b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PointF f62711c;
+    public PointF f60345c;
     public PointF end;
     public PointF start;
 
@@ -81,8 +81,8 @@ public class CubicBezierInterpolator implements Interpolator {
             }
         }
         this.a = new PointF();
-        this.f62710b = new PointF();
-        this.f62711c = new PointF();
+        this.f60344b = new PointF();
+        this.f60345c = new PointF();
         float f2 = pointF.x;
         if (f2 < 0.0f || f2 > 1.0f) {
             throw new IllegalArgumentException("startX value must be in the range [0, 1]");
@@ -129,11 +129,11 @@ public class CubicBezierInterpolator implements Interpolator {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(65544, this, f2)) == null) {
-            PointF pointF = this.f62711c;
+            PointF pointF = this.f60345c;
             PointF pointF2 = this.start;
             float f3 = pointF2.x * 3.0f;
             pointF.x = f3;
-            PointF pointF3 = this.f62710b;
+            PointF pointF3 = this.f60344b;
             float f4 = ((this.end.x - pointF2.x) * 3.0f) - f3;
             pointF3.x = f4;
             PointF pointF4 = this.a;
@@ -147,18 +147,18 @@ public class CubicBezierInterpolator implements Interpolator {
     private float getXDerivate(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65545, this, f2)) == null) ? this.f62711c.x + (f2 * ((this.f62710b.x * 2.0f) + (this.a.x * 3.0f * f2))) : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65545, this, f2)) == null) ? this.f60345c.x + (f2 * ((this.f60344b.x * 2.0f) + (this.a.x * 3.0f * f2))) : invokeF.floatValue;
     }
 
     public float getBezierCoordinateY(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-            PointF pointF = this.f62711c;
+            PointF pointF = this.f60345c;
             PointF pointF2 = this.start;
             float f3 = pointF2.y * 3.0f;
             pointF.y = f3;
-            PointF pointF3 = this.f62710b;
+            PointF pointF3 = this.f60344b;
             float f4 = ((this.end.y - pointF2.y) * 3.0f) - f3;
             pointF3.y = f4;
             PointF pointF4 = this.a;

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import c.a.s0.b.d;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -59,12 +59,12 @@ public class AdToMainTabActivitySwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                if (d.G()) {
+                if (d.F()) {
                     type = 0;
                 } else {
-                    int k2 = b.j().k("key_ad_to_maintabactivity", 1);
-                    type = k2;
-                    if (k2 == 1) {
+                    int l = b.k().l("key_ad_to_maintabactivity", 1);
+                    type = l;
+                    if (l == 1) {
                         if (d.I()) {
                             type = 1;
                         } else {

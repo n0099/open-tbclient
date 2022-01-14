@@ -12,7 +12,7 @@ public class d extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f8046e;
+    public Bitmap f7869e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(String str, Bitmap bitmap, boolean z) {
@@ -33,13 +33,13 @@ public class d extends c {
                 return;
             }
         }
-        this.f8046e = bitmap;
-        this.f8045d = z;
+        this.f7869e = bitmap;
+        this.f7868d = z;
     }
 
     public Bitmap e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8046e : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7869e : (Bitmap) invokeV.objValue;
     }
 }

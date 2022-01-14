@@ -17,19 +17,19 @@ public final class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f6635b;
+    public long f6494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f6636c;
+    public long f6495c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6637d;
+    public int f6496d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RequestStatus f6638e;
+    public RequestStatus f6497e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6639f;
+    public String f6498f;
 
     public a(String str, long j2, long j3, int i2, RequestStatus requestStatus, String str2) {
         Interceptable interceptable = $ic;
@@ -47,11 +47,11 @@ public final class a {
             }
         }
         this.a = str;
-        this.f6635b = j2;
-        this.f6636c = j3;
-        this.f6637d = i2;
-        this.f6638e = requestStatus;
-        this.f6639f = str2;
+        this.f6494b = j2;
+        this.f6495c = j3;
+        this.f6496d = i2;
+        this.f6497e = requestStatus;
+        this.f6498f = str2;
     }
 
     public static a a(String str, long j2, long j3, int i2, String str2) {
@@ -75,13 +75,13 @@ public final class a {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6636c - this.f6635b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6495c - this.f6494b : invokeV.longValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6635b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6494b : invokeV.longValue;
     }
 
     public boolean equals(Object obj) {
@@ -95,7 +95,7 @@ public final class a {
                 return false;
             }
             a aVar = (a) obj;
-            return this.f6635b == aVar.f6635b && Objects.equals(this.a, aVar.a) && Objects.equals(this.f6639f, aVar.f6639f);
+            return this.f6494b == aVar.f6494b && Objects.equals(this.a, aVar.a) && Objects.equals(this.f6498f, aVar.f6498f);
         }
         return invokeL.booleanValue;
     }
@@ -111,10 +111,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             if (z) {
-                int i2 = this.f6637d;
-                return (i2 >= 400 && i2 < 600) || this.f6637d == 0;
+                int i2 = this.f6496d;
+                return (i2 >= 400 && i2 < 600) || this.f6496d == 0;
             }
-            int i3 = this.f6637d;
+            int i3 = this.f6496d;
             return i3 >= 400 && i3 < 600;
         }
         return invokeZ.booleanValue;
@@ -129,14 +129,14 @@ public final class a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.f6635b), this.f6639f) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.f6494b), this.f6498f) : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "Request{url='" + this.a + ExtendedMessageFormat.QUOTE + ", startTime=" + this.f6635b + ", endTime=" + this.f6636c + ", statusCode=" + this.f6637d + ", status=" + this.f6638e + ", tag=" + this.f6639f + ExtendedMessageFormat.END_FE;
+            return "Request{url='" + this.a + ExtendedMessageFormat.QUOTE + ", startTime=" + this.f6494b + ", endTime=" + this.f6495c + ", statusCode=" + this.f6496d + ", status=" + this.f6497e + ", tag=" + this.f6498f + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

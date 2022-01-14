@@ -3,8 +3,8 @@ package com.baidu.tieba.hottopic.controller;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.e1.w0;
-import c.a.s0.s.q.d2;
+import c.a.s0.e1.v0;
+import c.a.s0.s.q.e2;
 import c.a.t0.d1.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -76,10 +76,10 @@ public class HotTopicStatic {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null || (lowerCase = strArr[0].toLowerCase()) == null || c.a.s0.u0.a.c(tbPageContext, false, true) || !(lowerCase.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC) || lowerCase.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW) || lowerCase.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC) || lowerCase.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC_NEW))) {
                     return 3;
                 }
-                String c2 = w0.c(lowerCase, "topic_id=");
-                String c3 = w0.c(lowerCase, "topic_name=");
-                String c4 = w0.c(lowerCase, "is_video_topic=");
-                HotTopicStat.Locate valueOfIgnoreCase = HotTopicStat.Locate.valueOfIgnoreCase(w0.c(lowerCase, "locate="));
+                String c2 = v0.c(lowerCase, "topic_id=");
+                String c3 = v0.c(lowerCase, "topic_name=");
+                String c4 = v0.c(lowerCase, "is_video_topic=");
+                HotTopicStat.Locate valueOfIgnoreCase = HotTopicStat.Locate.valueOfIgnoreCase(v0.c(lowerCase, "locate="));
                 if (!StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
                     new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(c2, c3, c4, (strArr == null || strArr.length <= 1 || StringUtils.isNull(strArr[1])) ? "" : strArr[1], valueOfIgnoreCase).start();
                     return 1;
@@ -120,7 +120,7 @@ public class HotTopicStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c.a.t0.q1.m.c(null, d2.Q3));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c.a.t0.q1.m.c(null, e2.Q3));
             }
         }
     }
@@ -229,8 +229,8 @@ public class HotTopicStatic {
                     frsHottopicFragment.setArguments(bundle);
                     c.a.s0.i0.c cVar = new c.a.s0.i0.c();
                     cVar.a = frsHottopicFragment;
-                    cVar.f13111e = 401;
-                    cVar.f13115i = c.a.s0.i0.c.f13107k;
+                    cVar.f12789e = 401;
+                    cVar.f12793i = c.a.s0.i0.c.k;
                     return cVar;
                 }
                 return (c.a.s0.i0.c) invokeV.objValue;

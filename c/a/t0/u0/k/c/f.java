@@ -12,16 +12,16 @@ public class f {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24793b;
+    public String f24106b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24794c;
+    public String f24107c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24795d;
+    public boolean f24108d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24796e;
+    public String f24109e;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public class f {
         if (str == null) {
             str = "";
         }
-        this.f24793b = str;
-        this.f24794c = testInfo.image_url;
+        this.f24106b = str;
+        this.f24107c = testInfo.image_url;
         testInfo.create_time.intValue();
-        this.f24795d = testInfo.answered.intValue() == 1;
-        this.f24796e = testInfo.result_img;
+        this.f24108d = testInfo.answered.intValue() == 1;
+        this.f24109e = testInfo.result_img;
     }
 }

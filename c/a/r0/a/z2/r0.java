@@ -27,10 +27,10 @@ public abstract class r0 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static ClipboardManager f10255b;
+        public static ClipboardManager f10031b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static ClipData f10256c;
+        public static ClipData f10032c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -62,7 +62,7 @@ public abstract class r0 {
                     return;
                 }
             }
-            f10255b = (ClipboardManager) r0.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+            f10031b = (ClipboardManager) r0.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
         }
 
         @Override // c.a.r0.a.z2.r0
@@ -71,14 +71,14 @@ public abstract class r0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    f10256c = f10255b.getPrimaryClip();
+                    f10032c = f10031b.getPrimaryClip();
                 } catch (Exception e2) {
                     if (c.a.r0.a.k.a) {
                         throw e2;
                     }
                 }
-                ClipData clipData = f10256c;
-                return (clipData == null || clipData.getItemCount() <= 0) ? "" : f10256c.getItemAt(0).getText();
+                ClipData clipData = f10032c;
+                return (clipData == null || clipData.getItemCount() <= 0) ? "" : f10032c.getItemAt(0).getText();
             }
             return (CharSequence) invokeV.objValue;
         }
@@ -88,9 +88,9 @@ public abstract class r0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
                 ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
-                f10256c = newPlainText;
+                f10032c = newPlainText;
                 try {
-                    f10255b.setPrimaryClip(newPlainText);
+                    f10031b.setPrimaryClip(newPlainText);
                 } catch (RuntimeException e2) {
                     if (c.a.r0.a.k.a) {
                         e2.printStackTrace();
@@ -105,7 +105,7 @@ public abstract class r0 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static android.text.ClipboardManager f10257b;
+        public static android.text.ClipboardManager f10033b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -136,21 +136,21 @@ public abstract class r0 {
                     return;
                 }
             }
-            f10257b = (android.text.ClipboardManager) r0.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+            f10033b = (android.text.ClipboardManager) r0.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
         }
 
         @Override // c.a.r0.a.z2.r0
         public CharSequence a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f10257b.getText() : (CharSequence) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f10033b.getText() : (CharSequence) invokeV.objValue;
         }
 
         @Override // c.a.r0.a.z2.r0
         public void c(CharSequence charSequence) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-                f10257b.setText(charSequence);
+                f10033b.setText(charSequence);
             }
         }
     }

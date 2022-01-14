@@ -11,17 +11,17 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f58634b = new Handler(Looper.getMainLooper());
+    public Handler f56423b = new Handler(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.c f58635c;
+    public com.kwad.sdk.core.webview.kwai.c f56424c;
 
     /* loaded from: classes3.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58637b;
+        public String f56426b;
     }
 
     /* loaded from: classes3.dex */
@@ -50,16 +50,16 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        this.f58635c = cVar;
+        this.f56424c = cVar;
         try {
             final a aVar = new a();
             aVar.parseJson(new JSONObject(str));
-            this.f58634b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.p.1
+            this.f56423b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.p.1
                 @Override // java.lang.Runnable
                 public void run() {
                     p.this.a(aVar);
-                    if (p.this.f58635c != null) {
-                        p.this.f58635c.a(null);
+                    if (p.this.f56424c != null) {
+                        p.this.f56424c.a(null);
                     }
                 }
             });
@@ -72,7 +72,7 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
         this.a = null;
-        this.f58635c = null;
-        this.f58634b.removeCallbacksAndMessages(null);
+        this.f56424c = null;
+        this.f56423b.removeCallbacksAndMessages(null);
     }
 }

@@ -30,25 +30,23 @@ public class CropView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f43793e;
+    public float f42205e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f43794f;
+    public float f42206f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f43795g;
+    public float[] f42207g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Matrix f43796h;
+    public Matrix f42208h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Bitmap f43797i;
+    public Bitmap f42209i;
 
     /* renamed from: j  reason: collision with root package name */
-    public GestureDetector f43798j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ScaleGestureDetector f43799k;
+    public GestureDetector f42210j;
+    public ScaleGestureDetector k;
     public ScaleGestureDetector.OnScaleGestureListener l;
     public Rect m;
 
@@ -58,7 +56,7 @@ public class CropView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CropView f43800e;
+        public final /* synthetic */ CropView f42211e;
 
         public a(CropView cropView) {
             Interceptable interceptable = $ic;
@@ -75,7 +73,7 @@ public class CropView extends View {
                     return;
                 }
             }
-            this.f43800e = cropView;
+            this.f42211e = cropView;
         }
 
         @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
@@ -83,7 +81,7 @@ public class CropView extends View {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
-                this.f43800e.f(scaleGestureDetector);
+                this.f42211e.f(scaleGestureDetector);
                 return true;
             }
             return invokeL.booleanValue;
@@ -104,8 +102,8 @@ public class CropView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scaleGestureDetector) == null) {
                 float scaleFactor = scaleGestureDetector.getScaleFactor();
-                this.f43800e.f43796h.postScale(scaleFactor, scaleFactor);
-                this.f43800e.invalidate();
+                this.f42211e.f42208h.postScale(scaleFactor, scaleFactor);
+                this.f42211e.invalidate();
             }
         }
     }
@@ -116,7 +114,7 @@ public class CropView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CropView f43801e;
+        public final /* synthetic */ CropView f42212e;
 
         public b(CropView cropView) {
             Interceptable interceptable = $ic;
@@ -133,7 +131,7 @@ public class CropView extends View {
                     return;
                 }
             }
-            this.f43801e = cropView;
+            this.f42212e = cropView;
         }
 
         @Override // android.view.GestureDetector.OnGestureListener
@@ -168,7 +166,7 @@ public class CropView extends View {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                this.f43801e.g(f2, f3);
+                this.f42212e.g(f2, f3);
                 return true;
             }
             return invokeCommon.booleanValue;
@@ -210,10 +208,10 @@ public class CropView extends View {
                 return;
             }
         }
-        this.f43793e = 0.2f;
-        this.f43794f = 4.0f;
-        this.f43795g = new float[9];
-        this.f43796h = new Matrix();
+        this.f42205e = 0.2f;
+        this.f42206f = 4.0f;
+        this.f42207g = new float[9];
+        this.f42208h = new Matrix();
         this.l = new a(this);
         e();
     }
@@ -228,10 +226,10 @@ public class CropView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            this.f43796h.getValues(this.f43795g);
-            float f2 = this.f43795g[0];
+            this.f42208h.getValues(this.f42207g);
+            float f2 = this.f42207g[0];
             if (Math.abs(f2) <= 0.1d) {
-                f2 = this.f43795g[1];
+                f2 = this.f42207g[1];
             }
             return Math.abs(f2);
         }
@@ -241,8 +239,8 @@ public class CropView extends View {
     private void setBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, bitmap) == null) {
-            this.f43797i = bitmap;
-            this.f43796h.reset();
+            this.f42209i = bitmap;
+            this.f42208h.reset();
             d(getWidth(), getHeight());
             invalidate();
         }
@@ -256,12 +254,12 @@ public class CropView extends View {
             float[] fArr = {rect.left, rect.top};
             float[] fArr2 = {0.0f, 0.0f};
             Matrix matrix = new Matrix();
-            this.f43796h.invert(matrix);
+            this.f42208h.invert(matrix);
             matrix.mapPoints(fArr2, fArr);
             Matrix matrix2 = new Matrix();
             Bitmap createBitmap = Bitmap.createBitmap((int) (rect.width() / scale), (int) (rect.height() / scale), Bitmap.Config.RGB_565);
             Canvas canvas = new Canvas(createBitmap);
-            Bitmap bitmap = this.f43797i;
+            Bitmap bitmap = this.f42209i;
             matrix2.postTranslate(-fArr2[0], -fArr2[1]);
             canvas.drawBitmap(bitmap, matrix2, null);
             return createBitmap;
@@ -272,21 +270,21 @@ public class CropView extends View {
     public final void d(int i2, int i3) {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || i2 <= 0 || i3 <= 0 || (bitmap = this.f43797i) == null) {
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || i2 <= 0 || i3 <= 0 || (bitmap = this.f42209i) == null) {
             return;
         }
-        float min = Math.min((i3 * 1.0f) / bitmap.getHeight(), (i2 * 1.0f) / this.f43797i.getWidth());
-        this.f43796h.setTranslate(0.0f, 0.0f);
-        this.f43796h.setScale(min, min, this.f43797i.getWidth() / 2, this.f43797i.getHeight() / 2);
-        this.f43796h.postTranslate((i2 - this.f43797i.getWidth()) / 2, (i3 - this.f43797i.getHeight()) / 2);
+        float min = Math.min((i3 * 1.0f) / bitmap.getHeight(), (i2 * 1.0f) / this.f42209i.getWidth());
+        this.f42208h.setTranslate(0.0f, 0.0f);
+        this.f42208h.setScale(min, min, this.f42209i.getWidth() / 2, this.f42209i.getHeight() / 2);
+        this.f42208h.postTranslate((i2 - this.f42209i.getWidth()) / 2, (i3 - this.f42209i.getHeight()) / 2);
         invalidate();
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f43799k = new ScaleGestureDetector(getContext(), this.l);
-            this.f43798j = new GestureDetector(getContext(), new b(this));
+            this.k = new ScaleGestureDetector(getContext(), this.l);
+            this.f42210j = new GestureDetector(getContext(), new b(this));
         }
     }
 
@@ -295,15 +293,15 @@ public class CropView extends View {
         if (interceptable == null || interceptable.invokeL(1048579, this, scaleGestureDetector) == null) {
             float scaleFactor = scaleGestureDetector.getScaleFactor();
             float scale = getScale();
-            float f2 = this.f43793e;
+            float f2 = this.f42205e;
             if (scale * scaleFactor < f2) {
                 scaleFactor = f2 / scale;
             }
-            float f3 = this.f43794f;
+            float f3 = this.f42206f;
             if (scale * scaleFactor > f3) {
                 scaleFactor = f3 / scale;
             }
-            this.f43796h.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+            this.f42208h.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
             invalidate();
         }
     }
@@ -311,15 +309,15 @@ public class CropView extends View {
     public final void g(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f43796h.getValues(this.f43795g);
-            float[] fArr = this.f43795g;
+            this.f42208h.getValues(this.f42207g);
+            float[] fArr = this.f42207g;
             float f4 = fArr[2];
             float f5 = fArr[5];
             Rect restrictedBound = getRestrictedBound();
             if (restrictedBound != null) {
                 float scale = getScale();
-                float width = ((int) (this.f43797i.getWidth() / scale)) + f4;
-                float height = ((int) (this.f43797i.getHeight() / scale)) + f5;
+                float width = ((int) (this.f42209i.getWidth() / scale)) + f4;
+                float height = ((int) (this.f42209i.getHeight() / scale)) + f5;
                 int i2 = restrictedBound.left;
                 if (f4 - f2 > i2) {
                     f2 = f4 - i2;
@@ -341,7 +339,7 @@ public class CropView extends View {
                     }
                 }
             }
-            this.f43796h.postTranslate(-f2, -f3);
+            this.f42208h.postTranslate(-f2, -f3);
             invalidate();
         }
     }
@@ -351,9 +349,9 @@ public class CropView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            Bitmap bitmap = this.f43797i;
+            Bitmap bitmap = this.f42209i;
             if (bitmap != null) {
-                canvas.drawBitmap(bitmap, this.f43796h, null);
+                canvas.drawBitmap(bitmap, this.f42208h, null);
             }
         }
     }
@@ -373,27 +371,27 @@ public class CropView extends View {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
-            return (this.f43798j.onTouchEvent(motionEvent) || this.f43799k.onTouchEvent(motionEvent)) || super.onTouchEvent(motionEvent);
+            return (this.f42210j.onTouchEvent(motionEvent) || this.k.onTouchEvent(motionEvent)) || super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
     public void rotate(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f43797i == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f42209i == null) {
             return;
         }
         Matrix matrix = new Matrix();
-        int width = this.f43797i.getWidth() / 2;
-        int height = this.f43797i.getHeight() / 2;
+        int width = this.f42209i.getWidth() / 2;
+        int height = this.f42209i.getHeight() / 2;
         matrix.postTranslate(-width, -height);
         matrix.postRotate(i2);
         matrix.postTranslate(height, width);
-        Bitmap bitmap = this.f43797i;
+        Bitmap bitmap = this.f42209i;
         Bitmap createBitmap = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.RGB_565);
-        new Canvas(createBitmap).drawBitmap(this.f43797i, matrix, null);
-        this.f43797i.recycle();
-        this.f43797i = createBitmap;
+        new Canvas(createBitmap).drawBitmap(this.f42209i, matrix, null);
+        this.f42209i.recycle();
+        this.f42209i = createBitmap;
         d(getWidth(), getHeight());
         invalidate();
     }
@@ -401,9 +399,9 @@ public class CropView extends View {
     public void setFilePath(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            Bitmap bitmap = this.f43797i;
+            Bitmap bitmap = this.f42209i;
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f43797i.recycle();
+                this.f42209i.recycle();
             }
             if (str == null) {
                 return;
@@ -429,28 +427,28 @@ public class CropView extends View {
                 options.inTargetDensity = min2 * calculateInSampleSize;
                 options.inPreferredConfig = Bitmap.Config.RGB_565;
                 options.inJustDecodeBounds = false;
-                this.f43797i = BitmapFactory.decodeFile(str, options);
+                this.f42209i = BitmapFactory.decodeFile(str, options);
             } catch (IOException e2) {
                 e2.printStackTrace();
-                this.f43797i = decodeFile;
+                this.f42209i = decodeFile;
             } catch (NullPointerException e3) {
                 e3.printStackTrace();
             }
-            setBitmap(this.f43797i);
+            setBitmap(this.f42209i);
         }
     }
 
     public void setMaximumScale(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.f43794f = f2;
+            this.f42206f = f2;
         }
     }
 
     public void setMinimumScale(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
-            this.f43793e = f2;
+            this.f42205e = f2;
         }
     }
 
@@ -480,10 +478,10 @@ public class CropView extends View {
                 return;
             }
         }
-        this.f43793e = 0.2f;
-        this.f43794f = 4.0f;
-        this.f43795g = new float[9];
-        this.f43796h = new Matrix();
+        this.f42205e = 0.2f;
+        this.f42206f = 4.0f;
+        this.f42207g = new float[9];
+        this.f42208h = new Matrix();
         this.l = new a(this);
         e();
     }
@@ -507,10 +505,10 @@ public class CropView extends View {
                 return;
             }
         }
-        this.f43793e = 0.2f;
-        this.f43794f = 4.0f;
-        this.f43795g = new float[9];
-        this.f43796h = new Matrix();
+        this.f42205e = 0.2f;
+        this.f42206f = 4.0f;
+        this.f42207g = new float[9];
+        this.f42208h = new Matrix();
         this.l = new a(this);
         e();
     }

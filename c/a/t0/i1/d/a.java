@@ -3,7 +3,7 @@ package c.a.t0.i1.d;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
-import c.a.s0.s.i0.t.c;
+import c.a.s0.s.j0.t.c;
 import c.a.t0.g0.f0.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -85,14 +85,14 @@ public class a extends c.a.t0.g0.b<h> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f18209e != i2) {
+            if (this.f17766e != i2) {
                 SkinManager.setBackgroundResource(j(), R.drawable.home_thread_card_item_bg);
                 SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.r, R.color.CAM_X0109);
                 SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(this.p, R.color.CAM_X0109);
             }
-            this.f18209e = i2;
+            this.f17766e = i2;
         }
     }
 
@@ -117,16 +117,16 @@ public class a extends c.a.t0.g0.b<h> {
     public void k(h hVar) {
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) || hVar == null || (metaData = hVar.f18239e) == null || metaData.getGodUserData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) || hVar == null || (metaData = hVar.f17794e) == null || metaData.getGodUserData() == null) {
             return;
         }
         this.w = hVar;
-        this.v = hVar.f18239e;
-        s(hVar.f18241g);
-        this.o.setData(hVar.f18239e);
-        this.q.setText(hVar.f18239e.getName_show());
-        this.r.setText(hVar.f18239e.getGodUserData().getIntro());
-        this.n.n(hVar.f18239e);
+        this.v = hVar.f17794e;
+        s(hVar.f17796g);
+        this.o.setData(hVar.f17794e);
+        this.q.setText(hVar.f17794e.getName_show());
+        this.r.setText(hVar.f17794e.getGodUserData().getIntro());
+        this.n.n(hVar.f17794e);
         l(null, TbadkCoreApplication.getInst().getSkinType());
     }
 

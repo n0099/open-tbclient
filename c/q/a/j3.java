@@ -20,16 +20,16 @@ public class j3 implements n {
     public z a;
 
     /* renamed from: b  reason: collision with root package name */
-    public r f31322b;
+    public r f30343b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f31323c;
+    public WebView f30344c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31324d;
+    public boolean f30345d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31325e;
+    public String f30346e;
 
     public j3(Context context) {
         Interceptable interceptable = $ic;
@@ -47,30 +47,30 @@ public class j3 implements n {
             }
         }
         WebView webView = new WebView(context);
-        this.f31323c = webView;
+        this.f30344c = webView;
         webView.setScrollContainer(false);
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
         r0.m(webView);
-        this.f31323c.getSettings().setJavaScriptEnabled(true);
+        this.f30344c.getSettings().setJavaScriptEnabled(true);
         JsBridge.getInstance().clazz(JsInvokeJavaScope.class).inject();
-        this.f31323c.setWebChromeClient(new JsBridgeWebChromeClient());
-        this.f31323c.setWebViewClient(new f3(this));
+        this.f30344c.setWebChromeClient(new JsBridgeWebChromeClient());
+        this.f30344c.setWebViewClient(new f3(this));
     }
 
     public void a(String str, Info info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, info) == null) {
             if ((!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) || str.startsWith(ImageSource.FILE_SCHEME)) {
-                this.f31323c.loadUrl(str);
+                this.f30344c.loadUrl(str);
             } else {
-                this.f31323c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
+                this.f30344c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
             }
             z zVar = this.a;
             if (zVar != null) {
                 zVar.a();
             }
-            this.f31323c.setOnTouchListener(new m3(info, new b3(this)));
+            this.f30344c.setOnTouchListener(new m3(info, new b3(this)));
         }
     }
 }

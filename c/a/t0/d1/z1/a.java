@@ -1,222 +1,84 @@
 package c.a.t0.d1.z1;
 
-import android.content.Intent;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.g;
-import c.a.d.f.p.n;
-import c.a.t0.d1.c1;
-import c.a.t0.d1.d1;
-import c.a.t0.d1.f1;
-import c.a.t0.d1.i1;
-import c.a.t0.w3.a0;
+import c.a.d.n.e.s;
+import c.a.t0.d1.a3.d;
+import c.a.t0.d1.z1.d.e0;
+import c.a.t0.d1.z1.d.q;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.dialog.PopupDialog;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.SaveDraftDialogView;
-import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.frs.SerializableItemInfo;
+import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
 /* loaded from: classes7.dex */
-public abstract class a implements View.OnClickListener {
+public class a implements c.a.t0.d1.z1.e.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c.a.t0.d1.d3.b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final BaseFragmentActivity f17324e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final ForumWriteData f17325f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View f17326g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public NavigationBar f17327h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f17328i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public View f17329j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f17330k;
-    public SerializableItemInfo l;
-    public final c m;
-    public Gson n;
-    public PopupDialog o;
-    public SaveDraftDialogView p;
-
-    /* renamed from: c.a.t0.d1.z1.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class View$OnClickListenerC1056a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f17331e;
-
-        public View$OnClickListenerC1056a(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f17331e = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
-                return;
-            }
-            int id = view.getId();
-            if (id == f1.save_draft_dialog_not_save) {
-                this.f17331e.b();
-                this.f17331e.f17324e.finish();
-            } else if (id == f1.save_draft_dialog_save) {
-                this.f17331e.k();
-                this.f17331e.f17324e.finish();
-            }
-            this.f17331e.o.dismiss();
-        }
-    }
-
-    public a(BaseFragmentActivity baseFragmentActivity, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, forumWriteData, serializableItemInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.n = new Gson();
-        this.f17324e = baseFragmentActivity;
-        this.f17325f = forumWriteData;
-        this.l = serializableItemInfo;
-        this.m = new c(baseFragmentActivity, baseFragmentActivity.getUniqueId(), this.f17325f, this.l);
-        f();
-        e();
-        g();
     }
 
-    public void b() {
-        ForumWriteData forumWriteData;
+    @Override // c.a.t0.d1.z1.e.a
+    public d a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (forumWriteData = this.f17325f) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, frsFragment, noPressedRelativeLayout)) == null) {
+            if (frsFragment.isFromMainTab()) {
+                return null;
+            }
+            return new d(frsFragment, noPressedRelativeLayout);
         }
-        a0.y(String.valueOf(forumWriteData.forumId), null);
+        return (d) invokeLL.objValue;
     }
 
-    public abstract void c();
+    @Override // c.a.t0.d1.z1.e.a
+    public e0 b(FrsFragment frsFragment, s sVar, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsFragment, sVar, z)) == null) ? new q(frsFragment, sVar, z) : (e0) invokeLLZ.objValue;
+    }
 
-    public View d() {
+    @Override // c.a.t0.d1.z1.e.a
+    public c.a.t0.d1.z1.e.b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17326g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new c() : (c.a.t0.d1.z1.e.b) invokeV.objValue;
     }
 
-    public void e() {
+    @Override // c.a.t0.d1.z1.e.a
+    public c.a.t0.d1.z1.e.c d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f17327h == null) {
-            return;
-        }
-        TextView textView = new TextView(this.f17324e);
-        this.f17330k = textView;
-        textView.setAlpha(0.5f);
-        this.f17330k.setText(this.f17324e.getString(i1.send_post));
-        this.f17330k.setTextSize(0, n.f(this.f17324e, d1.tbds44));
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.gravity = 17;
-        layoutParams.rightMargin = n.f(this.f17324e, d1.tbds44);
-        this.f17330k.setLayoutParams(layoutParams);
-        this.f17327h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f17330k, this);
-        TextView centerTextTitle = this.f17327h.setCenterTextTitle(this.f17324e.getString(i1.publish_comment));
-        this.f17328i = centerTextTitle;
-        centerTextTitle.setTextSize(0, n.f(this.f17324e, d1.tbds44));
-        this.f17329j = this.f17327h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, frsFragment, noPressedRelativeLayout)) == null) ? new c.a.t0.d1.a3.b(frsFragment, noPressedRelativeLayout) : (c.a.t0.d1.z1.e.c) invokeLL.objValue;
     }
 
-    public abstract void f();
-
-    public abstract void g();
-
-    public void h(int i2, int i3, Intent intent) {
+    @Override // c.a.t0.d1.z1.e.a
+    public c.a.t0.d1.d3.b e(String str, FrsFragment frsFragment, int i2) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, intent) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, str, frsFragment, i2)) == null) {
+            if (frsFragment == null) {
+                return null;
+            }
+            b bVar = new b(frsFragment, null, null, i2);
+            this.a = bVar;
+            bVar.L(frsFragment.getFrsAdapterItemClickListener());
+            return this.a;
         }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SkinManager.setBackgroundColor(this.f17326g, c1.CAM_X0201);
-            TextView textView = this.f17328i;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, c1.CAM_X0105);
-            }
-            TextView textView2 = this.f17330k;
-            if (textView2 != null) {
-                SkinManager.setViewTextColor(textView2, c1.CAM_X0304);
-            }
-            NavigationBar navigationBar = this.f17327h;
-            if (navigationBar != null) {
-                navigationBar.onBackBtnOnChangeSkin();
-            }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            g.a(this.o, this.f17324e);
-        }
-    }
-
-    public abstract void k();
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.p == null) {
-                this.p = new SaveDraftDialogView(this.f17324e);
-                this.p.setOnClickListener(new View$OnClickListenerC1056a(this));
-            }
-            if (this.o == null) {
-                PopupDialog popupDialog = new PopupDialog(this.f17324e.getPageContext());
-                this.o = popupDialog;
-                popupDialog.setContentView(this.p);
-            }
-            this.p.setText(this.f17324e.getString(i1.write_save_draft_dialog_normal_title), null, this.f17324e.getString(i1.save));
-            this.o.showDialog();
-        }
+        return (c.a.t0.d1.d3.b) invokeLLI.objValue;
     }
 }

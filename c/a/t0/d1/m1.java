@@ -10,19 +10,19 @@ public class m1 extends z0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16566e;
+    public int f16251e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16567f;
+    public String f16252f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16568g;
+    public boolean f16253g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16569h;
+    public boolean f16254h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f16570i;
+    public boolean f16255i;
 
     public m1() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class m1 extends z0 {
                 return;
             }
         }
-        this.f16568g = true;
-        this.f16570i = true;
+        this.f16253g = true;
+        this.f16255i = true;
     }
 }

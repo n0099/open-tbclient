@@ -8,12 +8,12 @@ public interface SessionReport {
 
     /* loaded from: classes4.dex */
     public interface AfterFlush<K extends StatisContentAble> {
-        K reset(String str, K k2);
+        K reset(String str, K k);
     }
 
     /* loaded from: classes4.dex */
     public interface Processor<K extends StatisContentAble, T> {
-        K process(K k2, String str, T t);
+        K process(K k, String str, T t);
     }
 
     /* loaded from: classes4.dex */

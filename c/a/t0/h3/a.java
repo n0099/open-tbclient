@@ -34,35 +34,35 @@ public class a {
     public final WebView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f18573b;
+    public BdUniqueId f18109b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.w3.n0.a f18574c;
+    public c.a.t0.w3.n0.a f18110c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashSet<String> f18575d;
+    public HashSet<String> f18111d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, String> f18576e;
+    public HashMap<String, String> f18112e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, String> f18577f;
+    public HashMap<String, String> f18113f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18578g;
+    public String f18114g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f18579h;
+    public HttpMessageListener f18115h;
 
     /* renamed from: c.a.t0.h3.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1116a extends HttpMessageListener {
+    public class C1130a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1116a(a aVar, int i2) {
+        public C1130a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -107,10 +107,10 @@ public class a {
                         str = quickWebViewHttpReqMsg.module;
                         String str7 = quickWebViewHttpReqMsg.jsCallbackMethod;
                         if (TextUtils.isEmpty(str7) && !z) {
-                            str7 = (String) this.a.f18576e.remove(str6);
+                            str7 = (String) this.a.f18112e.remove(str6);
                             i2 = 1;
                         }
-                        this.a.f18575d.remove(str6);
+                        this.a.f18111d.remove(str6);
                         str5 = str7;
                         str2 = str6;
                     }
@@ -154,9 +154,9 @@ public class a {
                     LinkedHashMap linkedHashMap = new LinkedHashMap();
                     linkedHashMap.put("result", sb.toString());
                     linkedHashMap.put("NotificationKey", str2);
-                    this.a.f18574c.h(this.a.a, "RequestByNativeToH5", linkedHashMap);
+                    this.a.f18110c.h(this.a.a, "RequestByNativeToH5", linkedHashMap);
                 } else if (StringUtils.isNull(str5)) {
-                    this.a.f18577f.put(str2, sb.toString());
+                    this.a.f18113f.put(str2, sb.toString());
                 } else {
                     this.a.k(str5, sb.toString());
                 }
@@ -179,17 +179,17 @@ public class a {
                 return;
             }
         }
-        this.f18575d = new HashSet<>();
-        this.f18576e = new HashMap<>();
-        this.f18577f = new HashMap<>();
-        this.f18579h = new C1116a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
+        this.f18111d = new HashSet<>();
+        this.f18112e = new HashMap<>();
+        this.f18113f = new HashMap<>();
+        this.f18115h = new C1130a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
         this.a = webView;
-        this.f18578g = webView.getSettings().getUserAgentString();
+        this.f18114g = webView.getSettings().getUserAgentString();
         BdUniqueId gen = BdUniqueId.gen();
-        this.f18573b = gen;
-        this.f18579h.setTag(gen);
-        this.f18579h.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f18579h);
+        this.f18109b = gen;
+        this.f18115h.setTag(gen);
+        this.f18115h.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f18115h);
     }
 
     public final void g(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
@@ -197,26 +197,26 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, quickWebViewBridgeData, str, z) == null) || quickWebViewBridgeData == null || StringUtils.isNull(quickWebViewBridgeData.url) || StringUtils.isNull(quickWebViewBridgeData.type)) {
             return;
         }
-        String remove = this.f18577f.remove(quickWebViewBridgeData.url);
+        String remove = this.f18113f.remove(quickWebViewBridgeData.url);
         if (!StringUtils.isNull(remove) && str != null) {
             k(str, remove);
         } else if (!StringUtils.isNull(remove) && z) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("result", remove);
             linkedHashMap.put("NotificationKey", quickWebViewBridgeData.url);
-            this.f18574c.h(this.a, "RequestByNativeToH5", linkedHashMap);
-        } else if (this.f18575d.contains(quickWebViewBridgeData.url) && !z) {
+            this.f18110c.h(this.a, "RequestByNativeToH5", linkedHashMap);
+        } else if (this.f18111d.contains(quickWebViewBridgeData.url) && !z) {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f18576e.put(quickWebViewBridgeData.url, str);
+            this.f18112e.put(quickWebViewBridgeData.url, str);
         } else {
             QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = new QuickWebViewHttpReqMsg();
             quickWebViewHttpReqMsg.url = quickWebViewBridgeData.url;
             quickWebViewHttpReqMsg.module = quickWebViewBridgeData.module;
             quickWebViewHttpReqMsg.begin = quickWebViewBridgeData.begin;
             quickWebViewHttpReqMsg.jsCallbackMethod = str;
-            quickWebViewHttpReqMsg.setTag(this.f18573b);
+            quickWebViewHttpReqMsg.setTag(this.f18109b);
             quickWebViewHttpReqMsg.isFromRequestByNative = z;
             CookieSyncManager.createInstance(this.a.getContext());
             String cookie = CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME);
@@ -232,7 +232,7 @@ public class a {
                     quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
                 }
             }
-            quickWebViewHttpReqMsg.setUserAgent(this.f18578g);
+            quickWebViewHttpReqMsg.setUserAgent(this.f18114g);
             quickWebViewHttpReqMsg.addCookie("cache_version", b.q().s(quickWebViewBridgeData.module));
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, quickWebViewBridgeData.url);
             tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
@@ -251,21 +251,21 @@ public class a {
                 tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             }
             MessageManager.getInstance().sendMessage(quickWebViewHttpReqMsg, tbHttpMessageTask);
-            this.f18575d.add(quickWebViewBridgeData.url);
+            this.f18111d.add(quickWebViewBridgeData.url);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f18573b);
-            MessageManager.getInstance().removeMessage(this.f18573b);
-            this.f18575d.clear();
-            this.f18575d = null;
-            this.f18576e.clear();
-            this.f18576e = null;
-            this.f18577f.clear();
-            this.f18577f = null;
+            MessageManager.getInstance().unRegisterListener(this.f18109b);
+            MessageManager.getInstance().removeMessage(this.f18109b);
+            this.f18111d.clear();
+            this.f18111d = null;
+            this.f18112e.clear();
+            this.f18112e = null;
+            this.f18113f.clear();
+            this.f18113f = null;
         }
     }
 
@@ -295,7 +295,7 @@ public class a {
     public void l(c.a.t0.w3.n0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f18574c = aVar;
+            this.f18110c = aVar;
         }
     }
 }

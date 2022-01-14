@@ -80,11 +80,11 @@ public class c extends c.a.t0.g0.b<c.a.t0.s3.f.b> {
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 this.a.y = false;
                 if (this.a.w.getErrorCode() == 22) {
-                    n.M(this.a.f18210f.getPageActivity(), this.a.f18210f.getString(R.string.had_liked_forum));
+                    n.N(this.a.f17767f.getPageActivity(), this.a.f17767f.getString(R.string.had_liked_forum));
                 } else if (obj == null) {
                 } else {
                     if (this.a.w.getErrorCode() != 0) {
-                        n.M(this.a.f18210f.getPageActivity(), this.a.w.getErrorString());
+                        n.N(this.a.f17767f.getPageActivity(), this.a.w.getErrorString());
                     } else {
                         this.a.w(true);
                     }
@@ -195,13 +195,13 @@ public class c extends c.a.t0.g0.b<c.a.t0.s3.f.b> {
         }
         if (this.m == view) {
             u();
-            d0<T> d0Var = this.f18213i;
+            d0<T> d0Var = this.f17770i;
             if (d0Var != 0) {
                 d0Var.a(view, this.v);
             }
         } else if (this.s == view) {
-            if (this.f18210f.getPageActivity() instanceof ForumSquareActivity) {
-                String h2 = ((ForumSquareActivity) this.f18210f.getPageActivity()).getDelegate().h();
+            if (this.f17767f.getPageActivity() instanceof ForumSquareActivity) {
+                String h2 = ((ForumSquareActivity) this.f17767f.getPageActivity()).getDelegate().h();
                 if (!"推荐".equals(h2)) {
                     statisticItem = new StatisticItem("c13653");
                     statisticItem.param(TiebaStatic.Params.RESOURCE_ID, h2);
@@ -210,7 +210,7 @@ public class c extends c.a.t0.g0.b<c.a.t0.s3.f.b> {
                     statisticItem.param("obj_locate", 3);
                 }
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("fid", this.v.f24136e);
+                statisticItem.param("fid", this.v.f23462e);
                 statisticItem.param(TiebaStatic.Params.OBJ_TO, this.v.q() ? 2 : 1);
                 TiebaStatic.log(statisticItem);
             }
@@ -228,15 +228,15 @@ public class c extends c.a.t0.g0.b<c.a.t0.s3.f.b> {
             return;
         }
         if (!n.C()) {
-            UtilHelper.showToast(this.f18210f.getPageActivity(), this.f18210f.getString(R.string.neterror));
+            UtilHelper.showToast(this.f17767f.getPageActivity(), this.f17767f.getString(R.string.neterror));
             return;
         }
         c.a.t0.s3.f.b bVar = this.v;
-        if (bVar == null || StringUtils.isNull(bVar.k()) || this.v.i() <= 0 || !ViewHelper.checkUpIsLogin(this.f18210f.getPageActivity())) {
+        if (bVar == null || StringUtils.isNull(bVar.k()) || this.v.i() <= 0 || !ViewHelper.checkUpIsLogin(this.f17767f.getPageActivity())) {
             return;
         }
         if (this.w == null) {
-            LikeModel likeModel = new LikeModel(this.f18210f);
+            LikeModel likeModel = new LikeModel(this.f17767f);
             this.w = likeModel;
             likeModel.setLoadDataCallBack(new a(this));
         }
@@ -253,11 +253,11 @@ public class c extends c.a.t0.g0.b<c.a.t0.s3.f.b> {
             return;
         }
         if (!n.C()) {
-            UtilHelper.showToast(this.f18210f.getPageActivity(), this.f18210f.getString(R.string.neterror));
+            UtilHelper.showToast(this.f17767f.getPageActivity(), this.f17767f.getString(R.string.neterror));
             return;
         }
         c.a.t0.s3.f.b bVar = this.v;
-        if (bVar == null || StringUtils.isNull(bVar.k()) || this.v.i() <= 0 || !ViewHelper.checkUpIsLogin(this.f18210f.getPageActivity())) {
+        if (bVar == null || StringUtils.isNull(bVar.k()) || this.v.i() <= 0 || !ViewHelper.checkUpIsLogin(this.f17767f.getPageActivity())) {
             return;
         }
         if (this.x == null) {
@@ -275,9 +275,9 @@ public class c extends c.a.t0.g0.b<c.a.t0.s3.f.b> {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.v) == null) {
             return;
         }
-        String k2 = bVar.k();
-        if (m.isForumName(k2)) {
-            this.f18210f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18210f.getPageActivity()).createNormalCfg(k2, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
+        String k = bVar.k();
+        if (m.isForumName(k)) {
+            this.f17767f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17767f.getPageActivity()).createNormalCfg(k, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
         }
     }
 
@@ -296,30 +296,30 @@ public class c extends c.a.t0.g0.b<c.a.t0.s3.f.b> {
         this.n.setStrokeWith(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         this.n.setStrokeColorResId(R.color.CAM_X0401);
         this.n.startLoad(bVar.g(), 10, false);
-        String k2 = bVar.k();
-        if (m.isEmpty(k2)) {
-            k2 = "";
+        String k = bVar.k();
+        if (m.isEmpty(k)) {
+            k = "";
         }
-        this.o.setText(k2);
+        this.o.setText(k);
         this.q.setText(this.t + " " + StringHelper.numberUniformFormatExtra(bVar.o()));
         this.r.setText(this.u + " " + StringHelper.numberUniformFormatExtra((long) bVar.p()));
         x(bVar.getRecomReason());
         w(this.v.q());
         this.m.setOnClickListener(this);
         this.s.setOnClickListener(this);
-        l(this.f18210f, TbadkCoreApplication.getInst().getSkinType());
+        l(this.f17767f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void w(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (!z) {
-                c.a.s0.s.i0.n.b bVar = new c.a.s0.s.i0.n.b();
+                c.a.s0.s.j0.n.b bVar = new c.a.s0.s.j0.n.b();
                 bVar.r(R.color.CAM_X0302);
                 this.s.setConfig(bVar);
                 this.s.setText(TbadkCoreApplication.getInst().getString(R.string.forum_doLike));
             } else {
-                c.a.s0.s.i0.n.b bVar2 = new c.a.s0.s.i0.n.b();
+                c.a.s0.s.j0.n.b bVar2 = new c.a.s0.s.j0.n.b();
                 bVar2.s(R.color.CAM_X0109);
                 this.s.setConfig(bVar2);
                 this.s.setText(TbadkCoreApplication.getInst().getString(R.string.forum_isLiked));
@@ -335,7 +335,7 @@ public class c extends c.a.t0.g0.b<c.a.t0.s3.f.b> {
                 if (this.p.getVisibility() != 8) {
                     this.p.setVisibility(8);
                     if (this.o.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                        ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = n.f(this.f18210f.getPageActivity(), R.dimen.tbds47);
+                        ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = n.f(this.f17767f.getPageActivity(), R.dimen.tbds47);
                         this.o.requestLayout();
                         return;
                     }
@@ -346,7 +346,7 @@ public class c extends c.a.t0.g0.b<c.a.t0.s3.f.b> {
             if (this.p.getVisibility() != 0) {
                 this.p.setVisibility(0);
                 if (this.o.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = n.f(this.f18210f.getPageActivity(), R.dimen.tbds24);
+                    ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = n.f(this.f17767f.getPageActivity(), R.dimen.tbds24);
                     this.o.requestLayout();
                 }
             }

@@ -31,13 +31,13 @@ public final class j extends h {
         public final k.d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f29695b;
+        public final byte[] f28786b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final k.c[] f29696c;
+        public final k.c[] f28787c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f29697d;
+        public final int f28788d;
 
         public a(k.d dVar, k.b bVar, byte[] bArr, k.c[] cVarArr, int i2) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public final class j extends h {
                 }
             }
             this.a = dVar;
-            this.f29695b = bArr;
-            this.f29696c = cVarArr;
-            this.f29697d = i2;
+            this.f28786b = bArr;
+            this.f28787c = cVarArr;
+            this.f28788d = i2;
         }
     }
 
@@ -90,10 +90,10 @@ public final class j extends h {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b2), aVar})) == null) {
-            if (!aVar.f29696c[n(b2, aVar.f29697d, 1)].a) {
-                return aVar.a.f29700d;
+            if (!aVar.f28787c[n(b2, aVar.f28788d, 1)].a) {
+                return aVar.a.f28791d;
             }
-            return aVar.a.f29701e;
+            return aVar.a.f28792e;
         }
         return invokeCommon.intValue;
     }
@@ -124,7 +124,7 @@ public final class j extends h {
             super.d(j2);
             this.p = j2 != 0;
             k.d dVar = this.q;
-            this.o = dVar != null ? dVar.f29700d : 0;
+            this.o = dVar != null ? dVar.f28791d : 0;
         }
     }
 
@@ -161,10 +161,10 @@ public final class j extends h {
                 return true;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.n.a.f29702f);
-            arrayList.add(this.n.f29695b);
+            arrayList.add(this.n.a.f28793f);
+            arrayList.add(this.n.f28786b);
             k.d dVar = this.n.a;
-            bVar.a = Format.createAudioSampleFormat(null, "audio/vorbis", null, dVar.f29699c, -1, dVar.a, (int) dVar.f29698b, arrayList, null, 0, null);
+            bVar.a = Format.createAudioSampleFormat(null, "audio/vorbis", null, dVar.f28790c, -1, dVar.a, (int) dVar.f28789b, arrayList, null, 0, null);
             return true;
         }
         return invokeCommon.booleanValue;

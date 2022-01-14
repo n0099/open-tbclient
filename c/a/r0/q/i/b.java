@@ -14,19 +14,19 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11751b;
+    public String f11484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11752c;
+    public String f11485c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11753d;
+    public String f11486d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11754e;
+    public String f11487e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11755f;
+    public int f11488f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(int i2, String str) {
@@ -53,7 +53,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f11753d = str;
+            this.f11486d = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -63,7 +63,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "PMSError{errorNo=" + this.a + ", errorMsg='" + this.f11751b + ExtendedMessageFormat.QUOTE + ", httpCode=" + this.f11755f + ", tipMsg='" + this.f11754e + ExtendedMessageFormat.QUOTE + ", errorDetail='" + this.f11753d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PMSError{errorNo=" + this.a + ", errorMsg='" + this.f11484b + ExtendedMessageFormat.QUOTE + ", httpCode=" + this.f11488f + ", tipMsg='" + this.f11487e + ExtendedMessageFormat.QUOTE + ", errorDetail='" + this.f11486d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -83,10 +83,10 @@ public class b {
                 return;
             }
         }
-        this.f11753d = "";
+        this.f11486d = "";
         this.a = i2;
-        this.f11751b = str;
-        this.f11754e = str2;
+        this.f11484b = str;
+        this.f11487e = str2;
     }
 
     public b(int i2, String str, String str2, String str3) {
@@ -104,10 +104,10 @@ public class b {
                 return;
             }
         }
-        this.f11753d = "";
+        this.f11486d = "";
         this.a = i2;
-        this.f11751b = str;
-        this.f11754e = str2;
-        this.f11752c = str3;
+        this.f11484b = str;
+        this.f11487e = str2;
+        this.f11485c = str3;
     }
 }

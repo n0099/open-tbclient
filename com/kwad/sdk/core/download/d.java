@@ -32,7 +32,7 @@ public class d {
     public static final String a = aq.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f57973b = com.kwad.sdk.core.i.b.i();
+    public static ExecutorService f55778b = com.kwad.sdk.core.i.b.i();
 
     /* loaded from: classes3.dex */
     public static class a implements c {

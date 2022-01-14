@@ -6,34 +6,32 @@ public class b {
     public final com.kwad.sdk.crash.model.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.crash.model.a f58715b;
+    public final com.kwad.sdk.crash.model.a f56503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f58716c;
+    public final f f56504c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String[] f58717d;
+    public final String[] f56505d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String[] f58718e;
+    public final String[] f56506e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f58719f;
+    public final boolean f56507f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Context f58720g;
+    public final Context f56508g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final e f58721h;
+    public final e f56509h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f58722i;
+    public final String f56510i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final String f58723j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final String f58724k;
+    public final String f56511j;
+    public final String k;
     public final String l;
     public final String m;
     public final String n;
@@ -43,34 +41,32 @@ public class b {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f58725b;
+        public String[] f56512b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f58726c = false;
+        public boolean f56513c = false;
 
         /* renamed from: d  reason: collision with root package name */
-        public Context f58727d;
+        public Context f56514d;
 
         /* renamed from: e  reason: collision with root package name */
-        public e f58728e;
+        public e f56515e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f58729f;
+        public String f56516f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f58730g;
+        public String f56517g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f58731h;
+        public String f56518h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f58732i;
+        public String f56519i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f58733j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public String f58734k;
+        public String f56520j;
+        public String k;
         public String l;
         public String m;
         public int n;
@@ -89,12 +85,12 @@ public class b {
         }
 
         public a a(Context context) {
-            this.f58727d = context;
+            this.f56514d = context;
             return this;
         }
 
         public a a(e eVar) {
-            this.f58728e = eVar;
+            this.f56515e = eVar;
             return this;
         }
 
@@ -104,7 +100,7 @@ public class b {
         }
 
         public a a(String str) {
-            this.f58729f = str;
+            this.f56516f = str;
             return this;
         }
 
@@ -123,12 +119,12 @@ public class b {
         }
 
         public a b(String str) {
-            this.f58731h = str;
+            this.f56518h = str;
             return this;
         }
 
         public a b(String[] strArr) {
-            this.f58725b = strArr;
+            this.f56512b = strArr;
             return this;
         }
 
@@ -138,12 +134,12 @@ public class b {
         }
 
         public a c(String str) {
-            this.f58732i = str;
+            this.f56519i = str;
             return this;
         }
 
         public a d(String str) {
-            this.f58734k = str;
+            this.k = str;
             return this;
         }
 
@@ -185,36 +181,36 @@ public class b {
 
     public b(a aVar) {
         this.a = new com.kwad.sdk.crash.model.b();
-        this.f58715b = new com.kwad.sdk.crash.model.a();
-        this.f58719f = aVar.f58726c;
-        this.f58720g = aVar.f58727d;
-        this.f58721h = aVar.f58728e;
-        this.f58722i = aVar.f58729f;
-        this.f58723j = aVar.f58730g;
-        this.f58724k = aVar.f58731h;
-        this.l = aVar.f58732i;
-        this.m = aVar.f58733j;
-        this.n = aVar.f58734k;
-        this.f58715b.a = aVar.q;
-        this.f58715b.f58755b = aVar.r;
-        this.f58715b.f58757d = aVar.t;
-        this.f58715b.f58756c = aVar.s;
-        this.a.f58760d = aVar.o;
-        this.a.f58761e = aVar.p;
-        this.a.f58758b = aVar.m;
-        this.a.f58759c = aVar.n;
+        this.f56503b = new com.kwad.sdk.crash.model.a();
+        this.f56507f = aVar.f56513c;
+        this.f56508g = aVar.f56514d;
+        this.f56509h = aVar.f56515e;
+        this.f56510i = aVar.f56516f;
+        this.f56511j = aVar.f56517g;
+        this.k = aVar.f56518h;
+        this.l = aVar.f56519i;
+        this.m = aVar.f56520j;
+        this.n = aVar.k;
+        this.f56503b.a = aVar.q;
+        this.f56503b.f56541b = aVar.r;
+        this.f56503b.f56543d = aVar.t;
+        this.f56503b.f56542c = aVar.s;
+        this.a.f56546d = aVar.o;
+        this.a.f56547e = aVar.p;
+        this.a.f56544b = aVar.m;
+        this.a.f56545c = aVar.n;
         this.a.a = aVar.l;
-        this.a.f58762f = aVar.a;
-        this.f58716c = aVar.u;
-        this.f58717d = aVar.v;
-        this.f58718e = aVar.f58725b;
+        this.a.f56548f = aVar.a;
+        this.f56504c = aVar.u;
+        this.f56505d = aVar.v;
+        this.f56506e = aVar.f56512b;
     }
 
     public e a() {
-        return this.f58721h;
+        return this.f56509h;
     }
 
     public boolean b() {
-        return this.f58719f;
+        return this.f56507f;
     }
 }

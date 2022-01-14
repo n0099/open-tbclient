@@ -1,100 +1,159 @@
 package c.a.c0.x;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.c0.r.g;
-import c.a.c0.r.p.b;
-import c.a.c0.r.s.c;
-import c.a.c0.x.c.d;
-import c.a.c0.x.c.e;
-import com.baidu.nadcore.net.request.BodyStyle;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.TbConfig;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c.a.c0.x.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class RunnableC0094a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static <T> void a(List<T> list, T t, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65536, null, list, t, i2) == null) && !f(list) && e(list, i2)) {
+            try {
+                list.add(i2, t);
+            } catch (Exception e2) {
+                l(e2);
+            }
+        }
+    }
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f2571e;
+    public static <T> boolean b(List<T> list, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, t)) == null) {
+            if (f(list)) {
+                return false;
+            }
+            try {
+                return list.add(t);
+            } catch (Exception e2) {
+                l(e2);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f2572f;
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.Collection<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static <T> void c(Collection<T> collection, Collection<T> collection2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, collection, collection2) == null) || collection2 == 0 || collection == null) {
+            return;
+        }
+        collection.addAll(collection2);
+    }
 
-        public RunnableC0094a(d dVar, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    @Nullable
+    public static <T> T d(List<T> list, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i2)) == null) {
+            if (!g(list) && e(list, i2)) {
+                try {
+                    return list.get(i2);
+                } catch (Exception e2) {
+                    l(e2);
+                    return null;
                 }
             }
-            this.f2571e = dVar;
-            this.f2572f = bVar;
+            return null;
         }
+        return (T) invokeLI.objValue;
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.d(this.f2571e, this.f2572f);
+    public static <T> boolean e(List<T> list, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i2)) == null) {
+            if (!f(list) && i2 >= 0) {
+                try {
+                    return i2 < list.size();
+                } catch (Exception e2) {
+                    l(e2);
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean f(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj == null : invokeL.booleanValue;
+    }
+
+    public static <T> boolean g(List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) ? f(list) || list.isEmpty() : invokeL.booleanValue;
+    }
+
+    public static <K, V> boolean h(Map<K, V> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) ? f(map) || map.isEmpty() : invokeL.booleanValue;
+    }
+
+    @Nullable
+    public static <T> T i(List<T> list, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, list, i2)) == null) {
+            if (!g(list) && e(list, i2)) {
+                try {
+                    return list.remove(i2);
+                } catch (Exception e2) {
+                    l(e2);
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (T) invokeLI.objValue;
+    }
+
+    public static <T> boolean j(List<T> list, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, t)) == null) {
+            if (g(list)) {
+                return false;
+            }
+            try {
+                return list.remove(t);
+            } catch (Exception e2) {
+                l(e2);
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    public static void b(@NonNull d dVar) {
+    public static <T> int k(List<T> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, dVar) == null) {
-            c(dVar, null);
-        }
-    }
-
-    public static <T> void c(@NonNull d dVar, @Nullable b<T> bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, dVar, bVar) == null) {
-            c.a.c0.a0.b.c(new RunnableC0094a(dVar, bVar), "als_async_executor", 2);
-        }
-    }
-
-    public static <T> void d(d dVar, @Nullable b<T> bVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, dVar, bVar) == null) && dVar != null && dVar.isValid()) {
-            String dVar2 = dVar.toString();
-            if (dVar instanceof ClogBuilder) {
-                str = "https://als.baidu.com/clog/clog";
-            } else if (dVar instanceof e) {
-                str = TbConfig.REPORT_PLOG;
-            } else if (!(dVar instanceof c.a.c0.x.c.b)) {
-                return;
-            } else {
-                str = "https://afd.baidu.com/afd/close";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, list)) == null) {
+            if (f(list) || list.isEmpty()) {
+                return 0;
             }
-            c cVar = new c();
-            cVar.f(dVar2);
-            cVar.i(BodyStyle.STRING);
-            cVar.g("application/x-www-form-urlencoded");
-            c.a.c0.r.s.d dVar3 = new c.a.c0.r.s.d();
-            dVar3.k(str);
-            dVar3.f(cVar);
-            g.b().a().a(dVar3, bVar);
+            return list.size();
+        }
+        return invokeL.intValue;
+    }
+
+    public static void l(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, exc) == null) {
         }
     }
 }

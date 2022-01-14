@@ -23,19 +23,19 @@ public class VerticalScrollNumberView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f44806e;
+    public Context f43155e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44807f;
+    public int f43156f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44808g;
+    public int f43157g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f44809h;
+    public int f43158h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f44810i;
+    public int f43159i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VerticalScrollNumberView(Context context) {
@@ -55,14 +55,14 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f44806e = null;
+        this.f43155e = null;
         b(context);
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ScrollTextView scrollTextView = new ScrollTextView(this.f44806e);
+            ScrollTextView scrollTextView = new ScrollTextView(this.f43155e);
             scrollTextView.setText(str);
             scrollTextView.setGravity(17);
             SkinManager.setBackgroundResource(scrollTextView, e1.lottery_number_bg);
@@ -73,8 +73,8 @@ public class VerticalScrollNumberView extends LinearLayout {
             scrollTextView.setMaxLines(1);
             scrollTextView.setContinuousScrolling(false);
             scrollTextView.setSpeed((float) ((Math.random() * 5.0d) + 10.0d));
-            scrollTextView.setWidth(this.f44807f);
-            scrollTextView.setHeight(this.f44808g);
+            scrollTextView.setWidth(this.f43156f);
+            scrollTextView.setHeight(this.f43157g);
             addView(scrollTextView);
         }
     }
@@ -82,11 +82,11 @@ public class VerticalScrollNumberView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f44806e = context;
-            this.f44807f = n.f(context, d1.ds30);
-            this.f44808g = n.f(this.f44806e, d1.ds40);
-            this.f44809h = n.f(this.f44806e, d1.ds2);
-            this.f44810i = n.f(this.f44806e, d1.ds8);
+            this.f43155e = context;
+            this.f43156f = n.f(context, d1.ds30);
+            this.f43157g = n.f(this.f43155e, d1.ds40);
+            this.f43158h = n.f(this.f43155e, d1.ds2);
+            this.f43159i = n.f(this.f43155e, d1.ds8);
         }
     }
 
@@ -111,10 +111,10 @@ public class VerticalScrollNumberView extends LinearLayout {
                 if (getChildAt(childCount) instanceof ScrollTextView) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     if (i4 == 2) {
-                        layoutParams.setMargins(this.f44810i, 0, 0, 0);
+                        layoutParams.setMargins(this.f43159i, 0, 0, 0);
                         i4 = 0;
                     } else {
-                        layoutParams.setMargins(this.f44809h, 0, 0, 0);
+                        layoutParams.setMargins(this.f43158h, 0, 0, 0);
                         i4++;
                     }
                     getChildAt(childCount).setLayoutParams(layoutParams);
@@ -142,7 +142,7 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f44806e = null;
+        this.f43155e = null;
         b(context);
     }
 
@@ -165,7 +165,7 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f44806e = null;
+        this.f43155e = null;
         b(context);
     }
 }

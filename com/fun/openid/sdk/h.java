@@ -31,12 +31,12 @@ public class h implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
             String str = null;
-            if (!((n.f56344b == null || n.a == null) ? false : true)) {
+            if (!((n.f54210b == null || n.a == null) ? false : true)) {
                 FunOpenIDSdk.isLogEnabled();
                 aVar.a(false, null);
                 return;
             }
-            Method method = n.f56345c;
+            Method method = n.f54211c;
             Object obj = n.a;
             if (obj != null && method != null) {
                 try {

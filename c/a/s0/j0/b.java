@@ -20,7 +20,7 @@ public final class b {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f13130b;
+    public static final b f12808b;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, a> a;
 
@@ -37,7 +37,7 @@ public final class b {
                 return;
             }
         }
-        f13130b = new b();
+        f12808b = new b();
     }
 
     public b() {
@@ -59,7 +59,7 @@ public final class b {
     public static void a(@NonNull String str, @NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) {
-            f13130b.a.put(str, aVar);
+            f12808b.a.put(str, aVar);
         }
     }
 
@@ -67,7 +67,7 @@ public final class b {
     public static <T> T b(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (T) f13130b.a.get(str) : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (T) f12808b.a.get(str) : (T) invokeL.objValue;
     }
 
     @NonNull

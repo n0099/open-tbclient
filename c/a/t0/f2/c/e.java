@@ -21,28 +21,28 @@ public class e {
     public BaseFragmentActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f17788b;
+    public Context f17357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f17789c;
+    public View f17358c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CategoryView f17790d;
+    public CategoryView f17359d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HListView f17791e;
+    public HListView f17360e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HListView f17792f;
+    public HListView f17361f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f17793g;
+    public View f17362g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.f2.c.j.g f17794h;
+    public c.a.t0.f2.c.j.g f17363h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.f2.c.j.e f17795i;
+    public c.a.t0.f2.c.j.e f17364i;
 
     public e(View view, BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class e {
             }
         }
         this.a = baseFragmentActivity;
-        this.f17788b = baseFragmentActivity.getActivity();
+        this.f17357b = baseFragmentActivity.getActivity();
         b(view);
     }
 
@@ -70,10 +70,10 @@ public class e {
             return;
         }
         Boolean bool = Boolean.TRUE;
-        if (iVar.f17908e) {
-            this.f17793g.setVisibility(0);
+        if (iVar.f17474e) {
+            this.f17362g.setVisibility(0);
         } else {
-            this.f17793g.setVisibility(8);
+            this.f17362g.setVisibility(8);
         }
         List<j> d2 = iVar.d();
         if (d2 != null && d2.size() > 0) {
@@ -81,11 +81,11 @@ public class e {
             if (d2.size() > 8) {
                 d2 = d2.subList(0, 7);
             }
-            this.f17791e.setVisibility(0);
-            this.f17794h.d(d2);
-            this.f17794h.notifyDataSetChanged();
+            this.f17360e.setVisibility(0);
+            this.f17363h.d(d2);
+            this.f17363h.notifyDataSetChanged();
         } else {
-            this.f17791e.setVisibility(8);
+            this.f17360e.setVisibility(8);
         }
         List<j> e2 = iVar.e();
         if (e2 != null && e2.size() > 0) {
@@ -93,18 +93,18 @@ public class e {
             if (e2.size() > 8) {
                 e2 = e2.subList(0, 7);
             }
-            this.f17792f.setVisibility(0);
-            this.f17795i.d(e2);
-            this.f17795i.notifyDataSetChanged();
+            this.f17361f.setVisibility(0);
+            this.f17364i.d(e2);
+            this.f17364i.notifyDataSetChanged();
         } else {
-            this.f17792f.setVisibility(8);
+            this.f17361f.setVisibility(8);
         }
         if (bool.booleanValue()) {
-            this.f17790d.setVisibility(8);
+            this.f17359d.setVisibility(8);
             return;
         }
-        this.f17790d.fillView(iVar.a());
-        this.f17790d.findViewById(R.id.divider_line_item).setVisibility(8);
+        this.f17359d.fillView(iVar.a());
+        this.f17359d.findViewById(R.id.divider_line_item).setVisibility(8);
     }
 
     public final void b(View view) {
@@ -112,25 +112,25 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null) {
             return;
         }
-        this.f17789c = view;
-        this.f17790d = (CategoryView) view.findViewById(R.id.category);
-        this.f17791e = (HListView) this.f17789c.findViewById(R.id.listview_skins);
-        this.f17792f = (HListView) this.f17789c.findViewById(R.id.listview_cards);
-        this.f17791e.setSelector(R.drawable.list_selector_transparent);
-        this.f17792f.setSelector(R.drawable.list_selector_transparent);
-        this.f17793g = this.f17789c.findViewById(R.id.divider_sp_line);
-        c.a.t0.f2.c.j.g gVar = new c.a.t0.f2.c.j.g(this.f17788b);
-        this.f17794h = gVar;
-        this.f17791e.setAdapter((ListAdapter) gVar);
-        c.a.t0.f2.c.j.e eVar = new c.a.t0.f2.c.j.e(this.f17788b);
-        this.f17795i = eVar;
-        this.f17792f.setAdapter((ListAdapter) eVar);
+        this.f17358c = view;
+        this.f17359d = (CategoryView) view.findViewById(R.id.category);
+        this.f17360e = (HListView) this.f17358c.findViewById(R.id.listview_skins);
+        this.f17361f = (HListView) this.f17358c.findViewById(R.id.listview_cards);
+        this.f17360e.setSelector(R.drawable.list_selector_transparent);
+        this.f17361f.setSelector(R.drawable.list_selector_transparent);
+        this.f17362g = this.f17358c.findViewById(R.id.divider_sp_line);
+        c.a.t0.f2.c.j.g gVar = new c.a.t0.f2.c.j.g(this.f17357b);
+        this.f17363h = gVar;
+        this.f17360e.setAdapter((ListAdapter) gVar);
+        c.a.t0.f2.c.j.e eVar = new c.a.t0.f2.c.j.e(this.f17357b);
+        this.f17364i = eVar;
+        this.f17361f.setAdapter((ListAdapter) eVar);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.s0.x0.a.a(this.a.getPageContext(), this.f17789c);
+            c.a.s0.x0.a.a(this.a.getPageContext(), this.f17358c);
         }
     }
 }

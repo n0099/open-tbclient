@@ -1008,7 +1008,7 @@ public class VLogAudioPlayer {
                     for (int i2 = 0; i2 < this.val$playDataList.size(); i2++) {
                         AudioPlayData audioPlayData = (AudioPlayData) this.val$playDataList.get(i2);
                         if (audioPlayData != null) {
-                            this.this$0.handledAudioList.add(audioPlayData.m92clone());
+                            this.this$0.handledAudioList.add(audioPlayData.m102clone());
                         }
                     }
                     VLogAudioPlayer vLogAudioPlayer = this.this$0;

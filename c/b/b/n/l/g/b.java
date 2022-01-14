@@ -16,27 +16,27 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BoundingBox f28070h;
+    public static final BoundingBox f27219h;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28071b;
+    public int f27220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28072c;
+    public int f27221c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28073d;
+    public int f27222d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Mesh f28074e;
+    public Mesh f27223e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Vector3 f28075f;
+    public final Vector3 f27224f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Vector3 f28076g;
+    public final Vector3 f27225g;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class b {
                 return;
             }
         }
-        f28070h = new BoundingBox();
+        f27219h = new BoundingBox();
     }
 
     public b() {
@@ -67,14 +67,14 @@ public class b {
                 return;
             }
         }
-        this.f28075f = new Vector3();
-        this.f28076g = new Vector3();
+        this.f27224f = new Vector3();
+        this.f27225g = new Vector3();
     }
 
     public boolean a(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? bVar == this || (bVar != null && bVar.f28074e == this.f28074e && bVar.f28071b == this.f28071b && bVar.f28072c == this.f28072c && bVar.f28073d == this.f28073d) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? bVar == this || (bVar != null && bVar.f27223e == this.f27223e && bVar.f27220b == this.f27220b && bVar.f27221c == this.f27221c && bVar.f27222d == this.f27222d) : invokeL.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -98,10 +98,10 @@ public class b {
     public void update() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f28074e.f(f28070h, this.f28072c, this.f28073d);
-            f28070h.getCenter(this.f28075f);
-            f28070h.getDimensions(this.f28076g).m23scl(0.5f);
-            this.f28076g.len();
+            this.f27223e.f(f27219h, this.f27221c, this.f27222d);
+            f27219h.getCenter(this.f27224f);
+            f27219h.getDimensions(this.f27225g).m23scl(0.5f);
+            this.f27225g.len();
         }
     }
 }

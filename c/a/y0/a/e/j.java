@@ -18,16 +18,16 @@ public final class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map f27664e;
+        public final /* synthetic */ Map f26832e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.ubs.analytics.a.a f27665f;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.a f26833f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f27666g;
+        public final /* synthetic */ String f26834g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f27667h;
+        public final /* synthetic */ String f26835h;
 
         public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -44,20 +44,20 @@ public final class j {
                     return;
                 }
             }
-            this.f27664e = map;
-            this.f27665f = aVar;
-            this.f27666g = str;
-            this.f27667h = str2;
+            this.f26832e = map;
+            this.f26833f = aVar;
+            this.f26834g = str;
+            this.f26835h = str2;
         }
 
         @Override // c.a.y0.a.f.c
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f27664e != null) {
+                if (this.f26832e != null) {
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append(StringUtil.ARRAY_START);
-                    for (Map.Entry entry : this.f27664e.entrySet()) {
+                    for (Map.Entry entry : this.f26832e.entrySet()) {
                         stringBuffer.append("\"");
                         stringBuffer.append(entry.getKey());
                         stringBuffer.append("\":\"");
@@ -66,14 +66,14 @@ public final class j {
                     }
                     StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
                     stringBuffer2.append("}");
-                    this.f27665f.w(stringBuffer2.toString());
+                    this.f26833f.w(stringBuffer2.toString());
                 }
                 try {
-                    this.f27665f.x(m.f().I());
-                    this.f27665f.u(String.valueOf(System.currentTimeMillis()));
-                    this.f27665f.t(this.f27666g);
-                    this.f27665f.s(this.f27667h == null ? "" : this.f27667h);
-                    new c.b().c(this.f27665f);
+                    this.f26833f.x(m.f().I());
+                    this.f26833f.u(String.valueOf(System.currentTimeMillis()));
+                    this.f26833f.t(this.f26834g);
+                    this.f26833f.s(this.f26835h == null ? "" : this.f26835h);
+                    new c.b().c(this.f26833f);
                 } catch (Exception e2) {
                     if (e2.getMessage() != null) {
                         c.a.y0.a.f.a.b(e2.getMessage());

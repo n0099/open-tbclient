@@ -61,13 +61,13 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f54156b;
+                public final /* synthetic */ int f52092b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f54157c;
+                public final /* synthetic */ String f52093c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f54158d;
+                public final /* synthetic */ NetWorkPresenter f52094d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -84,17 +84,17 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                             return;
                         }
                     }
-                    this.f54158d = this;
+                    this.f52094d = this;
                     this.a = i2;
-                    this.f54156b = i3;
-                    this.f54157c = str;
+                    this.f52092b = i3;
+                    this.f52093c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f54158d.handleFailure(this.a, this.f54156b, this.f54157c);
+                        this.f52094d.handleFailure(this.a, this.f52092b, this.f52093c);
                     }
                 }
             });
@@ -111,13 +111,13 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f54153b;
+                public final /* synthetic */ Object f52089b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f54154c;
+                public final /* synthetic */ String f52090c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f54155d;
+                public final /* synthetic */ NetWorkPresenter f52091d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -134,17 +134,17 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                             return;
                         }
                     }
-                    this.f54155d = this;
+                    this.f52091d = this;
                     this.a = i2;
-                    this.f54153b = obj;
-                    this.f54154c = str;
+                    this.f52089b = obj;
+                    this.f52090c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f54155d.handleResponse(this.a, this.f54153b, this.f54154c);
+                        this.f52091d.handleResponse(this.a, this.f52089b, this.f52090c);
                     }
                 }
             });

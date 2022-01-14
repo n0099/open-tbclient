@@ -52,47 +52,45 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<AdReq> f14499b;
+    public ArrayList<AdReq> f14161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f14500c;
+    public boolean f14162c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f14501d;
+    public long f14163d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14502e;
+    public int f14164e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f14503f;
+    public Handler f14165f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f14504g;
+    public c.a.d.c.g.a f14166g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f14505h;
+    public CustomMessageListener f14167h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CustomMessageListener f14506i;
+    public final CustomMessageListener f14168i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ArrayList<AdvertAppInfo> f14507j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ArrayList<AdvertAppInfo> f14508k;
+    public ArrayList<AdvertAppInfo> f14169j;
+    public ArrayList<AdvertAppInfo> k;
     public HashMap<String, AdvertAppInfo> l;
     public HashMap<String, AdvertAppInfo> m;
     public HashMap<String, DownloadStaticsData> n;
 
     /* renamed from: c.a.s0.v.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class HandlerC0890a extends Handler {
+    public class HandlerC0903a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0890a(a aVar, Looper looper) {
+        public HandlerC0903a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -285,19 +283,19 @@ public class a {
                 return;
             }
         }
-        this.f14503f = new HandlerC0890a(this, Looper.getMainLooper());
-        this.f14504g = new b(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
-        this.f14505h = new c(this, 2000994);
-        this.f14506i = new d(this, 2001118);
+        this.f14165f = new HandlerC0903a(this, Looper.getMainLooper());
+        this.f14166g = new b(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+        this.f14167h = new c(this, 2000994);
+        this.f14168i = new d(this, 2001118);
         this.l = new HashMap<>();
         this.m = new HashMap<>();
         this.n = new HashMap<>();
-        this.f14499b = new ArrayList<>();
-        this.f14507j = new ArrayList<>();
-        this.f14508k = new ArrayList<>();
-        this.f14500c = true;
-        this.f14501d = 60000L;
-        this.f14502e = 10;
+        this.f14161b = new ArrayList<>();
+        this.f14169j = new ArrayList<>();
+        this.k = new ArrayList<>();
+        this.f14162c = true;
+        this.f14163d = 60000L;
+        this.f14164e = 10;
         this.a = l.z();
     }
 
@@ -311,8 +309,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             synchronized (this) {
-                if (this.f14499b != null) {
-                    this.f14499b.addAll(list);
+                if (this.f14161b != null) {
+                    this.f14161b.addAll(list);
                 }
             }
         }
@@ -327,7 +325,7 @@ public class a {
 
     public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.a && this.f14500c) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.a && this.f14162c) {
             List<AdReq> l = l(z);
             if (z || !o()) {
                 s();
@@ -359,16 +357,16 @@ public class a {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             synchronized (this) {
                 if (!z) {
-                    if (this.f14499b.size() < this.f14502e) {
+                    if (this.f14161b.size() < this.f14164e) {
                         return null;
                     }
                 }
-                if (this.f14499b.size() <= 0) {
+                if (this.f14161b.size() <= 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                arrayList.addAll(this.f14499b);
-                this.f14499b.clear();
+                arrayList.addAll(this.f14161b);
+                this.f14161b.clear();
                 return arrayList;
             }
         }
@@ -395,16 +393,16 @@ public class a {
                 messageManager.registerTask(m());
             }
             messageManager.registerTask(j());
-            messageManager.registerListener(this.f14504g);
-            messageManager.registerListener(this.f14505h);
-            messageManager.registerListener(this.f14506i);
+            messageManager.registerListener(this.f14166g);
+            messageManager.registerListener(this.f14167h);
+            messageManager.registerListener(this.f14168i);
         }
     }
 
     public final boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14503f.hasMessages(1) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14165f.hasMessages(1) : invokeV.booleanValue;
     }
 
     public final void p(DownloadStaticsData downloadStaticsData) {
@@ -476,8 +474,8 @@ public class a {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f14503f.removeMessages(1);
-            this.f14503f.sendEmptyMessageDelayed(1, this.f14501d);
+            this.f14165f.removeMessages(1);
+            this.f14165f.sendEmptyMessageDelayed(1, this.f14163d);
         }
     }
 
@@ -498,11 +496,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             if (i2 > 3600) {
-                this.f14501d = 300000L;
+                this.f14163d = 300000L;
             } else if (i2 <= 0) {
-                this.f14501d = 60000L;
+                this.f14163d = 60000L;
             } else {
-                this.f14501d = i2 * 1000;
+                this.f14163d = i2 * 1000;
             }
         }
     }
@@ -511,11 +509,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             if (i2 > 20) {
-                this.f14502e = 10;
+                this.f14164e = 10;
             } else if (i2 <= 0) {
-                this.f14502e = 5;
+                this.f14164e = 5;
             } else {
-                this.f14502e = i2;
+                this.f14164e = i2;
             }
         }
     }
@@ -523,14 +521,14 @@ public class a {
     public void w(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f14500c = z;
+            this.f14162c = z;
         }
     }
 
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f14503f.removeMessages(1);
+            this.f14165f.removeMessages(1);
         }
     }
 
@@ -538,9 +536,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{context, str, str2, Long.valueOf(j2)}) == null) {
             if (TextUtils.equals(str, "frs")) {
-                z(context, this.f14507j, str, str2, j2);
+                z(context, this.f14169j, str, str2, j2);
             } else if (TextUtils.equals(str, "pb")) {
-                z(context, this.f14508k, str, str2, j2);
+                z(context, this.k, str, str2, j2);
             }
         }
     }

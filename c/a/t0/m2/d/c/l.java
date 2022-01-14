@@ -1,7 +1,7 @@
 package c.a.t0.m2.d.c;
 
 import c.a.d.n.e.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
@@ -20,34 +20,32 @@ public class l {
     public TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f19847b;
+    public BdUniqueId f19333b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f19848c;
+    public BdTypeRecyclerView f19334c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f19849d;
+    public j f19335d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f19850e;
+    public c f19336e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f19851f;
+    public e f19337f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f19852g;
+    public d f19338g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f19853h;
+    public f f19339h;
 
     /* renamed from: i  reason: collision with root package name */
-    public k f19854i;
+    public k f19340i;
 
     /* renamed from: j  reason: collision with root package name */
-    public g f19855j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public h f19856k;
+    public g f19341j;
+    public h k;
     public b l;
     public m m;
     public i n;
@@ -70,58 +68,58 @@ public class l {
         }
         this.o = new LinkedList();
         this.a = tbPageContext;
-        this.f19847b = bdUniqueId;
-        this.f19848c = bdTypeRecyclerView;
+        this.f19333b = bdUniqueId;
+        this.f19334c = bdTypeRecyclerView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j jVar = new j(this.a, d2.o3, this.f19847b);
-            this.f19849d = jVar;
-            jVar.h0(this.f19848c);
-            this.o.add(this.f19849d);
-            c cVar = new c(this.a, d2.t3, this.f19847b);
-            this.f19850e = cVar;
-            cVar.i0(this.f19848c);
-            this.o.add(this.f19850e);
-            e eVar = new e(this.a, d2.r3, this.f19847b);
-            this.f19851f = eVar;
-            eVar.h0(this.f19848c);
-            this.o.add(this.f19851f);
-            d dVar = new d(this.a, d2.s3, this.f19847b);
-            this.f19852g = dVar;
-            dVar.h0(this.f19848c);
-            this.o.add(this.f19852g);
-            f fVar = new f(this.a, d2.p3, this.f19847b);
-            this.f19853h = fVar;
-            fVar.h0(this.f19848c);
-            this.o.add(this.f19853h);
-            k kVar = new k(this.a, d2.G3, this.f19847b);
-            this.f19854i = kVar;
-            kVar.k0(this.f19848c);
-            this.o.add(this.f19854i);
-            g gVar = new g(this.a, d2.z3, this.f19847b);
-            this.f19855j = gVar;
-            gVar.h0(this.f19848c);
-            this.o.add(this.f19855j);
-            h hVar = new h(this.a, d2.v3, this.f19847b);
-            this.f19856k = hVar;
-            hVar.h0(this.f19848c);
-            this.o.add(this.f19856k);
-            b bVar = new b(this.a, d2.y3, this.f19847b);
+            j jVar = new j(this.a, e2.o3, this.f19333b);
+            this.f19335d = jVar;
+            jVar.h0(this.f19334c);
+            this.o.add(this.f19335d);
+            c cVar = new c(this.a, e2.t3, this.f19333b);
+            this.f19336e = cVar;
+            cVar.i0(this.f19334c);
+            this.o.add(this.f19336e);
+            e eVar = new e(this.a, e2.r3, this.f19333b);
+            this.f19337f = eVar;
+            eVar.h0(this.f19334c);
+            this.o.add(this.f19337f);
+            d dVar = new d(this.a, e2.s3, this.f19333b);
+            this.f19338g = dVar;
+            dVar.h0(this.f19334c);
+            this.o.add(this.f19338g);
+            f fVar = new f(this.a, e2.p3, this.f19333b);
+            this.f19339h = fVar;
+            fVar.h0(this.f19334c);
+            this.o.add(this.f19339h);
+            k kVar = new k(this.a, e2.G3, this.f19333b);
+            this.f19340i = kVar;
+            kVar.k0(this.f19334c);
+            this.o.add(this.f19340i);
+            g gVar = new g(this.a, e2.z3, this.f19333b);
+            this.f19341j = gVar;
+            gVar.h0(this.f19334c);
+            this.o.add(this.f19341j);
+            h hVar = new h(this.a, e2.v3, this.f19333b);
+            this.k = hVar;
+            hVar.h0(this.f19334c);
+            this.o.add(this.k);
+            b bVar = new b(this.a, e2.y3, this.f19333b);
             this.l = bVar;
-            bVar.i0(this.f19848c);
+            bVar.i0(this.f19334c);
             this.o.add(this.l);
-            m mVar = new m(this.a, x.f13837f);
+            m mVar = new m(this.a, x.f13523f);
             this.m = mVar;
-            mVar.g0(this.f19848c);
+            mVar.g0(this.f19334c);
             this.o.add(this.m);
             i iVar = new i(this.a, c.a.t0.g0.f0.k.y0);
             this.n = iVar;
             this.o.add(iVar);
-            this.f19848c.addAdapters(this.o);
+            this.f19334c.addAdapters(this.o);
         }
     }
 
@@ -139,14 +137,14 @@ public class l {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f19848c.getAdapter().notifyDataSetChanged();
+            this.f19334c.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void d(List<? extends n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f19848c.setData(list);
+            this.f19334c.setData(list);
         }
     }
 }

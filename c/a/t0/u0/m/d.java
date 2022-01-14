@@ -16,13 +16,13 @@ public class d implements AbsListView.OnScrollListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f24925e;
+    public b f24233e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24926f;
+    public int f24234f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f24927g;
+    public c f24235g;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -34,7 +34,7 @@ public class d implements AbsListView.OnScrollListener {
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<C1458d> a;
+        public List<C1473d> a;
 
         public /* synthetic */ b(d dVar, AbsListView absListView, int i2, a aVar) {
             this(dVar, absListView, i2);
@@ -47,10 +47,10 @@ public class d implements AbsListView.OnScrollListener {
                 if (bVar == null) {
                     return 0;
                 }
-                for (C1458d c1458d : this.a) {
-                    for (C1458d c1458d2 : bVar.a) {
-                        if (c1458d.a == c1458d2.a) {
-                            return c1458d.f24928b - c1458d2.f24928b;
+                for (C1473d c1473d : this.a) {
+                    for (C1473d c1473d2 : bVar.a) {
+                        if (c1473d.a == c1473d2.a) {
+                            return c1473d.f24236b - c1473d2.f24236b;
                         }
                     }
                 }
@@ -79,7 +79,7 @@ public class d implements AbsListView.OnScrollListener {
             for (int i5 = 0; i5 < childCount; i5++) {
                 View childAt = absListView.getChildAt(i5);
                 if (childAt != null) {
-                    this.a.add(new C1458d(dVar, childAt, i2 + i5, null));
+                    this.a.add(new C1473d(dVar, childAt, i2 + i5, null));
                 }
             }
         }
@@ -92,19 +92,19 @@ public class d implements AbsListView.OnScrollListener {
 
     /* renamed from: c.a.t0.u0.m.d$d  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1458d {
+    public class C1473d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f24928b;
+        public int f24236b;
 
-        public /* synthetic */ C1458d(d dVar, View view, int i2, a aVar) {
+        public /* synthetic */ C1473d(d dVar, View view, int i2, a aVar) {
             this(dVar, view, i2);
         }
 
-        public C1458d(d dVar, View view, int i2) {
+        public C1473d(d dVar, View view, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class d implements AbsListView.OnScrollListener {
                 }
             }
             this.a = i2;
-            this.f24928b = view.getTop();
+            this.f24236b = view.getTop();
             view.getBottom();
         }
     }
@@ -138,13 +138,13 @@ public class d implements AbsListView.OnScrollListener {
                 return;
             }
         }
-        this.f24926f = 0;
+        this.f24234f = 0;
     }
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f24927g = cVar;
+            this.f24235g = cVar;
         }
     }
 
@@ -157,32 +157,32 @@ public class d implements AbsListView.OnScrollListener {
             return;
         }
         if (i2 == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-            int i5 = this.f24926f;
-            if (i5 != 0 && (cVar = this.f24927g) != null) {
+            int i5 = this.f24234f;
+            if (i5 != 0 && (cVar = this.f24235g) != null) {
                 cVar.a(absListView, 0, -i5);
             }
-            this.f24926f = 0;
-            this.f24925e = null;
+            this.f24234f = 0;
+            this.f24233e = null;
             return;
         }
         b bVar = new b(this, absListView, i2, null);
-        b bVar2 = this.f24925e;
+        b bVar2 = this.f24233e;
         if (bVar2 != null) {
             int b2 = bVar2.b(bVar);
-            this.f24925e = bVar;
-            int i6 = this.f24926f + b2;
-            this.f24926f = i6;
-            c cVar2 = this.f24927g;
+            this.f24233e = bVar;
+            int i6 = this.f24234f + b2;
+            this.f24234f = i6;
+            c cVar2 = this.f24235g;
             if (cVar2 != null) {
                 cVar2.a(absListView, i6, b2);
                 return;
             }
             return;
         }
-        this.f24925e = bVar;
+        this.f24233e = bVar;
         int paddingTop = absListView.getPaddingTop() - childAt.getTop();
-        this.f24926f = paddingTop;
-        c cVar3 = this.f24927g;
+        this.f24234f = paddingTop;
+        c cVar3 = this.f24235g;
         if (cVar3 != null) {
             cVar3.a(absListView, paddingTop, 0);
         }

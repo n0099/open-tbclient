@@ -20,26 +20,24 @@ public class CircleView1080 extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f41598j = 360;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static int f41599k = 100;
+    public static int f40173j = 360;
+    public static int k = 100;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41600e;
+    public int f40174e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41601f;
+    public int f40175f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f41602g;
+    public Paint f40176g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RectF f41603h;
+    public RectF f40177h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41604i;
+    public int f40178i;
 
     static {
         InterceptResult invokeClinit;
@@ -75,25 +73,25 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f41604i = 0;
+        this.f40178i = 0;
         init();
     }
 
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41600e = getResources().getDimensionPixelSize(R.dimen.tbds122);
-            this.f41601f = getResources().getDimensionPixelSize(R.dimen.tbds6);
+            this.f40174e = getResources().getDimensionPixelSize(R.dimen.tbds122);
+            this.f40175f = getResources().getDimensionPixelSize(R.dimen.tbds6);
             Paint paint = new Paint();
-            this.f41602g = paint;
-            paint.setStrokeWidth(this.f41601f);
-            this.f41602g.setColor(getResources().getColor(R.color.CAM_X0111));
-            this.f41602g.setStyle(Paint.Style.STROKE);
-            this.f41602g.setAntiAlias(true);
-            this.f41602g.setStrokeCap(Paint.Cap.ROUND);
-            int i2 = this.f41601f;
-            int i3 = this.f41600e;
-            this.f41603h = new RectF(i2 / 2, i2 / 2, (i2 / 2) + i3, i3 + (i2 / 2));
+            this.f40176g = paint;
+            paint.setStrokeWidth(this.f40175f);
+            this.f40176g.setColor(getResources().getColor(R.color.CAM_X0111));
+            this.f40176g.setStyle(Paint.Style.STROKE);
+            this.f40176g.setAntiAlias(true);
+            this.f40176g.setStrokeCap(Paint.Cap.ROUND);
+            int i2 = this.f40175f;
+            int i3 = this.f40174e;
+            this.f40177h = new RectF(i2 / 2, i2 / 2, (i2 / 2) + i3, i3 + (i2 / 2));
         }
     }
 
@@ -101,14 +99,14 @@ public class CircleView1080 extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f41603h, 270.0f, (f41598j * this.f41604i) / f41599k, false, this.f41602g);
+            canvas.drawArc(this.f40177h, 270.0f, (f40173j * this.f40178i) / k, false, this.f40176g);
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f41604i = i2;
+            this.f40178i = i2;
             invalidate();
         }
     }
@@ -132,7 +130,7 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f41604i = 0;
+        this.f40178i = 0;
         init();
     }
 
@@ -154,7 +152,7 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f41604i = 0;
+        this.f40178i = 0;
         init();
     }
 }

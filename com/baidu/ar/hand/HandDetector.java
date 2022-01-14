@@ -121,7 +121,7 @@ public class HandDetector extends com.baidu.ar.b.a.a {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, aVar)) == null) {
-                    boolean z = aVar.f33917tv;
+                    boolean z = aVar.f32838tv;
                     String[] strArr = aVar.tw;
                     return z ? ARMdlInterfaceJNI.initHandSkeletonFromAsset(strArr[0], strArr[1]) : ARMdlInterfaceJNI.initHandSkeleton(strArr[0], strArr[1]);
                 }

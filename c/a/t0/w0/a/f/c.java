@@ -25,7 +25,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f25373d = z;
+        this.f24662d = z;
     }
 
     @Override // c.a.t0.w0.a.f.a
@@ -33,12 +33,12 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             c.a.t0.w0.a.g.b bVar = this.a;
-            if (bVar.f25381h == null) {
-                this.f25371b.onError(bVar.f25379f, "cover config is null !!");
+            if (bVar.f24670h == null) {
+                this.f24660b.onError(bVar.f24668f, "cover config is null !!");
                 return;
             }
-            Bitmap createBitmap = Bitmap.createBitmap(bVar.a, bVar.f25375b, Bitmap.Config.ARGB_8888);
-            createBitmap.copyPixelsFromBuffer(this.a.f25381h);
+            Bitmap createBitmap = Bitmap.createBitmap(bVar.a, bVar.f24664b, Bitmap.Config.ARGB_8888);
+            createBitmap.copyPixelsFromBuffer(this.a.f24670h);
             g(new c.a.t0.w0.a.g.a(), createBitmap);
         }
     }

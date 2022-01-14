@@ -15,10 +15,10 @@ public class c {
     public c.a.x.l.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallelType f27372b;
+    public BdAsyncTaskParallelType f26553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27373c;
+    public int f26554c;
 
     public c(BdAsyncTaskParallelType bdAsyncTaskParallelType, c.a.x.l.b bVar) {
         Interceptable interceptable = $ic;
@@ -36,10 +36,10 @@ public class c {
             }
         }
         this.a = null;
-        this.f27372b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f27373c = 1;
+        this.f26553b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f26554c = 1;
         if (bdAsyncTaskParallelType != null && bVar != null) {
-            this.f27372b = bdAsyncTaskParallelType;
+            this.f26553b = bdAsyncTaskParallelType;
             this.a = bVar;
             return;
         }
@@ -49,7 +49,7 @@ public class c {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27373c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26554c : invokeV.intValue;
     }
 
     public int b() {
@@ -68,6 +68,6 @@ public class c {
     public BdAsyncTaskParallelType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27372b : (BdAsyncTaskParallelType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26553b : (BdAsyncTaskParallelType) invokeV.objValue;
     }
 }

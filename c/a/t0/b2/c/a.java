@@ -14,19 +14,19 @@ import tbclient.Lbs;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<C0963a> a;
+    public ArrayList<C0976a> a;
 
     /* renamed from: c.a.t0.b2.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0963a {
+    public static class C0976a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f15603b;
+        public String f15212b;
 
-        public C0963a() {
+        public C0976a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public class a {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15603b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15212b : (String) invokeV.objValue;
         }
 
         public void c(Lbs lbs) {
@@ -60,7 +60,7 @@ public class a {
             this.a = lbs.name;
             String str = lbs.lat;
             String str2 = lbs.lng;
-            this.f15603b = lbs.sn;
+            this.f15212b = lbs.sn;
         }
 
         public void d(String str) {
@@ -73,7 +73,7 @@ public class a {
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f15603b = str;
+                this.f15212b = str;
             }
         }
     }
@@ -94,7 +94,7 @@ public class a {
         this.a = new ArrayList<>();
     }
 
-    public ArrayList<C0963a> a() {
+    public ArrayList<C0976a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
@@ -107,13 +107,13 @@ public class a {
             return;
         }
         for (Lbs lbs : list) {
-            C0963a c0963a = new C0963a();
-            c0963a.c(lbs);
-            this.a.add(c0963a);
+            C0976a c0976a = new C0976a();
+            c0976a.c(lbs);
+            this.a.add(c0976a);
         }
     }
 
-    public void c(ArrayList<C0963a> arrayList) {
+    public void c(ArrayList<C0976a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             this.a = arrayList;

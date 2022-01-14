@@ -26,24 +26,24 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f25343g;
+    public static c f24633g;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.a.t0.v3.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25344b;
+    public int f24634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SparseArray<HashSet<String>> f25345c;
+    public SparseArray<HashSet<String>> f24635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public C1478c f25346d;
+    public C1493c f24636d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f25347e;
+    public Handler f24637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f25348f;
+    public CustomMessageListener f24638f;
 
     /* loaded from: classes8.dex */
     public class a extends Handler {
@@ -72,7 +72,7 @@ public class c {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            C1478c c1478c;
+            C1493c c1493c;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
@@ -80,12 +80,12 @@ public class c {
                     return;
                 }
                 Object obj = message.obj;
-                if (!(obj instanceof C1478c) || (c1478c = (C1478c) obj) == null) {
+                if (!(obj instanceof C1493c) || (c1493c = (C1493c) obj) == null) {
                     return;
                 }
-                c1478c.f25351d = false;
-                c1478c.a = false;
-                c1478c.f25349b = 0;
+                c1493c.f24641d = false;
+                c1493c.a = false;
+                c1493c.f24639b = 0;
             }
         }
     }
@@ -124,8 +124,8 @@ public class c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            if (this.a.f25345c != null) {
-                this.a.f25345c.clear();
+            if (this.a.f24635c != null) {
+                this.a.f24635c.clear();
             }
             this.a.a.g();
         }
@@ -144,25 +144,25 @@ public class c {
                 return;
             }
         }
-        this.f25347e = new a(this, Looper.getMainLooper());
-        this.f25348f = new b(this, 2005016);
-        this.f25344b = c.a.s0.s.g0.b.j().k("card_show_statistic_max_count", 200);
+        this.f24637e = new a(this, Looper.getMainLooper());
+        this.f24638f = new b(this, 2005016);
+        this.f24634b = c.a.s0.s.h0.b.k().l("card_show_statistic_max_count", 200);
         this.a = new c.a.t0.v3.b();
-        MessageManager.getInstance().registerListener(this.f25348f);
+        MessageManager.getInstance().registerListener(this.f24638f);
     }
 
     public static c g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f25343g == null) {
+            if (f24633g == null) {
                 synchronized (c.class) {
-                    if (f25343g == null) {
-                        f25343g = new c();
+                    if (f24633g == null) {
+                        f24633g = new c();
                     }
                 }
             }
-            return f25343g;
+            return f24633g;
         }
         return (c) invokeV.objValue;
     }
@@ -188,13 +188,13 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             BdLog.e("id is null, statistic key is=" + statisticItem.getKey());
         }
-        if (this.f25345c == null) {
-            this.f25345c = new SparseArray<>();
+        if (this.f24635c == null) {
+            this.f24635c = new SparseArray<>();
         }
-        HashSet<String> hashSet = this.f25345c.get(bdUniqueId.getId());
+        HashSet<String> hashSet = this.f24635c.get(bdUniqueId.getId());
         if (hashSet == null) {
             hashSet = new HashSet<>();
-            this.f25345c.put(bdUniqueId.getId(), hashSet);
+            this.f24635c.put(bdUniqueId.getId(), hashSet);
         }
         String str2 = statisticItem.getKey() + "_" + str;
         if (hashSet.contains(str2) || e()) {
@@ -211,44 +211,44 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f25346d == null) {
-                this.f25346d = new C1478c(this, null);
+            if (this.f24636d == null) {
+                this.f24636d = new C1493c(this, null);
             }
-            if (this.f25346d.f25351d) {
+            if (this.f24636d.f24641d) {
                 return true;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            C1478c c1478c = this.f25346d;
-            if (c1478c.a) {
-                int i2 = c1478c.f25349b + 1;
-                c1478c.f25349b = i2;
-                if (currentTimeMillis - c1478c.f25350c < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                    if (i2 >= this.f25344b) {
-                        c1478c.f25351d = true;
-                        f(c1478c);
+            C1493c c1493c = this.f24636d;
+            if (c1493c.a) {
+                int i2 = c1493c.f24639b + 1;
+                c1493c.f24639b = i2;
+                if (currentTimeMillis - c1493c.f24640c < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+                    if (i2 >= this.f24634b) {
+                        c1493c.f24641d = true;
+                        f(c1493c);
                         return true;
                     }
                 } else {
-                    c1478c.a = false;
-                    c1478c.f25349b = 0;
+                    c1493c.a = false;
+                    c1493c.f24639b = 0;
                 }
             } else {
-                c1478c.a = true;
-                c1478c.f25350c = currentTimeMillis;
+                c1493c.a = true;
+                c1493c.f24640c = currentTimeMillis;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final void f(C1478c c1478c) {
+    public final void f(C1493c c1493c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c1478c) == null) {
-            Message obtainMessage = this.f25347e.obtainMessage();
+        if (interceptable == null || interceptable.invokeL(1048579, this, c1493c) == null) {
+            Message obtainMessage = this.f24637e.obtainMessage();
             obtainMessage.what = 5;
-            obtainMessage.obj = c1478c;
-            this.f25347e.removeMessages(5);
-            this.f25347e.sendMessageDelayed(obtainMessage, 300000L);
+            obtainMessage.obj = c1493c;
+            this.f24637e.removeMessages(5);
+            this.f24637e.sendMessageDelayed(obtainMessage, 300000L);
         }
     }
 
@@ -276,7 +276,7 @@ public class c {
     public void j(BdUniqueId bdUniqueId) {
         SparseArray<HashSet<String>> sparseArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) || (sparseArray = this.f25345c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) || (sparseArray = this.f24635c) == null) {
             return;
         }
         sparseArray.remove(bdUniqueId.getId());
@@ -296,21 +296,21 @@ public class c {
 
     /* renamed from: c.a.t0.v3.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1478c {
+    public class C1493c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f25349b;
+        public int f24639b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f25350c;
+        public long f24640c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f25351d;
+        public boolean f24641d;
 
-        public C1478c(c cVar) {
+        public C1493c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -326,12 +326,12 @@ public class c {
                 }
             }
             this.a = false;
-            this.f25349b = 0;
-            this.f25350c = 0L;
-            this.f25351d = false;
+            this.f24639b = 0;
+            this.f24640c = 0L;
+            this.f24641d = false;
         }
 
-        public /* synthetic */ C1478c(c cVar, a aVar) {
+        public /* synthetic */ C1493c(c cVar, a aVar) {
             this(cVar);
         }
     }

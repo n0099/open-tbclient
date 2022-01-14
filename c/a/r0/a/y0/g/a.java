@@ -19,11 +19,11 @@ public class a extends c.a.r0.a.y0.b<c.a.r0.a.y0.g.h.a> {
 
     /* renamed from: c.a.r0.a.y0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0614a implements a.InterfaceC0615a {
+    public class C0623a implements a.InterfaceC0624a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0614a(a aVar) {
+        public C0623a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public class a extends c.a.r0.a.y0.b<c.a.r0.a.y0.g.h.a> {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ((c.a.r0.a.y0.g.h.a) this.f9801c).o(new C0614a(this));
+            ((c.a.r0.a.y0.g.h.a) this.f9587c).o(new C0623a(this));
         }
     }
 
@@ -82,11 +82,11 @@ public class a extends c.a.r0.a.y0.b<c.a.r0.a.y0.g.h.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
             String str = command == null ? "" : command.what;
-            if (((c.a.r0.a.y0.g.h.a) this.f9801c).q()) {
+            if (((c.a.r0.a.y0.g.h.a) this.f9587c).q()) {
                 c.a.r0.a.e0.d.i("InlineRtcItemController", "isReleased command：" + str);
                 return;
             }
-            c.a.r0.a.e0.d.i("InlineRtcItemController", "authorize type：" + ((c.a.r0.a.y0.g.h.a) this.f9801c).a() + " command：" + str);
+            c.a.r0.a.e0.d.i("InlineRtcItemController", "authorize type：" + ((c.a.r0.a.y0.g.h.a) this.f9587c).a() + " command：" + str);
             super.sendCommand(command);
         }
     }

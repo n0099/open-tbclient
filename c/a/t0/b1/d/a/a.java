@@ -23,23 +23,23 @@ public class a<T> {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity<T> f15565b;
+    public BaseActivity<T> f15177b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.c.g.a f15566c;
+    public c.a.d.c.g.a f15178c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f15567d;
+    public CustomMessageListener f15179d;
 
     /* renamed from: c.a.t0.b1.d.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0959a extends c.a.d.c.g.a {
+    public class C0972a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0959a(a aVar, int i2, int i3) {
+        public C0972a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -133,18 +133,18 @@ public class a<T> {
                 return;
             }
         }
-        this.f15566c = new C0959a(this, CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
-        this.f15567d = new b(this, 2003007);
+        this.f15178c = new C0972a(this, CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
+        this.f15179d = new b(this, 2003007);
         this.a = cVar;
-        this.f15565b = baseActivity;
+        this.f15177b = baseActivity;
         b();
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f15565b.registerListener(this.f15567d);
-            this.f15565b.registerListener(this.f15566c);
+            this.f15177b.registerListener(this.f15179d);
+            this.f15177b.registerListener(this.f15178c);
         }
     }
 
@@ -153,7 +153,7 @@ public class a<T> {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
             getLevelInfoReadCacheRequestMessage.setCacheKey("" + i2);
-            this.f15565b.sendMessage(getLevelInfoReadCacheRequestMessage);
+            this.f15177b.sendMessage(getLevelInfoReadCacheRequestMessage);
         }
     }
 
@@ -162,7 +162,7 @@ public class a<T> {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
             getLevelInfoRequestMessage.setForumId(i2);
-            this.f15565b.sendMessage(getLevelInfoRequestMessage);
+            this.f15177b.sendMessage(getLevelInfoRequestMessage);
         }
     }
 }

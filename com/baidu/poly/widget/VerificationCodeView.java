@@ -30,25 +30,23 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f39120e;
+    public Context f37828e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f39121f;
+    public a f37829f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39122g;
+    public int f37830g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39123h;
+    public int f37831h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39124i;
+    public int f37832i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f39125j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f39126k;
+    public float f37833j;
+    public int k;
     public int l;
     public int m;
     public boolean n;
@@ -82,13 +80,13 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
                 return;
             }
         }
-        this.f39120e = context;
+        this.f37828e = context;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, k.PolyVerificationCodeView);
-        this.f39122g = obtainStyledAttributes.getInteger(k.PolyVerificationCodeView_vcv_et_number, 4);
-        this.f39123h = obtainStyledAttributes.getDimensionPixelSize(k.PolyVerificationCodeView_vcv_et_width, 105);
-        this.f39124i = obtainStyledAttributes.getColor(k.PolyVerificationCodeView_vcv_et_text_color, -16777216);
-        this.f39125j = obtainStyledAttributes.getDimensionPixelSize(k.PolyVerificationCodeView_vcv_et_text_size, 16);
-        this.f39126k = obtainStyledAttributes.getResourceId(k.PolyVerificationCodeView_vcv_et_bg, f.poly_sdk_verification_code_et_bg);
+        this.f37830g = obtainStyledAttributes.getInteger(k.PolyVerificationCodeView_vcv_et_number, 4);
+        this.f37831h = obtainStyledAttributes.getDimensionPixelSize(k.PolyVerificationCodeView_vcv_et_width, 105);
+        this.f37832i = obtainStyledAttributes.getColor(k.PolyVerificationCodeView_vcv_et_text_color, -16777216);
+        this.f37833j = obtainStyledAttributes.getDimensionPixelSize(k.PolyVerificationCodeView_vcv_et_text_size, 16);
+        this.k = obtainStyledAttributes.getResourceId(k.PolyVerificationCodeView_vcv_et_bg, f.poly_sdk_verification_code_et_bg);
         this.p = obtainStyledAttributes.getResourceId(k.PolyVerificationCodeView_vcv_et_cursor, f.poly_sdk_verification_code_cursor_bg);
         this.o = obtainStyledAttributes.getBoolean(k.PolyVerificationCodeView_vcv_et_cursor_visible, true);
         boolean hasValue = obtainStyledAttributes.hasValue(k.PolyVerificationCodeView_vcv_et_spacing);
@@ -105,7 +103,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < this.f39122g; i2++) {
+            for (int i2 = 0; i2 < this.f37830g; i2++) {
                 sb.append((CharSequence) ((EditText) getChildAt(i2)).getText());
             }
             return sb.toString();
@@ -116,7 +114,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (int i2 = this.f39122g - 1; i2 >= 0; i2--) {
+            for (int i2 = this.f37830g - 1; i2 >= 0; i2--) {
                 EditText editText = (EditText) getChildAt(i2);
                 if (editText.getText().length() >= 1) {
                     editText.setText("");
@@ -139,7 +137,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
             if (editable.length() != 0) {
                 b();
             }
-            a aVar = this.f39121f;
+            a aVar = this.f37829f;
             if (aVar != null) {
                 aVar.onTextChange(this, getResult());
                 boolean z = false;
@@ -156,7 +154,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
                     i2++;
                 }
                 if (z) {
-                    this.f39121f.onComplete(this, getResult());
+                    this.f37829f.onComplete(this, getResult());
                 }
             }
         }
@@ -202,15 +200,15 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
             editText.setId(i2);
             editText.setCursorVisible(false);
             editText.setMaxEms(1);
-            editText.setTextColor(this.f39124i);
-            editText.setTextSize(this.f39125j);
+            editText.setTextColor(this.f37832i);
+            editText.setTextSize(this.f37833j);
             editText.setCursorVisible(this.o);
             editText.setMaxLines(1);
             editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
             editText.setInputType(2);
             editText.setPadding(0, 0, 0, 0);
             editText.setOnKeyListener(this);
-            editText.setBackgroundResource(this.f39126k);
+            editText.setBackgroundResource(this.k);
             setEditTextCursorDrawable(editText);
             editText.addTextChangedListener(this);
             editText.setOnKeyListener(this);
@@ -222,8 +220,8 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            for (int i2 = 0; i2 < this.f39122g; i2++) {
-                EditText editText = new EditText(this.f39120e);
+            for (int i2 = 0; i2 < this.f37830g; i2++) {
+                EditText editText = new EditText(this.f37828e);
                 d(editText, i2);
                 addView(editText);
                 if (i2 == 0) {
@@ -236,7 +234,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (int i2 = 0; i2 < this.f39122g; i2++) {
+            for (int i2 = 0; i2 < this.f37830g; i2++) {
                 ((EditText) getChildAt(i2)).setLayoutParams(getETLayoutParams(i2));
             }
         }
@@ -246,12 +244,12 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            int i3 = this.f39123h;
+            int i3 = this.f37831h;
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i3, i3);
             if (!this.n) {
                 int i4 = this.q;
-                int i5 = this.f39122g;
-                int i6 = (i4 - (this.f39123h * i5)) / (i5 + 1);
+                int i5 = this.f37830g;
+                int i6 = (i4 - (this.f37831h * i5)) / (i5 + 1);
                 this.m = i6;
                 if (i2 == 0) {
                     layoutParams.leftMargin = i6;
@@ -278,7 +276,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
     public a getOnCodeFinishListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f39121f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37829f : (a) invokeV.objValue;
     }
 
     public int getmCursorDrawable() {
@@ -290,31 +288,31 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
     public int getmEtNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f39122g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f37830g : invokeV.intValue;
     }
 
     public int getmEtTextBg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f39126k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public int getmEtTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f39124i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f37832i : invokeV.intValue;
     }
 
     public float getmEtTextSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f39125j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f37833j : invokeV.floatValue;
     }
 
     public int getmEtWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f39123h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f37831h : invokeV.intValue;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -371,7 +369,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
     public void setEmpty() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            for (int i2 = this.f39122g - 1; i2 >= 0; i2--) {
+            for (int i2 = this.f37830g - 1; i2 >= 0; i2--) {
                 EditText editText = (EditText) getChildAt(i2);
                 editText.setText("");
                 if (i2 == 0) {
@@ -400,7 +398,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
     public void setOnCodeFinishListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, aVar) == null) {
-            this.f39121f = aVar;
+            this.f37829f = aVar;
         }
     }
 
@@ -414,35 +412,35 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
     public void setmEtNumber(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.f39122g = i2;
+            this.f37830g = i2;
         }
     }
 
     public void setmEtTextBg(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.f39126k = i2;
+            this.k = i2;
         }
     }
 
     public void setmEtTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.f39124i = i2;
+            this.f37832i = i2;
         }
     }
 
     public void setmEtTextSize(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048603, this, f2) == null) {
-            this.f39125j = f2;
+            this.f37833j = f2;
         }
     }
 
     public void setmEtWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.f39123h = i2;
+            this.f37831h = i2;
         }
     }
 

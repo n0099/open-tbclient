@@ -2,7 +2,6 @@ package com.google.zxing.oned.rss;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +52,7 @@ public final class RSS14Reader extends AbstractRSSReader {
         }
         OUTSIDE_EVEN_TOTAL_SUBSET = new int[]{1, 10, 34, 70, 126};
         INSIDE_ODD_TOTAL_SUBSET = new int[]{4, 20, 48, 81};
-        OUTSIDE_GSUM = new int[]{0, 161, 961, SpeedStatsStampTable.INIT_VERSION_STAMP_KEY, 2715};
+        OUTSIDE_GSUM = new int[]{0, 161, 961, 2015, 2715};
         INSIDE_GSUM = new int[]{0, 336, 1036, 1516};
         OUTSIDE_ODD_WIDEST = new int[]{8, 6, 4, 3, 1};
         INSIDE_ODD_WIDEST = new int[]{2, 4, 6, 8};

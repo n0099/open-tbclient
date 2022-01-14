@@ -25,7 +25,7 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f47664b;
+        public String f45891b;
 
         public a(SetPrivilegeHttpResponseMessage setPrivilegeHttpResponseMessage) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
                     return;
                 }
             }
-            this.f47664b = null;
+            this.f45891b = null;
         }
 
         public void a(JSONObject jSONObject) throws Exception {
@@ -52,11 +52,11 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
             }
             this.a = jSONObject.optInt("error_code");
             jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            this.f47664b = jSONObject.optString("field_text");
+            this.f45891b = jSONObject.optString("field_text");
             jSONObject.optString("left_button");
             jSONObject.optString("right_button");
             if (this.a == 0) {
-                StringUtils.isNull(this.f47664b);
+                StringUtils.isNull(this.f45891b);
             }
         }
     }

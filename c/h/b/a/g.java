@@ -16,16 +16,16 @@ public class g implements Printer {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f29405b;
+    public long f28511b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f29406c;
+    public long f28512c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f29407d;
+    public b f28513d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f29408e;
+    public final boolean f28514e;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -33,19 +33,19 @@ public class g implements Printer {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f29409e;
+        public final /* synthetic */ long f28515e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f29410f;
+        public final /* synthetic */ long f28516f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f29411g;
+        public final /* synthetic */ long f28517g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f29412h;
+        public final /* synthetic */ long f28518h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f29413i;
+        public final /* synthetic */ g f28519i;
 
         public a(g gVar, long j2, long j3, long j4, long j5) {
             Interceptable interceptable = $ic;
@@ -62,18 +62,18 @@ public class g implements Printer {
                     return;
                 }
             }
-            this.f29413i = gVar;
-            this.f29409e = j2;
-            this.f29410f = j3;
-            this.f29411g = j4;
-            this.f29412h = j5;
+            this.f28519i = gVar;
+            this.f28515e = j2;
+            this.f28516f = j3;
+            this.f28517g = j4;
+            this.f28518h = j5;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29413i.f29407d.a(this.f29409e, this.f29410f, this.f29411g, this.f29412h);
+                this.f28519i.f28513d.a(this.f28515e, this.f28516f, this.f28517g, this.f28518h);
             }
         }
     }
@@ -99,13 +99,13 @@ public class g implements Printer {
             }
         }
         this.a = 3000L;
-        this.f29405b = 0L;
-        this.f29406c = 0L;
-        this.f29407d = null;
+        this.f28511b = 0L;
+        this.f28512c = 0L;
+        this.f28513d = null;
         if (bVar != null) {
-            this.f29407d = bVar;
+            this.f28513d = bVar;
             this.a = j2;
-            this.f29408e = z;
+            this.f28514e = z;
             return;
         }
         throw new IllegalArgumentException("blockListener should not be null.");
@@ -114,24 +114,24 @@ public class g implements Printer {
     public final boolean b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 - this.f29405b > this.a : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 - this.f28511b > this.a : invokeJ.booleanValue;
     }
 
     public final void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            e.b().post(new a(this, this.f29405b, j2, this.f29406c, SystemClock.currentThreadTimeMillis()));
+            e.b().post(new a(this, this.f28511b, j2, this.f28512c, SystemClock.currentThreadTimeMillis()));
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (c.e().f29399b != null) {
-                c.e().f29399b.c();
+            if (c.e().f28505b != null) {
+                c.e().f28505b.c();
             }
-            if (c.e().f29400c != null) {
-                c.e().f29400c.c();
+            if (c.e().f28506c != null) {
+                c.e().f28506c.c();
             }
         }
     }
@@ -139,11 +139,11 @@ public class g implements Printer {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c.e().f29399b != null) {
-                c.e().f29399b.d();
+            if (c.e().f28505b != null) {
+                c.e().f28505b.d();
             }
-            if (c.e().f29400c != null) {
-                c.e().f29400c.d();
+            if (c.e().f28506c != null) {
+                c.e().f28506c.d();
             }
         }
     }
@@ -152,12 +152,12 @@ public class g implements Printer {
     public void println(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.f29408e && Debug.isDebuggerConnected()) {
+            if (this.f28514e && Debug.isDebuggerConnected()) {
                 return;
             }
             if (str.charAt(0) == '>') {
-                this.f29405b = System.currentTimeMillis();
-                this.f29406c = SystemClock.currentThreadTimeMillis();
+                this.f28511b = System.currentTimeMillis();
+                this.f28512c = SystemClock.currentThreadTimeMillis();
                 d();
                 return;
             }

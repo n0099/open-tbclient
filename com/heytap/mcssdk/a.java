@@ -10,19 +10,19 @@ public final class a {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f57108b = "com.heytap.mcssdk";
+    public static final String f54947b = "com.heytap.mcssdk";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f57109c = "release";
+    public static final String f54948c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f57110d = "";
+    public static final String f54949d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f57111e = 2002;
+    public static final int f54950e = 2002;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f57112f = "2.0.2";
+    public static final String f54951f = "2.0.2";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

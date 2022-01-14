@@ -65,13 +65,13 @@ public class e {
     public ConcurrentHashMap<PixelReadParams, PixelReadListener> at;
 
     /* renamed from: d  reason: collision with root package name */
-    public DefaultParams f33911d;
+    public DefaultParams f32832d;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.ar.lua.b f33912f;
+    public com.baidu.ar.lua.b f32833f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.baidu.ar.arrender.c f33913g;
+    public com.baidu.ar.arrender.c f32834g;
     public Context mContext;
 
     /* renamed from: com.baidu.ar.e$8  reason: invalid class name */
@@ -217,7 +217,7 @@ public class e {
         this.aq = false;
         this.ar = true;
         this.mContext = context;
-        this.f33911d = defaultParams;
+        this.f32832d = defaultParams;
         this.as = new a(this, handlerThread.getLooper());
         this.at = new ConcurrentHashMap<>();
     }
@@ -287,7 +287,7 @@ public class e {
                                         return;
                                     }
                                 case 8:
-                                    this.au.f33913g.bw();
+                                    this.au.f32834g.bw();
                                     if (this.au.as != null) {
                                         aVar = this.au.as;
                                         aVar2 = this.au.as;
@@ -328,7 +328,7 @@ public class e {
                 }
             };
             this.ac = cVar;
-            com.baidu.ar.lua.b bVar = this.f33912f;
+            com.baidu.ar.lua.b bVar = this.f32833f;
             if (bVar != null) {
                 bVar.c(cVar);
             }
@@ -382,11 +382,11 @@ public class e {
     public void G() {
         Bitmap createTipBitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f33913g == null || this.W == null || (createTipBitmap = ARAuth.createTipBitmap(this.mContext)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f32834g == null || this.W == null || (createTipBitmap = ARAuth.createTipBitmap(this.mContext)) == null) {
             return;
         }
         float outputWidth = ((this.W.getOutputWidth() * createTipBitmap.getHeight()) * 0.78125f) / (this.W.getOutputHeight() * createTipBitmap.getWidth());
-        this.f33913g.a(createTipBitmap, 0.109375f, (0.25f - outputWidth) / 2.0f, 0.78125f, outputWidth);
+        this.f32834g.a(createTipBitmap, 0.109375f, (0.25f - outputWidth) / 2.0f, 0.78125f, outputWidth);
     }
 
     private void H() {
@@ -416,7 +416,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             H();
-            com.baidu.ar.arrender.c cVar = this.f33913g;
+            com.baidu.ar.arrender.c cVar = this.f32834g;
             if (cVar != null) {
                 cVar.bB();
             }
@@ -449,7 +449,7 @@ public class e {
             if (bVar != null) {
                 bVar.e();
             }
-            com.baidu.ar.arrender.c cVar = this.f33913g;
+            com.baidu.ar.arrender.c cVar = this.f32834g;
             if (cVar != null) {
                 cVar.o(true);
             }
@@ -584,7 +584,7 @@ public class e {
             HashMap hashMap2 = new HashMap();
             hashMap2.put(str2, str3);
             hashMap.put("event_data", hashMap2);
-            com.baidu.ar.lua.b bVar = this.f33912f;
+            com.baidu.ar.lua.b bVar = this.f32833f;
             if (bVar != null) {
                 bVar.b(1902, hashMap);
             }
@@ -664,7 +664,7 @@ public class e {
                 StatisticApi.onEvent(StatisticConstants.EVENT_CASE_FIRST);
             }
             StatisticApi.onEventStart(StatisticConstants.EVENT_CASE_START);
-            if (this.f33913g != null && !TextUtils.isEmpty(str)) {
+            if (this.f32834g != null && !TextUtils.isEmpty(str)) {
                 String substring = str.substring(0, str.lastIndexOf(File.separator + "ar"));
                 this.ai = substring;
                 this.aj = str2;
@@ -672,12 +672,12 @@ public class e {
                 if (aVar != null) {
                     aVar.am(substring);
                 }
-                if (this.f33911d.isUseInputSizeInEngine() || aRType == ARType.FACE || aRType == ARType.VPAS) {
-                    this.f33913g.p(false);
+                if (this.f32832d.isUseInputSizeInEngine() || aRType == ARType.FACE || aRType == ARType.VPAS) {
+                    this.f32834g.p(false);
                 } else {
-                    this.f33913g.p(true);
+                    this.f32834g.p(true);
                 }
-                this.f33913g.L(str);
+                this.f32834g.L(str);
             }
             if (aRType == null || (bVar = this.ad) == null) {
                 return;
@@ -801,7 +801,7 @@ public class e {
             return;
         }
         for (Map.Entry<PixelReadParams, PixelReadListener> entry : this.at.entrySet()) {
-            this.f33913g.createPixelReader(entry.getKey(), entry.getValue());
+            this.f32834g.createPixelReader(entry.getKey(), entry.getValue());
         }
         this.at.clear();
     }
@@ -930,13 +930,13 @@ public class e {
             /* renamed from: b */
             public void run(JSONObject jSONObject) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) || this.au.f33913g == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) || this.au.f32834g == null) {
                     return;
                 }
                 if (jSONObject != null) {
-                    this.au.f33913g.a(jSONObject);
+                    this.au.f32834g.a(jSONObject);
                 } else if (this.av != null) {
-                    this.au.f33913g.setLocalDeviceGrade(this.av.ag());
+                    this.au.f32834g.setLocalDeviceGrade(this.av.ag());
                 }
             }
         });
@@ -954,10 +954,10 @@ public class e {
     public void a(com.baidu.ar.arrender.c cVar, b bVar, com.baidu.ar.filter.a aVar, com.baidu.ar.lua.b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, cVar, bVar, aVar, bVar2) == null) {
-            this.f33913g = cVar;
+            this.f32834g = cVar;
             this.ad = bVar;
             this.B = aVar;
-            this.f33912f = bVar2;
+            this.f32833f = bVar2;
         }
     }
 
@@ -1053,16 +1053,16 @@ public class e {
                 concurrentHashMap.clear();
                 this.at = null;
             }
-            this.f33913g = null;
+            this.f32834g = null;
             this.ad = null;
             this.B = null;
             this.V = null;
             this.W = null;
             this.mContext = null;
-            this.f33911d = null;
+            this.f32832d = null;
             this.ab = null;
             this.ac = null;
-            this.f33912f = null;
+            this.f32833f = null;
             this.as = null;
         }
     }

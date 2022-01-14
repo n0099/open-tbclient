@@ -35,34 +35,32 @@ public class a implements b<String, String> {
     public static final String a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34849b = "Accept";
+    public static final String f33726b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34850c = "Accept-Charset";
+    public static final String f33727c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34851d = "Accept-Encoding";
+    public static final String f33728d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34852e = "Accept-Language";
+    public static final String f33729e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34853f = "Allow";
+    public static final String f33730f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34854g = "Cache-Control";
+    public static final String f33731g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34855h = "Content-Disposition";
+    public static final String f33732h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34856i = "Content-Encoding";
+    public static final String f33733i = "Content-Encoding";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34857j = "Content-Length";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final String f34858k = "Content-Type";
+    public static final String f33734j = "Content-Length";
+    public static final String k = "Content-Type";
     public static final String l = "Date";
     public static final String m = "ETag";
     public static final String n = "Expires";

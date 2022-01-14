@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.d1.q2.l a;
+    public c.a.t0.d1.r2.l a;
 
-    public p(TbPageContext tbPageContext, c.a.t0.d1.q2.l lVar) {
+    public p(TbPageContext tbPageContext, c.a.t0.d1.r2.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,7 +31,7 @@ public class p {
     }
 
     public void a(c.a.t0.h.d dVar) {
-        c.a.t0.d1.q2.l lVar;
+        c.a.t0.d1.r2.l lVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || (lVar = this.a) == null || lVar.getModelController() == null || this.a.getModelController().d0() == null || this.a.getFrsView() == null || dVar == null || this.a.getFrsView().a0() == null || this.a.getHeaderVC() == null) {
             return;

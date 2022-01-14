@@ -17,17 +17,17 @@ public class a extends b {
 
     /* renamed from: c.a.r0.a.y0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0616a implements Runnable {
+    public class RunnableC0625a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f9847e;
+        public final /* synthetic */ List f9633e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.y0.j.b f9848f;
+        public final /* synthetic */ c.a.r0.a.y0.j.b f9634f;
 
-        public RunnableC0616a(a aVar, List list, c.a.r0.a.y0.j.b bVar) {
+        public RunnableC0625a(a aVar, List list, c.a.r0.a.y0.j.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,16 +42,16 @@ public class a extends b {
                     return;
                 }
             }
-            this.f9847e = list;
-            this.f9848f = bVar;
+            this.f9633e = list;
+            this.f9634f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (String str : this.f9847e) {
-                    this.f9848f.c(str);
+                for (String str : this.f9633e) {
+                    this.f9634f.c(str);
                 }
             }
         }
@@ -83,7 +83,7 @@ public class a extends b {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, bVar, list)) == null) {
-            q0.a0(new RunnableC0616a(this, list, bVar));
+            q0.a0(new RunnableC0625a(this, list, bVar));
             return true;
         }
         return invokeLLL.booleanValue;

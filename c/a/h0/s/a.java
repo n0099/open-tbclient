@@ -13,10 +13,10 @@ public class a {
     public c.a.h0.l.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bundle f3681b;
+    public Bundle f3627b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayChannelEntity f3682c;
+    public PayChannelEntity f3628c;
 
     public a(c.a.h0.l.c cVar, Bundle bundle, PayChannelEntity payChannelEntity) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a {
             }
         }
         this.a = cVar;
-        this.f3681b = bundle;
-        this.f3682c = payChannelEntity;
+        this.f3627b = bundle;
+        this.f3628c = payChannelEntity;
     }
 }

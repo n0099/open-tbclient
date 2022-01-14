@@ -12,13 +12,13 @@ public final class a {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10173b;
+    public static final String f9949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f10174c;
+    public static final String f9950c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f10175d;
+    public static final String f9951d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,10 +35,10 @@ public final class a {
             }
         }
         a = a("b3Bwbw==");
-        f10173b = a("T1BQTw==");
+        f9949b = a("T1BQTw==");
         a("T3Bwbw==");
-        f10174c = a("cm8uYnVpbGQudmVyc2lvbi5vcHBvcm9t");
-        f10175d = a("Y29tLm9wcG8uZmVhdHVyZS5zY3JlZW4uaGV0ZXJvbW9ycGhpc20=");
+        f9950c = a("cm8uYnVpbGQudmVyc2lvbi5vcHBvcm9t");
+        f9951d = a("Y29tLm9wcG8uZmVhdHVyZS5zY3JlZW4uaGV0ZXJvbW9ycGhpc20=");
     }
 
     public static String a(String str) {

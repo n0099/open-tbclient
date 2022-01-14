@@ -40,21 +40,21 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f12691f;
+    public static boolean f12392f;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<WeakReference<Activity>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<WeakReference<Activity>> f12692b;
+    public ArrayList<WeakReference<Activity>> f12393b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12693c;
+    public int f12394c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final CustomMessageListener f12694d;
+    public final CustomMessageListener f12395d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.s0.n.g f12695e;
+    public final c.a.s0.n.g f12396e;
 
     /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
@@ -88,9 +88,9 @@ public class j {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int skinType;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && this.a.f12693c != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
-                this.a.f12693c = skinType;
-                if (j.f12691f) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && this.a.f12394c != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+                this.a.f12394c = skinType;
+                if (j.f12392f) {
                     this.a.s();
                 }
             }
@@ -103,7 +103,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f12696e;
+        public final /* synthetic */ j f12397e;
 
         public b(j jVar) {
             Interceptable interceptable = $ic;
@@ -120,14 +120,14 @@ public class j {
                     return;
                 }
             }
-            this.f12696e = jVar;
+            this.f12397e = jVar;
         }
 
         @Override // c.a.s0.n.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-                this.f12696e.f12692b.add(new WeakReference(activity));
+                this.f12397e.f12393b.add(new WeakReference(activity));
             }
         }
 
@@ -135,11 +135,11 @@ public class j {
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                Iterator it = this.f12696e.f12692b.iterator();
+                Iterator it = this.f12397e.f12393b.iterator();
                 while (it.hasNext()) {
                     WeakReference weakReference = (WeakReference) it.next();
                     if (weakReference.get() != null && weakReference.get() == activity) {
-                        this.f12696e.f12692b.remove(weakReference);
+                        this.f12397e.f12393b.remove(weakReference);
                         return;
                     }
                 }
@@ -149,10 +149,10 @@ public class j {
         @Override // c.a.s0.n.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && j.f12691f) {
-                j jVar = this.f12696e;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && j.f12392f) {
+                j jVar = this.f12397e;
                 if (jVar.j(jVar.l(activity))) {
-                    this.f12696e.a.add(new WeakReference(activity));
+                    this.f12397e.a.add(new WeakReference(activity));
                 }
             }
         }
@@ -160,14 +160,14 @@ public class j {
         @Override // c.a.s0.n.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStopped(Activity activity) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && j.f12691f) {
-                j jVar = this.f12696e;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && j.f12392f) {
+                j jVar = this.f12397e;
                 if (jVar.u(jVar.l(activity))) {
-                    Iterator it = this.f12696e.a.iterator();
+                    Iterator it = this.f12397e.a.iterator();
                     while (it.hasNext()) {
                         WeakReference weakReference = (WeakReference) it.next();
                         if (activity != null && activity == weakReference.get()) {
-                            this.f12696e.a.remove(weakReference);
+                            this.f12397e.a.remove(weakReference);
                             return;
                         }
                     }
@@ -182,7 +182,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f12697e;
+        public final /* synthetic */ j f12398e;
 
         public c(j jVar) {
             Interceptable interceptable = $ic;
@@ -199,16 +199,16 @@ public class j {
                     return;
                 }
             }
-            this.f12697e = jVar;
+            this.f12398e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f12697e.r(view.getContext());
-                this.f12697e.v(false);
-                this.f12697e.k();
+                this.f12398e.r(view.getContext());
+                this.f12398e.v(false);
+                this.f12398e.k();
             }
         }
     }
@@ -308,7 +308,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             BackBaiduBoxViewEvent backBaiduBoxViewEvent = new BackBaiduBoxViewEvent();
-            backBaiduBoxViewEvent.isShow = f12691f;
+            backBaiduBoxViewEvent.isShow = f12392f;
             c.a.s0.k0.h.i(backBaiduBoxViewEvent);
         }
     }
@@ -337,7 +337,7 @@ public class j {
     public void n(boolean z) {
         FrameLayout l;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && f12691f && (l = l(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && f12392f && (l = l(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
             try {
                 Object tag = l.getTag(R.id.tag_scheme_baidu_box_app_back_view);
                 if (tag instanceof ViewGroup) {
@@ -444,7 +444,7 @@ public class j {
             return;
         }
         try {
-            application.registerActivityLifecycleCallbacks(this.f12695e);
+            application.registerActivityLifecycleCallbacks(this.f12396e);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -474,12 +474,12 @@ public class j {
 
     public void v(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || f12691f == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || f12392f == z) {
             return;
         }
-        f12691f = z;
+        f12392f = z;
         if (z) {
-            Iterator<WeakReference<Activity>> it = this.f12692b.iterator();
+            Iterator<WeakReference<Activity>> it = this.f12393b.iterator();
             while (it.hasNext()) {
                 WeakReference<Activity> next = it.next();
                 if (next.get() != null && !next.get().isFinishing()) {
@@ -491,7 +491,7 @@ public class j {
             }
             return;
         }
-        Iterator<WeakReference<Activity>> it2 = this.f12692b.iterator();
+        Iterator<WeakReference<Activity>> it2 = this.f12393b.iterator();
         while (it2.hasNext()) {
             WeakReference<Activity> next2 = it2.next();
             if (next2.get() != null && !next2.get().isFinishing()) {
@@ -504,7 +504,7 @@ public class j {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            c.a.d.f.p.n.L(TbadkCoreApplication.getInst(), R.string.not_install_baidu_box_app_tip);
+            c.a.d.f.p.n.M(TbadkCoreApplication.getInst(), R.string.not_install_baidu_box_app_tip);
         }
     }
 
@@ -522,10 +522,10 @@ public class j {
             }
         }
         this.a = new ArrayList<>();
-        this.f12692b = new ArrayList<>();
-        this.f12693c = TbadkCoreApplication.getInst().getSkinType();
-        this.f12694d = new a(this, 2001304);
-        this.f12695e = new b(this);
-        MessageManager.getInstance().registerListener(this.f12694d);
+        this.f12393b = new ArrayList<>();
+        this.f12394c = TbadkCoreApplication.getInst().getSkinType();
+        this.f12395d = new a(this, 2001304);
+        this.f12396e = new b(this);
+        MessageManager.getInstance().registerListener(this.f12395d);
     }
 }

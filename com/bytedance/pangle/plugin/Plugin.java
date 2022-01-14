@@ -258,7 +258,7 @@ public class Plugin {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Plugin f55189b;
+                public final /* synthetic */ Plugin f53092b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -275,7 +275,7 @@ public class Plugin {
                             return;
                         }
                     }
-                    this.f55189b = this;
+                    this.f53092b = this;
                     this.a = r7;
                 }
 
@@ -288,7 +288,7 @@ public class Plugin {
                             e.a(file.getAbsolutePath());
                             ZeusLogger.w(ZeusLogger.TAG_INIT, "Plugin deleteOtherExpired " + file.getAbsolutePath());
                             if (file.getName().matches("^version-(\\d+)$")) {
-                                j.a().a(this.f55189b.mPkgName, Integer.parseInt(file.getName().split("-")[1]), false);
+                                j.a().a(this.f53092b.mPkgName, Integer.parseInt(file.getName().split("-")[1]), false);
                             }
                         }
                         return false;
@@ -360,10 +360,10 @@ public class Plugin {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f55190b;
+                public final /* synthetic */ boolean f53093b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ Plugin f55191c;
+                public final /* synthetic */ Plugin f53094c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -380,20 +380,20 @@ public class Plugin {
                             return;
                         }
                     }
-                    this.f55191c = this;
+                    this.f53094c = this;
                     this.a = str;
-                    this.f55190b = z;
+                    this.f53093b = z;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     List<ZeusPluginStateListener> list;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (list = g.a().f55179c) == null || list.size() <= 0) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (list = g.a().f53082c) == null || list.size() <= 0) {
                         return;
                     }
                     for (ZeusPluginStateListener zeusPluginStateListener : list) {
-                        zeusPluginStateListener.onPluginInstallResult(this.a, this.f55190b);
+                        zeusPluginStateListener.onPluginInstallResult(this.a, this.f53093b);
                     }
                 }
             });
@@ -505,7 +505,7 @@ public class Plugin {
                 }
                 deleteIfNeeded();
                 int installedMaxVer = getInstalledMaxVer();
-                if (checkVersionValid(installedMaxVer, this.mApiVersionCode, g.a().f55178b.getHostVersionCode(), z)) {
+                if (checkVersionValid(installedMaxVer, this.mApiVersionCode, g.a().f53081b.getHostVersionCode(), z)) {
                     updateToInstalled(installedMaxVer);
                     i2 = installedMaxVer;
                 }
@@ -548,7 +548,7 @@ public class Plugin {
             try {
                 ZeusLogger.i(ZeusLogger.TAG_INSTALL, "Plugin install from local file " + file + StringUtil.ARRAY_ELEMENT_SEPARATOR + Thread.currentThread().getName());
                 String str = eVar.a;
-                int i2 = eVar.f55152b;
+                int i2 = eVar.f53055b;
                 synchronized (this.installLock) {
                     ZeusLogger.i(ZeusLogger.TAG_INSTALL, "Plugin synchronized begin, plugin=".concat(String.valueOf(this)));
                     boolean checkValid = checkValid(file, str, i2);

@@ -16,13 +16,13 @@ public class d {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14315b;
+    public int f13985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14316c;
+    public int f13986c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f14317d;
+    public int[] f13987d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class d {
     public int[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14317d : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13987d : (int[]) invokeV.objValue;
     }
 
     public int b() {
@@ -53,13 +53,13 @@ public class d {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14315b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13985b : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14316c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13986c : invokeV.intValue;
     }
 
     public void e(String str) {
@@ -79,16 +79,16 @@ public class d {
             return;
         }
         this.a = jSONObject.optInt("conn_conf");
-        this.f14315b = jSONObject.optInt("continuous_fail_count");
-        this.f14316c = jSONObject.optInt("restart_time_interval");
+        this.f13985b = jSONObject.optInt("continuous_fail_count");
+        this.f13986c = jSONObject.optInt("restart_time_interval");
         JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
         if (optJSONArray != null) {
-            this.f14317d = new int[optJSONArray.length()];
+            this.f13987d = new int[optJSONArray.length()];
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                this.f14317d[i2] = optJSONArray.optInt(i2);
+                this.f13987d[i2] = optJSONArray.optInt(i2);
             }
             return;
         }
-        this.f14317d = new int[0];
+        this.f13987d = new int[0];
     }
 }

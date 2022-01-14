@@ -20,11 +20,11 @@ public class a {
 
     /* renamed from: c.a.t0.k1.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class RunnableC1148a implements Runnable {
+    public static class RunnableC1162a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC1148a() {
+        public RunnableC1162a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             if (!n.B()) {
-                TbadkCoreApplication.getInst().handler.post(new RunnableC1148a());
+                TbadkCoreApplication.getInst().handler.post(new RunnableC1162a());
             } else {
                 e();
             }

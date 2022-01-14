@@ -15,7 +15,7 @@ public class g extends d.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ o f29068f;
+    public final /* synthetic */ o f28179f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(d dVar, TTSplashAd tTSplashAd, String str, o oVar) {
@@ -36,7 +36,7 @@ public class g extends d.b {
                 return;
             }
         }
-        this.f29068f = oVar;
+        this.f28179f = oVar;
     }
 
     @Override // c.g.b0.a.d.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
@@ -44,9 +44,9 @@ public class g extends d.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
             super.onAdClicked(view, i2);
-            o oVar = this.f29068f;
-            String str = this.f29059b;
-            FunSplashAdInteractionListener funSplashAdInteractionListener = oVar.f29098j;
+            o oVar = this.f28179f;
+            String str = this.f28170b;
+            FunSplashAdInteractionListener funSplashAdInteractionListener = oVar.f28209j;
             if (funSplashAdInteractionListener != null) {
                 funSplashAdInteractionListener.onAdClicked(str);
             }
@@ -58,9 +58,9 @@ public class g extends d.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
             super.onAdShow(view, i2);
-            o oVar = this.f29068f;
-            oVar.f29095g = oVar.f29090b.getWidth();
-            oVar.f29096h = oVar.f29090b.getHeight();
+            o oVar = this.f28179f;
+            oVar.f28206g = oVar.f28201b.getWidth();
+            oVar.f28207h = oVar.f28201b.getHeight();
         }
     }
 }

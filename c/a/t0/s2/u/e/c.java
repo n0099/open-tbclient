@@ -19,24 +19,24 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f23235g;
+    public static final int f22593g;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23236b;
+    public boolean f22594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.t0.s2.u.e.a f23237c;
+    public final c.a.t0.s2.u.e.a f22595c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.t0.q0.b f23238d;
+    public final c.a.t0.q0.b f22596d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a.b f23239e;
+    public a.b f22597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnTouchListener f23240f;
+    public View.OnTouchListener f22598f;
 
     /* loaded from: classes8.dex */
     public class a implements a.b {
@@ -46,14 +46,14 @@ public class c {
 
         /* renamed from: c.a.t0.s2.u.e.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC1379a implements Runnable {
+        public class RunnableC1394a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f23241e;
+            public final /* synthetic */ a f22599e;
 
-            public RunnableC1379a(a aVar) {
+            public RunnableC1394a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,14 +68,14 @@ public class c {
                         return;
                     }
                 }
-                this.f23241e = aVar;
+                this.f22599e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f23241e.a.g(false);
+                    this.f22599e.a.g(false);
                 }
             }
         }
@@ -86,7 +86,7 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f23242e;
+            public final /* synthetic */ a f22600e;
 
             public b(a aVar) {
                 Interceptable interceptable = $ic;
@@ -103,14 +103,14 @@ public class c {
                         return;
                     }
                 }
-                this.f23242e = aVar;
+                this.f22600e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f23242e.a.g(false);
+                    this.f22600e.a.g(false);
                 }
             }
         }
@@ -136,19 +136,19 @@ public class c {
         @Override // c.a.t0.q0.a.b
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || !this.a.f23237c.l() || this.a.e() || this.a.f()) {
+            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || !this.a.f22595c.l() || this.a.e() || this.a.f()) {
                 return;
             }
             this.a.g(true);
             this.a.h(true);
-            this.a.f23237c.k().t(new RunnableC1379a(this));
+            this.a.f22595c.k().t(new RunnableC1394a(this));
         }
 
         @Override // c.a.t0.q0.a.b
         public void b(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) && this.a.f23237c.l() && !this.a.e() && this.a.f23237c.k().h() && Math.abs(i3) > c.f23235g) {
-                this.a.f23237c.i(new b(this));
+            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) && this.a.f22595c.l() && !this.a.e() && this.a.f22595c.k().h() && Math.abs(i3) > c.f22593g) {
+                this.a.f22595c.i(new b(this));
                 this.a.g(true);
                 this.a.h(false);
             }
@@ -175,7 +175,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f23243e;
+        public final /* synthetic */ c f22601e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public class c {
                     return;
                 }
             }
-            this.f23243e = cVar;
+            this.f22601e = cVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -200,7 +200,7 @@ public class c {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                this.f23243e.f23238d.c(motionEvent);
+                this.f22601e.f22596d.c(motionEvent);
                 return false;
             }
             return invokeLL.booleanValue;
@@ -220,7 +220,7 @@ public class c {
                 return;
             }
         }
-        f23235g = n.f(TbadkCoreApplication.getInst(), g.ds20);
+        f22593g = n.f(TbadkCoreApplication.getInst(), g.ds20);
     }
 
     public c(c.a.t0.s2.u.e.a aVar) {
@@ -238,20 +238,20 @@ public class c {
                 return;
             }
         }
-        this.f23239e = new a(this);
-        this.f23240f = new b(this);
-        this.f23237c = aVar;
-        c.a.t0.q0.b bVar = new c.a.t0.q0.b(aVar.f23220f.getPageContext().getPageActivity());
-        this.f23238d = bVar;
-        bVar.d(this.f23239e);
+        this.f22597e = new a(this);
+        this.f22598f = new b(this);
+        this.f22595c = aVar;
+        c.a.t0.q0.b bVar = new c.a.t0.q0.b(aVar.f22579f.getPageContext().getPageActivity());
+        this.f22596d = bVar;
+        bVar.d(this.f22597e);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d k2 = this.f23237c.k();
-            if (k2.m()) {
-                k2.e().setOnTouchListener(this.f23240f);
+            d k = this.f22595c.k();
+            if (k.m()) {
+                k.e().setOnTouchListener(this.f22598f);
             }
         }
     }
@@ -265,7 +265,7 @@ public class c {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23236b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22594b : invokeV.booleanValue;
     }
 
     public void g(boolean z) {
@@ -278,7 +278,7 @@ public class c {
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f23236b = z;
+            this.f22594b = z;
         }
     }
 }

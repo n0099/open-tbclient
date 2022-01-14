@@ -17,7 +17,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4773b;
+    public static String f4670b;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -56,8 +56,8 @@ public class e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String str3 = c.a.p0.a.f4641b;
-            String str4 = c.a.p0.a.f4642c;
+            String str3 = c.a.p0.a.f4539b;
+            String str4 = c.a.p0.a.f4540c;
             String str5 = "";
             if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
                 return "";
@@ -104,7 +104,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                f4773b = new String(c.a.p0.l.e.e(Base64.decode(this.a, 0), "30212102dicudiab".getBytes("utf-8")));
+                f4670b = new String(c.a.p0.l.e.e(Base64.decode(this.a, 0), "30212102dicudiab".getBytes("utf-8")));
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
             }
@@ -131,10 +131,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (TextUtils.isEmpty(f4773b)) {
+            if (TextUtils.isEmpty(f4670b)) {
                 d();
             }
-            return f4773b;
+            return f4670b;
         }
         return (String) invokeV.objValue;
     }

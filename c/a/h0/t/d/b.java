@@ -26,19 +26,19 @@ public class b {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3758b;
+    public static String f3704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3759c;
+    public static String f3705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Bundle f3760d;
+    public static Bundle f3706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f3761e;
+    public static long f3707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f3762f;
+    public static String f3708f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -86,8 +86,8 @@ public class b {
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
                     if (optInt == 0 && optJSONObject != null) {
                         String unused = b.a = optJSONObject.optString("orderId");
-                        String unused2 = b.f3758b = optJSONObject.optString("smsId");
-                        b.f3759c = optJSONObject.optString("mobile");
+                        String unused2 = b.f3704b = optJSONObject.optString("smsId");
+                        b.f3705c = optJSONObject.optString("mobile");
                         this.a.c(optJSONObject);
                         return;
                     }
@@ -102,12 +102,12 @@ public class b {
 
     /* renamed from: c.a.h0.t.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0146b extends c.a.h0.l.a<String> {
+    public static class C0154b extends c.a.h0.l.a<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.h0.l.a a;
 
-        public C0146b(c.a.h0.l.a aVar) {
+        public C0154b(c.a.h0.l.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -228,9 +228,9 @@ public class b {
     public static void e(Bundle bundle, String str, String str2, long j2, c.a.h0.l.a<JSONObject> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bundle, str, str2, Long.valueOf(j2), aVar}) == null) {
-            f3760d = bundle;
-            f3761e = j2;
-            f3762f = str2;
+            f3706d = bundle;
+            f3707e = j2;
+            f3708f = str2;
             c.a.h0.l.c cVar = new c.a.h0.l.c();
             c.a.h0.l.h.c.d(cVar);
             f(bundle, cVar);
@@ -269,10 +269,10 @@ public class b {
         if (interceptable == null || interceptable.invokeLL(65543, null, str, aVar) == null) {
             c.a.h0.l.c cVar = new c.a.h0.l.c();
             c.a.h0.l.h.c.d(cVar);
-            f(f3760d, cVar);
+            f(f3706d, cVar);
             c.a.h0.l.b bVar = new c.a.h0.l.b();
-            bVar.d("token", d("orderId=" + a + "&payChannel=" + f3762f + "&smsId=" + f3758b + "&timestamp=" + f3761e + "&verifyCode=" + str));
-            new g().a(d.g(), cVar, bVar, new C0146b(aVar));
+            bVar.d("token", d("orderId=" + a + "&payChannel=" + f3708f + "&smsId=" + f3704b + "&timestamp=" + f3707e + "&verifyCode=" + str));
+            new g().a(d.g(), cVar, bVar, new C0154b(aVar));
         }
     }
 

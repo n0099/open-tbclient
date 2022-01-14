@@ -45,19 +45,19 @@ public class b implements QRCodeView.c {
     public final c.a.t0.g3.a.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final TbPageContext f18367b;
+    public final TbPageContext f17916b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f18368c;
+    public f f17917c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.e4.c f18369d;
+    public c.a.t0.e4.c f17918d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f18370e;
+    public e f17919e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f18371f;
+    public boolean f17920f;
 
     /* loaded from: classes7.dex */
     public class a implements c.a {
@@ -66,7 +66,7 @@ public class b implements QRCodeView.c {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f18372b;
+        public final /* synthetic */ b f17921b;
 
         public a(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class b implements QRCodeView.c {
                     return;
                 }
             }
-            this.f18372b = bVar;
+            this.f17921b = bVar;
             this.a = str;
         }
 
@@ -91,8 +91,8 @@ public class b implements QRCodeView.c {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18372b.a.viewHideLoading();
-                this.f18372b.a.showRiskForbidDialog();
+                this.f17921b.a.viewHideLoading();
+                this.f17921b.a.showRiskForbidDialog();
             }
         }
 
@@ -100,8 +100,8 @@ public class b implements QRCodeView.c {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f18372b.a.viewHideLoading();
-                this.f18372b.a.showJumpExternalDialog(this.a);
+                this.f17921b.a.viewHideLoading();
+                this.f17921b.a.showJumpExternalDialog(this.a);
             }
         }
 
@@ -109,8 +109,8 @@ public class b implements QRCodeView.c {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f18372b.a.viewHideLoading();
-                this.f18372b.j(this.a);
+                this.f17921b.a.viewHideLoading();
+                this.f17921b.j(this.a);
             }
         }
 
@@ -118,20 +118,20 @@ public class b implements QRCodeView.c {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f18372b.a.viewHideLoading();
-                this.f18372b.a.setErrorView();
+                this.f17921b.a.viewHideLoading();
+                this.f17921b.a.setErrorView();
             }
         }
     }
 
     /* renamed from: c.a.t0.g3.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1104b implements e.a {
+    public class C1118b implements e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C1104b(b bVar) {
+        public C1118b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,7 +155,7 @@ public class b implements QRCodeView.c {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            c.a.s0.s.g0.b.j().x("key_gallery_last_image_path", str);
+            c.a.s0.s.h0.b.k().y("key_gallery_last_image_path", str);
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
@@ -170,7 +170,7 @@ public class b implements QRCodeView.c {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f18373b;
+        public final /* synthetic */ b f17922b;
 
         public c(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class b implements QRCodeView.c {
                     return;
                 }
             }
-            this.f18373b = bVar;
+            this.f17922b = bVar;
             this.a = str;
         }
 
@@ -197,7 +197,7 @@ public class b implements QRCodeView.c {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921361, URLDecoder.decode(this.a, "UTF-8")));
-                    this.f18373b.f18367b.getPageActivity().finish();
+                    this.f17922b.f17916b.getPageActivity().finish();
                 } catch (UnsupportedEncodingException unused) {
                 }
             }
@@ -273,7 +273,7 @@ public class b implements QRCodeView.c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a f18374b;
+        public a f17923b;
 
         /* loaded from: classes7.dex */
         public interface a {
@@ -295,7 +295,7 @@ public class b implements QRCodeView.c {
                     return;
                 }
             }
-            this.f18374b = aVar;
+            this.f17923b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -320,7 +320,7 @@ public class b implements QRCodeView.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((e) str);
-                a aVar = this.f18374b;
+                a aVar = this.f17923b;
                 if (aVar != null) {
                     aVar.a(this.a, str);
                 }
@@ -407,15 +407,15 @@ public class b implements QRCodeView.c {
             }
         }
         this.a = aVar;
-        this.f18367b = tbPageContext;
+        this.f17916b = tbPageContext;
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.c
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            n.L(this.f18367b.getPageActivity(), R.string.disallow_camera_permission);
-            this.f18367b.getPageActivity().finish();
+            n.M(this.f17916b.getPageActivity(), R.string.disallow_camera_permission);
+            this.f17916b.getPageActivity().finish();
         }
     }
 
@@ -426,11 +426,11 @@ public class b implements QRCodeView.c {
             if (StringUtils.isNull(str)) {
                 this.a.viewHideLoading();
                 this.a.setErrorView();
-            } else if (this.f18371f) {
+            } else if (this.f17920f) {
                 Intent intent = new Intent();
                 intent.putExtra(QRCodeScanActivityConfig.RESULT_SCAN_CODE, str);
-                this.f18367b.getPageActivity().setResult(-1, intent);
-                this.f18367b.getPageActivity().finish();
+                this.f17916b.getPageActivity().setResult(-1, intent);
+                this.f17916b.getPageActivity().finish();
             } else if (k(str)) {
                 this.a.viewHideLoading();
             } else if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
@@ -438,7 +438,7 @@ public class b implements QRCodeView.c {
                 i(str);
             } else if (l(str)) {
                 this.a.viewHideLoading();
-                this.f18367b.getPageActivity().finish();
+                this.f17916b.getPageActivity().finish();
             } else if (!StringHelper.isNetworkUrl(str)) {
                 this.a.viewHideLoading();
                 this.a.setErrorView();
@@ -519,20 +519,20 @@ public class b implements QRCodeView.c {
     public void g() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = this.f18367b) == null || tbPageContext.getPageActivity() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = this.f17916b) == null || tbPageContext.getPageActivity() == null) {
             return;
         }
-        if (Build.VERSION.SDK_INT < 23 || (this.f18367b.getPageActivity().checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0 && this.f18367b.getPageActivity().checkSelfPermission(s.f57425i) == 0)) {
-            String f2 = f(this.f18367b.getPageActivity().getContentResolver());
-            if (TextUtils.isEmpty(f2) || f2.endsWith(".gif") || f2.endsWith(".GIF") || f2.equals(c.a.s0.s.g0.b.j().p("key_gallery_last_image_path", null))) {
+        if (Build.VERSION.SDK_INT < 23 || (this.f17916b.getPageActivity().checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0 && this.f17916b.getPageActivity().checkSelfPermission(s.f55248i) == 0)) {
+            String f2 = f(this.f17916b.getPageActivity().getContentResolver());
+            if (TextUtils.isEmpty(f2) || f2.endsWith(".gif") || f2.endsWith(".GIF") || f2.equals(c.a.s0.s.h0.b.k().q("key_gallery_last_image_path", null))) {
                 return;
             }
-            e eVar = this.f18370e;
+            e eVar = this.f17919e;
             if (eVar != null) {
                 eVar.cancel();
             }
-            e eVar2 = new e(new C1104b(this));
-            this.f18370e = eVar2;
+            e eVar2 = new e(new C1118b(this));
+            this.f17919e = eVar2;
             eVar2.execute(f2);
         }
     }
@@ -540,19 +540,19 @@ public class b implements QRCodeView.c {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.t0.e4.c cVar = this.f18369d;
+            c.a.t0.e4.c cVar = this.f17918d;
             if (cVar != null && !cVar.isCancelled()) {
-                this.f18369d.cancel();
+                this.f17918d.cancel();
             }
-            f fVar = this.f18368c;
+            f fVar = this.f17917c;
             if (fVar != null) {
                 fVar.cancel();
-                this.f18368c = null;
+                this.f17917c = null;
             }
-            e eVar = this.f18370e;
+            e eVar = this.f17919e;
             if (eVar != null) {
                 eVar.cancel();
-                this.f18370e = null;
+                this.f17919e = null;
             }
         }
     }
@@ -560,21 +560,21 @@ public class b implements QRCodeView.c {
     public final void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            CookieSyncManager.createInstance(this.f18367b.getPageActivity());
+            CookieSyncManager.createInstance(this.f17916b.getPageActivity());
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
             cookieManager.setCookie("feedavatar.baidu.com", "cuid=" + TbadkCoreApplication.getInst().getCuid() + ";");
             cookieManager.setCookie("feedavatar.baidu.com", "tiebaapp=1;");
             CookieSyncManager.getInstance().sync();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f18367b.getPageActivity(), null, str, false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f17916b.getPageActivity(), null, str, false)));
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            UrlManager.getInstance().dealOneLink(this.f18367b, new String[]{str});
-            this.f18367b.getPageActivity().finish();
+            UrlManager.getInstance().dealOneLink(this.f17916b, new String[]{str});
+            this.f17916b.getPageActivity().finish();
         }
     }
 
@@ -613,17 +613,17 @@ public class b implements QRCodeView.c {
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             if (!n.C()) {
                 this.a.viewHideLoading();
-                n.M(this.f18367b.getPageActivity(), this.f18367b.getResources().getString(R.string.network_not_available));
+                n.N(this.f17916b.getPageActivity(), this.f17916b.getResources().getString(R.string.network_not_available));
                 return;
             }
-            c.a.t0.e4.c cVar = this.f18369d;
+            c.a.t0.e4.c cVar = this.f17918d;
             if (cVar != null && !cVar.isCancelled()) {
-                this.f18369d.cancel();
+                this.f17918d.cancel();
             }
             c.a.t0.e4.c cVar2 = new c.a.t0.e4.c(str, new a(this, str));
-            this.f18369d = cVar2;
+            this.f17918d = cVar2;
             cVar2.setPriority(3);
-            this.f18369d.execute(new String[0]);
+            this.f17918d.execute(new String[0]);
         }
     }
 
@@ -633,19 +633,19 @@ public class b implements QRCodeView.c {
             return;
         }
         this.a.viewShowLoading();
-        f fVar = this.f18368c;
+        f fVar = this.f17917c;
         if (fVar != null) {
             fVar.cancel();
         }
         f fVar2 = new f(this, null);
-        this.f18368c = fVar2;
+        this.f17917c = fVar2;
         fVar2.execute(str);
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f18371f = z;
+            this.f17920f = z;
         }
     }
 
@@ -653,14 +653,14 @@ public class b implements QRCodeView.c {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !StringUtils.isNull(str) && str.startsWith("tiebaclient:")) {
             if (Build.VERSION.SDK_INT <= 21) {
-                n.L(this.f18367b.getPageActivity(), R.string.ai_apps_not_support);
+                n.M(this.f17916b.getPageActivity(), R.string.ai_apps_not_support);
                 return;
             }
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(this.f18367b.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            permissionJudgePolicy.appendRequestPermission(this.f17916b.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
             permissionJudgePolicy.setOnPermissionsGrantedListener(new c(this, str));
-            permissionJudgePolicy.startRequestPermission(this.f18367b.getPageActivity());
+            permissionJudgePolicy.startRequestPermission(this.f17916b.getPageActivity());
         }
     }
 }

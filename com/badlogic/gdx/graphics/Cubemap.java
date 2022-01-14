@@ -223,7 +223,7 @@ public class Cubemap extends e {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed cubemap/app: { ");
             for (Application application : o.keySet()) {
-                sb.append(o.get(application).f28217f);
+                sb.append(o.get(application).f27361f);
                 sb.append(" ");
             }
             sb.append("}");
@@ -240,7 +240,7 @@ public class Cubemap extends e {
         }
         c.b.b.j.e eVar = n;
         if (eVar == null) {
-            for (int i2 = 0; i2 < aVar.f28217f; i2++) {
+            for (int i2 = 0; i2 < aVar.f27361f; i2++) {
                 aVar.get(i2).z();
             }
             return;
@@ -256,17 +256,17 @@ public class Cubemap extends e {
             } else {
                 int q = n.q(m);
                 n.A(m, 0);
-                next.f27925f = 0;
+                next.f27086f = 0;
                 d.b bVar = new d.b();
-                bVar.f27808d = next.u();
-                bVar.f27809e = next.h();
-                bVar.f27810f = next.f();
-                bVar.f27811g = next.j();
-                bVar.f27812h = next.k();
-                bVar.f27807c = next;
+                bVar.f26973d = next.u();
+                bVar.f26974e = next.h();
+                bVar.f26975f = next.f();
+                bVar.f26976g = next.j();
+                bVar.f26977h = next.k();
+                bVar.f26972c = next;
                 bVar.a = new a(q);
                 n.C(m);
-                next.f27925f = f.f27772e.a();
+                next.f27086f = f.f26939e.a();
                 n.w(m, Cubemap.class, bVar);
             }
         }
@@ -277,7 +277,7 @@ public class Cubemap extends e {
     @Override // c.b.b.n.e, c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27925f == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27086f == 0) {
             return;
         }
         delete();
@@ -306,11 +306,11 @@ public class Cubemap extends e {
                 bVar.prepare();
             }
             a();
-            o(this.f27926g, this.f27927h, true);
-            p(this.f27928i, this.f27929j, true);
-            n(this.f27930k, true);
+            o(this.f27087g, this.f27088h, true);
+            p(this.f27089i, this.f27090j, true);
+            n(this.k, true);
             bVar.f();
-            f.f27772e.N(this.f27924e, 0);
+            f.f26939e.N(this.f27085e, 0);
         }
     }
 
@@ -318,7 +318,7 @@ public class Cubemap extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (x()) {
-                this.f27925f = f.f27772e.a();
+                this.f27086f = f.f26939e.a();
                 y(this.m);
                 return;
             }

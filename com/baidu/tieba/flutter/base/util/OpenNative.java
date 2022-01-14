@@ -386,7 +386,7 @@ public class OpenNative {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, context, map) == null) {
             if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                n.M(context, "大图功能安装失败,请稍候重试");
+                n.N(context, "大图功能安装失败,请稍候重试");
                 return;
             }
             ArrayList<String> arrayList = (ArrayList) map.get("urls");
@@ -1129,7 +1129,7 @@ public class OpenNative {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65601, null, context, map) == null) {
             if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                n.M(context, "大图功能安装失败,请稍候重试");
+                n.N(context, "大图功能安装失败,请稍候重试");
                 return;
             }
             ArrayList<String> arrayList = (ArrayList) map.get("urls");

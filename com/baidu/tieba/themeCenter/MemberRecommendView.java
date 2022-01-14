@@ -40,25 +40,23 @@ public class MemberRecommendView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50276e;
+    public Context f48379e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50277f;
+    public View f48380f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f50278g;
+    public TbImageView f48381g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50279h;
+    public TextView f48382h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50280i;
+    public TextView f48383i;
 
     /* renamed from: j  reason: collision with root package name */
-    public e f50281j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f50282k;
+    public e f48384j;
+    public int k;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -66,7 +64,7 @@ public class MemberRecommendView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MemberRecommendView f50283e;
+        public final /* synthetic */ MemberRecommendView f48385e;
 
         public a(MemberRecommendView memberRecommendView) {
             Interceptable interceptable = $ic;
@@ -83,7 +81,7 @@ public class MemberRecommendView extends FrameLayout {
                     return;
                 }
             }
-            this.f50283e = memberRecommendView;
+            this.f48385e = memberRecommendView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -93,7 +91,7 @@ public class MemberRecommendView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int i2 = 9;
-                switch (this.f50283e.f50282k) {
+                switch (this.f48385e.k) {
                     case 1:
                         TiebaStatic.log("c10261");
                         i2 = 8;
@@ -103,7 +101,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 3:
                     case 9:
                         TiebaStatic.log("c10266");
-                        if (this.f50283e.f50282k == 9) {
+                        if (this.f48385e.k == 9) {
                             str = MemberPayStatistic.REFER_PAGE_PERSONALITY_CARDS;
                             break;
                         }
@@ -113,7 +111,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 5:
                         TiebaStatic.log("c10278");
                         i2 = 12;
-                        if (this.f50283e.f50282k != 4) {
+                        if (this.f48385e.k != 4) {
                             str = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
                             break;
                         } else {
@@ -124,7 +122,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 7:
                         TiebaStatic.log("c10762");
                         i2 = 19;
-                        if (this.f50283e.f50282k != 7) {
+                        if (this.f48385e.k != 7) {
                             str = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
                             break;
                         } else {
@@ -141,7 +139,7 @@ public class MemberRecommendView extends FrameLayout {
                         str = "";
                         break;
                 }
-                if (this.f50283e.f50281j == null || (tbPageContext = (TbPageContext) j.a(this.f50283e.f50276e)) == null) {
+                if (this.f48385e.f48384j == null || (tbPageContext = (TbPageContext) j.a(this.f48385e.f48379e)) == null) {
                     return;
                 }
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i2);
@@ -169,31 +167,31 @@ public class MemberRecommendView extends FrameLayout {
                 return;
             }
         }
-        this.f50276e = context;
+        this.f48379e = context;
         d();
     }
 
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundColor(this.f50277f, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.f50279h, R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.f48380f, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.f48382h, R.color.CAM_X0108);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.f50276e).inflate(R.layout.member_extend_view, this);
-            this.f50277f = inflate;
+            View inflate = LayoutInflater.from(this.f48379e).inflate(R.layout.member_extend_view, this);
+            this.f48380f = inflate;
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.vip_icon);
-            this.f50278g = tbImageView;
+            this.f48381g = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.f50278g.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f50278g.setAutoChangeStyle(true);
-            this.f50279h = (TextView) this.f50277f.findViewById(R.id.title_view);
-            TextView textView = (TextView) this.f50277f.findViewById(R.id.jump_button);
-            this.f50280i = textView;
+            this.f48381g.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f48381g.setAutoChangeStyle(true);
+            this.f48382h = (TextView) this.f48380f.findViewById(R.id.title_view);
+            TextView textView = (TextView) this.f48380f.findViewById(R.id.jump_button);
+            this.f48383i = textView;
             textView.setOnClickListener(new a(this));
         }
     }
@@ -203,33 +201,33 @@ public class MemberRecommendView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) || eVar == null) {
             return;
         }
-        this.f50281j = eVar;
-        this.f50278g.startLoad(eVar.b(), 10, false);
-        this.f50279h.setText(this.f50281j.c());
-        if (StringUtils.isNull(this.f50281j.a())) {
-            this.f50280i.setVisibility(8);
+        this.f48384j = eVar;
+        this.f48381g.startLoad(eVar.b(), 10, false);
+        this.f48382h.setText(this.f48384j.c());
+        if (StringUtils.isNull(this.f48384j.a())) {
+            this.f48383i.setVisibility(8);
             return;
         }
-        this.f50280i.setVisibility(0);
-        this.f50280i.setText(this.f50281j.a());
+        this.f48383i.setVisibility(0);
+        this.f48383i.setText(this.f48384j.a());
     }
 
     public View getButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50280i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48383i : (View) invokeV.objValue;
     }
 
     public int getFromType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50282k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public void setFromType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f50282k = i2;
+            this.k = i2;
         }
     }
 
@@ -252,7 +250,7 @@ public class MemberRecommendView extends FrameLayout {
                 return;
             }
         }
-        this.f50276e = context;
+        this.f48379e = context;
         d();
     }
 
@@ -275,7 +273,7 @@ public class MemberRecommendView extends FrameLayout {
                 return;
             }
         }
-        this.f50276e = context;
+        this.f48379e = context;
         d();
     }
 }

@@ -53,14 +53,14 @@ public class k {
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.f11946e.V();
+            this.a.f11673e.V();
         }
     }
 
     public View B(View view, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, str, context, attributeSet)) == null) ? this.a.f11946e.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, str, context, attributeSet)) == null) ? this.a.f11673e.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
     public void C() {
@@ -73,7 +73,7 @@ public class k {
     public void D(Parcelable parcelable, List<Fragment> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, parcelable, list) == null) {
-            this.a.f11946e.b0(parcelable, list);
+            this.a.f11673e.b0(parcelable, list);
         }
     }
 
@@ -93,121 +93,121 @@ public class k {
     public List<Fragment> G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.f11946e.c0() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.f11673e.c0() : (List) invokeV.objValue;
     }
 
     public Parcelable H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.f11946e.e0() : (Parcelable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.f11673e.e0() : (Parcelable) invokeV.objValue;
     }
 
     public void a(Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fragment) == null) {
             l<?> lVar = this.a;
-            lVar.f11946e.j(lVar, lVar, fragment);
+            lVar.f11673e.j(lVar, lVar, fragment);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.a.f11946e.n();
+            this.a.f11673e.n();
         }
     }
 
     public void d(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, configuration) == null) {
-            this.a.f11946e.o(configuration);
+            this.a.f11673e.o(configuration);
         }
     }
 
     public boolean e(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, menuItem)) == null) ? this.a.f11946e.p(menuItem) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, menuItem)) == null) ? this.a.f11673e.p(menuItem) : invokeL.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.a.f11946e.q();
+            this.a.f11673e.q();
         }
     }
 
     public boolean g(Menu menu, MenuInflater menuInflater) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, menu, menuInflater)) == null) ? this.a.f11946e.r(menu, menuInflater) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, menu, menuInflater)) == null) ? this.a.f11673e.r(menu, menuInflater) : invokeLL.booleanValue;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.a.f11946e.s();
+            this.a.f11673e.s();
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.a.f11946e.u();
+            this.a.f11673e.u();
         }
     }
 
     public boolean j(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, menuItem)) == null) ? this.a.f11946e.v(menuItem) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, menuItem)) == null) ? this.a.f11673e.v(menuItem) : invokeL.booleanValue;
     }
 
     public void k(Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, menu) == null) {
-            this.a.f11946e.w(menu);
+            this.a.f11673e.w(menu);
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.a.f11946e.x();
+            this.a.f11673e.x();
         }
     }
 
     public boolean m(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, menu)) == null) ? this.a.f11946e.y(menu) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, menu)) == null) ? this.a.f11673e.y(menu) : invokeL.booleanValue;
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.a.f11946e.z();
+            this.a.f11673e.z();
         }
     }
 
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.a.f11946e.A();
+            this.a.f11673e.A();
         }
     }
 
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.a.f11946e.B();
+            this.a.f11673e.B();
         }
     }
 
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.a.f11946e.C();
+            this.a.f11673e.C();
         }
     }
 
@@ -242,20 +242,20 @@ public class k {
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.a.f11946e.E() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.a.f11673e.E() : invokeV.booleanValue;
     }
 
     public List<Fragment> w(List<Fragment> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, list)) == null) {
-            if (this.a.f11946e.f11953d == null) {
+            if (this.a.f11673e.f11680d == null) {
                 return null;
             }
             if (list == null) {
                 list = new ArrayList<>(x());
             }
-            list.addAll(this.a.f11946e.f11953d);
+            list.addAll(this.a.f11673e.f11680d);
             return list;
         }
         return (List) invokeL.objValue;
@@ -265,7 +265,7 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            ArrayList<Fragment> arrayList = this.a.f11946e.f11953d;
+            ArrayList<Fragment> arrayList = this.a.f11673e.f11680d;
             if (arrayList == null) {
                 return 0;
             }

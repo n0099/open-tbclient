@@ -15,16 +15,16 @@ public abstract class a<T> {
 
     /* renamed from: c.a.s0.h.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0839a<T> extends a<T> {
+    public static final class C0849a<T> extends a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f13090b;
+        public final T f12769b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0839a(String msg, T t) {
+        public C0849a(String msg, T t) {
             super(null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -43,7 +43,7 @@ public abstract class a<T> {
             }
             Intrinsics.checkNotNullParameter(msg, "msg");
             this.a = msg;
-            this.f13090b = t;
+            this.f12769b = t;
         }
 
         public final String a() {
@@ -59,9 +59,9 @@ public abstract class a<T> {
                 if (this == obj) {
                     return true;
                 }
-                if (obj instanceof C0839a) {
-                    C0839a c0839a = (C0839a) obj;
-                    return Intrinsics.areEqual(this.a, c0839a.a) && Intrinsics.areEqual(this.f13090b, c0839a.f13090b);
+                if (obj instanceof C0849a) {
+                    C0849a c0849a = (C0849a) obj;
+                    return Intrinsics.areEqual(this.a, c0849a.a) && Intrinsics.areEqual(this.f12769b, c0849a.f12769b);
                 }
                 return false;
             }
@@ -73,7 +73,7 @@ public abstract class a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 int hashCode = this.a.hashCode() * 31;
-                T t = this.f13090b;
+                T t = this.f12769b;
                 return hashCode + (t == null ? 0 : t.hashCode());
             }
             return invokeV.intValue;
@@ -83,12 +83,12 @@ public abstract class a<T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "Error(msg=" + this.a + ", data=" + this.f13090b + ')';
+                return "Error(msg=" + this.a + ", data=" + this.f12769b + ')';
             }
             return (String) invokeV.objValue;
         }
 
-        public /* synthetic */ C0839a(String str, Object obj, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0849a(String str, Object obj, int i2, DefaultConstructorMarker defaultConstructorMarker) {
             this(str, (i2 & 2) != 0 ? null : obj);
         }
     }

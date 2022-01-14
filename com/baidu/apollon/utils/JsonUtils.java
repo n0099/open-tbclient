@@ -30,13 +30,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class DataType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,7 +179,7 @@ public final class JsonUtils {
         return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Encoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -345,7 +345,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Decoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -438,7 +438,7 @@ public final class JsonUtils {
             return (T) invokeLL.objValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:66:0x00ea  */
+        /* JADX WARN: Removed duplicated region for block: B:66:0x00eb  */
         /* JADX WARN: Removed duplicated region for block: B:80:? A[RETURN, SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.

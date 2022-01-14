@@ -24,25 +24,23 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50167e;
+    public Context f48277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f50168f;
+    public RelativeLayout f48278f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f50169g;
+    public LinearLayout f48279g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50170h;
+    public TextView f48280h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50171i;
+    public TextView f48281i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f50172j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View.OnClickListener f50173k;
+    public TextView f48282j;
+    public View.OnClickListener k;
     public String l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,15 +67,15 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f50167e = context;
+            this.f48277e = context;
             LayoutInflater.from(context).inflate(R.layout.user_define_confirm_bottom_view, (ViewGroup) this, true);
             setOrientation(1);
-            this.f50168f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
-            this.f50169g = (LinearLayout) findViewById(R.id.big_tbean_root);
-            this.f50170h = (TextView) findViewById(R.id.big_tbean_toast_tv);
-            this.f50171i = (TextView) findViewById(R.id.big_tbean_jump_tv);
-            this.f50172j = (TextView) findViewById(R.id.user_define_confirm_tv);
-            this.f50168f.setOnClickListener(null);
+            this.f48278f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
+            this.f48279g = (LinearLayout) findViewById(R.id.big_tbean_root);
+            this.f48280h = (TextView) findViewById(R.id.big_tbean_toast_tv);
+            this.f48281i = (TextView) findViewById(R.id.big_tbean_jump_tv);
+            this.f48282j = (TextView) findViewById(R.id.user_define_confirm_tv);
+            this.f48278f.setOnClickListener(null);
         }
     }
 
@@ -85,31 +83,31 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                SkinManager.setBackgroundColor(this.f50169g, R.color.CAM_X0110);
+                SkinManager.setBackgroundColor(this.f48279g, R.color.CAM_X0110);
             } else {
-                SkinManager.setBackgroundColor(this.f50169g, R.color.common_color_10333);
+                SkinManager.setBackgroundColor(this.f48279g, R.color.common_color_10333);
             }
-            SkinManager.setViewTextColor(this.f50170h, R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.f50171i, R.color.CAM_X0106);
-            SkinManager.setBackgroundColor(this.f50168f, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f48280h, R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.f48281i, R.color.CAM_X0106);
+            SkinManager.setBackgroundColor(this.f48278f, R.color.CAM_X0201);
         }
     }
 
     public void setBigTbeanToastText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            String format = String.format(this.f50167e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i2));
+            String format = String.format(this.f48277e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i2));
             this.l = format;
-            this.f50170h.setText(format);
+            this.f48280h.setText(format);
         }
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f50173k = onClickListener;
-            this.f50171i.setOnClickListener(onClickListener);
-            this.f50172j.setOnClickListener(this.f50173k);
+            this.k = onClickListener;
+            this.f48281i.setOnClickListener(onClickListener);
+            this.f48282j.setOnClickListener(this.k);
         }
     }
 
@@ -117,20 +115,20 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                this.f50170h.setText(this.l);
-                this.f50170h.setGravity(3);
+                this.f48280h.setText(this.l);
+                this.f48280h.setGravity(3);
                 showBitTBeanToastView(true);
-                this.f50172j.setEnabled(true);
-                this.f50169g.setVisibility(0);
-                this.f50171i.setVisibility(0);
+                this.f48282j.setEnabled(true);
+                this.f48279g.setVisibility(0);
+                this.f48281i.setVisibility(0);
                 return;
             }
-            this.f50170h.setText(R.string.user_define_max_money);
-            this.f50170h.setGravity(17);
-            this.f50172j.setEnabled(false);
+            this.f48280h.setText(R.string.user_define_max_money);
+            this.f48280h.setGravity(17);
+            this.f48282j.setEnabled(false);
             showBitTBeanToastView(false);
-            this.f50169g.setVisibility(0);
-            this.f50171i.setVisibility(8);
+            this.f48279g.setVisibility(0);
+            this.f48281i.setVisibility(8);
         }
     }
 
@@ -138,9 +136,9 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
-                this.f50169g.setVisibility(0);
+                this.f48279g.setVisibility(0);
             } else {
-                this.f50169g.setVisibility(4);
+                this.f48279g.setVisibility(4);
             }
         }
     }

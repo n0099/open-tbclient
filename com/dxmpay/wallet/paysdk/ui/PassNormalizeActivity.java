@@ -113,7 +113,7 @@ public class PassNormalizeActivity extends BeanActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PassNormalizeActivity f56160e;
+        public final /* synthetic */ PassNormalizeActivity f54028e;
 
         public /* synthetic */ b(PassNormalizeActivity passNormalizeActivity, a aVar) {
             this(passNormalizeActivity);
@@ -131,12 +131,12 @@ public class PassNormalizeActivity extends BeanActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
                 String str2 = "onPageFinished url=" + str;
-                if (this.f56160e.mContent != null) {
-                    WalletGlobalUtils.safeDismissDialog(this.f56160e, -1);
+                if (this.f54028e.mContent != null) {
+                    WalletGlobalUtils.safeDismissDialog(this.f54028e, -1);
                 }
-                String property = DebugConfig.getInstance(this.f56160e.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
+                String property = DebugConfig.getInstance(this.f54028e.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
                 if (str != null && str.startsWith(property)) {
-                    this.f56160e.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
+                    this.f54028e.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
                 }
                 super.onPageFinished(webView, str);
             }
@@ -148,16 +148,16 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                 String str2 = "url=" + str;
                 if (str == null || !str.equals(TbDomainConfig.DOMAIN_HTTPS_BAIDU)) {
-                    if (this.f56160e.mContent != null) {
-                        PassNormalizeActivity passNormalizeActivity = this.f56160e;
+                    if (this.f54028e.mContent != null) {
+                        PassNormalizeActivity passNormalizeActivity = this.f54028e;
                         WalletGlobalUtils.safeShowDialog(passNormalizeActivity, -1, ResUtils.getString(passNormalizeActivity.mContent, "dxm_ebpay_loading"));
                     }
                     super.onPageStarted(webView, str, bitmap);
                     return;
                 }
-                PassUtil.backNormalized(this.f56160e.mContent, this.f56160e.type, null);
+                PassUtil.backNormalized(this.f54028e.mContent, this.f54028e.type, null);
                 StatisticManager.onEventWithValue("normalizeVerify", QueryResponse.Options.CANCEL);
-                this.f56160e.finish();
+                this.f54028e.finish();
             }
         }
 
@@ -176,7 +176,7 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
                 if (str != null && (str.startsWith("sms") || str.startsWith(InputType.TEL) || str.startsWith("bdscenter"))) {
                     try {
-                        this.f56160e.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        this.f54028e.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         return true;
                     } catch (Throwable th) {
                         th.getMessage();
@@ -204,7 +204,7 @@ public class PassNormalizeActivity extends BeanActivity {
                     return;
                 }
             }
-            this.f56160e = passNormalizeActivity;
+            this.f54028e = passNormalizeActivity;
         }
     }
 

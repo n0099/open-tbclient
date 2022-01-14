@@ -1,7 +1,7 @@
 package com.baidu.tieba.stamp.model;
 
 import c.a.d.f.l.c;
-import c.a.d.f.l.d;
+import c.a.t0.t3.d;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -26,22 +26,22 @@ public class FetchStampModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f49957e;
+    public TbPageContext f48074e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.t3.d.a f49958f;
+    public c.a.t0.t3.h.a f48075f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49959g;
+    public int f48076g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c<c.a.d.n.d.a> f49960h;
+    public c<c.a.d.n.d.a> f48077h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f49961i;
+    public String f48078i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HttpMessageListener f49962j;
+    public HttpMessageListener f48079j;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -76,7 +76,7 @@ public class FetchStampModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003522 && (httpResponsedMessage instanceof GetStampResponseMessage)) {
-                List<c.a.t0.t3.a> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
+                List<d> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
                 if (httpResponsedMessage.getError() == 0) {
                     this.a.z(stampList);
                 }
@@ -88,17 +88,17 @@ public class FetchStampModel extends BdBaseModel {
     public class b extends c<c.a.d.n.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c.a.t0.t3.a a;
+        public final /* synthetic */ d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FetchStampModel f49963b;
+        public final /* synthetic */ FetchStampModel f48080b;
 
-        public b(FetchStampModel fetchStampModel, c.a.t0.t3.a aVar) {
+        public b(FetchStampModel fetchStampModel, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fetchStampModel, aVar};
+                Object[] objArr = {fetchStampModel, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -108,8 +108,8 @@ public class FetchStampModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f49963b = fetchStampModel;
-            this.a = aVar;
+            this.f48080b = fetchStampModel;
+            this.a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -121,12 +121,12 @@ public class FetchStampModel extends BdBaseModel {
                 if (aVar == null || !aVar.w()) {
                     return;
                 }
-                this.f49963b.f49958f.a(this.a);
+                this.f48080b.f48075f.a(this.a);
             }
         }
     }
 
-    public FetchStampModel(TbPageContext tbPageContext, c.a.t0.t3.d.a aVar) {
+    public FetchStampModel(TbPageContext tbPageContext, c.a.t0.t3.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,10 +141,10 @@ public class FetchStampModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49959g = 10;
-        this.f49962j = new a(this, CmdConfigHttp.CMD_FETCH_STAMP, true);
-        this.f49957e = tbPageContext;
-        this.f49958f = aVar;
+        this.f48076g = 10;
+        this.f48079j = new a(this, CmdConfigHttp.CMD_FETCH_STAMP, true);
+        this.f48074e = tbPageContext;
+        this.f48075f = aVar;
         y();
         registerListener();
     }
@@ -154,11 +154,11 @@ public class FetchStampModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!StringUtils.isNull(this.f49961i) && this.f49960h != null) {
-                d.h().d(this.f49961i, this.f49959g, this.f49960h);
+            if (!StringUtils.isNull(this.f48078i) && this.f48077h != null) {
+                c.a.d.f.l.d.h().d(this.f48078i, this.f48076g, this.f48077h);
             }
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_FETCH_STAMP);
-            MessageManager.getInstance().unRegisterListener(this.f49962j);
+            MessageManager.getInstance().unRegisterListener(this.f48079j);
             return true;
         }
         return invokeV.booleanValue;
@@ -178,7 +178,7 @@ public class FetchStampModel extends BdBaseModel {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.f49962j);
+            MessageManager.getInstance().registerListener(this.f48079j);
         }
     }
 
@@ -191,23 +191,25 @@ public class FetchStampModel extends BdBaseModel {
         }
     }
 
-    public final void z(List<c.a.t0.t3.a> list) {
-        c.a.t0.t3.a aVar;
+    public final void z(List<d> list) {
+        d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null || list.size() <= 0 || (aVar = list.get(0)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null || list.size() <= 0 || (dVar = list.get(0)) == null) {
             return;
         }
-        String a2 = aVar.a();
-        this.f49961i = a2;
+        String a2 = dVar.a();
+        this.f48078i = a2;
         if (StringUtils.isNull(a2)) {
             return;
         }
-        if (this.f49960h == null) {
-            this.f49960h = new b(this, aVar);
+        if (this.f48077h == null) {
+            this.f48077h = new b(this, dVar);
         }
-        if (((c.a.d.n.d.a) d.h().n(this.f49961i, this.f49959g, new Object[0])) != null || this.f49957e == null) {
-            return;
+        c.a.d.n.d.a aVar = (c.a.d.n.d.a) c.a.d.f.l.d.h().n(this.f48078i, this.f48076g, new Object[0]);
+        if (aVar != null && aVar.w()) {
+            this.f48075f.a(dVar);
+        } else if (this.f48074e != null) {
+            c.a.d.f.l.d.h().m(this.f48078i, this.f48076g, this.f48077h, this.f48074e.getUniqueId());
         }
-        d.h().m(this.f49961i, this.f49959g, this.f49960h, this.f49957e.getUniqueId());
     }
 }

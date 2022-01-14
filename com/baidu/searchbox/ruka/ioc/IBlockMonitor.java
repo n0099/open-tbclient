@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ruka.ioc;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IBlockMonitor {
     boolean enableMonitor();
 

@@ -139,10 +139,10 @@ public class q extends z {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                UbcFlowEvent k2 = k(jSONArray.optJSONObject(i2));
-                if (k2 != null) {
-                    k2.e("FE");
-                    arrayList.add(k2);
+                UbcFlowEvent k = k(jSONArray.optJSONObject(i2));
+                if (k != null) {
+                    k.e("FE");
+                    arrayList.add(k);
                 }
             }
             return arrayList;

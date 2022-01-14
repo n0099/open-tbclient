@@ -41,32 +41,32 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f23413f;
+    public static final String f22766f;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.a.t0.s2.u.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View.OnClickListener f23414b;
+    public final View.OnClickListener f22767b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final View.OnClickListener f23415c;
+    public final View.OnClickListener f22768c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final View.OnClickListener f23416d;
+    public final View.OnClickListener f22769d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TbRichTextView.x f23417e;
+    public final TbRichTextView.x f22770e;
 
     /* renamed from: c.a.t0.s2.u.f.d1.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1389a implements View.OnClickListener {
+    public class View$OnClickListenerC1404a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23418e;
+        public final /* synthetic */ a f22771e;
 
-        public View$OnClickListenerC1389a(a aVar) {
+        public View$OnClickListenerC1404a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +81,7 @@ public class a {
                     return;
                 }
             }
-            this.f23418e = aVar;
+            this.f22771e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -157,7 +157,7 @@ public class a {
                 if (view.getTag(i.tag_nick_name_activity) != null && (view.getTag(i.tag_nick_name_activity) instanceof String)) {
                     String str7 = (String) view.getTag(i.tag_nick_name_activity);
                     if (!TextUtils.isEmpty(str7) && ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f23418e.a.getPageContext().getPageActivity(), null, str7, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f22771e.a.getPageContext().getPageActivity(), null, str7, true)));
                         return;
                     }
                 }
@@ -166,12 +166,12 @@ public class a {
                     if (!ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(this.f23418e.a.getPageContext(), new String[]{str8});
+                    UrlManager.getInstance().dealOneLink(this.f22771e.a.getPageContext(), new String[]{str8});
                 } else if (str2 != null) {
                     if (alaInfoData != null && (i2 == 1 || alaInfoData.live_status == 1)) {
                         if (alaInfoData.isLegalYYLiveData()) {
-                            YYLiveUtil.jumpYYLiveRoom(this.f23418e.a.getPageContext(), alaInfoData);
-                            TbPageContext pageContext = this.f23418e.a.getPageContext();
+                            YYLiveUtil.jumpYYLiveRoom(this.f22771e.a.getPageContext(), alaInfoData);
+                            TbPageContext pageContext = this.f22771e.a.getPageContext();
                             YyExtData yyExtData = alaInfoData.mYyExtData;
                             String str9 = yyExtData.mSid;
                             String str10 = yyExtData.mSsid;
@@ -179,18 +179,18 @@ public class a {
                             YYLiveUtil.jumpToYYLiveRoom(pageContext, str9, str10, str11, "" + alaInfoData.roomId, YYLiveUtil.SOURCE_PB_LIVE_HEAD);
                         }
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f23418e.a.getPageContext().getPageActivity(), str2, str3, this.f23418e.a.getFromForumName(), AddFriendActivityConfig.TYPE_PB_HEAD, str4, null)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f22771e.a.getPageContext().getPageActivity(), str2, str3, this.f22771e.a.getFromForumName(), AddFriendActivityConfig.TYPE_PB_HEAD, str4, null)));
                     }
                 }
-                if (this.f23418e.a instanceof PbCommentFloatActivity) {
+                if (this.f22771e.a instanceof PbCommentFloatActivity) {
                     StatisticItem statisticItem3 = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                    statisticItem3.param("fid", ((PbCommentFloatActivity) this.f23418e.a).getPbModel().getForumId());
-                    statisticItem3.param("tid", ((PbCommentFloatActivity) this.f23418e.a).getPbModel().h1());
+                    statisticItem3.param("fid", ((PbCommentFloatActivity) this.f22771e.a).getPbModel().getForumId());
+                    statisticItem3.param("tid", ((PbCommentFloatActivity) this.f22771e.a).getPbModel().h1());
                     statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem3.param("post_id", ((PbCommentFloatActivity) this.f23418e.a).getPbModel().q0());
+                    statisticItem3.param("post_id", ((PbCommentFloatActivity) this.f22771e.a).getPbModel().q0());
                     statisticItem3.param("obj_source", 1);
                     statisticItem3.param("obj_type", 6);
-                    statisticItem3.param("obj_locate", ((PbCommentFloatActivity) this.f23418e.a).getFromVideoPageType());
+                    statisticItem3.param("obj_locate", ((PbCommentFloatActivity) this.f22771e.a).getFromVideoPageType());
                     TiebaStatic.log(statisticItem3);
                 }
             }
@@ -222,7 +222,7 @@ public class a {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag(i.tag_user_id) instanceof String)) {
-                c.a.s0.m.a.q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(l.user_icon_web_view_title), a.f23413f + "?user_id=" + ((String) view.getTag(i.tag_user_id)), true, true, true);
+                c.a.s0.m.a.q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(l.user_icon_web_view_title), a.f22766f + "?user_id=" + ((String) view.getTag(i.tag_user_id)), true, true, true);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 2));
             }
         }
@@ -234,7 +234,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23419e;
+        public final /* synthetic */ a f22772e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -251,7 +251,7 @@ public class a {
                     return;
                 }
             }
-            this.f23419e = aVar;
+            this.f22772e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -260,9 +260,9 @@ public class a {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                 String str = view.getTag() != null ? (String) view.getTag() : null;
                 if (str != null) {
-                    UrlManager.getInstance().dealOneLink(this.f23419e.a.getPageContext(), new String[]{str});
+                    UrlManager.getInstance().dealOneLink(this.f22772e.a.getPageContext(), new String[]{str});
                 }
-                TiebaStatic.eventStat(this.f23419e.a.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
+                TiebaStatic.eventStat(this.f22772e.a.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
             }
         }
     }
@@ -313,7 +313,7 @@ public class a {
                 return;
             }
         }
-        f23413f = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
+        f22766f = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
     }
 
     public a(c.a.t0.s2.u.a aVar) {
@@ -331,10 +331,10 @@ public class a {
                 return;
             }
         }
-        this.f23414b = new View$OnClickListenerC1389a(this);
-        this.f23415c = new b(this);
-        this.f23416d = new c(this);
-        this.f23417e = new d(this);
+        this.f22767b = new View$OnClickListenerC1404a(this);
+        this.f22768c = new b(this);
+        this.f22769d = new c(this);
+        this.f22770e = new d(this);
         this.a = aVar;
     }
 }

@@ -17,25 +17,25 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34540b;
+    public boolean f33429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34541c;
+    public String f33430c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34542d;
+    public String f33431d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f34543e;
+    public boolean f33432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f34544f;
+    public boolean f33433f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f34545g;
+    public String f33434g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f34546h;
+    public boolean f33435h;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -50,13 +50,13 @@ public class c {
                 return;
             }
         }
-        this.f34540b = true;
-        this.f34541c = null;
-        this.f34542d = null;
-        this.f34543e = true;
-        this.f34544f = true;
-        this.f34545g = null;
-        this.f34546h = false;
+        this.f33429b = true;
+        this.f33430c = null;
+        this.f33431d = null;
+        this.f33432e = true;
+        this.f33433f = true;
+        this.f33434g = null;
+        this.f33435h = false;
     }
 
     public static synchronized c a() {
@@ -80,11 +80,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                if (TextUtils.isEmpty(this.f34545g)) {
+                if (TextUtils.isEmpty(this.f33434g)) {
                     String cfgValue = CyberCfgManager.getInstance().getCfgValue("update_core_server", "");
                     return !TextUtils.isEmpty(cfgValue) ? cfgValue : "https://b.bdstatic.com/searchbox/androidvideo";
                 }
-                return this.f34545g;
+                return this.f33434g;
             }
             return str;
         }
@@ -94,7 +94,7 @@ public class c {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f34546h = z;
+            this.f33435h = z;
         }
     }
 
@@ -102,7 +102,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.f34540b) {
+            if (!this.f33429b) {
                 CyberLog.i("CyberGlobalSetting", "isStatisticsUploadEnable closed");
                 return false;
             } else if (i()) {
@@ -130,11 +130,11 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (TextUtils.isEmpty(this.f34541c)) {
+            if (TextUtils.isEmpty(this.f33430c)) {
                 String cfgValue = CyberCfgManager.getInstance().getCfgValue("upload_session_server", "");
                 return TextUtils.isEmpty(cfgValue) ? WebSettingsGlobalBlink.SESSION_UPLOAD_URL : cfgValue;
             }
-            return this.f34541c;
+            return this.f33430c;
         }
         return (String) invokeV.objValue;
     }
@@ -142,7 +142,7 @@ public class c {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !TextUtils.isEmpty(this.f34542d) ? this.f34542d : CyberCfgManager.getInstance().a(CyberCfgManager.getInstance().getCfgValue("update_cloud_cfg_server", "https://browserkernel.baidu.com/video")) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !TextUtils.isEmpty(this.f33431d) ? this.f33431d : CyberCfgManager.getInstance().a(CyberCfgManager.getInstance().getCfgValue("update_cloud_cfg_server", "https://browserkernel.baidu.com/video")) : (String) invokeV.objValue;
     }
 
     public boolean g() {
@@ -152,7 +152,7 @@ public class c {
             if (i()) {
                 return false;
             }
-            return this.f34543e;
+            return this.f33432e;
         }
         return invokeV.booleanValue;
     }
@@ -160,7 +160,7 @@ public class c {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f34544f && !i() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f33433f && !i() : invokeV.booleanValue;
     }
 
     public synchronized boolean i() {
@@ -169,8 +169,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
-                CyberLog.d("CyberGlobalSetting", "isSFSwitchEnabled:" + this.f34546h);
-                z = this.f34546h;
+                CyberLog.d("CyberGlobalSetting", "isSFSwitchEnabled:" + this.f33435h);
+                z = this.f33435h;
             }
             return z;
         }

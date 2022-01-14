@@ -1,79 +1,174 @@
 package c.a.t0.d1.f2;
 
-import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.i0.b;
-import c.a.s0.i0.c;
+import android.widget.TextView;
+import c.a.t0.d1.k;
+import c.a.t0.d1.w2.d;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment;
+import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
+import com.baidu.tieba.frs.gamepaltform.GameRankListViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class a extends b {
+public class a extends k<c.a.t0.g1.b, GameRankListViewHolder> implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsGameRecommendFragment a;
+    public c.a.t0.d1.w2.b x;
 
-    public a(String str, String str2) {
+    /* renamed from: c.a.t0.d1.f2.a$a  reason: collision with other inner class name */
+    /* loaded from: classes7.dex */
+    public class C1030a implements GameRankHorizontalLayout.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+
+        public C1030a(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.b
+        public void a(c.a.t0.g1.a aVar, int i2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || aVar == null) {
+                return;
+            }
+            if (this.a.x != null) {
+                TiebaStatic.log(new StatisticItem("c12105").param("fid", this.a.x.f16716c).param("obj_locate", i2 + 1));
+            }
+            if (StringUtils.isNull(aVar.c())) {
+                return;
+            }
+            c.a.s0.m.a.m(this.a.o.getPageActivity(), aVar.c());
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                k.y("game_rank_list_info", System.currentTimeMillis() + ",7");
+                c.a.s0.s.h0.b.k().w("game_rank_list_show_times", 0);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921005));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = FrsGameRecommendFragment.newInstance(str, str2);
-        getFragmentTabStructure().a = this.a;
+        this.x = new c.a.t0.d1.w2.b();
     }
 
-    @Override // c.a.s0.i0.b
-    public c createFragmentTabStructure() {
+    @Override // c.a.t0.d1.w2.d
+    public c.a.t0.d1.w2.b j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c cVar = new c();
-            cVar.f13111e = 11;
-            cVar.f13108b = R.string.frs_game_recommend_tab_title;
-            cVar.f13115i = c.f13107k;
-            return cVar;
-        }
-        return (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.x : (c.a.t0.d1.w2.b) invokeV.objValue;
     }
 
-    @Override // c.a.s0.i0.b
-    public TbFragmentTabIndicator getTabIndicator(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.d.n.e.a
+    /* renamed from: o0 */
+    public GameRankListViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.mIndicator = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.mIndicator;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new GameRankListViewHolder(LayoutInflater.from(this.f3258e).inflate(R.layout.game_rank_list_item, (ViewGroup) null)) : (GameRankListViewHolder) invokeL.objValue;
     }
 
-    @Override // c.a.s0.i0.b
-    public boolean isAvailable() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.t0.d1.k, c.a.d.n.e.a
+    /* renamed from: p0 */
+    public View S(int i2, View view, ViewGroup viewGroup, c.a.t0.g1.b bVar, GameRankListViewHolder gameRankListViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, gameRankListViewHolder})) == null) {
+            super.S(i2, view, viewGroup, bVar, gameRankListViewHolder);
+            if (bVar == null) {
+                return null;
+            }
+            SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
+            if (this.x != null) {
+                TiebaStatic.log(new StatisticItem("c12104").param("fid", this.x.f16716c));
+            }
+            GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.mGameRankHorizontalLayout;
+            if (gameRankHorizontalLayout != null) {
+                gameRankHorizontalLayout.setData(bVar);
+                gameRankListViewHolder.mGameRankHorizontalLayout.setOnCardClickListener(new C1030a(this));
+            }
+            TextView textView = gameRankListViewHolder.mCloseBtn;
+            if (textView != null) {
+                textView.setOnClickListener(new b(this));
+            }
+            this.o.getLayoutMode().k(this.r == 1);
+            this.o.getLayoutMode().j(view);
+            return view;
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 }

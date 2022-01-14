@@ -29,19 +29,17 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomDialogData f23125g;
+    public CustomDialogData f22488g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f23126h;
+    public f f22489h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f23127i;
+    public TbImageView f22490i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f23128j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f23129k;
+    public TextView f22491j;
+    public TextView k;
     public TextView l;
     public TextView m;
     public View n;
@@ -72,9 +70,9 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f23127i = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
-            this.f23128j = (TextView) getViewGroup().findViewById(R.id.dialog_title);
-            this.f23129k = (TextView) getViewGroup().findViewById(R.id.dialog_body);
+            this.f22490i = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
+            this.f22491j = (TextView) getViewGroup().findViewById(R.id.dialog_title);
+            this.k = (TextView) getViewGroup().findViewById(R.id.dialog_body);
             this.l = (TextView) getViewGroup().findViewById(R.id.yes);
             this.m = (TextView) getViewGroup().findViewById(R.id.no);
             this.n = getViewGroup().findViewById(R.id.bdDialog_divider_line);
@@ -85,8 +83,8 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
             SkinManager.setBackgroundResource(this.l, R.drawable.dialog_single_button_bg_selector);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0302);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.f23128j, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f23129k, R.color.common_color_10122);
+            SkinManager.setViewTextColor(this.f22491j, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.k, R.color.common_color_10122);
             SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204);
             SkinManager.setBackgroundColor(this.o, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(this.p, R.drawable.dialog_background);
@@ -108,16 +106,16 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, customDialogData) == null) || customDialogData == null) {
             return;
         }
-        this.f23125g = customDialogData;
+        this.f22488g = customDialogData;
         CustomDialogData.Head head = customDialogData.head;
         if (!TextUtils.isEmpty(head.imageUrl)) {
-            this.f23127i.startLoad(head.imageUrl, 10, false);
+            this.f22490i.startLoad(head.imageUrl, 10, false);
         }
         if (!TextUtils.isEmpty(head.text)) {
-            this.f23128j.setText(head.text);
+            this.f22491j.setText(head.text);
         }
         if (!TextUtils.isEmpty(customDialogData.body)) {
-            this.f23129k.setText(customDialogData.body);
+            this.k.setText(customDialogData.body);
         }
         CustomDialogData.Button button = customDialogData.leftButton;
         if (button != null && !StringUtils.isNull(button.text)) {
@@ -133,7 +131,7 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     public void f(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            this.f23126h = fVar;
+            this.f22489h = fVar;
         }
     }
 
@@ -144,27 +142,27 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
             if (view == this.l) {
-                CustomDialogData customDialogData = this.f23125g;
+                CustomDialogData customDialogData = this.f22488g;
                 if (customDialogData != null && (button2 = customDialogData.rightButton) != null && !StringUtils.isNull(button2.action)) {
-                    UrlManager.getInstance().dealOneLink(d(), new String[]{this.f23125g.rightButton.action});
+                    UrlManager.getInstance().dealOneLink(d(), new String[]{this.f22488g.rightButton.action});
                 }
-                f fVar = this.f23126h;
+                f fVar = this.f22489h;
                 if (fVar != null) {
                     fVar.dismiss();
                 }
-                StatisticItem statisticItem = new StatisticItem(b.a.f22926b);
+                StatisticItem statisticItem = new StatisticItem(b.a.f22296b);
                 statisticItem.param("obj_locate", 2);
                 TiebaStatic.log(statisticItem);
             } else if (view == this.m) {
-                CustomDialogData customDialogData2 = this.f23125g;
+                CustomDialogData customDialogData2 = this.f22488g;
                 if (customDialogData2 != null && (button = customDialogData2.leftButton) != null && !StringUtils.isNull(button.action)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f23123e.getPageActivity(), null, this.f23125g.leftButton.action, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f22486e.getPageActivity(), null, this.f22488g.leftButton.action, true)));
                 }
-                f fVar2 = this.f23126h;
+                f fVar2 = this.f22489h;
                 if (fVar2 != null) {
                     fVar2.dismiss();
                 }
-                StatisticItem statisticItem2 = new StatisticItem(b.a.f22926b);
+                StatisticItem statisticItem2 = new StatisticItem(b.a.f22296b);
                 statisticItem2.param("obj_locate", 1);
                 TiebaStatic.log(statisticItem2);
             }

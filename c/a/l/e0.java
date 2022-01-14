@@ -21,10 +21,8 @@ public class e0 extends a<r1> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public RecommendForumLayout f4232j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f4233k;
+    public RecommendForumLayout f4162j;
+    public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e0(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -44,18 +42,18 @@ public class e0 extends a<r1> {
                 return;
             }
         }
-        this.f4233k = 3;
+        this.k = 3;
         RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
-        this.f4232j = recommendForumLayout;
+        this.f4162j = recommendForumLayout;
         recommendForumLayout.setPageUniqueId(bdUniqueId);
-        this.f4232j.setShowMore(true);
+        this.f4162j.setShowMore(true);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4232j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4162j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,14 +62,14 @@ public class e0 extends a<r1> {
     public void onBindDataToView(r1 r1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r1Var) == null) {
-            this.f4232j.setData(r1Var);
+            this.f4162j.setData(r1Var);
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f4232j.setEnableShowInto(z);
+            this.f4162j.setEnableShowInto(z);
         }
     }
 
@@ -79,45 +77,45 @@ public class e0 extends a<r1> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            if (this.f4233k != i2) {
-                this.f4232j.onChangeSkinType(tbPageContext, i2);
+            if (this.k != i2) {
+                this.f4162j.onChangeSkinType(tbPageContext, i2);
             }
-            this.f4233k = i2;
+            this.k = i2;
         }
     }
 
     public void p(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f4232j.setOnClickRightArrowListener(onClickListener);
+            this.f4162j.setOnClickRightArrowListener(onClickListener);
         }
     }
 
     public void q(c.a.s0.n.f<q1> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) {
-            this.f4232j.setOnItemCoverListener(fVar);
+            this.f4162j.setOnItemCoverListener(fVar);
         }
     }
 
     public void r(PullLeftRefreshLayout.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            this.f4232j.setOnRullOkCallbackr(fVar);
+            this.f4162j.setOnRullOkCallbackr(fVar);
         }
     }
 
     public void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f4232j.setShowMore(z);
+            this.f4162j.setShowMore(z);
         }
     }
 
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f4232j.setShowSquareEntrance(z);
+            this.f4162j.setShowSquareEntrance(z);
         }
     }
 }

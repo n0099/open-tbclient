@@ -13,10 +13,10 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f4016b;
+    public static final b f3954b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f4017c;
+    public static final a f3955c;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
@@ -42,7 +42,7 @@ public final class b {
         public final b a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f4016b : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f3954b : (b) invokeV.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -63,8 +63,8 @@ public final class b {
                 return;
             }
         }
-        f4017c = new a(null);
-        f4016b = new b("https://ug.baidu.com");
+        f3955c = new a(null);
+        f3954b = new b("https://ug.baidu.com");
     }
 
     public b(String str) {
@@ -88,7 +88,7 @@ public final class b {
     public static final b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f4017c.a() : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f3955c.a() : (b) invokeV.objValue;
     }
 
     public final String b() {

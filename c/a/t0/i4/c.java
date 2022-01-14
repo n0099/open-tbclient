@@ -24,16 +24,16 @@ public class c {
     public KeyguardManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PowerManager f18642b;
+    public PowerManager f18178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PowerManager.WakeLock f18643c;
+    public PowerManager.WakeLock f18179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KeyguardManager.KeyguardLock f18644d;
+    public KeyguardManager.KeyguardLock f18180d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18645e;
+    public Context f18181e;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -50,15 +50,15 @@ public class c {
         }
         try {
             Application app = TbadkCoreApplication.getInst().getApp();
-            this.f18645e = app;
+            this.f18181e = app;
             PowerManager powerManager = (PowerManager) app.getSystemService("power");
-            this.f18642b = powerManager;
+            this.f18178b = powerManager;
             PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
-            this.f18643c = newWakeLock;
+            this.f18179c = newWakeLock;
             newWakeLock.setReferenceCounted(false);
-            KeyguardManager keyguardManager = (KeyguardManager) this.f18645e.getSystemService("keyguard");
+            KeyguardManager keyguardManager = (KeyguardManager) this.f18181e.getSystemService("keyguard");
             this.a = keyguardManager;
-            this.f18644d = keyguardManager.newKeyguardLock("ScreenLockUtils");
+            this.f18180d = keyguardManager.newKeyguardLock("ScreenLockUtils");
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -110,17 +110,17 @@ public class c {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18642b.isScreenOn() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18178b.isScreenOn() : invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                this.f18644d.reenableKeyguard();
-                if (this.f18643c != null) {
-                    this.f18643c.release();
-                    this.f18643c = null;
+                this.f18180d.reenableKeyguard();
+                if (this.f18179c != null) {
+                    this.f18179c.release();
+                    this.f18179c = null;
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -132,14 +132,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                if (this.f18643c == null) {
-                    PowerManager.WakeLock newWakeLock = this.f18642b.newWakeLock(268435462, "ScreenLockNotify");
-                    this.f18643c = newWakeLock;
+                if (this.f18179c == null) {
+                    PowerManager.WakeLock newWakeLock = this.f18178b.newWakeLock(268435462, "ScreenLockNotify");
+                    this.f18179c = newWakeLock;
                     newWakeLock.setReferenceCounted(false);
                 }
-                if (this.f18643c != null) {
-                    this.f18643c.acquire(10000L);
-                    this.f18644d.disableKeyguard();
+                if (this.f18179c != null) {
+                    this.f18179c.acquire(10000L);
+                    this.f18180d.disableKeyguard();
                 }
             } catch (Throwable th) {
                 th.printStackTrace();

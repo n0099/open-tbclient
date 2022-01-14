@@ -8,23 +8,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.UnreadTip.DataRes;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f21100b;
+    public List<String> f20536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f21101c;
+    public long f20537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21102d;
+    public String f20538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21103e;
+    public int f20539e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -52,9 +52,9 @@ public class e {
             return;
         }
         this.a = dataRes.user_count.intValue();
-        this.f21100b = dataRes.portrait_list;
-        this.f21101c = dataRes.hide_unix.longValue() * 1000;
-        this.f21102d = dataRes.show_tip;
-        this.f21103e = dataRes.thread_count.intValue();
+        this.f20536b = dataRes.portrait_list;
+        this.f20537c = dataRes.hide_unix.longValue() * 1000;
+        this.f20538d = dataRes.show_tip;
+        this.f20539e = dataRes.thread_count.intValue();
     }
 }

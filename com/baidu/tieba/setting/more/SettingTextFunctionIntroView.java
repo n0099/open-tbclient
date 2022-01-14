@@ -3,12 +3,13 @@ package com.baidu.tieba.setting.more;
 import android.content.Context;
 import android.util.AttributeSet;
 import c.a.d.f.p.n;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
+import c.a.t0.m3.c;
+import c.a.t0.m3.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +57,7 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         hideArrow();
-        resetTipViewMargains(0, 0, n.f(context, R.dimen.ds30), 0);
+        resetTipViewMargains(0, 0, n.f(context, c.ds30), 0);
     }
 
     public void refresh() {
@@ -64,9 +65,9 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             VersionData versionData = TbadkCoreApplication.getInst().getVersionData();
             boolean z = versionData != null && versionData.hasNewVer();
-            boolean g2 = b.j().g(HAS_SHOWN_FUNCTION_INTRO, false);
-            if (!z && !g2) {
-                SkinManager.setBackgroundResource(this.tipView, R.drawable.icon_news_head_new);
+            boolean h2 = b.k().h(HAS_SHOWN_FUNCTION_INTRO, false);
+            if (!z && !h2) {
+                SkinManager.setBackgroundResource(this.tipView, d.icon_news_head_new);
             } else {
                 hideTip();
             }
@@ -93,6 +94,6 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         hideArrow();
-        resetTipViewMargains(0, 0, n.f(context, R.dimen.ds30), 0);
+        resetTipViewMargains(0, 0, n.f(context, c.ds30), 0);
     }
 }

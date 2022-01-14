@@ -32,22 +32,22 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f11508b;
+    public static ExecutorService f11251b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.j.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class RunnableC0764a implements Runnable {
+    public static class RunnableC0773a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.f1.e.b f11509e;
+        public final /* synthetic */ c.a.r0.a.f1.e.b f11252e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.a1.b f11510f;
+        public final /* synthetic */ c.a.r0.a.a1.b f11253f;
 
-        public RunnableC0764a(c.a.r0.a.f1.e.b bVar, c.a.r0.a.a1.b bVar2) {
+        public RunnableC0773a(c.a.r0.a.f1.e.b bVar, c.a.r0.a.a1.b bVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,8 +62,8 @@ public class a {
                     return;
                 }
             }
-            this.f11509e = bVar;
-            this.f11510f = bVar2;
+            this.f11252e = bVar;
+            this.f11253f = bVar2;
         }
 
         @Override // java.lang.Runnable
@@ -72,12 +72,12 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.z2.b1.b bVar = new c.a.r0.a.z2.b1.b();
-                if (this.f11509e.n0() && (c.a.r0.a.x1.a.a.x() || a.a)) {
-                    j2 = b.a(this.f11509e, bVar);
+                if (this.f11252e.n0() && (c.a.r0.a.x1.a.a.x() || a.a)) {
+                    j2 = b.a(this.f11252e, bVar);
                 } else {
-                    j2 = d.j(this.f11509e, bVar);
+                    j2 = d.j(this.f11252e, bVar);
                 }
-                this.f11510f.a(0, j2);
+                this.f11253f.a(0, j2);
             }
         }
     }
@@ -133,12 +133,12 @@ public class a {
                     return null;
                 }
                 cVar.a = d2.getPath() + File.separator;
-                cVar.f11512c = a;
-                if (!TextUtils.isEmpty(a.f11188e)) {
-                    cVar.f11511b = cVar.a + a.f11188e + File.separator;
+                cVar.f11255c = a;
+                if (!TextUtils.isEmpty(a.f10940e)) {
+                    cVar.f11254b = cVar.a + a.f10940e + File.separator;
                     c.a.r0.j.a0.f.a().d(true);
-                    c.a.r0.j.a0.f.a().e(cVar.f11511b);
-                    c.a.r0.j.a0.f.a().f(a.f11188e);
+                    c.a.r0.j.a0.f.a().e(cVar.f11254b);
+                    c.a.r0.j.a0.f.a().f(a.f10940e);
                 } else {
                     c.a.r0.j.a0.f.a().d(false);
                 }
@@ -146,7 +146,7 @@ public class a {
                     String str = "configFile path: " + file.getPath();
                     String str2 = "configFile exist: " + file.exists();
                     String str3 = "info.appBundlePath path: " + cVar.a;
-                    String str4 = "info.mAppOpenDataBundle path: " + cVar.f11511b;
+                    String str4 = "info.mAppOpenDataBundle path: " + cVar.f11254b;
                 }
                 return cVar;
             }
@@ -225,10 +225,10 @@ public class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11511b;
+        public String f11254b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a.r0.j.d0.a.a f11512c;
+        public c.a.r0.j.d0.a.a f11255c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -252,11 +252,11 @@ public class a {
 
         /* renamed from: c.a.r0.j.t.a$d$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0765a implements FileFilter {
+        public static class C0774a implements FileFilter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0765a() {
+            public C0774a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -311,7 +311,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            File[] listFiles = new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aigames_folder", str).listFiles(new C0765a());
+            File[] listFiles = new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aigames_folder", str).listFiles(new C0774a());
             if (listFiles == null || listFiles.length <= 0) {
                 return;
             }
@@ -472,12 +472,12 @@ public class a {
                     return null;
                 }
                 cVar.a = h2.getPath() + File.separator;
-                cVar.f11512c = a;
-                if (!TextUtils.isEmpty(a.f11188e)) {
-                    cVar.f11511b = cVar.a + File.separator + a.f11188e + File.separator;
+                cVar.f11255c = a;
+                if (!TextUtils.isEmpty(a.f10940e)) {
+                    cVar.f11254b = cVar.a + File.separator + a.f10940e + File.separator;
                     c.a.r0.j.a0.f.a().d(true);
-                    c.a.r0.j.a0.f.a().e(cVar.f11511b);
-                    c.a.r0.j.a0.f.a().f(a.f11188e);
+                    c.a.r0.j.a0.f.a().e(cVar.f11254b);
+                    c.a.r0.j.a0.f.a().f(a.f10940e);
                 } else {
                     c.a.r0.j.a0.f.a().d(false);
                 }
@@ -485,7 +485,7 @@ public class a {
                     String str = "configFile path: " + file.getPath();
                     String str2 = "configFile exist: " + file.exists();
                     r0 = "info.appBundlePath path: " + cVar.a;
-                    String str3 = "info.mAppOpenDataBundle path: " + cVar.f11511b;
+                    String str3 = "info.mAppOpenDataBundle path: " + cVar.f11254b;
                 }
                 return cVar;
             }
@@ -507,13 +507,13 @@ public class a {
             }
         }
         a = k.a;
-        f11508b = Executors.newSingleThreadExecutor();
+        f11251b = Executors.newSingleThreadExecutor();
     }
 
     public static void c(c.a.r0.a.f1.e.b bVar, c.a.r0.a.a1.b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, bVar, bVar2) == null) {
-            f11508b.execute(new RunnableC0764a(bVar, bVar2));
+            f11251b.execute(new RunnableC0773a(bVar, bVar2));
         }
     }
 
@@ -539,28 +539,28 @@ public class a {
     public static void f(String str, d.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, str, cVar) == null) {
-            d.C0251d c0251d = new d.C0251d();
-            c0251d.a = str;
+            d.C0260d c0260d = new d.C0260d();
+            c0260d.a = str;
             c.a.r0.j.m.b.b.a();
-            new c.a.r0.a.k0.b().e(c0251d, c.a.r0.j.m.b.b.c().getPath(), cVar);
+            new c.a.r0.a.k0.b().e(c0260d, c.a.r0.j.m.b.b.c().getPath(), cVar);
         }
     }
 
     public static void g(String str, d.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, cVar) == null) {
-            d.C0251d c0251d = new d.C0251d();
-            c0251d.a = str;
+            d.C0260d c0260d = new d.C0260d();
+            c0260d.a = str;
             c.a.r0.j.p.a.b.a();
-            new c.a.r0.a.k0.b().e(c0251d, c.a.r0.j.p.a.b.c().getPath(), cVar);
+            new c.a.r0.a.k0.b().e(c0260d, c.a.r0.j.p.a.b.c().getPath(), cVar);
         }
     }
 
-    public static void h(d.C0251d c0251d, d.c cVar) {
+    public static void h(d.C0260d c0260d, d.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, c0251d, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65544, null, c0260d, cVar) == null) {
             File c2 = b.c();
-            new c.a.r0.a.k0.b().e(c0251d, c2.getPath() + File.separator + System.currentTimeMillis() + ".aibundle", cVar);
+            new c.a.r0.a.k0.b().e(c0260d, c2.getPath() + File.separator + System.currentTimeMillis() + ".aibundle", cVar);
         }
     }
 
@@ -575,10 +575,10 @@ public class a {
                     h.o().F(new UbcFlowEvent("package_start_unzip"));
                     long currentTimeMillis = System.currentTimeMillis();
                     a.c j2 = c.a.r0.a.a1.g.a.j(file);
-                    int i3 = j2.f5278b;
+                    int i3 = j2.f5168b;
                     if (i3 != -1) {
                         U = c.a.r0.a.a1.g.a.d(j2.a, file2, i3).a;
-                        i2 = j2.f5278b;
+                        i2 = j2.f5168b;
                     } else {
                         U = c.a.r0.w.d.U(file.getPath(), file2.getPath());
                     }

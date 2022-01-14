@@ -19,10 +19,10 @@ public class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9607b;
+    public String f9398b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<String> f9608c;
+    public Set<String> f9399c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class a implements c {
                 return;
             }
         }
-        this.f9607b = "boxjs.";
-        this.f9608c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
+        this.f9398b = "boxjs.";
+        this.f9399c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
     }
 
     @Override // c.a.r0.a.u1.k.j.c
@@ -91,7 +91,7 @@ public class a implements c {
             if (TextUtils.isEmpty(a)) {
                 return 0;
             }
-            return (a.startsWith(this.f9607b) || this.f9608c.contains(a)) ? 1 : 0;
+            return (a.startsWith(this.f9398b) || this.f9399c.contains(a)) ? 1 : 0;
         }
         return invokeL.intValue;
     }

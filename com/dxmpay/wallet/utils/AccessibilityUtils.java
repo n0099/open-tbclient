@@ -18,7 +18,7 @@ public class AccessibilityUtils {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f56166e;
+        public final /* synthetic */ View f54034e;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class AccessibilityUtils {
                     return;
                 }
             }
-            this.f56166e = view;
+            this.f54034e = view;
         }
 
         @Override // java.lang.Runnable
@@ -44,7 +44,7 @@ public class AccessibilityUtils {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 14) {
                 return;
             }
-            this.f56166e.sendAccessibilityEvent(128);
+            this.f54034e.sendAccessibilityEvent(128);
         }
     }
 

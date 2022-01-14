@@ -13,7 +13,7 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JNICommonMemCache f37343b;
+    public JNICommonMemCache f36114b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,8 +29,8 @@ public class a {
             }
         }
         this.a = 0L;
-        this.f37343b = null;
-        this.f37343b = new JNICommonMemCache();
+        this.f36114b = null;
+        this.f36114b = new JNICommonMemCache();
     }
 
     public long a() {
@@ -38,7 +38,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.a == 0) {
-                this.a = this.f37343b.Create();
+                this.a = this.f36114b.Create();
             }
             return this.a;
         }
@@ -50,7 +50,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             long j2 = this.a;
             if (j2 != 0) {
-                this.f37343b.Init(j2);
+                this.f36114b.Init(j2);
             }
         }
     }

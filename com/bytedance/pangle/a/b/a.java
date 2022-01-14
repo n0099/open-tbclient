@@ -15,13 +15,13 @@ public final class a {
     public static Method a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f55039b;
+    public static Method f52946b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f55040c;
+    public static Method f52947c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f55041d;
+    public static Method f52948d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,9 +39,9 @@ public final class a {
         }
         try {
             a = Class.class.getDeclaredMethod("getDeclaredField", String.class);
-            f55039b = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
-            f55040c = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
-            f55041d = Class.class.getDeclaredMethod("forName", String.class);
+            f52946b = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
+            f52947c = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
+            f52948d = Class.class.getDeclaredMethod("forName", String.class);
         } catch (Throwable th) {
             ZeusLogger.e(ZeusLogger.TAG_INIT, "DoubleReflectorinit failed", th);
         }
@@ -96,7 +96,7 @@ public final class a {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
-            Method method2 = f55039b;
+            Method method2 = f52946b;
             Method method3 = null;
             if (method2 != null) {
                 try {
@@ -135,7 +135,7 @@ public final class a {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) != null) {
             return (Constructor) invokeLL.objValue;
         }
-        Method method = f55040c;
+        Method method = f52947c;
         if (method != null) {
             try {
                 constructor = (Constructor) method.invoke(cls, clsArr);

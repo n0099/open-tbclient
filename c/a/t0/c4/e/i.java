@@ -29,28 +29,28 @@ public class i {
     public BackgroundPreviewActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f15956b;
+    public View f15550b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdExpandImageView f15957c;
+    public BdExpandImageView f15551c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f15958d;
+    public TbImageView f15552d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f15959e;
+    public TbImageView f15553e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15960f;
+    public TextView f15554f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f15961g;
+    public ImageView f15555g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15962h;
+    public TextView f15556h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.d.f.l.c<c.a.d.n.d.a> f15963i;
+    public final c.a.d.f.l.c<c.a.d.n.d.a> f15557i;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.d.f.l.c<c.a.d.n.d.a> {
@@ -99,7 +99,7 @@ public class i {
             if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) || aVar == null) {
                 return;
             }
-            aVar.h(this.a.f15957c);
+            aVar.h(this.a.f15551c);
         }
     }
 
@@ -118,10 +118,10 @@ public class i {
                 return;
             }
         }
-        this.f15963i = new a(this);
+        this.f15557i = new a(this);
         this.a = backgroundPreviewActivity;
         View inflate = LayoutInflater.from(backgroundPreviewActivity.getPageContext().getPageActivity()).inflate(R.layout.background_preview_header, (ViewGroup) null);
-        this.f15956b = inflate;
+        this.f15550b = inflate;
         inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.ds450)));
         c();
     }
@@ -129,21 +129,21 @@ public class i {
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15956b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15550b : (View) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f15957c = (BdExpandImageView) this.f15956b.findViewById(R.id.expand_image);
-            this.f15958d = (TbImageView) this.f15956b.findViewById(R.id.user_head);
-            TbImageView tbImageView = (TbImageView) this.f15956b.findViewById(R.id.vip_icon);
-            this.f15959e = tbImageView;
+            this.f15551c = (BdExpandImageView) this.f15550b.findViewById(R.id.expand_image);
+            this.f15552d = (TbImageView) this.f15550b.findViewById(R.id.user_head);
+            TbImageView tbImageView = (TbImageView) this.f15550b.findViewById(R.id.vip_icon);
+            this.f15553e = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.f15960f = (TextView) this.f15956b.findViewById(R.id.user_name);
-            this.f15961g = (ImageView) this.f15956b.findViewById(R.id.user_sex);
-            this.f15962h = (TextView) this.f15956b.findViewById(R.id.user_bar_age_num);
-            this.f15958d.setDefaultResource(R.drawable.icon_default_avatar100);
+            this.f15554f = (TextView) this.f15550b.findViewById(R.id.user_name);
+            this.f15555g = (ImageView) this.f15550b.findViewById(R.id.user_sex);
+            this.f15556h = (TextView) this.f15550b.findViewById(R.id.user_bar_age_num);
+            this.f15552d.setDefaultResource(R.drawable.icon_default_avatar100);
         }
     }
 
@@ -152,7 +152,7 @@ public class i {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.getPageContext() == null) {
             return;
         }
-        c.a.s0.x0.a.a(this.a.getPageContext(), this.f15956b);
+        c.a.s0.x0.a.a(this.a.getPageContext(), this.f15550b);
     }
 
     public void e(DressItemData dressItemData) {
@@ -160,45 +160,45 @@ public class i {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, dressItemData) == null) || dressItemData == null) {
             return;
         }
-        c.a.d.f.l.d.h().k(dressItemData.getExampleImgUrl(), 10, this.f15963i, 0, 0, null, new Object[0]);
+        c.a.d.f.l.d.h().k(dressItemData.getExampleImgUrl(), 10, this.f15557i, 0, 0, null, new Object[0]);
         if (StringUtils.isNull(dressItemData.getPropsStateImg())) {
-            this.f15962h.setText("0");
+            this.f15556h.setText("0");
         } else {
-            this.f15962h.setText(dressItemData.getPropsStateImg());
+            this.f15556h.setText(dressItemData.getPropsStateImg());
         }
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo == null) {
-            SkinManager.setViewTextColor(this.f15962h, R.color.CAM_X0308, 1);
-            this.f15960f.setText(R.string.default_user_name);
-            this.f15961g.setImageResource(R.drawable.icon_pop_boy);
-            this.f15959e.setVisibility(8);
+            SkinManager.setViewTextColor(this.f15556h, R.color.CAM_X0308, 1);
+            this.f15554f.setText(R.string.default_user_name);
+            this.f15555g.setImageResource(R.drawable.icon_pop_boy);
+            this.f15553e.setVisibility(8);
             return;
         }
         String avatar = currentAccountInfo.getAvatar();
         int memberType = currentAccountInfo.getMemberType();
         if (!TextUtils.isEmpty(avatar)) {
-            this.f15958d.startLoad(avatar, 25, false);
+            this.f15552d.startLoad(avatar, 25, false);
         }
         String memberIconUrl = currentAccountInfo.getMemberIconUrl();
         if (StringUtils.isNull(memberIconUrl)) {
-            this.f15959e.setVisibility(8);
+            this.f15553e.setVisibility(8);
         } else {
-            this.f15959e.startLoad(memberIconUrl, 10, false);
-            this.f15959e.setVisibility(0);
+            this.f15553e.startLoad(memberIconUrl, 10, false);
+            this.f15553e.setVisibility(0);
         }
         if (memberType > 0) {
-            this.f15960f.setTextColor(this.a.getResources().getColor(R.color.CAM_X0308));
+            this.f15554f.setTextColor(this.a.getResources().getColor(R.color.CAM_X0308));
         } else {
-            this.f15960f.setTextColor(this.a.getResources().getColor(R.color.CAM_X0111));
+            this.f15554f.setTextColor(this.a.getResources().getColor(R.color.CAM_X0111));
         }
-        this.f15960f.setText(currentAccountInfo.getAccountNameShow());
+        this.f15554f.setText(currentAccountInfo.getAccountNameShow());
         int sex = currentAccountInfo.getSex();
         if (sex == 1) {
-            this.f15961g.setImageResource(R.drawable.icon_pop_boy);
+            this.f15555g.setImageResource(R.drawable.icon_pop_boy);
         } else if (sex == 2) {
-            this.f15961g.setImageResource(R.drawable.icon_pop_girl);
+            this.f15555g.setImageResource(R.drawable.icon_pop_girl);
         } else {
-            this.f15961g.setVisibility(8);
+            this.f15555g.setVisibility(8);
         }
     }
 }

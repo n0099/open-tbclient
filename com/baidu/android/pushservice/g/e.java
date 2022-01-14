@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f32987b;
+    public static e f31939b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f32988c;
+    public static final int f31940c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f32989d;
+    public static final int f31941d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f32990e;
+    public static final int f31942e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,9 +41,9 @@ public class e {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f32988c = availableProcessors;
-        f32989d = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f32990e = f32988c << 3;
+        f31940c = availableProcessors;
+        f31941d = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f31942e = f31940c << 3;
     }
 
     public e() {
@@ -90,7 +90,7 @@ public class e {
                 }
             }
         });
-        a aVar = new a(f32989d, f32990e, 2L, TimeUnit.MINUTES, new b());
+        a aVar = new a(f31941d, f31942e, 2L, TimeUnit.MINUTES, new b());
         a = aVar;
         aVar.allowCoreThreadTimeOut(true);
     }
@@ -100,10 +100,10 @@ public class e {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f32987b == null || (aVar = a) == null || aVar.isShutdown() || a.isTerminated()) {
-                f32987b = new e();
+            if (f31939b == null || (aVar = a) == null || aVar.isShutdown() || a.isTerminated()) {
+                f31939b = new e();
             }
-            return f32987b;
+            return f31939b;
         }
         return (e) invokeV.objValue;
     }
@@ -118,7 +118,7 @@ public class e {
             } catch (Exception unused) {
                 a aVar = a;
                 if (aVar == null || aVar.getCorePoolSize() == 0 || a.getPoolSize() == 0) {
-                    a = new a(f32989d, f32990e, 2L, TimeUnit.MINUTES, new b());
+                    a = new a(f31941d, f31942e, 2L, TimeUnit.MINUTES, new b());
                     return false;
                 }
                 return false;

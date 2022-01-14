@@ -2,7 +2,7 @@ package com.baidu.nadcore.download.view;
 
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import c.a.c0.g.f.i;
+import c.a.c0.j.f.i;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +16,7 @@ public interface IDownloadViewCreator {
     public static final ServiceReference a = new ServiceReference("nad.core", "downloadview");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final IDownloadViewCreator f38216b = new a();
+    public static final IDownloadViewCreator f37013b = new a();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */

@@ -77,25 +77,23 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public float[] N;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.b0.a.a f1465e;
+    public c.a.b0.a.a f1454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.b0.a.f.a f1466f;
+    public c.a.b0.a.f.a f1455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f1467g;
+    public Context f1456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1468h;
+    public int f1457h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Sticker f1469i;
+    public Sticker f1458i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Filter f1470j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ConcurrentHashMap<BeautyType, Object> f1471k;
+    public Filter f1459j;
+    public ConcurrentHashMap<BeautyType, Object> k;
     public int l;
     public int m;
     public c.a.a1.f.b.a n;
@@ -240,7 +238,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f1472e;
+            public final /* synthetic */ d f1460e;
 
             public RunnableC0026a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -257,14 +255,14 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                         return;
                     }
                 }
-                this.f1472e = dVar;
+                this.f1460e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f1472e.a.v.onBeautyEnableChanged(this.f1472e.a.f1466f);
+                    this.f1460e.a.v.onBeautyEnableChanged(this.f1460e.a.f1455f);
                 }
             }
         }
@@ -306,10 +304,10 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                     bool3 = null;
                 }
                 boolean z = false;
-                this.a.f1466f.d(bool4 == null || bool4.booleanValue());
-                this.a.f1466f.c(bool2 == null || bool2.booleanValue());
-                this.a.f1466f.a(bool3 == null || bool3.booleanValue());
-                this.a.f1466f.b((bool == null || bool.booleanValue()) ? true : true);
+                this.a.f1455f.d(bool4 == null || bool4.booleanValue());
+                this.a.f1455f.c(bool2 == null || bool2.booleanValue());
+                this.a.f1455f.a(bool3 == null || bool3.booleanValue());
+                this.a.f1455f.b((bool == null || bool.booleanValue()) ? true : true);
                 if (this.a.v != null) {
                     u.a().post(new RunnableC0026a(this));
                 }
@@ -323,7 +321,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1473e;
+        public final /* synthetic */ a f1461e;
 
         /* renamed from: c.a.a1.p.h.a$e$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -332,7 +330,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f1474e;
+            public final /* synthetic */ e f1462e;
 
             public RunnableC0027a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -349,14 +347,14 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                         return;
                     }
                 }
-                this.f1474e = eVar;
+                this.f1462e = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f1474e.f1473e.h0();
+                    this.f1462e.f1461e.h0();
                 }
             }
         }
@@ -376,50 +374,50 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                     return;
                 }
             }
-            this.f1473e = aVar;
+            this.f1461e = aVar;
         }
 
         @Override // com.baidu.ar.DuMixCallback
         public void onCaseCreate(boolean z, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) || this.f1473e.B == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) || this.f1461e.B == null) {
                 return;
             }
-            this.f1473e.B.onCaseCreate(z, str, str2);
+            this.f1461e.B.onCaseCreate(z, str, str2);
         }
 
         @Override // com.baidu.ar.DuMixCallback
         public void onCaseDestroy() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f1473e.B == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f1461e.B == null) {
                 return;
             }
-            this.f1473e.B.onCaseDestroy();
+            this.f1461e.B.onCaseDestroy();
         }
 
         @Override // com.baidu.ar.DuMixCallback
         public void onError(DuMixErrorType duMixErrorType, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, duMixErrorType, str, str2) == null) || this.f1473e.B == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, duMixErrorType, str, str2) == null) || this.f1461e.B == null) {
                 return;
             }
-            this.f1473e.B.onError(duMixErrorType, str, str2);
+            this.f1461e.B.onError(duMixErrorType, str, str2);
         }
 
         @Override // com.baidu.ar.DuMixCallback
         public void onRelease() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                if (this.f1473e.B != null) {
-                    this.f1473e.B.onRelease();
+                if (this.f1461e.B != null) {
+                    this.f1461e.B.onRelease();
                 }
-                this.f1473e.y = false;
-                this.f1473e.s = new SurfaceTexture(0);
-                this.f1473e.s.detachFromGLContext();
-                if (this.f1473e.v == null || this.f1473e.s == null) {
+                this.f1461e.y = false;
+                this.f1461e.s = new SurfaceTexture(0);
+                this.f1461e.s.detachFromGLContext();
+                if (this.f1461e.v == null || this.f1461e.s == null) {
                     return;
                 }
-                this.f1473e.v.b(this.f1473e.s);
+                this.f1461e.v.b(this.f1461e.s);
             }
         }
 
@@ -427,13 +425,13 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), duMixInput, duMixOutput}) == null) {
-                this.f1473e.y = z;
-                if (this.f1473e.B != null) {
-                    this.f1473e.B.onSetup(z, duMixInput, duMixOutput);
+                this.f1461e.y = z;
+                if (this.f1461e.B != null) {
+                    this.f1461e.B.onSetup(z, duMixInput, duMixOutput);
                 }
-                this.f1473e.z = false;
+                this.f1461e.z = false;
                 if (!z) {
-                    a aVar = this.f1473e;
+                    a aVar = this.f1461e;
                     aVar.h(1571, "onSetup返回失败：" + z);
                 }
                 ThreadPool.a().e(new RunnableC0027a(this));
@@ -447,7 +445,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1475e;
+        public final /* synthetic */ a f1463e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -464,14 +462,14 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                     return;
                 }
             }
-            this.f1475e = aVar;
+            this.f1463e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1475e.v.onBeautyEnableChanged(this.f1475e.f1466f);
+                this.f1463e.v.onBeautyEnableChanged(this.f1463e.f1455f);
             }
         }
     }
@@ -482,7 +480,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1476e;
+        public final /* synthetic */ int f1464e;
 
         public g(a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -499,14 +497,14 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                     return;
                 }
             }
-            this.f1476e = i2;
+            this.f1464e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.a1.t.k.a(this.f1476e);
+                c.a.a1.t.k.a(this.f1464e);
             }
         }
     }
@@ -579,8 +577,8 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.C = false;
                 this.a.D = false;
-                if (this.a.f1465e != null) {
-                    this.a.f1465e.T0(null);
+                if (this.a.f1454e != null) {
+                    this.a.f1454e.T0(null);
                 }
             }
         }
@@ -591,8 +589,8 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.a.C = true;
                 this.a.D = false;
-                if (this.a.f1465e != null) {
-                    this.a.f1465e.T0(this.a.H);
+                if (this.a.f1454e != null) {
+                    this.a.f1454e.T0(this.a.H);
                 }
             }
         }
@@ -631,7 +629,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                 if (faceIds != null) {
                     this.a.L = faceIds.length;
                 }
-                boolean z = this.a.f1468h == 1;
+                boolean z = this.a.f1457h == 1;
                 float[] faceBoxes = faceResultData.getFaceBoxes();
                 if (faceBoxes != null && faceBoxes.length <= 4 && faceIds != null) {
                     a aVar = this.a;
@@ -737,7 +735,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1477b;
+        public int f1465b;
 
         public m(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -755,7 +753,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                 }
             }
             this.a = i2;
-            this.f1477b = i3;
+            this.f1465b = i3;
         }
 
         public int a() {
@@ -767,7 +765,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1477b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1465b : invokeV.intValue;
         }
     }
 
@@ -802,9 +800,9 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                 return;
             }
         }
-        this.f1466f = new c.a.b0.a.f.a();
-        this.f1468h = 1;
-        this.f1471k = new SafeConcurrentHashMap();
+        this.f1455f = new c.a.b0.a.f.a();
+        this.f1457h = 1;
+        this.k = new SafeConcurrentHashMap();
         new SafeConcurrentHashMap();
         this.p = new int[1];
         this.w = RecordConstants.VIDEO_CONSTANT_HEIGHT;
@@ -814,7 +812,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         this.K = false;
         this.L = 0;
         this.N = new float[16];
-        this.f1467g = context;
+        this.f1456g = context;
         this.t = onFrameAvailableListener;
         this.q = new SurfaceTexture(0);
         SurfaceTexture surfaceTexture = new SurfaceTexture(0);
@@ -842,7 +840,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public void A(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f1466f.d(i2 == 1);
+            this.f1455f.d(i2 == 1);
             if (this.v != null) {
                 u.a().post(new f(this));
             }
@@ -866,8 +864,8 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public void C(BeautyType beautyType, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, beautyType, f2) == null) {
-            this.f1471k.put(beautyType, Float.valueOf(f2));
-            c.a.b0.a.a aVar = this.f1465e;
+            this.k.put(beautyType, Float.valueOf(f2));
+            c.a.b0.a.a aVar = this.f1454e;
             if (aVar != null) {
                 aVar.L0(beautyType, f2);
             }
@@ -877,7 +875,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public void D(String str) {
         c.a.b0.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (aVar = this.f1465e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (aVar = this.f1454e) == null) {
             return;
         }
         aVar.b1(str);
@@ -887,8 +885,8 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.E = z;
-            if (f0() && this.f1465e != null && this.E) {
-                this.f1465e.K0();
+            if (f0() && this.f1454e != null && this.E) {
+                this.f1454e.K0();
             }
         }
     }
@@ -956,14 +954,14 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, sticker) == null) && f0()) {
             if (sticker == null) {
-                this.f1465e.O();
+                this.f1454e.O();
             } else if (F(sticker)) {
                 Sticker.AbilityModel abilityModel = sticker.getAbilityModel();
                 if (abilityModel != null) {
-                    this.f1465e.d1(abilityModel.getPath());
+                    this.f1454e.d1(abilityModel.getPath());
                 }
                 int arType = sticker.getArType();
-                this.f1465e.j0(ARType.valueOf(arType), sticker.getPath(), sticker.getId());
+                this.f1454e.j0(ARType.valueOf(arType), sticker.getPath(), sticker.getId());
             }
         }
     }
@@ -979,12 +977,12 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
             BeautyType beautyType = BeautyType.lutIntensity;
-            Object obj = this.f1471k.get(beautyType);
+            Object obj = this.k.get(beautyType);
             if ((obj instanceof Float) && ((Float) obj).floatValue() == f2) {
                 return;
             }
-            this.f1471k.put(beautyType, Float.valueOf(f2));
-            c.a.b0.a.a aVar = this.f1465e;
+            this.k.put(beautyType, Float.valueOf(f2));
+            c.a.b0.a.a aVar = this.f1454e;
             if (aVar != null) {
                 aVar.L0(beautyType, f2);
             }
@@ -994,7 +992,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public final void T(boolean z) {
         c.a.b0.a.a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && this.y && (aVar = this.f1465e) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && this.y && (aVar = this.f1454e) != null) {
             if (z) {
                 aVar.i1();
             } else {
@@ -1006,7 +1004,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public Sticker W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1469i : (Sticker) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1458i : (Sticker) invokeV.objValue;
     }
 
     public Sticker X() {
@@ -1025,7 +1023,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public Filter a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f1470j : (Filter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f1459j : (Filter) invokeV.objValue;
     }
 
     public void b0() {
@@ -1075,16 +1073,16 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || this.f1468h == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || this.f1457h == i2) {
             return;
         }
-        this.f1468h = i2;
+        this.f1457h = i2;
     }
 
     public boolean f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.y && c.a.b0.a.a.M(this.f1465e, O) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.y && c.a.b0.a.a.M(this.f1454e, O) : invokeV.booleanValue;
     }
 
     public void g(int i2, int i3) {
@@ -1156,7 +1154,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public final void j0() {
         c.a.b0.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (aVar = this.f1465e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (aVar = this.f1454e) == null) {
             return;
         }
         aVar.f1(c.a.b0.a.b.f());
@@ -1210,8 +1208,8 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public void l(BeautyType beautyType, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048606, this, beautyType, i2) == null) {
-            this.f1471k.put(beautyType, Integer.valueOf(i2));
-            c.a.b0.a.a aVar = this.f1465e;
+            this.k.put(beautyType, Integer.valueOf(i2));
+            c.a.b0.a.a aVar = this.f1454e;
             if (aVar != null) {
                 aVar.M0(beautyType, i2);
             }
@@ -1234,8 +1232,8 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public void m(BeautyType beautyType, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048608, this, beautyType, str) == null) {
-            this.f1471k.put(beautyType, str);
-            c.a.b0.a.a aVar = this.f1465e;
+            this.k.put(beautyType, str);
+            c.a.b0.a.a aVar = this.f1454e;
             if (aVar != null) {
                 aVar.P0(beautyType, str);
             }
@@ -1256,7 +1254,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, filter) == null) {
-            this.f1470j = filter;
+            this.f1459j = filter;
             if (filter == null && !this.A) {
                 f2 = 0.0f;
                 str = null;
@@ -1273,11 +1271,11 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                 str = d2 != null ? d2.getAbsolutePath() : null;
                 f2 = filter.getLevel();
             }
-            Object obj = this.f1471k.get(BeautyType.lutFile);
+            Object obj = this.k.get(BeautyType.lutFile);
             String str2 = obj instanceof String ? (String) obj : null;
             if (str != null && !str.equals(str2)) {
-                this.f1471k.put(BeautyType.lutFile, str);
-                c.a.b0.a.a aVar = this.f1465e;
+                this.k.put(BeautyType.lutFile, str);
+                c.a.b0.a.a aVar = this.f1454e;
                 if (aVar != null && str != null) {
                     aVar.P0(BeautyType.lutFile, str);
                 }
@@ -1298,7 +1296,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public void o(Sticker sticker) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, sticker) == null) {
-            this.f1469i = sticker;
+            this.f1458i = sticker;
             I(sticker);
         }
     }
@@ -1306,10 +1304,10 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public final void o0() {
         c.a.b0.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || (aVar = this.f1465e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || (aVar = this.f1454e) == null) {
             return;
         }
-        aVar.R0(this.f1471k);
+        aVar.R0(this.k);
     }
 
     public void onARDrawerChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
@@ -1327,22 +1325,22 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
             }
             int i4 = i2;
             int i5 = i3;
-            c.a.b0.a.a aVar = this.f1465e;
+            c.a.b0.a.a aVar = this.f1454e;
             if (aVar == null) {
                 c.a.a1.t.c.c("DuAr_ARProcessor", "onARDrawerCreated Effect == null");
                 return;
             }
             aVar.V0(new C0025a(this));
-            this.f1465e.L(new b(this));
-            this.f1465e.t0(surfaceTexture, onFrameAvailableListener, i4, i5, p0(), q0());
-            this.f1465e.a1(new d(this));
+            this.f1454e.L(new b(this));
+            this.f1454e.t0(surfaceTexture, onFrameAvailableListener, i4, i5, p0(), q0());
+            this.f1454e.a1(new d(this));
         }
     }
 
     public void onCameraDrawerCreated(SurfaceTexture surfaceTexture, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048616, this, surfaceTexture, i2, i3) == null) {
-            c.a.b0.a.a aVar = this.f1465e;
+            c.a.b0.a.a aVar = this.f1454e;
             if (aVar != null) {
                 aVar.v0(surfaceTexture, i2, i3);
             } else {
@@ -1361,10 +1359,10 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                 surfaceTexture.release();
                 this.q = null;
             }
-            c.a.b0.a.a aVar = this.f1465e;
+            c.a.b0.a.a aVar = this.f1454e;
             if (aVar != null) {
                 aVar.B0();
-                this.f1465e = null;
+                this.f1454e = null;
             }
             FullFrameRect fullFrameRect = this.u;
             if (fullFrameRect != null) {
@@ -1374,7 +1372,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                 T(false);
             }
             super.onDestroy();
-            this.f1467g = null;
+            this.f1456g = null;
         }
     }
 
@@ -1409,7 +1407,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
                 aVar.a();
             }
             super.onPause();
-            c.a.b0.a.a aVar2 = this.f1465e;
+            c.a.b0.a.a aVar2 = this.f1454e;
             if (aVar2 != null) {
                 aVar2.y0();
             }
@@ -1458,20 +1456,20 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
             super.onResume();
-            if (c.a.b0.a.a.M(this.f1465e, O)) {
-                this.f1465e.F0();
+            if (c.a.b0.a.a.M(this.f1454e, O)) {
+                this.f1454e.F0();
                 return;
             }
             l lVar = this.v;
             if (lVar != null) {
                 lVar.c();
             }
-            this.f1465e = c.a.b0.a.a.V(this.f1467g, O, c.a.b0.a.b.b());
+            this.f1454e = c.a.b0.a.a.V(this.f1456g, O, c.a.b0.a.b.b());
             E(this.E);
             this.H = new h(this);
-            this.f1465e.S0(new i(this));
-            this.f1465e.X0(new j(this));
-            this.f1465e.W0(new k(this));
+            this.f1454e.S0(new i(this));
+            this.f1454e.X0(new j(this));
+            this.f1454e.W0(new k(this));
             SurfaceTexture surfaceTexture = this.s;
             if (surfaceTexture != null && this.q != null) {
                 onCameraDrawerCreated(surfaceTexture, this.w, this.x);
@@ -1482,7 +1480,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
             }
             ARRenderFpsCallback aRRenderFpsCallback = this.J;
             if (aRRenderFpsCallback != null) {
-                this.f1465e.J0(aRRenderFpsCallback);
+                this.f1454e.J0(aRRenderFpsCallback);
             }
         }
     }
@@ -1510,7 +1508,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public final boolean p0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? 1 == this.f1468h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? 1 == this.f1457h : invokeV.booleanValue;
     }
 
     public final DuMixCallback q0() {
@@ -1522,7 +1520,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
     public void r(HashMap<String, Object> hashMap) {
         c.a.b0.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048626, this, hashMap) == null) || (aVar = this.f1465e) == null || hashMap == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048626, this, hashMap) == null) || (aVar = this.f1454e) == null || hashMap == null) {
             return;
         }
         aVar.I0(hashMap);
@@ -1549,7 +1547,7 @@ public class a extends BaseEffectProcessor implements SurfaceTexture.OnFrameAvai
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048629, this, view, motionEvent)) == null) {
             Sticker W = W();
-            return (W != null && W.isTouchAble()) && (aVar = this.f1465e) != null && aVar.x0(view, motionEvent);
+            return (W != null && W.isTouchAble()) && (aVar = this.f1454e) != null && aVar.x0(view, motionEvent);
         }
         return invokeLL.booleanValue;
     }

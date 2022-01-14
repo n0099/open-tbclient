@@ -44,22 +44,20 @@ public class f extends c.a.t0.x2.d.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f26117f;
+    public TbPageContext f25347f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoDataView f26118g;
+    public NoDataView f25348g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f26119h;
+    public View f25349h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.s0.g0.h f26120i;
+    public c.a.s0.g0.h f25350i;
 
     /* renamed from: j  reason: collision with root package name */
-    public e f26121j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public PbListView f26122k;
+    public e f25351j;
+    public PbListView k;
     public NoNetworkView l;
     public PluginErrorTipView m;
     public ImageView n;
@@ -77,7 +75,7 @@ public class f extends c.a.t0.x2.d.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f26123e;
+        public final /* synthetic */ f f25352e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -94,15 +92,15 @@ public class f extends c.a.t0.x2.d.e {
                     return;
                 }
             }
-            this.f26123e = fVar;
+            this.f25352e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.eventStat(this.f26123e.f26117f.getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
-                ViewHelper.skipToLoginActivity(this.f26123e.f26117f.getPageActivity());
+                TiebaStatic.eventStat(this.f25352e.f25347f.getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
+                ViewHelper.skipToLoginActivity(this.f25352e.f25347f.getPageActivity());
             }
         }
     }
@@ -113,7 +111,7 @@ public class f extends c.a.t0.x2.d.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f26124e;
+        public final /* synthetic */ f f25353e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -130,17 +128,17 @@ public class f extends c.a.t0.x2.d.e {
                     return;
                 }
             }
-            this.f26124e = fVar;
+            this.f25353e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.A()) {
-                this.f26124e.o();
-                this.f26124e.B(true);
-                if (this.f26124e.f26121j != null) {
-                    this.f26124e.f26121j.a(view);
+                this.f25353e.o();
+                this.f25353e.B(true);
+                if (this.f25353e.f25351j != null) {
+                    this.f25353e.f25351j.a(view);
                 }
             }
         }
@@ -152,7 +150,7 @@ public class f extends c.a.t0.x2.d.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f26125e;
+        public final /* synthetic */ f f25354e;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -169,14 +167,14 @@ public class f extends c.a.t0.x2.d.e {
                     return;
                 }
             }
-            this.f26125e = fVar;
+            this.f25354e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f26125e.f26117f.getPageActivity(), null, c.a.t0.s2.c.a(), true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f25354e.f25347f.getPageActivity(), null, c.a.t0.s2.c.a(), true)));
             }
         }
     }
@@ -187,13 +185,13 @@ public class f extends c.a.t0.x2.d.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.t0.x2.f.b f26126e;
+        public c.a.t0.x2.f.b f25355e;
 
         /* renamed from: f  reason: collision with root package name */
-        public UserData f26127f;
+        public UserData f25356f;
 
         /* renamed from: g  reason: collision with root package name */
-        public c.a.t0.n4.e f26128g;
+        public c.a.t0.n4.e f25357g;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -208,23 +206,23 @@ public class f extends c.a.t0.x2.d.e {
                     return;
                 }
             }
-            this.f26126e = new c.a.t0.x2.f.b();
+            this.f25355e = new c.a.t0.x2.f.b();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UserData userData = this.f26127f;
+                UserData userData = this.f25356f;
                 if (userData == null || !userData.isBaijiahaoUser()) {
                     TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "3"));
-                    c.a.t0.x2.f.b bVar = this.f26126e;
+                    c.a.t0.x2.f.b bVar = this.f25355e;
                     bVar.a = 10;
-                    bVar.f25224b = new Bundle();
-                    this.f26126e.f25224b.putSerializable(UserData.TYPE_USER, this.f26127f);
-                    c.a.t0.n4.e eVar = this.f26128g;
+                    bVar.f24520b = new Bundle();
+                    this.f25355e.f24520b.putSerializable(UserData.TYPE_USER, this.f25356f);
+                    c.a.t0.n4.e eVar = this.f25357g;
                     if (eVar != null) {
-                        eVar.a(view, this.f26126e);
+                        eVar.a(view, this.f25355e);
                     }
                 }
             }
@@ -259,27 +257,27 @@ public class f extends c.a.t0.x2.d.e {
         if (tbPageContext == null || view == null) {
             return;
         }
-        this.f26117f = tbPageContext;
-        this.f26119h = view;
+        this.f25347f = tbPageContext;
+        this.f25349h = view;
         this.l = (NoNetworkView) view.findViewById(c.a.t0.y2.d.person_center_no_network_view);
-        this.m = (PluginErrorTipView) this.f26119h.findViewById(c.a.t0.y2.d.person_center_plugin_error_tip_view);
-        this.q = (LinearLayout) this.f26119h.findViewById(c.a.t0.y2.d.person_center_anti_container);
-        c.a.t0.x2.j.k kVar = new c.a.t0.x2.j.k(this.f26117f, this.f26119h.findViewById(c.a.t0.y2.d.person_center_anti_navigation_bar), this.f26119h.findViewById(c.a.t0.y2.d.person_center_anti_status_bar_space), z);
+        this.m = (PluginErrorTipView) this.f25349h.findViewById(c.a.t0.y2.d.person_center_plugin_error_tip_view);
+        this.q = (LinearLayout) this.f25349h.findViewById(c.a.t0.y2.d.person_center_anti_container);
+        c.a.t0.x2.j.k kVar = new c.a.t0.x2.j.k(this.f25347f, this.f25349h.findViewById(c.a.t0.y2.d.person_center_anti_navigation_bar), this.f25349h.findViewById(c.a.t0.y2.d.person_center_anti_status_bar_space), z);
         this.u = kVar;
         kVar.k(PersonStatus.GUEST_DEFAULT);
-        this.r = (FrameLayout) this.f26119h.findViewById(c.a.t0.y2.d.person_center_anti_content);
-        this.s = (NoNetworkView) this.f26119h.findViewById(c.a.t0.y2.d.person_center_anti_no_network_view);
-        this.t = (RelativeLayout) this.f26119h.findViewById(c.a.t0.y2.d.person_center_noanti_rootview);
-        PbListView pbListView = new PbListView(this.f26117f.getPageActivity());
-        this.f26122k = pbListView;
+        this.r = (FrameLayout) this.f25349h.findViewById(c.a.t0.y2.d.person_center_anti_content);
+        this.s = (NoNetworkView) this.f25349h.findViewById(c.a.t0.y2.d.person_center_anti_no_network_view);
+        this.t = (RelativeLayout) this.f25349h.findViewById(c.a.t0.y2.d.person_center_noanti_rootview);
+        PbListView pbListView = new PbListView(this.f25347f.getPageActivity());
+        this.k = pbListView;
         pbListView.b();
-        this.f26122k.F(SkinManager.getColor(c.a.t0.y2.a.CAM_X0109));
-        this.f26122k.B(c.a.t0.y2.a.CAM_X0110);
-        this.f26122k.p(c.a.t0.y2.a.CAM_X0201);
-        this.f26122k.t(n.f(this.f26117f.getPageActivity(), c.a.t0.y2.b.ds140));
-        this.f26122k.r(n.f(this.f26117f.getPageActivity(), c.a.t0.y2.b.ds12));
-        this.f26122k.A();
-        this.f26122k.x(c.a.t0.y2.a.CAM_X0205);
+        this.k.F(SkinManager.getColor(c.a.t0.y2.a.CAM_X0109));
+        this.k.B(c.a.t0.y2.a.CAM_X0110);
+        this.k.p(c.a.t0.y2.a.CAM_X0201);
+        this.k.t(n.f(this.f25347f.getPageActivity(), c.a.t0.y2.b.ds140));
+        this.k.r(n.f(this.f25347f.getPageActivity(), c.a.t0.y2.b.ds12));
+        this.k.A();
+        this.k.x(c.a.t0.y2.a.CAM_X0205);
         r(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -293,15 +291,15 @@ public class f extends c.a.t0.x2.d.e {
             imageView.setVisibility(8);
         }
         this.q.setVisibility(0);
-        int dimensionPixelSize = this.f26117f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds220);
-        int dimensionPixelSize2 = this.f26117f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds480);
-        int dimensionPixelSize3 = this.f26117f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds360);
-        int dimensionPixelSize4 = this.f26117f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds60);
-        int dimensionPixelSize5 = this.f26117f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds20);
-        NoDataView a2 = NoDataViewFactory.a(this.f26117f.getPageActivity(), this.r, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, c.a.t0.y2.c.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.e(c.a.t0.y2.g.unlogin_person_msg_text, dimensionPixelSize4), NoDataViewFactory.c.b(new NoDataViewFactory.b(this.f26117f.getString(c.a.t0.y2.g.unlogin_person_button_text), new a(this)), dimensionPixelSize5));
-        this.f26118g = a2;
+        int dimensionPixelSize = this.f25347f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds220);
+        int dimensionPixelSize2 = this.f25347f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds480);
+        int dimensionPixelSize3 = this.f25347f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds360);
+        int dimensionPixelSize4 = this.f25347f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds60);
+        int dimensionPixelSize5 = this.f25347f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds20);
+        NoDataView a2 = NoDataViewFactory.a(this.f25347f.getPageActivity(), this.r, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, c.a.t0.y2.c.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.e(c.a.t0.y2.g.unlogin_person_msg_text, dimensionPixelSize4), NoDataViewFactory.c.b(new NoDataViewFactory.b(this.f25347f.getString(c.a.t0.y2.g.unlogin_person_button_text), new a(this)), dimensionPixelSize5));
+        this.f25348g = a2;
         a2.setVisibility(0);
-        this.f26118g.onChangeSkinType(this.f26117f, TbadkCoreApplication.getInst().getSkinType());
+        this.f25348g.onChangeSkinType(this.f25347f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void B(boolean z) {
@@ -334,7 +332,7 @@ public class f extends c.a.t0.x2.d.e {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             c.a.s0.g0.g gVar = this.o;
             if (gVar != null) {
-                gVar.dettachView(this.f26119h);
+                gVar.dettachView(this.f25349h);
                 this.o = null;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921440, Boolean.TRUE));
@@ -344,11 +342,11 @@ public class f extends c.a.t0.x2.d.e {
     public void o() {
         c.a.s0.g0.h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (hVar = this.f26120i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (hVar = this.f25350i) == null) {
             return;
         }
         hVar.dettachView(this.r);
-        this.f26120i = null;
+        this.f25350i = null;
     }
 
     public void p() {
@@ -361,7 +359,7 @@ public class f extends c.a.t0.x2.d.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            c.a.s0.g0.h hVar = this.f26120i;
+            c.a.s0.g0.h hVar = this.f25350i;
             if (hVar != null) {
                 return hVar.isViewAttached();
             }
@@ -375,20 +373,20 @@ public class f extends c.a.t0.x2.d.e {
         if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.p == i2) {
             return;
         }
-        NoDataView noDataView = this.f26118g;
+        NoDataView noDataView = this.f25348g;
         if (noDataView != null) {
-            noDataView.onChangeSkinType(this.f26117f, i2);
+            noDataView.onChangeSkinType(this.f25347f, i2);
         }
         NoNetworkView noNetworkView = this.s;
         if (noNetworkView != null) {
-            noNetworkView.onChangeSkinType(this.f26117f, i2);
+            noNetworkView.onChangeSkinType(this.f25347f, i2);
         }
         c.a.t0.x2.j.k kVar = this.u;
         if (kVar != null) {
             kVar.g(i2);
         }
-        SkinManager.setBackgroundResource(this.f26119h, c.a.t0.y2.a.CAM_X0201);
-        c.a.s0.g0.h hVar = this.f26120i;
+        SkinManager.setBackgroundResource(this.f25349h, c.a.t0.y2.a.CAM_X0201);
+        c.a.s0.g0.h hVar = this.f25350i;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
@@ -405,7 +403,7 @@ public class f extends c.a.t0.x2.d.e {
     public void t(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) {
-            this.f26121j = eVar;
+            this.f25351j = eVar;
         }
     }
 
@@ -413,13 +411,13 @@ public class f extends c.a.t0.x2.d.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.t.setVisibility(8);
-            int dimensionPixelSize = this.f26117f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds240);
-            if (this.f26118g == null) {
-                this.f26118g = NoDataViewFactory.a(this.f26117f.getPageActivity(), this.f26119h, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.f26117f.getString(c.a.t0.y2.g.user_to_anti)), null);
+            int dimensionPixelSize = this.f25347f.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds240);
+            if (this.f25348g == null) {
+                this.f25348g = NoDataViewFactory.a(this.f25347f.getPageActivity(), this.f25349h, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.f25347f.getString(c.a.t0.y2.g.user_to_anti)), null);
             }
-            SkinManager.setViewTextColor(this.f26118g.getSuTextView(), c.a.t0.y2.a.CAM_X0106);
-            this.f26118g.onChangeSkinType(this.f26117f, TbadkCoreApplication.getInst().getSkinType());
-            this.f26118g.setVisibility(0);
+            SkinManager.setViewTextColor(this.f25348g.getSuTextView(), c.a.t0.y2.a.CAM_X0106);
+            this.f25348g.onChangeSkinType(this.f25347f, TbadkCoreApplication.getInst().getSkinType());
+            this.f25348g.setVisibility(0);
         }
     }
 
@@ -435,13 +433,13 @@ public class f extends c.a.t0.x2.d.e {
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (this.o == null) {
                 if (i2 < 0) {
-                    this.o = new c.a.s0.g0.g(this.f26117f.getContext());
+                    this.o = new c.a.s0.g0.g(this.f25347f.getContext());
                 } else {
-                    this.o = new c.a.s0.g0.g(this.f26117f.getContext(), i2);
+                    this.o = new c.a.s0.g0.g(this.f25347f.getContext(), i2);
                 }
                 this.o.onChangeSkinType();
             }
-            this.o.attachView(this.f26119h, z);
+            this.o.attachView(this.f25349h, z);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921440, Boolean.FALSE));
         }
     }
@@ -452,13 +450,13 @@ public class f extends c.a.t0.x2.d.e {
             return;
         }
         this.q.setVisibility(0);
-        if (this.f26120i == null) {
-            this.f26120i = new c.a.s0.g0.h(this.f26117f.getPageActivity(), new b(this));
+        if (this.f25350i == null) {
+            this.f25350i = new c.a.s0.g0.h(this.f25347f.getPageActivity(), new b(this));
         }
-        this.f26120i.h(c.a.t0.y2.c.new_pic_emotion_08);
-        this.f26120i.attachView(this.r, z);
-        this.f26120i.p();
-        this.f26120i.onChangeSkinType();
+        this.f25350i.h(c.a.t0.y2.c.new_pic_emotion_08);
+        this.f25350i.attachView(this.r, z);
+        this.f25350i.p();
+        this.f25350i.onChangeSkinType();
         ImageView imageView = this.n;
         if (imageView != null) {
             imageView.setVisibility(8);
@@ -470,7 +468,7 @@ public class f extends c.a.t0.x2.d.e {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             if (NickNameActivitySwitch.isOn()) {
                 if (this.n == null) {
-                    ImageView imageView = new ImageView(this.f26117f.getPageActivity());
+                    ImageView imageView = new ImageView(this.f25347f.getPageActivity());
                     this.n = imageView;
                     imageView.setImageResource(c.a.t0.y2.c.icon_nichengjun);
                     this.n.setOnClickListener(new c(this));
@@ -481,9 +479,9 @@ public class f extends c.a.t0.x2.d.e {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams.addRule(11);
                 layoutParams.addRule(10);
-                layoutParams.topMargin = n.f(this.f26117f.getPageActivity(), c.a.t0.y2.b.ds504);
-                layoutParams.rightMargin = n.f(this.f26117f.getPageActivity(), c.a.t0.y2.b.ds26);
-                View view = this.f26119h;
+                layoutParams.topMargin = n.f(this.f25347f.getPageActivity(), c.a.t0.y2.b.ds504);
+                layoutParams.rightMargin = n.f(this.f25347f.getPageActivity(), c.a.t0.y2.b.ds26);
+                View view = this.f25349h;
                 if (view instanceof RelativeLayout) {
                     ((RelativeLayout) view).addView(this.n, layoutParams);
                     return;
@@ -495,7 +493,7 @@ public class f extends c.a.t0.x2.d.e {
                 return;
             }
             ViewParent parent = this.n.getParent();
-            View view2 = this.f26119h;
+            View view2 = this.f25349h;
             if (parent == view2) {
                 ((RelativeLayout) view2).removeView(this.n);
             }

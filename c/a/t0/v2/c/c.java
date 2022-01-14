@@ -17,7 +17,7 @@ public class c {
     public BdTypeListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f25274b;
+    public a f24568b;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -35,27 +35,27 @@ public class c {
             }
         }
         this.a = bdTypeListView;
-        this.f25274b = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.f24568b = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f25274b.a();
+            this.f24568b.a();
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f25274b.c();
+            this.f24568b.c();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f25274b.c();
+            this.f24568b.c();
         }
     }
 
@@ -69,7 +69,7 @@ public class c {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f25274b.d();
+            this.f24568b.d();
         }
     }
 }

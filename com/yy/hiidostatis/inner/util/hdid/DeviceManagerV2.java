@@ -84,7 +84,7 @@ public final class DeviceManagerV2 {
             putString(device.json, "hdid", device.hdid);
             putString(device.json, "type", device.type);
             putString(device.json, "imei", device.imei);
-            putString(device.json, BaseStatisContent.MAC, device.mac);
+            putString(device.json, "mac", device.mac);
             putString(device.json, BaseStatisContent.ARID, device.arid);
             JSONObject jSONObject = device.json;
             putString(jSONObject, "key", key(device.hdid + device.imei + device.mac));
@@ -291,7 +291,7 @@ public final class DeviceManagerV2 {
             String string = getString(jSONObject, "hdid");
             String string2 = getString(jSONObject, "type");
             String string3 = getString(jSONObject, "imei");
-            String string4 = getString(jSONObject, BaseStatisContent.MAC);
+            String string4 = getString(jSONObject, "mac");
             if (key(string + string3 + string4).equals(getString(jSONObject, "key"))) {
                 Device device = new Device();
                 device.json = jSONObject;

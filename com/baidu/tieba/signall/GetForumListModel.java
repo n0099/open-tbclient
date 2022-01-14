@@ -35,25 +35,23 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f49766e;
+    public c f47897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f49767f;
+    public b f47898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessage f49768g;
+    public HttpMessage f47899g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f49769h;
+    public boolean f47900h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final BdUniqueId f49770i;
+    public final BdUniqueId f47901i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ResponsedMessage<?> f49771j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final HttpMessageListener f49772k;
+    public ResponsedMessage<?> f47902j;
+    public final HttpMessageListener k;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -88,29 +86,29 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001201) {
                 int error = httpResponsedMessage.getError();
-                this.a.f49771j = httpResponsedMessage;
+                this.a.f47902j = httpResponsedMessage;
                 if (!httpResponsedMessage.isSuccess()) {
                     if (error == 110001) {
                         this.a.C(httpResponsedMessage);
                     }
-                    this.a.f49767f.onNetError(httpResponsedMessage.getErrorString());
+                    this.a.f47898f.onNetError(httpResponsedMessage.getErrorString());
                 } else if (error == 0) {
-                    this.a.f49766e = ((GetForumResponsed) httpResponsedMessage).listData;
-                    if (this.a.f49767f != null) {
-                        if (this.a.f49766e != null) {
-                            this.a.f49767f.a(this.a.f49766e);
+                    this.a.f47897e = ((GetForumResponsed) httpResponsedMessage).listData;
+                    if (this.a.f47898f != null) {
+                        if (this.a.f47897e != null) {
+                            this.a.f47898f.a(this.a.f47897e);
                         } else {
                             String errorString = httpResponsedMessage.getErrorString();
                             if (StringUtils.isNull(errorString)) {
                                 errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.neterror);
                             }
-                            this.a.f49767f.onNetError(errorString);
+                            this.a.f47898f.onNetError(errorString);
                         }
                     }
                 } else {
-                    this.a.f49767f.onNetError(httpResponsedMessage.getErrorString());
+                    this.a.f47898f.onNetError(httpResponsedMessage.getErrorString());
                 }
-                this.a.f49768g = null;
+                this.a.f47899g = null;
             }
         }
     }
@@ -156,18 +154,18 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                 return;
             }
         }
-        this.f49766e = null;
-        this.f49767f = null;
-        this.f49770i = BdUniqueId.gen();
-        this.f49772k = new a(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
-        this.f49769h = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        this.f47897e = null;
+        this.f47898f = null;
+        this.f47901i = BdUniqueId.gen();
+        this.k = new a(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
+        this.f47900h = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         MessageManager messageManager = MessageManager.getInstance();
-        this.f49766e = new c();
+        this.f47897e = new c();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, l);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.f49772k);
+        registerListener(this.k);
     }
 
     public final void C(HttpResponsedMessage httpResponsedMessage) {
@@ -198,13 +196,13 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49769h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47900h : invokeV.booleanValue;
     }
 
     public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f49767f = bVar;
+            this.f47898f = bVar;
         }
     }
 
@@ -213,9 +211,9 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f49768g != null) {
-                MessageManager.getInstance().removeHttpMessage(this.f49770i);
-                this.f49768g = null;
+            if (this.f47899g != null) {
+                MessageManager.getInstance().removeHttpMessage(this.f47901i);
+                this.f47899g = null;
             }
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.SIGNALL_GET_FOURMS);
             return true;
@@ -226,7 +224,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
     public ResponsedMessage<?> getResponsedMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49771j : (ResponsedMessage) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f47902j : (ResponsedMessage) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -234,14 +232,14 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f49768g != null) {
+            if (this.f47899g != null) {
                 return false;
             }
-            this.f49768g = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
+            this.f47899g = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            this.f49768g.addParam("user_id", currentAccountObj != null ? currentAccountObj.getID() : null);
-            this.f49768g.setTag(this.f49770i);
-            MessageManager.getInstance().sendMessage(this.f49768g);
+            this.f47899g.addParam("user_id", currentAccountObj != null ? currentAccountObj.getID() : null);
+            this.f47899g.setTag(this.f47901i);
+            MessageManager.getInstance().sendMessage(this.f47899g);
             return true;
         }
         return invokeV.booleanValue;

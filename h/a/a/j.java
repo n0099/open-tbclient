@@ -41,34 +41,32 @@ public final class j {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64080b;
+    public int f61679b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f64081c;
+    public final a f61680c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f64082d;
+    public byte[] f61681d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f64083e;
+    public final int[] f61682e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f64084f;
+    public final int[] f61683f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64085g;
+    public int f61684g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f64086h;
+    public boolean f61685h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f64087i;
+    public boolean f61686i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f64088j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final g f64089k;
+    public boolean f61687j;
+    public final g k;
     public final g l;
     public final g m;
     public final int[] n;
@@ -99,10 +97,10 @@ public final class j {
             }
         }
         this.a = 0;
-        this.f64081c = new a();
-        this.f64083e = new int[3240];
-        this.f64084f = new int[3240];
-        this.f64089k = new g();
+        this.f61680c = new a();
+        this.f61682e = new int[3240];
+        this.f61683f = new int[3240];
+        this.k = new g();
         this.l = new g();
         this.m = new g();
         this.n = new int[3];
@@ -131,7 +129,7 @@ public final class j {
                 return;
             }
             jVar.a = 11;
-            a.b(jVar.f64081c);
+            a.b(jVar.f61680c);
         }
     }
 
@@ -159,8 +157,8 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, jVar, inputStream) == null) {
             if (jVar.a == 0) {
-                a.e(jVar.f64081c, inputStream);
-                int b2 = b(jVar.f64081c);
+                a.e(jVar.f61680c, inputStream);
+                int b2 = b(jVar.f61680c);
                 if (b2 != 9) {
                     int i2 = 1 << b2;
                     jVar.P = i2;

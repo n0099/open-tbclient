@@ -18,14 +18,14 @@ public class c {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f60953b = "";
+    public static String f58646b = "";
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f60953b)) {
-            f60953b = !a() ? c(context) : d(context);
-            return f60953b;
+        if (TextUtils.isEmpty(f58646b)) {
+            f58646b = !a() ? c(context) : d(context);
+            return f58646b;
         }
-        return f60953b;
+        return f58646b;
     }
 
     public static String a(String str) {
@@ -126,6 +126,6 @@ public class c {
 
     public static String d(Context context) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
-        return a2.a ? (String) a2.f60941b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        return a2.a ? (String) a2.f58634b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 }

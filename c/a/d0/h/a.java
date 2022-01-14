@@ -31,13 +31,13 @@ public class a {
     public BundleInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.d0.h.b.a f3468b;
+    public c.a.d0.h.b.a f3420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f3469c;
+    public boolean f3421c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.d0.h.c.a f3470d;
+    public c.a.d0.h.c.a f3422d;
 
     public a(BundleInfo bundleInfo) {
         Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class a {
                 return;
             }
         }
-        this.f3469c = false;
-        this.f3470d = null;
+        this.f3421c = false;
+        this.f3422d = null;
         if (a(bundleInfo)) {
             this.a = bundleInfo;
             return;
@@ -93,7 +93,7 @@ public class a {
     public ClassLoader c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3468b : (ClassLoader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3420b : (ClassLoader) invokeV.objValue;
     }
 
     public final void d() {
@@ -114,7 +114,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Application applicationContext = ContextHolder.getApplicationContext();
-            this.f3468b = new c.a.d0.h.b.a(c.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), c.f(applicationContext, this.a.getPackageName()).getAbsolutePath(), c.e(applicationContext, this.a.getPackageName()).getAbsolutePath(), applicationContext);
+            this.f3420b = new c.a.d0.h.b.a(c.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), c.f(applicationContext, this.a.getPackageName()).getAbsolutePath(), c.e(applicationContext, this.a.getPackageName()).getAbsolutePath(), applicationContext);
             return true;
         }
         return invokeV.booleanValue;
@@ -130,9 +130,9 @@ public class a {
                     Resources a = d.c().a();
                     Resources b2 = d.c().b();
                     Resources[] d2 = d.c().d();
-                    if (!this.f3469c) {
+                    if (!this.f3421c) {
                         g(applicationContext);
-                        this.f3469c = true;
+                        this.f3421c = true;
                     }
                     String absolutePath = c.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
                     ResourcesHookUtil.hookResources(a, absolutePath);
@@ -182,10 +182,10 @@ public class a {
                 String absolutePath = c.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
                 AssetManager assets = resources.getAssets();
                 if (ResourcesHookUtil.hookAssets(assets, absolutePath)) {
-                    if (this.f3470d == null || this.f3470d.getAssets().hashCode() != assets.hashCode()) {
-                        this.f3470d = new c.a.d0.h.c.a(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
+                    if (this.f3422d == null || this.f3422d.getAssets().hashCode() != assets.hashCode()) {
+                        this.f3422d = new c.a.d0.h.c.a(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
                     }
-                    aVar = this.f3470d;
+                    aVar = this.f3422d;
                 } else {
                     throw new InitException(21, "resources hook error");
                 }

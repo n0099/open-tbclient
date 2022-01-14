@@ -17,7 +17,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f15626b;
+    public static c f15234b;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
@@ -50,14 +50,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f15626b == null) {
+            if (f15234b == null) {
                 synchronized (c.class) {
-                    if (f15626b == null) {
-                        f15626b = new c();
+                    if (f15234b == null) {
+                        f15234b = new c();
                     }
                 }
             }
-            return f15626b;
+            return f15234b;
         }
         return (c) invokeV.objValue;
     }
@@ -86,7 +86,7 @@ public class c {
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a.s0.s.g0.b.j().k("pref_key_stat_sdk_enable", 1) != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a.s0.s.h0.b.k().l("pref_key_stat_sdk_enable", 1) != 0 : invokeV.booleanValue;
     }
 
     public void e(Context context, String str, boolean z) {

@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33271b;
+    public String f32214b;
 
     public f(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class f {
             }
         }
         this.a = str;
-        this.f33271b = str2;
+        this.f32214b = str2;
     }
 
     public String a() {
@@ -44,14 +44,14 @@ public class f {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33271b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32214b : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "BindCache [mApiKey=" + this.a + ", mContent=" + this.f33271b + PreferencesUtil.RIGHT_MOUNT;
+            return "BindCache [mApiKey=" + this.a + ", mContent=" + this.f32214b + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.f.p.t;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.t.g.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -45,31 +45,31 @@ public class g {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.s0.t.g.c f14370b;
+    public c.a.s0.t.g.c f14036b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f14371c;
+    public d f14037c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14372d;
+    public String f14038d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14373e;
+    public String f14039e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.s0.t.g.b f14374f;
+    public c.a.s0.t.g.b f14040f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.InterfaceC0881b f14375g;
+    public b.InterfaceC0894b f14041g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.InterfaceC0881b f14376h;
+    public b.InterfaceC0894b f14042h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.InterfaceC0881b f14377i;
+    public b.InterfaceC0894b f14043i;
 
     /* loaded from: classes6.dex */
-    public class a implements b.InterfaceC0881b {
+    public class a implements b.InterfaceC0894b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g a;
@@ -92,19 +92,19 @@ public class g {
             this.a = gVar;
         }
 
-        @Override // c.a.s0.t.g.b.InterfaceC0881b
+        @Override // c.a.s0.t.g.b.InterfaceC0894b
         public void a(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
                 ShareItem x = this.a.x(shareItem, ThirdPartyUtil.TYPE_WEIXIN);
                 this.a.g(x);
-                this.a.f14371c.a(x, 3, false);
+                this.a.f14037c.a(x, 3, false);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements b.InterfaceC0881b {
+    public class b implements b.InterfaceC0894b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g a;
@@ -127,17 +127,17 @@ public class g {
             this.a = gVar;
         }
 
-        @Override // c.a.s0.t.g.b.InterfaceC0881b
+        @Override // c.a.s0.t.g.b.InterfaceC0894b
         public void a(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                this.a.f14371c.a(this.a.x(shareItem, Share.QQFRIEND), 8, true);
+                this.a.f14037c.a(this.a.x(shareItem, Share.QQFRIEND), 8, true);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements b.InterfaceC0881b {
+    public class c implements b.InterfaceC0894b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g a;
@@ -160,11 +160,11 @@ public class g {
             this.a = gVar;
         }
 
-        @Override // c.a.s0.t.g.b.InterfaceC0881b
+        @Override // c.a.s0.t.g.b.InterfaceC0894b
         public void a(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                this.a.f14371c.a(this.a.x(shareItem, "qzone"), 4, true);
+                this.a.f14037c.a(this.a.x(shareItem, "qzone"), 4, true);
             }
         }
     }
@@ -185,20 +185,20 @@ public class g {
                 return;
             }
         }
-        this.f14370b = null;
-        this.f14371c = null;
-        this.f14372d = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
-        this.f14373e = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.f14372d;
-        this.f14375g = new a(this);
-        this.f14376h = new b(this);
-        this.f14377i = new c(this);
+        this.f14036b = null;
+        this.f14037c = null;
+        this.f14038d = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
+        this.f14039e = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.f14038d;
+        this.f14041g = new a(this);
+        this.f14042h = new b(this);
+        this.f14043i = new c(this);
         this.a = context;
-        this.f14370b = cVar;
+        this.f14036b = cVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, e.class);
         if (runTask == null || runTask.getData() == null || (eVar = (e) runTask.getData()) == null) {
             return;
         }
-        this.f14371c = eVar.a(this.a, this.f14370b);
+        this.f14037c = eVar.a(this.a, this.f14036b);
     }
 
     public static String e(String str, String str2) {
@@ -223,18 +223,18 @@ public class g {
         return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? n() : invokeL.booleanValue;
     }
 
-    public static String i(d2 d2Var, int i2, String str, long j2, String str2, String str3) {
+    public static String i(e2 e2Var, int i2, String str, long j2, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{d2Var, Integer.valueOf(i2), str, Long.valueOf(j2), str2, str3})) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{e2Var, Integer.valueOf(i2), str, Long.valueOf(j2), str2, str3})) == null) {
+            if (e2Var == null) {
                 return "";
             }
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
             StringBuilder sb = new StringBuilder();
             if (i2 != 2 && i2 != 6 && i2 != 8) {
-                if (d2Var.o0() == 0) {
-                    String o = d2Var.o();
+                if (e2Var.o0() == 0) {
+                    String o = e2Var.o();
                     if (!StringUtils.isNull(o)) {
                         str3 = o;
                     }
@@ -247,7 +247,7 @@ public class g {
                         }
                         sb.append(StringUtils.lineSeparator);
                     } else {
-                        String l = l(d2Var, str2);
+                        String l = l(e2Var, str2);
                         if (!StringUtils.isNull(l)) {
                             sb.append(inst.getString(R.string.post_author));
                             sb.append(l);
@@ -259,7 +259,7 @@ public class g {
                         sb.append(StringHelper.numFormatOver10000(j2));
                     }
                 } else {
-                    String l2 = l(d2Var, str2);
+                    String l2 = l(e2Var, str2);
                     if (!StringUtils.isNull(l2)) {
                         sb.append(inst.getString(R.string.post_author));
                         sb.append(l2);
@@ -276,7 +276,7 @@ public class g {
                     sb.append(StringHelper.numFormatOver10000(j2));
                     sb.append(StringUtils.lineSeparator);
                 }
-                String l3 = l(d2Var, str2);
+                String l3 = l(e2Var, str2);
                 if (!StringUtils.isNull(l3)) {
                     sb.append(inst.getString(R.string.post_author));
                     sb.append(l3);
@@ -295,47 +295,47 @@ public class g {
         return (String) invokeCommon.objValue;
     }
 
-    public static String j(d2 d2Var, int i2) {
+    public static String j(e2 e2Var, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, d2Var, i2)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, e2Var, i2)) == null) {
+            if (e2Var == null) {
                 return "";
             }
-            String title = d2Var.getTitle();
+            String title = e2Var.getTitle();
             if (i2 == 2 || i2 == 6 || i2 == 8) {
                 return title;
             }
-            return d2Var.o0() == 0 ? title : d2Var.o();
+            return e2Var.o0() == 0 ? title : e2Var.o();
         }
         return (String) invokeLI.objValue;
     }
 
-    public static int k(d2 d2Var) {
+    public static int k(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, d2Var)) == null) {
-            if (d2Var != null) {
-                if (d2Var.t2()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, e2Var)) == null) {
+            if (e2Var != null) {
+                if (e2Var.t2()) {
                     return 4;
                 }
-                if (d2Var.k0() == 1) {
+                if (e2Var.k0() == 1) {
                     return 3;
                 }
-                if (d2Var.P1()) {
+                if (e2Var.P1()) {
                     return 5;
                 }
-                if (d2Var.S1()) {
+                if (e2Var.S1()) {
                     return 6;
                 }
-                if (d2Var.Q1()) {
+                if (e2Var.Q1()) {
                     return 7;
                 }
-                if (d2Var.R1()) {
+                if (e2Var.R1()) {
                     return 8;
                 }
-                if (!d2Var.B1 || d2Var.A1 == null) {
-                    return d2Var.u2() ? 2 : 1;
+                if (!e2Var.A1 || e2Var.z1 == null) {
+                    return e2Var.u2() ? 2 : 1;
                 }
                 return 9;
             }
@@ -344,13 +344,13 @@ public class g {
         return invokeL.intValue;
     }
 
-    public static String l(d2 d2Var, String str) {
+    public static String l(e2 e2Var, String str) {
         InterceptResult invokeLL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, d2Var, str)) == null) {
-            if (d2Var.J() != null) {
-                str2 = d2Var.J().getName_show();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, e2Var, str)) == null) {
+            if (e2Var.J() != null) {
+                str2 = e2Var.J().getName_show();
                 if (!StringUtils.isNull(str2) && str2.length() > 10) {
                     str2 = str2.substring(0, 10) + "...";
                 }
@@ -419,7 +419,7 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem)) == null) {
-            if (WeChatShareSmallAppToH5Switch.isOn() && c.a.s0.b.d.c0() && (!StringUtils.isNull(shareItem.y0) || !StringUtils.isNull(shareItem.z0) || shareItem.A0 != null)) {
+            if (WeChatShareSmallAppToH5Switch.isOn() && c.a.s0.b.d.d0() && (!StringUtils.isNull(shareItem.y0) || !StringUtils.isNull(shareItem.z0) || shareItem.A0 != null)) {
                 if (!StringUtils.isNull(shareItem.y0)) {
                     shareItem.r = m.cutString(shareItem.y0, 100);
                 }
@@ -432,9 +432,9 @@ public class g {
                 }
             }
             if (WeChatShareSmallAppToH5Switch.isOn() && !StringUtils.isNull(shareItem.t)) {
-                if (c.a.s0.b.d.c0()) {
+                if (c.a.s0.b.d.d0()) {
                     shareItem.t = e(shareItem.t, "&source=12_16_sharecard_a");
-                } else if (c.a.s0.b.d.d0()) {
+                } else if (c.a.s0.b.d.e0()) {
                     shareItem.t = e(shareItem.t, "&source=12_16_sharecard");
                 }
             }
@@ -447,7 +447,7 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareItem)) == null) {
-            if (c.a.s0.b.d.c0() && (shareItem.A0 != null || !StringUtils.isNull(shareItem.z0))) {
+            if (c.a.s0.b.d.d0() && (shareItem.A0 != null || !StringUtils.isNull(shareItem.z0))) {
                 if (!StringUtils.isNull(shareItem.z0)) {
                     shareItem.s = m.cutString(shareItem.z0, 100);
                 }
@@ -456,11 +456,11 @@ public class g {
                     shareItem.v = uri;
                 }
             }
-            if (c.a.s0.b.d.c0()) {
+            if (c.a.s0.b.d.d0()) {
                 if (!StringUtils.isNull(shareItem.t)) {
                     shareItem.t = e(shareItem.t, "&source=12_16_sharecard_a");
                 }
-            } else if (c.a.s0.b.d.d0() && !StringUtils.isNull(shareItem.t)) {
+            } else if (c.a.s0.b.d.e0() && !StringUtils.isNull(shareItem.t)) {
                 shareItem.t = e(shareItem.t, "&source=12_16_sharecard");
             }
             return shareItem;
@@ -487,131 +487,131 @@ public class g {
 
     public void o(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, shareItem) == null) || this.f14371c == null || shareItem == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, shareItem) == null) || this.f14037c == null || shareItem == null) {
             return;
         }
-        shareItem.s = d(shareItem.s, 80, 32, shareItem.h0 ? this.f14372d : "");
+        shareItem.s = d(shareItem.s, 80, 32, shareItem.h0 ? this.f14038d : "");
         if (!QqShareH5Switch.isOn() && !m.isEmpty(shareItem.k0)) {
             shareItem.v = Uri.parse(shareItem.k0);
-            this.f14371c.a(x(shareItem, Share.QQFRIEND), 8, true);
+            this.f14037c.a(x(shareItem, Share.QQFRIEND), 8, true);
         } else if (!QqShareH5Switch.isOn() && m.isEmpty(shareItem.k0) && !m.isEmpty(shareItem.K) && !"0".equals(shareItem.K)) {
-            if (this.f14374f == null) {
+            if (this.f14040f == null) {
                 c.a.s0.t.g.b bVar = new c.a.s0.t.g.b();
-                this.f14374f = bVar;
-                bVar.c(this.f14376h);
+                this.f14040f = bVar;
+                bVar.c(this.f14042h);
             }
-            this.f14374f.b(shareItem);
+            this.f14040f.b(shareItem);
         } else {
             if (!QqShareH5Switch.isOn()) {
-                if (this.f14374f == null) {
-                    this.f14374f = new c.a.s0.t.g.b();
+                if (this.f14040f == null) {
+                    this.f14040f = new c.a.s0.t.g.b();
                 }
-                this.f14374f.b(shareItem);
+                this.f14040f.b(shareItem);
             }
             ShareItem x = x(shareItem, Share.QQFRIEND);
             h(x);
-            this.f14371c.a(x, 8, true);
+            this.f14037c.a(x, 8, true);
         }
     }
 
     public void p(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, shareItem) == null) || this.f14371c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, shareItem) == null) || this.f14037c == null) {
             return;
         }
-        shareItem.s = d(shareItem.s, 80, 32, shareItem.h0 ? this.f14372d : "");
+        shareItem.s = d(shareItem.s, 80, 32, shareItem.h0 ? this.f14038d : "");
         if (!QqShareH5Switch.isOn() && !m.isEmpty(shareItem.k0)) {
             shareItem.v = Uri.parse(shareItem.k0);
-            this.f14371c.a(x(shareItem, "qzone"), 4, true);
+            this.f14037c.a(x(shareItem, "qzone"), 4, true);
         } else if (!QqShareH5Switch.isOn() && m.isEmpty(shareItem.k0) && !m.isEmpty(shareItem.K) && !"0".equals(shareItem.K)) {
-            if (this.f14374f == null) {
+            if (this.f14040f == null) {
                 c.a.s0.t.g.b bVar = new c.a.s0.t.g.b();
-                this.f14374f = bVar;
-                bVar.c(this.f14377i);
+                this.f14040f = bVar;
+                bVar.c(this.f14043i);
             }
-            this.f14374f.b(shareItem);
+            this.f14040f.b(shareItem);
         } else {
             if (!QqShareH5Switch.isOn()) {
-                if (this.f14374f == null) {
-                    this.f14374f = new c.a.s0.t.g.b();
+                if (this.f14040f == null) {
+                    this.f14040f = new c.a.s0.t.g.b();
                 }
-                this.f14374f.b(shareItem);
+                this.f14040f.b(shareItem);
             }
-            this.f14371c.a(x(shareItem, "qzone"), 4, true);
+            this.f14037c.a(x(shareItem, "qzone"), 4, true);
         }
     }
 
     public void q(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, shareItem) == null) || this.f14371c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, shareItem) == null) || this.f14037c == null) {
             return;
         }
-        shareItem.s = d(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.h0 ? this.f14372d : "");
-        this.f14371c.a(x(shareItem, "renren"), 7, true);
+        shareItem.s = d(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.h0 ? this.f14038d : "");
+        this.f14037c.a(x(shareItem, "renren"), 7, true);
     }
 
     public void r(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, shareItem) == null) || this.f14371c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, shareItem) == null) || this.f14037c == null) {
             return;
         }
         if (!c.a.s0.t.g.a.b(TbadkApplication.getInst().getApplicationContext(), 6)) {
             BdToast.c(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.share_sina_weibo_not_install)).q();
             return;
         }
-        shareItem.s = d(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.h0 ? this.f14373e : "");
-        this.f14371c.a(x(shareItem, "sina_weibo"), 6, true);
+        shareItem.s = d(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.h0 ? this.f14039e : "");
+        this.f14037c.a(x(shareItem, "sina_weibo"), 6, true);
     }
 
     public void s(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareItem) == null) || this.f14371c == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareItem) == null) || this.f14037c == null) {
             return;
         }
-        shareItem.s = d(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.h0 ? this.f14372d : "");
-        this.f14371c.a(x(shareItem, "tencent_weibo"), 5, true);
+        shareItem.s = d(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.h0 ? this.f14038d : "");
+        this.f14037c.a(x(shareItem, "tencent_weibo"), 5, true);
     }
 
     public void t(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, shareItem) == null) || this.f14371c == null || shareItem == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, shareItem) == null) || this.f14037c == null || shareItem == null) {
             return;
         }
         if (StringUtils.isNull(shareItem.K)) {
-            shareItem.s = d(shareItem.s, 80, 20, shareItem.h0 ? this.f14372d : "");
+            shareItem.s = d(shareItem.s, 80, 20, shareItem.h0 ? this.f14038d : "");
         }
         if (shareItem.m0 && !m.isEmpty(shareItem.k0)) {
             shareItem.v = Uri.parse(shareItem.k0);
             ShareItem x = x(shareItem, ThirdPartyUtil.TYPE_WEIXIN);
             g(x);
-            this.f14371c.a(x, 3, false);
+            this.f14037c.a(x, 3, false);
         } else if (shareItem.m0 && m.isEmpty(shareItem.k0) && !m.isEmpty(shareItem.K) && !"0".equals(shareItem.K)) {
-            if (this.f14374f == null) {
+            if (this.f14040f == null) {
                 c.a.s0.t.g.b bVar = new c.a.s0.t.g.b();
-                this.f14374f = bVar;
-                bVar.c(this.f14375g);
+                this.f14040f = bVar;
+                bVar.c(this.f14041g);
             }
-            this.f14374f.b(shareItem);
+            this.f14040f.b(shareItem);
         } else {
             if (shareItem.y == 4) {
-                if (this.f14374f == null) {
-                    this.f14374f = new c.a.s0.t.g.b();
+                if (this.f14040f == null) {
+                    this.f14040f = new c.a.s0.t.g.b();
                 }
-                this.f14374f.b(shareItem);
+                this.f14040f.b(shareItem);
             }
             ShareItem x2 = x(shareItem, ThirdPartyUtil.TYPE_WEIXIN);
             g(x2);
-            this.f14371c.a(x2, 3, false);
+            this.f14037c.a(x2, 3, false);
         }
     }
 
     public void u(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, shareItem) == null) || this.f14371c == null || shareItem == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, shareItem) == null) || this.f14037c == null || shareItem == null) {
             return;
         }
-        shareItem.s = d(shareItem.s, 80, 20, shareItem.h0 ? this.f14372d : "");
-        this.f14371c.a(x(shareItem, Share.WEIXIN_TIMELINE), 2, false);
+        shareItem.s = d(shareItem.s, 80, 20, shareItem.h0 ? this.f14038d : "");
+        this.f14037c.a(x(shareItem, Share.WEIXIN_TIMELINE), 2, false);
     }
 
     public final ShareItem x(ShareItem shareItem, String str) {

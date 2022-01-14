@@ -13,16 +13,16 @@ public class h {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f12114b;
+    public final int f11833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f12115c;
+    public final int f11834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f12116d;
+    public long f11835d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12117e;
+    public int f11836e;
 
     public h(String str, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class h {
             }
         }
         this.a = str;
-        this.f12114b = i2;
-        this.f12115c = i3;
+        this.f11833b = i2;
+        this.f11834c = i3;
     }
 
     public String a() {
@@ -54,20 +54,20 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f12114b != 0 && this.f12115c != 0) {
+            if (this.f11833b != 0 && this.f11834c != 0) {
                 long currentTimeMillis = System.currentTimeMillis();
-                long j2 = this.f12116d;
-                if (j2 != 0 && (currentTimeMillis - j2) / 1000 <= this.f12114b && this.f12117e >= this.f12115c) {
+                long j2 = this.f11835d;
+                if (j2 != 0 && (currentTimeMillis - j2) / 1000 <= this.f11833b && this.f11836e >= this.f11834c) {
                     return true;
                 }
-                long j3 = this.f12116d;
+                long j3 = this.f11835d;
                 if (j3 == 0) {
-                    this.f12116d = currentTimeMillis;
-                } else if ((currentTimeMillis - j3) / 1000 > this.f12114b) {
-                    this.f12116d = currentTimeMillis;
-                    this.f12117e = 0;
+                    this.f11835d = currentTimeMillis;
+                } else if ((currentTimeMillis - j3) / 1000 > this.f11833b) {
+                    this.f11835d = currentTimeMillis;
+                    this.f11836e = 0;
                 }
-                this.f12117e++;
+                this.f11836e++;
             }
             return false;
         }
@@ -78,8 +78,8 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.f12117e;
-            return i2 != 0 && i2 == this.f12115c;
+            int i2 = this.f11836e;
+            return i2 != 0 && i2 == this.f11834c;
         }
         return invokeV.booleanValue;
     }

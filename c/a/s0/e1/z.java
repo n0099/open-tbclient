@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.searchbox.performance.speed.SpeedRuntime;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +36,7 @@ public class z {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 for (ActivityManager.AppTask appTask : ((ActivityManager) context.getSystemService("activity")).getAppTasks()) {
-                    if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseActivity != null && SpeedRuntime.SPLASH_ACTIVITY_NAME.equals(appTask.getTaskInfo().baseActivity.getClassName()) && SpeedRuntime.SPLASH_ACTIVITY_NAME.equals(appTask.getTaskInfo().topActivity.getClassName())) {
+                    if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseActivity != null && SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(appTask.getTaskInfo().baseActivity.getClassName()) && SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(appTask.getTaskInfo().topActivity.getClassName())) {
                         return true;
                     }
                 }
@@ -77,7 +77,7 @@ public class z {
             if (message != null && (obj = message.obj) != null) {
                 Object d2 = c.a.d.f.b.a.a.d(obj, "intent");
                 if ((d2 instanceof Intent) && (component = ((Intent) d2).getComponent()) != null) {
-                    return SpeedRuntime.SPLASH_ACTIVITY_NAME.equals(component.getClassName());
+                    return SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(component.getClassName());
                 }
             }
             return false;

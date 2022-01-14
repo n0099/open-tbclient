@@ -46,7 +46,7 @@ public class CartesianList$1 extends ImmutableList<E> {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             n.n(i2, size());
             c2 = this.this$0.c(this.val$index, i2);
-            immutableList = this.this$0.f31019e;
+            immutableList = this.this$0.f30048e;
             return ((List) immutableList.get(i2)).get(c2);
         }
         return invokeI.objValue;
@@ -68,7 +68,7 @@ public class CartesianList$1 extends ImmutableList<E> {
         ImmutableList immutableList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            immutableList = this.this$0.f31019e;
+            immutableList = this.this$0.f30048e;
             return immutableList.size();
         }
         return invokeV.intValue;

@@ -49,7 +49,7 @@ public class g extends c.a.t0.d1.k<h, FrsMemberHeaderViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f15534e;
+        public final /* synthetic */ g f15146e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class g extends c.a.t0.d1.k<h, FrsMemberHeaderViewHolder> {
                     return;
                 }
             }
-            this.f15534e = gVar;
+            this.f15146e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -75,21 +75,21 @@ public class g extends c.a.t0.d1.k<h, FrsMemberHeaderViewHolder> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Object tag = view.getTag();
                 if (tag instanceof Integer) {
-                    c.a.d.n.e.n z = this.f15534e.z(((Integer) tag).intValue());
+                    c.a.d.n.e.n z = this.f15146e.z(((Integer) tag).intValue());
                     if (z instanceof h) {
                         h hVar = (h) z;
                         if (view.getId() == R.id.like_btn) {
-                            if (ViewHelper.checkUpIsLogin(this.f15534e.o.getPageActivity())) {
+                            if (ViewHelper.checkUpIsLogin(this.f15146e.o.getPageActivity())) {
                                 if (!c.a.d.f.p.l.z()) {
-                                    this.f15534e.o.showToast(R.string.neterror);
+                                    this.f15146e.o.showToast(R.string.neterror);
                                     return;
                                 }
                                 String a = hVar.a();
-                                this.f15534e.x.L(hVar.d(), a);
+                                this.f15146e.x.L(hVar.d(), a);
                             }
                         } else if (view.getId() == R.id.user_level_name) {
                             String a2 = hVar.a();
-                            this.f15534e.o.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.f15534e.f3299e, hVar.d(), a2)));
+                            this.f15146e.o.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.f15146e.f3258e, hVar.d(), a2)));
                         }
                     }
                 }
@@ -198,7 +198,7 @@ public class g extends c.a.t0.d1.k<h, FrsMemberHeaderViewHolder> {
             if (this.x == null) {
                 u0();
             }
-            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.f3299e).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.A);
+            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.f3258e).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.A);
         }
         return (FrsMemberHeaderViewHolder) invokeL.objValue;
     }

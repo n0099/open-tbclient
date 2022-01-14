@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.format.Formatter;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +27,7 @@ public class a {
     public static final String a = "utf-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34890b = "c82c403505338808201aad86f8194734";
+    public static final String f33766b = "c82c403505338808201aad86f8194734";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -160,7 +161,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(HardwareInfoUtils.MEM_INFO_FILE), 8192);
                 j2 = Long.valueOf(bufferedReader.readLine().split("\\s+")[1]).longValue() * 1024;
                 try {
                     bufferedReader.close();

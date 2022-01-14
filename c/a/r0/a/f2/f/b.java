@@ -94,7 +94,7 @@ public abstract class b extends z {
                 return new JSONObject(param);
             } catch (JSONException e2) {
                 c.a.r0.a.e0.d.c("AbsSwanAppWidget", "getParamsJSONObject exception = " + e2.getMessage());
-                if (z.f6340b) {
+                if (z.f6201b) {
                     e2.printStackTrace();
                     return null;
                 }

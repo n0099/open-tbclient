@@ -21,10 +21,10 @@ public class f {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f25123b;
+        public long f24420b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f25124c;
+        public boolean f24421c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class f {
             String str = ucCardInfo.pic;
             String str2 = ucCardInfo.jmp;
             String str3 = ucCardInfo.tip;
-            this.f25123b = ucCardInfo.st.intValue();
+            this.f24420b = ucCardInfo.st.intValue();
         }
     }
 

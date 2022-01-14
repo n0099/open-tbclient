@@ -24,13 +24,13 @@ public class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Context f64031e;
+        public final Context f61630e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f64032f;
+        public final String f61631f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final b f64033g;
+        public final b f61632g;
 
         public a(Context context, String str, b bVar) {
             Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class p {
                     return;
                 }
             }
-            this.f64031e = context;
-            this.f64032f = str;
-            this.f64033g = bVar;
+            this.f61630e = context;
+            this.f61631f = str;
+            this.f61632g = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,8 +59,8 @@ public class p {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                SharedPreferences sharedPreferences = this.f64031e.getSharedPreferences(this.f64032f, 0);
-                b bVar = this.f64033g;
+                SharedPreferences sharedPreferences = this.f61630e.getSharedPreferences(this.f61631f, 0);
+                b bVar = this.f61632g;
                 if (bVar != null) {
                     bVar.a(sharedPreferences);
                 }

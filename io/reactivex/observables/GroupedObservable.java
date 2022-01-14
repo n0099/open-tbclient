@@ -13,12 +13,12 @@ public abstract class GroupedObservable<K, T> extends Observable<T> {
     public transient /* synthetic */ FieldHolder $fh;
     public final K key;
 
-    public GroupedObservable(@Nullable K k2) {
+    public GroupedObservable(@Nullable K k) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k2};
+            Object[] objArr = {k};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -28,7 +28,7 @@ public abstract class GroupedObservable<K, T> extends Observable<T> {
                 return;
             }
         }
-        this.key = k2;
+        this.key = k;
     }
 
     @Nullable

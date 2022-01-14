@@ -44,34 +44,32 @@ public class am {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ak f37622b;
+    public ak f36388b;
 
     /* renamed from: c  reason: collision with root package name */
-    public aj f37623c;
+    public aj f36389c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f37624d;
+    public Activity f36390d;
 
     /* renamed from: e  reason: collision with root package name */
-    public an f37625e;
+    public an f36391e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f37626f;
+    public Handler f36392f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HandlerThread f37627g;
+    public HandlerThread f36393g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f37628h;
+    public Handler f36394h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HandlerThread f37629i;
+    public HandlerThread f36395i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f37630j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public volatile boolean f37631k;
+    public volatile boolean f36396j;
+    public volatile boolean k;
     public volatile boolean l;
     public volatile boolean m;
     public volatile boolean n;
@@ -195,11 +193,11 @@ public class am {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                Message obtainMessage = this.a.f37626f.obtainMessage(24);
+                Message obtainMessage = this.a.f36392f.obtainMessage(24);
                 Bundle bundle = new Bundle();
                 bundle.putString("autoconfig.key", str);
                 obtainMessage.setData(bundle);
-                this.a.f37626f.sendMessage(obtainMessage);
+                this.a.f36392f.sendMessage(obtainMessage);
             }
         }
     }
@@ -361,25 +359,25 @@ public class am {
         this.E = true;
         this.F = new JSONArray();
         this.G = new Object();
-        this.f37625e = new an();
+        this.f36391e = new an();
         HandlerThread handlerThread = new HandlerThread("crawlerThread");
-        this.f37629i = handlerThread;
+        this.f36395i = handlerThread;
         handlerThread.start();
-        this.f37628h = new c(this, this.f37629i.getLooper());
+        this.f36394h = new c(this, this.f36395i.getLooper());
         HandlerThread handlerThread2 = new HandlerThread("downloadThread");
-        this.f37627g = handlerThread2;
+        this.f36393g = handlerThread2;
         handlerThread2.start();
-        this.f37626f = new a(this, this.f37627g.getLooper());
+        this.f36392f = new a(this, this.f36393g.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65567, this) == null) {
-            this.f37630j = true;
-            if (p() && this.f37630j) {
+            this.f36396j = true;
+            if (p() && this.f36396j) {
                 this.C.sendMessage(this.C.obtainMessage(32));
-                this.f37628h.sendMessage(this.f37628h.obtainMessage(2));
+                this.f36394h.sendMessage(this.f36394h.obtainMessage(2));
             }
         }
     }
@@ -387,11 +385,11 @@ public class am {
     /* JADX INFO: Access modifiers changed from: private */
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65568, this) == null) || this.f37631k) {
+        if (!(interceptable == null || interceptable.invokeV(65568, this) == null) || this.k) {
             return;
         }
         boolean a2 = bg.a(this.a, this.v, 0, true);
-        this.f37631k = true;
+        this.k = true;
         if (a2) {
             this.p = bo.a(this.a, "mtj_vizParser.js");
         }
@@ -442,7 +440,7 @@ public class am {
                 bd.c().a(str);
             }
             try {
-                this.f37623c = new aj(URI.create(a2), new b());
+                this.f36389c = new aj(URI.create(a2), new b());
             } catch (Exception unused) {
             }
         }
@@ -452,7 +450,7 @@ public class am {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) {
-            aj ajVar = this.f37623c;
+            aj ajVar = this.f36389c;
             return ajVar != null && ajVar.b();
         }
         return invokeV.booleanValue;
@@ -468,7 +466,7 @@ public class am {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, this)) == null) {
-            Activity activity = this.f37624d;
+            Activity activity = this.f36390d;
             if (activity != null) {
                 return activity.getClass().getName();
             }
@@ -480,19 +478,19 @@ public class am {
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65575, this) == null) && p() && this.f37630j) {
-            JSONObject a2 = a(this.f37625e.a(this.f37624d));
+        if ((interceptable == null || interceptable.invokeV(65575, this) == null) && p() && this.f36396j) {
+            JSONObject a2 = a(this.f36391e.a(this.f36390d));
             if (a2 != null) {
                 if (bd.c().b()) {
                     bd c2 = bd.c();
                     c2.a("doSendSnapshot:" + a2.toString());
                 }
                 try {
-                    this.f37623c.a(a2);
+                    this.f36389c.a(a2);
                 } catch (Exception unused) {
                 }
             }
-            this.f37628h.sendMessageDelayed(this.f37628h.obtainMessage(2), 2000L);
+            this.f36394h.sendMessageDelayed(this.f36394h.obtainMessage(2), 2000L);
         }
     }
 
@@ -503,7 +501,7 @@ public class am {
                 this.u = bq.a().p(this.a);
             }
             if (System.currentTimeMillis() - this.u > 86400000) {
-                this.f37626f.sendMessage(this.f37626f.obtainMessage(23));
+                this.f36392f.sendMessage(this.f36392f.obtainMessage(23));
             }
         }
     }
@@ -522,7 +520,7 @@ public class am {
             if (!(this.n && TextUtils.isEmpty(this.q)) && System.currentTimeMillis() - this.s <= this.t) {
                 return;
             }
-            this.f37626f.sendMessage(this.f37626f.obtainMessage(22));
+            this.f36392f.sendMessage(this.f36392f.obtainMessage(22));
         }
     }
 
@@ -582,7 +580,7 @@ public class am {
                 bd.c().a("installConnectionTracker");
             }
             ak akVar = new ak(this.D);
-            this.f37622b = akVar;
+            this.f36388b = akVar;
             akVar.a(activity);
         }
     }
@@ -593,10 +591,10 @@ public class am {
             if (bd.c().b()) {
                 bd.c().a("uninstallConnectionTracker");
             }
-            ak akVar = this.f37622b;
+            ak akVar = this.f36388b;
             if (akVar != null) {
                 akVar.b();
-                this.f37622b = null;
+                this.f36388b = null;
             }
         }
     }
@@ -604,7 +602,7 @@ public class am {
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            if (p() && this.f37630j) {
+            if (p() && this.f36396j) {
                 b();
             } else {
                 c();
@@ -635,16 +633,16 @@ public class am {
             bc.c().a("autotrace: network invalid, failed to connect to circle server");
             return;
         }
-        this.f37628h.sendMessage(this.f37628h.obtainMessage(1));
+        this.f36394h.sendMessage(this.f36394h.obtainMessage(1));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f37631k) {
+        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.k) {
             return;
         }
-        this.f37626f.sendMessage(this.f37626f.obtainMessage(21));
+        this.f36392f.sendMessage(this.f36392f.obtainMessage(21));
     }
 
     public void b(Activity activity) {
@@ -655,10 +653,10 @@ public class am {
             if (activity != null && (intent = activity.getIntent()) != null && a(activity, intent)) {
                 a().i();
             }
-            if (this.f37624d != null) {
+            if (this.f36390d != null) {
                 c();
             }
-            this.f37624d = activity;
+            this.f36390d = activity;
             d(activity);
             v();
             t();
@@ -673,7 +671,7 @@ public class am {
     public void c(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, activity) == null) && q()) {
-            this.f37624d = null;
+            this.f36390d = null;
             b(activity, false);
             f();
             a(activity, false);
@@ -767,7 +765,7 @@ public class am {
     public void c() {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (activity = this.f37624d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (activity = this.f36390d) == null) {
             return;
         }
         ai.a(activity);
@@ -778,7 +776,7 @@ public class am {
         if (!(interceptable == null || interceptable.invokeLLL(65550, this, webView, str, blVar) == null) || blVar == null) {
             return;
         }
-        blVar.a(this.f37624d, webView, str, a(this.y, r()), true);
+        blVar.a(this.f36390d, webView, str, a(this.y, r()), true);
     }
 
     private void c(String str) {
@@ -812,7 +810,7 @@ public class am {
     public void b() {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (activity = this.f37624d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (activity = this.f36390d) == null) {
             return;
         }
         ai.b(activity);
@@ -822,9 +820,9 @@ public class am {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, this, z) == null) {
-            this.f37630j = false;
+            this.f36396j = false;
             an.b();
-            this.f37628h.removeMessages(2);
+            this.f36394h.removeMessages(2);
             this.C.sendMessage(this.C.obtainMessage(33));
         }
     }
@@ -844,7 +842,7 @@ public class am {
     public void d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && p()) {
-            this.f37623c.a();
+            this.f36389c.a();
         }
     }
 

@@ -1,6 +1,6 @@
 package com.baidu.tieba.stamp.model.msg;
 
-import c.a.t0.t3.a;
+import c.a.t0.t3.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class GetStampResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> mFetchStampDataList;
+    public List<d> mFetchStampDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetStampResponseMessage(int i2) {
@@ -50,15 +50,15 @@ public class GetStampResponseMessage extends JsonHttpResponsedMessage {
                 return;
             }
             for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                a aVar = new a();
-                aVar.d(jSONArray.getJSONObject(i3).optString("title"));
-                aVar.c(jSONArray.getJSONObject(i3).optString("pic160"));
-                this.mFetchStampDataList.add(aVar);
+                d dVar = new d();
+                dVar.d(jSONArray.getJSONObject(i3).optString("title"));
+                dVar.c(jSONArray.getJSONObject(i3).optString("pic160"));
+                this.mFetchStampDataList.add(dVar);
             }
         }
     }
 
-    public List<a> getStampList() {
+    public List<d> getStampList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFetchStampDataList : (List) invokeV.objValue;

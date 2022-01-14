@@ -108,7 +108,7 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
             DataOutputStream dataOutputStream2 = 0;
             try {
                 try {
-                    z = Runtime.getRuntime().exec(z != 0 ? j0.f57257b : "sh");
+                    z = Runtime.getRuntime().exec(z != 0 ? j0.f55090b : "sh");
                 } catch (Throwable th) {
                     th = th;
                 }

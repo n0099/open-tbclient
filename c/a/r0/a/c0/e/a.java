@@ -16,7 +16,7 @@ public class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f5490b;
+    public c f5373b;
 
     public a(@NonNull Context context, @NonNull c.a.r0.a.a3.g.a aVar) {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public class a {
             }
         }
         this.a = context;
-        this.f5490b = new c(aVar);
+        this.f5373b = new c(aVar);
     }
 
     @NonNull
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5490b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5373b : (c) invokeV.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f5490b.c();
+            this.f5373b.c();
         }
     }
 

@@ -100,8 +100,8 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                     if (StringUtils.isNull(str2)) {
                         return;
                     }
-                    c k2 = c.k();
-                    a m = k2.m(optString4 + 10);
+                    c k = c.k();
+                    a m = k.m(optString4 + 10);
                     if (m != null && m.p() != null) {
                         NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, m.p(), false);
                         return;
@@ -171,7 +171,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                         public void onLoaded(a aVar, String str3, int i3) {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, aVar, str3, i3) == null) {
-                                                super.onLoaded((C16951) aVar, str3, i3);
+                                                super.onLoaded((C17111) aVar, str3, i3);
                                                 if (aVar != null && aVar.p() != null) {
                                                     Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                                     int hashCode = Long.valueOf(this.this$1.val$uid).hashCode();

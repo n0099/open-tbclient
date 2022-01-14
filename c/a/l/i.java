@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.l.w0.a;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.RoundCornerFrameLayout;
@@ -35,10 +35,8 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f4240j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f4241k;
+    public View f4167j;
+    public TextView k;
     public c.a.s0.s.q.a l;
     public RoundCornerFrameLayout m;
     public FakeVideoContainer n;
@@ -52,10 +50,10 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f4242e;
+        public final /* synthetic */ ViewGroup.LayoutParams f4168e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f4243f;
+        public final /* synthetic */ i f4169f;
 
         public a(i iVar, ViewGroup.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -72,17 +70,17 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
                     return;
                 }
             }
-            this.f4243f = iVar;
-            this.f4242e = layoutParams;
+            this.f4169f = iVar;
+            this.f4168e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4242e.width = this.f4243f.f4240j.getWidth();
-                this.f4242e.height = (this.f4243f.f4240j.getWidth() / 16) * 9;
-                this.f4243f.m.setLayoutParams(this.f4242e);
+                this.f4168e.width = this.f4169f.f4167j.getWidth();
+                this.f4168e.height = (this.f4169f.f4167j.getWidth() / 16) * 9;
+                this.f4169f.m.setLayoutParams(this.f4168e);
             }
         }
     }
@@ -112,15 +110,15 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0186a c0186a) {
+        public boolean a(a.C0195a c0195a) {
             InterceptResult invokeL;
             RoundCornerFrameLayout roundCornerFrameLayout;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0186a)) == null) {
-                if (c0186a.b() != 7 || (roundCornerFrameLayout = this.a.m) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0195a)) == null) {
+                if (c0195a.b() != 7 || (roundCornerFrameLayout = this.a.m) == null) {
                     return false;
                 }
-                roundCornerFrameLayout.onRootPressed(((Boolean) c0186a.c()).booleanValue());
+                roundCornerFrameLayout.onRootPressed(((Boolean) c0195a.c()).booleanValue());
                 return false;
             }
             return invokeL.booleanValue;
@@ -141,9 +139,9 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
             }
         }
         r = (c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2;
-        int k2 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
-        s = k2;
-        int i2 = k2 - r;
+        int k = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
+        s = k;
+        int i2 = k - r;
         t = i2;
         u = i2 / 2;
         v = i2 / 3;
@@ -177,17 +175,17 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f4240j == null) {
-                View inflate = LayoutInflater.from(this.f4211f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
-                this.f4240j = inflate;
-                this.f4241k = (TextView) inflate.findViewById(R.id.video_seg_title);
-                this.m = (RoundCornerFrameLayout) this.f4240j.findViewById(R.id.frame_video);
-                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f4211f);
+            if (this.f4167j == null) {
+                View inflate = LayoutInflater.from(this.f4145f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+                this.f4167j = inflate;
+                this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
+                this.m = (RoundCornerFrameLayout) this.f4167j.findViewById(R.id.frame_video);
+                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f4145f);
                 this.n = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
                 this.m.addView(this.n);
             }
-            return this.f4240j;
+            return this.f4167j;
         }
         return (View) invokeV.objValue;
     }
@@ -222,15 +220,15 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            int k2 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
-            if (k2 != this.o) {
-                int k3 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
-                s = k3;
-                int i2 = k3 - r;
+            int k = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
+            if (k != this.o) {
+                int k2 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
+                s = k2;
+                int i2 = k2 - r;
                 t = i2;
                 u = i2 / 2;
                 v = i2 / 3;
-                this.o = k2;
+                this.o = k;
             }
             this.l = aVar;
             if (aVar == null || aVar.getThreadData() == null || this.l.getThreadData().t1() == null) {
@@ -274,14 +272,14 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
                     this.m.post(new a(this, layoutParams));
                 }
             }
-            if (!this.l.getThreadData().R1() && this.l.getThreadData().getType() != d2.Y3) {
-                this.f4241k.setMaxLines(2);
-                ThreadCardUtils.setTitle(this.f4241k, this.l.getThreadData(), 0, this.p);
+            if (!this.l.getThreadData().R1() && this.l.getThreadData().getType() != e2.Y3) {
+                this.k.setMaxLines(2);
+                ThreadCardUtils.setTitle(this.k, this.l.getThreadData(), 0, this.p);
             } else {
-                this.f4241k.setMaxLines(5);
-                ThreadCardUtils.setTitle(this.f4241k, this.l.getThreadData(), t, this.p);
+                this.k.setMaxLines(5);
+                ThreadCardUtils.setTitle(this.k, this.l.getThreadData(), t, this.p);
             }
-            TextView textView = this.f4241k;
+            TextView textView = this.k;
             ThreadCardUtils.dealMainViewTopMargin(this.m, (textView == null || textView.getVisibility() != 0) ? true : true, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
         }
     }
@@ -300,7 +298,7 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
         if (!(interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) || (aVar = this.l) == null || aVar.getThreadData() == null) {
             return;
         }
-        c.a.t0.g0.m.l(this.f4241k, this.l.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        c.a.t0.g0.m.l(this.k, this.l.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.m.onChangeSkinType(i2);
         this.m.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }

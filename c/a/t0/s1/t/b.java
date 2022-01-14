@@ -23,7 +23,7 @@ public class b extends c.a.t0.s1.t.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f22875b;
+    public static b f22245b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -33,13 +33,13 @@ public class b extends c.a.t0.s1.t.a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f22876b;
+        public final /* synthetic */ String f22246b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f22877c;
+        public final /* synthetic */ long f22247c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ b f22878d;
+        public final /* synthetic */ b f22248d;
 
         public a(b bVar, String str, String str2, long j2) {
             Interceptable interceptable = $ic;
@@ -56,10 +56,10 @@ public class b extends c.a.t0.s1.t.a {
                     return;
                 }
             }
-            this.f22878d = bVar;
+            this.f22248d = bVar;
             this.a = str;
-            this.f22876b = str2;
-            this.f22877c = j2;
+            this.f22246b = str2;
+            this.f22247c = j2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,9 +69,9 @@ public class b extends c.a.t0.s1.t.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                GroupSettingItemData a = this.f22878d.a(this.a, this.f22876b);
+                GroupSettingItemData a = this.f22248d.a(this.a, this.f22246b);
                 if (a != null && a.isAlreadyApply()) {
-                    if (System.currentTimeMillis() - a.getLastApplyTimeStamp() <= this.f22877c) {
+                    if (System.currentTimeMillis() - a.getLastApplyTimeStamp() <= this.f22247c) {
                         return Boolean.FALSE;
                     }
                 }
@@ -83,18 +83,18 @@ public class b extends c.a.t0.s1.t.a {
 
     /* renamed from: c.a.t0.s1.t.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1365b extends k0<Void> {
+    public class C1380b extends k0<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupSettingItemData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f22879b;
+        public final /* synthetic */ String f22249b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f22880c;
+        public final /* synthetic */ b f22250c;
 
-        public C1365b(b bVar, GroupSettingItemData groupSettingItemData, String str) {
+        public C1380b(b bVar, GroupSettingItemData groupSettingItemData, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,9 +109,9 @@ public class b extends c.a.t0.s1.t.a {
                     return;
                 }
             }
-            this.f22880c = bVar;
+            this.f22250c = bVar;
             this.a = groupSettingItemData;
-            this.f22879b = str;
+            this.f22249b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -121,7 +121,7 @@ public class b extends c.a.t0.s1.t.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f22880c.b().g(this.f22879b, OrmObject.jsonStrWithObject(this.a));
+                this.f22250c.b().g(this.f22249b, OrmObject.jsonStrWithObject(this.a));
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -135,7 +135,7 @@ public class b extends c.a.t0.s1.t.a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f22881b;
+        public final /* synthetic */ b f22251b;
 
         public c(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -152,7 +152,7 @@ public class b extends c.a.t0.s1.t.a {
                     return;
                 }
             }
-            this.f22881b = bVar;
+            this.f22251b = bVar;
             this.a = str;
         }
 
@@ -163,7 +163,7 @@ public class b extends c.a.t0.s1.t.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f22881b.b().remove(this.a);
+                this.f22251b.b().remove(this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -183,7 +183,7 @@ public class b extends c.a.t0.s1.t.a {
                 return;
             }
         }
-        f22875b = new b();
+        f22245b = new b();
     }
 
     public b() {
@@ -203,7 +203,7 @@ public class b extends c.a.t0.s1.t.a {
     public static b k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f22875b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f22245b : (b) invokeV.objValue;
     }
 
     @Override // c.a.t0.s1.t.a
@@ -250,7 +250,7 @@ public class b extends c.a.t0.s1.t.a {
                 synchronized (this.a) {
                     this.a.put(str, groupSettingItemData);
                 }
-                n0.c(new C1365b(this, groupSettingItemData, str), sVar);
+                n0.c(new C1380b(this, groupSettingItemData, str), sVar);
             } else if (TbConfig.getDebugSwitch()) {
                 throw new RuntimeException("key param is null");
             }

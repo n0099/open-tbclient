@@ -23,7 +23,7 @@ public class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9764b;
+    public static String f9551b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -31,30 +31,30 @@ public class b {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public static String f9765f = "%s/%s";
+        public static String f9552f = "%s/%s";
 
         /* renamed from: g  reason: collision with root package name */
-        public static String f9766g = "%s-%s/%s";
+        public static String f9553g = "%s-%s/%s";
 
         /* renamed from: h  reason: collision with root package name */
-        public static String f9767h = "(Baidu; P1 %s)";
+        public static String f9554h = "(Baidu; P1 %s)";
 
         /* renamed from: i  reason: collision with root package name */
-        public static String f9768i = "%s/%s";
+        public static String f9555i = "%s/%s";
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9769b;
+        public String f9556b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9770c;
+        public String f9557c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f9771d;
+        public String f9558d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f9772e;
+        public String f9559e;
 
         static {
             InterceptResult invokeClinit;
@@ -89,10 +89,10 @@ public class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String format = String.format(f9765f, this.a, this.f9769b);
-                String format2 = String.format(f9766g, this.a, this.f9770c, this.f9771d);
-                String format3 = String.format(f9768i, this.f9770c, this.f9771d);
-                String format4 = String.format(f9767h, this.f9772e);
+                String format = String.format(f9552f, this.a, this.f9556b);
+                String format2 = String.format(f9553g, this.a, this.f9557c, this.f9558d);
+                String format3 = String.format(f9555i, this.f9557c, this.f9558d);
+                String format4 = String.format(f9554h, this.f9559e);
                 if (e()) {
                     return String.format("%s %s %s %s", format, format2, format3, format4);
                 }
@@ -115,7 +115,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f9770c = str;
+                this.f9557c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -125,7 +125,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f9771d = str;
+                this.f9558d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -134,14 +134,14 @@ public class b {
         public final boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.equals(BaseWebViewActivity.SHOUBAI_SCHEME, this.f9770c) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.equals(BaseWebViewActivity.SHOUBAI_SCHEME, this.f9557c) : invokeV.booleanValue;
         }
 
         public a f(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f9772e = str;
+                this.f9559e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -151,7 +151,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f9769b = str;
+                this.f9556b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -216,12 +216,12 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (!TextUtils.isEmpty(f9764b)) {
-                return f9764b;
+            if (!TextUtils.isEmpty(f9551b)) {
+                return f9551b;
             }
             try {
                 String str = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-                f9764b = str;
+                f9551b = str;
                 return str;
             } catch (PackageManager.NameNotFoundException e2) {
                 if (a) {

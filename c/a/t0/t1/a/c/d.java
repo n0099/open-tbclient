@@ -44,25 +44,23 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final InviteFriendListActivity f24360e;
+    public final InviteFriendListActivity f23677e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f24361f;
+    public NavigationBar f23678f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f24362g;
+    public View f23679g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdListView f24363h;
+    public BdListView f23680h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.t1.a.c.c f24364i;
+    public c.a.t0.t1.a.c.c f23681i;
 
     /* renamed from: j  reason: collision with root package name */
-    public NoDataView f24365j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ProgressBar f24366k;
+    public NoDataView f23682j;
+    public ProgressBar k;
     public View l;
     public InviteFriendCandidateList m;
     public LinearLayout n;
@@ -84,7 +82,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f24367e;
+        public final /* synthetic */ d f23683e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -101,14 +99,14 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
                     return;
                 }
             }
-            this.f24367e = dVar;
+            this.f23683e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SearchFriendActivityConfig(this.f24367e.f24360e.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SearchFriendActivityConfig(this.f23683e.f23677e.getPageContext().getPageActivity())));
             }
         }
     }
@@ -146,7 +144,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
             if (obj instanceof TbCheckBox.c) {
                 ((TbCheckBox.c) obj).setChecked(false);
             }
-            View findViewWithTag = this.a.f24363h.findViewWithTag(obj);
+            View findViewWithTag = this.a.f23680h.findViewWithTag(obj);
             if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
                 ((TbCheckBox) findViewWithTag).setChecked(false);
             } else if (obj instanceof c.a.s0.t.f.a) {
@@ -161,7 +159,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f24368e;
+        public final /* synthetic */ d f23684e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -178,33 +176,33 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
                     return;
                 }
             }
-            this.f24368e = dVar;
+            this.f23684e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f24368e.t != null && this.f24368e.t.getVisibility() == 0) {
-                    this.f24368e.y();
+                if (this.f23684e.t != null && this.f23684e.t.getVisibility() == 0) {
+                    this.f23684e.y();
                     return;
                 }
-                n.w(this.f24368e.f24360e.getPageContext().getPageActivity(), this.f24368e.v);
-                this.f24368e.f24360e.finish();
+                n.w(this.f23684e.f23677e.getPageContext().getPageActivity(), this.f23684e.v);
+                this.f23684e.f23677e.finish();
             }
         }
     }
 
     /* renamed from: c.a.t0.t1.a.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1426d implements View.OnClickListener {
+    public class View$OnClickListenerC1441d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f24369e;
+        public final /* synthetic */ d f23685e;
 
-        public View$OnClickListenerC1426d(d dVar) {
+        public View$OnClickListenerC1441d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -219,18 +217,18 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
                     return;
                 }
             }
-            this.f24369e = dVar;
+            this.f23685e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f24369e.s.setVisibility(8);
-                this.f24369e.u.setVisibility(8);
-                this.f24369e.t.setVisibility(0);
-                this.f24369e.v.requestFocus();
-                n.K(this.f24369e.f24360e.getPageContext().getPageActivity(), this.f24369e.v);
+                this.f23685e.s.setVisibility(8);
+                this.f23685e.u.setVisibility(8);
+                this.f23685e.t.setVisibility(0);
+                this.f23685e.v.requestFocus();
+                n.L(this.f23685e.f23677e.getPageContext().getPageActivity(), this.f23685e.v);
             }
         }
     }
@@ -241,7 +239,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f24370e;
+        public final /* synthetic */ d f23686e;
 
         public e(d dVar) {
             Interceptable interceptable = $ic;
@@ -258,7 +256,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
                     return;
                 }
             }
-            this.f24370e = dVar;
+            this.f23686e = dVar;
         }
 
         @Override // android.text.TextWatcher
@@ -269,11 +267,11 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
                 return;
             }
             if (charSequence2String.length() > 0) {
-                this.f24370e.w.setVisibility(0);
+                this.f23686e.w.setVisibility(0);
             } else {
-                this.f24370e.w.setVisibility(8);
+                this.f23686e.w.setVisibility(8);
             }
-            this.f24370e.w();
+            this.f23686e.w();
         }
 
         @Override // android.text.TextWatcher
@@ -297,7 +295,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f24371e;
+        public final /* synthetic */ d f23687e;
 
         public f(d dVar) {
             Interceptable interceptable = $ic;
@@ -314,14 +312,14 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
                     return;
                 }
             }
-            this.f24371e = dVar;
+            this.f23687e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f24371e.v.getText().clear();
+                this.f23687e.v.getText().clear();
             }
         }
     }
@@ -332,7 +330,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f24372e;
+        public final /* synthetic */ d f23688e;
 
         public g(d dVar) {
             Interceptable interceptable = $ic;
@@ -349,7 +347,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
                     return;
                 }
             }
-            this.f24372e = dVar;
+            this.f23688e = dVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -357,7 +355,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                this.f24372e.x();
+                this.f23688e.x();
                 return false;
             }
             return invokeLL.booleanValue;
@@ -398,7 +396,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
                 }
                 if (z) {
                     if (this.a.s() <= this.a.m.getItemLength()) {
-                        this.a.f24360e.showToast(String.format(this.a.f24360e.getPageContext().getString(R.string.invite_friend_exceed_max_count), Integer.valueOf(this.a.q)));
+                        this.a.f23677e.showToast(String.format(this.a.f23677e.getPageContext().getString(R.string.invite_friend_exceed_max_count), Integer.valueOf(this.a.q)));
                         tbCheckBox.setChecked(false);
                         ((c.a.s0.t.f.a) obj).setChecked(false);
                         return;
@@ -430,7 +428,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
             }
         }
         this.q = 0;
-        this.f24360e = inviteFriendListActivity;
+        this.f23677e = inviteFriendListActivity;
         this.r = z;
         A();
     }
@@ -438,31 +436,31 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f24360e.setContentView(R.layout.invite_friend_list);
-            this.f24362g = this.f24360e.findViewById(R.id.root_view);
+            this.f23677e.setContentView(R.layout.invite_friend_list);
+            this.f23679g = this.f23677e.findViewById(R.id.root_view);
             z();
-            BdListView bdListView = (BdListView) this.f24362g.findViewById(R.id.friend_list);
-            this.f24363h = bdListView;
-            bdListView.setOnItemClickListener(this.f24360e);
+            BdListView bdListView = (BdListView) this.f23679g.findViewById(R.id.friend_list);
+            this.f23680h = bdListView;
+            bdListView.setOnItemClickListener(this.f23677e);
             if (this.r) {
-                this.f24365j = NoDataViewFactory.a(this.f24360e.getPageContext().getPageActivity(), this.f24362g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.a), NoDataViewFactory.e.b(R.string.no_friends, R.string.no_friends_tip), null);
+                this.f23682j = NoDataViewFactory.a(this.f23677e.getPageContext().getPageActivity(), this.f23679g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.a), NoDataViewFactory.e.b(R.string.no_friends, R.string.no_friends_tip), null);
             } else {
-                this.f24365j = NoDataViewFactory.a(this.f24360e.getPageContext().getPageActivity(), this.f24362g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, BdListViewHelper.a), NoDataViewFactory.e.b(R.string.no_chat_friends, R.string.no_chat_friends_tip), NoDataViewFactory.c.a(new NoDataViewFactory.b(TbadkCoreApplication.getInst().getResources().getString(R.string.find_new_friend), new a(this))));
+                this.f23682j = NoDataViewFactory.a(this.f23677e.getPageContext().getPageActivity(), this.f23679g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, BdListViewHelper.a), NoDataViewFactory.e.b(R.string.no_chat_friends, R.string.no_chat_friends_tip), NoDataViewFactory.c.a(new NoDataViewFactory.b(TbadkCoreApplication.getInst().getResources().getString(R.string.find_new_friend), new a(this))));
             }
-            this.f24366k = (ProgressBar) this.f24362g.findViewById(R.id.progress);
-            InviteFriendCandidateList inviteFriendCandidateList = (InviteFriendCandidateList) this.f24362g.findViewById(R.id.candidate_list);
+            this.k = (ProgressBar) this.f23679g.findViewById(R.id.progress);
+            InviteFriendCandidateList inviteFriendCandidateList = (InviteFriendCandidateList) this.f23679g.findViewById(R.id.candidate_list);
             this.m = inviteFriendCandidateList;
             inviteFriendCandidateList.n(new b(this));
-            this.n = (LinearLayout) this.f24362g.findViewById(R.id.invite_candidate);
-            this.l = this.f24362g.findViewById(R.id.invite_candidate_border);
+            this.n = (LinearLayout) this.f23679g.findViewById(R.id.invite_candidate);
+            this.l = this.f23679g.findViewById(R.id.invite_candidate_border);
             if (this.r) {
                 this.n.setVisibility(8);
                 this.l.setVisibility(8);
             }
             p();
-            Button button = (Button) this.f24362g.findViewById(R.id.button_send);
+            Button button = (Button) this.f23679g.findViewById(R.id.button_send);
             this.o = button;
-            button.setOnClickListener(this.f24360e);
+            button.setOnClickListener(this.f23677e);
             q();
             H();
             F(0);
@@ -489,26 +487,26 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
     public void D(List<c.a.s0.t.f.a> list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, list, z) == null) {
-            if (this.f24364i == null) {
-                c.a.t0.t1.a.c.c cVar = new c.a.t0.t1.a.c.c(this.f24360e, this.r);
-                this.f24364i = cVar;
+            if (this.f23681i == null) {
+                c.a.t0.t1.a.c.c cVar = new c.a.t0.t1.a.c.c(this.f23677e, this.r);
+                this.f23681i = cVar;
                 cVar.f(this);
-                this.f24364i.d(new h(this));
-                this.f24363h.setAdapter((ListAdapter) this.f24364i);
+                this.f23681i.d(new h(this));
+                this.f23680h.setAdapter((ListAdapter) this.f23681i);
             }
             if (!z && list.isEmpty()) {
-                this.f24365j.setVisibility(0);
-                this.f24363h.setVisibility(8);
+                this.f23682j.setVisibility(0);
+                this.f23680h.setVisibility(8);
                 if (this.r) {
                     return;
                 }
                 this.n.setVisibility(8);
                 return;
             }
-            this.f24365j.setVisibility(8);
-            this.f24363h.setVisibility(0);
-            this.f24364i.e(list);
-            this.f24364i.notifyDataSetChanged();
+            this.f23682j.setVisibility(8);
+            this.f23680h.setVisibility(0);
+            this.f23681i.e(list);
+            this.f23681i.notifyDataSetChanged();
             if (this.r) {
                 return;
             }
@@ -529,7 +527,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
     public final void F(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.o.setText(String.format(this.f24360e.getPageContext().getString(R.string.invite_friend_candidate_send), Integer.valueOf(i2)));
+            this.o.setText(String.format(this.f23677e.getPageContext().getString(R.string.invite_friend_candidate_send), Integer.valueOf(i2)));
         }
     }
 
@@ -544,7 +542,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f24363h.setOnTouchListener(new g(this));
+            this.f23680h.setOnTouchListener(new g(this));
         }
     }
 
@@ -571,16 +569,16 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
     public void c() {
         NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (noDataView = this.f24365j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (noDataView = this.f23682j) == null) {
             return;
         }
-        noDataView.onActivityStart(this.f24360e.getPageContext());
+        noDataView.onActivityStart(this.f23677e.getPageContext());
     }
 
     public void d() {
         NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (noDataView = this.f24365j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (noDataView = this.f23682j) == null) {
             return;
         }
         noDataView.onActivityStop();
@@ -599,12 +597,12 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            int dimensionPixelSize = this.f24360e.getResources().getDimensionPixelSize(R.dimen.ds80) + this.f24360e.getResources().getDimensionPixelSize(R.dimen.ds16) + this.f24360e.getResources().getDimensionPixelSize(R.dimen.ds16);
-            View view = new View(this.f24360e.getPageContext().getPageActivity());
+            int dimensionPixelSize = this.f23677e.getResources().getDimensionPixelSize(R.dimen.ds80) + this.f23677e.getResources().getDimensionPixelSize(R.dimen.ds16) + this.f23677e.getResources().getDimensionPixelSize(R.dimen.ds16);
+            View view = new View(this.f23677e.getPageContext().getPageActivity());
             this.p = view;
             view.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
             this.p.setEnabled(false);
-            this.f24363h.addFooterView(this.p);
+            this.f23680h.addFooterView(this.p);
         }
     }
 
@@ -612,11 +610,11 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            this.f24360e.getLayoutMode().k(skinType == 1);
-            this.f24360e.getLayoutMode().j(this.f24362g);
+            this.f23677e.getLayoutMode().k(skinType == 1);
+            this.f23677e.getLayoutMode().j(this.f23679g);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.y, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, null);
-            this.f24361f.onChangeSkinType(this.f24360e.getPageContext(), skinType);
-            this.f24365j.onChangeSkinType(this.f24360e.getPageContext(), skinType);
+            this.f23678f.onChangeSkinType(this.f23677e.getPageContext(), skinType);
+            this.f23682j.onChangeSkinType(this.f23677e.getPageContext(), skinType);
             SkinManager.setBackgroundResource(this.p, R.drawable.invite_friend_list_item_bg_color);
             this.p.setEnabled(false);
         }
@@ -643,7 +641,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
     public View u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f24362g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f23679g : (View) invokeV.objValue;
     }
 
     public String v() {
@@ -659,7 +657,7 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
     public final void w() {
         InviteFriendListActivity inviteFriendListActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (inviteFriendListActivity = this.f24360e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (inviteFriendListActivity = this.f23677e) == null) {
             return;
         }
         inviteFriendListActivity.refreshWithCurrentData();
@@ -668,14 +666,14 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            n.w(this.f24360e.getPageContext().getPageActivity(), this.v);
+            n.w(this.f23677e.getPageContext().getPageActivity(), this.v);
         }
     }
 
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            n.w(this.f24360e.getPageContext().getPageActivity(), this.v);
+            n.w(this.f23677e.getPageContext().getPageActivity(), this.v);
             this.t.setVisibility(8);
             this.s.setVisibility(0);
             this.u.setVisibility(0);
@@ -686,18 +684,18 @@ public class d extends c.a.d.a.d<InviteFriendListActivity> implements c.b {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.f24362g.findViewById(R.id.view_navigation_bar);
-            this.f24361f = navigationBar;
+            NavigationBar navigationBar = (NavigationBar) this.f23679g.findViewById(R.id.view_navigation_bar);
+            this.f23678f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
             if (this.r) {
-                this.s = this.f24361f.setTitleText(R.string.invite_contact_title);
+                this.s = this.f23678f.setTitleText(R.string.invite_contact_title);
             } else {
-                this.s = this.f24361f.setTitleText(R.string.invite_friend);
+                this.s = this.f23678f.setTitleText(R.string.invite_friend);
             }
-            View addCustomView = this.f24361f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, new View$OnClickListenerC1426d(this));
+            View addCustomView = this.f23678f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, new View$OnClickListenerC1441d(this));
             this.u = addCustomView;
             this.y = (ImageView) addCustomView.findViewById(R.id.new_friend_search);
-            View addCustomView2 = this.f24361f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.navigationbar_search_edit, (View.OnClickListener) null);
+            View addCustomView2 = this.f23678f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.navigationbar_search_edit, (View.OnClickListener) null);
             this.t = addCustomView2;
             addCustomView2.setVisibility(8);
             EditText editText = (EditText) this.t.findViewById(R.id.et_search);

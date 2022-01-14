@@ -58,7 +58,7 @@ public class Static {
                 String valueOf = String.valueOf(((ResponseDismissGroupMessage) socketResponsedMessage).getGroupId());
                 MemoryItemRemoveMessage.a aVar = new MemoryItemRemoveMessage.a();
                 aVar.a = 1;
-                aVar.f46790b = valueOf;
+                aVar.f45060b = valueOf;
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryItemRemoveMessage(aVar));
             }
         }
@@ -152,7 +152,7 @@ public class Static {
                     if (id.equals(str)) {
                         MemoryItemRemoveMessage.a aVar = new MemoryItemRemoveMessage.a();
                         aVar.a = 1;
-                        aVar.f46790b = responseRemoveMembersMessage.getGroupId();
+                        aVar.f45060b = responseRemoveMembersMessage.getGroupId();
                         MessageManager.getInstance().dispatchResponsedMessage(new MemoryItemRemoveMessage(aVar));
                         return;
                     }

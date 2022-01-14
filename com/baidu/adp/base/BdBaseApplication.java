@@ -5,19 +5,13 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.b;
 import c.a.d.a.h;
-import c.a.d.f.p.f;
-import c.a.d.h.c;
+import c.a.d.i.i.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.NPSHookManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.titan.sdk.initer.TitanIniter;
-import com.baidu.titan.sdk.loader.LoaderManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +30,7 @@ public class BdBaseApplication extends Application {
     public transient /* synthetic */ FieldHolder $fh;
     public long lastGcTime;
     public Handler mAppInitHandler;
-    public Application mContext;
+    public Context mContext;
     public boolean mHasCheckedNewUserStatus;
     public boolean mIsDebugMode;
     public boolean mIsNewUser;
@@ -45,42 +39,6 @@ public class BdBaseApplication extends Application {
     public ConcurrentHashMap<String, String> mResHashMap;
     public long mSmallFlowInterval;
     public long mStartSmallFlowTime;
-
-    /* loaded from: classes9.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BdBaseApplication a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(BdBaseApplication bdBaseApplication, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bdBaseApplication, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bdBaseApplication;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.a.handleInitMessage(message);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -124,37 +82,10 @@ public class BdBaseApplication extends Application {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sApp : (BdBaseApplication) invokeV.objValue;
     }
 
-    private void initBdBaseApp(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, application) == null) {
-            this.mContext = application;
-            initWorkMode();
-            initBitmapHelper();
-        }
-    }
-
-    private void initBitmapHelper() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            f.d().f(this.mContext);
-        }
-    }
-
     private void initPlugin() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            c.a.d.i.i.a.d().e();
-        }
-    }
-
-    private void initWorkMode() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            if ((this.mContext.getApplicationInfo().flags & 2) == 0) {
-                this.mIsDebugMode = false;
-            } else {
-                this.mIsDebugMode = true;
-            }
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            a.d().e();
         }
     }
 
@@ -163,10 +94,6 @@ public class BdBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.attachBaseContext(context);
-            NPSHookManager.init(this);
-            c.e().g(this);
-            TitanIniter.init(this);
-            LoaderManager.getInstance().load();
         }
     }
 
@@ -175,17 +102,17 @@ public class BdBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 7, 21, 0, 0);
+            calendar.set(2019, 5, 7, 21, 0, 0);
             long timeInMillis = calendar.getTimeInMillis();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 7, 21, 30, 0);
+            calendar.set(2019, 5, 7, 21, 30, 0);
             long timeInMillis2 = calendar.getTimeInMillis();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 15, 21, 50, 0);
+            calendar.set(2019, 5, 15, 21, 50, 0);
             long timeInMillis3 = calendar.getTimeInMillis();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 15, 22, 20, 0);
+            calendar.set(2019, 5, 15, 22, 20, 0);
             long timeInMillis4 = calendar.getTimeInMillis();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 4, 27, 20, 30, 0);
+            calendar.set(2019, 4, 27, 20, 30, 0);
             long timeInMillis5 = calendar.getTimeInMillis();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 4, 27, 21, 0, 0);
+            calendar.set(2019, 4, 27, 21, 0, 0);
             long timeInMillis6 = calendar.getTimeInMillis();
             long currentTimeMillis = System.currentTimeMillis();
             return (timeInMillis <= currentTimeMillis && currentTimeMillis <= timeInMillis2) || (timeInMillis3 <= currentTimeMillis && currentTimeMillis <= timeInMillis4) || (timeInMillis5 <= currentTimeMillis && currentTimeMillis <= timeInMillis6);
@@ -220,13 +147,13 @@ public class BdBaseApplication extends Application {
     public int getActivityStackMaxSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b.g().e() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b.f().d() : invokeV.intValue;
     }
 
     public Application getApp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mContext : (Application) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (Application) this.mContext.getApplicationContext() : (Application) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -308,7 +235,7 @@ public class BdBaseApplication extends Application {
     public void onAppMemoryLow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            b.g().q();
+            b.f().p();
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGcTime > 30000) {
                 this.lastGcTime = currentTimeMillis;
@@ -320,51 +247,41 @@ public class BdBaseApplication extends Application {
     public void onCreate(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, application) == null) {
-            this.mAppInitHandler = new a(this, Looper.getMainLooper());
-            h.a().c(super.getResources());
-            initBdBaseApp(application);
             super.onCreate();
-        }
-    }
-
-    public void setActivityStackMaxSize(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            b.g().r(i2);
         }
     }
 
     public void setDebugMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
             this.mIsDebugMode = z;
         }
     }
 
     public void setIsPluginResourceOpen(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             this.mIsPluginResourceOpen = true;
         }
     }
 
     public void setIsSmallFlow(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             this.mIsSmallFlow = z;
         }
     }
 
     public void setSmallFlowInterval(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
             this.mSmallFlowInterval = j2;
         }
     }
 
     public void setStartSmallFlowTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
             this.mStartSmallFlowTime = j2;
         }
     }
@@ -374,17 +291,17 @@ public class BdBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j2)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 7, 19, 20, 0);
+            calendar.set(2019, 5, 7, 19, 20, 0);
             long timeInMillis = calendar.getTimeInMillis();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 7, 21, 0, 0);
+            calendar.set(2019, 5, 7, 21, 0, 0);
             long timeInMillis2 = calendar.getTimeInMillis();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 15, 20, 10, 0);
+            calendar.set(2019, 5, 15, 20, 10, 0);
             long timeInMillis3 = calendar.getTimeInMillis();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 15, 21, 50, 0);
+            calendar.set(2019, 5, 15, 21, 50, 0);
             long timeInMillis4 = calendar.getTimeInMillis();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 4, 27, 20, 0, 0);
+            calendar.set(2019, 4, 27, 20, 0, 0);
             long timeInMillis5 = calendar.getTimeInMillis();
-            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 4, 27, 20, 30, 0);
+            calendar.set(2019, 4, 27, 20, 30, 0);
             return (timeInMillis <= j2 && j2 <= timeInMillis2) || (timeInMillis3 <= j2 && j2 <= timeInMillis4) || (timeInMillis5 <= j2 && j2 <= calendar.getTimeInMillis());
         }
         return invokeJ.booleanValue;

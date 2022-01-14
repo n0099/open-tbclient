@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class z extends c.a.d.n.e.a<c.a.t0.g0.f0.m, ThreadCardViewHolder<c.a.t0.g0.f0.m>> implements c.a.t0.t.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,13 +26,13 @@ public class z extends c.a.d.n.e.a<c.a.t0.g0.f0.m, ThreadCardViewHolder<c.a.t0.g
     public String o;
     public c.a.d.n.e.s p;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements c.a.d.n.e.w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ z f20762e;
+        public final /* synthetic */ z f20210e;
 
         public a(z zVar) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class z extends c.a.d.n.e.a<c.a.t0.g0.f0.m, ThreadCardViewHolder<c.a.t0.g
                     return;
                 }
             }
-            this.f20762e = zVar;
+            this.f20210e = zVar;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:11:0x001c  */
@@ -69,7 +69,7 @@ public class z extends c.a.d.n.e.a<c.a.t0.g0.f0.m, ThreadCardViewHolder<c.a.t0.g
                 if (gVar.g() instanceof c.a.t0.g0.f0.m) {
                     mVar = (c.a.t0.g0.f0.m) gVar.g();
                     if (mVar == null) {
-                        ((c.a.s0.j0.c.a) ServiceManager.getService(c.a.s0.j0.c.a.a.a())).a(this.f20762e.n, mVar.d0());
+                        ((c.a.s0.j0.c.a) ServiceManager.getService(c.a.s0.j0.c.a.a.a())).a(this.f20210e.n, mVar.d0());
                         return;
                     }
                     return;

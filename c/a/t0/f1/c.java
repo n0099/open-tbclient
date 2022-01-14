@@ -51,7 +51,7 @@ public class c implements a.f {
     public q a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FunAdCallback f17702b;
+    public final FunAdCallback f17272b;
 
     /* loaded from: classes7.dex */
     public class a implements FunAdLoadListener {
@@ -60,10 +60,10 @@ public class c implements a.f {
         public final /* synthetic */ a.h a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.g f17703b;
+        public final /* synthetic */ a.g f17273b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f17704c;
+        public final /* synthetic */ c f17274c;
 
         public a(c cVar, a.h hVar, a.g gVar) {
             Interceptable interceptable = $ic;
@@ -80,9 +80,9 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f17704c = cVar;
+            this.f17274c = cVar;
             this.a = hVar;
-            this.f17703b = gVar;
+            this.f17273b = gVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdLoadListener
@@ -93,7 +93,7 @@ public class c implements a.f {
                 if (hVar != null) {
                     hVar.a(str, 0);
                 }
-                this.f17704c.v("advert_load", str, 1, this.f17703b);
+                this.f17274c.v("advert_load", str, 1, this.f17273b);
             }
         }
 
@@ -105,7 +105,7 @@ public class c implements a.f {
                 if (hVar != null) {
                     hVar.onError(str);
                 }
-                this.f17704c.v("advert_load", str, 0, this.f17703b);
+                this.f17274c.v("advert_load", str, 0, this.f17273b);
             }
         }
     }
@@ -117,10 +117,10 @@ public class c implements a.f {
         public final /* synthetic */ Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FunAdSlot f17705b;
+        public final /* synthetic */ FunAdSlot f17275b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FunAdLoadListener f17706c;
+        public final /* synthetic */ FunAdLoadListener f17276c;
 
         public b(c cVar, Activity activity, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
             Interceptable interceptable = $ic;
@@ -138,8 +138,8 @@ public class c implements a.f {
                 }
             }
             this.a = activity;
-            this.f17705b = funAdSlot;
-            this.f17706c = funAdLoadListener;
+            this.f17275b = funAdSlot;
+            this.f17276c = funAdLoadListener;
         }
 
         @Override // c.a.t0.e1.a.l
@@ -147,7 +147,7 @@ public class c implements a.f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    FunAdSdk.getAdFactory().loadAd(this.a, this.f17705b, this.f17706c);
+                    FunAdSdk.getAdFactory().loadAd(this.a, this.f17275b, this.f17276c);
                 } catch (Exception e2) {
                     BdLog.e(e2);
                 }
@@ -157,18 +157,18 @@ public class c implements a.f {
 
     /* renamed from: c.a.t0.f1.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1082c implements FunAdInteractionListener {
+    public class C1096c implements FunAdInteractionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a.i a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.g f17707b;
+        public final /* synthetic */ a.g f17277b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f17708c;
+        public final /* synthetic */ c f17278c;
 
-        public C1082c(c cVar, a.i iVar, a.g gVar) {
+        public C1096c(c cVar, a.i iVar, a.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,9 +183,9 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f17708c = cVar;
+            this.f17278c = cVar;
             this.a = iVar;
-            this.f17707b = gVar;
+            this.f17277b = gVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
@@ -216,7 +216,7 @@ public class c implements a.f {
                 if (iVar != null) {
                     iVar.onAdError(str);
                 }
-                this.f17708c.v("advert_show", str, 0, this.f17707b);
+                this.f17278c.v("advert_show", str, 0, this.f17277b);
             }
         }
 
@@ -228,7 +228,7 @@ public class c implements a.f {
                 if (iVar != null) {
                     iVar.onAdShow(str, str2, str3);
                 }
-                this.f17708c.v("advert_show", str, 1, this.f17707b);
+                this.f17278c.v("advert_show", str, 1, this.f17277b);
             }
         }
 
@@ -250,19 +250,19 @@ public class c implements a.f {
         public final /* synthetic */ FunNativeAd a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f17709b;
+        public final /* synthetic */ Activity f17279b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f17710c;
+        public final /* synthetic */ ViewGroup f17280c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ List f17711d;
+        public final /* synthetic */ List f17281d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f17712e;
+        public final /* synthetic */ List f17282e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FunAdInteractionListener f17713f;
+        public final /* synthetic */ FunAdInteractionListener f17283f;
 
         public d(c cVar, FunNativeAd funNativeAd, Activity activity, ViewGroup viewGroup, List list, List list2, FunAdInteractionListener funAdInteractionListener) {
             Interceptable interceptable = $ic;
@@ -280,18 +280,18 @@ public class c implements a.f {
                 }
             }
             this.a = funNativeAd;
-            this.f17709b = activity;
-            this.f17710c = viewGroup;
-            this.f17711d = list;
-            this.f17712e = list2;
-            this.f17713f = funAdInteractionListener;
+            this.f17279b = activity;
+            this.f17280c = viewGroup;
+            this.f17281d = list;
+            this.f17282e = list2;
+            this.f17283f = funAdInteractionListener;
         }
 
         @Override // c.a.t0.e1.a.l
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.show(this.f17709b, this.f17710c, this.f17711d, this.f17712e, this.f17713f);
+                this.a.show(this.f17279b, this.f17280c, this.f17281d, this.f17282e, this.f17283f);
             }
         }
     }
@@ -303,10 +303,10 @@ public class c implements a.f {
         public final /* synthetic */ a.i a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.g f17714b;
+        public final /* synthetic */ a.g f17284b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f17715c;
+        public final /* synthetic */ c f17285c;
 
         public e(c cVar, a.i iVar, a.g gVar) {
             Interceptable interceptable = $ic;
@@ -323,9 +323,9 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f17715c = cVar;
+            this.f17285c = cVar;
             this.a = iVar;
-            this.f17714b = gVar;
+            this.f17284b = gVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
@@ -356,7 +356,7 @@ public class c implements a.f {
                 if (iVar != null) {
                     iVar.onAdError(str);
                 }
-                this.f17715c.v("advert_show", str, 0, this.f17714b);
+                this.f17285c.v("advert_show", str, 0, this.f17284b);
             }
         }
 
@@ -368,14 +368,14 @@ public class c implements a.f {
                 if (iVar != null) {
                     iVar.onAdShow(str, str2, str3);
                 }
-                if (this.f17715c.a != null) {
-                    this.f17715c.a.f17729b = str;
-                    this.f17715c.a.f17730c = str2;
+                if (this.f17285c.a != null) {
+                    this.f17285c.a.f17299b = str;
+                    this.f17285c.a.f17300c = str2;
                 }
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     String str4 = "BEAR ad sspType=" + str2 + ", sid=" + str + " ,pid=" + str3;
                 }
-                this.f17715c.v("advert_show", str, 1, this.f17714b);
+                this.f17285c.v("advert_show", str, 1, this.f17284b);
             }
         }
 
@@ -397,16 +397,16 @@ public class c implements a.f {
         public final /* synthetic */ Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f17716b;
+        public final /* synthetic */ ViewGroup f17286b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f17717c;
+        public final /* synthetic */ String f17287c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ FunAdInteractionListener f17718d;
+        public final /* synthetic */ FunAdInteractionListener f17288d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17719e;
+        public final /* synthetic */ c f17289e;
 
         public f(c cVar, Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
             Interceptable interceptable = $ic;
@@ -423,24 +423,24 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f17719e = cVar;
+            this.f17289e = cVar;
             this.a = activity;
-            this.f17716b = viewGroup;
-            this.f17717c = str;
-            this.f17718d = funAdInteractionListener;
+            this.f17286b = viewGroup;
+            this.f17287c = str;
+            this.f17288d = funAdInteractionListener;
         }
 
         @Override // c.a.t0.e1.a.l
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FunSplashAd showSplash = FunAdSdk.getAdFactory().showSplash(this.a, this.f17716b, this.f17717c, this.f17718d);
+                FunSplashAd showSplash = FunAdSdk.getAdFactory().showSplash(this.a, this.f17286b, this.f17287c, this.f17288d);
                 if (showSplash != null) {
-                    this.f17719e.a = new q();
-                    this.f17719e.a.a = showSplash;
+                    this.f17289e.a = new q();
+                    this.f17289e.a.a = showSplash;
                 }
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    String str = "BEAR ad showSplash:" + this.f17719e.a;
+                    String str = "BEAR ad showSplash:" + this.f17289e.a;
                 }
             }
         }
@@ -793,10 +793,10 @@ public class c implements a.f {
         public final /* synthetic */ a.h a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.g f17720b;
+        public final /* synthetic */ a.g f17290b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f17721c;
+        public final /* synthetic */ c f17291c;
 
         public l(c cVar, a.h hVar, a.g gVar) {
             Interceptable interceptable = $ic;
@@ -813,9 +813,9 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f17721c = cVar;
+            this.f17291c = cVar;
             this.a = hVar;
-            this.f17720b = gVar;
+            this.f17290b = gVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdLoadListener
@@ -826,7 +826,7 @@ public class c implements a.f {
                 if (hVar != null) {
                     hVar.a(str, 0);
                 }
-                this.f17721c.v("advert_load", str, 1, this.f17720b);
+                this.f17291c.v("advert_load", str, 1, this.f17290b);
             }
         }
 
@@ -838,7 +838,7 @@ public class c implements a.f {
                 if (hVar != null) {
                     hVar.onError(str);
                 }
-                this.f17721c.v("advert_load", str, 0, this.f17720b);
+                this.f17291c.v("advert_load", str, 0, this.f17290b);
             }
         }
     }
@@ -850,10 +850,10 @@ public class c implements a.f {
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FunAdSlot f17722b;
+        public final /* synthetic */ FunAdSlot f17292b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FunAdLoadListener f17723c;
+        public final /* synthetic */ FunAdLoadListener f17293c;
 
         public m(c cVar, Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
             Interceptable interceptable = $ic;
@@ -871,15 +871,15 @@ public class c implements a.f {
                 }
             }
             this.a = context;
-            this.f17722b = funAdSlot;
-            this.f17723c = funAdLoadListener;
+            this.f17292b = funAdSlot;
+            this.f17293c = funAdLoadListener;
         }
 
         @Override // c.a.t0.e1.a.l
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FunAdSdk.getAdFactory().loadAd(this.a, this.f17722b, this.f17723c);
+                FunAdSdk.getAdFactory().loadAd(this.a, this.f17292b, this.f17293c);
             }
         }
     }
@@ -891,10 +891,10 @@ public class c implements a.f {
         public final /* synthetic */ a.i a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.g f17724b;
+        public final /* synthetic */ a.g f17294b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f17725c;
+        public final /* synthetic */ c f17295c;
 
         public n(c cVar, a.i iVar, a.g gVar) {
             Interceptable interceptable = $ic;
@@ -911,9 +911,9 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f17725c = cVar;
+            this.f17295c = cVar;
             this.a = iVar;
-            this.f17724b = gVar;
+            this.f17294b = gVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
@@ -944,7 +944,7 @@ public class c implements a.f {
                 if (iVar != null) {
                     iVar.onAdError(str);
                 }
-                this.f17725c.v("advert_show", str, 0, this.f17724b);
+                this.f17295c.v("advert_show", str, 0, this.f17294b);
             }
         }
 
@@ -956,7 +956,7 @@ public class c implements a.f {
                 if (iVar != null) {
                     iVar.onAdShow(str, str2, str3);
                 }
-                this.f17725c.v("advert_show", str, 1, this.f17724b);
+                this.f17295c.v("advert_show", str, 1, this.f17294b);
             }
         }
 
@@ -978,13 +978,13 @@ public class c implements a.f {
         public final /* synthetic */ Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f17726b;
+        public final /* synthetic */ ViewGroup f17296b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f17727c;
+        public final /* synthetic */ String f17297c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ FunAdInteractionListener f17728d;
+        public final /* synthetic */ FunAdInteractionListener f17298d;
 
         public o(c cVar, Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
             Interceptable interceptable = $ic;
@@ -1002,16 +1002,16 @@ public class c implements a.f {
                 }
             }
             this.a = activity;
-            this.f17726b = viewGroup;
-            this.f17727c = str;
-            this.f17728d = funAdInteractionListener;
+            this.f17296b = viewGroup;
+            this.f17297c = str;
+            this.f17298d = funAdInteractionListener;
         }
 
         @Override // c.a.t0.e1.a.l
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FunAdSdk.getAdFactory().showAd(this.a, this.f17726b, this.f17727c, this.f17728d);
+                FunAdSdk.getAdFactory().showAd(this.a, this.f17296b, this.f17297c, this.f17298d);
             }
         }
     }
@@ -1056,13 +1056,13 @@ public class c implements a.f {
         public FunSplashAd a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17729b;
+        public String f17299b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f17730c;
+        public String f17300c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f17731d;
+        public boolean f17301d;
 
         public q() {
             Interceptable interceptable = $ic;
@@ -1077,9 +1077,9 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f17729b = null;
-            this.f17730c = "cjs";
-            this.f17731d = false;
+            this.f17299b = null;
+            this.f17300c = "cjs";
+            this.f17301d = false;
         }
     }
 
@@ -1096,7 +1096,7 @@ public class c implements a.f {
                 return;
             }
         }
-        this.f17702b = new h(this);
+        this.f17272b = new h(this);
     }
 
     @Override // c.a.t0.e1.a.f
@@ -1119,7 +1119,7 @@ public class c implements a.f {
     public void c(Activity activity, @NonNull Object obj, a.i iVar, ViewGroup viewGroup, List<View> list, List<View> list2, a.g gVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, obj, iVar, viewGroup, list, list2, gVar}) == null) && !activity.isDestroyed() && (obj instanceof FunNativeAd)) {
-            u(new d(this, (FunNativeAd) obj, activity, viewGroup, list, list2, new C1082c(this, iVar, gVar)));
+            u(new d(this, (FunNativeAd) obj, activity, viewGroup, list, list2, new C1096c(this, iVar, gVar)));
         }
     }
 
@@ -1161,7 +1161,7 @@ public class c implements a.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
             q qVar = this.a;
-            if (qVar == null || (funSplashAd = qVar.a) == null || qVar.f17731d) {
+            if (qVar == null || (funSplashAd = qVar.a) == null || qVar.f17301d) {
                 return false;
             }
             boolean showMiniWindow = funSplashAd.showMiniWindow(activity, false, new g(this));
@@ -1169,7 +1169,7 @@ public class c implements a.f {
                 String str = "BEAR ad showMiniWindow: " + this.a + ", isSucceed=" + showMiniWindow;
             }
             if (showMiniWindow) {
-                this.a.f17731d = true;
+                this.a.f17301d = true;
                 t(CommonStatisticKey.KEY_EYE_SPLASH_BEAR_SHOW);
             }
             return showMiniWindow;
@@ -1250,18 +1250,18 @@ public class c implements a.f {
                 return;
             }
             FunAdConfig.Builder builder = new FunAdConfig.Builder(application);
-            if (c.a.s0.s.g0.b.j().k("key_fun_cjs_init", 1) == 0) {
+            if (c.a.s0.s.h0.b.k().l("key_fun_cjs_init", 1) == 0) {
                 builder.forbiddenPlatform(FunAdSdk.PLATFORM_CSJ);
             }
-            if (c.a.s0.s.g0.b.j().k("key_fun_gdt_init", 1) == 0) {
+            if (c.a.s0.s.h0.b.k().l("key_fun_gdt_init", 1) == 0) {
                 builder.forbiddenPlatform(FunAdSdk.PLATFORM_GDT);
             }
-            if (c.a.s0.s.g0.b.j().k("key_fun_ks_init", 1) == 0) {
+            if (c.a.s0.s.h0.b.k().l("key_fun_ks_init", 1) == 0) {
                 builder.forbiddenPlatform(FunAdSdk.PLATFORM_KS);
             }
             builder.setAppName(application.getString(R.string.app_name)).setAppId("b122ce58b8954c27b6882f7987c08860").setUserId("").setUseTextureView(true).setTitleBarTheme(1).setVideoSoundEnable(false).setVideoDataFlowAutoStart(false).setSupportMultiProcess(true).setLogEnabled(TbadkCoreApplication.getInst().isDebugMode()).setTTCustomController(new j(this)).setKsCustomController(new i(this)).setKsCanReadICCID(KsPrivacySwitch.isOpen()).setKsCanReadNearbyWifiList(KsPrivacySwitch.isOpen()).setKsCanReadMacAddress(KsPrivacySwitch.isOpen());
             GlobalSetting.setAgreePrivacyStrategy(GdtPrivacySwitch.isOpen());
-            FunAdSdk.init(builder.build(), this.f17702b, new k(this, lVar));
+            FunAdSdk.init(builder.build(), this.f17272b, new k(this, lVar));
         }
     }
 
@@ -1327,10 +1327,10 @@ public class c implements a.f {
     public final void t(String str) {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (qVar = this.a) == null || TextUtils.isEmpty(qVar.f17729b) || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (qVar = this.a) == null || TextUtils.isEmpty(qVar.f17299b) || str == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem(str).param("obj_source", 6).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_PARAM2, this.a.f17729b).param(TiebaStatic.Params.OBJ_TO, this.a.f17730c));
+        TiebaStatic.log(new StatisticItem(str).param("obj_source", 6).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_PARAM2, this.a.f17299b).param(TiebaStatic.Params.OBJ_TO, this.a.f17300c));
     }
 
     public final void u(a.l lVar) {
@@ -1346,7 +1346,7 @@ public class c implements a.f {
             c.a.d.f.n.a a2 = c.a.s0.s0.j.a();
             a2.b("type", "bear");
             a2.b("locate", gVar.a);
-            a2.b("switch", gVar.f17560b);
+            a2.b("switch", gVar.f17132b);
             a2.b("sid", str2);
             a2.c("isSuccess", Integer.valueOf(i2));
             BdStatisticsManager.getInstance().debug(str, a2);

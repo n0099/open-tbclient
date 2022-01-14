@@ -19,7 +19,7 @@ public final class c {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31874b;
+    public String f30875b;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class c {
             }
         }
         this.a = z;
-        this.f31874b = l.a(24);
+        this.f30875b = l.a(24);
     }
 
     public static byte[] b(String str, byte[] bArr, String str2) {
@@ -64,7 +64,7 @@ public final class c {
                 }
             }
             if (this.a) {
-                a = a(bytes, a(this.f31874b, com.alipay.sdk.cons.a.f31808e), b(this.f31874b, bytes2, str));
+                a = a(bytes, a(this.f30875b, com.alipay.sdk.cons.a.f30813e), b(this.f30875b, bytes2, str));
             } else {
                 a = a(bytes, bytes2);
             }
@@ -106,7 +106,7 @@ public final class c {
                             byte[] bArr4 = new byte[a];
                             byteArrayInputStream.read(bArr4);
                             if (this.a) {
-                                bArr4 = a(this.f31874b, bArr4, str);
+                                bArr4 = a(this.f30875b, bArr4, str);
                             }
                             if (dVar.b()) {
                                 bArr4 = com.alipay.sdk.encrypt.b.b(bArr4);

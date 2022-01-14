@@ -23,13 +23,13 @@ public class d {
     public static OkHttpClient a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TurbonetContext f26889b;
+    public static TurbonetContext f26091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f26890c;
+    public static long f26092c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f26891d;
+    public static boolean f26093d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,8 +51,8 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            f26889b = g();
-            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(f26889b);
+            f26091b = g();
+            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(f26091b);
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
             builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
             return builder.build();
@@ -160,21 +160,21 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            TurbonetContext turbonetContext = f26889b;
-            if (turbonetContext != null && f26890c == 0) {
-                f26890c = turbonetContext.c();
+            TurbonetContext turbonetContext = f26091b;
+            if (turbonetContext != null && f26092c == 0) {
+                f26092c = turbonetContext.c();
             }
-            return f26890c;
+            return f26092c;
         }
         return invokeV.longValue;
     }
 
     public static void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || f26891d) {
+        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || f26093d) {
             return;
         }
-        f26891d = true;
+        f26093d = true;
         try {
             c();
         } catch (Throwable th) {
@@ -187,7 +187,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
-            f26889b = turbonetContext;
+            f26091b = turbonetContext;
             return turbonetContext;
         }
         return (TurbonetContext) invokeV.objValue;

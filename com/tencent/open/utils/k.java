@@ -29,7 +29,7 @@ public class k implements LayeredSocketFactory {
     public static final HostnameVerifier a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SSLCertificateSocketFactory f62983b;
+    public static final SSLCertificateSocketFactory f60606b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class k implements LayeredSocketFactory {
             }
         }
         a = new StrictHostnameVerifier();
-        f62983b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);
+        f60606b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);
     }
 
     public k() {
@@ -104,11 +104,11 @@ public class k implements LayeredSocketFactory {
             if (z) {
                 socket.close();
             }
-            SSLSocket sSLSocket = (SSLSocket) f62983b.createSocket(inetAddress, i2);
+            SSLSocket sSLSocket = (SSLSocket) f60606b.createSocket(inetAddress, i2);
             sSLSocket.setEnabledProtocols(sSLSocket.getSupportedProtocols());
             if (Build.VERSION.SDK_INT >= 17) {
                 SLog.v("openSDK_LOG.SNISocketFactory", "Setting SNI hostname");
-                f62983b.setHostname(sSLSocket, str);
+                f60606b.setHostname(sSLSocket, str);
             } else {
                 SLog.v("openSDK_LOG.SNISocketFactory", "No documented SNI support on Android <4.2, trying with reflection");
                 try {

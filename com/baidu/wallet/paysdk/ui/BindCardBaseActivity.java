@@ -59,21 +59,21 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     public PayRequestCache.BindCategory a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f54252b;
+    public LayoutInflater f52184b;
     public BdActionBar bdActionBar;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f54253c;
+    public final int f52185c;
     public g checkCardInfoBean;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f54254d;
+    public boolean f52186d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54255e;
+    public int f52187e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54256f;
+    public int f52188f;
     public boolean isAutoFillPhone;
     public boolean isFromRestore;
     public j mBindCardController;
@@ -104,12 +104,12 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
         this.mBindReq = null;
         this.mPayReq = null;
         this.DIALOG_CAN_AMOUNT_NO_PWD = 629128;
-        this.f54253c = 629129;
+        this.f52185c = 629129;
         this.DIALOG_ABANDON_AUTHORIZE = 629130;
         this.isFromRestore = false;
-        this.f54254d = false;
-        this.f54255e = 0;
-        this.f54256f = 0;
+        this.f52186d = false;
+        this.f52187e = 0;
+        this.f52188f = 0;
     }
 
     private void a() {
@@ -131,10 +131,10 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     public void addContentView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (this.f54252b == null) {
-                this.f54252b = LayoutInflater.from(getActivity());
+            if (this.f52184b == null) {
+                this.f52184b = LayoutInflater.from(getActivity());
             }
-            a(this.f54252b.inflate(i2, (ViewGroup) null));
+            a(this.f52184b.inflate(i2, (ViewGroup) null));
         }
     }
 
@@ -154,7 +154,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
             initActionBarWithActualTitleValue(str);
-            this.f54255e = i2;
+            this.f52187e = i2;
         }
     }
 
@@ -197,7 +197,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     public int getCurrentStep() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f54255e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f52187e : invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.dxmpay.wallet.core.beans.BeanActivity
@@ -288,7 +288,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                         }
                     }
                     if (i3 == 15500 && (this.mBindReq.getmBindFrom() == 2 || this.mBindReq.getmBindFrom() == 7 || this.mBindReq.getmBindFrom() == 9)) {
-                        this.f54254d = i2 == 13;
+                        this.f52186d = i2 == 13;
                         this.mCardInfoUpdateContent = (ErrorContentResponse) obj;
                         this.mDialogMsg = str;
                         this.mPayErrorCode = i3;
@@ -330,12 +330,12 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
         if (interceptable == null || interceptable.invokeL(1048592, this, view) == null) {
             int id = view.getId();
             if (id == ResUtils.id(getActivity(), "date_tip_img")) {
-                this.f54256f = 1;
+                this.f52188f = 1;
                 this.mDialogMsg = ResUtils.getString(getActivity(), "ebpay_date_tip");
                 StatisticManager.onEvent("clickHelpDate");
                 WalletGlobalUtils.safeShowDialog(this, 2, "");
             } else if (id == ResUtils.id(getActivity(), "cvv_tip_img")) {
-                this.f54256f = 0;
+                this.f52188f = 0;
                 this.mDialogMsg = ResUtils.getString(getActivity(), "ebpay_cvv2_tip");
                 StatisticManager.onEvent("clickHelpCVV");
                 WalletGlobalUtils.safeShowDialog(this, 2, "");
@@ -483,7 +483,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
             if (i2 == 2) {
                 PromptImageDialog promptImageDialog = (PromptImageDialog) dialog;
                 promptImageDialog.setMessage(this.mDialogMsg);
-                if (this.f54256f == 0) {
+                if (this.f52188f == 0) {
                     promptImageDialog.setTitleMessage(ResUtils.getString(getActivity(), "ebpay_cvv2_tip_title"));
                     promptImageDialog.setImage(ResUtils.drawable(getActivity(), "wallet_base_help_cvv"));
                     return;
@@ -573,7 +573,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                         }
                     }
                 });
-                if (this.f54254d) {
+                if (this.f52186d) {
                     promptDialog2.hideNegativeButton();
                 }
                 promptDialog2.setPositiveBtn(ResUtils.string(this, "ebpay_wallet_continue_pay"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.BindCardBaseActivity.4
@@ -747,7 +747,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BindCardBaseActivity f54257b;
+                    public final /* synthetic */ BindCardBaseActivity f52189b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -764,7 +764,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                                 return;
                             }
                         }
-                        this.f54257b = this;
+                        this.f52189b = this;
                         this.a = promptDialog3;
                     }
 
@@ -773,7 +773,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             PayController payController = PayController.getInstance();
-                            BindCardBaseActivity bindCardBaseActivity = this.f54257b;
+                            BindCardBaseActivity bindCardBaseActivity = this.f52189b;
                             payController.updateCardInfoPay(bindCardBaseActivity, bindCardBaseActivity.mCardInfoUpdateContent);
                             this.a.dismiss();
                         }
@@ -929,7 +929,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
             }
             bundle.putSerializable("PayResponse", PayDataCache.getInstance().getPayResponse());
             bundle.putBoolean("isautofillphone", this.isAutoFillPhone);
-            bundle.putInt("currentStep", this.f54255e);
+            bundle.putInt("currentStep", this.f52187e);
             bundle.putInt("halfScreen", this.mUpdateItemCount);
             bundle.putInt("reasonForChangeCardItem", this.mBindReason);
             super.onSaveInstanceState(bundle);
@@ -1012,7 +1012,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
             this.mCardInfoUpdateContent = (ErrorContentResponse) serializable4;
         }
         this.isAutoFillPhone = bundle.getBoolean("isautofillphone");
-        this.f54255e = bundle.getInt("currentStep");
+        this.f52187e = bundle.getInt("currentStep");
         this.mUpdateItemCount = bundle.getInt("halfScreen", 0);
         this.mBindReason = bundle.getInt("reasonForChangeCardItem", 0);
     }

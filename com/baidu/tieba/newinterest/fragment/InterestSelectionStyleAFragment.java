@@ -20,30 +20,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes12.dex */
-public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements a.InterfaceC1286a {
+public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements a.InterfaceC1300a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f48083e;
+    public View f46291e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f48084f;
+    public View f46292f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f48085g;
+    public LinearLayout f46293g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48086h;
+    public TextView f46294h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f48087i;
+    public TextView f46295i;
 
     /* renamed from: j  reason: collision with root package name */
-    public NoScrollGridView f48088j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c f48089k;
+    public NoScrollGridView f46296j;
+    public c k;
 
     public InterestSelectionStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -75,21 +73,21 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48083e = this.mRootView.findViewById(R.id.interest_selected_btn_shade);
-            this.f48084f = this.mRootView.findViewById(R.id.interest_selected_title_shade);
-            this.f48085g = (LinearLayout) this.mRootView.findViewById(R.id.interest_selected_next_ll);
-            this.f48088j = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
+            this.f46291e = this.mRootView.findViewById(R.id.interest_selected_btn_shade);
+            this.f46292f = this.mRootView.findViewById(R.id.interest_selected_title_shade);
+            this.f46293g = (LinearLayout) this.mRootView.findViewById(R.id.interest_selected_next_ll);
+            this.f46296j = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
             this.mInterestSelectedButton = (TBSpecificationBtn) this.mRootView.findViewById(R.id.interest_selected_btn);
-            this.f48086h = (TextView) this.mRootView.findViewById(R.id.interest_selection_title);
-            this.f48087i = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
-            c.a.s0.s.i0.n.a aVar = new c.a.s0.s.i0.n.a();
+            this.f46294h = (TextView) this.mRootView.findViewById(R.id.interest_selection_title);
+            this.f46295i = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
+            c.a.s0.s.j0.n.a aVar = new c.a.s0.s.j0.n.a();
             this.mInterestSelectedButton.setTextSize(R.dimen.T_X06);
             this.mInterestSelectedButton.setConfig(aVar);
             this.mInterestSelectedButton.setText(getResources().getString(R.string.select_interest_introduce));
             this.mInterestSelectedButton.setEnabled(false);
             this.mInterestSelectedButton.setOnClickListener(this);
-            this.f48088j.setColumnWidth(n.k(getContext()) / 5);
-            this.f48088j.setAdapter((ListAdapter) this.mInterestSelectionAdapter);
+            this.f46296j.setColumnWidth(n.k(getContext()) / 5);
+            this.f46296j.setAdapter((ListAdapter) this.mInterestSelectionAdapter);
         }
     }
 
@@ -99,17 +97,17 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
             c.a.s0.s.u.c.d(this.mRootView).f(R.color.CAM_X0201);
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f48086h);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f46294h);
             d2.v(R.color.CAM_X0105);
             d2.z(R.dimen.T_X03);
             d2.A(R.string.F_X02);
-            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.f48087i);
+            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.f46295i);
             d3.v(R.color.CAM_X0108);
             d3.z(R.dimen.T_X07);
             d3.A(R.string.F_X01);
-            c.a.s0.s.u.c.d(this.f48085g).f(R.color.CAM_X0201);
-            c.a.s0.s.u.c.d(this.f48083e).o(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
-            c.a.s0.s.u.c.d(this.f48084f).o(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
+            c.a.s0.s.u.c.d(this.f46293g).f(R.color.CAM_X0201);
+            c.a.s0.s.u.c.d(this.f46291e).o(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
+            c.a.s0.s.u.c.d(this.f46292f).o(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.mInterestSelectionAdapter.notifyDataSetChanged();
         }
     }
@@ -121,7 +119,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
             super.onCreate(bundle);
             c.a.t0.o2.a.c cVar = new c.a.t0.o2.a.c(null, getContext());
             this.mInterestSelectionAdapter = cVar;
-            this.f48089k = new c(this, cVar);
+            this.k = new c(this, cVar);
         }
     }
 
@@ -147,7 +145,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            this.f48089k.b();
+            this.k.b();
         }
     }
 
@@ -156,7 +154,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             hideNetRefreshView(this.mRootView);
-            this.f48089k.c();
+            this.k.c();
             showLoadingView(this.mRootView);
         }
     }

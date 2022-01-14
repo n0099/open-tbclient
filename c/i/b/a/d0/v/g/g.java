@@ -19,16 +19,16 @@ public abstract class g {
     public final Format a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f30191b;
+    public final String f29252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f30192c;
+    public final long f29253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<d> f30193d;
+    public final List<d> f29254d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f30194e;
+    public final f f29255e;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -42,7 +42,7 @@ public abstract class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.a f30195f;
+        public final h.a f29256f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, long j2, Format format, String str2, h.a aVar, List<d> list) {
@@ -63,56 +63,56 @@ public abstract class g {
                     return;
                 }
             }
-            this.f30195f = aVar;
+            this.f29256f = aVar;
         }
 
         @Override // c.i.b.a.d0.v.d
         public long a(int i2, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? this.f30195f.e(i2, j2) : invokeCommon.longValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? this.f29256f.e(i2, j2) : invokeCommon.longValue;
         }
 
         @Override // c.i.b.a.d0.v.d
         public int b(long j2, long j3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? this.f30195f.f(j2, j3) : invokeCommon.intValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? this.f29256f.f(j2, j3) : invokeCommon.intValue;
         }
 
         @Override // c.i.b.a.d0.v.d
         public int c(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f30195f.d(j2) : invokeJ.intValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f29256f.d(j2) : invokeJ.intValue;
         }
 
         @Override // c.i.b.a.d0.v.d
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30195f.c() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29256f.c() : invokeV.intValue;
         }
 
         @Override // c.i.b.a.d0.v.d
         public f e(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f30195f.h(this, i2) : (f) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f29256f.h(this, i2) : (f) invokeI.objValue;
         }
 
         @Override // c.i.b.a.d0.v.d
         public long f(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f30195f.g(i2) : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f29256f.g(i2) : invokeI.longValue;
         }
 
         @Override // c.i.b.a.d0.v.d
         public boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30195f.i() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29256f.i() : invokeV.booleanValue;
         }
 
         @Override // c.i.b.a.d0.v.g.g
@@ -149,13 +149,13 @@ public abstract class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f30196f;
+        public final String f29257f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final f f30197g;
+        public final f f29258g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final i f30198h;
+        public final i f29259h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, long j2, Format format, String str2, h.e eVar, List<d> list, String str3, long j3) {
@@ -178,7 +178,7 @@ public abstract class g {
                 }
             }
             Uri.parse(str2);
-            this.f30197g = eVar.c();
+            this.f29258g = eVar.c();
             if (str3 != null) {
                 str4 = str3;
             } else if (str != null) {
@@ -186,29 +186,29 @@ public abstract class g {
             } else {
                 str4 = null;
             }
-            this.f30196f = str4;
-            this.f30198h = this.f30197g == null ? new i(new f(null, 0L, j3)) : null;
+            this.f29257f = str4;
+            this.f29259h = this.f29258g == null ? new i(new f(null, 0L, j3)) : null;
         }
 
         @Override // c.i.b.a.d0.v.g.g
         public String h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30196f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29257f : (String) invokeV.objValue;
         }
 
         @Override // c.i.b.a.d0.v.g.g
         public c.i.b.a.d0.v.d i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30198h : (c.i.b.a.d0.v.d) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29259h : (c.i.b.a.d0.v.d) invokeV.objValue;
         }
 
         @Override // c.i.b.a.d0.v.g.g
         public f j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30197g : (f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29258g : (f) invokeV.objValue;
         }
     }
 
@@ -246,7 +246,7 @@ public abstract class g {
     public f k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30194e : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29255e : (f) invokeV.objValue;
     }
 
     public g(String str, long j2, Format format, String str2, h hVar, List<d> list) {
@@ -266,14 +266,14 @@ public abstract class g {
             }
         }
         this.a = format;
-        this.f30191b = str2;
+        this.f29252b = str2;
         if (list == null) {
             unmodifiableList = Collections.emptyList();
         } else {
             unmodifiableList = Collections.unmodifiableList(list);
         }
-        this.f30193d = unmodifiableList;
-        this.f30194e = hVar.a(this);
-        this.f30192c = hVar.b();
+        this.f29254d = unmodifiableList;
+        this.f29255e = hVar.a(this);
+        this.f29253c = hVar.b();
     }
 }

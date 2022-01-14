@@ -39,44 +39,44 @@ public class a extends z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6291c;
+    public String f6152c;
 
     /* renamed from: c.a.r0.a.f2.f.p0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0326a implements Runnable {
+    public class RunnableC0335a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6292e;
+        public final /* synthetic */ UnitedSchemeEntity f6153e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6293f;
+        public final /* synthetic */ CallbackHandler f6154f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f6294g;
+        public final /* synthetic */ e f6155g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f6295h;
+        public final /* synthetic */ a f6156h;
 
         /* renamed from: c.a.r0.a.f2.f.p0.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0327a implements Runnable {
+        public class RunnableC0336a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f6296e;
+            public final /* synthetic */ Bitmap f6157e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ RunnableC0326a f6297f;
+            public final /* synthetic */ RunnableC0335a f6158f;
 
-            public RunnableC0327a(RunnableC0326a runnableC0326a, Bitmap bitmap) {
+            public RunnableC0336a(RunnableC0335a runnableC0335a, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC0326a, bitmap};
+                    Object[] objArr = {runnableC0335a, bitmap};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -86,21 +86,21 @@ public class a extends z {
                         return;
                     }
                 }
-                this.f6297f = runnableC0326a;
-                this.f6296e = bitmap;
+                this.f6158f = runnableC0335a;
+                this.f6157e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    RunnableC0326a runnableC0326a = this.f6297f;
-                    runnableC0326a.f6295h.o(this.f6296e, runnableC0326a.f6292e, runnableC0326a.f6293f, runnableC0326a.f6294g);
+                    RunnableC0335a runnableC0335a = this.f6158f;
+                    runnableC0335a.f6156h.o(this.f6157e, runnableC0335a.f6153e, runnableC0335a.f6154f, runnableC0335a.f6155g);
                 }
             }
         }
 
-        public RunnableC0326a(a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
+        public RunnableC0335a(a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,10 +115,10 @@ public class a extends z {
                     return;
                 }
             }
-            this.f6295h = aVar;
-            this.f6292e = unitedSchemeEntity;
-            this.f6293f = callbackHandler;
-            this.f6294g = eVar;
+            this.f6156h = aVar;
+            this.f6153e = unitedSchemeEntity;
+            this.f6154f = callbackHandler;
+            this.f6155g = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -127,9 +127,9 @@ public class a extends z {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Bitmap y = n0.y();
                 if (y == null) {
-                    this.f6295h.n(this.f6292e, this.f6293f, "can't get screenshot");
+                    this.f6156h.n(this.f6153e, this.f6154f, "can't get screenshot");
                 } else {
-                    q.k(new RunnableC0327a(this, y), "savescreenshot");
+                    q.k(new RunnableC0336a(this, y), "savescreenshot");
                 }
             }
         }
@@ -167,7 +167,7 @@ public class a extends z {
                 return false;
             }
             String optString = w.d(unitedSchemeEntity.getParam("params")).optString("name");
-            this.f6291c = optString;
+            this.f6152c = optString;
             if (TextUtils.isEmpty(optString)) {
                 d.c("Screenshot", "invalid params");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -185,7 +185,7 @@ public class a extends z {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2})) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("name", this.f6291c);
+                jSONObject.put("name", this.f6152c);
                 if (!TextUtils.isEmpty(str2)) {
                     jSONObject.put("message", str2);
                 }
@@ -203,7 +203,7 @@ public class a extends z {
     public final void m(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, callbackHandler, eVar) == null) {
-            q0.e0(new RunnableC0326a(this, unitedSchemeEntity, callbackHandler, eVar));
+            q0.e0(new RunnableC0335a(this, unitedSchemeEntity, callbackHandler, eVar));
         }
     }
 
@@ -223,7 +223,7 @@ public class a extends z {
         String x;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048580, this, bitmap, unitedSchemeEntity, callbackHandler, eVar) == null) || (x = b.x(eVar.f5660f)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048580, this, bitmap, unitedSchemeEntity, callbackHandler, eVar) == null) || (x = b.x(eVar.f5537f)) == null) {
             return;
         }
         String str = x + File.separator + StatisticConstants.SCREENSHOT;
@@ -236,7 +236,7 @@ public class a extends z {
             }
         }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault());
-        String str2 = str + File.separator + simpleDateFormat.format(new Date()) + this.f6291c + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
+        String str2 = str + File.separator + simpleDateFormat.format(new Date()) + this.f6152c + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
@@ -256,7 +256,7 @@ public class a extends z {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
             String str3 = "save screenshot to " + str2;
             d.i("Screenshot", str3);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(true, b.J(str2, eVar.f5660f), "success"), 0));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(true, b.J(str2, eVar.f5537f), "success"), 0));
             fileOutputStream.close();
             fileOutputStream2 = str3;
         } catch (FileNotFoundException e4) {

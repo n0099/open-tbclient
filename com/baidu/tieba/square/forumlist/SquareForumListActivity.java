@@ -10,7 +10,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.s0.s.i0.f;
+import c.a.s0.s.j0.f;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -62,7 +62,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
     public NoDataView mNoDataView;
     public int mPageNum;
     public int mPageType;
-    public c.a.s0.s.i0.g mPullView;
+    public c.a.s0.s.j0.g mPullView;
     public View mRootView;
     public CustomMessageListener mUnlikeForumListener;
 
@@ -183,7 +183,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
                     this.a.updateForumList(squareForumListResHttpMsg.getResponseData());
                     return;
                 }
-                n.M(this.a.getActivity(), squareForumListResHttpMsg.getErrorString());
+                n.N(this.a.getActivity(), squareForumListResHttpMsg.getErrorString());
                 if (ListUtils.getCount(this.a.mListData) != 0 || l.z()) {
                     return;
                 }
@@ -237,7 +237,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
                     this.a.updateForumList(squareForumListResSocketMsg.getResponseData());
                     return;
                 }
-                n.M(this.a.getActivity(), squareForumListResSocketMsg.getErrorString());
+                n.N(this.a.getActivity(), squareForumListResSocketMsg.getErrorString());
                 if (ListUtils.getCount(this.a.mListData) != 0 || l.z()) {
                     return;
                 }
@@ -254,7 +254,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareForumListActivity f49863e;
+        public final /* synthetic */ SquareForumListActivity f47989e;
 
         public e(SquareForumListActivity squareForumListActivity) {
             Interceptable interceptable = $ic;
@@ -271,7 +271,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
                     return;
                 }
             }
-            this.f49863e = squareForumListActivity;
+            this.f47989e = squareForumListActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -279,14 +279,14 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f49863e.mPageType == 1) {
+                if (this.f47989e.mPageType == 1) {
                     TiebaStatic.log("c10564");
                     str = SquareForumListActivity.RULE_URL_HOT;
                 } else {
                     TiebaStatic.log("c10585");
                     str = SquareForumListActivity.RULE_URL_NEW;
                 }
-                c.a.s0.m.a.m(this.f49863e.getBaseContext(), str);
+                c.a.s0.m.a.m(this.f47989e.getBaseContext(), str);
             }
         }
     }
@@ -297,7 +297,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareForumListActivity f49864e;
+        public final /* synthetic */ SquareForumListActivity f47990e;
 
         public f(SquareForumListActivity squareForumListActivity) {
             Interceptable interceptable = $ic;
@@ -314,20 +314,20 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
                     return;
                 }
             }
-            this.f49864e = squareForumListActivity;
+            this.f47990e = squareForumListActivity;
         }
 
-        @Override // c.a.s0.s.i0.f.g
+        @Override // c.a.s0.s.j0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (this.f49864e.mIsLoading || !l.z()) {
-                    this.f49864e.mForumListView.completePullRefreshPostDelayed(0L);
-                    this.f49864e.showToast(R.string.neterror);
+                if (this.f47990e.mIsLoading || !l.z()) {
+                    this.f47990e.mForumListView.completePullRefreshPostDelayed(0L);
+                    this.f47990e.showToast(R.string.neterror);
                     return;
                 }
-                this.f49864e.mPageNum = 1;
-                this.f49864e.loadForumList(false);
+                this.f47990e.mPageNum = 1;
+                this.f47990e.loadForumList(false);
             }
         }
     }
@@ -338,7 +338,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareForumListActivity f49865e;
+        public final /* synthetic */ SquareForumListActivity f47991e;
 
         public g(SquareForumListActivity squareForumListActivity) {
             Interceptable interceptable = $ic;
@@ -355,14 +355,14 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
                     return;
                 }
             }
-            this.f49865e = squareForumListActivity;
+            this.f47991e = squareForumListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49865e.loadForumList(true);
+                this.f47991e.loadForumList(true);
             }
         }
     }
@@ -400,7 +400,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getPageContext().getString(i2));
             this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.hot_topic_rule), eVar);
-            this.mPullView = new c.a.s0.s.i0.g(getPageContext());
+            this.mPullView = new c.a.s0.s.j0.g(getPageContext());
             BdListView bdListView = (BdListView) findViewById(R.id.forum_list_view);
             this.mForumListView = bdListView;
             bdListView.setPullRefresh(this.mPullView);

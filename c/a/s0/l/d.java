@@ -14,29 +14,40 @@ public class d {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f13171b;
+    public a f12849b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f13172c;
+    public b f12850c;
 
-    public d() {
+    /* renamed from: d  reason: collision with root package name */
+    public final boolean f12851d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final long f12852e;
+
+    public d(boolean z, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f12851d = z;
+        this.f12852e = j2;
     }
 
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13171b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12849b : (a) invokeV.objValue;
     }
 
     public ViewGroup b() {
@@ -45,16 +56,28 @@ public class d {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ViewGroup) invokeV.objValue;
     }
 
-    public void c(a aVar) {
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f13171b = aVar;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12852e : invokeV.longValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12851d : invokeV.booleanValue;
+    }
+
+    public void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.f12849b = aVar;
         }
     }
 
-    public void d(ViewGroup viewGroup) {
+    public void f(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, viewGroup) == null) {
             this.a = viewGroup;
         }
     }

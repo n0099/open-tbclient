@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Service
 /* loaded from: classes8.dex */
-public class c extends c.a.c0.d.d.a {
+public class c extends c.a.c0.f.e.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,15 +32,15 @@ public class c extends c.a.c0.d.d.a {
         }
     }
 
-    @Override // c.a.c0.d.d.a
+    @Override // c.a.c0.f.e.a
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "commonVideo" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.c0.d.d.a
-    public boolean b(@NonNull Context context, @NonNull c.a.c0.d.f.a aVar, @Nullable Map<String, Object> map, @Nullable c.a.c0.d.g.d dVar) {
+    @Override // c.a.c0.f.e.a
+    public boolean b(@NonNull Context context, @NonNull c.a.c0.f.g.a aVar, @Nullable Map<String, Object> map, @Nullable c.a.c0.f.h.d dVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aVar, map, dVar)) == null) {

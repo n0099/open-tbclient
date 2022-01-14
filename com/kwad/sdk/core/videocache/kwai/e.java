@@ -12,17 +12,17 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
     public class a implements Callable<Void> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f58514b;
+        public final File f56306b;
 
         public a(File file) {
-            this.f58514b = file;
+            this.f56306b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() {
-            e.this.b(this.f58514b);
+            e.this.b(this.f56306b);
             return null;
         }
     }

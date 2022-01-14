@@ -32,7 +32,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LBSTransCashierActivity extends LBSBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TAG = "LBSTransCashierActivity";

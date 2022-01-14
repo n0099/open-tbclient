@@ -5,16 +5,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.s0.s.q.b1;
-import c.a.s0.s.q.c2;
 import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.f0;
 import c.a.s0.s.q.i0;
 import c.a.s0.s.q.k1;
 import c.a.s0.s.q.o0;
+import c.a.s0.s.q.p0;
 import c.a.s0.s.q.t1;
 import c.a.s0.s.q.y0;
-import c.a.s0.t.c.p0;
 import c.a.s0.t.c.q0;
+import c.a.s0.t.c.r0;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -90,7 +91,7 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
     public List<BottomMenu> bottomMenuList;
     public c.a.t0.d1.d brandAdData;
     public i businessPromot;
-    public d2 cardVideoInfo;
+    public e2 cardVideoInfo;
     public c.a.s0.s.q.t carrierEnterData;
     public List<CategoryInfo> categoryInfos;
     public b chatGroup;
@@ -167,9 +168,9 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
     public HashMap<String, MetaData> userMap;
     public c.a.t0.d1.w userRecommend;
     @Nullable
-    public p0 voiceRoomConfig;
+    public q0 voiceRoomConfig;
     @Nullable
-    public q0 voiceRoomData;
+    public r0 voiceRoomData;
 
     static {
         InterceptResult invokeClinit;
@@ -273,29 +274,29 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
         ArrayList arrayList = new ArrayList();
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null) {
-                d2 d2Var = new d2();
-                d2Var.F3(dataRes.forum.id.longValue());
-                SpecHotTopicHelper.setSpecTopicIcon(j2, d2Var);
-                d2Var.I4(this.userMap);
-                d2Var.O3(true);
-                d2Var.c3(threadInfo);
-                d2Var.g3();
-                d2Var.J1();
-                if (d2Var.U() == 0 && j2 != 0) {
-                    d2Var.I3(j2);
+                e2 e2Var = new e2();
+                e2Var.F3(dataRes.forum.id.longValue());
+                SpecHotTopicHelper.setSpecTopicIcon(j2, e2Var);
+                e2Var.I4(this.userMap);
+                e2Var.O3(true);
+                e2Var.c3(threadInfo);
+                e2Var.g3();
+                e2Var.J1();
+                if (e2Var.U() == 0 && j2 != 0) {
+                    e2Var.I3(j2);
                 }
-                if (StringUtils.isNull(d2Var.a0())) {
-                    d2Var.M3(this.forum.getName());
+                if (StringUtils.isNull(e2Var.a0())) {
+                    e2Var.M3(this.forum.getName());
                 }
-                d2Var.V2(this.color_eggs);
-                d2Var.L1 = this.forum.isBrandForum;
-                if (!TextUtils.isEmpty(d2Var.z0())) {
-                    c.a.s0.s.q.p0 p0Var = new c.a.s0.s.q.p0();
-                    p0Var.k(d2Var.z0());
+                e2Var.V2(this.color_eggs);
+                e2Var.K1 = this.forum.isBrandForum;
+                if (!TextUtils.isEmpty(e2Var.z0())) {
+                    p0 p0Var = new p0();
+                    p0Var.k(e2Var.z0());
                     this.threadList.add(p0Var);
                 } else {
-                    this.threadList.add(d2Var);
-                    JSONObject c2 = c.a.t0.j3.l0.b.c(threadInfo, d2Var.a0());
+                    this.threadList.add(e2Var);
+                    JSONObject c2 = c.a.t0.j3.l0.b.c(threadInfo, e2Var.a0());
                     if (c2 != null) {
                         arrayList.add(c2);
                     }
@@ -389,10 +390,10 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mCardShipinPos : (List) invokeV.objValue;
     }
 
-    public d2 getCardVideoInfo() {
+    public e2 getCardVideoInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.cardVideoInfo : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.cardVideoInfo : (e2) invokeV.objValue;
     }
 
     public c.a.s0.s.q.t getCarrierEnterData() {
@@ -642,20 +643,20 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
     }
 
     @NonNull
-    public p0 getVoiceRoomConfig() {
+    public q0 getVoiceRoomConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
-            p0 p0Var = this.voiceRoomConfig;
-            return p0Var != null ? p0Var : p0.f14205b;
+            q0 q0Var = this.voiceRoomConfig;
+            return q0Var != null ? q0Var : q0.f13885b;
         }
-        return (p0) invokeV.objValue;
+        return (q0) invokeV.objValue;
     }
 
-    public q0 getVoiceRoomData() {
+    public r0 getVoiceRoomData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.voiceRoomData : (q0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.voiceRoomData : (r0) invokeV.objValue;
     }
 
     @Override // c.a.s0.l0.b.b
@@ -799,10 +800,10 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
         }
     }
 
-    public void setCardVideoInfo(d2 d2Var) {
+    public void setCardVideoInfo(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048651, this, d2Var) == null) {
-            this.cardVideoInfo = d2Var;
+        if (interceptable == null || interceptable.invokeL(1048651, this, e2Var) == null) {
+            this.cardVideoInfo = e2Var;
         }
     }
 
@@ -1093,21 +1094,21 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
         }
     }
 
-    public void setVoiceRoomConfig(@Nullable p0 p0Var) {
+    public void setVoiceRoomConfig(@Nullable q0 q0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048693, this, p0Var) == null) {
-            this.voiceRoomConfig = p0Var;
+        if (interceptable == null || interceptable.invokeL(1048693, this, q0Var) == null) {
+            this.voiceRoomConfig = q0Var;
         }
     }
 
-    public q0 setVoiceRoomData(q0 q0Var) {
+    public r0 setVoiceRoomData(r0 r0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048694, this, q0Var)) == null) {
-            this.voiceRoomData = q0Var;
-            return q0Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048694, this, r0Var)) == null) {
+            this.voiceRoomData = r0Var;
+            return r0Var;
         }
-        return (q0) invokeL.objValue;
+        return (r0) invokeL.objValue;
     }
 
     public ArrayList<c.a.d.n.e.n> switchThreadDataToThreadCardInfo() {
@@ -1145,204 +1146,204 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
                 if (next instanceof o0) {
                     ((o0) next).setPosition(i2 - i3);
                     arrayList2.add(next);
-                } else if (next instanceof c.a.s0.s.q.p0) {
-                    ((c.a.s0.s.q.p0) next).position = i2;
+                } else if (next instanceof p0) {
+                    ((p0) next).position = i2;
                     arrayList2.add(next);
-                } else if (next instanceof d2) {
-                    d2 d2Var = (d2) next;
-                    if (d2Var.D2()) {
+                } else if (next instanceof e2) {
+                    e2 e2Var = (e2) next;
+                    if (e2Var.D2()) {
                         i3++;
                     }
-                    c.a.s0.b.f.a.e(d2Var);
-                    int[] h0 = d2Var.h0();
-                    if (d2Var.getType() == d2.i3 && !d2Var.D2()) {
-                        c2 c2Var = new c2();
-                        c2Var.w = d2Var;
-                        c2Var.position = i2;
-                        c2Var.f13640e = true;
-                        c2Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                        arrayList2.add(c2Var);
-                        c2 c2Var2 = new c2();
-                        c2Var2.w = d2Var;
-                        c2Var2.position = i2;
-                        if (d2Var.Q1()) {
-                            c2Var2.f13645j = true;
-                        } else if (d2Var.h3() == 1) {
-                            c2Var2.f13643h = true;
-                            c2Var2.x = h0[0];
-                            c2Var2.y = h0[1];
-                        } else if (d2Var.h3() >= 2) {
-                            c2Var2.f13644i = true;
-                        } else {
-                            c2Var2.f13641f = true;
-                        }
-                        c2Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(c2Var2);
-                        if (d2Var.J0() != null) {
-                            c2 c2Var3 = new c2();
-                            c2Var3.s = true;
-                            c2Var3.w = d2Var;
-                            c2Var3.position = i2;
-                            c2Var3.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var3);
-                        }
-                        if (d2Var.g1() != null) {
-                            c2 c2Var4 = new c2();
-                            c2Var4.p = true;
-                            c2Var4.w = d2Var;
-                            c2Var4.position = i2;
-                            c2Var4.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var4);
-                        }
-                        if (!ListUtils.isEmpty(d2Var.B0()) || !ListUtils.isEmpty(d2Var.d0())) {
-                            c2 c2Var5 = new c2();
-                            if (ListUtils.getCount(d2Var.B0()) + ListUtils.getCount(d2Var.d0()) == 1) {
-                                c2Var5.t = true;
-                            } else if (ListUtils.getCount(d2Var.B0()) + ListUtils.getCount(d2Var.d0()) > 1) {
-                                c2Var5.u = true;
-                            }
-                            c2Var5.w = d2Var;
-                            c2Var5.position = i2;
-                            c2Var5.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var5);
-                        }
-                        if (d2Var.y1() != null) {
-                            c2 c2Var6 = new c2();
-                            c2Var6.l = true;
-                            c2Var6.w = d2Var;
-                            c2Var6.position = i2;
-                            c2Var6.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var6);
-                        }
-                        if (d2Var.t0() != null && !d2Var.L2()) {
-                            c2 c2Var7 = new c2();
-                            c2Var7.r = true;
-                            c2Var7.w = d2Var;
-                            c2Var7.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var7);
-                        }
-                        c2 c2Var8 = new c2();
-                        c2Var8.f13646k = true;
-                        c2Var8.w = d2Var;
-                        c2Var8.position = i2;
-                        c2Var8.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                        arrayList2.add(c2Var8);
-                    } else if ((d2Var.getType() == d2.G3 || d2Var.getType() == d2.Y3) && !d2Var.D2()) {
-                        c2 c2Var9 = new c2();
-                        c2Var9.w = d2Var;
-                        c2Var9.position = i2;
-                        c2Var9.f13640e = true;
-                        c2Var9.setSupportType(BaseCardInfo.SupportType.TOP);
-                        arrayList2.add(c2Var9);
-                        c2 c2Var10 = new c2();
-                        c2Var10.w = d2Var;
-                        c2Var10.position = i2;
-                        if (d2Var instanceof y0) {
-                            c2Var10.n = true;
-                        } else {
-                            c2Var10.m = true;
-                        }
-                        c2Var10.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(c2Var10);
-                        if (d2Var.J0() != null) {
-                            c2 c2Var11 = new c2();
-                            c2Var11.s = true;
-                            c2Var11.w = d2Var;
-                            c2Var11.position = i2;
-                            c2Var11.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var11);
-                        }
-                        if (d2Var.g1() != null) {
-                            c2 c2Var12 = new c2();
-                            c2Var12.p = true;
-                            c2Var12.w = d2Var;
-                            c2Var12.position = i2;
-                            c2Var12.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var12);
-                        }
-                        if (d2Var.y1() != null) {
-                            c2 c2Var13 = new c2();
-                            c2Var13.l = true;
-                            c2Var13.w = d2Var;
-                            c2Var13.position = i2;
-                            c2Var13.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var13);
-                        }
-                        if (d2Var.t0() != null && !d2Var.L2()) {
-                            c2 c2Var14 = new c2();
-                            c2Var14.r = true;
-                            c2Var14.w = d2Var;
-                            c2Var14.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var14);
-                        }
-                        c2 c2Var15 = new c2();
-                        c2Var15.f13646k = true;
-                        c2Var15.w = d2Var;
-                        c2Var15.position = i2;
-                        c2Var15.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                        arrayList2.add(c2Var15);
-                    } else if (d2Var.t1() != null && !d2Var.i2() && d2Var.c2()) {
-                        c2 c2Var16 = new c2();
-                        c2Var16.w = d2Var;
-                        c2Var16.position = i2;
-                        c2Var16.f13640e = true;
-                        c2Var16.setSupportType(BaseCardInfo.SupportType.TOP);
-                        arrayList2.add(c2Var16);
-                        c2 c2Var17 = new c2();
-                        c2Var17.w = d2Var;
-                        c2Var17.position = i2;
-                        c2Var17.o = true;
-                        c2Var17.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(c2Var17);
-                        if (d2Var.J0() != null) {
-                            c2 c2Var18 = new c2();
-                            c2Var18.s = true;
-                            c2Var18.w = d2Var;
-                            c2Var18.position = i2;
-                            c2Var18.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var18);
-                        }
-                        if (d2Var.g1() != null) {
-                            c2 c2Var19 = new c2();
-                            c2Var19.p = true;
-                            c2Var19.w = d2Var;
-                            c2Var19.position = i2;
-                            c2Var19.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var19);
-                        }
-                        if (d2Var.y1() != null) {
-                            c2 c2Var20 = new c2();
-                            c2Var20.l = true;
-                            c2Var20.w = d2Var;
-                            c2Var20.position = i2;
-                            c2Var20.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var20);
-                        }
-                        if (d2Var.t0() != null && !d2Var.L2()) {
-                            c2 c2Var21 = new c2();
-                            c2Var21.r = true;
-                            c2Var21.w = d2Var;
-                            c2Var21.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(c2Var21);
-                        }
-                        c2 c2Var22 = new c2();
-                        c2Var22.f13646k = true;
-                        c2Var22.w = d2Var;
-                        c2Var22.position = i2;
-                        c2Var22.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                        arrayList2.add(c2Var22);
-                    } else if (d2Var.getType() == d2.y3 && d2Var.P1()) {
+                    c.a.s0.b.f.a.e(e2Var);
+                    int[] h0 = e2Var.h0();
+                    if (e2Var.getType() == e2.i3 && !e2Var.D2()) {
+                        d2 d2Var = new d2();
+                        d2Var.w = e2Var;
                         d2Var.position = i2;
+                        d2Var.f13343e = true;
+                        d2Var.setSupportType(BaseCardInfo.SupportType.TOP);
                         arrayList2.add(d2Var);
+                        d2 d2Var2 = new d2();
+                        d2Var2.w = e2Var;
+                        d2Var2.position = i2;
+                        if (e2Var.Q1()) {
+                            d2Var2.f13348j = true;
+                        } else if (e2Var.h3() == 1) {
+                            d2Var2.f13346h = true;
+                            d2Var2.x = h0[0];
+                            d2Var2.y = h0[1];
+                        } else if (e2Var.h3() >= 2) {
+                            d2Var2.f13347i = true;
+                        } else {
+                            d2Var2.f13344f = true;
+                        }
+                        d2Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(d2Var2);
+                        if (e2Var.J0() != null) {
+                            d2 d2Var3 = new d2();
+                            d2Var3.s = true;
+                            d2Var3.w = e2Var;
+                            d2Var3.position = i2;
+                            d2Var3.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var3);
+                        }
+                        if (e2Var.g1() != null) {
+                            d2 d2Var4 = new d2();
+                            d2Var4.p = true;
+                            d2Var4.w = e2Var;
+                            d2Var4.position = i2;
+                            d2Var4.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var4);
+                        }
+                        if (!ListUtils.isEmpty(e2Var.B0()) || !ListUtils.isEmpty(e2Var.d0())) {
+                            d2 d2Var5 = new d2();
+                            if (ListUtils.getCount(e2Var.B0()) + ListUtils.getCount(e2Var.d0()) == 1) {
+                                d2Var5.t = true;
+                            } else if (ListUtils.getCount(e2Var.B0()) + ListUtils.getCount(e2Var.d0()) > 1) {
+                                d2Var5.u = true;
+                            }
+                            d2Var5.w = e2Var;
+                            d2Var5.position = i2;
+                            d2Var5.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var5);
+                        }
+                        if (e2Var.y1() != null) {
+                            d2 d2Var6 = new d2();
+                            d2Var6.l = true;
+                            d2Var6.w = e2Var;
+                            d2Var6.position = i2;
+                            d2Var6.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var6);
+                        }
+                        if (e2Var.t0() != null && !e2Var.L2()) {
+                            d2 d2Var7 = new d2();
+                            d2Var7.r = true;
+                            d2Var7.w = e2Var;
+                            d2Var7.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var7);
+                        }
+                        d2 d2Var8 = new d2();
+                        d2Var8.k = true;
+                        d2Var8.w = e2Var;
+                        d2Var8.position = i2;
+                        d2Var8.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        arrayList2.add(d2Var8);
+                    } else if ((e2Var.getType() == e2.G3 || e2Var.getType() == e2.Y3) && !e2Var.D2()) {
+                        d2 d2Var9 = new d2();
+                        d2Var9.w = e2Var;
+                        d2Var9.position = i2;
+                        d2Var9.f13343e = true;
+                        d2Var9.setSupportType(BaseCardInfo.SupportType.TOP);
+                        arrayList2.add(d2Var9);
+                        d2 d2Var10 = new d2();
+                        d2Var10.w = e2Var;
+                        d2Var10.position = i2;
+                        if (e2Var instanceof y0) {
+                            d2Var10.n = true;
+                        } else {
+                            d2Var10.m = true;
+                        }
+                        d2Var10.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(d2Var10);
+                        if (e2Var.J0() != null) {
+                            d2 d2Var11 = new d2();
+                            d2Var11.s = true;
+                            d2Var11.w = e2Var;
+                            d2Var11.position = i2;
+                            d2Var11.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var11);
+                        }
+                        if (e2Var.g1() != null) {
+                            d2 d2Var12 = new d2();
+                            d2Var12.p = true;
+                            d2Var12.w = e2Var;
+                            d2Var12.position = i2;
+                            d2Var12.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var12);
+                        }
+                        if (e2Var.y1() != null) {
+                            d2 d2Var13 = new d2();
+                            d2Var13.l = true;
+                            d2Var13.w = e2Var;
+                            d2Var13.position = i2;
+                            d2Var13.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var13);
+                        }
+                        if (e2Var.t0() != null && !e2Var.L2()) {
+                            d2 d2Var14 = new d2();
+                            d2Var14.r = true;
+                            d2Var14.w = e2Var;
+                            d2Var14.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var14);
+                        }
+                        d2 d2Var15 = new d2();
+                        d2Var15.k = true;
+                        d2Var15.w = e2Var;
+                        d2Var15.position = i2;
+                        d2Var15.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        arrayList2.add(d2Var15);
+                    } else if (e2Var.t1() != null && !e2Var.i2() && e2Var.c2()) {
+                        d2 d2Var16 = new d2();
+                        d2Var16.w = e2Var;
+                        d2Var16.position = i2;
+                        d2Var16.f13343e = true;
+                        d2Var16.setSupportType(BaseCardInfo.SupportType.TOP);
+                        arrayList2.add(d2Var16);
+                        d2 d2Var17 = new d2();
+                        d2Var17.w = e2Var;
+                        d2Var17.position = i2;
+                        d2Var17.o = true;
+                        d2Var17.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(d2Var17);
+                        if (e2Var.J0() != null) {
+                            d2 d2Var18 = new d2();
+                            d2Var18.s = true;
+                            d2Var18.w = e2Var;
+                            d2Var18.position = i2;
+                            d2Var18.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var18);
+                        }
+                        if (e2Var.g1() != null) {
+                            d2 d2Var19 = new d2();
+                            d2Var19.p = true;
+                            d2Var19.w = e2Var;
+                            d2Var19.position = i2;
+                            d2Var19.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var19);
+                        }
+                        if (e2Var.y1() != null) {
+                            d2 d2Var20 = new d2();
+                            d2Var20.l = true;
+                            d2Var20.w = e2Var;
+                            d2Var20.position = i2;
+                            d2Var20.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var20);
+                        }
+                        if (e2Var.t0() != null && !e2Var.L2()) {
+                            d2 d2Var21 = new d2();
+                            d2Var21.r = true;
+                            d2Var21.w = e2Var;
+                            d2Var21.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(d2Var21);
+                        }
+                        d2 d2Var22 = new d2();
+                        d2Var22.k = true;
+                        d2Var22.w = e2Var;
+                        d2Var22.position = i2;
+                        d2Var22.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        arrayList2.add(d2Var22);
+                    } else if (e2Var.getType() == e2.y3 && e2Var.P1()) {
+                        e2Var.position = i2;
+                        arrayList2.add(e2Var);
                     } else {
-                        c2 c2Var23 = new c2();
-                        c2Var23.w = d2Var;
-                        c2Var23.position = i2;
-                        arrayList2.add(c2Var23);
+                        d2 d2Var23 = new d2();
+                        d2Var23.w = e2Var;
+                        d2Var23.position = i2;
+                        arrayList2.add(d2Var23);
                     }
                     i2++;
-                    d2Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                    if (next != null && next.getType() != d2.h3) {
+                    e2Var.setSupportType(BaseCardInfo.SupportType.TOP);
+                    if (next != null && next.getType() != e2.h3) {
                         this.mHasThreadExceptTop = true;
                     }
                 } else {
@@ -1465,11 +1466,11 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
                 this.mEntelechyTabInfo.a(dataRes.nav_tab_info);
             }
             this.defaultShowTab = 1;
-            if (c.a.s0.b.d.t() && !c.a.s0.b.g.a.f12555e.equals(((FrsTabInfo) ListUtils.getItem(this.mEntelechyTabInfo.a, 0)).tab_name)) {
+            if (c.a.s0.b.d.q() && !c.a.s0.b.g.a.f12261e.equals(((FrsTabInfo) ListUtils.getItem(this.mEntelechyTabInfo.a, 0)).tab_name)) {
                 this.defaultShowTab = c.a.s0.b.g.a.c();
             }
-            if (this.mEntelechyTabInfo != null && !ListUtils.isEmpty(this.mEntelechyTabInfo.f25663c)) {
-                this.mNewChapterInfo = this.mEntelechyTabInfo.f25663c.get(0);
+            if (this.mEntelechyTabInfo != null && !ListUtils.isEmpty(this.mEntelechyTabInfo.f24945c)) {
+                this.mNewChapterInfo = this.mEntelechyTabInfo.f24945c.get(0);
             }
             this.alaLiveCount = dataRes.ala_live_count.intValue();
             handleDefaultTab(dataRes.frs_tab_default.intValue());
@@ -1511,14 +1512,14 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
                 iVar.p(dataRes.business_promot);
             }
             if (dataRes.card_shipin_info != null && dataRes.card_shipin_info.size() > 0) {
-                d2 d2Var = new d2();
-                this.cardVideoInfo = d2Var;
-                d2Var.V3(true);
+                e2 e2Var = new e2();
+                this.cardVideoInfo = e2Var;
+                e2Var.V3(true);
                 this.cardVideoInfo.T3(this.photoLivePos);
                 this.cardVideoInfo.I4(this.userMap);
                 this.cardVideoInfo.c3(dataRes.card_shipin_info.get(0));
                 this.cardVideoInfo.g3();
-                this.cardVideoInfo.L1 = this.isBrandForum;
+                this.cardVideoInfo.K1 = this.isBrandForum;
                 if (this.cardVideoInfo.U() == 0 && j2 != 0) {
                     this.cardVideoInfo.I3(j2);
                 }
@@ -1534,30 +1535,30 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
             if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                 g gVar = new g();
                 this.mFrsInsertLiveData = gVar;
-                gVar.f25516f = dataRes.ala_insert_floor.intValue();
+                gVar.f24802f = dataRes.ala_insert_floor.intValue();
                 ArrayList arrayList = new ArrayList();
                 for (int i5 = 0; i5 < dataRes.ala_live_insert.ala_live_list.size(); i5++) {
                     if (dataRes.ala_live_insert.ala_live_list.get(i5) != null) {
-                        d2 d2Var2 = new d2();
-                        d2Var2.c3(dataRes.ala_live_insert.ala_live_list.get(i5));
-                        d2Var2.L1 = this.isBrandForum;
-                        arrayList.add(d2Var2);
+                        e2 e2Var2 = new e2();
+                        e2Var2.c3(dataRes.ala_live_insert.ala_live_list.get(i5));
+                        e2Var2.K1 = this.isBrandForum;
+                        arrayList.add(e2Var2);
                     }
                 }
-                this.mFrsInsertLiveData.f25515e = arrayList;
+                this.mFrsInsertLiveData.f24801e = arrayList;
             }
             if (dataRes.ala_stage_list != null) {
                 this.mFrsStageLiveData = new h();
                 ArrayList arrayList2 = new ArrayList();
                 for (int i6 = 0; i6 < dataRes.ala_stage_list.size(); i6++) {
                     if (dataRes.ala_stage_list.get(i6) != null) {
-                        d2 d2Var3 = new d2();
-                        d2Var3.c3(dataRes.ala_stage_list.get(i6));
-                        d2Var3.L1 = this.isBrandForum;
-                        arrayList2.add(d2Var3);
+                        e2 e2Var3 = new e2();
+                        e2Var3.c3(dataRes.ala_stage_list.get(i6));
+                        e2Var3.K1 = this.isBrandForum;
+                        arrayList2.add(e2Var3);
                     }
                 }
-                this.mFrsStageLiveData.f25518e = arrayList2;
+                this.mFrsStageLiveData.f24804e = arrayList2;
             }
             if (dataRes.school_recom_info != null) {
                 this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
@@ -1580,14 +1581,14 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
             this.mCardShipinPos = dataRes.card_shipin_pos;
             if (dataRes.card_shipin_new != null) {
                 for (int i7 = 0; i7 < dataRes.card_shipin_new.size(); i7++) {
-                    d2 d2Var4 = new d2();
+                    e2 e2Var4 = new e2();
                     if (this.mCardShipinPos != null && this.mCardShipinPos.size() >= dataRes.card_shipin_new.size()) {
-                        d2Var4.T3(this.mCardShipinPos.get(i7).intValue());
+                        e2Var4.T3(this.mCardShipinPos.get(i7).intValue());
                     }
-                    d2Var4.V3(true);
-                    d2Var4.c3(dataRes.card_shipin_new.get(i7));
-                    d2Var4.L1 = this.isBrandForum;
-                    this.mCardShipinNew.add(d2Var4);
+                    e2Var4.V3(true);
+                    e2Var4.c3(dataRes.card_shipin_new.get(i7));
+                    e2Var4.K1 = this.isBrandForum;
+                    this.mCardShipinNew.add(e2Var4);
                 }
             }
             this.enterFrsDialogInfo = dataRes.enter_pop_info;
@@ -1649,48 +1650,48 @@ public class m implements c.a.s0.l0.b.b, c.a.s0.l0.b.h {
                 for (ServiceArea serviceArea : dataRes.service_area) {
                     if (serviceArea != null) {
                         d0 d0Var = new d0();
-                        d0Var.f25496b = serviceArea.picurl;
-                        d0Var.f25497c = serviceArea.servicename;
+                        d0Var.f24782b = serviceArea.picurl;
+                        d0Var.f24783c = serviceArea.servicename;
                         String str = serviceArea.service_type;
                         d0Var.a = str;
                         if (str != null && str.equals("原生小程序") && serviceArea.area_smart_app != null) {
-                            d0Var.f25496b = serviceArea.area_smart_app.avatar;
-                            d0Var.f25497c = serviceArea.area_smart_app.name;
+                            d0Var.f24782b = serviceArea.area_smart_app.avatar;
+                            d0Var.f24783c = serviceArea.area_smart_app.name;
                         }
-                        d0Var.f25498d = serviceArea.serviceurl;
-                        d0Var.f25499e = serviceArea.schema;
-                        d0Var.f25503i = serviceArea.third_statistics_url;
+                        d0Var.f24784d = serviceArea.serviceurl;
+                        d0Var.f24785e = serviceArea.schema;
+                        d0Var.f24789i = serviceArea.third_statistics_url;
                         String str2 = serviceArea.version;
-                        String p = c.a.s0.s.g0.b.j().p("frs_service_version_" + this.forum.getName() + d0Var.f25497c, "");
-                        if (!TextUtils.isEmpty(p)) {
-                            p.equals(serviceArea.version);
+                        String q = c.a.s0.s.h0.b.k().q("frs_service_version_" + this.forum.getName() + d0Var.f24783c, "");
+                        if (!TextUtils.isEmpty(q)) {
+                            q.equals(serviceArea.version);
                         }
                         if (serviceArea.area_smart_app != null) {
                             e0 e0Var = new e0();
                             e0Var.a(serviceArea.area_smart_app);
-                            d0Var.f25500f = e0Var;
+                            d0Var.f24786f = e0Var;
                         }
                         if (this.forum != null) {
                             this.forum.getName();
-                            d0Var.f25501g = this.forum.getId();
+                            d0Var.f24787g = this.forum.getId();
                         }
-                        d0Var.f25502h = i2;
+                        d0Var.f24788h = i2;
                         i2++;
                         arrayList3.add(d0Var);
                     }
                 }
                 this.serviceAreaData.a = arrayList3.size();
-                this.serviceAreaData.f25492b = arrayList3;
+                this.serviceAreaData.f24778b = arrayList3;
             }
             this.itemInfo = dataRes.item_info;
             this.toLoadHorseData = dataRes.is_get_horse_race_lamp;
             this.forumRule = dataRes.forum_rule;
             this.showAdsense = dataRes.show_adsense;
             this.frsMaskPopInfo = dataRes.frsmask_pop_info;
-            this.voiceRoomConfig = p0.c(dataRes);
-            q0 q0Var = new q0();
-            this.voiceRoomData = q0Var;
-            q0Var.d(dataRes);
+            this.voiceRoomConfig = q0.c(dataRes);
+            r0 r0Var = new r0();
+            this.voiceRoomData = r0Var;
+            r0Var.d(dataRes);
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

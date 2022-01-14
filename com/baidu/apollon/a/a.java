@@ -8,45 +8,45 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SparseArray<ArrayList<b>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33400b;
+    public int f32339b;
 
     /* renamed from: com.baidu.apollon.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC1732a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC1748a {
         void a();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33401b;
+        public int f32340b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f33402c;
+        public int f32341c;
 
         /* renamed from: d  reason: collision with root package name */
-        public InterfaceC1732a f33403d;
+        public InterfaceC1748a f32342d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f33404e;
+        public final /* synthetic */ a f32343e;
 
-        public b(a aVar, int i2, int i3, int i4, InterfaceC1732a interfaceC1732a) {
+        public b(a aVar, int i2, int i3, int i4, InterfaceC1748a interfaceC1748a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), interfaceC1732a};
+                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), interfaceC1748a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i5 = newInitContext.flag;
                 if ((i5 & 1) != 0) {
@@ -56,11 +56,11 @@ public class a {
                     return;
                 }
             }
-            this.f33404e = aVar;
+            this.f32343e = aVar;
             this.a = i2;
-            this.f33401b = i3;
-            this.f33402c = i4;
-            this.f33403d = interfaceC1732a;
+            this.f32340b = i3;
+            this.f32341c = i4;
+            this.f32342d = interfaceC1748a;
         }
     }
 
@@ -80,8 +80,8 @@ public class a {
             }
         }
         this.a = new SparseArray<>();
-        this.f33400b = 0;
-        this.f33400b = i2;
+        this.f32339b = 0;
+        this.f32339b = i2;
     }
 
     public void a(b bVar) {
@@ -101,15 +101,15 @@ public class a {
     public void b(int i2) {
         ArrayList<b> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (arrayList = this.a.get(this.f33400b)) == null || arrayList.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (arrayList = this.a.get(this.f32339b)) == null || arrayList.size() == 0) {
             return;
         }
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next.f33402c == i2) {
-                this.f33400b = next.f33401b;
-                next.f33403d.a();
+            if (next.f32341c == i2) {
+                this.f32339b = next.f32340b;
+                next.f32342d.a();
                 return;
             }
         }
@@ -118,7 +118,7 @@ public class a {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f33400b = i2;
+            this.f32339b = i2;
         }
     }
 }

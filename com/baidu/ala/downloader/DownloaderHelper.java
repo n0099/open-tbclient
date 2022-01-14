@@ -194,7 +194,7 @@ public class DownloaderHelper {
             return (String) invokeLLL.objValue;
         }
         OutputStream outputStream = null;
-        if (inputStream == null || StringUtils.isNull(str2) || str2.contains(r1.f57417k)) {
+        if (inputStream == null || StringUtils.isNull(str2) || str2.contains(r1.k)) {
             return null;
         }
         try {

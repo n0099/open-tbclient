@@ -15,31 +15,31 @@ public class o {
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12702b;
+    public long f12403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f12703c;
+    public long f12404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f12704d;
+    public long f12405d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f12705e;
+    public long f12406e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f12706f;
+    public long f12407f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f12707g;
+    public long f12408g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12708h;
+    public boolean f12409h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f12709i;
+    public b f12410i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Runnable f12710j;
+    public Runnable f12411j;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -47,7 +47,7 @@ public class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f12711e;
+        public final /* synthetic */ o f12412e;
 
         public a(o oVar) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class o {
                     return;
                 }
             }
-            this.f12711e = oVar;
+            this.f12412e = oVar;
         }
 
         @Override // java.lang.Runnable
@@ -72,25 +72,25 @@ public class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (this.f12711e.f12707g > this.f12711e.f12706f) {
-                    o oVar = this.f12711e;
-                    oVar.f12706f = currentTimeMillis - oVar.f12704d;
-                    o oVar2 = this.f12711e;
-                    oVar2.f12707g = oVar2.f12706f;
+                if (this.f12412e.f12408g > this.f12412e.f12407f) {
+                    o oVar = this.f12412e;
+                    oVar.f12407f = currentTimeMillis - oVar.f12405d;
+                    o oVar2 = this.f12412e;
+                    oVar2.f12408g = oVar2.f12407f;
                 }
-                long j2 = currentTimeMillis - this.f12711e.f12706f;
-                this.f12711e.f12703c += this.f12711e.f12704d;
-                if (this.f12711e.f12703c < this.f12711e.f12702b) {
-                    this.f12711e.a.postDelayed(this.f12711e.f12710j, (this.f12711e.f12704d * 2) - j2);
-                    if (this.f12711e.f12709i != null) {
-                        this.f12711e.f12709i.onCountDown(this.f12711e.f12702b, this.f12711e.f12702b - this.f12711e.f12703c);
+                long j2 = currentTimeMillis - this.f12412e.f12407f;
+                this.f12412e.f12404c += this.f12412e.f12405d;
+                if (this.f12412e.f12404c < this.f12412e.f12403b) {
+                    this.f12412e.a.postDelayed(this.f12412e.f12411j, (this.f12412e.f12405d * 2) - j2);
+                    if (this.f12412e.f12410i != null) {
+                        this.f12412e.f12410i.onCountDown(this.f12412e.f12403b, this.f12412e.f12403b - this.f12412e.f12404c);
                     }
                 } else {
-                    o oVar3 = this.f12711e;
-                    oVar3.f12703c = oVar3.f12702b;
-                    this.f12711e.m();
+                    o oVar3 = this.f12412e;
+                    oVar3.f12404c = oVar3.f12403b;
+                    this.f12412e.m();
                 }
-                this.f12711e.f12706f = currentTimeMillis;
+                this.f12412e.f12407f = currentTimeMillis;
             }
         }
     }
@@ -118,49 +118,49 @@ public class o {
             }
         }
         this.a = new Handler(Looper.getMainLooper());
-        this.f12708h = false;
-        this.f12710j = new a(this);
-        this.f12702b = j2;
-        this.f12704d = j3;
+        this.f12409h = false;
+        this.f12411j = new a(this);
+        this.f12403b = j2;
+        this.f12405d = j3;
     }
 
     public final void m() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f12709i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f12410i) == null) {
             return;
         }
-        bVar.onCountDownFinish(this.f12702b);
+        bVar.onCountDownFinish(this.f12403b);
     }
 
     public long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12703c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12404c : invokeV.longValue;
     }
 
     public void o() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f12708h) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f12409h) {
             return;
         }
-        this.f12708h = true;
-        this.f12707g = System.currentTimeMillis();
-        this.a.removeCallbacks(this.f12710j);
+        this.f12409h = true;
+        this.f12408g = System.currentTimeMillis();
+        this.a.removeCallbacks(this.f12411j);
     }
 
     public void p() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f12708h) {
-            this.f12708h = false;
-            this.a.postDelayed(this.f12710j, this.f12704d - (this.f12707g - this.f12706f));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f12409h) {
+            this.f12409h = false;
+            this.a.postDelayed(this.f12411j, this.f12405d - (this.f12408g - this.f12407f));
         }
     }
 
     public void q(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f12709i = bVar;
+            this.f12410i = bVar;
         }
     }
 
@@ -168,25 +168,25 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.f12705e = currentTimeMillis;
-            this.f12706f = currentTimeMillis;
-            b bVar = this.f12709i;
+            this.f12406e = currentTimeMillis;
+            this.f12407f = currentTimeMillis;
+            b bVar = this.f12410i;
             if (bVar != null) {
-                long j2 = this.f12702b;
-                bVar.onCountDown(j2, j2 - this.f12703c);
+                long j2 = this.f12403b;
+                bVar.onCountDown(j2, j2 - this.f12404c);
             }
-            this.a.postDelayed(this.f12710j, this.f12704d);
+            this.a.postDelayed(this.f12411j, this.f12405d);
         }
     }
 
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f12708h = false;
-            long j2 = this.f12705e;
-            this.f12706f = j2;
-            this.f12707g = j2;
-            this.a.removeCallbacks(this.f12710j);
+            this.f12409h = false;
+            long j2 = this.f12406e;
+            this.f12407f = j2;
+            this.f12408g = j2;
+            this.a.removeCallbacks(this.f12411j);
         }
     }
 }

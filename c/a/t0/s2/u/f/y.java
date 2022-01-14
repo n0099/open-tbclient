@@ -44,7 +44,7 @@ public class y extends n<z, PbListAlaRecommendVH> {
     public PbListAlaRecommendVH M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbListAlaRecommendVH(LayoutInflater.from(this.f3299e).inflate(c.a.t0.s2.j.pb_list_ala_recomment_layout, (ViewGroup) null), this.m.getPbActivity()) : (PbListAlaRecommendVH) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbListAlaRecommendVH(LayoutInflater.from(this.f3258e).inflate(c.a.t0.s2.j.pb_list_ala_recomment_layout, (ViewGroup) null), this.m.getPbActivity()) : (PbListAlaRecommendVH) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

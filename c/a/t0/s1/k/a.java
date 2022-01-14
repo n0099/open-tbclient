@@ -18,7 +18,7 @@ public class a {
 
     /* renamed from: c.a.t0.s1.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC1352a {
+    public interface InterfaceC1367a {
         void a(Iterator<ImMessageCenterPojo> it);
     }
 
@@ -65,10 +65,10 @@ public class a {
         return (ImMessageCenterPojo) invokeL.objValue;
     }
 
-    public void d(InterfaceC1352a interfaceC1352a) {
+    public void d(InterfaceC1367a interfaceC1367a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC1352a) == null) {
-            interfaceC1352a.a(this.a.values().iterator());
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC1367a) == null) {
+            interfaceC1367a.a(this.a.values().iterator());
         }
     }
 

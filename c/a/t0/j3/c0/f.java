@@ -71,14 +71,14 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.f3305k != null && this.a.o) {
-                int playStatus = ((PbAppLegoViewHolder) this.a.f3305k).getPlayStatus();
-                if (((PbAppLegoViewHolder) this.a.f3305k).canPlay()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.k != null && this.a.o) {
+                int playStatus = ((PbAppLegoViewHolder) this.a.k).getPlayStatus();
+                if (((PbAppLegoViewHolder) this.a.k).canPlay()) {
                     if (playStatus == -1) {
-                        ((PbAppLegoViewHolder) this.a.f3305k).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
+                        ((PbAppLegoViewHolder) this.a.k).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
                     }
                 } else if (playStatus != -1) {
-                    ((PbAppLegoViewHolder) this.a.f3305k).stopPlay();
+                    ((PbAppLegoViewHolder) this.a.k).stopPlay();
                 }
             }
         }
@@ -152,8 +152,8 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.f3305k != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 2) {
-                ((PbAppLegoViewHolder) this.a.f3305k).stopPlay();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.k != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 2) {
+                ((PbAppLegoViewHolder) this.a.k).stopPlay();
             }
         }
     }
@@ -165,10 +165,10 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
         public final /* synthetic */ AdvertAppInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f18733b;
+        public final /* synthetic */ int f18265b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f18734c;
+        public final /* synthetic */ String f18266c;
 
         public d(f fVar, AdvertAppInfo advertAppInfo, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -186,8 +186,8 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
                 }
             }
             this.a = advertAppInfo;
-            this.f18733b = i2;
-            this.f18734c = str;
+            this.f18265b = i2;
+            this.f18266c = str;
         }
 
         @Override // c.a.t0.x1.o.a
@@ -197,9 +197,9 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
                 return;
             }
             if (z.q(i2)) {
-                c.a.t0.j3.l0.d.h(this.a, this.f18733b, hashMap, i2);
+                c.a.t0.j3.l0.d.h(this.a, this.f18265b, hashMap, i2);
             } else {
-                c.a.t0.j3.l0.d.p(this.a, this.f18733b, this.f18734c, null, hashMap);
+                c.a.t0.j3.l0.d.p(this.a, this.f18265b, this.f18266c, null, hashMap);
             }
             AdvertAppInfo advertAppInfo = this.a;
             if (advertAppInfo.k4) {
@@ -216,7 +216,7 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f18735b;
+        public final /* synthetic */ f f18267b;
 
         public e(f fVar, String str) {
             Interceptable interceptable = $ic;
@@ -233,7 +233,7 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
                     return;
                 }
             }
-            this.f18735b = fVar;
+            this.f18267b = fVar;
             this.a = str;
         }
 
@@ -241,7 +241,7 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
         public void a(AdvertAppInfo advertAppInfo, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, advertAppInfo, i2) == null) {
-                j.b(this.f18735b.m.getPageContext().getPageActivity(), advertAppInfo, i2, this.f18735b.i0(advertAppInfo, this.a));
+                j.b(this.f18267b.m.getPageContext().getPageActivity(), advertAppInfo, i2, this.f18267b.i0(advertAppInfo, this.a));
             }
         }
     }
@@ -324,7 +324,7 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
             }
             if (l0(view, pVar)) {
                 PbAppLegoViewHolder N = N(viewGroup, pVar);
-                this.f3305k = N;
+                this.k = N;
                 if (N != null) {
                     view = N.getView();
                 }
@@ -333,7 +333,7 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
             if (view2 != null) {
                 view2 = S(i2, view2, viewGroup, pVar, (PbAppLegoViewHolder) view2.getTag());
                 if (r.class.isAssignableFrom(view2.getClass())) {
-                    ((PbAppLegoViewHolder) this.f3305k).setAdVideoView(((r) view2).getVideoOrVrView());
+                    ((PbAppLegoViewHolder) this.k).setAdVideoView(((r) view2).getVideoOrVrView());
                 }
             }
             return view2;
@@ -346,7 +346,7 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
         V v;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, pVar)) == null) {
-            if (view == null || view.getTag() == null || (v = this.f3305k) == 0 || !((PbAppLegoViewHolder) v).getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(((PbAppLegoViewHolder) this.f3305k).getClass())) {
+            if (view == null || view.getTag() == null || (v = this.k) == 0 || !((PbAppLegoViewHolder) v).getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(((PbAppLegoViewHolder) this.k).getClass())) {
                 return true;
             }
             AdvertAppInfo.ILegoAdvert M0 = pVar.M0();
@@ -413,7 +413,7 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
                 advertAppInfo.o4 = new c.a.s0.s.q.e();
             }
             c.a.s0.s.q.e eVar = advertAppInfo.o4;
-            eVar.f13665b = pVar.O0;
+            eVar.f13350b = pVar.O0;
             eVar.a = pVar.L0();
             advertAppInfo.position = pVar.Q0;
             advertAppInfo.k4 = pVar.R0;
@@ -439,7 +439,7 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
     public void onDestroy() {
         V v;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (v = this.f3305k) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (v = this.k) == 0) {
             return;
         }
         ((PbAppLegoViewHolder) v).release();
@@ -449,7 +449,7 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            V v = this.f3305k;
+            V v = this.k;
             if (v != 0) {
                 ((PbAppLegoViewHolder) v).stopPlay();
             }
@@ -461,9 +461,9 @@ public class f extends c.a.d.n.e.a<p, PbAppLegoViewHolder> implements t, c.a.t0.
     public void onResume() {
         V v;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (v = this.f3305k) != 0 && ((PbAppLegoViewHolder) v).canPlay()) {
-            if (((PbAppLegoViewHolder) this.f3305k).getPlayStatus() == -1) {
-                ((PbAppLegoViewHolder) this.f3305k).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (v = this.k) != 0 && ((PbAppLegoViewHolder) v).canPlay()) {
+            if (((PbAppLegoViewHolder) this.k).getPlayStatus() == -1) {
+                ((PbAppLegoViewHolder) this.k).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
             }
             this.o = true;
         }

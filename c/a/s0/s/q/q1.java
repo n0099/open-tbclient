@@ -15,16 +15,14 @@ public class q1 extends x implements c.a.s0.l0.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f13787h;
+    public long f13475h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f13788i;
+    public String f13476i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f13789j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f13790k;
+    public String f13477j;
+    public boolean k;
     public int l;
     public int m;
     public String n;
@@ -62,21 +60,21 @@ public class q1 extends x implements c.a.s0.l0.b.a {
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f13788i = str;
+            this.f13476i = str;
         }
     }
 
     public void D(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f13787h = j2;
+            this.f13475h = j2;
         }
     }
 
     public void E(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f13789j = str;
+            this.f13477j = str;
         }
     }
 
@@ -90,19 +88,19 @@ public class q1 extends x implements c.a.s0.l0.b.a {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13788i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13476i : (String) invokeV.objValue;
     }
 
     public long o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13787h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13475h : invokeV.longValue;
     }
 
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13789j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13477j : (String) invokeV.objValue;
     }
 
     public int q() {
@@ -120,7 +118,7 @@ public class q1 extends x implements c.a.s0.l0.b.a {
     public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f13790k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
     public void x(RecommendForumInfo recommendForumInfo) {
@@ -129,14 +127,14 @@ public class q1 extends x implements c.a.s0.l0.b.a {
             return;
         }
         try {
-            this.f13787h = recommendForumInfo.forum_id.longValue();
-            this.f13788i = recommendForumInfo.avatar;
-            this.f13789j = recommendForumInfo.forum_name;
+            this.f13475h = recommendForumInfo.forum_id.longValue();
+            this.f13476i = recommendForumInfo.avatar;
+            this.f13477j = recommendForumInfo.forum_name;
             boolean z = true;
             if (recommendForumInfo.is_like.intValue() != 1) {
                 z = false;
             }
-            this.f13790k = z;
+            this.k = z;
             this.l = recommendForumInfo.member_count.intValue();
             this.m = recommendForumInfo.thread_count.intValue();
             this.n = recommendForumInfo.recom_reason;
@@ -148,7 +146,7 @@ public class q1 extends x implements c.a.s0.l0.b.a {
     public void y(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f13790k = z;
+            this.k = z;
         }
     }
 

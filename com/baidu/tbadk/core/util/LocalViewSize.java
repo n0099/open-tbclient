@@ -112,11 +112,11 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int k2 = n.k(this.mContext);
-            if (k2 >= 1080) {
+            int k = n.k(this.mContext);
+            if (k >= 1080) {
                 return 1080;
             }
-            return (k2 < 720 || k2 >= 1080) ? 480 : 720;
+            return (k < 720 || k >= 1080) ? 480 : 720;
         }
         return invokeV.intValue;
     }
@@ -173,16 +173,16 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int k2 = n.k(this.mContext);
+            int k = n.k(this.mContext);
             int i2 = 240;
-            if (k2 < 240) {
-                i2 = k2 / 3;
-            } else if (k2 <= 320) {
+            if (k < 240) {
+                i2 = k / 3;
+            } else if (k <= 320) {
                 i2 = 80;
-            } else if (k2 <= 480) {
+            } else if (k <= 480) {
                 i2 = 160;
-            } else if (k2 > 720) {
-                i2 = k2 / 3;
+            } else if (k > 720) {
+                i2 = k / 3;
             }
             ImageSize imageSize = new ImageSize();
             imageSize.height = i2;

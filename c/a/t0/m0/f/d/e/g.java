@@ -17,13 +17,13 @@ public abstract class g<T> extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f19767b;
+    public final boolean f19254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<T> f19768c;
+    public final Set<T> f19255c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f19769d;
+    public boolean f19256d;
 
     public /* synthetic */ g(int i2, boolean z, int i3, DefaultConstructorMarker defaultConstructorMarker) {
         this(i2, (i3 & 2) != 0 ? false : z);
@@ -37,9 +37,9 @@ public abstract class g<T> extends b {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(timer, "timer");
             Intrinsics.checkNotNullParameter(config, "config");
-            if (this.f19769d) {
-                boolean contains = this.f19768c.contains(c(item.e()));
-                return this.f19767b ? !contains : contains;
+            if (this.f19256d) {
+                boolean contains = this.f19255c.contains(c(item.e()));
+                return this.f19254b ? !contains : contains;
             }
             return false;
         }
@@ -52,7 +52,7 @@ public abstract class g<T> extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Set<T> mFilterSet = this.f19768c;
+            Set<T> mFilterSet = this.f19255c;
             Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
             return mFilterSet;
         }
@@ -77,8 +77,8 @@ public abstract class g<T> extends b {
                 return;
             }
         }
-        this.f19767b = z;
-        this.f19768c = Collections.synchronizedSet(new LinkedHashSet());
-        this.f19769d = true;
+        this.f19254b = z;
+        this.f19255c = Collections.synchronizedSet(new LinkedHashSet());
+        this.f19256d = true;
     }
 }

@@ -29,34 +29,32 @@ public interface UrlRequest {
         public final TurbonetEngine a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f52274b;
+        public final String f50255b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Callback f52275c;
+        public final Callback f50256c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Executor f52276d;
+        public final Executor f50257d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f52277e;
+        public String f50258e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ArrayList<Pair<String, String>> f52278f;
+        public final ArrayList<Pair<String, String>> f50259f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f52279g;
+        public boolean f50260g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f52280h;
+        public boolean f50261h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f52281i;
+        public int f50262i;
 
         /* renamed from: j  reason: collision with root package name */
-        public Collection<Object> f52282j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public UploadDataProvider f52283k;
+        public Collection<Object> f50263j;
+        public UploadDataProvider k;
         public Executor l;
         public boolean m;
         public boolean n;
@@ -89,9 +87,9 @@ public interface UrlRequest {
                     return;
                 }
             }
-            this.f52278f = new ArrayList<>();
-            this.f52281i = 3;
-            this.f52282j = Collections.emptyList();
+            this.f50259f = new ArrayList<>();
+            this.f50262i = 3;
+            this.f50263j = Collections.emptyList();
             if (str == null) {
                 throw new NullPointerException("URL is required.");
             }
@@ -102,9 +100,9 @@ public interface UrlRequest {
                 throw new NullPointerException("Executor is required.");
             }
             if (turbonetEngine != null) {
-                this.f52274b = str;
-                this.f52275c = callback;
-                this.f52276d = executor;
+                this.f50255b = str;
+                this.f50256c = callback;
+                this.f50257d = executor;
                 this.a = turbonetEngine;
                 this.m = false;
                 this.o = false;
@@ -129,7 +127,7 @@ public interface UrlRequest {
                         if ("Accept-Encoding".equalsIgnoreCase(str)) {
                             return this;
                         }
-                        this.f52278f.add(Pair.create(str, str2));
+                        this.f50259f.add(Pair.create(str, str2));
                         return this;
                     }
                     throw new NullPointerException("Invalid header value.");
@@ -143,17 +141,17 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                UrlRequest b2 = this.a.b(this.f52274b, this.f52275c, this.f52276d, this.f52281i, this.f52282j, this.f52279g, this.f52280h, this.n);
-                String str = this.f52277e;
+                UrlRequest b2 = this.a.b(this.f50255b, this.f50256c, this.f50257d, this.f50262i, this.f50263j, this.f50260g, this.f50261h, this.n);
+                String str = this.f50258e;
                 if (str != null) {
                     b2.e(str);
                 }
-                Iterator<Pair<String, String>> it = this.f52278f.iterator();
+                Iterator<Pair<String, String>> it = this.f50259f.iterator();
                 while (it.hasNext()) {
                     Pair<String, String> next = it.next();
                     b2.addHeader((String) next.first, (String) next.second);
                 }
-                UploadDataProvider uploadDataProvider = this.f52283k;
+                UploadDataProvider uploadDataProvider = this.k;
                 if (uploadDataProvider != null) {
                     b2.i(uploadDataProvider, this.l);
                 }
@@ -198,7 +196,7 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                this.f52279g = true;
+                this.f50260g = true;
                 return this;
             }
             return (Builder) invokeV.objValue;
@@ -229,7 +227,7 @@ public interface UrlRequest {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
                 if (str != null) {
-                    this.f52277e = str;
+                    this.f50258e = str;
                     return this;
                 }
                 throw new NullPointerException("Method is required.");
@@ -283,10 +281,10 @@ public interface UrlRequest {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, uploadDataProvider, executor)) == null) {
                 if (uploadDataProvider != null) {
                     if (executor != null) {
-                        if (this.f52277e == null) {
-                            this.f52277e = "POST";
+                        if (this.f50258e == null) {
+                            this.f50258e = "POST";
                         }
-                        this.f52283k = uploadDataProvider;
+                        this.k = uploadDataProvider;
                         this.l = executor;
                         return this;
                     }

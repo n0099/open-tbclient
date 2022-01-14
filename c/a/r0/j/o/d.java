@@ -113,8 +113,8 @@ public class d extends c.a.r0.a.t0.c {
                 } else if (i2 == 102) {
                     boolean a = c.a.r0.a.c1.a.M().a();
                     c.a.r0.a.c1.a.M().d(a);
-                    if (this.a.f8993f != null) {
-                        this.a.f8993f.onNightModeCoverChanged(a, false);
+                    if (this.a.f8797f != null) {
+                        this.a.f8797f.onNightModeCoverChanged(a, false);
                     }
                     return true;
                 } else if (i2 == 103) {
@@ -162,7 +162,7 @@ public class d extends c.a.r0.a.t0.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f11380e;
+        public final /* synthetic */ d f11125e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -179,7 +179,7 @@ public class d extends c.a.r0.a.t0.c {
                     return;
                 }
             }
-            this.f11380e = dVar;
+            this.f11125e = dVar;
         }
 
         @Override // java.lang.Runnable
@@ -187,9 +187,9 @@ public class d extends c.a.r0.a.t0.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean unused = d.w;
-                this.f11380e.v = System.currentTimeMillis();
-                h.f(this.f11380e.Z());
-                this.f11380e.f8993f.finishLoadingAnimator();
+                this.f11125e.v = System.currentTimeMillis();
+                h.f(this.f11125e.Z());
+                this.f11125e.f8797f.finishLoadingAnimator();
                 c.a.r0.a.u1.h.h("preload", NodeJS.STARTUP_SCRIPT_NAME);
                 int j2 = c.a.r0.j.o.c.m().j();
                 HybridUbcFlow p = c.a.r0.a.u1.h.p(NodeJS.STARTUP_SCRIPT_NAME);
@@ -210,14 +210,14 @@ public class d extends c.a.r0.a.t0.c {
 
     /* renamed from: c.a.r0.j.o.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0750d implements Runnable {
+    public class RunnableC0759d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f11381e;
+        public final /* synthetic */ d f11126e;
 
-        public RunnableC0750d(d dVar) {
+        public RunnableC0759d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -232,15 +232,15 @@ public class d extends c.a.r0.a.t0.c {
                     return;
                 }
             }
-            this.f11381e = dVar;
+            this.f11126e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11381e.i1();
-                this.f11381e.h1();
+                this.f11126e.i1();
+                this.f11126e.h1();
             }
         }
     }
@@ -323,7 +323,7 @@ public class d extends c.a.r0.a.t0.c {
             if (c.a.r0.a.d2.d.J().D()) {
                 f.U().E(Z(), new a(this));
                 if (c.a.r0.j.o.c.m().v() && c.a.r0.j.o.c.m().q()) {
-                    c.a.r0.j.o.c.m().F(this.f8993f);
+                    c.a.r0.j.o.c.m().F(this.f8797f);
                 }
             }
         }
@@ -372,11 +372,11 @@ public class d extends c.a.r0.a.t0.c {
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            c.a.r0.a.e0.d.i("SwanApp", "onBackPressed back stack count:" + this.f8994g.k());
+            c.a.r0.a.e0.d.i("SwanApp", "onBackPressed back stack count:" + this.f8798g.k());
             c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-            fVar.f8160e = com.alipay.sdk.widget.d.u;
+            fVar.f7980e = com.alipay.sdk.widget.d.u;
             Q(fVar);
-            c.a.r0.a.h0.g.d m = this.f8994g.m();
+            c.a.r0.a.h0.g.d m = this.f8798g.m();
             if (m == null || !m.K()) {
                 if (e0()) {
                     c.a.r0.a.d2.e L = c.a.r0.a.d2.e.L();
@@ -387,8 +387,8 @@ public class d extends c.a.r0.a.t0.c {
                     c.a.r0.j.b.e.g("0");
                     return;
                 }
-                g.b i2 = this.f8994g.i("navigateBack");
-                i2.n(g.f6542i, g.f6541h);
+                g.b i2 = this.f8798g.i("navigateBack");
+                i2.n(g.f6401i, g.f6400h);
                 i2.g();
                 i2.a();
             }
@@ -399,7 +399,7 @@ public class d extends c.a.r0.a.t0.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             q0.e0(new c(this));
-            ExecutorUtilsExt.postOnElastic(new RunnableC0750d(this), "SwanGameFrameRequestAd", 2);
+            ExecutorUtilsExt.postOnElastic(new RunnableC0759d(this), "SwanGameFrameRequestAd", 2);
             c.a.r0.j.n0.f.q();
             c.a.r0.j.n0.e.b();
         }
@@ -460,7 +460,7 @@ public class d extends c.a.r0.a.t0.c {
             c.a.r0.j.b.d.v();
             c.a.r0.a.r0.i.i();
             h.e("exit", Z());
-            f.U().unregisterReceiver(this.f8993f);
+            f.U().unregisterReceiver(this.f8797f);
             f.b0();
             c.a.r0.j.m0.a.a().b();
             SwanInspectorEndpoint.v().q();
@@ -474,7 +474,7 @@ public class d extends c.a.r0.a.t0.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.s0();
-            c.a.r0.j.o.c.m().h(this.f8993f);
+            c.a.r0.j.o.c.m().h(this.f8797f);
         }
     }
 
@@ -489,7 +489,7 @@ public class d extends c.a.r0.a.t0.c {
     public void w0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            f.U().registerReceiver(this.f8993f);
+            f.U().registerReceiver(this.f8797f);
         }
     }
 

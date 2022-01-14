@@ -30,10 +30,10 @@ public class i implements IHttpContext {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f22015b;
+    public static boolean f20984b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f22016c;
+    public static final String f20985c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -51,9 +51,9 @@ public class i implements IHttpContext {
             }
         }
         boolean isDebug = AppConfig.isDebug();
-        f22015b = isDebug;
-        f22015b = isDebug;
-        f22016c = i.class.getSimpleName();
+        f20984b = isDebug;
+        f20984b = isDebug;
+        f20985c = i.class.getSimpleName();
     }
 
     @DebugTrace
@@ -118,7 +118,7 @@ public class i implements IHttpContext {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, httpRequest)) == null) {
-            if (f22015b) {
+            if (f20984b) {
                 String str = "baidunetwork HttpContext getNewCloneHttpDns httpRequest:" + httpRequest;
                 return null;
             }
@@ -132,7 +132,7 @@ public class i implements IHttpContext {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            boolean z = f22015b;
+            boolean z = f20984b;
             return null;
         }
         return (IHttpDns) invokeV.objValue;
@@ -152,7 +152,7 @@ public class i implements IHttpContext {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            boolean z = f22015b;
+            boolean z = f20984b;
         }
     }
 

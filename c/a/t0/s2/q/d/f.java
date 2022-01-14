@@ -18,16 +18,16 @@ public class f {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f23017b;
+    public RelativeLayout f22384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f23018c;
+    public TextView f22385c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f23019d;
+    public TextView f22386d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f23020e;
+    public ImageView f22387e;
 
     public f(View view) {
         Interceptable interceptable = $ic;
@@ -45,41 +45,41 @@ public class f {
             }
         }
         this.a = view;
-        this.f23017b = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
-        this.f23018c = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
-        this.f23019d = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
-        this.f23020e = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
+        this.f22384b = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
+        this.f22385c = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
+        this.f22386d = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
+        this.f22387e = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setBackgroundResource(this.a, R.drawable.bg_rec_lick);
-            SkinManager.setBackgroundResource(this.f23017b, R.drawable.bg_rec_comment);
-            SkinManager.setViewTextColor(this.f23018c, R.color.CAM_X0108, 1);
-            SkinManager.setViewTextColor(this.f23019d, R.color.CAM_X0110, 1);
-            SkinManager.setImageResource(this.f23020e, R.drawable.recommend_pb_share_selector);
+            SkinManager.setBackgroundResource(this.f22384b, R.drawable.bg_rec_comment);
+            SkinManager.setViewTextColor(this.f22385c, R.color.CAM_X0108, 1);
+            SkinManager.setViewTextColor(this.f22386d, R.color.CAM_X0110, 1);
+            SkinManager.setImageResource(this.f22387e, R.drawable.recommend_pb_share_selector);
         }
     }
 
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f23017b.setOnClickListener(onClickListener);
+            this.f22384b.setOnClickListener(onClickListener);
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f23019d.setText(str);
+            this.f22386d.setText(str);
         }
     }
 
     public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f23020e.setOnClickListener(onClickListener);
+            this.f22387e.setOnClickListener(onClickListener);
         }
     }
 

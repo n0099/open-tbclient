@@ -6,7 +6,7 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.x0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,24 +29,24 @@ public class a {
     public NEGFeedBackView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f15249b;
+    public TbPageContext f14871b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f15250c;
+    public ViewGroup f14872c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f15251d;
+    public BdUniqueId f14873d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NEGFeedBackView.b f15252e;
+    public NEGFeedBackView.b f14874e;
 
     /* renamed from: c.a.t0.a0.k.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0930a implements NEGFeedBackView.b {
+    public class C0943a implements NEGFeedBackView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0930a(a aVar) {
+        public C0943a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,9 +118,9 @@ public class a {
                 return;
             }
         }
-        this.f15252e = new C0930a(this);
-        this.f15249b = tbPageContext;
-        this.f15250c = viewGroup;
+        this.f14874e = new C0943a(this);
+        this.f14871b = tbPageContext;
+        this.f14872c = viewGroup;
     }
 
     public View a() {
@@ -129,50 +129,50 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (View) invokeV.objValue;
     }
 
-    public void b(d2 d2Var, String str) {
+    public void b(e2 e2Var, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var, str) == null) || d2Var == null || d2Var.o1() == null || this.f15249b == null || this.f15250c == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var, str) == null) || e2Var == null || e2Var.o1() == null || this.f14871b == null || this.f14872c == null) {
             return;
         }
         int i2 = 0;
-        boolean z = (d2Var.J() == null || d2Var.J().getUserId() == null || !d2Var.J().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-        if (TbadkCoreApplication.isLogin() && d2Var.o1().dislikeInfo != null && !z && d2Var.o1().dislikeInfo.size() > 0) {
+        boolean z = (e2Var.J() == null || e2Var.J().getUserId() == null || !e2Var.J().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+        if (TbadkCoreApplication.isLogin() && e2Var.o1().dislikeInfo != null && !z && e2Var.o1().dislikeInfo.size() > 0) {
             if (this.a == null) {
-                NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.f15249b);
+                NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.f14871b);
                 this.a = nEGFeedBackView;
-                nEGFeedBackView.setUniqueId(this.f15251d);
+                nEGFeedBackView.setUniqueId(this.f14873d);
                 this.a.setId(R.id.negative_feedback_view);
-                this.a.setDefaultReasonArray(new String[]{this.f15249b.getString(R.string.bad_quality), "", ""});
-                this.a.setEventCallback(this.f15252e);
-                this.a.attachToViewUpperRightConnerFromFrsLive(this.f15250c, n.f(this.f15249b.getPageActivity(), R.dimen.tbds120), n.f(this.f15249b.getPageActivity(), R.dimen.tbds20));
+                this.a.setDefaultReasonArray(new String[]{this.f14871b.getString(R.string.bad_quality), "", ""});
+                this.a.setEventCallback(this.f14874e);
+                this.a.attachToViewUpperRightConnerFromFrsLive(this.f14872c, n.f(this.f14871b.getPageActivity(), R.dimen.tbds120), n.f(this.f14871b.getPageActivity(), R.dimen.tbds20));
                 this.a.onChangeSkinType();
             }
             if (this.a.getVisibility() != 0) {
                 this.a.setVisibility(0);
             }
             x0 x0Var = new x0();
-            x0Var.o(d2Var.v1());
-            x0Var.k(d2Var.U());
-            x0Var.n(d2Var.G0());
+            x0Var.o(e2Var.v1());
+            x0Var.k(e2Var.U());
+            x0Var.n(e2Var.G0());
             x0Var.r(str);
-            x0Var.j(d2Var.o1().dislikeInfo);
+            x0Var.j(e2Var.o1().dislikeInfo);
             this.a.setData(x0Var);
         } else {
             NEGFeedBackView nEGFeedBackView2 = this.a;
             if (nEGFeedBackView2 != null && nEGFeedBackView2.getVisibility() != 8) {
                 this.a.setVisibility(8);
             }
-            i2 = n.f(this.f15249b.getPageActivity(), R.dimen.ds32);
+            i2 = n.f(this.f14871b.getPageActivity(), R.dimen.ds32);
         }
-        if (this.f15250c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f15250c.getLayoutParams();
+        if (this.f14872c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f14872c.getLayoutParams();
             layoutParams.rightMargin = i2;
-            this.f15250c.setLayoutParams(layoutParams);
+            this.f14872c.setLayoutParams(layoutParams);
         }
-        if (this.f15250c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f15250c.getLayoutParams();
+        if (this.f14872c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f14872c.getLayoutParams();
             layoutParams2.rightMargin = i2;
-            this.f15250c.setLayoutParams(layoutParams2);
+            this.f14872c.setLayoutParams(layoutParams2);
         }
         NEGFeedBackView nEGFeedBackView3 = this.a;
         if (nEGFeedBackView3 != null) {
@@ -192,7 +192,7 @@ public class a {
     public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.f15251d = bdUniqueId;
+            this.f14873d = bdUniqueId;
         }
     }
 }

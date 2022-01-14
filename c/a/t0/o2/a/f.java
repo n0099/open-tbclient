@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f extends c.a.d.n.e.a<c.a.t0.o2.c.e, InterestedForumStyleAMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.t0.o2.f.b m;
     public c.a.t0.o2.f.c n;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f21372e;
+        public final /* synthetic */ f f20808e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class f extends c.a.d.n.e.a<c.a.t0.o2.c.e, InterestedForumStyleAMoreViewH
                     return;
                 }
             }
-            this.f21372e = fVar;
+            this.f20808e = fVar;
         }
 
         @Override // c.a.d.n.e.w
@@ -53,11 +53,11 @@ public class f extends c.a.d.n.e.a<c.a.t0.o2.c.e, InterestedForumStyleAMoreViewH
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof c.a.t0.o2.c.e)) {
                 c.a.t0.o2.c.e eVar = (c.a.t0.o2.c.e) nVar;
-                if (this.f21372e.m != null) {
-                    this.f21372e.m.d(eVar.a(), eVar.d(), i2);
+                if (this.f20808e.m != null) {
+                    this.f20808e.m.d(eVar.a(), eVar.d(), i2);
                 }
-                if (this.f21372e.n != null) {
-                    this.f21372e.n.a();
+                if (this.f20808e.n != null) {
+                    this.f20808e.n.a();
                 }
             }
         }
@@ -82,8 +82,8 @@ public class f extends c.a.d.n.e.a<c.a.t0.o2.c.e, InterestedForumStyleAMoreViewH
                 return;
             }
         }
-        this.f3299e = context;
-        this.f3302h = bdUniqueId;
+        this.f3258e = context;
+        this.f3261h = bdUniqueId;
         V(new a(this));
     }
 
@@ -102,10 +102,10 @@ public class f extends c.a.d.n.e.a<c.a.t0.o2.c.e, InterestedForumStyleAMoreViewH
         View inflate;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            if (c.a.s0.b.d.D()) {
-                inflate = LayoutInflater.from(this.f3299e).inflate(R.layout.item_interested_forum_style_a_more, viewGroup, false);
+            if (c.a.s0.b.d.A()) {
+                inflate = LayoutInflater.from(this.f3258e).inflate(R.layout.item_interested_forum_style_a_more, viewGroup, false);
             } else {
-                inflate = c.a.s0.b.d.F() ? LayoutInflater.from(this.f3299e).inflate(R.layout.item_interested_forum_style_b_more, viewGroup, false) : null;
+                inflate = c.a.s0.b.d.C() ? LayoutInflater.from(this.f3258e).inflate(R.layout.item_interested_forum_style_b_more, viewGroup, false) : null;
             }
             return new InterestedForumStyleAMoreViewHolder(inflate);
         }
@@ -126,14 +126,14 @@ public class f extends c.a.d.n.e.a<c.a.t0.o2.c.e, InterestedForumStyleAMoreViewH
     public final void d0(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, c.a.t0.o2.c.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleAMoreViewHolder, eVar) == null) {
-            interestedForumStyleAMoreViewHolder.mInterestedMoreTitle.setText(this.f3299e.getResources().getString(R.string.interested_forum_more_hint));
-            if (c.a.s0.b.d.D()) {
+            interestedForumStyleAMoreViewHolder.mInterestedMoreTitle.setText(this.f3258e.getResources().getString(R.string.interested_forum_more_hint));
+            if (c.a.s0.b.d.A()) {
                 if (eVar.e()) {
                     interestedForumStyleAMoreViewHolder.mInterestedMoreTitleLl.setVisibility(0);
                 } else {
                     interestedForumStyleAMoreViewHolder.mInterestedMoreTitleLl.setVisibility(8);
                 }
-            } else if (c.a.s0.b.d.F()) {
+            } else if (c.a.s0.b.d.C()) {
                 if (eVar.e()) {
                     interestedForumStyleAMoreViewHolder.mInterestedMoreTitleLl.setVisibility(0);
                     interestedForumStyleAMoreViewHolder.mInterestedMoreTitleInstead.setVisibility(8);
@@ -165,9 +165,9 @@ public class f extends c.a.d.n.e.a<c.a.t0.o2.c.e, InterestedForumStyleAMoreViewH
             c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(interestedForumStyleAMoreViewHolder.mInterestedMoreTitle);
             d2.v(R.color.CAM_X0302);
             d2.z(R.dimen.T_X07);
-            if (c.a.s0.b.d.D()) {
+            if (c.a.s0.b.d.A()) {
                 c.a.s0.s.u.c.d(interestedForumStyleAMoreViewHolder.mInterestedMoreDivide).f(R.color.CAM_X0206);
-            } else if (c.a.s0.b.d.F()) {
+            } else if (c.a.s0.b.d.C()) {
                 c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(interestedForumStyleAMoreViewHolder.mInterestedMoreTitleLl);
                 d3.n(R.string.J_X17);
                 d3.f(R.color.CAM_X0201);

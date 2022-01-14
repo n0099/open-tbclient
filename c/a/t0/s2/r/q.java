@@ -18,25 +18,23 @@ public class q implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f23072e;
+    public String f22437e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f23073f;
+    public BdUniqueId f22438f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f23074g;
+    public int f22439g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f23075h;
+    public boolean f22440h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f23076i;
+    public boolean f22441i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f23077j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public List<PbSortType> f23078k;
+    public boolean f22442j;
+    public List<PbSortType> k;
 
     static {
         InterceptResult invokeClinit;
@@ -70,16 +68,16 @@ public class q implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f23073f = m;
-        this.f23074g = 0;
-        this.f23075h = false;
-        this.f23073f = bdUniqueId;
+        this.f22438f = m;
+        this.f22439g = 0;
+        this.f22440h = false;
+        this.f22438f = bdUniqueId;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23073f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22438f : (BdUniqueId) invokeV.objValue;
     }
 }

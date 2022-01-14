@@ -32,7 +32,7 @@ public class c {
                 OutputStream outputStream = null;
                 try {
                     try {
-                        a.C2081a b2 = com.kwad.sdk.core.diskcache.kwai.a.this.b(str2);
+                        a.C2098a b2 = com.kwad.sdk.core.diskcache.kwai.a.this.b(str2);
                         if (b2 != null) {
                             outputStream = b2.a(0);
                             if (c.b(str, outputStream, new a())) {
@@ -58,7 +58,7 @@ public class c {
         OutputStream outputStream = null;
         try {
             try {
-                a.C2081a b2 = aVar.b(str2);
+                a.C2098a b2 = aVar.b(str2);
                 if (b2 != null) {
                     outputStream = b2.a(0);
                     if (b(str, outputStream, aVar2)) {

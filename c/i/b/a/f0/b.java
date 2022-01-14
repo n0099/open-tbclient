@@ -19,19 +19,19 @@ public abstract class b implements f {
     public final s a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30527b;
+    public final int f29570b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int[] f30528c;
+    public final int[] f29571c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Format[] f30529d;
+    public final Format[] f29572d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long[] f30530e;
+    public final long[] f29573e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30531f;
+    public int f29574f;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -41,11 +41,11 @@ public abstract class b implements f {
 
     /* renamed from: c.i.b.a.f0.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class C1651b implements Comparator<Format> {
+    public static final class C1667b implements Comparator<Format> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1651b() {
+        public C1667b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,7 +68,7 @@ public abstract class b implements f {
             return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, format, format2)) == null) ? format2.bitrate - format.bitrate : invokeLL.intValue;
         }
 
-        public /* synthetic */ C1651b(a aVar) {
+        public /* synthetic */ C1667b(a aVar) {
             this();
         }
     }
@@ -93,20 +93,20 @@ public abstract class b implements f {
         c.i.b.a.i0.a.e(sVar);
         this.a = sVar;
         int length = iArr.length;
-        this.f30527b = length;
-        this.f30529d = new Format[length];
+        this.f29570b = length;
+        this.f29572d = new Format[length];
         for (int i5 = 0; i5 < iArr.length; i5++) {
-            this.f30529d[i5] = sVar.a(iArr[i5]);
+            this.f29572d[i5] = sVar.a(iArr[i5]);
         }
-        Arrays.sort(this.f30529d, new C1651b(null));
-        this.f30528c = new int[this.f30527b];
+        Arrays.sort(this.f29572d, new C1667b(null));
+        this.f29571c = new int[this.f29570b];
         while (true) {
-            int i6 = this.f30527b;
+            int i6 = this.f29570b;
             if (i4 < i6) {
-                this.f30528c[i4] = sVar.b(this.f30529d[i4]);
+                this.f29571c[i4] = sVar.b(this.f29572d[i4]);
                 i4++;
             } else {
-                this.f30530e = new long[i6];
+                this.f29573e = new long[i6];
                 return;
             }
         }
@@ -116,7 +116,7 @@ public abstract class b implements f {
     public final int b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f30528c[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f29571c[i2] : invokeI.intValue;
     }
 
     @Override // c.i.b.a.f0.f
@@ -124,8 +124,8 @@ public abstract class b implements f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            for (int i3 = 0; i3 < this.f30527b; i3++) {
-                if (this.f30528c[i3] == i2) {
+            for (int i3 = 0; i3 < this.f29570b; i3++) {
+                if (this.f29571c[i3] == i2) {
                     return i3;
                 }
             }
@@ -145,7 +145,7 @@ public abstract class b implements f {
     public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30528c[a()] : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29571c[a()] : invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -159,7 +159,7 @@ public abstract class b implements f {
                 return false;
             }
             b bVar = (b) obj;
-            return this.a == bVar.a && Arrays.equals(this.f30528c, bVar.f30528c);
+            return this.a == bVar.a && Arrays.equals(this.f29571c, bVar.f29571c);
         }
         return invokeL.booleanValue;
     }
@@ -168,7 +168,7 @@ public abstract class b implements f {
     public final Format f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30529d[a()] : (Format) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29572d[a()] : (Format) invokeV.objValue;
     }
 
     @Override // c.i.b.a.f0.f
@@ -179,12 +179,12 @@ public abstract class b implements f {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             boolean m = m(i2, elapsedRealtime);
             int i3 = 0;
-            while (i3 < this.f30527b && !m) {
+            while (i3 < this.f29570b && !m) {
                 m = (i3 == i2 || m(i3, elapsedRealtime)) ? false : true;
                 i3++;
             }
             if (m) {
-                long[] jArr = this.f30530e;
+                long[] jArr = this.f29573e;
                 jArr[i2] = Math.max(jArr[i2], elapsedRealtime + j2);
                 return true;
             }
@@ -197,17 +197,17 @@ public abstract class b implements f {
     public final Format h(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.f30529d[i2] : (Format) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.f29572d[i2] : (Format) invokeI.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f30531f == 0) {
-                this.f30531f = (System.identityHashCode(this.a) * 31) + Arrays.hashCode(this.f30528c);
+            if (this.f29574f == 0) {
+                this.f29574f = (System.identityHashCode(this.a) * 31) + Arrays.hashCode(this.f29571c);
             }
-            return this.f30531f;
+            return this.f29574f;
         }
         return invokeV.intValue;
     }
@@ -217,8 +217,8 @@ public abstract class b implements f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, format)) == null) {
-            for (int i2 = 0; i2 < this.f30527b; i2++) {
-                if (this.f30529d[i2] == format) {
+            for (int i2 = 0; i2 < this.f29570b; i2++) {
+                if (this.f29572d[i2] == format) {
                     return i2;
                 }
             }
@@ -231,12 +231,12 @@ public abstract class b implements f {
     public final int length() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30528c.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29571c.length : invokeV.intValue;
     }
 
     public final boolean m(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? this.f30530e[i2] > j2 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? this.f29573e[i2] > j2 : invokeCommon.booleanValue;
     }
 }

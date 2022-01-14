@@ -13,10 +13,10 @@ public class f0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final f0 f29292b;
+    public static final f0 f28400b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final f0 f29293c;
+    public static final f0 f28401c;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
@@ -33,8 +33,8 @@ public class f0 {
                 return;
             }
         }
-        f29292b = new f0(FastJsonJsonView.DEFAULT_CONTENT_TYPE);
-        f29293c = new f0("text/plain;charset=UTF-8");
+        f28400b = new f0(FastJsonJsonView.DEFAULT_CONTENT_TYPE);
+        f28401c = new f0("text/plain;charset=UTF-8");
     }
 
     public f0(String str) {

@@ -143,7 +143,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InviteFriendListActivity f46965e;
+        public final /* synthetic */ InviteFriendListActivity f45226e;
 
         public c(InviteFriendListActivity inviteFriendListActivity) {
             Interceptable interceptable = $ic;
@@ -160,16 +160,16 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                     return;
                 }
             }
-            this.f46965e = inviteFriendListActivity;
+            this.f45226e = inviteFriendListActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f46965e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f45226e.mModel == null) {
                 return;
             }
-            this.f46965e.mModel.cancelLoadData();
+            this.f45226e.mModel.cancelLoadData();
         }
     }
 
@@ -185,7 +185,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f46966e;
+            public final /* synthetic */ d f45227e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -202,16 +202,16 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                         return;
                     }
                 }
-                this.f46966e = dVar;
+                this.f45227e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46966e.a.isFinishing()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45227e.a.isFinishing()) {
                     return;
                 }
-                this.f46966e.a.finish();
+                this.f45227e.a.finish();
             }
         }
 
@@ -393,7 +393,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getPageContext().getPageActivity(), aVar.e(), aVar.f(), aVar.g(), aVar.h(), 0)));
             } else if (view == null || (tag = view.getTag()) == null || !(tag instanceof c.a)) {
             } else {
-                TbCheckBox tbCheckBox = ((c.a) tag).f24359d;
+                TbCheckBox tbCheckBox = ((c.a) tag).f23676d;
                 tbCheckBox.setChecked(!tbCheckBox.isChecked());
             }
         }

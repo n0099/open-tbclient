@@ -17,12 +17,12 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f10093c;
+    public static e f9870c;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<d> f10094b;
+    public WeakReference<d> f9871b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -37,13 +37,13 @@ public class e {
         public WeakReference<c.a.r0.a.d2.e> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WeakReference<f> f10095b;
+        public WeakReference<f> f9872b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f10096c;
+        public String f9873c;
 
         /* renamed from: d  reason: collision with root package name */
-        public MediaModel f10097d;
+        public MediaModel f9874d;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f10093c == null) {
+            if (f9870c == null) {
                 synchronized (e.class) {
-                    if (f10093c == null) {
-                        f10093c = new e();
+                    if (f9870c == null) {
+                        f9870c = new e();
                     }
                 }
             }
-            return f10093c;
+            return f9870c;
         }
         return (e) invokeV.objValue;
     }
@@ -107,7 +107,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d dVar = this.f10094b.get();
+            d dVar = this.f9871b.get();
             if (dVar != null) {
                 dVar.w1();
                 return true;
@@ -126,10 +126,10 @@ public class e {
                 b bVar = new b(this, null);
                 this.a = bVar;
                 bVar.a = new WeakReference<>(L);
-                this.a.f10095b = new WeakReference<>(H);
+                this.a.f9872b = new WeakReference<>(H);
                 b bVar2 = this.a;
-                bVar2.f10096c = str;
-                bVar2.f10097d = mediaModel;
+                bVar2.f9873c = str;
+                bVar2.f9874d = mediaModel;
                 return;
             }
             this.a = null;
@@ -145,15 +145,15 @@ public class e {
         Bundle bundle = new Bundle();
         bundle.putParcelable("params", replyEditorParams);
         b bVar = this.a;
-        if (bVar != null && eVar == bVar.a.get() && H == this.a.f10095b.get()) {
+        if (bVar != null && eVar == bVar.a.get() && H == this.a.f9872b.get()) {
             bundle.putBoolean(MediaTrackConfig.AE_IMPORT_DRAFT, true);
-            bundle.putString("content", this.a.f10096c);
-            bundle.putParcelable("image", this.a.f10097d);
+            bundle.putString("content", this.a.f9873c);
+            bundle.putParcelable("image", this.a.f9874d);
         }
         d dVar = new d();
         dVar.d1(bundle);
         dVar.J1(aVar);
         dVar.n1(H.z(), "ReplyEditor");
-        this.f10094b = new WeakReference<>(dVar);
+        this.f9871b = new WeakReference<>(dVar);
     }
 }

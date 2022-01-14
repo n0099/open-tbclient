@@ -10,13 +10,13 @@ public class c implements j {
     public static volatile c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<j> f61984b;
+    public List<j> f59641b;
 
     public c() {
         ArrayList arrayList = new ArrayList();
-        this.f61984b = arrayList;
+        this.f59641b = arrayList;
         arrayList.add(new b());
-        this.f61984b.add(new a());
+        this.f59641b.add(new a());
     }
 
     public static c a() {
@@ -32,7 +32,7 @@ public class c implements j {
 
     @Override // com.ss.android.socialbase.appdownloader.c.j
     public void a(DownloadInfo downloadInfo, i iVar) {
-        if (downloadInfo != null && this.f61984b.size() != 0) {
+        if (downloadInfo != null && this.f59641b.size() != 0) {
             a(downloadInfo, 0, iVar);
         } else if (iVar != null) {
             iVar.a();
@@ -41,8 +41,8 @@ public class c implements j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final DownloadInfo downloadInfo, final int i2, final i iVar) {
-        if (i2 != this.f61984b.size() && i2 >= 0) {
-            this.f61984b.get(i2).a(downloadInfo, new i() { // from class: com.ss.android.downloadlib.f.c.1
+        if (i2 != this.f59641b.size() && i2 >= 0) {
+            this.f59641b.get(i2).a(downloadInfo, new i() { // from class: com.ss.android.downloadlib.f.c.1
                 @Override // com.ss.android.socialbase.appdownloader.c.i
                 public void a() {
                     c.this.a(downloadInfo, i2 + 1, iVar);

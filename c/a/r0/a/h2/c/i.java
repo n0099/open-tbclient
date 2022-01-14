@@ -15,10 +15,10 @@ public class i<ResultDataT> {
     public ResultDataT a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TaskState f7321b;
+    public TaskState f7163b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OAuthException f7322c;
+    public OAuthException f7164c;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -33,20 +33,20 @@ public class i<ResultDataT> {
                 return;
             }
         }
-        this.f7321b = TaskState.INIT;
+        this.f7163b = TaskState.INIT;
     }
 
     public OAuthException a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7322c : (OAuthException) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7164c : (OAuthException) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            OAuthException oAuthException = this.f7322c;
+            OAuthException oAuthException = this.f7164c;
             if (oAuthException == null) {
                 return 0;
             }
@@ -58,21 +58,21 @@ public class i<ResultDataT> {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.FINISHED == this.f7321b && this.f7322c == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.FINISHED == this.f7163b && this.f7164c == null : invokeV.booleanValue;
     }
 
     public void d(OAuthException oAuthException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, oAuthException) == null) {
-            this.f7322c = oAuthException;
+            this.f7164c = oAuthException;
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f7321b = TaskState.FINISHED;
-            this.f7322c = null;
+            this.f7163b = TaskState.FINISHED;
+            this.f7164c = null;
         }
     }
 }

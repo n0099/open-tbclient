@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.s2.f;
 import c.a.t0.s2.g;
 import c.a.t0.s2.h;
@@ -80,7 +80,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommentFloatActivity f48250e;
+        public final /* synthetic */ PbCommentFloatActivity f46452e;
 
         public a(PbCommentFloatActivity pbCommentFloatActivity) {
             Interceptable interceptable = $ic;
@@ -97,18 +97,18 @@ public class PbCommentFloatActivity extends AbsPbActivity {
                     return;
                 }
             }
-            this.f48250e = pbCommentFloatActivity;
+            this.f46452e = pbCommentFloatActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48250e.mCommentTopDataWrapper == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46452e.mCommentTopDataWrapper == null) {
                 return;
             }
-            this.f48250e.mCommentTopDataWrapper.q(TiePlusStat.StatType.CLICK);
-            this.f48250e.eventController.statRichTextEvent(this.f48250e.mCommentTopDataWrapper);
-            this.f48250e.eventController.processClick(this.f48250e.mCommentTopDataWrapper);
+            this.f46452e.mCommentTopDataWrapper.q(TiePlusStat.StatType.CLICK);
+            this.f46452e.eventController.statRichTextEvent(this.f46452e.mCommentTopDataWrapper);
+            this.f46452e.eventController.processClick(this.f46452e.mCommentTopDataWrapper);
         }
     }
 
@@ -118,7 +118,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommentFloatActivity f48251e;
+        public final /* synthetic */ PbCommentFloatActivity f46453e;
 
         public b(PbCommentFloatActivity pbCommentFloatActivity) {
             Interceptable interceptable = $ic;
@@ -135,14 +135,14 @@ public class PbCommentFloatActivity extends AbsPbActivity {
                     return;
                 }
             }
-            this.f48251e = pbCommentFloatActivity;
+            this.f46453e = pbCommentFloatActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f48251e.requestData();
+                this.f46453e.requestData();
             }
         }
     }
@@ -178,31 +178,31 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof d2)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof e2)) {
                 return;
             }
-            d2 d2Var = (d2) customResponsedMessage.getData();
+            e2 e2Var = (e2) customResponsedMessage.getData();
             PbModel pbModel = this.a.mPbModel;
-            if (pbModel == null || pbModel.R0() == null || this.a.mPbModel.R0().O() == null || d2Var == null) {
+            if (pbModel == null || pbModel.R0() == null || this.a.mPbModel.R0().O() == null || e2Var == null) {
                 return;
             }
             this.a.initTiePlusRichTextView();
-            String str = d2Var.L() != null ? d2Var.L().oriUgcNid : "";
+            String str = e2Var.L() != null ? e2Var.L().oriUgcNid : "";
             String str2 = this.a.mPbModel.R0().O().L() != null ? this.a.mPbModel.R0().O().L().oriUgcNid : "";
             if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
                 if (str.equals(str2)) {
-                    this.a.mPbModel.R0().O().r4(d2Var.V0());
+                    this.a.mPbModel.R0().O().r4(e2Var.V0());
                     this.a.updateNavigationBarTitle();
                     return;
                 }
                 return;
             }
-            String g0 = d2Var.g0();
+            String g0 = e2Var.g0();
             String g02 = this.a.mPbModel.R0().O().g0();
             if ("0".equals(g02) || TextUtils.isEmpty(g02) || !g02.equals(g0)) {
                 return;
             }
-            this.a.mPbModel.R0().O().r4(d2Var.V0());
+            this.a.mPbModel.R0().O().r4(e2Var.V0());
             this.a.updateNavigationBarTitle();
         }
     }
@@ -213,7 +213,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommentFloatActivity f48252e;
+        public final /* synthetic */ PbCommentFloatActivity f46454e;
 
         public d(PbCommentFloatActivity pbCommentFloatActivity) {
             Interceptable interceptable = $ic;
@@ -230,18 +230,18 @@ public class PbCommentFloatActivity extends AbsPbActivity {
                     return;
                 }
             }
-            this.f48252e = pbCommentFloatActivity;
+            this.f46454e = pbCommentFloatActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                Fragment fragment = this.f48252e.mCurrentFragment;
+                Fragment fragment = this.f46454e.mCurrentFragment;
                 if ((fragment instanceof AbsVideoPbFragment) && ((AbsVideoPbFragment) fragment).isEditToolVisible()) {
-                    ((AbsVideoPbFragment) this.f48252e.mCurrentFragment).resetCommentView();
+                    ((AbsVideoPbFragment) this.f46454e.mCurrentFragment).resetCommentView();
                 } else {
-                    this.f48252e.close();
+                    this.f46454e.close();
                 }
             }
         }
@@ -253,7 +253,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommentFloatActivity f48253e;
+        public final /* synthetic */ PbCommentFloatActivity f46455e;
 
         public e(PbCommentFloatActivity pbCommentFloatActivity) {
             Interceptable interceptable = $ic;
@@ -270,7 +270,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
                     return;
                 }
             }
-            this.f48253e = pbCommentFloatActivity;
+            this.f46455e = pbCommentFloatActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -278,17 +278,17 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                statisticItem.param("fid", this.f48253e.getPbModel().getForumId());
-                statisticItem.param("tid", this.f48253e.getPbModel().h1());
+                statisticItem.param("fid", this.f46455e.getPbModel().getForumId());
+                statisticItem.param("tid", this.f46455e.getPbModel().h1());
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("post_id", this.f48253e.getPbModel().q0());
+                statisticItem.param("post_id", this.f46455e.getPbModel().q0());
                 statisticItem.param("obj_source", 1);
                 statisticItem.param("obj_type", 5);
-                if (this.f48253e.getIntent() != null) {
-                    statisticItem.param("obj_locate", this.f48253e.getIntent().getIntExtra(PbCommentFloatActivityConfig.KEY_FROM_VIDEO_PAGE_TYPE, 0));
+                if (this.f46455e.getIntent() != null) {
+                    statisticItem.param("obj_locate", this.f46455e.getIntent().getIntExtra(PbCommentFloatActivityConfig.KEY_FROM_VIDEO_PAGE_TYPE, 0));
                 }
                 TiebaStatic.log(statisticItem);
-                this.f48253e.close();
+                this.f46455e.close();
             }
         }
     }
@@ -550,7 +550,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         this.mJumpType = tiebaPlusInfo.jump_type.intValue();
         c.a.s0.g1.p.a c2 = c.a.s0.g1.p.a.c(num.intValue(), tiebaPlusInfo, this.mPbModel.R0().O());
         this.mCommentTopDataWrapper = c2;
-        c2.b(this.mPbModel.R0().O().U1);
+        c2.b(this.mPbModel.R0().O().T1);
         this.mCommentTopDataWrapper.q(TiePlusStat.StatType.EXPOSE);
         this.eventController.statRichTextEvent(this.mCommentTopDataWrapper);
         this.mRichTextView.setText(tiebaPlusInfo.desc);

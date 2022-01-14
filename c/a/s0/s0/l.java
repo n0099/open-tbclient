@@ -22,34 +22,32 @@ public class l extends j {
     public long D;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f14095b;
+    public boolean f13766b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f14096c;
+    public boolean f13767c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f14097d;
+    public boolean f13768d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14098e;
+    public boolean f13769e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f14099f;
+    public long f13770f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f14100g;
+    public long f13771g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f14101h;
+    public long f13772h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f14102i;
+    public long f13773i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f14103j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f14104k;
+    public long f13774j;
+    public long k;
     public long l;
     public long m;
     public long n;
@@ -94,16 +92,16 @@ public class l extends j {
                 return;
             }
         }
-        this.f14095b = false;
-        this.f14096c = false;
-        this.f14097d = false;
-        this.f14098e = false;
-        this.f14099f = -1L;
-        this.f14100g = -1L;
-        this.f14101h = -1L;
-        this.f14102i = -1L;
-        this.f14103j = -1L;
-        this.f14104k = -1L;
+        this.f13766b = false;
+        this.f13767c = false;
+        this.f13768d = false;
+        this.f13769e = false;
+        this.f13770f = -1L;
+        this.f13771g = -1L;
+        this.f13772h = -1L;
+        this.f13773i = -1L;
+        this.f13774j = -1L;
+        this.k = -1L;
         this.l = -1L;
         this.m = -1L;
         this.n = -1L;
@@ -144,14 +142,14 @@ public class l extends j {
     public void A(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f14095b = z;
+            this.f13766b = z;
         }
     }
 
     public void B(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f14102i = j2;
+            this.f13773i = j2;
         }
     }
 
@@ -186,7 +184,7 @@ public class l extends j {
     public void G(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.f14100g = j2;
+            this.f13771g = j2;
         }
     }
 
@@ -214,7 +212,7 @@ public class l extends j {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f14099f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f13770f : invokeV.longValue;
     }
 
     public long d() {
@@ -226,31 +224,31 @@ public class l extends j {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f14096c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f13767c : invokeV.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             long j2 = 0;
-            if (this.D - this.f14099f <= 0 || this.f14097d || this.v <= 0 || !k.d().g()) {
+            if (this.D - this.f13770f <= 0 || this.f13768d || this.v <= 0 || !k.d().g()) {
                 return;
             }
-            long j3 = this.f14100g - this.f14099f;
+            long j3 = this.f13771g - this.f13770f;
             long j4 = this.t;
             long j5 = j4 > 0 ? this.u - j4 : -1L;
-            this.f14097d = true;
+            this.f13768d = true;
             long j6 = this.D - this.C;
             c.a.d.f.n.a a = j.a();
             a.b("procname", "main");
             a.b("appc", String.valueOf(j3));
-            a.b("loadclass", String.valueOf(this.f14101h));
-            a.b("sapiinit", String.valueOf(this.f14102i));
+            a.b("loadclass", String.valueOf(this.f13772h));
+            a.b("sapiinit", String.valueOf(this.f13773i));
             a.b("acctinit", String.valueOf(this.A));
             a.b("iminit", String.valueOf(this.y));
             a.b("plugininit", String.valueOf(this.z));
-            a.b("patchloaded", String.valueOf(this.f14103j));
-            a.b("naslibinit", String.valueOf(this.f14104k));
+            a.b("patchloaded", String.valueOf(this.f13774j));
+            a.b("naslibinit", String.valueOf(this.k));
             a.b("websocketinit", String.valueOf(this.l));
             a.b("settinginit", String.valueOf(this.m));
             a.b("toastinit", String.valueOf(this.n));
@@ -258,7 +256,7 @@ public class l extends j {
             a.b("cdninit", String.valueOf(this.p));
             a.b("messagesetinit", String.valueOf(this.q));
             a.b("logores", String.valueOf(this.B));
-            a.b("opttest", String.valueOf(c.a.s0.s.x.d.f14001d ? 1 : 0));
+            a.b("opttest", String.valueOf(c.a.s0.s.x.d.f13673b ? 1 : 0));
             long j7 = this.r;
             if (j7 > 0 && this.t > 0 && j5 > 0) {
                 a.b("adc", String.valueOf(j7 + this.s));
@@ -275,8 +273,8 @@ public class l extends j {
             }
             a.b("tabc", String.valueOf(j6));
             a.b("costt", String.valueOf(this.w - j2));
-            a.b("newinst", this.f14095b ? "1" : "0");
-            a.c("pluginloadsync", Boolean.valueOf(this.f14098e));
+            a.b("newinst", this.f13766b ? "1" : "0");
+            a.c("pluginloadsync", Boolean.valueOf(this.f13769e));
             a.b("hptotal", String.valueOf(this.v));
             a.b("locationinit", String.valueOf(j3 + this.B + this.r + j5 + this.s + j6 + this.v));
             a.b("userperceptiont", String.valueOf(this.x - j2));
@@ -298,21 +296,21 @@ public class l extends j {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f14095b = false;
-            this.f14096c = false;
-            this.f14099f = -1L;
-            this.f14100g = -1L;
+            this.f13766b = false;
+            this.f13767c = false;
+            this.f13770f = -1L;
+            this.f13771g = -1L;
             this.w = -1L;
-            this.f14101h = -1L;
-            this.f14102i = -1L;
-            this.f14103j = -1L;
+            this.f13772h = -1L;
+            this.f13773i = -1L;
+            this.f13774j = -1L;
             this.B = -1L;
             this.t = -1L;
             this.u = -1L;
             this.r = -1L;
             this.C = -1L;
             this.D = -1L;
-            this.f14104k = -1L;
+            this.k = -1L;
             this.l = -1L;
             this.m = -1L;
             this.n = -1L;
@@ -375,7 +373,7 @@ public class l extends j {
             return;
         }
         this.v = j2;
-        this.w = System.currentTimeMillis() - this.f14099f;
+        this.w = System.currentTimeMillis() - this.f13770f;
     }
 
     public void p(long j2) {
@@ -387,7 +385,7 @@ public class l extends j {
     public void q(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            this.f14104k = j2;
+            this.k = j2;
         }
     }
 
@@ -408,14 +406,14 @@ public class l extends j {
     public void t(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
-            this.f14099f = j2;
+            this.f13770f = j2;
         }
     }
 
     public void u(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
-            this.f14101h = j2;
+            this.f13772h = j2;
         }
     }
 
@@ -443,7 +441,7 @@ public class l extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048608, this, j2) == null) {
             this.D = j2;
-            this.f14096c = true;
+            this.f13767c = true;
         }
     }
 

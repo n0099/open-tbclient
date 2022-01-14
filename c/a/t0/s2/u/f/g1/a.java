@@ -46,7 +46,7 @@ public class a {
                 if (R0.h0() && TbadkCoreApplication.isLogin() && !j(postData) && !R0.g0()) {
                     g gVar = new g(9, TbadkCoreApplication.getInst().getString(l.block_user), jVar);
                     list.add(gVar);
-                    c.a.t0.g4.a.e(gVar.f13917d, postData);
+                    c.a.t0.g4.a.e(gVar.f13596d, postData);
                     return true;
                 }
             }
@@ -66,38 +66,38 @@ public class a {
             if (agreeData.hasAgree) {
                 if (agreeData.agreeType == 2) {
                     g gVar = new g(-1, r0.h(l.c_agreeed, new Object[0]), jVar);
-                    gVar.f13917d.setTag(sparseArray);
+                    gVar.f13596d.setTag(sparseArray);
                     arrayList.add(gVar);
                     if (sparseArray == null || sparseArray.get(i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(i.pb_dialog_item_isugc)).booleanValue()) {
                         g gVar2 = new g(-2, r0.h(l.c_disagree, new Object[0]), jVar);
-                        gVar2.f13917d.setTag(sparseArray);
+                        gVar2.f13596d.setTag(sparseArray);
                         arrayList.add(gVar2);
                     }
                 } else {
                     g gVar3 = new g(-1, r0.h(l.c_agree, new Object[0]), jVar);
-                    gVar3.f13917d.setTag(sparseArray);
+                    gVar3.f13596d.setTag(sparseArray);
                     arrayList.add(gVar3);
                     if (sparseArray == null || sparseArray.get(i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(i.pb_dialog_item_isugc)).booleanValue()) {
                         g gVar4 = new g(-2, r0.h(l.c_disagreeed, new Object[0]), jVar);
-                        gVar4.f13917d.setTag(sparseArray);
+                        gVar4.f13596d.setTag(sparseArray);
                         arrayList.add(gVar4);
                     }
                 }
             } else {
                 g gVar5 = new g(-1, r0.h(l.c_agree, new Object[0]), jVar);
-                gVar5.f13917d.setTag(sparseArray);
+                gVar5.f13596d.setTag(sparseArray);
                 arrayList.add(gVar5);
                 if (sparseArray == null || sparseArray.get(i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(i.pb_dialog_item_isugc)).booleanValue()) {
                     g gVar6 = new g(-2, r0.h(l.c_disagree, new Object[0]), jVar);
-                    gVar6.f13917d.setTag(sparseArray);
+                    gVar6.f13596d.setTag(sparseArray);
                     arrayList.add(gVar6);
                 }
             }
             g gVar7 = new g(-3, r0.h(l.reply, new Object[0]), jVar);
-            gVar7.f13917d.setTag(sparseArray);
+            gVar7.f13596d.setTag(sparseArray);
             arrayList.add(gVar7);
             g gVar8 = new g(-4, r0.h(l.share, new Object[0]), jVar);
-            gVar8.f13917d.setTag(sparseArray);
+            gVar8.f13596d.setTag(sparseArray);
             arrayList.add(gVar8);
             list.addAll(0, arrayList);
             return list;
@@ -117,24 +117,24 @@ public class a {
                 if (agreeData.agreeType == 2) {
                     if (sparseArray == null || sparseArray.get(i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(i.pb_dialog_item_isugc)).booleanValue()) {
                         g gVar = new g(-2, r0.h(l.action_dislike, new Object[0]), jVar);
-                        gVar.f13917d.setTag(sparseArray);
+                        gVar.f13596d.setTag(sparseArray);
                         arrayList.add(gVar);
                     }
                 } else if (sparseArray == null || sparseArray.get(i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(i.pb_dialog_item_isugc)).booleanValue()) {
                     g gVar2 = new g(-2, r0.h(l.c_disagreeed, new Object[0]), jVar);
-                    gVar2.f13917d.setTag(sparseArray);
+                    gVar2.f13596d.setTag(sparseArray);
                     arrayList.add(gVar2);
                 }
             } else if (sparseArray == null || sparseArray.get(i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(i.pb_dialog_item_isugc)).booleanValue()) {
                 g gVar3 = new g(-2, r0.h(l.action_dislike, new Object[0]), jVar);
-                gVar3.f13917d.setTag(sparseArray);
+                gVar3.f13596d.setTag(sparseArray);
                 arrayList.add(gVar3);
             }
             g gVar4 = new g(-3, r0.h(l.reply, new Object[0]), jVar);
-            gVar4.f13917d.setTag(sparseArray);
+            gVar4.f13596d.setTag(sparseArray);
             arrayList.add(0, gVar4);
             g gVar5 = new g(-4, r0.h(l.share, new Object[0]), jVar);
-            gVar5.f13917d.setTag(sparseArray);
+            gVar5.f13596d.setTag(sparseArray);
             arrayList.add(1, gVar5);
             list.addAll(0, arrayList);
             return list;

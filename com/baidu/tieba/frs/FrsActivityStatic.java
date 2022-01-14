@@ -7,15 +7,16 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
+import c.a.s0.e1.v0;
 import c.a.s0.e1.w0;
-import c.a.s0.e1.x0;
 import c.a.t0.d1.c1;
 import c.a.t0.d1.d1;
 import c.a.t0.d1.i1;
 import c.a.t0.d1.r;
 import c.a.t0.d1.s;
-import c.a.t0.d1.y2.m;
+import c.a.t0.d1.z2.m;
+import c.a.t0.d1.z2.n;
+import c.a.t0.d1.z2.o;
 import c.a.t0.j3.y;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -31,6 +32,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AcceleratorActivityConfig;
 import com.baidu.tbadk.core.atomData.AchievementActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumRuleEditActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
@@ -44,6 +46,7 @@ import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.frs.HorseRace.GetLiveHorseRaceHttpResponseMessage;
 import com.baidu.tieba.frs.HorseRace.GetLiveHorseRaceSocketResponseMessage;
+import com.baidu.tieba.frs.accelerator.AcceleratorActivity;
 import com.baidu.tieba.frs.achievement.AchievementActivity;
 import com.baidu.tieba.frs.broadcast.ForumManagerRightsResMsg;
 import com.baidu.tieba.frs.dynamic.FrsDynamicHttpResponseMessage;
@@ -75,16 +78,16 @@ public class FrsActivityStatic {
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f44677b = true;
+    public static boolean f43033b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f44678c = "";
+    public static String f43034c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final CustomMessageListener f44679d;
+    public static final CustomMessageListener f43035d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CustomMessageListener f44680e;
+    public static final CustomMessageListener f43036e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes12.dex */
@@ -114,7 +117,7 @@ public class FrsActivityStatic {
                 if (customMessage == null || !(customMessage.getData() instanceof TbPageContext)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921336, new r(customMessage.getData(), s.f16847f));
+                return new CustomResponsedMessage<>(2921336, new r(customMessage.getData(), s.f16523f));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -145,7 +148,7 @@ public class FrsActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                x0.a(c.a.t0.d1.x1.a.f17080i, StarTrendsResIdl.class);
+                w0.a(c.a.t0.d1.y1.a.f16798i, StarTrendsResIdl.class);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -290,7 +293,7 @@ public class FrsActivityStatic {
                     if (strArr[0] != null && tbPageContext != null && tbPageContext.getPageActivity() != null) {
                         String lowerCase = strArr[0].toLowerCase();
                         String str2 = strArr.length > 1 ? strArr[1] : null;
-                        int e3 = c.a.d.f.m.b.e(w0.c(lowerCase, "call_from="), 0);
+                        int e3 = c.a.d.f.m.b.e(v0.c(lowerCase, "call_from="), 0);
                         if (!lowerCase.startsWith("http://tieba.baidu.com/f?") && !lowerCase.startsWith("http://tieba.baidu.com/f?")) {
                             if (lowerCase.startsWith(UrlSchemaHelper.SCHEMA_TYPE_FRS)) {
                                 r4 = lowerCase.substring(4);
@@ -301,7 +304,7 @@ public class FrsActivityStatic {
                                     r4 = lowerCase.substring(25);
                                     z2 = true;
                                 } else if (lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && lowerCase.contains(FrsFragment.FORUM_KW)) {
-                                    r4 = w0.c(lowerCase, FrsFragment.FORUM_KW);
+                                    r4 = v0.c(lowerCase, FrsFragment.FORUM_KW);
                                     if (!TextUtils.isEmpty(r4)) {
                                         FrsActivityConfig createNormalCfg = new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(r4, str2);
                                         if (e3 > 0) {
@@ -316,8 +319,8 @@ public class FrsActivityStatic {
                                         return 0;
                                     }
                                 } else if (lowerCase.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_GAME_FRS_TAB)) {
-                                    r4 = w0.c(lowerCase, FrsFragment.FORUM_KW);
-                                    e2 = c.a.d.f.m.b.e(w0.c(lowerCase, "tab_id="), 0);
+                                    r4 = v0.c(lowerCase, FrsFragment.FORUM_KW);
+                                    e2 = c.a.d.f.m.b.e(v0.c(lowerCase, "tab_id="), 0);
                                     z = false;
                                 } else if (lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_FRS)) {
                                     Uri parse = Uri.parse(lowerCase);
@@ -372,7 +375,7 @@ public class FrsActivityStatic {
                             } else {
                                 z = false;
                             }
-                            e2 = c.a.d.f.m.b.e(w0.c(lowerCase, "default_tab_id="), 0);
+                            e2 = c.a.d.f.m.b.e(v0.c(lowerCase, "default_tab_id="), 0);
                         }
                         if (!TextUtils.isEmpty(r4)) {
                             FrsActivityConfig createNormalCfg3 = new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(r4, str2);
@@ -387,8 +390,8 @@ public class FrsActivityStatic {
                             tbPageContext.sendMessage(new CustomMessage(2003000, createNormalCfg3));
                             return 1;
                         } else if (z2 && !TextUtils.isEmpty(r4)) {
-                            c.a.d.f.m.f.startService(TbadkCoreApplication.getInst(), m.c(TbadkCoreApplication.getInst(), r4));
-                            c.a.t0.d1.y2.l.e(lowerCase, 2, 2);
+                            c.a.d.f.m.f.startService(TbadkCoreApplication.getInst(), o.c(TbadkCoreApplication.getInst(), r4));
+                            n.e(lowerCase, 2, 2);
                             return 1;
                         } else if (z) {
                             tbPageContext.showToast(i1.page_not_found);
@@ -434,11 +437,11 @@ public class FrsActivityStatic {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
                 int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
                 if (intValue != 1 && intValue != 4 && intValue != 3 && intValue != 2) {
-                    FrsActivityStatic.f44677b = false;
+                    FrsActivityStatic.f43033b = false;
                     FrsActivityStatic.a = false;
                     return;
                 }
-                FrsActivityStatic.f44677b = true;
+                FrsActivityStatic.f43033b = true;
                 FrsActivityStatic.a = true;
             }
         }
@@ -478,7 +481,7 @@ public class FrsActivityStatic {
             }
             int e2 = c.a.d.f.m.b.e(customResponsedMessage.getData().toString(), 1);
             if (e2 == 1 || e2 == 0) {
-                FrsActivityStatic.f44677b = false;
+                FrsActivityStatic.f43033b = false;
                 FrsActivityStatic.a = false;
             }
         }
@@ -554,7 +557,7 @@ public class FrsActivityStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getCmd() == 2016501 && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                c.a.t0.d1.y2.k.a();
+                m.a();
             }
         }
     }
@@ -587,7 +590,7 @@ public class FrsActivityStatic {
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, c1.CAM_X0302);
-                    layoutParams.setMargins(n.f(context, d1.ds8), 0, n.f(context, d1.ds8), 0);
+                    layoutParams.setMargins(c.a.d.f.p.n.f(context, d1.ds8), 0, c.a.d.f.p.n.f(context, d1.ds8), 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -622,7 +625,7 @@ public class FrsActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                x0.a(c.a.t0.w3.m.WIRE, FrsPageResIdl.class);
+                w0.a(c.a.t0.w3.m.WIRE, FrsPageResIdl.class);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -642,8 +645,8 @@ public class FrsActivityStatic {
                 return;
             }
         }
-        f44679d = new g(2012111);
-        f44680e = new h(2012112);
+        f43035d = new g(2012111);
+        f43036e = new h(2012112);
         TbadkCoreApplication.getInst().RegisterIntent(FrsActivityConfig.class, FrsActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(ForumRuleEditActivityConfig.class, ForumRulesEditActivity.class);
         a();
@@ -657,8 +660,8 @@ public class FrsActivityStatic {
         i();
         f();
         o();
-        MessageManager.getInstance().registerListener(f44679d);
-        MessageManager.getInstance().registerListener(f44680e);
+        MessageManager.getInstance().registerListener(f43035d);
+        MessageManager.getInstance().registerListener(f43036e);
         h();
         m();
         n();
@@ -666,6 +669,7 @@ public class FrsActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(ForumRulesShowActivityConfig.class, ForumRulesShowActivity.class);
         g();
         SwitchManager.getInstance().registerSwitch(c.a.t0.d1.w0.class);
+        TbadkCoreApplication.getInst().RegisterIntent(AcceleratorActivityConfig.class, AcceleratorActivity.class);
     }
 
     public FrsActivityStatic() {

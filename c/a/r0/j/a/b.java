@@ -12,9 +12,7 @@ import org.json.JSONObject;
 public class b extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f11004k;
+    public String k;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -29,7 +27,7 @@ public class b extends e {
                 return;
             }
         }
-        this.f11004k = "";
+        this.k = "";
     }
 
     @Override // c.a.r0.a.n2.s.e
@@ -37,18 +35,18 @@ public class b extends e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f8163h == null) {
-                this.f8163h = new JSONObject();
+            if (this.f7983h == null) {
+                this.f7983h = new JSONObject();
             }
             try {
-                this.f8163h.put("error_code", this.f11004k);
+                this.f7983h.put("error_code", this.k);
             } catch (JSONException e2) {
-                if (e.f8156j) {
+                if (e.f7976j) {
                     e2.printStackTrace();
                 }
             }
-            if (e.f8156j) {
-                String str = "SwanGameAdEvent: mExt=" + this.f8163h + "\t " + Thread.currentThread().getId();
+            if (e.f7976j) {
+                String str = "SwanGameAdEvent: mExt=" + this.f7983h + "\t " + Thread.currentThread().getId();
             }
             return super.f();
         }

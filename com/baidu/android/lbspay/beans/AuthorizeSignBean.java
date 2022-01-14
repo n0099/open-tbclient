@@ -14,7 +14,7 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AuthorizeSignBean extends BaseBean<AuthorizeSignContent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

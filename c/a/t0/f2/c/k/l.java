@@ -21,23 +21,23 @@ public class l implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final BdUniqueId f17925j;
+    public static final BdUniqueId f17491j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f17926e;
+    public String f17492e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f17927f;
+    public String f17493f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17928g;
+    public String f17494g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f17929h;
+    public long f17495h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f17930i;
+    public int f17496i;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class l implements c.a.d.n.e.n {
                 return;
             }
         }
-        f17925j = BdUniqueId.gen();
+        f17491j = BdUniqueId.gen();
     }
 
     public l(DataRes dataRes) {
@@ -82,22 +82,22 @@ public class l implements c.a.d.n.e.n {
         vipUser.task_scores.intValue();
         String str5 = vipUser.name;
         vipUser.id.longValue();
-        this.f17926e = vipUser.portrait;
-        this.f17927f = vipUser.name_show;
-        this.f17928g = vipUser.vip_link;
+        this.f17492e = vipUser.portrait;
+        this.f17493f = vipUser.name_show;
+        this.f17494g = vipUser.vip_link;
         VipInfo vipInfo = vipUser.vipInfo;
         if (vipInfo != null) {
             String str6 = vipInfo.icon_url;
             vipInfo.s_time.intValue();
-            this.f17929h = vipUser.vipInfo.e_time.intValue();
+            this.f17495h = vipUser.vipInfo.e_time.intValue();
             vipUser.now_time.intValue();
-            this.f17930i = vipUser.vipInfo.v_status.intValue();
+            this.f17496i = vipUser.vipInfo.v_status.intValue();
             vipUser.vipInfo.v_level.intValue();
             vipUser.vipInfo.ext_score.intValue();
             vipUser.vipInfo.a_score.intValue();
             vipUser.vipInfo.n_score.intValue();
         } else {
-            this.f17930i = 0;
+            this.f17496i = 0;
         }
         dataRes.today_get_score.intValue();
         dataRes.today_unget_score.intValue();
@@ -109,37 +109,37 @@ public class l implements c.a.d.n.e.n {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17926e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17492e : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17927f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17493f : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new SimpleDateFormat("yyyy-MM-dd").format(new Date(this.f17929h * 1000)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new SimpleDateFormat("yyyy-MM-dd").format(new Date(this.f17495h * 1000)) : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17928g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17494g : (String) invokeV.objValue;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f17925j : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f17491j : (BdUniqueId) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17930i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17496i : invokeV.intValue;
     }
 }

@@ -41,14 +41,14 @@ public class a extends n<c.a.t0.s2.r.a, b> {
 
     /* renamed from: c.a.t0.s2.u.f.a1.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1380a implements View.OnClickListener {
+    public class View$OnClickListenerC1395a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23256e;
+        public final /* synthetic */ a f22613e;
 
-        public View$OnClickListenerC1380a(a aVar) {
+        public View$OnClickListenerC1395a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,25 +63,25 @@ public class a extends n<c.a.t0.s2.r.a, b> {
                     return;
                 }
             }
-            this.f23256e = aVar;
+            this.f22613e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23256e.t == null || this.f23256e.t.f23022e == null || q.a()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22613e.t == null || this.f22613e.t.f22389e == null || q.a()) {
                 return;
             }
             if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.checkUpIsLogin(this.f23256e.n.getPageContext().getPageActivity());
+                ViewHelper.checkUpIsLogin(this.f22613e.n.getPageContext().getPageActivity());
                 return;
             }
-            a aVar = this.f23256e;
+            a aVar = this.f22613e;
             aVar.g0(aVar.t);
-            if (this.f23256e.t.f23022e.b()) {
-                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f23256e.n.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-            } else if (this.f23256e.t.f23022e.a()) {
-                this.f23256e.s.u(this.f23256e.t);
+            if (this.f22613e.t.f22389e.b()) {
+                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f22613e.n.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+            } else if (this.f22613e.t.f22389e.a()) {
+                this.f22613e.s.u(this.f22613e.t);
             }
         }
     }
@@ -93,33 +93,33 @@ public class a extends n<c.a.t0.s2.r.a, b> {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f23257b;
+        public TbImageView f22614b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f23258c;
+        public TextView f22615c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ProgressBar f23259d;
+        public ProgressBar f22616d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f23260e;
+        public TextView f22617e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f23261f;
+        public View f22618f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View.OnClickListener f23262g;
+        public View.OnClickListener f22619g;
 
         /* renamed from: c.a.t0.s2.u.f.a1.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC1381a implements View.OnClickListener {
+        public class View$OnClickListenerC1396a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f23263e;
+            public final /* synthetic */ b f22620e;
 
-            public View$OnClickListenerC1381a(b bVar) {
+            public View$OnClickListenerC1396a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,20 +134,20 @@ public class a extends n<c.a.t0.s2.r.a, b> {
                         return;
                     }
                 }
-                this.f23263e = bVar;
+                this.f22620e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23263e.f23262g == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22620e.f22619g == null) {
                     return;
                 }
-                this.f23263e.f23262g.onClick(view);
+                this.f22620e.f22619g.onClick(view);
             }
         }
 
-        public /* synthetic */ b(View view, View$OnClickListenerC1380a view$OnClickListenerC1380a) {
+        public /* synthetic */ b(View view, View$OnClickListenerC1395a view$OnClickListenerC1395a) {
             this(view);
         }
 
@@ -156,31 +156,31 @@ public class a extends n<c.a.t0.s2.r.a, b> {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, bVar) == null) || bVar == null) {
                 return;
             }
-            this.f23260e.setText(bVar.f23025c);
-            this.f23257b.startLoad(bVar.f23024b, 38, false);
-            this.a.setText(context.getResources().getString(l.pb_ad_card_gift_rate, bVar.f23026d) + "%");
-            int e2 = c.a.d.f.m.b.e(bVar.f23026d, 0);
+            this.f22617e.setText(bVar.f22392c);
+            this.f22614b.startLoad(bVar.f22391b, 38, false);
+            this.a.setText(context.getResources().getString(l.pb_ad_card_gift_rate, bVar.f22393d) + "%");
+            int e2 = c.a.d.f.m.b.e(bVar.f22393d, 0);
             if (e2 > 100) {
                 e2 = 100;
             } else if (e2 < 0) {
                 e2 = 0;
             }
-            this.f23259d.setProgress(e2);
+            this.f22616d.setProgress(e2);
             if (bVar.a()) {
-                this.f23258c.setText(l.pb_ad_card_gift_get);
-                SkinManager.setViewTextColor(this.f23258c, c.a.t0.s2.f.CAM_X0101);
-                SkinManager.setBackgroundResource(this.f23258c, h.btn_pb_ad_card_gift_get);
-                this.f23258c.setClickable(true);
+                this.f22615c.setText(l.pb_ad_card_gift_get);
+                SkinManager.setViewTextColor(this.f22615c, c.a.t0.s2.f.CAM_X0101);
+                SkinManager.setBackgroundResource(this.f22615c, h.btn_pb_ad_card_gift_get);
+                this.f22615c.setClickable(true);
             } else if (bVar.b()) {
-                this.f23258c.setText(l.pb_ad_card_gift_watch_btn);
-                SkinManager.setViewTextColor(this.f23258c, c.a.t0.s2.f.CAM_X0101);
-                SkinManager.setBackgroundResource(this.f23258c, h.btn_pb_ad_card_gift_watch);
-                this.f23258c.setClickable(true);
+                this.f22615c.setText(l.pb_ad_card_gift_watch_btn);
+                SkinManager.setViewTextColor(this.f22615c, c.a.t0.s2.f.CAM_X0101);
+                SkinManager.setBackgroundResource(this.f22615c, h.btn_pb_ad_card_gift_watch);
+                this.f22615c.setClickable(true);
             } else {
-                this.f23258c.setText(l.pb_ad_card_gift_over_btn);
-                SkinManager.setViewTextColor(this.f23258c, c.a.t0.s2.f.CAM_X0109);
-                this.f23258c.setBackgroundResource(h.transparent_bg);
-                this.f23258c.setClickable(false);
+                this.f22615c.setText(l.pb_ad_card_gift_over_btn);
+                SkinManager.setViewTextColor(this.f22615c, c.a.t0.s2.f.CAM_X0109);
+                this.f22615c.setBackgroundResource(h.transparent_bg);
+                this.f22615c.setClickable(false);
             }
             onChangeSkinType();
         }
@@ -188,17 +188,17 @@ public class a extends n<c.a.t0.s2.r.a, b> {
         public final void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                SkinManager.setBackgroundResource(this.f23261f, h.bg_pb_ad_card_gift);
-                SkinManager.setViewTextColor(this.f23260e, c.a.t0.s2.f.CAM_X0105);
+                SkinManager.setBackgroundResource(this.f22618f, h.bg_pb_ad_card_gift);
+                SkinManager.setViewTextColor(this.f22617e, c.a.t0.s2.f.CAM_X0105);
                 SkinManager.setViewTextColor(this.a, c.a.t0.s2.f.CAM_X0107);
-                this.f23259d.setProgressDrawable(SkinManager.getDrawable(h.bg_pb_ad_card_gift_progress));
+                this.f22616d.setProgressDrawable(SkinManager.getDrawable(h.bg_pb_ad_card_gift_progress));
             }
         }
 
         public void setOnClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-                this.f23262g = onClickListener;
+                this.f22619g = onClickListener;
             }
         }
 
@@ -220,18 +220,18 @@ public class a extends n<c.a.t0.s2.r.a, b> {
                     return;
                 }
             }
-            this.f23261f = view.findViewById(i.bg_ad_card_gift);
-            this.f23257b = (TbImageView) view.findViewById(i.img_ad_card_gift_logo);
+            this.f22618f = view.findViewById(i.bg_ad_card_gift);
+            this.f22614b = (TbImageView) view.findViewById(i.img_ad_card_gift_logo);
             this.a = (TextView) view.findViewById(i.txt_ad_card_gift_rate);
-            this.f23258c = (TextView) view.findViewById(i.btn_ad_card_gift_get);
-            this.f23259d = (ProgressBar) view.findViewById(i.progress_ad_card_gift);
-            this.f23260e = (TextView) view.findViewById(i.txt_ad_card_gift_title);
-            this.f23257b.setRadius(c.a.d.f.p.n.f(getView().getContext(), g.tbds20));
-            this.f23257b.setConrers(5);
-            this.f23257b.setDefaultBgResource(c.a.t0.s2.f.cp_atp_a);
-            this.f23257b.setDrawCorner(true);
-            this.f23258c.setOnClickListener(new View$OnClickListenerC1381a(this));
-            this.f23259d.setMax(100);
+            this.f22615c = (TextView) view.findViewById(i.btn_ad_card_gift_get);
+            this.f22616d = (ProgressBar) view.findViewById(i.progress_ad_card_gift);
+            this.f22617e = (TextView) view.findViewById(i.txt_ad_card_gift_title);
+            this.f22614b.setRadius(c.a.d.f.p.n.f(getView().getContext(), g.tbds20));
+            this.f22614b.setConrers(5);
+            this.f22614b.setDefaultBgResource(c.a.t0.s2.f.cp_atp_a);
+            this.f22614b.setDrawCorner(true);
+            this.f22615c.setOnClickListener(new View$OnClickListenerC1396a(this));
+            this.f22616d.setMax(100);
         }
     }
 
@@ -254,7 +254,7 @@ public class a extends n<c.a.t0.s2.r.a, b> {
                 return;
             }
         }
-        this.v = new View$OnClickListenerC1380a(this);
+        this.v = new View$OnClickListenerC1395a(this);
         this.s = new c.a.t0.s2.u.f.a1.b(pbFragment);
     }
 
@@ -267,15 +267,15 @@ public class a extends n<c.a.t0.s2.r.a, b> {
     public final void g0(c.a.t0.s2.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            c.a.t0.v3.c.g().c(this.n.getUniqueId(), c.a.t0.v3.a.e(this.u.O(), "a005", "common_click", 1, aVar.f23023f, true, aVar.f23022e.a + "", null, 18));
+            c.a.t0.v3.c.g().c(this.n.getUniqueId(), c.a.t0.v3.a.e(this.u.O(), "a005", "common_click", 1, aVar.f22390f, true, aVar.f22389e.a + "", null, 18));
         }
     }
 
     public final void h0(c.a.t0.s2.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            String str = aVar.f23022e.a + "";
-            c.a.t0.v3.c.g().d(this.n.getUniqueId(), c.a.t0.v3.a.c(this.u.O().v1(), str, "", null), c.a.t0.v3.a.g(this.u.O(), "a005", "common_exp", aVar.f23023f, true, str, "", 18));
+            String str = aVar.f22389e.a + "";
+            c.a.t0.v3.c.g().d(this.n.getUniqueId(), c.a.t0.v3.a.c(this.u.O().v1(), str, "", null), c.a.t0.v3.a.g(this.u.O(), "a005", "common_exp", aVar.f22390f, true, str, "", 18));
         }
     }
 
@@ -286,7 +286,7 @@ public class a extends n<c.a.t0.s2.r.a, b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            b bVar = new b(LayoutInflater.from(this.f3299e).inflate(j.pb_ad_card_gift_item, viewGroup, false), null);
+            b bVar = new b(LayoutInflater.from(this.f3258e).inflate(j.pb_ad_card_gift_item, viewGroup, false), null);
             bVar.setOnClickListener(this.v);
             return bVar;
         }
@@ -299,10 +299,10 @@ public class a extends n<c.a.t0.s2.r.a, b> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, bVar})) == null) {
             super.S(i2, view, viewGroup, aVar, bVar);
             if (aVar != null && bVar != null) {
-                aVar.f23023f = i2 + 1;
+                aVar.f22390f = i2 + 1;
                 this.t = aVar;
                 h0(aVar);
-                bVar.c(this.f3299e, aVar.f23022e);
+                bVar.c(this.f3258e, aVar.f22389e);
             }
             return view;
         }

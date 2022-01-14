@@ -18,7 +18,7 @@ public interface b {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f15863b;
+        public final long f15459b;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public interface b {
                 }
             }
             this.a = i2;
-            this.f15863b = System.currentTimeMillis();
+            this.f15459b = System.currentTimeMillis();
         }
 
         @Override // c.a.t0.c3.b
@@ -47,7 +47,7 @@ public interface b {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("type", this.a);
-                    jSONObject.put("timestamp", this.f15863b);
+                    jSONObject.put("timestamp", this.f15459b);
                     jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.d());
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -60,18 +60,18 @@ public interface b {
 
     /* renamed from: c.a.t0.c3.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static abstract class AbstractC0980b implements b {
+    public static abstract class AbstractC0993b implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f15864b;
+        public final String f15460b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f15865c;
+        public final long f15461c;
 
-        public AbstractC0980b(int i2, String str) {
+        public AbstractC0993b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,8 +87,8 @@ public interface b {
                 }
             }
             this.a = i2;
-            this.f15864b = str;
-            this.f15865c = System.currentTimeMillis();
+            this.f15460b = str;
+            this.f15461c = System.currentTimeMillis();
         }
 
         @Override // c.a.t0.c3.b
@@ -99,8 +99,8 @@ public interface b {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("type", this.a);
-                    jSONObject.put("source", this.f15864b);
-                    jSONObject.put("timestamp", this.f15865c);
+                    jSONObject.put("source", this.f15460b);
+                    jSONObject.put("timestamp", this.f15461c);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

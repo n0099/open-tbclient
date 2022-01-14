@@ -20,7 +20,7 @@ public class CoordinateConverter {
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoordType f36918b;
+    public CoordType f35702b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -149,10 +149,10 @@ public class CoordinateConverter {
             if (this.a == null) {
                 return null;
             }
-            if (this.f36918b == null) {
-                this.f36918b = CoordType.GPS;
+            if (this.f35702b == null) {
+                this.f35702b = CoordType.GPS;
             }
-            int i2 = a.a[this.f36918b.ordinal()];
+            int i2 = a.a[this.f35702b.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -184,7 +184,7 @@ public class CoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
-            this.f36918b = coordType;
+            this.f35702b = coordType;
             return this;
         }
         return (CoordinateConverter) invokeL.objValue;

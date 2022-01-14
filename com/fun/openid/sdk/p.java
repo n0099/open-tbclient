@@ -53,7 +53,7 @@ public final class p extends Handler {
         }
         int i2 = message.getData().getInt("type");
         String string = message.getData().getString("appid");
-        o oVar = q.f56354j;
+        o oVar = q.f54220j;
         oVar.getClass();
         if (i2 != 0) {
             if (i2 == 1) {
@@ -69,10 +69,10 @@ public final class p extends Handler {
                     r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
                 }
-                q.f56351g = r2;
+                q.f54217g = r2;
                 Context context = q.a;
-                synchronized (q.f56348d) {
-                    q.f56348d.notify();
+                synchronized (q.f54214d) {
+                    q.f54214d.notify();
                 }
                 return;
             } else {
@@ -88,9 +88,9 @@ public final class p extends Handler {
         query = oVar.a.getContentResolver().query(parse, null, null, null, null);
         if (query != null) {
         }
-        q.f56351g = r2;
+        q.f54217g = r2;
         Context context2 = q.a;
-        synchronized (q.f56348d) {
+        synchronized (q.f54214d) {
         }
     }
 }

@@ -27,34 +27,32 @@ public class b {
     public LabelRecommendActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f25245b;
+    public ViewGroup f24540b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f25246c;
+    public View f24541c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f25247d;
+    public TextView f24542d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f25248e;
+    public NoNetworkView f24543e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f25249f;
+    public TextView f24544f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdListView f25250g;
+    public BdListView f24545g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.v1.a.a f25251h;
+    public c.a.t0.v1.a.a f24546h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.v1.d.a f25252i;
+    public c.a.t0.v1.d.a f24547i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f25253j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public List<c.a.t0.v1.b.a> f25254k;
+    public View.OnClickListener f24548j;
+    public List<c.a.t0.v1.b.a> k;
     public List<Integer> l;
     public View.OnClickListener m;
 
@@ -64,7 +62,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f25255e;
+        public final /* synthetic */ b f24549e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -81,7 +79,7 @@ public class b {
                     return;
                 }
             }
-            this.f25255e = bVar;
+            this.f24549e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -89,12 +87,12 @@ public class b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof c.a.t0.v1.b.a)) {
                 Integer valueOf = Integer.valueOf(((c.a.t0.v1.b.a) view.getTag()).a);
-                if (this.f25255e.l.contains(valueOf)) {
-                    this.f25255e.l.remove(valueOf);
+                if (this.f24549e.l.contains(valueOf)) {
+                    this.f24549e.l.remove(valueOf);
                 } else {
-                    this.f25255e.l.add(valueOf);
+                    this.f24549e.l.add(valueOf);
                 }
-                this.f25255e.i();
+                this.f24549e.i();
             }
         }
     }
@@ -114,7 +112,7 @@ public class b {
                 return;
             }
         }
-        this.f25254k = new ArrayList();
+        this.k = new ArrayList();
         this.l = new ArrayList();
         this.m = new a(this);
         if (labelRecommendActivity == null) {
@@ -127,7 +125,7 @@ public class b {
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25245b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24540b : (View) invokeV.objValue;
     }
 
     public List<Integer> d() {
@@ -135,7 +133,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList(this.l);
-            arrayList.add(0, Integer.valueOf(this.f25252i.b()));
+            arrayList.add(0, Integer.valueOf(this.f24547i.b()));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -144,36 +142,36 @@ public class b {
     public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25247d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24542d : (View) invokeV.objValue;
     }
 
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25249f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24544f : (View) invokeV.objValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.setContentView(R.layout.activity_label_recommend);
-            this.f25245b = (ViewGroup) this.a.findViewById(R.id.view_root);
-            this.f25246c = this.a.findViewById(R.id.statebar_view);
-            this.f25247d = (TextView) this.a.findViewById(R.id.skip);
-            this.f25248e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-            this.f25249f = (TextView) this.a.findViewById(R.id.sub_label);
+            this.f24540b = (ViewGroup) this.a.findViewById(R.id.view_root);
+            this.f24541c = this.a.findViewById(R.id.statebar_view);
+            this.f24542d = (TextView) this.a.findViewById(R.id.skip);
+            this.f24543e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
+            this.f24544f = (TextView) this.a.findViewById(R.id.sub_label);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.f25246c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
+                this.f24541c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
             }
             l(0, 0);
-            this.f25250g = (BdListView) this.a.findViewById(R.id.listview);
+            this.f24545g = (BdListView) this.a.findViewById(R.id.listview);
             c.a.t0.v1.a.a aVar = new c.a.t0.v1.a.a(this.a.getPageContext().getPageActivity());
-            this.f25251h = aVar;
+            this.f24546h = aVar;
             aVar.b(this.m);
             c.a.t0.v1.d.a aVar2 = new c.a.t0.v1.d.a(this.a.getPageContext().getPageActivity());
-            this.f25252i = aVar2;
-            this.f25250g.addHeaderView(aVar2.a());
-            this.f25250g.setAdapter((ListAdapter) this.f25251h);
+            this.f24547i = aVar2;
+            this.f24545g.addHeaderView(aVar2.a());
+            this.f24545g.setAdapter((ListAdapter) this.f24546h);
             h();
         }
     }
@@ -181,23 +179,23 @@ public class b {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SkinManager.setViewTextColor(this.f25247d, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f25249f, R.drawable.color_sub_lable_selector);
-            SkinManager.setBackgroundResource(this.f25249f, R.drawable.bule_bg_commen_label_button);
-            this.f25248e.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setViewTextColor(this.f24542d, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f24544f, R.drawable.color_sub_lable_selector);
+            SkinManager.setBackgroundResource(this.f24544f, R.drawable.bule_bg_commen_label_button);
+            this.f24543e.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (c.a.t0.v1.b.a aVar : this.f25254k) {
+            for (c.a.t0.v1.b.a aVar : this.k) {
                 if (aVar != null) {
-                    aVar.f25235c = this.l.contains(Integer.valueOf(aVar.a));
+                    aVar.f24531c = this.l.contains(Integer.valueOf(aVar.a));
                 }
             }
-            this.f25251h.a(this.f25254k);
-            l(this.l.size(), this.f25254k.size());
+            this.f24546h.a(this.k);
+            l(this.l.size(), this.k.size());
         }
     }
 
@@ -208,31 +206,31 @@ public class b {
         }
         for (c.a.t0.v1.b.a aVar : bVar.b()) {
             if (aVar != null) {
-                aVar.f25235c = false;
+                aVar.f24531c = false;
             }
         }
-        this.f25254k.clear();
-        this.f25254k.addAll(bVar.b());
-        this.f25252i.d(bVar.c());
-        this.f25251h.a(this.f25254k);
-        this.f25250g.setVisibility(0);
-        l(0, this.f25254k.size());
+        this.k.clear();
+        this.k.addAll(bVar.b());
+        this.f24547i.d(bVar.c());
+        this.f24546h.a(this.k);
+        this.f24545g.setVisibility(0);
+        l(0, this.k.size());
     }
 
     public void k(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.f25253j = onClickListener;
-            this.f25247d.setOnClickListener(onClickListener);
+            this.f24548j = onClickListener;
+            this.f24542d.setOnClickListener(onClickListener);
         }
     }
 
     public final void l(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            this.f25249f.setEnabled(i2 > 0);
-            this.f25249f.setText(this.a.getString(R.string.start_tieba, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3)}));
-            this.f25249f.setOnClickListener(i2 > 0 ? this.f25253j : null);
+            this.f24544f.setEnabled(i2 > 0);
+            this.f24544f.setText(this.a.getString(R.string.start_tieba, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3)}));
+            this.f24544f.setOnClickListener(i2 > 0 ? this.f24548j : null);
         }
     }
 }

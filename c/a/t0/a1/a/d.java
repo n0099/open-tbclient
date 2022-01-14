@@ -20,19 +20,19 @@ public class d {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RemoveFansController f15414b;
+    public RemoveFansController f15031b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.a1.a.c f15415c;
+    public c.a.t0.a1.a.c f15032c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PersonInfoMoreDialog f15416d;
+    public PersonInfoMoreDialog f15033d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.n4.a f15417e;
+    public c.a.t0.n4.a f15034e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f15418f;
+    public e f15035f;
 
     /* loaded from: classes6.dex */
     public class a implements c.b {
@@ -61,10 +61,10 @@ public class d {
         @Override // c.a.t0.a1.a.c.b
         public void a(int i2, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) || this.a.f15418f == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) || this.a.f15035f == null) {
                 return;
             }
-            this.a.f15418f.b(i2, str, z, 0, 0L);
+            this.a.f15035f.b(i2, str, z, 0, 0L);
         }
     }
 
@@ -95,10 +95,10 @@ public class d {
         @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
         public void onResultCallBack(int i2, String str, long j2, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), Boolean.valueOf(z)}) == null) || this.a.f15418f == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), Boolean.valueOf(z)}) == null) || this.a.f15035f == null) {
                 return;
             }
-            this.a.f15418f.b(i2, str, z, 1, j2);
+            this.a.f15035f.b(i2, str, z, 1, j2);
         }
     }
 
@@ -130,23 +130,23 @@ public class d {
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f15416d.dismiss();
-                if (this.a.f15418f != null) {
-                    this.a.f15418f.a();
+                this.a.f15033d.dismiss();
+                if (this.a.f15035f != null) {
+                    this.a.f15035f.a();
                 }
-                this.a.f15415c.d();
+                this.a.f15032c.d();
             }
         }
     }
 
     /* renamed from: c.a.t0.a1.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0944d implements a.c {
+    public class C0957d implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
 
-        public C0944d(d dVar) {
+        public C0957d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,10 +167,10 @@ public class d {
         @Override // c.a.t0.n4.a.c
         public void onClick() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f15416d == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f15033d == null) {
                 return;
             }
-            this.a.f15416d.dismiss();
+            this.a.f15033d.dismiss();
         }
     }
 
@@ -198,17 +198,17 @@ public class d {
         }
         this.a = tbPageContext;
         c.a.t0.a1.a.c cVar = new c.a.t0.a1.a.c(tbPageContext, bdUniqueId);
-        this.f15415c = cVar;
+        this.f15032c = cVar;
         cVar.e(new a(this));
         RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
-        this.f15414b = removeFansController;
+        this.f15031b = removeFansController;
         removeFansController.setResultCallBack(new b(this));
     }
 
     public void d() {
         c.a.t0.n4.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f15417e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f15034e) == null) {
             return;
         }
         aVar.e();
@@ -224,35 +224,35 @@ public class d {
     public void f(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f15414b.removeFans(j2);
+            this.f15031b.removeFans(j2);
         }
     }
 
     public void g(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f15418f = eVar;
+            this.f15035f = eVar;
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f15416d == null) {
+            if (this.f15033d == null) {
                 c.a.t0.n4.a aVar = new c.a.t0.n4.a(this.a.getContext());
-                this.f15417e = aVar;
+                this.f15034e = aVar;
                 aVar.h(this.a.getString(R.string.confirm_remove_all_forbidden_fans));
                 ArrayList arrayList = new ArrayList();
-                a.b bVar = new a.b(this.a.getString(R.string.confirm), this.f15417e);
+                a.b bVar = new a.b(this.a.getString(R.string.confirm), this.f15034e);
                 bVar.h(new c(this));
                 arrayList.add(bVar);
-                this.f15417e.g(new C0944d(this));
-                this.f15417e.f(arrayList);
-                PersonInfoMoreDialog personInfoMoreDialog = new PersonInfoMoreDialog(this.a.getPageActivity(), this.f15417e.b());
-                this.f15416d = personInfoMoreDialog;
+                this.f15034e.g(new C0957d(this));
+                this.f15034e.f(arrayList);
+                PersonInfoMoreDialog personInfoMoreDialog = new PersonInfoMoreDialog(this.a.getPageActivity(), this.f15034e.b());
+                this.f15033d = personInfoMoreDialog;
                 personInfoMoreDialog.setWindowDimAmount(0.7f);
             }
-            this.f15416d.show();
+            this.f15033d.show();
         }
     }
 }

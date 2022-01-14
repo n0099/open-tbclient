@@ -28,7 +28,7 @@ public final class MaybeToSingle<T> extends Single<T> implements HasUpstreamMayb
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f64577d;
+        public Disposable f62153d;
         public final T defaultValue;
 
         public ToSingleMaybeSubscriber(SingleObserver<? super T> singleObserver, T t) {
@@ -54,8 +54,8 @@ public final class MaybeToSingle<T> extends Single<T> implements HasUpstreamMayb
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f64577d.dispose();
-                this.f64577d = DisposableHelper.DISPOSED;
+                this.f62153d.dispose();
+                this.f62153d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -63,14 +63,14 @@ public final class MaybeToSingle<T> extends Single<T> implements HasUpstreamMayb
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64577d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62153d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f64577d = DisposableHelper.DISPOSED;
+                this.f62153d = DisposableHelper.DISPOSED;
                 T t = this.defaultValue;
                 if (t != null) {
                     this.actual.onSuccess(t);
@@ -84,7 +84,7 @@ public final class MaybeToSingle<T> extends Single<T> implements HasUpstreamMayb
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f64577d = DisposableHelper.DISPOSED;
+                this.f62153d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -92,8 +92,8 @@ public final class MaybeToSingle<T> extends Single<T> implements HasUpstreamMayb
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f64577d, disposable)) {
-                this.f64577d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f62153d, disposable)) {
+                this.f62153d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -102,7 +102,7 @@ public final class MaybeToSingle<T> extends Single<T> implements HasUpstreamMayb
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.f64577d = DisposableHelper.DISPOSED;
+                this.f62153d = DisposableHelper.DISPOSED;
                 this.actual.onSuccess(t);
             }
         }

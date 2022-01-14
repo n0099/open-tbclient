@@ -1,6 +1,6 @@
 package c.a.t0.a0.f.a;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -18,17 +18,17 @@ public class g extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f14700h;
+    public static final BdUniqueId f14350h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d2 f14701e;
+    public e2 f14351e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14702f;
+    public int f14352f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14703g;
+    public boolean f14353g;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class g extends BaseCardInfo {
                 return;
             }
         }
-        f14700h = BdUniqueId.gen();
+        f14350h = BdUniqueId.gen();
     }
 
     public g() {
@@ -64,11 +64,11 @@ public class g extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d2 d2Var = this.f14701e;
-            if (d2Var == null || d2Var.t1() == null || this.f14701e.t1().video_height.intValue() <= 0) {
+            e2 e2Var = this.f14351e;
+            if (e2Var == null || e2Var.t1() == null || this.f14351e.t1().video_height.intValue() <= 0) {
                 return 0.0f;
             }
-            return this.f14701e.t1().video_width.intValue() / this.f14701e.t1().video_height.intValue();
+            return this.f14351e.t1().video_width.intValue() / this.f14351e.t1().video_height.intValue();
         }
         return invokeV.floatValue;
     }
@@ -77,26 +77,26 @@ public class g extends BaseCardInfo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14700h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14350h : (BdUniqueId) invokeV.objValue;
     }
 
     public StatisticItem i(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
-            d2 d2Var = this.f14701e;
-            if (d2Var == null) {
+            e2 e2Var = this.f14351e;
+            if (e2Var == null) {
                 return null;
             }
             int i2 = 1;
-            if (d2Var.p0()) {
+            if (e2Var.p0()) {
                 i2 = 2;
-            } else if (this.f14701e.s1() != null && this.f14701e.s1().a != 0) {
+            } else if (this.f14351e.s1() != null && this.f14351e.s1().a != 0) {
                 i2 = 3;
             }
-            StatisticItem param = new StatisticItem(str).param("tid", this.f14701e.v1()).param("obj_type", i2).param("obj_param1", this.f14701e.a1).param("obj_source", this.f14701e.Z0).param("obj_locate", this.f14702f).param("ab_tag", this.f14701e.b1).param(TiebaStatic.Params.OBJ_PARAM3, g() > 1.0f ? "1" : "0");
+            StatisticItem param = new StatisticItem(str).param("tid", this.f14351e.v1()).param("obj_type", i2).param("obj_param1", this.f14351e.a1).param("obj_source", this.f14351e.Z0).param("obj_locate", this.f14352f).param("ab_tag", this.f14351e.b1).param(TiebaStatic.Params.OBJ_PARAM3, g() > 1.0f ? "1" : "0");
             if (z) {
-                param.param(TiebaStatic.Params.OBJ_PARAM2, this.f14701e.o0() > 0 ? "0" : "1");
+                param.param(TiebaStatic.Params.OBJ_PARAM2, this.f14351e.o0() > 0 ? "0" : "1");
             }
             return param;
         }
@@ -106,6 +106,6 @@ public class g extends BaseCardInfo {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14703g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14353g : invokeV.booleanValue;
     }
 }

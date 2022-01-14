@@ -213,34 +213,34 @@ public class d {
         return (String) invokeLLL.objValue;
     }
 
-    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02da */
-    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02db */
-    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02e7 */
-    /* JADX WARN: Code restructure failed: missing block: B:100:0x0203, code lost:
+    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02de */
+    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02df */
+    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02eb */
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x0204, code lost:
         if (r1 == null) goto L94;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:113:0x0248, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:113:0x024a, code lost:
         if (r1 == null) goto L94;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:126:0x028d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x0290, code lost:
         if (r1 == null) goto L94;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:139:0x02d1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:139:0x02d5, code lost:
         if (r1 == null) goto L94;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:140:0x02d3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:140:0x02d7, code lost:
         r16 = r1;
         r0 = r2;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x0245 A[Catch: all -> 0x02da, TRY_ENTER, TRY_LEAVE, TryCatch #11 {all -> 0x02da, blocks: (B:99:0x0200, B:112:0x0245, B:125:0x028a, B:138:0x02ce), top: B:160:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x028a A[Catch: all -> 0x02da, TRY_ENTER, TRY_LEAVE, TryCatch #11 {all -> 0x02da, blocks: (B:99:0x0200, B:112:0x0245, B:125:0x028a, B:138:0x02ce), top: B:160:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x02ce A[Catch: all -> 0x02da, TRY_ENTER, TRY_LEAVE, TryCatch #11 {all -> 0x02da, blocks: (B:99:0x0200, B:112:0x0245, B:125:0x028a, B:138:0x02ce), top: B:160:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x0200 A[Catch: all -> 0x02da, TRY_ENTER, TRY_LEAVE, TryCatch #11 {all -> 0x02da, blocks: (B:99:0x0200, B:112:0x0245, B:125:0x028a, B:138:0x02ce), top: B:160:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x0247 A[Catch: all -> 0x02de, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x02de, blocks: (B:99:0x0201, B:112:0x0247, B:125:0x028d, B:138:0x02d2), top: B:158:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x028d A[Catch: all -> 0x02de, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x02de, blocks: (B:99:0x0201, B:112:0x0247, B:125:0x028d, B:138:0x02d2), top: B:158:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:138:0x02d2 A[Catch: all -> 0x02de, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x02de, blocks: (B:99:0x0201, B:112:0x0247, B:125:0x028d, B:138:0x02d2), top: B:158:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x0201 A[Catch: all -> 0x02de, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x02de, blocks: (B:99:0x0201, B:112:0x0247, B:125:0x028d, B:138:0x02d2), top: B:158:0x0020 }] */
     /* JADX WARN: Type inference failed for: r0v44 */
     /* JADX WARN: Type inference failed for: r0v51 */
     /* JADX WARN: Type inference failed for: r23v0, types: [java.lang.Object, android.net.Network, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r9v0, types: [java.io.BufferedReader, int] */
+    /* JADX WARN: Type inference failed for: r9v0, types: [int, java.io.BufferedReader] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -485,21 +485,21 @@ public class d {
                         if (inputStream2 == null) {
                             return str4;
                         }
-                    } catch (Throwable unused2) {
-                        return str5;
-                    }
-                } catch (Throwable th3) {
-                    if (r9 != 0) {
-                        try {
-                            r9.close();
-                        } catch (Throwable unused3) {
-                            throw th3;
+                    } catch (Throwable th3) {
+                        if (r9 != 0) {
+                            try {
+                                r9.close();
+                            } catch (Throwable unused2) {
+                                throw th3;
+                            }
                         }
+                        if (network != 0) {
+                            network.close();
+                        }
+                        throw th3;
                     }
-                    if (network != 0) {
-                        network.close();
-                    }
-                    throw th3;
+                } catch (Throwable unused3) {
+                    return str5;
                 }
             } catch (SocketTimeoutException e8) {
                 e = e8;

@@ -35,7 +35,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f48194b;
+        public TextView f46396b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -62,7 +62,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         public void bindDataToView(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                this.f48194b.setText(eVar.f18266e);
+                this.f46396b.setText(eVar.f17819e);
             }
         }
 
@@ -70,7 +70,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
                 TextView textView = (TextView) view.findViewById(i.tv_title);
-                this.f48194b = textView;
+                this.f46396b = textView;
                 c.d(textView).A(l.F_X02);
             }
         }
@@ -82,7 +82,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
                 return;
             }
             SkinManager.setBackgroundColor(getView(), f.CAM_X0202);
-            SkinManager.setViewTextColor(this.f48194b, f.CAM_X0105);
+            SkinManager.setViewTextColor(this.f46396b, f.CAM_X0105);
             this.a = skinType;
         }
     }
@@ -127,7 +127,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f3299e).inflate(j.pb_reclist_title, viewGroup, false));
+            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f3258e).inflate(j.pb_reclist_title, viewGroup, false));
             this.s = viewHolder;
             return viewHolder;
         }

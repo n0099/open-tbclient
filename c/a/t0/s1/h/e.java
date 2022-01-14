@@ -26,12 +26,12 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f22667c;
+    public static e f22046c;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final DialogInterface.OnCancelListener f22668b;
+    public final DialogInterface.OnCancelListener f22047b;
 
     /* loaded from: classes8.dex */
     public class a implements DialogInterface.OnCancelListener {
@@ -39,7 +39,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f22669e;
+        public final /* synthetic */ e f22048e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -56,14 +56,14 @@ public class e {
                     return;
                 }
             }
-            this.f22669e = eVar;
+            this.f22048e = eVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f22669e.c();
+                this.f22048e.c();
             }
         }
     }
@@ -75,13 +75,13 @@ public class e {
         public final c.a.t0.s1.f.i.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f22670b;
+        public final int f22049b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f22671c;
+        public c f22050c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e f22672d;
+        public final /* synthetic */ e f22051d;
 
         /* loaded from: classes8.dex */
         public class a implements c {
@@ -117,8 +117,8 @@ public class e {
                     }
                     d dVar = new d();
                     dVar.a = str;
-                    dVar.f22679b = i3;
-                    dVar.f22680c = i2;
+                    dVar.f22058b = i3;
+                    dVar.f22059c = i2;
                     this.a.publishProgress(dVar);
                 }
             }
@@ -134,23 +134,23 @@ public class e {
 
         /* renamed from: c.a.t0.s1.h.e$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC1348b implements Runnable {
+        public class RunnableC1363b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f22673e;
+            public final /* synthetic */ int f22052e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f22674f;
+            public final /* synthetic */ String f22053f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f22675g;
+            public final /* synthetic */ int f22054g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ b f22676h;
+            public final /* synthetic */ b f22055h;
 
-            public RunnableC1348b(b bVar, int i2, String str, int i3) {
+            public RunnableC1363b(b bVar, int i2, String str, int i3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,20 +165,20 @@ public class e {
                         return;
                     }
                 }
-                this.f22676h = bVar;
-                this.f22673e = i2;
-                this.f22674f = str;
-                this.f22675g = i3;
+                this.f22055h = bVar;
+                this.f22052e = i2;
+                this.f22053f = str;
+                this.f22054g = i3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f22676h.a == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f22055h.a == null) {
                     return;
                 }
-                this.f22676h.a.onProgressUpdate(this.f22673e, this.f22674f, this.f22675g);
-                this.f22676h.a.onCanceled();
+                this.f22055h.a.onProgressUpdate(this.f22052e, this.f22053f, this.f22054g);
+                this.f22055h.a.onCanceled();
             }
         }
 
@@ -188,10 +188,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ List f22677e;
+            public final /* synthetic */ List f22056e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f22678f;
+            public final /* synthetic */ b f22057f;
 
             public c(b bVar, List list) {
                 Interceptable interceptable = $ic;
@@ -208,23 +208,23 @@ public class e {
                         return;
                     }
                 }
-                this.f22678f = bVar;
-                this.f22677e = list;
+                this.f22057f = bVar;
+                this.f22056e = list;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f22677e == null || this.f22678f.a == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f22056e == null || this.f22057f.a == null) {
                     return;
                 }
-                for (d dVar : this.f22677e) {
+                for (d dVar : this.f22056e) {
                     if (dVar != null) {
-                        this.f22678f.a.onProgressUpdate(dVar.f22680c, dVar.a, dVar.f22679b);
+                        this.f22057f.a.onProgressUpdate(dVar.f22059c, dVar.a, dVar.f22058b);
                     }
                 }
-                this.f22678f.a.onCanceled();
-                this.f22677e.clear();
+                this.f22057f.a.onCanceled();
+                this.f22056e.clear();
             }
         }
 
@@ -243,9 +243,9 @@ public class e {
                     return;
                 }
             }
-            this.f22672d = eVar;
-            this.f22671c = new a(this);
-            this.f22670b = i2;
+            this.f22051d = eVar;
+            this.f22050c = new a(this);
+            this.f22049b = i2;
             this.a = bVar;
         }
 
@@ -263,14 +263,14 @@ public class e {
                     Object obj = objArr[0];
                     if (obj instanceof ArrayList) {
                         List<ImMessageCenterShowItemData> list = (List) obj;
-                        int i2 = this.f22670b;
+                        int i2 = this.f22049b;
                         if (i2 == 4) {
-                            this.f22672d.d(list, this.f22671c);
+                            this.f22051d.d(list, this.f22050c);
                         } else if (i2 == 2) {
-                            this.f22672d.f(list, this.f22671c);
+                            this.f22051d.f(list, this.f22050c);
                         }
                     } else if (obj instanceof ImMessageCenterShowItemData) {
-                        this.f22672d.s(((ImMessageCenterShowItemData) obj).getFriendId(), this.f22670b, this.f22671c);
+                        this.f22051d.s(((ImMessageCenterShowItemData) obj).getFriendId(), this.f22049b, this.f22050c);
                     }
                     return 0;
                 }
@@ -291,14 +291,14 @@ public class e {
                     return;
                 }
                 d dVar = dVarArr[0];
-                bVar.onProgressUpdate(dVar.f22680c, dVar.a, dVar.f22679b);
+                bVar.onProgressUpdate(dVar.f22059c, dVar.a, dVar.f22058b);
             }
         }
 
         public final void h(int i2, String str, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-                c.a.d.f.m.e.a().post(new RunnableC1348b(this, i2, str, i3));
+                c.a.d.f.m.e.a().post(new RunnableC1363b(this, i2, str, i3));
             }
         }
 
@@ -364,10 +364,10 @@ public class e {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f22679b;
+        public int f22058b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f22680c;
+        public int f22059c;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -397,21 +397,21 @@ public class e {
                 return;
             }
         }
-        this.f22668b = new a(this);
+        this.f22047b = new a(this);
     }
 
     public static e m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f22667c == null) {
+            if (f22046c == null) {
                 synchronized (e.class) {
-                    if (f22667c == null) {
-                        f22667c = new e();
+                    if (f22046c == null) {
+                        f22046c = new e();
                     }
                 }
             }
-            return f22667c;
+            return f22046c;
         }
         return (e) invokeV.objValue;
     }
@@ -694,8 +694,8 @@ public class e {
             if (o()) {
                 d dVar = new d();
                 dVar.a = str;
-                dVar.f22679b = 2;
-                dVar.f22680c = i2;
+                dVar.f22058b = 2;
+                dVar.f22059c = i2;
                 arrayList.add(dVar);
             } else {
                 cVar.a(i2, str, 2);
@@ -747,7 +747,7 @@ public class e {
             bdProgressDialog1080.setMessage(context.getString(R.string.delete_msg_loading));
             bdProgressDialog1080.setCanceledOnTouchOutside(false);
             bdProgressDialog1080.setCancelable(true);
-            bdProgressDialog1080.setOnCancelListener(this.f22668b);
+            bdProgressDialog1080.setOnCancelListener(this.f22047b);
             return bdProgressDialog1080;
         }
         return (BdProgressDialog1080) invokeL.objValue;

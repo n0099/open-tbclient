@@ -158,7 +158,7 @@ public class s extends h {
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().t0() != null) {
                 this.l.setVisibility(0);
-                this.l.setData(aVar.getThreadData().C2, 13, aVar.getThreadData().E);
+                this.l.setData(aVar.getThreadData().B2, 13, aVar.getThreadData().E);
                 return;
             }
             this.l.setVisibility(8);

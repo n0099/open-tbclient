@@ -29,10 +29,10 @@ public class b {
     public SQLiteDatabase a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.InterfaceC0095a f2590b;
+    public a.InterfaceC0104a f2575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f2591c;
+    public a f2576c;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public class b {
             }
         }
         this.a = null;
-        this.f2590b = null;
-        this.f2591c = aVar;
+        this.f2575b = null;
+        this.f2576c = aVar;
     }
 
     public void a() {
@@ -76,7 +76,7 @@ public class b {
             synchronized (b.class) {
                 a();
                 try {
-                    dropDatabase = this.f2591c.dropDatabase(BdBaseApplication.getInst().getContext());
+                    dropDatabase = this.f2576c.dropDatabase(BdBaseApplication.getInst().getContext());
                 } catch (Exception e2) {
                     BdLog.e("deleteDatabase：" + e2.getMessage());
                     this.a = null;
@@ -94,8 +94,8 @@ public class b {
             synchronized (b.class) {
                 if (this.a == null || !this.a.isOpen()) {
                     try {
-                        this.f2591c.setOnCreateCallback(this.f2590b);
-                        this.a = this.f2591c.getWritableDatabase();
+                        this.f2576c.setOnCreateCallback(this.f2575b);
+                        this.a = this.f2576c.getWritableDatabase();
                     } catch (RuntimeException e2) {
                         if (z) {
                             i(e2, "ensureDatabaseReady");
@@ -219,10 +219,10 @@ public class b {
         return (Cursor) invokeLL.objValue;
     }
 
-    public void k(a.InterfaceC0095a interfaceC0095a) {
+    public void k(a.InterfaceC0104a interfaceC0104a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0095a) == null) {
-            this.f2590b = interfaceC0095a;
+        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0104a) == null) {
+            this.f2575b = interfaceC0104a;
         }
     }
 }

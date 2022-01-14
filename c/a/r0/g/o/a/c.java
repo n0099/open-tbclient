@@ -40,10 +40,10 @@ public class c extends c.a.r0.g.o.a.a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10575b;
+        public String f10347b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f10576c;
+        public long f10348c;
 
         public b(String str, String str2, long j2) {
             Interceptable interceptable = $ic;
@@ -61,18 +61,18 @@ public class c extends c.a.r0.g.o.a.a {
                 }
             }
             this.a = str;
-            this.f10575b = str2;
-            this.f10576c = j2;
+            this.f10347b = str2;
+            this.f10348c = j2;
         }
     }
 
     /* renamed from: c.a.r0.g.o.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0676c implements Comparator<b> {
+    public static class C0685c implements Comparator<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0676c() {
+        public C0685c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,10 +92,10 @@ public class c extends c.a.r0.g.o.a.a {
         public int compare(b bVar, b bVar2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) ? Long.compare(bVar2.f10576c, bVar.f10576c) : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) ? Long.compare(bVar2.f10348c, bVar.f10348c) : invokeLL.intValue;
         }
 
-        public /* synthetic */ C0676c(a aVar) {
+        public /* synthetic */ C0685c(a aVar) {
             this();
         }
     }
@@ -135,7 +135,7 @@ public class c extends c.a.r0.g.o.a.a {
         if (!(interceptable == null || interceptable.invokeLILL(1048576, this, matrixCursor, i2, bVar, pMSAppInfo) == null) || matrixCursor == null || i2 < 0 || bVar == null || pMSAppInfo == null) {
             return;
         }
-        matrixCursor.newRow().add("_id", Integer.valueOf(i2)).add("app_id", pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("app_from", bVar.f10575b).add("visit_time", Long.valueOf(bVar.f10576c));
+        matrixCursor.newRow().add("_id", Integer.valueOf(i2)).add("app_id", pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("app_from", bVar.f10347b).add("visit_time", Long.valueOf(bVar.f10348c));
     }
 
     public final List<b> b() {
@@ -174,7 +174,7 @@ public class c extends c.a.r0.g.o.a.a {
             if (a2.isEmpty()) {
                 return null;
             }
-            Collections.sort(b2, new C0676c(null));
+            Collections.sort(b2, new C0685c(null));
             MatrixCursor matrixCursor = new MatrixCursor(a, b2.size());
             int i2 = 0;
             for (b bVar : b2) {

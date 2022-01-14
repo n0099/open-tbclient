@@ -22,22 +22,22 @@ public class DressupItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47640e;
+    public Context f45868e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47641f;
+    public View f45869f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f47642g;
+    public TbImageView f45870g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f47643h;
+    public TbImageView f45871h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47644i;
+    public TextView f45872i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f47645j;
+    public TextView f45873j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DressupItemView(Context context) {
@@ -57,29 +57,29 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f47640e = context;
+        this.f45868e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f47640e).inflate(R.layout.index_dressup_item, this);
-            this.f47641f = inflate;
-            this.f47642g = (TbImageView) inflate.findViewById(R.id.bg_image);
-            TbImageView tbImageView = (TbImageView) this.f47641f.findViewById(R.id.permission_icon);
-            this.f47643h = tbImageView;
+            View inflate = LayoutInflater.from(this.f45868e).inflate(R.layout.index_dressup_item, this);
+            this.f45869f = inflate;
+            this.f45870g = (TbImageView) inflate.findViewById(R.id.bg_image);
+            TbImageView tbImageView = (TbImageView) this.f45869f.findViewById(R.id.permission_icon);
+            this.f45871h = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f47643h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f47644i = (TextView) this.f47641f.findViewById(R.id.txt_type);
-            this.f47645j = (TextView) this.f47641f.findViewById(R.id.txt_name);
+            this.f45871h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f45872i = (TextView) this.f45869f.findViewById(R.id.txt_type);
+            this.f45873j = (TextView) this.f45869f.findViewById(R.id.txt_name);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.a((TbPageContext) j.a(this.f47640e), this.f47641f);
+            a.a((TbPageContext) j.a(this.f45868e), this.f45869f);
         }
     }
 
@@ -88,10 +88,10 @@ public class DressupItemView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) || jVar == null) {
             return;
         }
-        this.f47642g.startLoad(jVar.b(), 10, false);
-        this.f47643h.startLoad(jVar.e(), 10, false);
-        this.f47645j.setText(jVar.f());
-        this.f47644i.setText(jVar.g());
+        this.f45870g.startLoad(jVar.b(), 10, false);
+        this.f45871h.startLoad(jVar.e(), 10, false);
+        this.f45873j.setText(jVar.f());
+        this.f45872i.setText(jVar.g());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,7 +113,7 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f47640e = context;
+        this.f45868e = context;
         a();
     }
 
@@ -136,7 +136,7 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f47640e = context;
+        this.f45868e = context;
         a();
     }
 }

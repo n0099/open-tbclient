@@ -28,25 +28,23 @@ public final class QuotaSaver implements c<i.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Lazy f40292e;
+    public static final Lazy f38960e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Lazy f40293f;
+    public static final Lazy f38961f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Lazy f40294g;
+    public static final Lazy f38962g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Lazy f40295h;
+    public static final Lazy f38963h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Lazy f40296i;
+    public static final Lazy f38964i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Lazy f40297j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final Lazy f40298k;
+    public static final Lazy f38965j;
+    public static final Lazy k;
     public static final Lazy l;
     public static final Lazy m;
     public static final Lazy n;
@@ -68,14 +66,14 @@ public final class QuotaSaver implements c<i.a> {
             }
         }
         p = new QuotaSaver();
-        f40292e = LazyKt__LazyJVMKt.lazy(QuotaSaver$config$2.INSTANCE);
+        f38960e = LazyKt__LazyJVMKt.lazy(QuotaSaver$config$2.INSTANCE);
         LazyKt__LazyJVMKt.lazy(QuotaSaver$rescueRefractoryPeriod$2.INSTANCE);
-        f40293f = LazyKt__LazyJVMKt.lazy(QuotaSaver$suspendDelayTime$2.INSTANCE);
-        f40294g = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendAll$2.INSTANCE);
-        f40295h = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendV8Timer$2.INSTANCE);
-        f40296i = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendWebViewTimer$2.INSTANCE);
-        f40297j = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendMasterTimer$2.INSTANCE);
-        f40298k = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendSlaveTimer$2.INSTANCE);
+        f38961f = LazyKt__LazyJVMKt.lazy(QuotaSaver$suspendDelayTime$2.INSTANCE);
+        f38962g = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendAll$2.INSTANCE);
+        f38963h = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendV8Timer$2.INSTANCE);
+        f38964i = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendWebViewTimer$2.INSTANCE);
+        f38965j = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendMasterTimer$2.INSTANCE);
+        k = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendSlaveTimer$2.INSTANCE);
         l = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendAnything$2.INSTANCE);
         m = LazyKt__LazyJVMKt.lazy(QuotaSaver$enableSuspend$2.INSTANCE);
         n = LazyKt__LazyJVMKt.lazy(QuotaSaver$optSwitcher$2.INSTANCE);
@@ -99,7 +97,7 @@ public final class QuotaSaver implements c<i.a> {
     public final c.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (c.a) f40292e.getValue() : (c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (c.a) f38960e.getValue() : (c.a) invokeV.objValue;
     }
 
     public final boolean b() {
@@ -123,7 +121,7 @@ public final class QuotaSaver implements c<i.a> {
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ((Boolean) f40294g.getValue()).booleanValue() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ((Boolean) f38962g.getValue()).booleanValue() : invokeV.booleanValue;
     }
 
     public final boolean f() {
@@ -135,31 +133,31 @@ public final class QuotaSaver implements c<i.a> {
     public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((Boolean) f40297j.getValue()).booleanValue() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((Boolean) f38965j.getValue()).booleanValue() : invokeV.booleanValue;
     }
 
     public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? ((Boolean) f40298k.getValue()).booleanValue() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? ((Boolean) k.getValue()).booleanValue() : invokeV.booleanValue;
     }
 
     public final boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ((Boolean) f40295h.getValue()).booleanValue() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ((Boolean) f38963h.getValue()).booleanValue() : invokeV.booleanValue;
     }
 
     public final boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? ((Boolean) f40296i.getValue()).booleanValue() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? ((Boolean) f38964i.getValue()).booleanValue() : invokeV.booleanValue;
     }
 
     public final long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((Number) f40293f.getValue()).longValue() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((Number) f38961f.getValue()).longValue() : invokeV.longValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x002a, code lost:

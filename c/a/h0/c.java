@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int loading_rotate = 2130772132;
+    public static final int loading_rotate = 2130772131;
     public static final int poly_sdk_common_dialog_fragment_in = 2130772211;
     public static final int poly_sdk_common_dialog_fragment_out = 2130772212;
     public static final int popupwindow_grow_fade_in = 2130772217;

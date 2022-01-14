@@ -35,17 +35,17 @@ public class a {
             return (byte[]) invokeL.objValue;
         }
         c cVar = new c();
-        byte[] b2 = b.b(bArr, bArr.length + ((this.a.length + 1) * c.f5036b));
+        byte[] b2 = b.b(bArr, bArr.length + ((this.a.length + 1) * c.f4929b));
         b.a(b2, cVar.b(), bArr.length);
         int i2 = 0;
         while (true) {
             d[] dVarArr = this.a;
             if (i2 >= dVarArr.length) {
-                return Arrays.copyOf(cVar.b(), c.f5036b);
+                return Arrays.copyOf(cVar.b(), c.f4929b);
             }
             d dVar = dVarArr[i2];
             i2++;
-            int length = bArr.length + (c.f5036b * i2);
+            int length = bArr.length + (c.f4929b * i2);
             cVar.a(dVar.b(b2, 0, length), dVar.a(), dVar.c(), dVar.d());
             b.a(b2, cVar.b(), length);
         }

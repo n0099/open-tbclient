@@ -18,36 +18,36 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f8355b;
+    public static volatile a f8172b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.p0.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0492a implements c.a.r0.a.z2.g1.c<Exception> {
+    public class C0501a implements c.a.r0.a.z2.g1.c<Exception> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z2.g1.c f8356e;
+        public final /* synthetic */ c.a.r0.a.z2.g1.c f8173e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8357f;
+        public final /* synthetic */ int f8174f;
 
         /* renamed from: c.a.r0.a.p0.e.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0493a implements c.a.r0.a.z2.g1.c<Exception> {
+        public class C0502a implements c.a.r0.a.z2.g1.c<Exception> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0492a f8358e;
+            public final /* synthetic */ C0501a f8175e;
 
-            public C0493a(C0492a c0492a) {
+            public C0502a(C0501a c0501a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0492a};
+                    Object[] objArr = {c0501a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -57,7 +57,7 @@ public class a {
                         return;
                     }
                 }
-                this.f8358e = c0492a;
+                this.f8175e = c0501a;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +67,7 @@ public class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                     d.l("SwanAppCoresManager", "ensureSwanCore: update swan-js finish. ", exc);
-                    c.a.r0.a.z2.g1.c cVar = this.f8358e.f8356e;
+                    c.a.r0.a.z2.g1.c cVar = this.f8175e.f8173e;
                     if (cVar != null) {
                         cVar.onCallback(exc);
                     }
@@ -75,7 +75,7 @@ public class a {
             }
         }
 
-        public C0492a(a aVar, c.a.r0.a.z2.g1.c cVar, int i2) {
+        public C0501a(a aVar, c.a.r0.a.z2.g1.c cVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,8 +90,8 @@ public class a {
                     return;
                 }
             }
-            this.f8356e = cVar;
-            this.f8357f = i2;
+            this.f8173e = cVar;
+            this.f8174f = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,7 +102,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                 if (exc == null) {
                     d.k("SwanAppCoresManager", "ensureSwanCore: done by update preset ");
-                    c.a.r0.a.z2.g1.c cVar = this.f8356e;
+                    c.a.r0.a.z2.g1.c cVar = this.f8173e;
                     if (cVar != null) {
                         cVar.onCallback(null);
                         return;
@@ -110,7 +110,7 @@ public class a {
                     return;
                 }
                 d.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                c.a.r0.a.q2.b.o(this.f8357f, new C0493a(this));
+                c.a.r0.a.q2.b.o(this.f8174f, new C0502a(this));
             }
         }
     }
@@ -121,21 +121,21 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z2.g1.c f8359e;
+        public final /* synthetic */ c.a.r0.a.z2.g1.c f8176e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8360f;
+        public final /* synthetic */ int f8177f;
 
         /* renamed from: c.a.r0.a.p0.e.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0494a implements c.a.r0.a.z2.g1.c<Exception> {
+        public class C0503a implements c.a.r0.a.z2.g1.c<Exception> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f8361e;
+            public final /* synthetic */ b f8178e;
 
-            public C0494a(b bVar) {
+            public C0503a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -150,7 +150,7 @@ public class a {
                         return;
                     }
                 }
-                this.f8361e = bVar;
+                this.f8178e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -159,7 +159,7 @@ public class a {
             public void onCallback(Exception exc) {
                 c.a.r0.a.z2.g1.c cVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, exc) == null) || (cVar = this.f8361e.f8359e) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, exc) == null) || (cVar = this.f8178e.f8176e) == null) {
                     return;
                 }
                 cVar.onCallback(exc);
@@ -181,8 +181,8 @@ public class a {
                     return;
                 }
             }
-            this.f8359e = cVar;
-            this.f8360f = i2;
+            this.f8176e = cVar;
+            this.f8177f = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -192,14 +192,14 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                 if (exc != null) {
-                    c.a.r0.a.z2.g1.c cVar = this.f8359e;
+                    c.a.r0.a.z2.g1.c cVar = this.f8176e;
                     if (cVar != null) {
                         cVar.onCallback(exc);
                         return;
                     }
                     return;
                 }
-                c.a.r0.a.p0.b.h(this.f8360f, new C0494a(this));
+                c.a.r0.a.p0.b.h(this.f8177f, new C0503a(this));
             }
         }
     }
@@ -210,7 +210,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f8362e;
+        public final /* synthetic */ a f8179e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -227,14 +227,14 @@ public class a {
                     return;
                 }
             }
-            this.f8362e = aVar;
+            this.f8179e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8362e.b();
+                this.f8179e.b();
             }
         }
     }
@@ -273,14 +273,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f8355b == null) {
+            if (f8172b == null) {
                 synchronized (a.class) {
-                    if (f8355b == null) {
-                        f8355b = new a();
+                    if (f8172b == null) {
+                        f8172b = new a();
                     }
                 }
             }
-            return f8355b;
+            return f8172b;
         }
         return (a) invokeV.objValue;
     }
@@ -299,7 +299,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, i2) == null) {
             d.k("SwanAppCoresManager", "ensureSwanCore: invoke frameType = " + i2);
-            g(new C0492a(this, cVar, i2), i2);
+            g(new C0501a(this, cVar, i2), i2);
         }
     }
 

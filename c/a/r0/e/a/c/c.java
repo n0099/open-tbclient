@@ -14,7 +14,7 @@ public class c implements c.a.r0.e.a.b {
     public d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f10519b;
+    public boolean f10292b;
 
     public c(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class c implements c.a.r0.e.a.b {
                 return;
             }
         }
-        this.f10519b = false;
+        this.f10292b = false;
         c(context);
     }
 
@@ -39,8 +39,8 @@ public class c implements c.a.r0.e.a.b {
     public void a() {
         d dVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f10519b && (dVar = this.a) != null && dVar.c()) {
-            this.f10519b = false;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f10292b && (dVar = this.a) != null && dVar.c()) {
+            this.f10292b = false;
             d dVar2 = this.a;
             dVar2.d(dVar2.a(), "", -1);
         }
@@ -50,14 +50,14 @@ public class c implements c.a.r0.e.a.b {
     public void b(int i2) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f10519b || (dVar = this.a) == null || !dVar.c()) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f10292b || (dVar = this.a) == null || !dVar.c()) {
             return;
         }
         d dVar2 = this.a;
         if (dVar2.d(dVar2.a(), "", 0) != 0) {
             return;
         }
-        this.f10519b = true;
+        this.f10292b = true;
     }
 
     public final void c(Context context) {

@@ -1,35 +1,24 @@
 package c.a.c0.p;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes.dex */
-public class b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+public interface b {
+    public static final ServiceReference a = new ServiceReference("nad.core", "ipdx");
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<a> f2209b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final String f2210c;
+    public static final b f2215b = new a();
 
     /* loaded from: classes.dex */
-    public static class a {
+    public static class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public boolean f2211b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f2212c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -41,35 +30,28 @@ public class b {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.f2211b = false;
         }
 
+        @Override // c.a.c0.p.b
+        @NonNull
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
         }
 
-        public String b() {
-            InterceptResult invokeV;
+        @Override // c.a.c0.p.b
+        public void request() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2212c : (String) invokeV.objValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2211b : invokeV.booleanValue;
-        }
-
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.f2211b = z;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
     }
+
+    @NonNull
+    String a();
+
+    void request();
 }

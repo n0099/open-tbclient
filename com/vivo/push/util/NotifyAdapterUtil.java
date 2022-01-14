@@ -242,20 +242,20 @@ public class NotifyAdapterUtil {
             new com.vivo.push.b.p(packageName, j2, insideNotificationItem).b(intent);
             notification.contentIntent = PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, 268435456);
             if (sNotificationManager != null) {
-                int k2 = com.vivo.push.e.a().k();
+                int k = com.vivo.push.e.a().k();
                 try {
-                    if (k2 == 0) {
+                    if (k == 0) {
                         sNotificationManager.notify(sNotifyId, notification);
                         if (aVar != null) {
                             aVar.a();
                         }
-                    } else if (k2 == 1) {
+                    } else if (k == 1) {
                         sNotificationManager.notify((int) j2, notification);
                         if (aVar != null) {
                             aVar.a();
                         }
                     } else {
-                        p.a(TAG, "unknow notify style ".concat(String.valueOf(k2)));
+                        p.a(TAG, "unknow notify style ".concat(String.valueOf(k)));
                     }
                 } catch (Exception e3) {
                     p.a(TAG, e3);
@@ -371,22 +371,22 @@ public class NotifyAdapterUtil {
             new com.vivo.push.b.p(packageName, j2, insideNotificationItem).b(intent);
             builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, 268435456));
             Notification build = builder.build();
-            int k2 = com.vivo.push.e.a().k();
+            int k = com.vivo.push.e.a().k();
             NotificationManager notificationManager = sNotificationManager;
             if (notificationManager != null) {
                 try {
-                    if (k2 == 0) {
+                    if (k == 0) {
                         notificationManager.notify(sNotifyId, build);
                         if (aVar != null) {
                             aVar.a();
                         }
-                    } else if (k2 == 1) {
+                    } else if (k == 1) {
                         notificationManager.notify((int) j2, build);
                         if (aVar != null) {
                             aVar.a();
                         }
                     } else {
-                        p.a(TAG, "unknow notify style ".concat(String.valueOf(k2)));
+                        p.a(TAG, "unknow notify style ".concat(String.valueOf(k)));
                     }
                 } catch (Exception e3) {
                     p.a(TAG, e3);
@@ -402,12 +402,12 @@ public class NotifyAdapterUtil {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65545, null, context, j2)) == null) {
-            int k2 = com.vivo.push.e.a().k();
-            if (k2 != 0) {
-                if (k2 == 1) {
+            int k = com.vivo.push.e.a().k();
+            if (k != 0) {
+                if (k == 1) {
                     return cancelNotify(context, (int) j2);
                 }
-                p.a(TAG, "unknow cancle notify style ".concat(String.valueOf(k2)));
+                p.a(TAG, "unknow cancle notify style ".concat(String.valueOf(k)));
                 return false;
             }
             long b2 = x.b().b("com.vivo.push.notify_key", -1L);

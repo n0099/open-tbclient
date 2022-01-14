@@ -102,7 +102,7 @@ public class DuXRSessionFace {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f33919e;
+        public final /* synthetic */ DuXRSessionFace f32840e;
 
         public b(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -119,14 +119,14 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f33919e = duXRSessionFace;
+            this.f32840e = duXRSessionFace;
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, surfaceTexture) == null) {
-                DuXRSessionFace duXRSessionFace = this.f33919e;
+                DuXRSessionFace duXRSessionFace = this.f32840e;
                 duXRSessionFace.onCameraFrameAvailable(duXRSessionFace.mNativeSessionHandle);
             }
         }
@@ -138,7 +138,7 @@ public class DuXRSessionFace {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f33920e;
+        public final /* synthetic */ DuXRSessionFace f32841e;
 
         public c(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -155,17 +155,17 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f33920e = duXRSessionFace;
+            this.f32841e = duXRSessionFace;
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.f33920e.mAlgoInited) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.f32841e.mAlgoInited) {
                 Message message = new Message();
                 message.what = 114;
                 message.obj = bArr;
-                this.f33920e.mSessionHandler.sendMessage(message);
+                this.f32841e.mSessionHandler.sendMessage(message);
             }
         }
     }

@@ -23,18 +23,18 @@ public abstract class a {
 
     /* renamed from: c.a.t0.s1.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1364a extends k0<Boolean> {
+    public class C1379a extends k0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f22873b;
+        public final /* synthetic */ String f22243b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f22874c;
+        public final /* synthetic */ a f22244c;
 
-        public C1364a(a aVar, String str, String str2) {
+        public C1379a(a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,9 +49,9 @@ public abstract class a {
                     return;
                 }
             }
-            this.f22874c = aVar;
+            this.f22244c = aVar;
             this.a = str;
-            this.f22873b = str2;
+            this.f22243b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +61,7 @@ public abstract class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ChatSetting a = this.f22874c.a(this.a, this.f22873b);
+                ChatSetting a = this.f22244c.a(this.a, this.f22243b);
                 if (a == null) {
                     return Boolean.FALSE;
                 }
@@ -107,7 +107,7 @@ public abstract class a {
     public void d(String str, String str2, s<Boolean> sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, sVar) == null) {
-            n0.c(new C1364a(this, str, str2), sVar);
+            n0.c(new C1379a(this, str, str2), sVar);
         }
     }
 

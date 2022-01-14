@@ -26,10 +26,10 @@ public class b extends i {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1556b;
+        public String f1540b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f1557c;
+        public String f1541c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -56,8 +56,8 @@ public class b extends i {
                     JSONObject jSONObject = new JSONObject(str);
                     a aVar = new a();
                     aVar.a = jSONObject.optString("name");
-                    aVar.f1556b = jSONObject.optString("path");
-                    aVar.f1557c = jSONObject.optString(PackageTable.MD5);
+                    aVar.f1540b = jSONObject.optString("path");
+                    aVar.f1541c = jSONObject.optString(PackageTable.MD5);
                     return aVar;
                 } catch (Exception unused) {
                     return null;
@@ -69,7 +69,7 @@ public class b extends i {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(c cVar) {
-        super(cVar.f1558b, cVar.f1563g);
+        super(cVar.f1542b, cVar.f1547g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public class b extends i {
                 fileInputStream.read(bArr);
                 String str = new String(bArr);
                 fileInputStream.close();
-                JSONArray optJSONArray = new JSONObject(str).optJSONArray(com.baidu.fsg.face.base.b.c.f35136g);
+                JSONArray optJSONArray = new JSONObject(str).optJSONArray(com.baidu.fsg.face.base.b.c.f34001g);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     ArrayList arrayList = new ArrayList();
                     int length = optJSONArray.length();
@@ -132,7 +132,7 @@ public class b extends i {
                 Iterator<a> it = arrayList.iterator();
                 while (it.hasNext()) {
                     a next = it.next();
-                    String str = next.f1556b;
+                    String str = next.f1540b;
                     if (TextUtils.isEmpty(str)) {
                         file2 = new File(file, next.a);
                     } else {
@@ -142,9 +142,9 @@ public class b extends i {
                         return false;
                     }
                     String a2 = e.a(file2.getAbsolutePath());
-                    boolean equals = TextUtils.equals(a2, next.f1557c);
+                    boolean equals = TextUtils.equals(a2, next.f1541c);
                     if (!equals) {
-                        i.j(equals + " " + a2 + "!=" + next.f1557c + StringUtil.ARRAY_ELEMENT_SEPARATOR + file2.getAbsolutePath());
+                        i.j(equals + " " + a2 + "!=" + next.f1541c + StringUtil.ARRAY_ELEMENT_SEPARATOR + file2.getAbsolutePath());
                         return false;
                     }
                 }

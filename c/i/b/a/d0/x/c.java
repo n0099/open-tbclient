@@ -27,25 +27,23 @@ public final class c implements k, p.a<f<b>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.a f30305e;
+    public final b.a f29358e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final n f30306f;
+    public final n f29359f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f30307g;
+    public final int f29360g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final b.a f30308h;
+    public final b.a f29361h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.i.b.a.h0.b f30309i;
+    public final c.i.b.a.h0.b f29362i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final t f30310j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final c.i.b.a.a0.q.k[] f30311k;
+    public final t f29363j;
+    public final c.i.b.a.a0.q.k[] k;
     public k.a l;
     public c.i.b.a.d0.x.e.a m;
     public f<b>[] n;
@@ -66,17 +64,17 @@ public final class c implements k, p.a<f<b>> {
                 return;
             }
         }
-        this.f30305e = aVar2;
-        this.f30306f = nVar;
-        this.f30307g = i2;
-        this.f30308h = aVar3;
-        this.f30309i = bVar;
-        this.f30310j = f(aVar);
-        a.C1645a c1645a = aVar.f30320b;
-        if (c1645a != null) {
-            this.f30311k = new c.i.b.a.a0.q.k[]{new c.i.b.a.a0.q.k(true, null, 8, m(c1645a.f30324b), 0, 0, null)};
+        this.f29358e = aVar2;
+        this.f29359f = nVar;
+        this.f29360g = i2;
+        this.f29361h = aVar3;
+        this.f29362i = bVar;
+        this.f29363j = f(aVar);
+        a.C1661a c1661a = aVar.f29371b;
+        if (c1661a != null) {
+            this.k = new c.i.b.a.a0.q.k[]{new c.i.b.a.a0.q.k(true, null, 8, m(c1661a.f29375b), 0, 0, null)};
         } else {
-            this.f30311k = null;
+            this.k = null;
         }
         this.m = aVar;
         f<b>[] n = n(0);
@@ -90,12 +88,12 @@ public final class c implements k, p.a<f<b>> {
         if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, aVar)) != null) {
             return (t) invokeL.objValue;
         }
-        s[] sVarArr = new s[aVar.f30321c.length];
+        s[] sVarArr = new s[aVar.f29372c.length];
         int i2 = 0;
         while (true) {
-            a.b[] bVarArr = aVar.f30321c;
+            a.b[] bVarArr = aVar.f29372c;
             if (i2 < bVarArr.length) {
-                sVarArr[i2] = new s(bVarArr[i2].f30326c);
+                sVarArr[i2] = new s(bVarArr[i2].f29377c);
                 i2++;
             } else {
                 return new t(sVarArr);
@@ -141,8 +139,8 @@ public final class c implements k, p.a<f<b>> {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, fVar, j2)) == null) {
-            int b2 = this.f30310j.b(fVar.d());
-            return new f<>(this.m.f30321c[b2].a, null, this.f30305e.a(this.f30306f, this.m, b2, fVar, this.f30311k), this, this.f30309i, j2, this.f30307g, this.f30308h);
+            int b2 = this.f29363j.b(fVar.d());
+            return new f<>(this.m.f29372c[b2].a, null, this.f29358e.a(this.f29359f, this.m, b2, fVar, this.k), this, this.f29362i, j2, this.f29360g, this.f29361h);
         }
         return (f) invokeLJ.objValue;
     }
@@ -227,7 +225,7 @@ public final class c implements k, p.a<f<b>> {
     public t k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30310j : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f29363j : (t) invokeV.objValue;
     }
 
     @Override // c.i.b.a.d0.k
@@ -253,7 +251,7 @@ public final class c implements k, p.a<f<b>> {
     public void q() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f30306f.a();
+            this.f29359f.a();
         }
     }
 

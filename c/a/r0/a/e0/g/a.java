@@ -27,20 +27,20 @@ public class a {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5823b;
+    public int f5696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f5824c;
+    public Map<String, Object> f5697c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f5825d;
+    public b f5698d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BufferedWriter f5826e;
+    public BufferedWriter f5699e;
 
     /* renamed from: c.a.r0.a.e0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0293a {
+    public static /* synthetic */ class C0302a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -73,12 +73,12 @@ public class a {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.a.f5824c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.a.f5697c == null) {
                 return;
             }
-            this.a.f5824c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
+            this.a.f5697c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
             JSONObject jSONObject = new JSONObject();
-            for (Map.Entry entry : this.a.f5824c.entrySet()) {
+            for (Map.Entry entry : this.a.f5697c.entrySet()) {
                 try {
                     jSONObject.putOpt((String) entry.getKey(), entry.getValue());
                 } catch (JSONException e2) {
@@ -87,12 +87,12 @@ public class a {
             }
             this.a.e(jSONObject.toString());
             c.a.r0.a.e0.d.i("PropertyLogcat", jSONObject.toString());
-            if (this.a.f5825d != null) {
-                this.a.f5825d.sendEmptyMessageDelayed(100, this.a.f5823b);
+            if (this.a.f5698d != null) {
+                this.a.f5698d.sendEmptyMessageDelayed(100, this.a.f5696b);
             }
         }
 
-        public /* synthetic */ b(a aVar, C0293a c0293a) {
+        public /* synthetic */ b(a aVar, C0302a c0302a) {
             this(aVar);
         }
     }
@@ -127,18 +127,18 @@ public class a {
             }
         }
         this.a = "performance_" + System.currentTimeMillis();
-        this.f5823b = 3000;
+        this.f5696b = 3000;
     }
 
     public final void e(String str) {
         BufferedWriter bufferedWriter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bufferedWriter = this.f5826e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bufferedWriter = this.f5699e) == null) {
             return;
         }
         try {
             bufferedWriter.write(str);
-            this.f5826e.write(10);
+            this.f5699e.write(10);
             c.a.r0.a.e0.d.i("PropertyLogcat", "Export logcat success");
         } catch (IOException e2) {
             c.a.r0.a.e0.d.d("PropertyLogcat", "Logcat write fail", e2);
@@ -156,32 +156,32 @@ public class a {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 1000) {
             return;
         }
-        this.f5823b = i2;
+        this.f5696b = i2;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f5824c == null) {
-                this.f5824c = c.a.r0.a.e0.g.b.g().h();
+            if (this.f5697c == null) {
+                this.f5697c = c.a.r0.a.e0.g.b.g().h();
                 c.a.r0.a.e0.d.i("PropertyLogcat", "Start monitor logcat");
             }
-            if (this.f5825d == null) {
-                this.f5825d = new b(this, null);
+            if (this.f5698d == null) {
+                this.f5698d = new b(this, null);
             }
-            if (this.f5826e == null) {
+            if (this.f5699e == null) {
                 File file = new File(f());
                 try {
                     if (!file.exists()) {
                         file.createNewFile();
                     }
-                    this.f5826e = new BufferedWriter(new FileWriter(file, true));
+                    this.f5699e = new BufferedWriter(new FileWriter(file, true));
                 } catch (IOException e2) {
                     c.a.r0.a.e0.d.d("PropertyLogcat", "Create log file fail", e2);
                 }
             }
-            this.f5825d.removeMessages(100);
-            this.f5825d.sendEmptyMessage(100);
+            this.f5698d.removeMessages(100);
+            this.f5698d.sendEmptyMessage(100);
         }
     }
 
@@ -189,13 +189,13 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f5824c != null) {
+            if (this.f5697c != null) {
                 c.a.r0.a.e0.g.b.g().i();
-                this.f5824c = null;
+                this.f5697c = null;
                 c.a.r0.a.e0.d.i("PropertyLogcat", "Stop monitor logcat");
             }
-            c.a.r0.w.d.d(this.f5826e);
-            this.f5826e = null;
+            c.a.r0.w.d.d(this.f5699e);
+            this.f5699e = null;
             return c.a.r0.a.o2.b.I(f(), c.a.r0.a.d2.e.f0());
         }
         return (String) invokeV.objValue;

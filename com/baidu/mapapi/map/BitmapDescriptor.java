@@ -20,7 +20,7 @@ public final class BitmapDescriptor {
     public Bitmap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bundle f36426b;
+    public Bundle f35230b;
 
     public BitmapDescriptor(Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public final class BitmapDescriptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.a != null) {
-                if (this.f36426b == null) {
+                if (this.f35230b == null) {
                     Bundle bundle = new Bundle();
                     bundle.putInt("image_width", this.a.getWidth());
                     bundle.putInt("image_height", this.a.getHeight());
@@ -94,9 +94,9 @@ public final class BitmapDescriptor {
                         }
                         bundle.putString("image_hashcode", sb.toString());
                     }
-                    this.f36426b = bundle;
+                    this.f35230b = bundle;
                 }
-                return this.f36426b;
+                return this.f35230b;
             }
             throw new IllegalStateException("BDMapSDKException: the bitmap has been recycled! you can not use it again");
         }

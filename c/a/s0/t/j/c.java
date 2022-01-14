@@ -24,24 +24,24 @@ public class c extends c.a.d.c.g.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f14418g;
+    public static c f14083g;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14419b;
+    public int f14084b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f14420c;
+    public long f14085c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final SparseArray<b> f14421d;
+    public final SparseArray<b> f14086d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashSet<Integer> f14422e;
+    public final HashSet<Integer> f14087e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14423f;
+    public int f14088f;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -56,10 +56,10 @@ public class c extends c.a.d.c.g.c {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f14424b;
+        public boolean f14089b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f14425c;
+        public long f14090c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -80,11 +80,11 @@ public class c extends c.a.d.c.g.c {
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 int i3 = this.a + 1;
                 this.a = i3;
-                if (this.f14424b || i3 < i2) {
+                if (this.f14089b || i3 < i2) {
                     return;
                 }
-                this.f14424b = true;
-                this.f14425c = System.currentTimeMillis();
+                this.f14089b = true;
+                this.f14090c = System.currentTimeMillis();
             }
         }
 
@@ -92,9 +92,9 @@ public class c extends c.a.d.c.g.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.a = 0;
-                if (this.f14424b) {
-                    this.f14424b = false;
-                    this.f14425c = 0L;
+                if (this.f14089b) {
+                    this.f14089b = false;
+                    this.f14090c = 0L;
                 }
             }
         }
@@ -117,7 +117,7 @@ public class c extends c.a.d.c.g.c {
                 return;
             }
         }
-        f14418g = new c();
+        f14083g = new c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,24 +136,24 @@ public class c extends c.a.d.c.g.c {
                 return;
             }
         }
-        this.f14419b = 3;
-        this.f14420c = 300000L;
-        this.f14421d = new SparseArray<>();
-        this.f14422e = new HashSet<>();
-        this.f14423f = 0;
+        this.f14084b = 3;
+        this.f14085c = 300000L;
+        this.f14086d = new SparseArray<>();
+        this.f14087e = new HashSet<>();
+        this.f14088f = 0;
         MessageManager.getInstance().registerListener(0, this);
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f14418g : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f14083g : (c) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14423f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14088f : invokeV.intValue;
     }
 
     @Modify(description = "长连接是否可用", type = 32)
@@ -161,29 +161,29 @@ public class c extends c.a.d.c.g.c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.f14423f = 0;
+            this.f14088f = 0;
             if (this.a) {
-                this.f14423f = 3;
+                this.f14088f = 3;
                 return false;
-            } else if (this.f14422e.contains(Integer.valueOf(i2))) {
-                this.f14423f = 6;
+            } else if (this.f14087e.contains(Integer.valueOf(i2))) {
+                this.f14088f = 6;
                 return false;
             } else if (!MessageManager.getInstance().getSocketClient().v()) {
-                this.f14423f = 1;
+                this.f14088f = 1;
                 return false;
             } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().q() > e.j().i() + 20000) {
                 c.a.d.c.e.c.i.a("lcapimgr", i2, 0, "isAPIAvailableNow", 0, "deepsleep");
-                this.f14423f = 2;
+                this.f14088f = 2;
                 return false;
             } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
                 return false;
             } else {
-                b bVar = this.f14421d.get(i2);
-                if (bVar != null && bVar.f14424b) {
-                    if (Math.abs(System.currentTimeMillis() - bVar.f14425c) > this.f14420c) {
+                b bVar = this.f14086d.get(i2);
+                if (bVar != null && bVar.f14089b) {
+                    if (Math.abs(System.currentTimeMillis() - bVar.f14090c) > this.f14085c) {
                         bVar.b();
                     } else {
-                        this.f14423f = 4;
+                        this.f14088f = 4;
                         return false;
                     }
                 }
@@ -196,30 +196,30 @@ public class c extends c.a.d.c.g.c {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            b bVar = this.f14421d.get(i2);
+            b bVar = this.f14086d.get(i2);
             if (bVar == null) {
                 bVar = new b(null);
-                this.f14421d.append(i2, bVar);
+                this.f14086d.append(i2, bVar);
             }
             if (bVar != null) {
-                bVar.a(this.f14419b);
+                bVar.a(this.f14084b);
             }
-            this.f14423f = 5;
+            this.f14088f = 5;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f14421d.remove(i2);
+            this.f14086d.remove(i2);
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (int i2 = 0; i2 < this.f14421d.size(); i2++) {
-                this.f14421d.valueAt(i2).b();
+            for (int i2 = 0; i2 < this.f14086d.size(); i2++) {
+                this.f14086d.valueAt(i2).b();
             }
         }
     }
@@ -234,14 +234,14 @@ public class c extends c.a.d.c.g.c {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f14419b = i2;
+            this.f14084b = i2;
         }
     }
 
     public void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f14420c = j2;
+            this.f14085c = j2;
         }
     }
 
@@ -250,9 +250,9 @@ public class c extends c.a.d.c.g.c {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr) == null) || iArr == null || iArr.length <= 0) {
             return;
         }
-        this.f14422e.clear();
+        this.f14087e.clear();
         for (int i2 : iArr) {
-            this.f14422e.add(Integer.valueOf(i2));
+            this.f14087e.add(Integer.valueOf(i2));
         }
     }
 

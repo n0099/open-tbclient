@@ -15,9 +15,9 @@ public abstract class a implements c {
     public final c.a.t0.m0.h.i.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a.InterfaceC1192a f19775b;
+    public final a.InterfaceC1206a f19262b;
 
-    public a(c.a.t0.m0.h.i.a retainer, a.InterfaceC1192a locator) {
+    public a(c.a.t0.m0.h.i.a retainer, a.InterfaceC1206a locator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,7 +35,7 @@ public abstract class a implements c {
         Intrinsics.checkNotNullParameter(retainer, "retainer");
         Intrinsics.checkNotNullParameter(locator, "locator");
         this.a = retainer;
-        this.f19775b = locator;
+        this.f19262b = locator;
     }
 
     @Override // c.a.t0.m0.h.c
@@ -45,7 +45,7 @@ public abstract class a implements c {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
-            this.f19775b.a(item, j2, displayer, config);
+            this.f19262b.a(item, j2, displayer, config);
         }
     }
 

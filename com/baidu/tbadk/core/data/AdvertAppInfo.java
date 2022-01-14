@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.s0.s.k;
-import c.a.s0.s.q.d2;
 import c.a.s0.s.q.e;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.o0;
 import c.a.t0.j3.d0.c;
 import c.a.t0.j3.z;
@@ -31,7 +31,7 @@ import org.json.JSONObject;
 import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes11.dex */
-public class AdvertAppInfo extends d2 implements o0, c {
+public class AdvertAppInfo extends e2 implements o0, c {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId A4;
     public static final BdUniqueId B4;
@@ -237,7 +237,7 @@ public class AdvertAppInfo extends d2 implements o0, c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!d2.W3.get()) {
+            if (!e2.W3.get()) {
                 z.B();
                 return 31;
             } else if (!z4.get()) {
@@ -413,7 +413,7 @@ public class AdvertAppInfo extends d2 implements o0, c {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? V4() ? this.n4.getDownloadId() : "" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.s0.s.q.d2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
+    @Override // c.a.s0.s.q.e2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         ILegoAdvert iLegoAdvert;

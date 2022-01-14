@@ -502,7 +502,7 @@ public class x {
                 return true;
             }
             f.C0018f e2 = c.a.a1.l.d.f.e(str);
-            if (e2 != null && "audio/mpeg".equals(e2.f1319d)) {
+            if (e2 != null && "audio/mpeg".equals(e2.f1314d)) {
                 String str4 = FileUtils.removeExtention(str) + "mp3toaac.aac";
                 File file = new File(str4);
                 long j4 = (j3 <= 0 || j3 - j2 > a2) ? a2 + j2 : j3;
@@ -596,11 +596,11 @@ public class x {
                 if (e2 != null) {
                     sb4.append(" , 音频format : ");
                     sb4.append(" , bitWidth=");
-                    sb4.append(e2.f1318c);
+                    sb4.append(e2.f1313c);
                     sb4.append(" , channelCount=");
-                    sb4.append(e2.f1317b);
+                    sb4.append(e2.f1312b);
                     sb4.append(" , mime=");
-                    sb4.append(e2.f1319d);
+                    sb4.append(e2.f1314d);
                     sb4.append(" , sampleRate=");
                     sb4.append(e2.a);
                 }

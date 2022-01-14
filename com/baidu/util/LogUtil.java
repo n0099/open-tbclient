@@ -15,11 +15,11 @@ public class LogUtil {
     public static LogUtil a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Boolean f52329c;
+    public static Boolean f50307c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f52330b;
+    public Context f50308b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class LogUtil {
                 return;
             }
         }
-        f52329c = Boolean.FALSE;
+        f50307c = Boolean.FALSE;
     }
 
     public LogUtil(Context context) {
@@ -52,7 +52,7 @@ public class LogUtil {
                 return;
             }
         }
-        this.f52330b = context;
+        this.f50308b = context;
     }
 
     public static synchronized LogUtil getInstance(Context context) {
@@ -74,41 +74,41 @@ public class LogUtil {
     public static void logD(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            f52329c.booleanValue();
+            f50307c.booleanValue();
         }
     }
 
     public static void logE(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            f52329c.booleanValue();
+            f50307c.booleanValue();
         }
     }
 
     public static void logI(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            f52329c.booleanValue();
+            f50307c.booleanValue();
         }
     }
 
     public static void syso(Boolean bool) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, bool) == null) && f52329c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeL(65542, null, bool) == null) && f50307c.booleanValue()) {
             System.out.println(String.valueOf(bool));
         }
     }
 
     public static void syso(Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, obj) == null) && f52329c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeL(65543, null, obj) == null) && f50307c.booleanValue()) {
             System.out.println(String.valueOf(obj));
         }
     }
 
     public static void syso(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && f52329c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && f50307c.booleanValue()) {
             System.out.println(str);
         }
     }
@@ -116,7 +116,7 @@ public class LogUtil {
     public void setSysoLog(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            f52329c = Boolean.valueOf(z);
+            f50307c = Boolean.valueOf(z);
         }
     }
 }

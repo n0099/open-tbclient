@@ -42,7 +42,7 @@ public class i extends c.a.d.n.e.a<m, QualityThreadItemHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f22058e;
+        public final /* synthetic */ i f21458e;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class i extends c.a.d.n.e.a<m, QualityThreadItemHolder> {
                     return;
                 }
             }
-            this.f22058e = iVar;
+            this.f21458e = iVar;
         }
 
         @Override // c.a.d.n.e.w
@@ -67,7 +67,7 @@ public class i extends c.a.d.n.e.a<m, QualityThreadItemHolder> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && nVar != null && (nVar instanceof m)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                this.f22058e.b0((m) nVar);
+                this.f21458e.b0((m) nVar);
             }
         }
     }
@@ -78,13 +78,13 @@ public class i extends c.a.d.n.e.a<m, QualityThreadItemHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22059e;
+        public String f21459e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f22060f;
+        public String f21460f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f22061g;
+        public final /* synthetic */ i f21461g;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -101,24 +101,24 @@ public class i extends c.a.d.n.e.a<m, QualityThreadItemHolder> {
                     return;
                 }
             }
-            this.f22061g = iVar;
+            this.f21461g = iVar;
         }
 
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                this.f22059e = str;
-                this.f22060f = str2;
+                this.f21459e = str;
+                this.f21460f = str2;
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && c.a.d.f.p.m.isForumName(this.f22059e)) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && c.a.d.f.p.m.isForumName(this.f21459e)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f22061g.f3299e).createNormalCfg(this.f22059e, FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                TiebaStatic.log(new StatisticItem("c10523").param("fid", this.f22060f));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f21461g.f3258e).createNormalCfg(this.f21459e, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                TiebaStatic.log(new StatisticItem("c10523").param("fid", this.f21460f));
             }
         }
 
@@ -163,7 +163,7 @@ public class i extends c.a.d.n.e.a<m, QualityThreadItemHolder> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) || mVar == null || mVar.a()) {
             return;
         }
-        String valueOf = String.valueOf(mVar.f22173g);
+        String valueOf = String.valueOf(mVar.f21568g);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.n.getActivity()).createNormalCfg(valueOf, String.valueOf(mVar.n), "hot_topic")));
         TiebaStatic.log(new StatisticItem("c10522").param("tid", valueOf).param("obj_id", this.n.getHotTopicId()));
     }
@@ -178,7 +178,7 @@ public class i extends c.a.d.n.e.a<m, QualityThreadItemHolder> {
             qualityThreadItemHolder.moduleTheme.setVisibility(0);
             qualityThreadItemHolder.contentDividerLine.setVisibility(8);
             qualityThreadItemHolder.threadView.setVisibility(8);
-            qualityThreadItemHolder.moduleTheme.setText(mVar.f22172f.trim());
+            qualityThreadItemHolder.moduleTheme.setText(mVar.f21567f.trim());
             SkinManager.setBackgroundColor(qualityThreadItemHolder.getView(), c.a.t0.q1.b.CAM_X0201);
             return;
         }
@@ -187,11 +187,11 @@ public class i extends c.a.d.n.e.a<m, QualityThreadItemHolder> {
         qualityThreadItemHolder.contentDividerLine.setVisibility(0);
         qualityThreadItemHolder.threadView.setVisibility(0);
         qualityThreadItemHolder.threadImg.startLoad(mVar.o, 10, false);
-        qualityThreadItemHolder.titleView.setText(mVar.f22174h.trim());
-        qualityThreadItemHolder.descView.setText(mVar.f22176j.trim());
+        qualityThreadItemHolder.titleView.setText(mVar.f21569h.trim());
+        qualityThreadItemHolder.descView.setText(mVar.f21571j.trim());
         qualityThreadItemHolder.frsNameView.setText(TbadkCoreApplication.getInst().getString(c.a.t0.q1.h.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.l, 7, false)}));
-        qualityThreadItemHolder.zanTextView.setText(StringHelper.numberUniformFormat(mVar.f22177k));
-        qualityThreadItemHolder.replyTextView.setText(StringHelper.numFormatOver10000(mVar.f22175i));
+        qualityThreadItemHolder.zanTextView.setText(StringHelper.numberUniformFormat(mVar.k));
+        qualityThreadItemHolder.replyTextView.setText(StringHelper.numFormatOver10000(mVar.f21570i));
         g0(qualityThreadItemHolder, mVar);
     }
 
@@ -223,7 +223,7 @@ public class i extends c.a.d.n.e.a<m, QualityThreadItemHolder> {
     public QualityThreadItemHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) ? new QualityThreadItemHolder(LayoutInflater.from(this.f3299e).inflate(c.a.t0.q1.f.hot_topic_quality_item, viewGroup, false)) : (QualityThreadItemHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) ? new QualityThreadItemHolder(LayoutInflater.from(this.f3258e).inflate(c.a.t0.q1.f.hot_topic_quality_item, viewGroup, false)) : (QualityThreadItemHolder) invokeL.objValue;
     }
 
     public View f0(int i2, View view, ViewGroup viewGroup, m mVar, QualityThreadItemHolder qualityThreadItemHolder) {

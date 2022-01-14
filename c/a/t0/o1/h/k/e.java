@@ -2,7 +2,7 @@ package c.a.t0.o1.h.k;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.f0.j;
 import c.a.t0.g0.f0.k;
 import c.a.t0.g0.f0.l;
@@ -32,7 +32,7 @@ import tbclient.Personalized.DataRes;
 import tbclient.Personalized.Resource;
 import tbclient.Personalized.TagStruct;
 import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -215,8 +215,8 @@ public class e {
                 for (App app : list) {
                     c.a.t0.o1.h.j.a aVar = new c.a.t0.o1.h.j.a();
                     aVar.i(app);
-                    if (h2 != null && (advertAppInfo = aVar.f18229e) != null) {
-                        advertAppInfo.b2 = true;
+                    if (h2 != null && (advertAppInfo = aVar.f17784e) != null) {
+                        advertAppInfo.a2 = true;
                         h2.add(advertAppInfo);
                     }
                     AdvertAppInfo g2 = aVar.g();
@@ -254,36 +254,36 @@ public class e {
         return (List) invokeL.objValue;
     }
 
-    public static c.a.t0.g0.f0.b e(d2 d2Var) {
+    public static c.a.t0.g0.f0.b e(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, e2Var)) == null) {
+            if (e2Var == null) {
                 return null;
             }
-            if (d2Var.B1) {
+            if (e2Var.A1) {
                 k kVar = new k();
-                kVar.f18222e = d2Var;
+                kVar.f17778e = e2Var;
                 return kVar;
-            } else if (m.Y(d2Var)) {
-                return new m(d2Var);
+            } else if (m.Y(e2Var)) {
+                return new m(e2Var);
             } else {
-                if (j.Y(d2Var)) {
-                    return new j(d2Var);
+                if (j.Y(e2Var)) {
+                    return new j(e2Var);
                 }
-                if (!k.Y(d2Var) && !k.Z(d2Var)) {
-                    if (l.T(d2Var)) {
-                        return new l(d2Var);
+                if (!k.Y(e2Var) && !k.Z(e2Var)) {
+                    if (l.T(e2Var)) {
+                        return new l(e2Var);
                     }
                     return null;
                 }
                 k kVar2 = new k();
-                d2Var.h2();
-                d2Var.z2();
-                if (!d2Var.h2() && !d2Var.z2()) {
-                    d2Var.c2();
+                e2Var.h2();
+                e2Var.z2();
+                if (!e2Var.h2() && !e2Var.z2()) {
+                    e2Var.c2();
                 }
-                kVar2.f18222e = d2Var;
+                kVar2.f17778e = e2Var;
                 return kVar2;
             }
         }
@@ -302,15 +302,15 @@ public class e {
         return invokeL.intValue;
     }
 
-    public static k g(d2 d2Var) {
+    public static k g(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, d2Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, e2Var)) == null) {
             k kVar = new k();
-            kVar.f18222e = d2Var;
-            d2Var.h2();
-            if (!d2Var.h2()) {
-                d2Var.c2();
+            kVar.f17778e = e2Var;
+            e2Var.h2();
+            if (!e2Var.h2()) {
+                e2Var.c2();
             }
             return kVar;
         }
@@ -479,7 +479,7 @@ public class e {
         if (builder.age_sex == null) {
             builder.age_sex = builder2.age_sex;
             if (builder2.age_sex != null) {
-                c.a.s0.s.g0.b.j().t("has_requested_new_user_guide", true);
+                c.a.s0.s.h0.b.k().u("has_requested_new_user_guide", true);
             }
         }
         if (builder2.interestion != null && builder != null && (list = builder.interestion) != null && list.size() == 0) {
@@ -583,15 +583,15 @@ public class e {
         }
     }
 
-    public static void o(d2 d2Var) {
+    public static void o(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, d2Var) == null) {
-            String A0 = d2Var.A0();
-            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(d2Var.w0() * 1000);
+        if (interceptable == null || interceptable.invokeL(65555, null, e2Var) == null) {
+            String A0 = e2Var.A0();
+            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(e2Var.w0() * 1000);
             if (!TextUtils.isEmpty(A0) && !TextUtils.isEmpty(formatTimeForHomeC)) {
                 A0 = A0 + TbadkCoreApplication.getInst().getString(R.string.send_post) + "   " + TbadkCoreApplication.getInst().getString(R.string.repley_when) + formatTimeForHomeC;
             }
-            d2Var.C4(A0);
+            e2Var.C4(A0);
         }
     }
 
@@ -614,7 +614,7 @@ public class e {
     public static void q(c.a.t0.g0.f0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, bVar) == null) {
-            if (bVar == null || bVar.getThreadData() == null || !bVar.getThreadData().b2 || !bVar.getThreadData().M2()) {
+            if (bVar == null || bVar.getThreadData() == null || !bVar.getThreadData().a2 || !bVar.getThreadData().M2()) {
                 if (bVar instanceof k) {
                     ((k) bVar).C = true;
                 } else if (bVar instanceof l) {

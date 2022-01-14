@@ -14,34 +14,32 @@ public final class SearchType {
     public static final SearchType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SearchType f38978b;
+    public static final SearchType f37692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SearchType f38979c;
+    public static final SearchType f37693c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final SearchType f38980d;
+    public static final SearchType f37694d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SearchType f38981e;
+    public static final SearchType f37695e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final SearchType f38982f;
+    public static final SearchType f37696f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final SearchType f38983g;
+    public static final SearchType f37697g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final SearchType f38984h;
+    public static final SearchType f37698h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final SearchType f38985i;
+    public static final SearchType f37699i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final SearchType f38986j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final SearchType f38987k;
+    public static final SearchType f37700j;
+    public static final SearchType k;
     public static final SearchType l;
     public static final SearchType m;
     public static final SearchType n;
@@ -67,16 +65,16 @@ public final class SearchType {
             }
         }
         a = new SearchType("POI_NEAR_BY_SEARCH", 0);
-        f38978b = new SearchType("POI_IN_CITY_SEARCH", 1);
-        f38979c = new SearchType("POI_IN_BOUND_SEARCH", 2);
-        f38980d = new SearchType("POI_DETAIL_SEARCH", 3);
-        f38981e = new SearchType("INDOOR_POI_SEARCH", 4);
-        f38982f = new SearchType("SUGGESTION_SEARCH_TYPE", 5);
-        f38983g = new SearchType("GEO_CODER", 6);
-        f38984h = new SearchType("REVERSE_GEO_CODER", 7);
-        f38985i = new SearchType("MASS_TRANSIT_ROUTE", 8);
-        f38986j = new SearchType("TRANSIT_ROUTE", 9);
-        f38987k = new SearchType("DRIVE_ROUTE", 10);
+        f37692b = new SearchType("POI_IN_CITY_SEARCH", 1);
+        f37693c = new SearchType("POI_IN_BOUND_SEARCH", 2);
+        f37694d = new SearchType("POI_DETAIL_SEARCH", 3);
+        f37695e = new SearchType("INDOOR_POI_SEARCH", 4);
+        f37696f = new SearchType("SUGGESTION_SEARCH_TYPE", 5);
+        f37697g = new SearchType("GEO_CODER", 6);
+        f37698h = new SearchType("REVERSE_GEO_CODER", 7);
+        f37699i = new SearchType("MASS_TRANSIT_ROUTE", 8);
+        f37700j = new SearchType("TRANSIT_ROUTE", 9);
+        k = new SearchType("DRIVE_ROUTE", 10);
         l = new SearchType("BIKE_ROUTE", 11);
         m = new SearchType("WALK_ROUTE", 12);
         n = new SearchType("INDOOR_ROUTE", 13);
@@ -86,7 +84,7 @@ public final class SearchType {
         r = new SearchType("LOCATION_SEARCH_SHARE", 17);
         SearchType searchType = new SearchType("ROUTE_PLAN_SHARE", 18);
         s = searchType;
-        t = new SearchType[]{a, f38978b, f38979c, f38980d, f38981e, f38982f, f38983g, f38984h, f38985i, f38986j, f38987k, l, m, n, o, p, q, r, searchType};
+        t = new SearchType[]{a, f37692b, f37693c, f37694d, f37695e, f37696f, f37697g, f37698h, f37699i, f37700j, k, l, m, n, o, p, q, r, searchType};
     }
 
     public SearchType(String str, int i2) {

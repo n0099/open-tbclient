@@ -25,25 +25,23 @@ public class f extends ClickableSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12983e;
+    public int f12669e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12984f;
+    public int f12670f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12985g;
+    public int f12671g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12986h;
+    public String f12672h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12987i;
+    public String f12673i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f12988j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f12989k;
+    public int f12674j;
+    public int k;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -52,10 +50,10 @@ public class f extends ClickableSpan {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12990b;
+        public String f12675b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12991c;
+        public String f12676c;
 
         public a(int i2, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -73,8 +71,8 @@ public class f extends ClickableSpan {
                 }
             }
             this.a = i2;
-            this.f12990b = str;
-            this.f12991c = str2;
+            this.f12675b = str;
+            this.f12676c = str2;
         }
     }
 
@@ -93,11 +91,11 @@ public class f extends ClickableSpan {
                 return;
             }
         }
-        this.f12983e = -1;
-        this.f12984f = -1;
-        this.f12989k = 0;
-        this.f12986h = str;
-        this.f12985g = i2;
+        this.f12669e = -1;
+        this.f12670f = -1;
+        this.k = 0;
+        this.f12672h = str;
+        this.f12671g = i2;
     }
 
     public static void a(Context context, i iVar, int i2, String str, String str2) {
@@ -145,14 +143,14 @@ public class f extends ClickableSpan {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12986h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12672h : (String) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.f12985g;
+            int i2 = this.f12671g;
             return i2 == 2 || i2 == 16 || i2 == 18 || i2 == 35 || i2 == 39;
         }
         return invokeV.booleanValue;
@@ -162,7 +160,7 @@ public class f extends ClickableSpan {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.f12985g;
+            int i2 = this.f12671g;
             return i2 == 2 || i2 == 16 || i2 == 18 || i2 == 35 || i2 == 39 || i2 == 1282;
         }
         return invokeV.booleanValue;
@@ -171,41 +169,41 @@ public class f extends ClickableSpan {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f12983e = i2;
+            this.f12669e = i2;
         }
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12985g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12671g : invokeV.intValue;
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f12988j = i2;
+            this.f12674j = i2;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f12987i = str;
+            this.f12673i = str;
         }
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f12984f = i2;
+            this.f12670f = i2;
         }
     }
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f12989k = i2;
+            this.k = i2;
         }
     }
 
@@ -213,10 +211,10 @@ public class f extends ClickableSpan {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.f12985g, this.f12986h, this.f12987i));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.f12671g, this.f12672h, this.f12673i));
             int i2 = 2;
-            if (this.f12985g == 2) {
-                int i3 = this.f12989k;
+            if (this.f12671g == 2) {
+                int i3 = this.k;
                 int i4 = 1;
                 if (i3 == 1) {
                     i2 = 1;
@@ -234,7 +232,7 @@ public class f extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, textPaint) == null) {
-            int i2 = this.f12984f;
+            int i2 = this.f12670f;
             if (i2 != -1) {
                 textPaint.setColor(SkinManager.getColor(i2));
             } else if (f()) {
@@ -243,12 +241,12 @@ public class f extends ClickableSpan {
                 textPaint.setColor(textPaint.linkColor);
             }
             textPaint.setUnderlineText(false);
-            int i3 = this.f12983e;
+            int i3 = this.f12669e;
             if (i3 != -1) {
                 textPaint.bgColor = i3;
-            } else if (this.f12988j == 1 && e()) {
+            } else if (this.f12674j == 1 && e()) {
                 textPaint.bgColor = SkinManager.getColor(R.color.CAM_X0210);
-            } else if (this.f12988j == 2) {
+            } else if (this.f12674j == 2) {
                 textPaint.bgColor = SkinManager.getColor(R.color.transparent);
             }
         }

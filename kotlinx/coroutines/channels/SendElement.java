@@ -40,7 +40,7 @@ public final class SendElement extends Send {
         CancellableContinuation<Unit> cancellableContinuation = this.cont;
         Throwable sendException = closed.getSendException();
         Result.Companion companion = Result.Companion;
-        cancellableContinuation.resumeWith(Result.m702constructorimpl(ResultKt.createFailure(sendException)));
+        cancellableContinuation.resumeWith(Result.m714constructorimpl(ResultKt.createFailure(sendException)));
     }
 
     @Override // kotlinx.coroutines.internal.LockFreeLinkedListNode

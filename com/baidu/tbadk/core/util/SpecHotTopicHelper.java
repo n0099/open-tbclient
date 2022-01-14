@@ -11,8 +11,8 @@ import c.a.d.f.l.d;
 import c.a.d.f.m.e;
 import c.a.d.f.p.n;
 import c.a.d.n.d.a;
-import c.a.s0.s.i0.l;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.j0.l;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc;
@@ -92,16 +92,16 @@ public class SpecHotTopicHelper {
         }
     }
 
-    public static void addSpecTopic(d2 d2Var, SpannableString spannableString, String str, int i2) {
+    public static void addSpecTopic(e2 e2Var, SpannableString spannableString, String str, int i2) {
         a loadBdImageFromLocal;
         a loadBdImageFromLocal2;
         BitmapDrawable bitmapDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65539, null, d2Var, spannableString, str, i2) == null) || d2Var == null || spannableString == null || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeLLLI(65539, null, e2Var, spannableString, str, i2) == null) || e2Var == null || spannableString == null || StringUtils.isNull(str)) {
             return;
         }
-        String y0 = d2Var.y0();
-        String Z0 = d2Var.Z0();
+        String y0 = e2Var.y0();
+        String Z0 = e2Var.Z0();
         if (StringUtils.isNull(y0) || StringUtils.isNull(Z0)) {
             return;
         }
@@ -127,7 +127,7 @@ public class SpecHotTopicHelper {
                         bitmapDrawable.setBounds(0, 0, j3.getWidth(), j3.getHeight());
                     }
                     l lVar = new l(bitmapDrawable);
-                    lVar.b(n.d(TbadkCoreApplication.getInst(), d2Var.q));
+                    lVar.b(n.d(TbadkCoreApplication.getInst(), e2Var.q));
                     int i5 = i2 + i4;
                     spannableString.setSpan(lVar, i5, i5 + 1, 33);
                     i3++;
@@ -204,13 +204,13 @@ public class SpecHotTopicHelper {
         mMap.remove(l);
     }
 
-    public static void setSpecTopicIcon(long j2, d2 d2Var) {
+    public static void setSpecTopicIcon(long j2, e2 e2Var) {
         Pair<String, String> pair;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(65543, null, j2, d2Var) == null) || (pair = mMap.get(Long.valueOf(j2))) == null) {
+        if (!(interceptable == null || interceptable.invokeJL(65543, null, j2, e2Var) == null) || (pair = mMap.get(Long.valueOf(j2))) == null) {
             return;
         }
-        d2Var.I3(j2);
-        d2Var.A4((String) pair.first, (String) pair.second);
+        e2Var.I3(j2);
+        e2Var.A4((String) pair.first, (String) pair.second);
     }
 }

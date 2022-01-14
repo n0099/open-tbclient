@@ -16,33 +16,33 @@ public class a {
 
     /* renamed from: c.a.t0.t1.a.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1428a {
+    public static class C1443a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24383b;
+        public String f23699b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f24384c;
+        public String f23700c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f24385d;
+        public String f23701d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f24386e;
+        public String f23702e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f24387f;
+        public String f23703f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f24388g;
+        public String f23704g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f24389h;
+        public int f23705h;
 
-        public C1428a() {
+        public C1443a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,26 +57,26 @@ public class a {
         }
     }
 
-    public static C1428a a(String str) {
+    public static C1443a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            C1428a c1428a = new C1428a();
+            C1443a c1443a = new C1443a();
             try {
                 JSONArray jSONArray = new JSONArray(str);
                 if (jSONArray.length() > 0) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(0);
                     optJSONObject.optString("title");
-                    c1428a.f24383b = optJSONObject.optString("content");
-                    c1428a.f24384c = optJSONObject.optString("quote_content");
-                    c1428a.f24385d = optJSONObject.optString("fname");
-                    c1428a.f24386e = optJSONObject.optString("thread_id");
-                    c1428a.f24387f = optJSONObject.optString("post_id");
-                    c1428a.f24389h = optJSONObject.optInt("type");
-                    c1428a.f24388g = optJSONObject.optString("title");
+                    c1443a.f23699b = optJSONObject.optString("content");
+                    c1443a.f23700c = optJSONObject.optString("quote_content");
+                    c1443a.f23701d = optJSONObject.optString("fname");
+                    c1443a.f23702e = optJSONObject.optString("thread_id");
+                    c1443a.f23703f = optJSONObject.optString("post_id");
+                    c1443a.f23705h = optJSONObject.optInt("type");
+                    c1443a.f23704g = optJSONObject.optString("title");
                     optJSONObject.optInt("thread_type");
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                     if (optJSONObject2 != null) {
@@ -87,15 +87,15 @@ public class a {
                     JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                     if (optJSONObject3 != null) {
                         optJSONObject3.optString("id");
-                        c1428a.a = optJSONObject3.optInt("gender");
+                        c1443a.a = optJSONObject3.optInt("gender");
                     }
                 }
-                return c1428a;
+                return c1443a;
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (C1428a) invokeL.objValue;
+        return (C1443a) invokeL.objValue;
     }
 }

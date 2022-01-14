@@ -65,12 +65,12 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.h0.
 
         /* renamed from: com.baidu.poly.widget.PolyActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class C1824a implements CommonDialog.f {
+        public class C1840a implements CommonDialog.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C1824a(a aVar) {
+            public C1840a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,7 +130,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.h0.
         public CommonDialog.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C1824a(this) : (CommonDialog.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C1840a(this) : (CommonDialog.f) invokeV.objValue;
         }
     }
 
@@ -217,7 +217,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.h0.
         public final /* synthetic */ c.a.h0.s.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PolyActivity f39092b;
+        public final /* synthetic */ PolyActivity f37802b;
 
         /* loaded from: classes10.dex */
         public class a implements CommonDialog.f {
@@ -248,7 +248,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.h0.
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
                     c cVar = this.a;
-                    cVar.f39092b.jumpToPassAuthWidget(cVar.a);
+                    cVar.f37802b.jumpToPassAuthWidget(cVar.a);
                     dialog.dismiss();
                 }
             }
@@ -269,7 +269,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.h0.
                     return;
                 }
             }
-            this.f39092b = polyActivity;
+            this.f37802b = polyActivity;
             this.a = aVar;
         }
 

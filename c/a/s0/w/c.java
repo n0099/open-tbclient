@@ -37,13 +37,13 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f14509b;
+    public static c f14170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static DownloadData f14510c;
+    public static DownloadData f14171c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<DownloadData> f14511d;
+    public static List<DownloadData> f14172d;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
@@ -140,11 +140,11 @@ public class c {
                             this.a.x(downloadData);
                         }
                     }
-                    DownloadData unused = c.f14510c = null;
-                    if (c.f14511d.isEmpty()) {
+                    DownloadData unused = c.f14171c = null;
+                    if (c.f14172d.isEmpty()) {
                         return;
                     }
-                    c.f14511d.remove(0);
+                    c.f14172d.remove(0);
                     this.a.C();
                 }
             }
@@ -168,7 +168,7 @@ public class c {
                 return;
             }
         }
-        f14511d = new LinkedList();
+        f14172d = new LinkedList();
     }
 
     public c() {
@@ -192,11 +192,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             synchronized (c.class) {
-                if (f14509b == null) {
-                    f14509b = new c();
+                if (f14170b == null) {
+                    f14170b = new c();
                 }
             }
-            return f14509b;
+            return f14170b;
         }
         return (c) invokeV.objValue;
     }
@@ -228,14 +228,14 @@ public class c {
 
     public final void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && f14510c == null) {
-            DownloadData downloadData = (DownloadData) ListUtils.getItem(f14511d, 0);
-            f14510c = downloadData;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && f14171c == null) {
+            DownloadData downloadData = (DownloadData) ListUtils.getItem(f14172d, 0);
+            f14171c = downloadData;
             if (downloadData != null) {
                 b bVar = new b(this, null);
                 this.a = bVar;
                 bVar.setPriority(3);
-                this.a.execute(f14510c);
+                this.a.execute(f14171c);
             }
         }
     }
@@ -436,7 +436,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, arrayList) == null) {
             try {
-                new C0891c(this, null).execute(arrayList);
+                new C0904c(this, null).execute(arrayList);
             } catch (Exception unused) {
             }
         }
@@ -480,7 +480,7 @@ public class c {
             UtilHelper.showToast(TbadkCoreApplication.getInst(), R.string.download_fail_over_max);
             return;
         }
-        f14511d.add(downloadData);
+        f14172d.add(downloadData);
         C();
     }
 
@@ -493,15 +493,15 @@ public class c {
 
     /* renamed from: c.a.s0.w.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0891c extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
+    public class C0904c extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ArrayList<AdvertAppInfo> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f14512b;
+        public final /* synthetic */ c f14173b;
 
-        public C0891c(c cVar) {
+        public C0904c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -516,7 +516,7 @@ public class c {
                     return;
                 }
             }
-            this.f14512b = cVar;
+            this.f14173b = cVar;
             this.a = null;
         }
 
@@ -537,7 +537,7 @@ public class c {
                 while (it.hasNext()) {
                     AdvertAppInfo next = it.next();
                     String downloadId = next.getDownloadId();
-                    if (FileHelper.GetFile(this.f14512b.n(next.w4)) != null) {
+                    if (FileHelper.GetFile(this.f14173b.n(next.w4)) != null) {
                         DownloadData downloadData = new DownloadData(downloadId);
                         downloadData.setStatus(3);
                         linkedList.add(downloadData);
@@ -566,12 +566,12 @@ public class c {
                         }
                     }
                 }
-                this.f14512b.v(list);
+                this.f14173b.v(list);
                 this.a = null;
             }
         }
 
-        public /* synthetic */ C0891c(c cVar, a aVar) {
+        public /* synthetic */ C0904c(c cVar, a aVar) {
             this(cVar);
         }
     }

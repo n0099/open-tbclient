@@ -26,10 +26,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f7437b;
+    public static final String f7273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f7438c;
+    public static final Uri f7274c;
     public transient /* synthetic */ FieldHolder $fh;
     public UriMatcher a;
 
@@ -46,8 +46,8 @@ public class b {
                 return;
             }
         }
-        f7437b = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
-        f7438c = Uri.parse("content://" + f7437b);
+        f7273b = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
+        f7274c = Uri.parse("content://" + f7273b);
     }
 
     public b() {
@@ -65,13 +65,13 @@ public class b {
         }
         UriMatcher uriMatcher = new UriMatcher(-1);
         this.a = uriMatcher;
-        uriMatcher.addURI(f7437b, "favorite", 0);
-        this.a.addURI(f7437b, "favorite_and_aps", 1);
-        this.a.addURI(f7437b, "history", 2);
-        this.a.addURI(f7437b, "history_with_app", 3);
-        this.a.addURI(f7437b, "favorite_with_aps_pms", 4);
-        this.a.addURI(f7437b, "history_with_aps_pms", 5);
-        this.a.addURI(f7437b, "user_behavior", 6);
+        uriMatcher.addURI(f7273b, "favorite", 0);
+        this.a.addURI(f7273b, "favorite_and_aps", 1);
+        this.a.addURI(f7273b, "history", 2);
+        this.a.addURI(f7273b, "history_with_app", 3);
+        this.a.addURI(f7273b, "favorite_with_aps_pms", 4);
+        this.a.addURI(f7273b, "history_with_aps_pms", 5);
+        this.a.addURI(f7273b, "user_behavior", 6);
     }
 
     public static void b() {
@@ -146,7 +146,7 @@ public class b {
                 if (i2 < 0) {
                     return null;
                 }
-                return ContentUris.withAppendedId(f7438c.buildUpon().build(), i2);
+                return ContentUris.withAppendedId(f7274c.buildUpon().build(), i2);
             } else if (match != 2) {
                 if (match == 6 && (e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) != null) {
                     e2.insertWithOnConflict(a(match), null, contentValues, 5);
@@ -159,7 +159,7 @@ public class b {
                     return null;
                 }
                 b();
-                return ContentUris.withAppendedId(f7438c.buildUpon().build(), j2);
+                return ContentUris.withAppendedId(f7274c.buildUpon().build(), j2);
             }
         }
         return (Uri) invokeLL.objValue;
@@ -177,9 +177,9 @@ public class b {
                     l.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
                     return l;
                 case 1:
-                    Cursor k2 = SwanAppDbControl.f(AppRuntime.getAppContext()).k(strArr, str, strArr2, str2);
-                    k2.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return k2;
+                    Cursor k = SwanAppDbControl.f(AppRuntime.getAppContext()).k(strArr, str, strArr2, str2);
+                    k.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                    return k;
                 case 2:
                     Cursor n = SwanAppDbControl.f(AppRuntime.getAppContext()).n(strArr, str, strArr2, str2);
                     n.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);

@@ -25,7 +25,7 @@ public class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f10398b;
+    public static final String[] f10173b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -34,14 +34,14 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0660b f10399e;
+        public final /* synthetic */ InterfaceC0669b f10174e;
 
-        public a(InterfaceC0660b interfaceC0660b) {
+        public a(InterfaceC0669b interfaceC0669b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC0660b};
+                Object[] objArr = {interfaceC0669b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -51,23 +51,23 @@ public class b {
                     return;
                 }
             }
-            this.f10399e = interfaceC0660b;
+            this.f10174e = interfaceC0669b;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            InterfaceC0660b interfaceC0660b;
+            InterfaceC0669b interfaceC0669b;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC0660b = this.f10399e) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC0669b = this.f10174e) == null) {
                 return;
             }
-            interfaceC0660b.onResult(i2 == -1);
+            interfaceC0669b.onResult(i2 == -1);
         }
     }
 
     /* renamed from: c.a.r0.b.p.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0660b {
+    public interface InterfaceC0669b {
         void onResult(boolean z);
     }
 
@@ -85,13 +85,13 @@ public class b {
             }
         }
         a = k.a;
-        f10398b = new String[]{"BLA-AL00", "R7Plus"};
+        f10173b = new String[]{"BLA-AL00", "R7Plus"};
     }
 
-    public static DialogInterface.OnClickListener a(InterfaceC0660b interfaceC0660b) {
+    public static DialogInterface.OnClickListener a(InterfaceC0669b interfaceC0669b) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, interfaceC0660b)) == null) ? new a(interfaceC0660b) : (DialogInterface.OnClickListener) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, interfaceC0669b)) == null) ? new a(interfaceC0669b) : (DialogInterface.OnClickListener) invokeL.objValue;
     }
 
     public static boolean b(Context context) {
@@ -120,7 +120,7 @@ public class b {
     public static void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (!Arrays.asList(f10398b).contains(Build.MODEL)) {
+            if (!Arrays.asList(f10173b).contains(Build.MODEL)) {
                 Intent intent = new Intent();
                 intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
                 int i2 = Build.VERSION.SDK_INT;
@@ -146,16 +146,16 @@ public class b {
         }
     }
 
-    public static void e(Context context, InterfaceC0660b interfaceC0660b) {
+    public static void e(Context context, InterfaceC0669b interfaceC0669b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, interfaceC0660b) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, interfaceC0669b) == null) {
             if (!(context instanceof Activity)) {
                 if (a) {
                     throw new IllegalArgumentException("context must be activity.");
                 }
-            } else if (interfaceC0660b == null) {
+            } else if (interfaceC0669b == null) {
             } else {
-                DialogInterface.OnClickListener a2 = a(interfaceC0660b);
+                DialogInterface.OnClickListener a2 = a(interfaceC0669b);
                 SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(context);
                 aVar.n(new c.a.r0.a.a3.h.a());
                 SwanAppAlertDialog c2 = aVar.c();

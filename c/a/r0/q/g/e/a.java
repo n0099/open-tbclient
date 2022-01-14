@@ -28,14 +28,14 @@ public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f11734f = null;
+    public static volatile a f11468f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f11735g = 12;
+    public static final int f11469g = 12;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConcurrentHashMap<Class<?>, c.a.r0.q.g.d.a> f11736e;
+    public ConcurrentHashMap<Class<?>, c.a.r0.q.g.d.a> f11470e;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class a extends SQLiteOpenHelper {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a() {
-        this("ai_apps_pms.db", f11735g);
+        this("ai_apps_pms.db", f11469g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,14 +76,14 @@ public class a extends SQLiteOpenHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f11734f == null) {
+            if (f11468f == null) {
                 synchronized (a.class) {
-                    if (f11734f == null) {
-                        f11734f = new a();
+                    if (f11468f == null) {
+                        f11468f = new a();
                     }
                 }
             }
-            return f11734f;
+            return f11468f;
         }
         return (a) invokeV.objValue;
     }
@@ -92,14 +92,14 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ConcurrentHashMap<Class<?>, c.a.r0.q.g.d.a> concurrentHashMap = new ConcurrentHashMap<>();
-            this.f11736e = concurrentHashMap;
+            this.f11470e = concurrentHashMap;
             concurrentHashMap.put(g.class, new e());
-            this.f11736e.put(h.class, new f());
-            this.f11736e.put(PMSAppInfo.class, new c.a.r0.q.g.d.b());
-            this.f11736e.put(c.a.r0.q.i.e.class, new d());
-            this.f11736e.put(c.class, new c.a.r0.q.g.d.c());
-            this.f11736e.put(i.class, new c.a.r0.q.g.d.g());
-            this.f11736e.put(j.class, new c.a.r0.q.g.d.h());
+            this.f11470e.put(h.class, new f());
+            this.f11470e.put(PMSAppInfo.class, new c.a.r0.q.g.d.b());
+            this.f11470e.put(c.a.r0.q.i.e.class, new d());
+            this.f11470e.put(c.class, new c.a.r0.q.g.d.c());
+            this.f11470e.put(i.class, new c.a.r0.q.g.d.g());
+            this.f11470e.put(j.class, new c.a.r0.q.g.d.h());
         }
     }
 
@@ -107,7 +107,7 @@ public class a extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-            for (c.a.r0.q.g.d.a aVar : this.f11736e.values()) {
+            for (c.a.r0.q.g.d.a aVar : this.f11470e.values()) {
                 aVar.a(sQLiteDatabase);
             }
         }
@@ -117,7 +117,7 @@ public class a extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i2, i3) == null) {
-            for (c.a.r0.q.g.d.a aVar : this.f11736e.values()) {
+            for (c.a.r0.q.g.d.a aVar : this.f11470e.values()) {
                 aVar.onUpgrade(sQLiteDatabase, i2, i3);
             }
         }
@@ -126,7 +126,7 @@ public class a extends SQLiteOpenHelper {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            f11734f = null;
+            f11468f = null;
         }
     }
 

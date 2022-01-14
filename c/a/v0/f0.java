@@ -18,10 +18,10 @@ public class f0 implements c.a.v0.n0.d {
     public c.a.v0.o0.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IPCService f27233b;
+    public IPCService f26423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.v0.o0.b f27234c;
+    public c.a.v0.o0.b f26424c;
 
     public f0() {
         Interceptable interceptable = $ic;
@@ -55,10 +55,10 @@ public class f0 implements c.a.v0.n0.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f27233b == null) {
-                this.f27233b = new IPCService();
+            if (this.f26423b == null) {
+                this.f26423b = new IPCService();
             }
-            return this.f27233b;
+            return this.f26423b;
         }
         return (c.a.v0.n0.c) invokeV.objValue;
     }
@@ -82,10 +82,10 @@ public class f0 implements c.a.v0.n0.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f27234c == null) {
-                this.f27234c = new c.a.v0.o0.b();
+            if (this.f26424c == null) {
+                this.f26424c = new c.a.v0.o0.b();
             }
-            return this.f27234c;
+            return this.f26424c;
         }
         return (c.a.v0.n0.b) invokeV.objValue;
     }

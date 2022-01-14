@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AdExportDownloadView extends ApkDownloadView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC1135a l;
+    public a.InterfaceC1149a l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdExportDownloadView(Context context, AttributeSet attributeSet, int i2) {
@@ -40,10 +40,10 @@ public class AdExportDownloadView extends ApkDownloadView {
     }
 
     @Nullable
-    public a.InterfaceC1135a getRegisterListener() {
+    public a.InterfaceC1149a getRegisterListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (a.InterfaceC1135a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (a.InterfaceC1149a) invokeV.objValue;
     }
 
     public void setBackGroundDrawable(@DrawableRes int i2) {
@@ -74,10 +74,10 @@ public class AdExportDownloadView extends ApkDownloadView {
         }
     }
 
-    public void setRegisterListener(@Nullable a.InterfaceC1135a interfaceC1135a) {
+    public void setRegisterListener(@Nullable a.InterfaceC1149a interfaceC1149a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC1135a) == null) {
-            this.l = interfaceC1135a;
+        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC1149a) == null) {
+            this.l = interfaceC1149a;
         }
     }
 

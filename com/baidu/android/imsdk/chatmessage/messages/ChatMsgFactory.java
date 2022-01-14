@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.content.Context;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -201,9 +202,9 @@ public class ChatMsgFactory {
                                                                                 return new AlertMsg();
                                                                             case 2010:
                                                                                 return new RedNotifyMsg();
-                                                                            case 2012:
+                                                                            case IMConstants.IM_MSG_TYPE_SHIELD_ME /* 2012 */:
                                                                                 return new ShieldMsg();
-                                                                            case 2014:
+                                                                            case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL /* 2014 */:
                                                                                 return new UnSubscribeMsg();
                                                                             default:
                                                                                 switch (i2) {

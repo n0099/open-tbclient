@@ -32,11 +32,11 @@ public class a {
 
     /* renamed from: c.a.r0.a.f1.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0312a implements c<PMSAppInfo> {
+    public static class C0321a implements c<PMSAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0312a() {
+        public C0321a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class a {
             }
             dVar.d("4");
             b bVar = new b(string);
-            bVar.f0(new C0312a());
+            bVar.f0(new C0321a());
             bVar.M(3);
             c.a.r0.q.b.c(dVar, bVar);
         }

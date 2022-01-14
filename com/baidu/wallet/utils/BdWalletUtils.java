@@ -38,13 +38,13 @@ public class BdWalletUtils {
     public static final String a = "__Baidu_Wallet_SDK_FP";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f54796b = "device_fp";
+    public static final String f52711b = "device_fp";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f54797c = "__Baidu_Wallet_SDK_KEFU";
+    public static final String f52712c = "__Baidu_Wallet_SDK_KEFU";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f54798d = "kefu_phone_num";
+    public static final String f52713d = "kefu_phone_num";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BdWalletUtils() {
@@ -116,7 +116,7 @@ public class BdWalletUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            String str = (String) SharedPreferencesUtils.getParam(context, a, f54796b, "");
+            String str = (String) SharedPreferencesUtils.getParam(context, a, f52711b, "");
             return !TextUtils.isEmpty(str) ? SafePay.getInstance().localDecrypt1(str) : str;
         }
         return (String) invokeL.objValue;
@@ -149,7 +149,7 @@ public class BdWalletUtils {
             if (context == null) {
                 return "";
             }
-            String str = (String) SharedPreferencesUtils.getParam(context, f54797c, f54798d, "");
+            String str = (String) SharedPreferencesUtils.getParam(context, f52712c, f52713d, "");
             return TextUtils.isEmpty(str) ? ResUtils.getString(context, "wallet_base_help_phone_no_dial") : str;
         }
         return (String) invokeL.objValue;
@@ -219,7 +219,7 @@ public class BdWalletUtils {
         if (!(interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) || str == null) {
             return;
         }
-        SharedPreferencesUtils.setParam(context, a, f54796b, SafePay.getInstance().localEncrypt1(str));
+        SharedPreferencesUtils.setParam(context, a, f52711b, SafePay.getInstance().localEncrypt1(str));
     }
 
     public static void setKefuPhoneNumToSP(Context context, String str) {
@@ -227,7 +227,7 @@ public class BdWalletUtils {
         if (!(interceptable == null || interceptable.invokeLL(65550, null, context, str) == null) || str == null || context == null) {
             return;
         }
-        SharedPreferencesUtils.setParam(context, f54797c, f54798d, str);
+        SharedPreferencesUtils.setParam(context, f52712c, f52713d, str);
     }
 
     public static void showThemeDialog(Context context, String str, String str2, String str3, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
@@ -241,7 +241,7 @@ public class BdWalletUtils {
                 public final /* synthetic */ View.OnClickListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PromptDialog f54799b;
+                public final /* synthetic */ PromptDialog f52714b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -259,7 +259,7 @@ public class BdWalletUtils {
                         }
                     }
                     this.a = onClickListener;
-                    this.f54799b = promptDialog;
+                    this.f52714b = promptDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -270,7 +270,7 @@ public class BdWalletUtils {
                         if (onClickListener3 != null) {
                             onClickListener3.onClick(view);
                         }
-                        this.f54799b.dismiss();
+                        this.f52714b.dismiss();
                     }
                 }
             });
@@ -280,7 +280,7 @@ public class BdWalletUtils {
                 public final /* synthetic */ View.OnClickListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PromptDialog f54800b;
+                public final /* synthetic */ PromptDialog f52715b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -298,7 +298,7 @@ public class BdWalletUtils {
                         }
                     }
                     this.a = onClickListener2;
-                    this.f54800b = promptDialog;
+                    this.f52715b = promptDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -309,7 +309,7 @@ public class BdWalletUtils {
                         if (onClickListener3 != null) {
                             onClickListener3.onClick(view);
                         }
-                        this.f54800b.dismiss();
+                        this.f52715b.dismiss();
                     }
                 }
             });

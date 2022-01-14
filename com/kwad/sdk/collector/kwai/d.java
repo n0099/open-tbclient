@@ -7,22 +7,22 @@ public class d extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk
     public int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57708b = 0;
+    public int f55522b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57709c = 0;
+    public int f55523c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f57710d = 0;
+    public int f55524d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57711e = 0;
+    public int f55525e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57712f = 0;
+    public int f55526f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57713g = 0;
+    public int f55527g = 0;
 
     public d(Context context) {
         if (context != null) {
@@ -39,22 +39,22 @@ public class d extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk
     }
 
     public void b(boolean z) {
-        this.f57708b = g(z);
+        this.f55522b = g(z);
     }
 
     public void c(boolean z) {
-        this.f57709c = g(z);
+        this.f55523c = g(z);
     }
 
     public void d(boolean z) {
-        this.f57711e = g(z);
+        this.f55525e = g(z);
     }
 
     public void e(boolean z) {
-        this.f57712f = g(z);
+        this.f55526f = g(z);
     }
 
     public void f(boolean z) {
-        this.f57713g = g(z);
+        this.f55527g = g(z);
     }
 }

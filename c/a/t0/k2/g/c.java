@@ -17,7 +17,7 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f19255b;
+    public String f18762b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class c {
             }
         }
         this.a = 0;
-        this.f19255b = null;
+        this.f18762b = null;
     }
 
     public int a() {
@@ -45,7 +45,7 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19255b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18762b : (String) invokeV.objValue;
     }
 
     public void c(String str) {
@@ -65,7 +65,7 @@ public class c {
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
             try {
                 this.a = jSONObject.optInt("errno");
-                this.f19255b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+                this.f18762b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
             } catch (Exception e2) {
                 BdLog.detailException(e2);
             }

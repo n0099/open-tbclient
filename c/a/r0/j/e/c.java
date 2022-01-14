@@ -47,8 +47,8 @@ public class c {
             } else {
                 a a2 = b.a();
                 codeCacheSetting.maxCount = a2.a;
-                codeCacheSetting.sizeLimit = a2.f11195b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = a2.f11196c;
+                codeCacheSetting.sizeLimit = a2.f10947b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = a2.f10948c;
             }
             if (a) {
                 String str3 = "buildCacheSetting cacheType: " + str;

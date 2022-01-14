@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.m4.g;
 import c.a.t0.m4.m.c;
 import c.a.t0.s2.r.f;
@@ -64,14 +64,14 @@ public class a extends c.a.t0.z2.v.d {
 
     /* renamed from: c.a.t0.m4.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class RunnableC1206a implements Runnable {
+    public class RunnableC1220a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20093e;
+        public final /* synthetic */ a f19563e;
 
-        public RunnableC1206a(a aVar) {
+        public RunnableC1220a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,14 +86,14 @@ public class a extends c.a.t0.z2.v.d {
                     return;
                 }
             }
-            this.f20093e = aVar;
+            this.f19563e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20093e.M.setVisibility(8);
+                this.f19563e.M.setVisibility(8);
             }
         }
     }
@@ -104,7 +104,7 @@ public class a extends c.a.t0.z2.v.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20094e;
+        public final /* synthetic */ a f19564e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -121,14 +121,14 @@ public class a extends c.a.t0.z2.v.d {
                     return;
                 }
             }
-            this.f20094e = aVar;
+            this.f19564e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f20094e.X0 && (this.f20094e.Q instanceof Activity)) {
-                this.f20094e.C0();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f19564e.X0 && (this.f19564e.Q instanceof Activity)) {
+                this.f19564e.C0();
             }
         }
     }
@@ -203,7 +203,7 @@ public class a extends c.a.t0.z2.v.d {
             }
         }
         this.N0 = 0;
-        this.e1 = new RunnableC1206a(this);
+        this.e1 = new RunnableC1220a(this);
         this.f1 = new b(this);
         this.Q0 = tbPageContext;
         this.R0 = bdUniqueId;
@@ -306,41 +306,41 @@ public class a extends c.a.t0.z2.v.d {
     public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int i2 = this.f26893f & (-33);
-            this.f26893f = i2;
-            int i3 = this.f26894g & (-33);
-            this.f26894g = i3;
-            int i4 = this.f26895h & (-33);
-            this.f26895h = i4;
+            int i2 = this.f26095f & (-33);
+            this.f26095f = i2;
+            int i3 = this.f26096g & (-33);
+            this.f26096g = i3;
+            int i4 = this.f26097h & (-33);
+            this.f26097h = i4;
             int i5 = this.q & (-33);
             this.q = i5;
-            int i6 = this.f26896i & (-33);
-            this.f26896i = i6;
-            int i7 = this.f26897j & (-33);
-            this.f26897j = i7;
-            int i8 = this.f26898k & (-33);
-            this.f26898k = i8;
+            int i6 = this.f26098i & (-33);
+            this.f26098i = i6;
+            int i7 = this.f26099j & (-33);
+            this.f26099j = i7;
+            int i8 = this.k & (-33);
+            this.k = i8;
             int i9 = this.l & (-33);
             this.l = i9;
             int i10 = this.m & (-33);
             this.m = i10;
             int i11 = this.n & (-33);
             this.n = i11;
-            this.f26893f = i2 | 1024;
+            this.f26095f = i2 | 1024;
             int i12 = i3 | 1024;
-            this.f26894g = i12;
-            this.f26895h = i4 & (-1025);
+            this.f26096g = i12;
+            this.f26097h = i4 & (-1025);
             this.q = i5 & (-1025);
-            this.f26896i = i6 | 1024;
-            this.f26897j = i7 | 1024;
+            this.f26098i = i6 | 1024;
+            this.f26099j = i7 | 1024;
             int i13 = i8 | 1024;
-            this.f26898k = i13;
+            this.k = i13;
             int i14 = i9 | 1024;
             this.l = i14;
             this.m = i10 | 1024;
             this.n = i11 & (-1025);
-            this.f26894g = i12 | 16384;
-            this.f26898k = i13 | 16384;
+            this.f26096g = i12 | 16384;
+            this.k = i13 | 16384;
             this.l = i14 & (-2);
         }
     }
@@ -469,7 +469,7 @@ public class a extends c.a.t0.z2.v.d {
                 operableVideoMediaControllerView.setVisibility((i6 > 0 || (i2 & 128) > 0) ? 0 : 8);
                 ((VideoMediaController) this.H).setBottomBarShow(i6 > 0);
             }
-            if (c.a.s0.b.d.e0() && (findViewById = this.S.findViewById(c.a.t0.m4.f.video_danmu_switch)) != null) {
+            if (c.a.s0.b.d.f0() && (findViewById = this.S.findViewById(c.a.t0.m4.f.video_danmu_switch)) != null) {
                 findViewById.setVisibility((i2 & 64) > 0 ? 0 : 8);
             }
             if (!this.a0 && !this.W0 && (this.Q instanceof Activity)) {
@@ -487,7 +487,7 @@ public class a extends c.a.t0.z2.v.d {
             }
             VideoDanmuController videoDanmuController = this.b1;
             if (videoDanmuController != null) {
-                if (i2 != this.f26894g && i2 != this.f26896i) {
+                if (i2 != this.f26096g && i2 != this.f26098i) {
                     videoDanmuController.R();
                 } else {
                     this.b1.U();
@@ -553,20 +553,20 @@ public class a extends c.a.t0.z2.v.d {
     }
 
     @Override // c.a.t0.z2.v.d, c.a.t0.z2.v.a
-    public void setData(d2 d2Var) {
+    public void setData(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, d2Var) == null) || d2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, e2Var) == null) || e2Var == null) {
             return;
         }
         t tVar = new t();
         tVar.a = "6";
-        tVar.f26871c = d2Var.v1();
-        tVar.f26872d = Long.toString(d2Var.U());
-        tVar.f26873e = TbadkCoreApplication.getCurrentAccount();
+        tVar.f26074c = e2Var.v1();
+        tVar.f26075d = Long.toString(e2Var.U());
+        tVar.f26076e = TbadkCoreApplication.getCurrentAccount();
         Context context = this.Q;
         if (context instanceof BaseFragmentActivity) {
             Intent intent = ((BaseFragmentActivity) context).getIntent();
-            if (d2Var.T1()) {
+            if (e2Var.T1()) {
                 int intExtra = intent.getIntExtra("bjh_from", 0);
                 this.N0 = intExtra;
                 if (intExtra == 0) {
@@ -575,31 +575,31 @@ public class a extends c.a.t0.z2.v.d {
                 String stringExtra = intent.getStringExtra("last_tid");
                 this.O0 = stringExtra;
                 if (!StringUtils.isNull(stringExtra)) {
-                    tVar.f26879k = this.O0;
+                    tVar.k = this.O0;
                 }
-                tVar.f26877i = Integer.toString(this.N0);
+                tVar.f26080i = Integer.toString(this.N0);
             } else {
                 String stringExtra2 = intent.getStringExtra(PbActivityConfig.KEY_VIDEO_SOURCE);
                 this.P0 = stringExtra2;
-                tVar.f26877i = stringExtra2;
+                tVar.f26080i = stringExtra2;
             }
         }
-        if (d2Var.t1() != null) {
-            tVar.m = d2Var.t1().video_md5;
-            tVar.p = String.valueOf(d2Var.t1().is_vertical);
+        if (e2Var.t1() != null) {
+            tVar.m = e2Var.t1().video_md5;
+            tVar.p = String.valueOf(e2Var.t1().is_vertical);
         }
         setStatistic(tVar);
-        if (this.a0 && d2Var.t1() != null) {
-            if (this.V != (d2Var.t1().is_vertical.intValue() == 1)) {
+        if (this.a0 && e2Var.t1() != null) {
+            if (this.V != (e2Var.t1().is_vertical.intValue() == 1)) {
                 R();
             }
         }
-        super.setData(d2Var);
+        super.setData(e2Var);
         U(!this.V);
-        if (d2Var.J() != null) {
-            d2Var.J().setIsLike(d2Var.J().hadConcerned());
+        if (e2Var.J() != null) {
+            e2Var.J().setIsLike(e2Var.J().hadConcerned());
         }
-        if (!TextUtils.isEmpty(this.W) && c.a.s0.b.d.e0()) {
+        if (!TextUtils.isEmpty(this.W) && c.a.s0.b.d.f0()) {
             VideoDanmuController videoDanmuController = new VideoDanmuController(this.Q0, this.R0, this.S, c.a.t0.m4.f.video_danmu_view, this.S0, this.T0);
             this.b1 = videoDanmuController;
             videoDanmuController.W(UtilHelper.getDimenPixelSize(c.a.t0.m4.d.T_X05));
@@ -609,7 +609,7 @@ public class a extends c.a.t0.z2.v.d {
         ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
         ViewGroup.LayoutParams layoutParams2 = findViewById2.getLayoutParams();
         int dimenPixelSize = UtilHelper.getDimenPixelSize(c.a.t0.m4.d.tbds44);
-        if (c.a.s0.b.d.e0()) {
+        if (c.a.s0.b.d.f0()) {
             c.a.t0.m4.m.c cVar = new c.a.t0.m4.m.c(this.S, c.a.t0.m4.f.video_danmu_switch);
             this.c1 = cVar;
             cVar.g(this);

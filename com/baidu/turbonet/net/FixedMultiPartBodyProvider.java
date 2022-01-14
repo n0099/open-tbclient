@@ -11,16 +11,16 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52184e;
+    public String f50167e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52185f;
+    public int f50168f;
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52184e.getBytes().length : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50167e.getBytes().length : invokeV.longValue;
     }
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -28,11 +28,11 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
             if (byteBuffer.hasRemaining()) {
-                if (byteBuffer.remaining() >= this.f52184e.length() - this.f52185f) {
-                    byteBuffer.put(this.f52184e.getBytes(), this.f52185f, this.f52184e.getBytes().length - this.f52185f);
+                if (byteBuffer.remaining() >= this.f50167e.length() - this.f50168f) {
+                    byteBuffer.put(this.f50167e.getBytes(), this.f50168f, this.f50167e.getBytes().length - this.f50168f);
                 } else {
-                    byteBuffer.put(this.f52184e.getBytes(), this.f52185f, byteBuffer.remaining());
-                    this.f52185f += byteBuffer.remaining();
+                    byteBuffer.put(this.f50167e.getBytes(), this.f50168f, byteBuffer.remaining());
+                    this.f50168f += byteBuffer.remaining();
                 }
                 uploadDataSink.c(false);
                 return;
@@ -45,7 +45,7 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
     public void c(UploadDataSink uploadDataSink) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
-            this.f52185f = 0;
+            this.f50168f = 0;
             uploadDataSink.a();
         }
     }

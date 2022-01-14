@@ -28,25 +28,23 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BackgroundListActivity f50327e;
+    public BackgroundListActivity f48425e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f50328f;
+    public e f48426f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<DressItemData> f50329g;
+    public List<DressItemData> f48427g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<DressItemData> f50330h;
+    public List<DressItemData> f48428h;
 
     /* renamed from: i  reason: collision with root package name */
-    public DressItemData f50331i;
+    public DressItemData f48429i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c f50332j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f50333k;
+    public c f48430j;
+    public int k;
     public boolean l;
     public boolean m;
     public boolean n;
@@ -92,34 +90,34 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
                         BackgroundListHttpResponseMessage backgroundListHttpResponseMessage = (BackgroundListHttpResponseMessage) responsedMessage;
-                        this.a.f50328f = backgroundListHttpResponseMessage.getRecommand();
-                        this.a.f50329g = backgroundListHttpResponseMessage.getBackgroundList();
+                        this.a.f48426f = backgroundListHttpResponseMessage.getRecommand();
+                        this.a.f48427g = backgroundListHttpResponseMessage.getBackgroundList();
                         this.a.l = backgroundListHttpResponseMessage.hasMore();
                         this.a.m = backgroundListHttpResponseMessage.getIsDefault();
                     } else if (responsedMessage instanceof BackgroundListSocketResponseMessage) {
                         BackgroundListSocketResponseMessage backgroundListSocketResponseMessage = (BackgroundListSocketResponseMessage) responsedMessage;
-                        this.a.f50328f = backgroundListSocketResponseMessage.getRecommand();
-                        this.a.f50329g = backgroundListSocketResponseMessage.getBackgroundList();
+                        this.a.f48426f = backgroundListSocketResponseMessage.getRecommand();
+                        this.a.f48427g = backgroundListSocketResponseMessage.getBackgroundList();
                         this.a.l = backgroundListSocketResponseMessage.hasMore();
                         this.a.m = backgroundListSocketResponseMessage.getIsDefault();
                     }
-                    if (this.a.f50330h == null) {
-                        this.a.f50330h = new ArrayList();
-                        this.a.f50330h.add(this.a.f50331i);
+                    if (this.a.f48428h == null) {
+                        this.a.f48428h = new ArrayList();
+                        this.a.f48428h.add(this.a.f48429i);
                     }
-                    if (this.a.f50333k == 1) {
-                        this.a.f50330h.clear();
-                        this.a.f50330h.add(this.a.f50331i);
+                    if (this.a.k == 1) {
+                        this.a.f48428h.clear();
+                        this.a.f48428h.add(this.a.f48429i);
                     }
-                    if (this.a.f50329g != null) {
-                        this.a.f50330h.addAll(this.a.f50329g);
+                    if (this.a.f48427g != null) {
+                        this.a.f48428h.addAll(this.a.f48427g);
                     }
                 } else {
                     BackgroundListModel.y(this.a);
                 }
-                if (this.a.f50332j != null) {
+                if (this.a.f48430j != null) {
                     this.a.O();
-                    this.a.f50332j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f50328f, this.a.f50330h);
+                    this.a.f48430j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f48426f, this.a.f48428h);
                 }
             }
         }
@@ -165,24 +163,24 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                 BackgroundSetRequestMessage backgroundSetRequestMessage = (BackgroundSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra();
                 int propId = backgroundSetRequestMessage.getPropId();
                 if (responsedMessage.getError() == 0) {
-                    if (propId == this.a.f50327e.getPropId() && (N = this.a.N(propId)) != null) {
+                    if (propId == this.a.f48425e.getPropId() && (N = this.a.N(propId)) != null) {
                         TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", N.getFreeUserLevel()));
                     }
-                    c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-                    j2.v("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
+                    c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                    k.w("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
                     this.a.T(propId);
-                    this.a.f50332j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f50328f, this.a.f50330h);
+                    this.a.f48430j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f48426f, this.a.f48428h);
                 } else if (responsedMessage.getError() == 2270014) {
                 } else {
-                    int i2 = c.a.t0.c4.c.f15890b;
-                    if (responsedMessage.getError() == c.a.t0.c4.c.f15891c) {
+                    int i2 = c.a.t0.c4.c.f15485b;
+                    if (responsedMessage.getError() == c.a.t0.c4.c.f15486c) {
                         i2 = c.a.t0.c4.c.a;
                     }
                     boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                     if (fromDetail) {
                         return;
                     }
-                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.a.getUniqueId()) && propId == this.a.f50327e.getPropId() && (N2 = this.a.N(propId)) != null) {
+                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.a.getUniqueId()) && propId == this.a.f48425e.getPropId() && (N2 = this.a.N(propId)) != null) {
                         this.a.S(i2, responsedMessage.getErrorString(), N2, fromDetail);
                     }
                 }
@@ -210,19 +208,19 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                 return;
             }
         }
-        this.f50333k = 0;
+        this.k = 0;
         this.l = true;
         this.m = false;
         this.o = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, 309021);
         this.p = new b(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
-        this.f50327e = backgroundListActivity;
+        this.f48425e = backgroundListActivity;
         DressItemData dressItemData = new DressItemData();
-        this.f50331i = dressItemData;
+        this.f48429i = dressItemData;
         dressItemData.setPropsId(0);
-        this.f50331i.setTitle(TbadkCoreApplication.getInst().getString(R.string.default_background));
+        this.f48429i.setTitle(TbadkCoreApplication.getInst().getString(R.string.default_background));
         ArrayList arrayList = new ArrayList();
-        this.f50330h = arrayList;
-        arrayList.add(this.f50331i);
+        this.f48428h = arrayList;
+        arrayList.add(this.f48429i);
         this.n = backgroundListActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         registerTask();
         registerListener(this.o);
@@ -231,8 +229,8 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     }
 
     public static /* synthetic */ int y(BackgroundListModel backgroundListModel) {
-        int i2 = backgroundListModel.f50333k;
-        backgroundListModel.f50333k = i2 - 1;
+        int i2 = backgroundListModel.k;
+        backgroundListModel.k = i2 - 1;
         return i2;
     }
 
@@ -240,9 +238,9 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<DressItemData> list = this.f50330h;
+            List<DressItemData> list = this.f48428h;
             if (list != null && list.size() > 0) {
-                for (DressItemData dressItemData : this.f50330h) {
+                for (DressItemData dressItemData : this.f48428h) {
                     if (dressItemData != null && dressItemData.getPropsId() == i2) {
                         return dressItemData;
                     }
@@ -278,7 +276,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public void R(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f50332j = cVar;
+            this.f48430j = cVar;
         }
     }
 
@@ -290,9 +288,9 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                 return;
             }
             if (i2 == c.a.t0.c4.c.a) {
-                c.a.t0.c4.b.d(this.f50327e.getPageContext(), z ? 4 : 2, str, i3, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-            } else if (i2 == c.a.t0.c4.c.f15890b) {
-                c.a.t0.c4.b.c(this.f50327e.getPageContext(), z ? 4 : 2, str, i3);
+                c.a.t0.c4.b.d(this.f48425e.getPageContext(), z ? 4 : 2, str, i3, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+            } else if (i2 == c.a.t0.c4.c.f15485b) {
+                c.a.t0.c4.b.c(this.f48425e.getPageContext(), z ? 4 : 2, str, i3);
             }
         }
     }
@@ -300,10 +298,10 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public final void T(int i2) {
         List<DressItemData> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (list = this.f50330h) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (list = this.f48428h) == null || list.size() <= 0) {
             return;
         }
-        for (DressItemData dressItemData : this.f50330h) {
+        for (DressItemData dressItemData : this.f48428h) {
             if (dressItemData != null) {
                 if (dressItemData.getPropsId() == i2) {
                     dressItemData.setInUse(true);
@@ -338,7 +336,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             BackgroundListRequestMessage backgroundListRequestMessage = new BackgroundListRequestMessage();
-            this.f50333k = 1;
+            this.k = 1;
             backgroundListRequestMessage.setPn(1);
             backgroundListRequestMessage.setRn(9);
             sendMessage(backgroundListRequestMessage);
@@ -358,9 +356,9 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public void w() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.l) {
-            this.f50333k++;
+            this.k++;
             BackgroundListRequestMessage backgroundListRequestMessage = new BackgroundListRequestMessage();
-            backgroundListRequestMessage.setPn(this.f50333k);
+            backgroundListRequestMessage.setPn(this.k);
             backgroundListRequestMessage.setRn(9);
             sendMessage(backgroundListRequestMessage);
         }

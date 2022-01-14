@@ -19,7 +19,7 @@ public class a implements g, d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18453e;
+    public int f17996e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a implements g, d {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f18453e++;
+            this.f17996e++;
         }
     }
 
@@ -48,7 +48,7 @@ public class a implements g, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.f18453e);
+            builder.pn = Integer.valueOf(this.f17996e);
             HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
             DataReq build = builder.build(false);
             builder2.data = build;

@@ -21,10 +21,10 @@ public class d extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f17838e;
+    public TbPageContext<BaseFragmentActivity> f17406e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<o> f17839f;
+    public List<o> f17407f;
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -62,8 +62,8 @@ public class d extends BaseAdapter {
                 return;
             }
         }
-        this.f17838e = tbPageContext;
-        this.f17839f = arrayList;
+        this.f17406e = tbPageContext;
+        this.f17407f = arrayList;
     }
 
     @Override // android.widget.Adapter
@@ -71,7 +71,7 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<o> list = this.f17839f;
+            List<o> list = this.f17407f;
             if (list == null) {
                 return 0;
             }
@@ -85,7 +85,7 @@ public class d extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            List<o> list = this.f17839f;
+            List<o> list = this.f17407f;
             if (list == null) {
                 return null;
             }
@@ -99,7 +99,7 @@ public class d extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<o> list = this.f17839f;
+            List<o> list = this.f17407f;
             if (list == null) {
                 return 0L;
             }
@@ -117,7 +117,7 @@ public class d extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 aVar = new a();
-                BasicPrivilegeItemView basicPrivilegeItemView2 = new BasicPrivilegeItemView(this.f17838e.getPageActivity());
+                BasicPrivilegeItemView basicPrivilegeItemView2 = new BasicPrivilegeItemView(this.f17406e.getPageActivity());
                 aVar.a = basicPrivilegeItemView2;
                 basicPrivilegeItemView2.setTag(aVar);
                 basicPrivilegeItemView = basicPrivilegeItemView2;
@@ -125,8 +125,8 @@ public class d extends BaseAdapter {
                 basicPrivilegeItemView = view;
                 aVar = (a) view.getTag();
             }
-            aVar.a.renderView(this.f17839f.get(i2));
-            c.a.s0.x0.a.a(this.f17838e, basicPrivilegeItemView);
+            aVar.a.renderView(this.f17407f.get(i2));
+            c.a.s0.x0.a.a(this.f17406e, basicPrivilegeItemView);
             return basicPrivilegeItemView;
         }
         return (View) invokeILL.objValue;

@@ -16,7 +16,7 @@ public class KeyEventDealContainerView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f41812e;
+    public a f40370e;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -43,9 +43,9 @@ public class KeyEventDealContainerView extends LinearLayout {
                 return;
             }
         }
-        this.f41812e = null;
+        this.f40370e = null;
         setFocusableInTouchMode(true);
-        this.f41812e = aVar;
+        this.f40370e = aVar;
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         addView(view);
     }
@@ -57,11 +57,11 @@ public class KeyEventDealContainerView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keyEvent)) == null) {
             if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
-                a aVar2 = this.f41812e;
+                a aVar2 = this.f40370e;
                 if (aVar2 != null) {
                     aVar2.a();
                 }
-            } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && (aVar = this.f41812e) != null) {
+            } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && (aVar = this.f40370e) != null) {
                 aVar.b();
             }
             return super.dispatchKeyEvent(keyEvent);
@@ -88,6 +88,6 @@ public class KeyEventDealContainerView extends LinearLayout {
                 return;
             }
         }
-        this.f41812e = null;
+        this.f40370e = null;
     }
 }

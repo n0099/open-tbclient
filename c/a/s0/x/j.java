@@ -32,12 +32,12 @@ public class j extends m {
                 return;
             }
         }
-        this.f14529b = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.f14531d = R.drawable.icon_pure_post_more24;
-        this.f14532e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.f14534g = false;
-        this.f14535h = true;
-        this.f14538k = new MoreDeskView(context);
+        this.f14189b = TbadkCoreApplication.getInst().getString(R.string.more_function);
+        this.f14191d = R.drawable.icon_pure_post_more24;
+        this.f14192e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.f14194g = false;
+        this.f14195h = true;
+        this.k = new MoreDeskView(context);
         this.m = true;
         this.l = 6;
         this.n = new int[]{1};
@@ -62,12 +62,12 @@ public class j extends m {
                 return;
             }
         }
-        this.f14529b = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.f14531d = R.drawable.icon_pure_post_more24;
-        this.f14532e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.f14534g = false;
-        this.f14535h = true;
-        this.f14538k = new MoreDeskView(context, !z);
+        this.f14189b = TbadkCoreApplication.getInst().getString(R.string.more_function);
+        this.f14191d = R.drawable.icon_pure_post_more24;
+        this.f14192e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.f14194g = false;
+        this.f14195h = true;
+        this.k = new MoreDeskView(context, !z);
         this.m = true;
         this.l = 6;
         this.n = new int[]{1};

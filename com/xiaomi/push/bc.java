@@ -20,19 +20,19 @@ public class bc implements ar {
     public static String a = "content://com.vivo.vms.IdProvider/IdentifierId/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f63315b;
+    public static String f60934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f63316c;
+    public static String f60935c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f63317d;
+    public static String f60936d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f63318e;
+    public static String f60937e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f63319f;
+    public static String f60938f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -51,11 +51,11 @@ public class bc implements ar {
                 return;
             }
         }
-        f63315b = a + "OAID";
-        f63316c = a + "VAID_";
-        f63317d = a + "AAID_";
-        f63318e = a + DataBaseOperation.OAIDSTATUS_FLAG;
-        f63319f = IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED;
+        f60934b = a + "OAID";
+        f60935c = a + "VAID_";
+        f60936d = a + "AAID_";
+        f60937e = a + DataBaseOperation.OAIDSTATUS_FLAG;
+        f60938f = IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED;
     }
 
     public bc(Context context) {
@@ -156,15 +156,15 @@ public class bc implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f63319f, "0")) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f60938f, "0")) : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo201b() {
+    public String mo213b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f63315b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f60934b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar

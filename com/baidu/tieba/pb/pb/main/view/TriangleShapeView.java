@@ -19,13 +19,13 @@ public class TriangleShapeView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f48544e;
+    public Paint f46732e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f48545f;
+    public Path f46733f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48546g;
+    public int f46734g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TriangleShapeView(Context context) {
@@ -45,18 +45,18 @@ public class TriangleShapeView extends View {
                 return;
             }
         }
-        this.f48546g = f.CAM_X0205;
+        this.f46734g = f.CAM_X0205;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f48544e == null) {
-                this.f48544e = new Paint();
+            if (this.f46732e == null) {
+                this.f46732e = new Paint();
             }
-            this.f48544e.setAntiAlias(true);
-            this.f48544e.setStyle(Paint.Style.FILL);
-            this.f48544e.setColor(SkinManager.getColor(this.f48546g));
+            this.f46732e.setAntiAlias(true);
+            this.f46732e.setStyle(Paint.Style.FILL);
+            this.f46732e.setColor(SkinManager.getColor(this.f46734g));
         }
     }
 
@@ -71,23 +71,23 @@ public class TriangleShapeView extends View {
                 return;
             }
             a();
-            if (this.f48545f == null) {
-                this.f48545f = new Path();
+            if (this.f46733f == null) {
+                this.f46733f = new Path();
             }
             float f2 = height;
-            this.f48545f.moveTo(0.0f, f2);
+            this.f46733f.moveTo(0.0f, f2);
             float f3 = width;
-            this.f48545f.lineTo(f3 / 2.0f, 0.0f);
-            this.f48545f.lineTo(f3, f2);
-            this.f48545f.close();
-            canvas.drawPath(this.f48545f, this.f48544e);
+            this.f46733f.lineTo(f3 / 2.0f, 0.0f);
+            this.f46733f.lineTo(f3, f2);
+            this.f46733f.close();
+            canvas.drawPath(this.f46733f, this.f46732e);
         }
     }
 
     public void setColorId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f48546g = i2;
+            this.f46734g = i2;
         }
     }
 
@@ -110,7 +110,7 @@ public class TriangleShapeView extends View {
                 return;
             }
         }
-        this.f48546g = f.CAM_X0205;
+        this.f46734g = f.CAM_X0205;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,6 +132,6 @@ public class TriangleShapeView extends View {
                 return;
             }
         }
-        this.f48546g = f.CAM_X0205;
+        this.f46734g = f.CAM_X0205;
     }
 }

@@ -14,7 +14,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f25157b;
+    public static d f24454b;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile HashMap<String, List<a>> a;
 
@@ -25,7 +25,7 @@ public class d {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, Object> f25158b;
+        public HashMap<String, Object> f24455b;
 
         public a(String str, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class d {
                 }
             }
             this.a = str;
-            this.f25158b = hashMap;
+            this.f24455b = hashMap;
         }
     }
 
@@ -67,14 +67,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f25157b == null) {
+            if (f24454b == null) {
                 synchronized (d.class) {
-                    if (f25157b == null) {
-                        f25157b = new d();
+                    if (f24454b == null) {
+                        f24454b = new d();
                     }
                 }
             }
-            return f25157b;
+            return f24454b;
         }
         return (d) invokeV.objValue;
     }

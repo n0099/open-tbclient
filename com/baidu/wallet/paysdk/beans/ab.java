@@ -26,7 +26,7 @@ public class ab extends BaseBean<VerifyByBankResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List f53975b;
+    public final List f51912b;
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +62,7 @@ public class ab extends BaseBean<VerifyByBankResponse> {
                 return;
             }
         }
-        this.f53975b = Arrays.asList(a);
+        this.f51912b = Arrays.asList(a);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -81,7 +81,7 @@ public class ab extends BaseBean<VerifyByBankResponse> {
             ArrayList arrayList = new ArrayList(PayDataCache.getInstance().getPrePayRequestParams());
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                if (this.f53975b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
+                if (this.f51912b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
                     it.remove();
                 }
             }

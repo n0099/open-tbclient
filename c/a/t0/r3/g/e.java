@@ -20,11 +20,11 @@ public class e implements f.g {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.t0.r3.b.c f22516b;
+    public final c.a.t0.r3.b.c f21899b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f22517c;
+    public final b f21900c;
 
     public e(@NonNull c.a.t0.r3.b.b bVar, @NonNull c.a.t0.r3.b.c cVar, @NonNull b bVar2) {
         Interceptable interceptable = $ic;
@@ -42,16 +42,16 @@ public class e implements f.g {
             }
         }
         this.a = bVar;
-        this.f22516b = cVar;
-        this.f22517c = bVar2;
+        this.f21899b = cVar;
+        this.f21900c = bVar2;
     }
 
     @Override // c.a.t0.r3.g.f.g
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_SPLASH_SKIP).param("obj_source", 2).param("obj_type", this.f22517c.c() == n.i(this.a.getActivity()) ? 4 : 3));
-            this.f22516b.a();
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_SPLASH_SKIP).param("obj_source", 2).param("obj_type", this.f21900c.c() == n.i(this.a.getActivity()) ? 4 : 3));
+            this.f21899b.a();
         }
     }
 
@@ -59,7 +59,7 @@ public class e implements f.g {
     public void onError() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f22516b.a();
+            this.f21899b.a();
         }
     }
 }

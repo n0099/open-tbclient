@@ -25,7 +25,7 @@ import com.tachikoma.core.module.handler.TKLifeCycle;
 import com.tachikoma.core.utility.TKAsync;
 import com.tachikoma.core.utility.TKContextUtil;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Tachikoma {
     public static /* synthetic */ Interceptable $ic;
     public static final Tachikoma instance;

@@ -16,13 +16,13 @@ import java.lang.ref.WeakReference;
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerC0889d a;
+    public HandlerC0902d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f14426b;
+    public c f14091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f14427c;
+    public b f14092c;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -37,7 +37,7 @@ public class d {
         public Process a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f14428b;
+        public final /* synthetic */ d f14093b;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class d {
                     return;
                 }
             }
-            this.f14428b = dVar;
+            this.f14093b = dVar;
             this.a = null;
         }
 
@@ -71,11 +71,11 @@ public class d {
                         th.printStackTrace();
                     }
                 }
-                if (this.f14428b.f14426b != null) {
-                    this.f14428b.f14426b.a(false);
+                if (this.f14093b.f14091b != null) {
+                    this.f14093b.f14091b.a(false);
                 }
-                if (this.f14428b.a != null) {
-                    this.f14428b.a.removeMessages(0);
+                if (this.f14093b.a != null) {
+                    this.f14093b.a.removeMessages(0);
                 }
             }
         }
@@ -116,11 +116,11 @@ public class d {
         public void onPostExecute(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
-                if (this.f14428b.f14426b != null) {
-                    this.f14428b.f14426b.a(bool == null ? false : bool.booleanValue());
+                if (this.f14093b.f14091b != null) {
+                    this.f14093b.f14091b.a(bool == null ? false : bool.booleanValue());
                 }
-                if (this.f14428b.a != null) {
-                    this.f14428b.a.removeMessages(0);
+                if (this.f14093b.a != null) {
+                    this.f14093b.a.removeMessages(0);
                 }
             }
         }
@@ -137,12 +137,12 @@ public class d {
 
     /* renamed from: c.a.s0.t.j.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class HandlerC0889d extends Handler {
+    public static class HandlerC0902d extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<d> a;
 
-        public HandlerC0889d(d dVar) {
+        public HandlerC0902d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -190,16 +190,16 @@ public class d {
             }
         }
         this.a = null;
-        this.f14426b = null;
-        this.f14427c = null;
-        HandlerC0889d handlerC0889d = new HandlerC0889d(this);
-        this.a = handlerC0889d;
-        this.f14426b = cVar;
-        handlerC0889d.sendEmptyMessageDelayed(0, 50000L);
+        this.f14091b = null;
+        this.f14092c = null;
+        HandlerC0902d handlerC0902d = new HandlerC0902d(this);
+        this.a = handlerC0902d;
+        this.f14091b = cVar;
+        handlerC0902d.sendEmptyMessageDelayed(0, 50000L);
         b bVar = new b(this, null);
-        this.f14427c = bVar;
+        this.f14092c = bVar;
         bVar.setSelfExecute(true);
-        b bVar2 = this.f14427c;
+        b bVar2 = this.f14092c;
         bVar2.execute(d() + str);
     }
 
@@ -216,13 +216,13 @@ public class d {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = this.f14427c;
+            b bVar = this.f14092c;
             if (bVar != null) {
                 bVar.cancel(true);
             }
-            HandlerC0889d handlerC0889d = this.a;
-            if (handlerC0889d != null) {
-                handlerC0889d.removeMessages(0);
+            HandlerC0902d handlerC0902d = this.a;
+            if (handlerC0902d != null) {
+                handlerC0902d.removeMessages(0);
             }
         }
     }

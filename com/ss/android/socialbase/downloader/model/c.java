@@ -24,11 +24,11 @@ public class c implements Parcelable, Comparable {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f62590b;
+    public final String f60228b;
 
     public c(String str, String str2) {
         this.a = str;
-        this.f62590b = str2;
+        this.f60228b = str2;
     }
 
     public String a() {
@@ -36,7 +36,7 @@ public class c implements Parcelable, Comparable {
     }
 
     public String b() {
-        return this.f62590b;
+        return this.f60228b;
     }
 
     @Override // java.lang.Comparable
@@ -72,28 +72,28 @@ public class c implements Parcelable, Comparable {
             return false;
         }
         c cVar = (c) obj;
-        return TextUtils.equals(this.a, cVar.a) && TextUtils.equals(this.f62590b, cVar.f62590b);
+        return TextUtils.equals(this.a, cVar.a) && TextUtils.equals(this.f60228b, cVar.f60228b);
     }
 
     public int hashCode() {
         String str = this.a;
         int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-        String str2 = this.f62590b;
+        String str2 = this.f60228b;
         return hashCode + (str2 != null ? str2.hashCode() : 0);
     }
 
     public String toString() {
-        return "HttpHeader{name='" + this.a + ExtendedMessageFormat.QUOTE + ", value='" + this.f62590b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "HttpHeader{name='" + this.a + ExtendedMessageFormat.QUOTE + ", value='" + this.f60228b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.a);
-        parcel.writeString(this.f62590b);
+        parcel.writeString(this.f60228b);
     }
 
     public c(Parcel parcel) {
         this.a = parcel.readString();
-        this.f62590b = parcel.readString();
+        this.f60228b = parcel.readString();
     }
 }

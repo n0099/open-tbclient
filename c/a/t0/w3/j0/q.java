@@ -19,10 +19,10 @@ public class q {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MetaData f25580b;
+    public MetaData f24865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<AbstractData> f25581c;
+    public List<AbstractData> f24866c;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class q {
                 return;
             }
         }
-        this.f25581c = new ArrayList();
+        this.f24866c = new ArrayList();
     }
 
     public void a(JSONObject jSONObject) {
@@ -46,16 +46,16 @@ public class q {
             try {
                 this.a = jSONObject.optString("id");
                 MetaData metaData = new MetaData();
-                this.f25580b = metaData;
+                this.f24865b = metaData;
                 metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
                 JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
-                this.f25581c = new ArrayList();
+                this.f24866c = new ArrayList();
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i2 = 0; i2 < length; i2++) {
                         AbstractData abstractData = new AbstractData();
                         abstractData.parserJson(optJSONArray.getJSONObject(i2));
-                        this.f25581c.add(abstractData);
+                        this.f24866c.add(abstractData);
                     }
                 }
             } catch (JSONException e2) {

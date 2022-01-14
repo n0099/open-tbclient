@@ -20,14 +20,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SplashAdFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AT_ACTIVITY_FLAG = "AT_ACTIVITY_FLAG";
+    public static final String SPLASH_UNIQUE_ID = "splash_unique_id";
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final a f49810e;
+    public final a f47939e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49811f;
+    public int f47940f;
 
     public SplashAdFragment() {
         Interceptable interceptable = $ic;
@@ -42,8 +43,8 @@ public class SplashAdFragment extends BaseFragment {
                 return;
             }
         }
-        this.f49811f = 0;
-        this.f49810e = new a();
+        this.f47940f = 0;
+        this.f47939e = new a();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, c.a.s0.q0.a
@@ -59,7 +60,7 @@ public class SplashAdFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
-            this.f49810e.a(pageStayDurationItem);
+            this.f47939e.a(pageStayDurationItem);
             return pageStayDurationItem;
         }
         return (d) invokeV.objValue;
@@ -67,16 +68,21 @@ public class SplashAdFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onActivityCreated(bundle);
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f49811f = arguments.getInt(AT_ACTIVITY_FLAG);
+                this.f47940f = arguments.getInt(AT_ACTIVITY_FLAG);
+                j2 = arguments.getLong("splash_unique_id", -2L);
+            } else {
+                j2 = -1;
             }
+            long j3 = j2;
             View view = getView();
             if (view != null) {
-                this.f49810e.b(this, (ViewGroup) view, this.f49811f);
+                this.f47939e.b(this, (ViewGroup) view, this.f47940f, j3);
             }
         }
     }
@@ -86,7 +92,7 @@ public class SplashAdFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            this.f49810e.e(configuration);
+            this.f47939e.e(configuration);
         }
     }
 
@@ -102,7 +108,7 @@ public class SplashAdFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            this.f49810e.h();
+            this.f47939e.h();
         }
     }
 
@@ -111,7 +117,7 @@ public class SplashAdFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            this.f49810e.f();
+            this.f47939e.f();
         }
     }
 
@@ -120,7 +126,7 @@ public class SplashAdFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            this.f49810e.g();
+            this.f47939e.g();
         }
     }
 }

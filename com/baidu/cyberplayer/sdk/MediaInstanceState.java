@@ -27,34 +27,32 @@ public class MediaInstanceState {
     public CyberPlayerManager.OnPreparedListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CyberPlayerManager.OnCompletionListener f34529b;
+    public CyberPlayerManager.OnCompletionListener f33419b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberPlayerManager.OnBufferingUpdateListener f34530c;
+    public CyberPlayerManager.OnBufferingUpdateListener f33420c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CyberPlayerManager.OnSeekCompleteListener f34531d;
+    public CyberPlayerManager.OnSeekCompleteListener f33421d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CyberPlayerManager.OnVideoSizeChangedListener f34532e;
+    public CyberPlayerManager.OnVideoSizeChangedListener f33422e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CyberPlayerManager.OnInfoListener f34533f;
+    public CyberPlayerManager.OnInfoListener f33423f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CyberPlayerManager.OnMediaSourceChangedListener f34534g;
+    public CyberPlayerManager.OnMediaSourceChangedListener f33424g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Surface f34535h;
+    public Surface f33425h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CyberPlayerManager.HttpDNS f34536i;
+    public CyberPlayerManager.HttpDNS f33426i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f34537j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f34538k;
+    public int f33427j;
+    public int k;
     public float l;
     public float m;
     public long n;
@@ -84,8 +82,8 @@ public class MediaInstanceState {
                 return;
             }
         }
-        this.f34537j = -1;
-        this.f34538k = 0;
+        this.f33427j = -1;
+        this.k = 0;
         this.l = -1.0f;
         this.m = -1.0f;
         this.n = 0L;
@@ -110,7 +108,7 @@ public class MediaInstanceState {
     public CyberPlayerManager.HttpDNS dns() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34536i : (CyberPlayerManager.HttpDNS) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33426i : (CyberPlayerManager.HttpDNS) invokeV.objValue;
     }
 
     public String getClarityInfo() {
@@ -122,7 +120,7 @@ public class MediaInstanceState {
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34537j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33427j : invokeV.intValue;
     }
 
     public int getDecoderMode() {
@@ -140,7 +138,7 @@ public class MediaInstanceState {
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34538k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public Context getInstanceContext() {
@@ -174,7 +172,7 @@ public class MediaInstanceState {
     public Surface getInstanceSurface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f34535h : (Surface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f33425h : (Surface) invokeV.objValue;
     }
 
     public Uri getInstanceUri() {
@@ -209,25 +207,25 @@ public class MediaInstanceState {
     public CyberPlayerManager.OnBufferingUpdateListener getOnBufferingUpdateListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f34530c : (CyberPlayerManager.OnBufferingUpdateListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f33420c : (CyberPlayerManager.OnBufferingUpdateListener) invokeV.objValue;
     }
 
     public CyberPlayerManager.OnCompletionListener getOnCompletionListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f34529b : (CyberPlayerManager.OnCompletionListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f33419b : (CyberPlayerManager.OnCompletionListener) invokeV.objValue;
     }
 
     public CyberPlayerManager.OnInfoListener getOnInfoListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f34533f : (CyberPlayerManager.OnInfoListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f33423f : (CyberPlayerManager.OnInfoListener) invokeV.objValue;
     }
 
     public CyberPlayerManager.OnMediaSourceChangedListener getOnMediaSourceChangedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f34534g : (CyberPlayerManager.OnMediaSourceChangedListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f33424g : (CyberPlayerManager.OnMediaSourceChangedListener) invokeV.objValue;
     }
 
     public CyberPlayerManager.OnPreparedListener getOnPreparedListener() {
@@ -239,13 +237,13 @@ public class MediaInstanceState {
     public CyberPlayerManager.OnSeekCompleteListener getOnSeekCompleteListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f34531d : (CyberPlayerManager.OnSeekCompleteListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f33421d : (CyberPlayerManager.OnSeekCompleteListener) invokeV.objValue;
     }
 
     public CyberPlayerManager.OnVideoSizeChangedListener getOnVideoSizeChangedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f34532e : (CyberPlayerManager.OnVideoSizeChangedListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f33422e : (CyberPlayerManager.OnVideoSizeChangedListener) invokeV.objValue;
     }
 
     public String getPlayJson() {
@@ -303,14 +301,14 @@ public class MediaInstanceState {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             this.a = null;
-            this.f34533f = null;
-            this.f34531d = null;
-            this.f34530c = null;
-            this.f34532e = null;
+            this.f33423f = null;
+            this.f33421d = null;
+            this.f33420c = null;
+            this.f33422e = null;
             this.a = null;
-            this.f34534g = null;
-            this.f34535h = null;
-            this.f34536i = null;
+            this.f33424g = null;
+            this.f33425h = null;
+            this.f33426i = null;
             this.B = null;
             this.z = null;
         }
@@ -333,28 +331,28 @@ public class MediaInstanceState {
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, onBufferingUpdateListener) == null) {
-            this.f34530c = onBufferingUpdateListener;
+            this.f33420c = onBufferingUpdateListener;
         }
     }
 
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, onCompletionListener) == null) {
-            this.f34529b = onCompletionListener;
+            this.f33419b = onCompletionListener;
         }
     }
 
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, onInfoListener) == null) {
-            this.f34533f = onInfoListener;
+            this.f33423f = onInfoListener;
         }
     }
 
     public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, onMediaSourceChangedListener) == null) {
-            this.f34534g = onMediaSourceChangedListener;
+            this.f33424g = onMediaSourceChangedListener;
         }
     }
 
@@ -368,14 +366,14 @@ public class MediaInstanceState {
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, onSeekCompleteListener) == null) {
-            this.f34531d = onSeekCompleteListener;
+            this.f33421d = onSeekCompleteListener;
         }
     }
 
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, onVideoSizeChangedListener) == null) {
-            this.f34532e = onVideoSizeChangedListener;
+            this.f33422e = onVideoSizeChangedListener;
         }
     }
 
@@ -420,7 +418,7 @@ public class MediaInstanceState {
     public void updateDns(CyberPlayerManager.HttpDNS httpDNS) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, httpDNS) == null) {
-            this.f34536i = httpDNS;
+            this.f33426i = httpDNS;
         }
     }
 
@@ -476,15 +474,15 @@ public class MediaInstanceState {
             if (i2 >= i3 - 100) {
                 i2 = 0;
             }
-            this.f34537j = i2;
-            this.f34538k = i3;
+            this.f33427j = i2;
+            this.k = i3;
         }
     }
 
     public void updateSurface(Surface surface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, surface) == null) {
-            this.f34535h = surface;
+            this.f33425h = surface;
         }
     }
 }

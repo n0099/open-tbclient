@@ -33,24 +33,24 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3438f;
+    public static final String f3390f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f3439g;
+    public static final a f3391g;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<Integer, Integer> f3440b;
+    public Map<Integer, Integer> f3392b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f3441c;
+    public Map<String, Integer> f3393c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, Integer> f3442d;
+    public Map<String, Integer> f3394d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f3443e;
+    public boolean f3395e;
 
     static {
         InterceptResult invokeClinit;
@@ -65,8 +65,8 @@ public class a {
                 return;
             }
         }
-        f3438f = "nps" + File.separator + "manifest";
-        f3439g = new a();
+        f3390f = "nps" + File.separator + "manifest";
+        f3391g = new a();
     }
 
     public a() {
@@ -83,23 +83,23 @@ public class a {
             }
         }
         this.a = new HashMap();
-        this.f3440b = new HashMap();
-        this.f3441c = new HashMap();
-        this.f3442d = new HashMap();
-        this.f3443e = false;
+        this.f3392b = new HashMap();
+        this.f3393c = new HashMap();
+        this.f3394d = new HashMap();
+        this.f3395e = false;
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3439g : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3391g : (a) invokeV.objValue;
     }
 
     public int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Integer num = this.f3442d.get(str);
+            Integer num = this.f3394d.get(str);
             if (num != null) {
                 return num.intValue();
             }
@@ -113,8 +113,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             g();
-            if (this.f3441c.containsKey(str)) {
-                return this.f3441c.get(str).intValue();
+            if (this.f3393c.containsKey(str)) {
+                return this.f3393c.get(str).intValue();
             }
             return -1;
         }
@@ -127,10 +127,10 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             g();
             ArrayList arrayList = new ArrayList();
-            for (String str : this.f3441c.keySet()) {
+            for (String str : this.f3393c.keySet()) {
                 BundleInfo bundleInfo = new BundleInfo();
                 bundleInfo.setPackageName(str);
-                bundleInfo.setMinVersion(this.f3441c.get(str).intValue());
+                bundleInfo.setMinVersion(this.f3393c.get(str).intValue());
                 arrayList.add(bundleInfo);
             }
             return arrayList;
@@ -161,13 +161,13 @@ public class a {
             return invokeV.booleanValue;
         }
         synchronized (this) {
-            if (this.f3443e) {
+            if (this.f3395e) {
                 return true;
             }
             InputStream inputStream = null;
             try {
                 AssetManager assets = ContextHolder.getApplicationContext().getAssets();
-                inputStream = assets.open(f3438f + File.separator + "manifest.json");
+                inputStream = assets.open(f3390f + File.separator + "manifest.json");
                 StringBuilder sb = new StringBuilder();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, Xml.Encoding.UTF_8.toString()), 8192);
                 while (true) {
@@ -177,23 +177,23 @@ public class a {
                     }
                     sb.append(readLine);
                 }
-                h(new JSONArray(sb.toString()), this.f3441c, this.a, this.f3440b, this.f3442d);
+                h(new JSONArray(sb.toString()), this.f3393c, this.a, this.f3392b, this.f3394d);
             } catch (IOException unused) {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
                     } catch (IOException unused2) {
-                        this.f3443e = true;
+                        this.f3395e = true;
                         return true;
                     }
                 }
-                this.f3443e = true;
+                this.f3395e = true;
                 return true;
             } catch (JSONException unused3) {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-                this.f3443e = true;
+                this.f3395e = true;
                 return true;
             } catch (Throwable th) {
                 if (inputStream != null) {
@@ -212,7 +212,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                if (this.f3443e) {
+                if (this.f3395e) {
                     return true;
                 }
                 f();

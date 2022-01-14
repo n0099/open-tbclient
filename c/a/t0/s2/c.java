@@ -19,7 +19,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             if (TextUtils.isEmpty(a)) {
-                a = c.a.s0.s.g0.b.j().p("nick_name_activity_link", "");
+                a = c.a.s0.s.h0.b.k().q("nick_name_activity_link", "");
             }
             return a;
         }
@@ -36,7 +36,7 @@ public class c {
             Drawable drawable = context.getResources().getDrawable(R.drawable.icon_nichenghuodong);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             spannableStringBuilder.append((CharSequence) "tag");
-            spannableStringBuilder.setSpan(new c.a.s0.s.i0.m(drawable), length, spannableStringBuilder.length(), 33);
+            spannableStringBuilder.setSpan(new c.a.s0.s.j0.m(drawable), length, spannableStringBuilder.length(), 33);
             return spannableStringBuilder;
         }
         return (SpannableStringBuilder) invokeLL.objValue;

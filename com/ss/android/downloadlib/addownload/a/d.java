@@ -15,106 +15,106 @@ public class d extends Dialog {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f61759b;
+    public TextView f59419b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f61760c;
+    public TextView f59420c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f61761d;
+    public c f59421d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f61762e;
+    public boolean f59422e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Activity f61763f;
+    public Activity f59423f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61764g;
+    public String f59424g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61765h;
+    public String f59425h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f61766i;
+    public String f59426i;
 
     /* loaded from: classes3.dex */
     public static class a {
         public Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61767b;
+        public String f59427b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f61768c;
+        public String f59428c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f61769d;
+        public String f59429d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f61770e;
+        public boolean f59430e;
 
         /* renamed from: f  reason: collision with root package name */
-        public c f61771f;
+        public c f59431f;
 
         public a(Activity activity) {
             this.a = activity;
         }
 
         public a a(String str) {
-            this.f61767b = str;
+            this.f59427b = str;
             return this;
         }
 
         public a b(String str) {
-            this.f61768c = str;
+            this.f59428c = str;
             return this;
         }
 
         public a c(String str) {
-            this.f61769d = str;
+            this.f59429d = str;
             return this;
         }
 
         public a a(boolean z) {
-            this.f61770e = z;
+            this.f59430e = z;
             return this;
         }
 
         public a a(c cVar) {
-            this.f61771f = cVar;
+            this.f59431f = cVar;
             return this;
         }
 
         public d a() {
-            return new d(this.a, this.f61767b, this.f61768c, this.f61769d, this.f61770e, this.f61771f);
+            return new d(this.a, this.f59427b, this.f59428c, this.f59429d, this.f59430e, this.f59431f);
         }
     }
 
     public d(@NonNull Activity activity, String str, String str2, String str3, boolean z, @NonNull c cVar) {
         super(activity, R.style.ttdownloader_translucent_dialog);
-        this.f61763f = activity;
-        this.f61761d = cVar;
-        this.f61764g = str;
-        this.f61765h = str2;
-        this.f61766i = str3;
+        this.f59423f = activity;
+        this.f59421d = cVar;
+        this.f59424g = str;
+        this.f59425h = str2;
+        this.f59426i = str3;
         setCanceledOnTouchOutside(z);
         d();
     }
 
     private void d() {
-        setContentView(LayoutInflater.from(this.f61763f.getApplicationContext()).inflate(a(), (ViewGroup) null));
+        setContentView(LayoutInflater.from(this.f59423f.getApplicationContext()).inflate(a(), (ViewGroup) null));
         this.a = (TextView) findViewById(b());
-        this.f61759b = (TextView) findViewById(c());
-        this.f61760c = (TextView) findViewById(R.id.message_tv);
-        if (!TextUtils.isEmpty(this.f61765h)) {
-            this.a.setText(this.f61765h);
+        this.f59419b = (TextView) findViewById(c());
+        this.f59420c = (TextView) findViewById(R.id.message_tv);
+        if (!TextUtils.isEmpty(this.f59425h)) {
+            this.a.setText(this.f59425h);
         }
-        if (!TextUtils.isEmpty(this.f61766i)) {
-            this.f61759b.setText(this.f61766i);
+        if (!TextUtils.isEmpty(this.f59426i)) {
+            this.f59419b.setText(this.f59426i);
         }
-        if (!TextUtils.isEmpty(this.f61764g)) {
-            this.f61760c.setText(this.f61764g);
+        if (!TextUtils.isEmpty(this.f59424g)) {
+            this.f59420c.setText(this.f59424g);
         }
         this.a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.a.d.1
             @Override // android.view.View.OnClickListener
@@ -122,7 +122,7 @@ public class d extends Dialog {
                 d.this.e();
             }
         });
-        this.f61759b.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.a.d.2
+        this.f59419b.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.a.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 d.this.f();
@@ -132,7 +132,7 @@ public class d extends Dialog {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f61762e = true;
+        this.f59422e = true;
         dismiss();
     }
 
@@ -148,13 +148,13 @@ public class d extends Dialog {
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
-        if (!this.f61763f.isFinishing()) {
-            this.f61763f.finish();
+        if (!this.f59423f.isFinishing()) {
+            this.f59423f.finish();
         }
-        if (this.f61762e) {
-            this.f61761d.a();
+        if (this.f59422e) {
+            this.f59421d.a();
         } else {
-            this.f61761d.b();
+            this.f59421d.b();
         }
     }
 

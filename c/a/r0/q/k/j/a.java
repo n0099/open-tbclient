@@ -18,34 +18,32 @@ public class a {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f11889b;
+    public final int f11619b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f11890c;
+    public final int f11620c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f11891d;
+    public final String f11621d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f11892e;
+    public final String f11622e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f11893f;
+    public final String f11623f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f11894g;
+    public final String f11624g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Set<String> f11895h;
+    public final Set<String> f11625h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f11896i;
+    public final String f11626i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Long f11897j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f11898k;
+    public final Long f11627j;
+    public int k;
 
     public a(String str, int i2, int i3, String str2, String str3, String str4, String str5, Set<String> set, String str6, Long l) {
         Interceptable interceptable = $ic;
@@ -63,15 +61,15 @@ public class a {
             }
         }
         this.a = str;
-        this.f11890c = i3;
-        this.f11889b = i2;
-        this.f11891d = str2;
-        this.f11892e = str3;
-        this.f11893f = str4;
-        this.f11894g = str5;
-        this.f11895h = set;
-        this.f11896i = str6;
-        this.f11897j = l;
+        this.f11620c = i3;
+        this.f11619b = i2;
+        this.f11621d = str2;
+        this.f11622e = str3;
+        this.f11623f = str4;
+        this.f11624g = str5;
+        this.f11625h = set;
+        this.f11626i = str6;
+        this.f11627j = l;
     }
 
     public static a a(JSONObject jSONObject) {
@@ -102,7 +100,7 @@ public class a {
                     }
                 }
                 a aVar = new a(optString2, optInt, optInt2, optString3, optString4, optString6, optString, hashSet.size() > 0 ? hashSet : null, optString5, null);
-                aVar.f11898k = optJSONObject.optInt("use_openbundleid", -1);
+                aVar.k = optJSONObject.optInt("use_openbundleid", -1);
                 return aVar;
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();

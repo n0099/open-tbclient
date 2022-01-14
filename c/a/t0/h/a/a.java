@@ -7,7 +7,7 @@ public interface a extends c.a.t0.h.e.a<c> {
 
     /* renamed from: c.a.t0.h.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC1106a {
+    public interface InterfaceC1120a {
         void a(c cVar, View view);
 
         void b(c cVar, View view);
@@ -17,7 +17,7 @@ public interface a extends c.a.t0.h.e.a<c> {
 
     void b(Object obj);
 
-    void f(InterfaceC1106a interfaceC1106a);
+    void f(InterfaceC1120a interfaceC1120a);
 
     View getView();
 

@@ -152,7 +152,7 @@ public class PlayStoreDeferredComponentManager implements DeferredComponentManag
                             }
                             this.this$0.sessionIdToName.delete(sessionId);
                             this.this$0.sessionIdToLoadingUnitId.delete(sessionId);
-                            this.this$0.sessionIdToState.put(sessionId, f.f31931j);
+                            this.this$0.sessionIdToState.put(sessionId, f.f30928j);
                             return;
                         case 7:
                             Log.d(PlayStoreDeferredComponentManager.TAG, String.format("Module \"%s\" (sessionId %d) install canceled.", this.this$0.sessionIdToName.get(sessionId), Integer.valueOf(sessionId)));

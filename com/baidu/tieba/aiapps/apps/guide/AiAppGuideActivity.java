@@ -30,7 +30,7 @@ public class AiAppGuideActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AiAppGuideActivity f43381e;
+        public final /* synthetic */ AiAppGuideActivity f41827e;
 
         public a(AiAppGuideActivity aiAppGuideActivity) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class AiAppGuideActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f43381e = aiAppGuideActivity;
+            this.f41827e = aiAppGuideActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f43381e.closeActivity();
+                this.f41827e.closeActivity();
             }
         }
     }
@@ -99,10 +99,10 @@ public class AiAppGuideActivity extends BaseActivity {
             ImageView imageView = (ImageView) findViewById(R.id.img_close);
             this.mImgClose = imageView;
             imageView.setOnClickListener(this.mOnClickListener);
-            int k2 = n.k(getActivity()) - (n.f(getActivity(), R.dimen.tbds44) * 2);
+            int k = n.k(getActivity()) - (n.f(getActivity(), R.dimen.tbds44) * 2);
             ViewGroup.LayoutParams layoutParams = this.mGifView.getLayoutParams();
-            layoutParams.width = k2;
-            layoutParams.height = (int) (((k2 * GIF_HEIGHT) * 1.0f) / 760.0f);
+            layoutParams.width = k;
+            layoutParams.height = (int) (((k * GIF_HEIGHT) * 1.0f) / 760.0f);
             this.mGifView.setLayoutParams(layoutParams);
         }
     }

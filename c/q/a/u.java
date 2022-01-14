@@ -24,34 +24,32 @@ public class u {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a5 f31456b;
+    public a5 f30468b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f31457c;
+    public Info f30469c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f31458d;
+    public View f30470d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f31459e;
+    public List f30471e;
 
     /* renamed from: f  reason: collision with root package name */
-    public s f31460f;
+    public s f30472f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h4 f31461g;
+    public h4 f30473g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f31462h;
+    public long f30474h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e5 f31463i;
+    public e5 f30475i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f31464j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f31465k;
+    public boolean f30476j;
+    public long k;
     public float l;
     public float m;
     public int n;
@@ -82,16 +80,16 @@ public class u {
                 return;
             }
         }
-        this.f31459e = Collections.synchronizedList(new ArrayList());
-        this.f31462h = 0L;
-        this.f31463i = new f6(this);
-        this.f31464j = false;
-        this.f31465k = 0L;
+        this.f30471e = Collections.synchronizedList(new ArrayList());
+        this.f30474h = 0L;
+        this.f30475i = new f6(this);
+        this.f30476j = false;
+        this.k = 0L;
         this.a = context;
-        a5 a5Var = new a5(context, str, L.f63177e);
-        this.f31456b = a5Var;
-        a5Var.f31251g = this.f31463i;
-        this.f31461g = new h4(context);
+        a5 a5Var = new a5(context, str, L.f60798e);
+        this.f30468b = a5Var;
+        a5Var.f30275g = this.f30475i;
+        this.f30473g = new h4(context);
     }
 
     public static /* synthetic */ void d(u uVar, View view) {
@@ -131,12 +129,12 @@ public class u {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 g();
-                if (this.f31456b != null) {
-                    this.f31456b.b();
-                    this.f31456b = null;
+                if (this.f30468b != null) {
+                    this.f30468b.b();
+                    this.f30468b = null;
                 }
-                if (this.f31460f != null) {
-                    this.f31460f = null;
+                if (this.f30472f != null) {
+                    this.f30472f = null;
                 }
             } catch (Exception unused) {
             }
@@ -153,17 +151,17 @@ public class u {
             if (view == null || arrayList == null || arrayList.size() == 0 || !f()) {
                 return;
             }
-            this.f31462h = 0L;
-            if (this.f31458d != null) {
+            this.f30474h = 0L;
+            if (this.f30470d != null) {
                 g();
             }
-            this.f31458d = view;
+            this.f30470d = view;
             try {
                 q qVar = new q(this);
                 for (View view2 : arrayList) {
                     if (view2 != null && !(view2 instanceof PBMediaView)) {
-                        if (!this.f31459e.contains(view2)) {
-                            this.f31459e.add(view2);
+                        if (!this.f30471e.contains(view2)) {
+                            this.f30471e.add(view2);
                         }
                         if (!(view2 instanceof CircleProgressbar)) {
                             view2.setOnClickListener(qVar);
@@ -177,26 +175,26 @@ public class u {
                 try {
                     if (pBMediaView.getHtmlWebView() != null) {
                         j3 htmlWebView = pBMediaView.getHtmlWebView();
-                        htmlWebView.a(f() ? this.f31457c.getLoad() : "", this.f31457c);
-                        if (this.f31457c.isNat()) {
-                            htmlWebView.f31323c.setOnTouchListener(new i(this));
+                        htmlWebView.a(f() ? this.f30469c.getLoad() : "", this.f30469c);
+                        if (this.f30469c.isNat()) {
+                            htmlWebView.f30344c.setOnTouchListener(new i(this));
                         }
-                        htmlWebView.f31322b = new m(this);
+                        htmlWebView.f30343b = new m(this);
                     }
                 } catch (Exception unused2) {
                 }
             }
             y2 a = c3.a(this.a);
-            a.o(new g3(this.f31457c));
+            a.o(new g3(this.f30469c));
             a.m();
-            s sVar = this.f31460f;
+            s sVar = this.f30472f;
             if (sVar != null) {
                 sVar.onDisplayed();
             }
-            if (this.f31457c != null) {
-                m2.m(this.a, this.f31457c.getId() + ":" + System.currentTimeMillis(), false);
+            if (this.f30469c != null) {
+                m2.m(this.a, this.f30469c.getId() + ":" + System.currentTimeMillis(), false);
             }
-            new s0().a(view, this.f31457c, new e(this, view));
+            new s0().a(view, this.f30469c, new e(this, view));
         }
     }
 
@@ -204,7 +202,7 @@ public class u {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Info info = this.f31457c;
+            Info info = this.f30469c;
             return info != null && info.isEffective();
         }
         return invokeV.booleanValue;
@@ -214,14 +212,14 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                for (View view : this.f31459e) {
+                for (View view : this.f30471e) {
                     if (view != null) {
                         view.setOnClickListener(null);
                     }
                 }
-                this.f31459e.clear();
-                if (this.f31458d != null) {
-                    this.f31458d = null;
+                this.f30471e.clear();
+                if (this.f30470d != null) {
+                    this.f30470d = null;
                 }
             } catch (Exception unused) {
             }

@@ -1,7 +1,7 @@
 package c.a.t0.a0.f.e;
 
 import android.text.TextUtils;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaInfoData;
@@ -22,7 +22,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f14920b;
+    public static a f14562b;
     public transient /* synthetic */ FieldHolder $fh;
     public List<StatisticItem> a;
 
@@ -44,14 +44,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f14920b == null) {
+            if (f14562b == null) {
                 synchronized (a.class) {
-                    if (f14920b == null) {
-                        f14920b = new a();
+                    if (f14562b == null) {
+                        f14562b = new a();
                     }
                 }
             }
-            return f14920b;
+            return f14562b;
         }
         return (a) invokeV.objValue;
     }
@@ -84,30 +84,30 @@ public class a {
         }
     }
 
-    public final long d(d2 d2Var) {
+    public final long d(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var)) == null) {
-            if (d2Var == null || d2Var.o1() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var)) == null) {
+            if (e2Var == null || e2Var.o1() == null) {
                 return -1L;
             }
-            return d2Var.o1().live_id;
+            return e2Var.o1().live_id;
         }
         return invokeL.longValue;
     }
 
-    public StatisticItem e(int i2, String str, int i3, String str2, d2 d2Var) {
+    public StatisticItem e(int i2, String str, int i3, String str2, e2 e2Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), str2, d2Var})) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), str2, e2Var})) == null) {
+            if (e2Var == null) {
                 return null;
             }
-            String str3 = (d2Var.o1() == null || StringUtils.isNull(d2Var.o1().appId)) ? "" : d2Var.o1().appId;
+            String str3 = (e2Var.o1() == null || StringUtils.isNull(e2Var.o1().appId)) ? "" : e2Var.o1().appId;
             StatisticItem statisticItem = new StatisticItem(str);
             statisticItem.param("obj_type", 1);
-            statisticItem.param("obj_id", d(d2Var));
-            statisticItem.param("tid", d2Var.g0());
+            statisticItem.param("obj_id", d(e2Var));
+            statisticItem.param("tid", e2Var.g0());
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
             statisticItem.param("entryid", i3);
             statisticItem.param("name", str2);

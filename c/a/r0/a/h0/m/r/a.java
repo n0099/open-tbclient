@@ -18,20 +18,20 @@ public class a extends g {
 
     /* renamed from: c.a.r0.a.h0.m.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0380a implements Runnable {
+    public class RunnableC0389a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f6866e;
+        public final /* synthetic */ int f6718e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.u2.a f6867f;
+        public final /* synthetic */ c.a.r0.a.u2.a f6719f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f6868g;
+        public final /* synthetic */ a f6720g;
 
-        public RunnableC0380a(a aVar, int i2, c.a.r0.a.u2.a aVar2) {
+        public RunnableC0389a(a aVar, int i2, c.a.r0.a.u2.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,25 +46,25 @@ public class a extends g {
                     return;
                 }
             }
-            this.f6868g = aVar;
-            this.f6866e = i2;
-            this.f6867f = aVar2;
+            this.f6720g = aVar;
+            this.f6718e = i2;
+            this.f6719f = aVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f6868g.H == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f6720g.H == null) {
                 return;
             }
-            int i2 = this.f6866e;
+            int i2 = this.f6718e;
             if (i2 == -1) {
-                this.f6868g.H.b(this.f6867f);
+                this.f6720g.H.b(this.f6719f);
             } else if (i2 == 0) {
-                this.f6868g.H.a();
+                this.f6720g.H.a();
             } else if (i2 != 1) {
             } else {
-                this.f6868g.H.onSuccess();
+                this.f6720g.H.onSuccess();
             }
         }
     }
@@ -130,7 +130,7 @@ public class a extends g {
     public final void K0(int i2, c.a.r0.a.u2.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, aVar) == null) {
-            q0.a0(new RunnableC0380a(this, i2, aVar));
+            q0.a0(new RunnableC0389a(this, i2, aVar));
         }
     }
 

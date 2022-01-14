@@ -13,25 +13,25 @@ public abstract class l extends n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile String f54998c;
+    public volatile String f52907c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile String f54999d;
+    public volatile String f52908d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile String f55000e;
+    public volatile String f52909e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f55001f;
+    public volatile boolean f52910f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f55002g;
+    public volatile boolean f52911g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f55003h;
+    public volatile long f52912h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f55004i;
+    public volatile boolean f52913i;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -46,22 +46,22 @@ public abstract class l extends n {
                 return;
             }
         }
-        this.f54998c = "";
-        this.f54999d = "";
-        this.f55000e = "";
-        this.f55001f = false;
-        this.f55002g = false;
+        this.f52907c = "";
+        this.f52908d = "";
+        this.f52909e = "";
+        this.f52910f = false;
+        this.f52911g = false;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (l.class) {
-                this.f55000e = "";
-                this.f54999d = "";
-                this.f54998c = "";
-                this.f55002g = false;
-                this.f55001f = false;
+                this.f52909e = "";
+                this.f52908d = "";
+                this.f52907c = "";
+                this.f52911g = false;
+                this.f52910f = false;
             }
         }
     }
@@ -72,12 +72,12 @@ public abstract class l extends n {
             try {
                 Thread.sleep(6000L);
                 synchronized (l.class) {
-                    if (this.f55004i) {
+                    if (this.f52913i) {
                         e0.c("BaseProvider", "callback success");
                     } else {
                         e0.d("BaseProvider", "callback overtime");
                         a();
-                        this.f55004i = true;
+                        this.f52913i = true;
                         e();
                     }
                 }
@@ -90,7 +90,7 @@ public abstract class l extends n {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f55003h = System.currentTimeMillis();
+            this.f52912h = System.currentTimeMillis();
         }
     }
 
@@ -98,11 +98,11 @@ public abstract class l extends n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (System.currentTimeMillis() - this.f55003h > 5500) {
+            if (System.currentTimeMillis() - this.f52912h > 5500) {
                 synchronized (l.class) {
                     e0.c("BaseProvider", "Async timeout but finally connected, discard");
                     a();
-                    this.f55004i = true;
+                    this.f52913i = true;
                     e();
                 }
                 return true;
@@ -115,7 +115,7 @@ public abstract class l extends n {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
+            a(this.f52907c, this.f52908d, this.f52909e, this.f52910f, this.f52911g);
         }
     }
 
@@ -123,35 +123,35 @@ public abstract class l extends n {
     public String getAAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55000e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f52909e : (String) invokeV.objValue;
     }
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
     public String getOAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f54998c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f52907c : (String) invokeV.objValue;
     }
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
     public String getVAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f54999d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f52908d : (String) invokeV.objValue;
     }
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
     public boolean isLimited() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f55002g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f52911g : invokeV.booleanValue;
     }
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
     public boolean isSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f55001f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f52910f : invokeV.booleanValue;
     }
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider

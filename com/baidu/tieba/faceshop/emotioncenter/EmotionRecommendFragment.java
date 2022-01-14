@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.s0.s.i0.f;
+import c.a.s0.s.j0.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -38,25 +38,23 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.y0.x.e.a f44527e;
+    public c.a.t0.y0.x.e.a f42890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EmotionCenterModel f44528f;
+    public EmotionCenterModel f42891f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44529g;
+    public boolean f42892g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f44530h;
+    public boolean f42893h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f44531i;
+    public boolean f42894i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f44532j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final CustomMessageListener f44533k;
+    public boolean f42895j;
+    public final CustomMessageListener k;
     public CustomMessageListener l;
     public CustomMessageListener m;
     public f.g n;
@@ -93,10 +91,10 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError() || !l.z() || this.a.f44528f == null || this.a.f44527e == null || this.a.f44527e.h() == null || this.a.f44527e.h().getVisibility() != 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError() || !l.z() || this.a.f42891f == null || this.a.f42890e == null || this.a.f42890e.h() == null || this.a.f42890e.h().getVisibility() != 0) {
                 return;
             }
-            this.a.f44528f.y(this.a);
+            this.a.f42891f.y(this.a);
         }
     }
 
@@ -132,10 +130,10 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             EmotionPackageData emotionPackageData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof EmotionPackageData) || (emotionPackageData = (EmotionPackageData) customResponsedMessage.getData()) == null || this.a.f44527e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof EmotionPackageData) || (emotionPackageData = (EmotionPackageData) customResponsedMessage.getData()) == null || this.a.f42890e == null) {
                 return;
             }
-            this.a.f44527e.x(emotionPackageData);
+            this.a.f42890e.x(emotionPackageData);
         }
     }
 
@@ -173,31 +171,31 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof HashMap)) {
                 HashMap hashMap = (HashMap) customResponsedMessage.getData();
                 if (hashMap == null || hashMap.isEmpty()) {
-                    if (this.a.f44527e != null) {
-                        this.a.f44527e.n();
+                    if (this.a.f42890e != null) {
+                        this.a.f42890e.n();
                     }
                 } else if (!hashMap.containsKey("upload_result")) {
-                    if (this.a.f44527e != null) {
-                        this.a.f44527e.n();
+                    if (this.a.f42890e != null) {
+                        this.a.f42890e.n();
                     }
                 } else if (hashMap.get("upload_result") == null || !(hashMap.get("upload_result") instanceof Boolean)) {
-                    if (this.a.f44527e != null) {
-                        this.a.f44527e.n();
+                    if (this.a.f42890e != null) {
+                        this.a.f42890e.n();
                     }
                 } else if (!((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                    if (this.a.f44527e != null) {
+                    if (this.a.f42890e != null) {
                         String str = (String) hashMap.get("upload_msg");
                         if (!TextUtils.isEmpty(str)) {
-                            n.J(this.a.getActivity(), str);
+                            n.K(this.a.getActivity(), str);
                         } else {
-                            n.J(this.a.getActivity(), this.a.getString(R.string.emotion_error_default_net_tip));
+                            n.K(this.a.getActivity(), this.a.getString(R.string.emotion_error_default_net_tip));
                         }
-                        this.a.f44527e.w();
+                        this.a.f42890e.w();
                     }
                 } else {
                     BdToast.c(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.face_group_upload_success)).q();
-                    if (this.a.f44527e != null) {
-                        this.a.f44527e.n();
+                    if (this.a.f42890e != null) {
+                        this.a.f42890e.n();
                     }
                 }
             }
@@ -210,7 +208,7 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionRecommendFragment f44534e;
+        public final /* synthetic */ EmotionRecommendFragment f42896e;
 
         public d(EmotionRecommendFragment emotionRecommendFragment) {
             Interceptable interceptable = $ic;
@@ -227,17 +225,17 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
                     return;
                 }
             }
-            this.f44534e = emotionRecommendFragment;
+            this.f42896e = emotionRecommendFragment;
         }
 
-        @Override // c.a.s0.s.i0.f.g
+        @Override // c.a.s0.s.j0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (this.f44534e.f44528f != null && !this.f44534e.f44531i) {
-                    this.f44534e.f44528f.y(this.f44534e);
+                if (this.f42896e.f42891f != null && !this.f42896e.f42894i) {
+                    this.f42896e.f42891f.y(this.f42896e);
                 }
-                this.f44534e.f44527e.j().refreshNetData();
+                this.f42896e.f42890e.j().refreshNetData();
             }
         }
     }
@@ -248,7 +246,7 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionRecommendFragment f44535e;
+        public final /* synthetic */ EmotionRecommendFragment f42897e;
 
         public e(EmotionRecommendFragment emotionRecommendFragment) {
             Interceptable interceptable = $ic;
@@ -265,21 +263,21 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
                     return;
                 }
             }
-            this.f44535e = emotionRecommendFragment;
+            this.f42897e = emotionRecommendFragment;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f44535e.f44528f == null || this.f44535e.f44531i) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42897e.f42891f == null || this.f42897e.f42894i) {
                 return;
             }
-            if (this.f44535e.f44530h) {
-                this.f44535e.f44527e.s();
-                this.f44535e.f44528f.x(this.f44535e);
+            if (this.f42897e.f42893h) {
+                this.f42897e.f42890e.s();
+                this.f42897e.f42891f.x(this.f42897e);
                 return;
             }
-            this.f44535e.f44527e.u();
+            this.f42897e.f42890e.u();
         }
     }
 
@@ -296,12 +294,12 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
                 return;
             }
         }
-        this.f44528f = null;
-        this.f44529g = true;
-        this.f44530h = false;
-        this.f44531i = false;
-        this.f44532j = false;
-        this.f44533k = new a(this, 2000994);
+        this.f42891f = null;
+        this.f42892g = true;
+        this.f42893h = false;
+        this.f42894i = false;
+        this.f42895j = false;
+        this.k = new a(this, 2000994);
         this.l = new b(this, 2921059);
         this.m = new c(this, 2921040);
         this.n = new d(this);
@@ -318,8 +316,8 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
     public void failed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f44531i = false;
-            this.f44527e.d();
+            this.f42894i = false;
+            this.f42890e.d();
         }
     }
 
@@ -327,7 +325,7 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c.a.t0.y0.x.e.a aVar = this.f44527e;
+            c.a.t0.y0.x.e.a aVar = this.f42890e;
             if (aVar != null) {
                 return aVar.f();
             }
@@ -340,14 +338,14 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (c.a.t0.n2.g.e.l().r()) {
-                c.a.t0.y0.x.e.a aVar = this.f44527e;
+                c.a.t0.y0.x.e.a aVar = this.f42890e;
                 if (aVar != null) {
                     aVar.r();
                     return;
                 }
                 return;
             }
-            c.a.t0.y0.x.e.a aVar2 = this.f44527e;
+            c.a.t0.y0.x.e.a aVar2 = this.f42890e;
             if (aVar2 != null) {
                 aVar2.n();
             }
@@ -358,12 +356,12 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
     public void loadMore(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, emotionCenterData) == null) {
-            this.f44531i = false;
-            this.f44527e.k();
+            this.f42894i = false;
+            this.f42890e.k();
             if (emotionCenterData == null) {
                 return;
             }
-            this.f44527e.c(emotionCenterData);
+            this.f42890e.c(emotionCenterData);
         }
     }
 
@@ -380,7 +378,7 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.t0.y0.x.e.a aVar = this.f44527e;
+            c.a.t0.y0.x.e.a aVar = this.f42890e;
             if (aVar != null) {
                 aVar.m(i2);
             }
@@ -403,30 +401,30 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
             c.a.t0.y0.x.e.a aVar = new c.a.t0.y0.x.e.a(getPageContext(), getUniqueId());
-            this.f44527e = aVar;
+            this.f42890e = aVar;
             aVar.p(this.n);
-            this.f44527e.q(this.o);
-            registerListener(this.f44533k);
+            this.f42890e.q(this.o);
+            registerListener(this.k);
             registerListener(this.l);
-            if (this.f44528f == null) {
-                this.f44528f = new EmotionCenterModel(getPageContext());
+            if (this.f42891f == null) {
+                this.f42891f = new EmotionCenterModel(getPageContext());
             }
             registerListener(this.m);
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f44532j = arguments.getBoolean("need_check_login");
+                this.f42895j = arguments.getBoolean("need_check_login");
             }
-            if (!this.f44532j) {
-                if (this.f44529g && (emotionCenterModel2 = this.f44528f) != null) {
+            if (!this.f42895j) {
+                if (this.f42892g && (emotionCenterModel2 = this.f42891f) != null) {
                     emotionCenterModel2.y(this);
-                    this.f44531i = true;
-                    this.f44529g = false;
+                    this.f42894i = true;
+                    this.f42892g = false;
                 }
             } else if (ViewHelper.checkUpIsLogin(getPageContext().getPageActivity())) {
-                if (this.f44529g && (emotionCenterModel = this.f44528f) != null) {
+                if (this.f42892g && (emotionCenterModel = this.f42891f) != null) {
                     emotionCenterModel.y(this);
-                    this.f44531i = true;
-                    this.f44529g = false;
+                    this.f42894i = true;
+                    this.f42892g = false;
                 }
             } else {
                 LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) getPageContext().getPageActivity(), true);
@@ -434,7 +432,7 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
                 getPageContext().getPageActivity().finish();
             }
-            return this.f44527e.i();
+            return this.f42890e.i();
         }
         return (View) invokeLLL.objValue;
     }
@@ -460,21 +458,21 @@ public class EmotionRecommendFragment extends BaseFragment implements c.a.t0.y0.
     public void refreshSuccess(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, emotionCenterData) == null) {
-            this.f44531i = false;
-            this.f44527e.d();
-            this.f44527e.k();
+            this.f42894i = false;
+            this.f42890e.d();
+            this.f42890e.k();
             if (emotionCenterData == null) {
                 return;
             }
             if (!"1".equals(emotionCenterData.has_more)) {
-                this.f44530h = false;
+                this.f42893h = false;
             } else {
-                this.f44530h = true;
+                this.f42893h = true;
             }
             if (!TextUtils.isEmpty(emotionCenterData.activity_url)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921060, emotionCenterData.activity_url));
             }
-            this.f44527e.o(emotionCenterData);
+            this.f42890e.o(emotionCenterData);
         }
     }
 }

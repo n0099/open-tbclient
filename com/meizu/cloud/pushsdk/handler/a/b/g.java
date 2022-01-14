@@ -29,46 +29,46 @@ public class g implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61104b;
+    public boolean f58791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f61105c;
+    public List<String> f58792c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f61106d;
+    public b f58793d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61107e;
+    public String f58794e;
 
     public g(Parcel parcel) {
         this.a = parcel.readInt();
-        this.f61104b = parcel.readByte() != 0;
-        this.f61105c = parcel.createStringArrayList();
-        this.f61106d = (b) parcel.readParcelable(b.class.getClassLoader());
-        this.f61107e = parcel.readString();
+        this.f58791b = parcel.readByte() != 0;
+        this.f58792c = parcel.createStringArrayList();
+        this.f58793d = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.f58794e = parcel.readString();
     }
 
     public g(String str, String str2, String str3, String str4) {
-        this.f61107e = str;
+        this.f58794e = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (!jSONObject.isNull(TiebaPrepareImageService.MAX_SIZE)) {
                 this.a = jSONObject.getInt(TiebaPrepareImageService.MAX_SIZE);
             }
             if (!jSONObject.isNull("wifi_upload")) {
-                this.f61104b = jSONObject.getBoolean("wifi_upload");
+                this.f58791b = jSONObject.getBoolean("wifi_upload");
             }
             if (!jSONObject.isNull("upload_files")) {
                 JSONArray jSONArray = jSONObject.getJSONArray("upload_files");
-                this.f61105c = new ArrayList();
+                this.f58792c = new ArrayList();
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    this.f61105c.add(jSONArray.getString(i2));
+                    this.f58792c.add(jSONArray.getString(i2));
                 }
             }
         } catch (JSONException e2) {
             c.k.a.a.a.b("UploadLogMessage", "parse upload message error " + e2.getMessage());
         }
-        this.f61106d = new b(str2, str3, str4);
+        this.f58793d = new b(str2, str3, str4);
     }
 
     public int a() {
@@ -76,15 +76,15 @@ public class g implements Parcelable {
     }
 
     public boolean b() {
-        return this.f61104b;
+        return this.f58791b;
     }
 
     public List<String> c() {
-        return this.f61105c;
+        return this.f58792c;
     }
 
     public b d() {
-        return this.f61106d;
+        return this.f58793d;
     }
 
     @Override // android.os.Parcelable
@@ -93,15 +93,15 @@ public class g implements Parcelable {
     }
 
     public String toString() {
-        return "UploadLogMessage{maxSize=" + this.a + ", wifiUpload=" + this.f61104b + ", fileList=" + this.f61105c + ", controlMessage=" + this.f61106d + ", uploadMessage='" + this.f61107e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "UploadLogMessage{maxSize=" + this.a + ", wifiUpload=" + this.f58791b + ", fileList=" + this.f58792c + ", controlMessage=" + this.f58793d + ", uploadMessage='" + this.f58794e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.a);
-        parcel.writeByte(this.f61104b ? (byte) 1 : (byte) 0);
-        parcel.writeStringList(this.f61105c);
-        parcel.writeParcelable(this.f61106d, i2);
-        parcel.writeString(this.f61107e);
+        parcel.writeByte(this.f58791b ? (byte) 1 : (byte) 0);
+        parcel.writeStringList(this.f58792c);
+        parcel.writeParcelable(this.f58793d, i2);
+        parcel.writeString(this.f58794e);
     }
 }

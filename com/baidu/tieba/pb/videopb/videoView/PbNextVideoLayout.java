@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.s2.f;
 import c.a.t0.s2.g;
 import c.a.t0.s2.h;
@@ -31,26 +31,24 @@ public class PbNextVideoLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48728e;
+    public int f46908e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f48729f;
+    public TbImageView f46909f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f48730g;
+    public TextView f46910g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48731h;
+    public TextView f46911h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f48732i;
+    public ImageView f46912i;
     public boolean isManualFinish;
 
     /* renamed from: j  reason: collision with root package name */
-    public ProgressBar f48733j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f48734k;
+    public ProgressBar f46913j;
+    public boolean k;
     public a l;
 
     /* loaded from: classes12.dex */
@@ -96,7 +94,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         public void onTick(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.a.f48733j.setProgress(((int) (5000 - j2)) * 2);
+                this.a.f46913j.setProgress(((int) (5000 - j2)) * 2);
             }
         }
     }
@@ -119,8 +117,8 @@ public class PbNextVideoLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f48728e = 50;
-        this.f48734k = true;
+        this.f46908e = 50;
+        this.k = true;
         this.isManualFinish = true;
         b(context);
     }
@@ -129,25 +127,25 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             RelativeLayout.inflate(context, j.pb_next_video_layout, this);
-            this.f48729f = (TbImageView) findViewById(i.pb_next_video_img);
-            this.f48730g = (TextView) findViewById(i.pb_next_video_txt);
-            this.f48731h = (TextView) findViewById(i.pb_next_video_title);
-            this.f48732i = (ImageView) findViewById(i.pb_next_video_close);
-            this.f48733j = (ProgressBar) findViewById(i.pb_next_video_progress_bar);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48732i, h.icon_pure_close16_n_svg, f.CAM_X0622, null);
+            this.f46909f = (TbImageView) findViewById(i.pb_next_video_img);
+            this.f46910g = (TextView) findViewById(i.pb_next_video_txt);
+            this.f46911h = (TextView) findViewById(i.pb_next_video_title);
+            this.f46912i = (ImageView) findViewById(i.pb_next_video_close);
+            this.f46913j = (ProgressBar) findViewById(i.pb_next_video_progress_bar);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f46912i, h.icon_pure_close16_n_svg, f.CAM_X0622, null);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48734k = true;
-            this.f48730g.setText(l.pb_video_next_play);
+            this.k = true;
+            this.f46910g.setText(l.pb_video_next_play);
             a aVar = this.l;
             if (aVar != null) {
                 aVar.cancel();
             }
-            a aVar2 = new a(this, 5000 - this.f48733j.getProgress(), this.f48728e);
+            a aVar2 = new a(this, 5000 - this.f46913j.getProgress(), this.f46908e);
             this.l = aVar2;
             aVar2.start();
         }
@@ -157,45 +155,45 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             getLayoutParams().height = n.f(getContext(), (!z2 || z) ? g.tbds156 : g.tbds267);
-            this.f48729f.getLayoutParams().width = n.f(getContext(), (!z2 || z) ? g.tbds276 : g.tbds470);
-            this.f48731h.setTextSize(0, n.f(getContext(), (!z2 || z) ? g.tbds42 : g.tbds52));
-            ((LinearLayout.LayoutParams) this.f48731h.getLayoutParams()).topMargin = n.f(getContext(), (!z2 || z) ? g.tbds8 : g.tbds22);
-            ((RelativeLayout.LayoutParams) this.f48732i.getLayoutParams()).topMargin = n.f(getContext(), (!z2 || z) ? g.tbds20 : g.tbds42);
-            ((RelativeLayout.LayoutParams) this.f48732i.getLayoutParams()).rightMargin = n.f(getContext(), (!z2 || z) ? g.tbds44 : g.tbds52);
-            this.f48728e = (!z2 || z) ? 50 : 25;
+            this.f46909f.getLayoutParams().width = n.f(getContext(), (!z2 || z) ? g.tbds276 : g.tbds470);
+            this.f46911h.setTextSize(0, n.f(getContext(), (!z2 || z) ? g.tbds42 : g.tbds52));
+            ((LinearLayout.LayoutParams) this.f46911h.getLayoutParams()).topMargin = n.f(getContext(), (!z2 || z) ? g.tbds8 : g.tbds22);
+            ((RelativeLayout.LayoutParams) this.f46912i.getLayoutParams()).topMargin = n.f(getContext(), (!z2 || z) ? g.tbds20 : g.tbds42);
+            ((RelativeLayout.LayoutParams) this.f46912i.getLayoutParams()).rightMargin = n.f(getContext(), (!z2 || z) ? g.tbds44 : g.tbds52);
+            this.f46908e = (!z2 || z) ? 50 : 25;
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f48734k = false;
+            this.k = false;
             a aVar = this.l;
             if (aVar != null) {
                 aVar.cancel();
             }
-            this.f48730g.setText(l.pb_video_next_video);
-            this.f48733j.setProgress(0);
+            this.f46910g.setText(l.pb_video_next_video);
+            this.f46913j.setProgress(0);
         }
     }
 
-    public void setDate(d2 d2Var) {
+    public void setDate(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, d2Var) == null) || d2Var == null || d2Var.t1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, e2Var) == null) || e2Var == null || e2Var.t1() == null) {
             return;
         }
-        this.f48729f.startLoad(d2Var.t1().thumbnail_url, 10, false);
-        this.f48730g.setText(l.pb_video_next_play);
-        this.f48731h.setText(d2Var.getTitle());
-        this.f48733j.setProgress(0);
+        this.f46909f.startLoad(e2Var.t1().thumbnail_url, 10, false);
+        this.f46910g.setText(l.pb_video_next_play);
+        this.f46911h.setText(e2Var.getTitle());
+        this.f46913j.setProgress(0);
     }
 
     public void setIsCountDownValid(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || this.f48734k == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || this.k == z) {
             return;
         }
-        this.f48734k = z;
+        this.k = z;
         if (getVisibility() == 0) {
             if (z) {
                 c();
@@ -210,7 +208,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
             super.setOnClickListener(onClickListener);
-            this.f48732i.setOnClickListener(onClickListener);
+            this.f46912i.setOnClickListener(onClickListener);
         }
     }
 
@@ -220,7 +218,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             super.setVisibility(i2);
             if (i2 == 0) {
-                if (this.f48734k) {
+                if (this.k) {
                     c();
                     return;
                 } else {
@@ -228,7 +226,7 @@ public class PbNextVideoLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f48733j.setProgress(0);
+            this.f46913j.setProgress(0);
             a aVar = this.l;
             if (aVar != null) {
                 aVar.cancel();
@@ -255,8 +253,8 @@ public class PbNextVideoLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f48728e = 50;
-        this.f48734k = true;
+        this.f46908e = 50;
+        this.k = true;
         this.isManualFinish = true;
         b(context);
     }
@@ -280,8 +278,8 @@ public class PbNextVideoLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f48728e = 50;
-        this.f48734k = true;
+        this.f46908e = 50;
+        this.k = true;
         this.isManualFinish = true;
         b(context);
     }

@@ -150,7 +150,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
-                pageStayDurationItem.f13279i = String.valueOf(this.mPropId);
+                pageStayDurationItem.f12960i = String.valueOf(this.mPropId);
             }
             return pageStayDurationItem;
         }
@@ -238,7 +238,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             super.onUserChanged(z);
             if (z) {
-                c.a.s0.a0.b.a().d();
+                c.a.s0.a0.b.d().h();
             }
         }
     }

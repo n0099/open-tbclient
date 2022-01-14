@@ -16,7 +16,7 @@ public class c {
     public List<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18124b;
+    public String f17684b;
 
     public c(f<?> fVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class c {
                 return;
             }
         }
-        this.f18124b = "7a7c80";
+        this.f17684b = "7a7c80";
         ArrayList arrayList = new ArrayList();
         this.a = arrayList;
         arrayList.add("7a7c80");
@@ -56,13 +56,13 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18124b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17684b : (String) invokeV.objValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f18124b = str;
+            this.f17684b = str;
         }
     }
 }

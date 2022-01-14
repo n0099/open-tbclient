@@ -16,25 +16,25 @@ public class bg {
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f60220b;
+    public static boolean f57934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<com.kwad.sdk.core.request.model.a> f60221c = new ArrayList();
+    public static final List<com.kwad.sdk.core.request.model.a> f57935c = new ArrayList();
 
     public static List<com.kwad.sdk.core.request.model.a> a(Context context, int i2) {
         WifiManager wifiManager;
         if (ao.k()) {
             return new ArrayList();
         }
-        if (f60220b || !a || !f60221c.isEmpty() || context == null) {
-            return f60221c;
+        if (f57934b || !a || !f57935c.isEmpty() || context == null) {
+            return f57935c;
         }
         if (com.kwad.sdk.core.config.b.a(32L)) {
-            return f60221c;
+            return f57935c;
         }
         try {
         } catch (Exception e2) {
-            f60220b = true;
+            f57934b = true;
             com.kwad.sdk.core.d.a.b(e2);
         }
         if (!a(context) && (wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi")) != null) {
@@ -43,22 +43,22 @@ public class bg {
             if (wifiScanResults != null) {
                 for (ScanResult scanResult : wifiScanResults) {
                     com.kwad.sdk.core.request.model.a aVar = new com.kwad.sdk.core.request.model.a();
-                    aVar.f58343b = scanResult.SSID;
-                    aVar.f58344c = scanResult.BSSID;
+                    aVar.f56141b = scanResult.SSID;
+                    aVar.f56142c = scanResult.BSSID;
                     aVar.a = scanResult.level;
                     if (connectionInfo.getBSSID() == null || scanResult.BSSID == null || !TextUtils.equals(connectionInfo.getBSSID().replace("\"", ""), scanResult.BSSID.replace("\"", "")) || connectionInfo.getSSID() == null || scanResult.SSID == null || !TextUtils.equals(connectionInfo.getSSID().replace("\"", ""), scanResult.SSID.replace("\"", ""))) {
-                        f60221c.add(aVar);
+                        f57935c.add(aVar);
                     } else {
-                        f60221c.add(0, aVar);
+                        f57935c.add(0, aVar);
                     }
-                    if (f60221c.size() >= i2) {
-                        return f60221c;
+                    if (f57935c.size() >= i2) {
+                        return f57935c;
                     }
                 }
             }
-            return f60221c;
+            return f57935c;
         }
-        return f60221c;
+        return f57935c;
     }
 
     public static void a(SdkConfig sdkConfig) {
@@ -66,6 +66,6 @@ public class bg {
     }
 
     public static boolean a(Context context) {
-        return (context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29) ? Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f57423g) == -1 && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f57424h) == -1 : ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f57423g) == -1;
+        return (context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29) ? Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55246g) == -1 && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55247h) == -1 : ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55246g) == -1;
     }
 }

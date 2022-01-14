@@ -13,7 +13,7 @@ public class t {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f1491b;
+    public static final boolean f1479b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class t {
         c();
         e();
         f();
-        f1491b = g();
+        f1479b = g();
         h();
     }
 

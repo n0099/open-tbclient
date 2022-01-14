@@ -11,34 +11,32 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27847b;
+    public int f27012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27848c;
+    public int f27013c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27849d;
+    public int f27014d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27850e;
+    public int f27015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27851f;
+    public int f27016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27852g;
+    public int f27017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27853h;
+    public boolean f27018h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f27854i;
+    public boolean f27019i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f27855j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f27856k;
+    public boolean f27020j;
+    public boolean k;
     public int l;
     public int m;
     public boolean n;
@@ -66,16 +64,16 @@ public class b {
             }
         }
         this.a = 8;
-        this.f27847b = 8;
-        this.f27848c = 8;
-        this.f27849d = 0;
-        this.f27850e = 16;
-        this.f27851f = 0;
-        this.f27852g = 0;
-        this.f27853h = true;
-        this.f27854i = false;
-        this.f27855j = true;
-        this.f27856k = false;
+        this.f27012b = 8;
+        this.f27013c = 8;
+        this.f27014d = 0;
+        this.f27015e = 16;
+        this.f27016f = 0;
+        this.f27017g = 0;
+        this.f27018h = true;
+        this.f27019i = false;
+        this.f27020j = true;
+        this.k = false;
         this.l = 1;
         this.m = 0;
         this.n = false;

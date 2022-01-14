@@ -16,30 +16,30 @@ public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Comparator<c> f30685h;
+    public static final Comparator<c> f29723h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Comparator<c> f30686i;
+    public static final Comparator<c> f29724i;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<c> f30687b;
+    public final ArrayList<c> f29725b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c[] f30688c;
+    public final c[] f29726c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30689d;
+    public int f29727d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30690e;
+    public int f29728e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30691f;
+    public int f29729f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30692g;
+    public int f29730g;
 
     /* loaded from: classes9.dex */
     public static class a implements Comparator<c> {
@@ -96,8 +96,8 @@ public class p {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) {
-                float f2 = cVar.f30694c;
-                float f3 = cVar2.f30694c;
+                float f2 = cVar.f29732c;
+                float f3 = cVar2.f29732c;
                 if (f2 < f3) {
                     return -1;
                 }
@@ -114,10 +114,10 @@ public class p {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30693b;
+        public int f29731b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f30694c;
+        public float f29732c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -151,8 +151,8 @@ public class p {
                 return;
             }
         }
-        f30685h = new a();
-        f30686i = new b();
+        f29723h = new a();
+        f29724i = new b();
     }
 
     public p(int i2) {
@@ -171,9 +171,9 @@ public class p {
             }
         }
         this.a = i2;
-        this.f30688c = new c[5];
-        this.f30687b = new ArrayList<>();
-        this.f30689d = -1;
+        this.f29726c = new c[5];
+        this.f29725b = new ArrayList<>();
+        this.f29727d = -1;
     }
 
     public void a(int i2, float f2) {
@@ -183,63 +183,63 @@ public class p {
             return;
         }
         b();
-        int i3 = this.f30692g;
+        int i3 = this.f29730g;
         if (i3 > 0) {
-            c[] cVarArr = this.f30688c;
+            c[] cVarArr = this.f29726c;
             int i4 = i3 - 1;
-            this.f30692g = i4;
+            this.f29730g = i4;
             cVar = cVarArr[i4];
         } else {
             cVar = new c(null);
         }
-        int i5 = this.f30690e;
-        this.f30690e = i5 + 1;
+        int i5 = this.f29728e;
+        this.f29728e = i5 + 1;
         cVar.a = i5;
-        cVar.f30693b = i2;
-        cVar.f30694c = f2;
-        this.f30687b.add(cVar);
-        this.f30691f += i2;
+        cVar.f29731b = i2;
+        cVar.f29732c = f2;
+        this.f29725b.add(cVar);
+        this.f29729f += i2;
         while (true) {
-            int i6 = this.f30691f;
+            int i6 = this.f29729f;
             int i7 = this.a;
             if (i6 <= i7) {
                 return;
             }
             int i8 = i6 - i7;
-            c cVar2 = this.f30687b.get(0);
-            int i9 = cVar2.f30693b;
+            c cVar2 = this.f29725b.get(0);
+            int i9 = cVar2.f29731b;
             if (i9 <= i8) {
-                this.f30691f -= i9;
-                this.f30687b.remove(0);
-                int i10 = this.f30692g;
+                this.f29729f -= i9;
+                this.f29725b.remove(0);
+                int i10 = this.f29730g;
                 if (i10 < 5) {
-                    c[] cVarArr2 = this.f30688c;
-                    this.f30692g = i10 + 1;
+                    c[] cVarArr2 = this.f29726c;
+                    this.f29730g = i10 + 1;
                     cVarArr2[i10] = cVar2;
                 }
             } else {
-                cVar2.f30693b = i9 - i8;
-                this.f30691f -= i8;
+                cVar2.f29731b = i9 - i8;
+                this.f29729f -= i8;
             }
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f30689d == 1) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f29727d == 1) {
             return;
         }
-        Collections.sort(this.f30687b, f30685h);
-        this.f30689d = 1;
+        Collections.sort(this.f29725b, f29723h);
+        this.f29727d = 1;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f30689d == 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f29727d == 0) {
             return;
         }
-        Collections.sort(this.f30687b, f30686i);
-        this.f30689d = 0;
+        Collections.sort(this.f29725b, f29724i);
+        this.f29727d = 0;
     }
 
     public float d(float f2) {
@@ -247,20 +247,20 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f2)) == null) {
             c();
-            float f3 = f2 * this.f30691f;
+            float f3 = f2 * this.f29729f;
             int i2 = 0;
-            for (int i3 = 0; i3 < this.f30687b.size(); i3++) {
-                c cVar = this.f30687b.get(i3);
-                i2 += cVar.f30693b;
+            for (int i3 = 0; i3 < this.f29725b.size(); i3++) {
+                c cVar = this.f29725b.get(i3);
+                i2 += cVar.f29731b;
                 if (i2 >= f3) {
-                    return cVar.f30694c;
+                    return cVar.f29732c;
                 }
             }
-            if (this.f30687b.isEmpty()) {
+            if (this.f29725b.isEmpty()) {
                 return Float.NaN;
             }
-            ArrayList<c> arrayList = this.f30687b;
-            return arrayList.get(arrayList.size() - 1).f30694c;
+            ArrayList<c> arrayList = this.f29725b;
+            return arrayList.get(arrayList.size() - 1).f29732c;
         }
         return invokeF.floatValue;
     }

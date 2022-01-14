@@ -18,16 +18,16 @@ public class a {
     public TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f24130b;
+    public BdTypeRecyclerView f23456b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f24131c;
+    public b f23457c;
 
     /* renamed from: d  reason: collision with root package name */
-    public u f24132d;
+    public u f23458d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f24133e;
+    public List<c.a.d.n.e.a> f23459e;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class a {
                 return;
             }
         }
-        this.f24133e = new LinkedList();
+        this.f23459e = new LinkedList();
         this.a = tbPageContext;
-        this.f24130b = bdTypeRecyclerView;
+        this.f23456b = bdTypeRecyclerView;
         a();
     }
 
@@ -54,26 +54,26 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             b bVar = new b(this.a);
-            this.f24131c = bVar;
-            this.f24133e.add(bVar);
+            this.f23457c = bVar;
+            this.f23459e.add(bVar);
             u uVar = new u(this.a);
-            this.f24132d = uVar;
-            this.f24133e.add(uVar);
-            this.f24130b.addAdapters(this.f24133e);
+            this.f23458d = uVar;
+            this.f23459e.add(uVar);
+            this.f23456b.addAdapters(this.f23459e);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24130b.getAdapter().notifyDataSetChanged();
+            this.f23456b.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void c(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f24130b.setData(list);
+            this.f23456b.setData(list);
         }
     }
 }

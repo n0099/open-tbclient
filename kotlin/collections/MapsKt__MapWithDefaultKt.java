@@ -12,16 +12,16 @@ import kotlin.jvm.internal.Intrinsics;
 public class MapsKt__MapWithDefaultKt {
     @PublishedApi
     @JvmName(name = "getOrImplicitDefaultNullable")
-    public static final <K, V> V getOrImplicitDefaultNullable(Map<K, ? extends V> getOrImplicitDefault, K k2) {
+    public static final <K, V> V getOrImplicitDefaultNullable(Map<K, ? extends V> getOrImplicitDefault, K k) {
         Intrinsics.checkNotNullParameter(getOrImplicitDefault, "$this$getOrImplicitDefault");
         if (getOrImplicitDefault instanceof MapWithDefault) {
-            return (V) ((MapWithDefault) getOrImplicitDefault).getOrImplicitDefault(k2);
+            return (V) ((MapWithDefault) getOrImplicitDefault).getOrImplicitDefault(k);
         }
-        V v = getOrImplicitDefault.get(k2);
-        if (v != null || getOrImplicitDefault.containsKey(k2)) {
+        V v = getOrImplicitDefault.get(k);
+        if (v != null || getOrImplicitDefault.containsKey(k)) {
             return v;
         }
-        throw new NoSuchElementException("Key " + k2 + " is missing in the map.");
+        throw new NoSuchElementException("Key " + k + " is missing in the map.");
     }
 
     public static final <K, V> Map<K, V> withDefault(Map<K, ? extends V> withDefault, Function1<? super K, ? extends V> defaultValue) {

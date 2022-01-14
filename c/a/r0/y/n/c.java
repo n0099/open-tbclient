@@ -24,19 +24,19 @@ public class c implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f12296e;
+    public final Context f12010e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f12297f;
+    public RelativeLayout f12011f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12298g;
+    public TextView f12012g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f12299h;
+    public ImageView f12013h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12300i;
+    public String f12014i;
 
     /* loaded from: classes6.dex */
     public class a implements d.b {
@@ -77,7 +77,7 @@ public class c implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f12301e;
+        public final /* synthetic */ c f12015e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -94,15 +94,15 @@ public class c implements View.OnClickListener {
                     return;
                 }
             }
-            this.f12301e = cVar;
+            this.f12015e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f12301e.b();
-                this.f12301e.d();
+                this.f12015e.b();
+                this.f12015e.d();
             }
         }
     }
@@ -122,21 +122,21 @@ public class c implements View.OnClickListener {
                 return;
             }
         }
-        this.f12296e = context;
+        this.f12010e = context;
         e();
     }
 
     public RelativeLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12297f : (RelativeLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12011f : (RelativeLayout) invokeV.objValue;
     }
 
     public void b() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (imageView = this.f12299h) != null && imageView.getVisibility() == 0) {
-            this.f12299h.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (imageView = this.f12013h) != null && imageView.getVisibility() == 0) {
+            this.f12013h.setVisibility(8);
         }
     }
 
@@ -150,24 +150,24 @@ public class c implements View.OnClickListener {
     public void d() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (textView = this.f12298g) != null && textView.getVisibility() == 0) {
-            this.f12298g.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (textView = this.f12012g) != null && textView.getVisibility() == 0) {
+            this.f12012g.setVisibility(8);
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f12296e).inflate(g.swanapp_video_mute_layer, (ViewGroup) null);
-            this.f12297f = relativeLayout;
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f12010e).inflate(g.swanapp_video_mute_layer, (ViewGroup) null);
+            this.f12011f = relativeLayout;
             relativeLayout.setVisibility(8);
-            TextView textView = (TextView) this.f12297f.findViewById(f.swanapp_video_mute_tip);
-            this.f12298g = textView;
+            TextView textView = (TextView) this.f12011f.findViewById(f.swanapp_video_mute_tip);
+            this.f12012g = textView;
             textView.setVisibility(8);
-            ImageView imageView = (ImageView) this.f12297f.findViewById(f.swanapp_video_mute_btn);
-            this.f12299h = imageView;
+            ImageView imageView = (ImageView) this.f12011f.findViewById(f.swanapp_video_mute_btn);
+            this.f12013h = imageView;
             imageView.setOnClickListener(this);
-            this.f12299h.setVisibility(8);
+            this.f12013h.setVisibility(8);
             c.a.r0.a.r2.b.d.e().d("#com.baidu.swan.videoplayer&MediaMuteViewLayer", new a(this));
         }
     }
@@ -182,8 +182,8 @@ public class c implements View.OnClickListener {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f12300i = str;
-            TextView textView = this.f12298g;
+            this.f12014i = str;
+            TextView textView = this.f12012g;
             if (textView != null) {
                 textView.setText(str);
             }
@@ -193,8 +193,8 @@ public class c implements View.OnClickListener {
     public void h() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (imageView = this.f12299h) != null && imageView.getVisibility() == 8) {
-            this.f12299h.setVisibility(0);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (imageView = this.f12013h) != null && imageView.getVisibility() == 8) {
+            this.f12013h.setVisibility(0);
             c();
         }
     }
@@ -202,7 +202,7 @@ public class c implements View.OnClickListener {
     public void i(boolean z) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (relativeLayout = this.f12297f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (relativeLayout = this.f12011f) == null) {
             return;
         }
         relativeLayout.setVisibility(z ? 0 : 8);
@@ -211,10 +211,10 @@ public class c implements View.OnClickListener {
     public void j() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || TextUtils.isEmpty(this.f12300i) || (textView = this.f12298g) == null || textView.getVisibility() != 8) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || TextUtils.isEmpty(this.f12014i) || (textView = this.f12012g) == null || textView.getVisibility() != 8) {
             return;
         }
-        this.f12298g.setVisibility(0);
+        this.f12012g.setVisibility(0);
         c();
     }
 

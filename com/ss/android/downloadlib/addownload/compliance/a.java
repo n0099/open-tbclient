@@ -21,47 +21,45 @@ public class a extends Dialog {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f61835b;
+    public TextView f59495b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f61836c;
+    public TextView f59496c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f61837d;
+    public TextView f59497d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f61838e;
+    public TextView f59498e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f61839f;
+    public TextView f59499f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ClipImageView f61840g;
+    public ClipImageView f59500g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f61841h;
+    public LinearLayout f59501h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Activity f61842i;
+    public Activity f59502i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final long f61843j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f61844k;
+    public final long f59503j;
+    public long k;
     public final com.ss.android.downloadlib.addownload.b.b l;
 
     public a(@NonNull Activity activity, long j2) {
         super(activity);
-        this.f61842i = activity;
-        this.f61843j = j2;
+        this.f59502i = activity;
+        this.f59503j = j2;
         this.l = c.a().get(Long.valueOf(j2));
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
-        com.ss.android.socialbase.appdownloader.c.a(this.f61842i);
+        com.ss.android.socialbase.appdownloader.c.a(this.f59502i);
     }
 
     @Override // android.app.Dialog
@@ -79,71 +77,71 @@ public class a extends Dialog {
         }
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        this.f61844k = this.l.f61781b;
+        this.k = this.l.f59441b;
         a();
-        e.b("lp_app_dialog_show", this.f61844k);
+        e.b("lp_app_dialog_show", this.k);
         setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.ss.android.downloadlib.addownload.compliance.a.1
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                e.a("lp_app_dialog_cancel", a.this.f61844k);
+                e.a("lp_app_dialog_cancel", a.this.k);
             }
         });
     }
 
     private void a() {
         this.a = (TextView) findViewById(R.id.tv_app_name);
-        this.f61835b = (TextView) findViewById(R.id.tv_app_version);
-        this.f61836c = (TextView) findViewById(R.id.tv_app_developer);
-        this.f61837d = (TextView) findViewById(R.id.tv_app_detail);
-        this.f61838e = (TextView) findViewById(R.id.tv_app_privacy);
-        this.f61839f = (TextView) findViewById(R.id.tv_give_up);
-        this.f61840g = (ClipImageView) findViewById(R.id.iv_app_icon);
-        this.f61841h = (LinearLayout) findViewById(R.id.ll_download);
-        this.a.setText(l.a(this.l.f61784e, "--"));
-        TextView textView = this.f61835b;
-        textView.setText("版本号：" + l.a(this.l.f61785f, "--"));
-        TextView textView2 = this.f61836c;
-        textView2.setText("开发者：" + l.a(this.l.f61786g, "应用信息正在完善中"));
-        this.f61840g.setRoundRadius(l.a(j.getContext(), 8.0f));
-        this.f61840g.setBackgroundColor(Color.parseColor("#EBEBEB"));
-        d.a().a(this.f61843j, new d.a() { // from class: com.ss.android.downloadlib.addownload.compliance.a.2
+        this.f59495b = (TextView) findViewById(R.id.tv_app_version);
+        this.f59496c = (TextView) findViewById(R.id.tv_app_developer);
+        this.f59497d = (TextView) findViewById(R.id.tv_app_detail);
+        this.f59498e = (TextView) findViewById(R.id.tv_app_privacy);
+        this.f59499f = (TextView) findViewById(R.id.tv_give_up);
+        this.f59500g = (ClipImageView) findViewById(R.id.iv_app_icon);
+        this.f59501h = (LinearLayout) findViewById(R.id.ll_download);
+        this.a.setText(l.a(this.l.f59444e, "--"));
+        TextView textView = this.f59495b;
+        textView.setText("版本号：" + l.a(this.l.f59445f, "--"));
+        TextView textView2 = this.f59496c;
+        textView2.setText("开发者：" + l.a(this.l.f59446g, "应用信息正在完善中"));
+        this.f59500g.setRoundRadius(l.a(j.getContext(), 8.0f));
+        this.f59500g.setBackgroundColor(Color.parseColor("#EBEBEB"));
+        d.a().a(this.f59503j, new d.a() { // from class: com.ss.android.downloadlib.addownload.compliance.a.2
             @Override // com.ss.android.downloadlib.addownload.compliance.d.a
             public void a(Bitmap bitmap) {
                 if (bitmap != null) {
-                    a.this.f61840g.setImageBitmap(bitmap);
+                    a.this.f59500g.setImageBitmap(bitmap);
                 } else {
-                    e.a(8, a.this.f61844k);
+                    e.a(8, a.this.k);
                 }
             }
         });
-        this.f61837d.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.a.3
+        this.f59497d.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.a().a(a.this.f61842i);
-                AppDetailInfoActivity.a(a.this.f61842i, a.this.f61843j);
-                e.a("lp_app_dialog_click_detail", a.this.f61844k);
+                b.a().a(a.this.f59502i);
+                AppDetailInfoActivity.a(a.this.f59502i, a.this.f59503j);
+                e.a("lp_app_dialog_click_detail", a.this.k);
             }
         });
-        this.f61838e.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.a.4
+        this.f59498e.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.a().a(a.this.f61842i);
-                AppPrivacyPolicyActivity.a(a.this.f61842i, a.this.f61843j);
-                e.a("lp_app_dialog_click_privacy", a.this.f61844k);
+                b.a().a(a.this.f59502i);
+                AppPrivacyPolicyActivity.a(a.this.f59502i, a.this.f59503j);
+                e.a("lp_app_dialog_click_privacy", a.this.k);
             }
         });
-        this.f61839f.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.a.5
+        this.f59499f.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.dismiss();
-                e.a("lp_app_dialog_click_giveup", a.this.f61844k);
+                e.a("lp_app_dialog_click_giveup", a.this.k);
             }
         });
-        this.f61841h.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.a.6
+        this.f59501h.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.a.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.a("lp_app_dialog_click_download", a.this.f61844k);
-                b.a().b(a.this.f61844k);
+                e.a("lp_app_dialog_click_download", a.this.k);
+                b.a().b(a.this.k);
                 a.this.dismiss();
             }
         });

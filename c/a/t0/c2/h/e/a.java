@@ -15,14 +15,14 @@ public class a implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f15793g;
+    public static final BdUniqueId f15395g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f15794e;
+    public String f15396e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15795f;
+    public String f15397f;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class a implements n {
                 return;
             }
         }
-        f15793g = BdUniqueId.gen();
+        f15395g = BdUniqueId.gen();
     }
 
     public a() {
@@ -53,33 +53,33 @@ public class a implements n {
                 return;
             }
         }
-        this.f15794e = "";
-        this.f15795f = "";
+        this.f15396e = "";
+        this.f15397f = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15795f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15397f : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15794e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15396e : (String) invokeV.objValue;
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f15795f = str;
+            this.f15397f = str;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f15794e = str;
+            this.f15396e = str;
         }
     }
 
@@ -87,6 +87,6 @@ public class a implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f15793g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f15395g : (BdUniqueId) invokeV.objValue;
     }
 }

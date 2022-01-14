@@ -24,13 +24,13 @@ public class UserHeadCoverView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44230e;
+    public ImageView f42611e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f44231f;
+    public View f42612f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f44232g;
+    public ImageView f42613g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UserHeadCoverView(@NonNull Context context) {
@@ -56,21 +56,21 @@ public class UserHeadCoverView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f44230e = new ImageView(context);
+            this.f42611e = new ImageView(context);
             int f2 = n.f(context, R.dimen.tbds78);
-            addView(this.f44230e, new FrameLayout.LayoutParams(f2, f2));
-            this.f44231f = new View(context);
+            addView(this.f42611e, new FrameLayout.LayoutParams(f2, f2));
+            this.f42612f = new View(context);
             int f3 = n.f(context, R.dimen.tbds158);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f3, f3);
             int f4 = n.f(context, R.dimen.tbds26);
             layoutParams.leftMargin = f4;
             layoutParams.topMargin = f4;
-            addView(this.f44231f, layoutParams);
-            this.f44232g = new ImageView(context);
+            addView(this.f42612f, layoutParams);
+            this.f42613g = new ImageView(context);
             int f5 = n.f(context, R.dimen.tbds36);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f5, f5);
             layoutParams2.gravity = 85;
-            addView(this.f44232g, layoutParams2);
+            addView(this.f42613g, layoutParams2);
         }
     }
 
@@ -82,42 +82,42 @@ public class UserHeadCoverView extends FrameLayout {
         String str = bVar.a;
         if (str != null) {
             if (!str.equals("1") && !bVar.a.equals("2") && !bVar.a.equals("3")) {
-                this.f44230e.setVisibility(8);
-                this.f44231f.setVisibility(8);
+                this.f42611e.setVisibility(8);
+                this.f42612f.setVisibility(8);
             } else {
-                this.f44230e.setVisibility(0);
-                this.f44231f.setVisibility(0);
+                this.f42611e.setVisibility(0);
+                this.f42612f.setVisibility(0);
                 if (bVar.a.equals("1")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f44230e, R.drawable.svg_icon_mask_first30, null);
-                    this.f44231f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_yellow_circle));
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f42611e, R.drawable.svg_icon_mask_first30, null);
+                    this.f42612f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_yellow_circle));
                 } else if (bVar.a.equals("2")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f44230e, R.drawable.svg_icon_mask_second30, null);
-                    this.f44231f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_gray_circle));
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f42611e, R.drawable.svg_icon_mask_second30, null);
+                    this.f42612f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_gray_circle));
                 } else if (bVar.a.equals("3")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f44230e, R.drawable.svg_icon_mask_third30, null);
-                    this.f44231f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_brown_circle));
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f42611e, R.drawable.svg_icon_mask_third30, null);
+                    this.f42612f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_brown_circle));
                 }
             }
         } else {
-            this.f44230e.setVisibility(8);
-            this.f44231f.setVisibility(8);
+            this.f42611e.setVisibility(8);
+            this.f42612f.setVisibility(8);
         }
-        if (bVar.f24750g) {
+        if (bVar.f24063g) {
             int f2 = n.f(TbadkApplication.getInst(), R.dimen.tbds36);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f2, f2);
             layoutParams.gravity = 85;
-            this.f44232g.setLayoutParams(layoutParams);
-            this.f44232g.setVisibility(0);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f44232g, R.drawable.ic_icon_mask_v14_n_svg, null);
-        } else if (bVar.f24751h) {
+            this.f42613g.setLayoutParams(layoutParams);
+            this.f42613g.setVisibility(0);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f42613g, R.drawable.ic_icon_mask_v14_n_svg, null);
+        } else if (bVar.f24064h) {
             int f3 = n.f(TbadkApplication.getInst(), R.dimen.tbds40);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f3, f3);
             layoutParams2.gravity = 85;
-            this.f44232g.setLayoutParams(layoutParams2);
-            this.f44232g.setVisibility(0);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f44232g, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+            this.f42613g.setLayoutParams(layoutParams2);
+            this.f42613g.setVisibility(0);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f42613g, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
         } else {
-            this.f44232g.setVisibility(8);
+            this.f42613g.setVisibility(8);
         }
     }
 

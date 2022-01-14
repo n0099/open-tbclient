@@ -22,19 +22,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SafeWebView extends WebView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33860b = "SafeWebView";
+    public static final String f32784b = "SafeWebView";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile b f33861c;
+    public volatile b f32785c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SafeChromeClient extends WebChromeClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public class SafeWebView extends WebView {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SafeWebViewClient extends WebViewClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +267,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f33861c = null;
+        this.f32785c = null;
         a(context);
     }
 
@@ -327,14 +327,14 @@ public class SafeWebView extends WebView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f33861c == null) {
+            if (this.f32785c == null) {
                 synchronized (this) {
-                    if (this.f33861c == null) {
-                        this.f33861c = new b();
+                    if (this.f32785c == null) {
+                        this.f32785c = new b();
                     }
                 }
             }
-            return this.f33861c;
+            return this.f32785c;
         }
         return (b) invokeV.objValue;
     }
@@ -436,7 +436,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f33861c = null;
+        this.f32785c = null;
         a(context);
     }
 
@@ -459,7 +459,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f33861c = null;
+        this.f32785c = null;
         a(context);
     }
 
@@ -481,7 +481,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f33861c = null;
+        this.f32785c = null;
         a(context);
     }
 }

@@ -18,10 +18,10 @@ public abstract class q {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f63103b;
+    public Handler f60725b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f63104c;
+    public final Object f60726c;
 
     /* loaded from: classes4.dex */
     public class a extends Handler {
@@ -72,10 +72,10 @@ public abstract class q {
                 return;
             }
         }
-        this.f63104c = new Object();
+        this.f60726c = new Object();
         HandlerThread handlerThread = new HandlerThread(getClass().getSimpleName(), 1);
         handlerThread.start();
-        this.f63103b = new a(this, handlerThread.getLooper());
+        this.f60725b = new a(this, handlerThread.getLooper());
     }
 
     public final void a(Context context) {
@@ -90,12 +90,12 @@ public abstract class q {
     public final void a(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            synchronized (this.f63104c) {
-                if (this.f63103b == null) {
+            synchronized (this.f60726c) {
+                if (this.f60725b == null) {
                     String simpleName = getClass().getSimpleName();
                     com.vivo.push.util.p.e(simpleName, ("Dead worker dropping a message: " + message.what) + " (Thread " + Thread.currentThread().getId() + SmallTailInfo.EMOTION_SUFFIX);
                 } else {
-                    this.f63103b.sendMessage(message);
+                    this.f60725b.sendMessage(message);
                 }
             }
         }

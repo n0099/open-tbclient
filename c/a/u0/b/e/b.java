@@ -18,16 +18,14 @@ public final class b extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d f27116h;
+    public final d f26312h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final g f27117i;
+    public final g f26313i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final ByteBuffer f27118j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final UploadDataProvider f27119k;
+    public final ByteBuffer f26314j;
+    public final UploadDataProvider k;
     public boolean l;
     public boolean m;
     public boolean n;
@@ -40,14 +38,14 @@ public final class b extends f {
 
     /* renamed from: c.a.u0.b.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1571b extends UploadDataProvider {
+    public class C1587b extends UploadDataProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f27120e;
+        public final /* synthetic */ b f26315e;
 
-        public C1571b(b bVar) {
+        public C1587b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +60,7 @@ public final class b extends f {
                     return;
                 }
             }
-            this.f27120e = bVar;
+            this.f26315e = bVar;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -79,24 +77,24 @@ public final class b extends f {
         public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
-                if (byteBuffer.remaining() >= this.f27120e.f27118j.remaining()) {
-                    byteBuffer.put(this.f27120e.f27118j);
-                    this.f27120e.f27118j.clear();
-                    uploadDataSink.c(this.f27120e.l);
-                    if (!this.f27120e.l) {
-                        this.f27120e.f27117i.quit();
+                if (byteBuffer.remaining() >= this.f26315e.f26314j.remaining()) {
+                    byteBuffer.put(this.f26315e.f26314j);
+                    this.f26315e.f26314j.clear();
+                    uploadDataSink.c(this.f26315e.l);
+                    if (!this.f26315e.l) {
+                        this.f26315e.f26313i.quit();
                         return;
-                    } else if (this.f27120e.m) {
-                        this.f27120e.f27117i.quit();
+                    } else if (this.f26315e.m) {
+                        this.f26315e.f26313i.quit();
                         return;
                     } else {
                         return;
                     }
                 }
-                int limit = this.f27120e.f27118j.limit();
-                this.f27120e.f27118j.limit(this.f27120e.f27118j.position() + byteBuffer.remaining());
-                byteBuffer.put(this.f27120e.f27118j);
-                this.f27120e.f27118j.limit(limit);
+                int limit = this.f26315e.f26314j.limit();
+                this.f26315e.f26314j.limit(this.f26315e.f26314j.position() + byteBuffer.remaining());
+                byteBuffer.put(this.f26315e.f26314j);
+                this.f26315e.f26314j.limit(limit);
                 uploadDataSink.c(false);
             }
         }
@@ -109,7 +107,7 @@ public final class b extends f {
             }
         }
 
-        public /* synthetic */ C1571b(b bVar, a aVar) {
+        public /* synthetic */ C1587b(b bVar, a aVar) {
             this(bVar);
         }
     }
@@ -129,7 +127,7 @@ public final class b extends f {
                 return;
             }
         }
-        this.f27119k = new C1571b(this, null);
+        this.k = new C1587b(this, null);
         this.l = false;
         this.m = false;
         this.n = false;
@@ -137,9 +135,9 @@ public final class b extends f {
             throw null;
         }
         if (i2 > 0) {
-            this.f27118j = ByteBuffer.allocate(i2);
-            this.f27116h = dVar;
-            this.f27117i = gVar;
+            this.f26314j = ByteBuffer.allocate(i2);
+            this.f26312h = dVar;
+            this.f26313i = gVar;
             this.m = z;
             this.n = z2;
             return;
@@ -156,9 +154,9 @@ public final class b extends f {
                 return;
             }
             this.l = true;
-            this.f27118j.flip();
+            this.f26314j.flip();
             if (this.m) {
-                this.f27117i.b(this.f27116h.getReadTimeout());
+                this.f26313i.b(this.f26312h.getReadTimeout());
             }
         }
     }
@@ -174,13 +172,13 @@ public final class b extends f {
     public UploadDataProvider f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27119k : (UploadDataProvider) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (UploadDataProvider) invokeV.objValue;
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public void flush() throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.n && this.f27118j.position() > 0) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.n && this.f26314j.position() > 0) {
             n();
         }
     }
@@ -194,7 +192,7 @@ public final class b extends f {
 
     public final void m() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f27118j.hasRemaining()) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f26314j.hasRemaining()) {
             return;
         }
         n();
@@ -204,8 +202,8 @@ public final class b extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             c();
-            this.f27118j.flip();
-            this.f27117i.b(this.f27116h.getReadTimeout());
+            this.f26314j.flip();
+            this.f26313i.b(this.f26312h.getReadTimeout());
             a();
         }
     }
@@ -215,7 +213,7 @@ public final class b extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             m();
-            this.f27118j.put((byte) i2);
+            this.f26314j.put((byte) i2);
         }
     }
 
@@ -229,8 +227,8 @@ public final class b extends f {
             }
             int i4 = i3;
             while (i4 > 0) {
-                int min = Math.min(i4, this.f27118j.remaining());
-                this.f27118j.put(bArr, (i2 + i3) - i4, min);
+                int min = Math.min(i4, this.f26314j.remaining());
+                this.f26314j.put(bArr, (i2 + i3) - i4, min);
                 i4 -= min;
                 m();
             }

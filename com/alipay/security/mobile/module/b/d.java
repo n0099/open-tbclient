@@ -5,6 +5,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,7 +94,7 @@ public final class d {
                             return true;
                         }
                     }
-                    return com.alipay.security.mobile.module.a.a.a(Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                    return com.alipay.security.mobile.module.a.a.a(Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID));
                 }
                 return true;
             } catch (Exception unused) {
@@ -116,7 +117,7 @@ public final class d {
             String[] strArr = {"/system/bin/", "/system/xbin/", "/system/sbin/", "/sbin/", "/vendor/bin/"};
             for (int i2 = 0; i2 < 5; i2++) {
                 try {
-                    if (new File(strArr[i2] + j0.f57257b).exists()) {
+                    if (new File(strArr[i2] + j0.f55090b).exists()) {
                         return true;
                     }
                 } catch (Exception unused) {

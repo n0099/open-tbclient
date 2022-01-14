@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import c.a.d.f.p.m;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.k0.h;
 import c.a.t0.s2.l;
 import c.a.t0.s2.r.f;
@@ -37,20 +37,20 @@ public class a {
 
     /* renamed from: c.a.t0.s2.y.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class DialogInterface$OnDismissListenerC1411a implements DialogInterface.OnDismissListener {
+    public static class DialogInterface$OnDismissListenerC1426a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbModel f24041e;
+        public final /* synthetic */ PbModel f23371e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbsPbActivity f24042f;
+        public final /* synthetic */ AbsPbActivity f23372f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f24043g;
+        public final /* synthetic */ View f23373g;
 
-        public DialogInterface$OnDismissListenerC1411a(PbModel pbModel, AbsPbActivity absPbActivity, View view) {
+        public DialogInterface$OnDismissListenerC1426a(PbModel pbModel, AbsPbActivity absPbActivity, View view) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,9 +65,9 @@ public class a {
                     return;
                 }
             }
-            this.f24041e = pbModel;
-            this.f24042f = absPbActivity;
-            this.f24043g = view;
+            this.f23371e = pbModel;
+            this.f23372f = absPbActivity;
+            this.f23373g = view;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
@@ -75,39 +75,39 @@ public class a {
             PbModel pbModel;
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (pbModel = this.f24041e) == null || pbModel.R0() == null || !this.f24041e.R0().r0() || TbSingleton.getInstance().isNotchScreen(this.f24042f) || TbSingleton.getInstance().isCutoutScreen(this.f24042f) || (view = this.f24043g) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (pbModel = this.f23371e) == null || pbModel.R0() == null || !this.f23371e.R0().r0() || TbSingleton.getInstance().isNotchScreen(this.f23372f) || TbSingleton.getInstance().isCutoutScreen(this.f23372f) || (view = this.f23373g) == null) {
                 return;
             }
             view.setSystemUiVisibility(4);
         }
     }
 
-    public static int a(d2 d2Var) {
+    public static int a(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, e2Var)) == null) {
+            if (e2Var == null) {
                 return 0;
             }
-            if (d2Var.I2()) {
+            if (e2Var.I2()) {
                 return 11;
             }
-            if (d2Var.P1()) {
+            if (e2Var.P1()) {
                 return 10;
             }
-            if (d2Var.S1()) {
+            if (e2Var.S1()) {
                 return 9;
             }
-            if (d2Var.R1()) {
+            if (e2Var.R1()) {
                 return 8;
             }
-            if (d2Var.Q1()) {
+            if (e2Var.Q1()) {
                 return 7;
             }
-            if (d2Var.B1) {
+            if (e2Var.A1) {
                 return 6;
             }
-            int i2 = d2Var.d0;
+            int i2 = e2Var.d0;
             if (i2 == 0) {
                 return 1;
             }
@@ -124,7 +124,7 @@ public class a {
 
     public static int b(f fVar) {
         InterceptResult invokeL;
-        d2 O;
+        e2 O;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fVar)) == null) {
             if (fVar == null || (O = fVar.O()) == null) {
@@ -173,7 +173,7 @@ public class a {
                     AddExperiencedModel.B(R0.m());
                 }
             }
-            d2 O = pbModel.R0().O();
+            e2 O = pbModel.R0().O();
             if (O.G2()) {
                 h1 = O.L().oriUgcTid;
                 str = "?share=9105&fr=dshare&see_lz=" + (v0 ? 1 : 0) + "&dtype=" + O.L().oriUgcType + "&dvid=" + O.L().oriUgcVid + "&nid=" + O.L().oriUgcNid;
@@ -222,7 +222,7 @@ public class a {
                 shareItem.R = R0.O().t1().play_count.intValue();
             }
             shareItem.t = str2;
-            shareItem.f42234c = true;
+            shareItem.f40763c = true;
             shareItem.q = pbModel.h1();
             shareItem.F = 3;
             shareItem.E = i3;
@@ -258,7 +258,7 @@ public class a {
             bundle.putString("uid", shareItem.N);
             shareItem.k(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) absPbActivity, shareItem, true, true);
-            shareDialogConfig.setOnDismissListener(new DialogInterface$OnDismissListenerC1411a(pbModel, absPbActivity, rootView));
+            shareDialogConfig.setOnDismissListener(new DialogInterface$OnDismissListenerC1426a(pbModel, absPbActivity, rootView));
             shareDialogConfig.setFrom(ShareDialogConfig.From.PB);
             h.c().l(shareDialogConfig);
         }

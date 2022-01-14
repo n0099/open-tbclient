@@ -15,7 +15,7 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<j0> f18474b;
+    public List<j0> f18017b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class c {
     public List<j0> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18474b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18017b : (List) invokeV.objValue;
     }
 
     public void c(int i2) {
@@ -59,7 +59,7 @@ public class c {
     public void e(List<j0> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f18474b = list;
+            this.f18017b = list;
         }
     }
 }

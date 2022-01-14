@@ -15,22 +15,22 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26014b;
+    public String f25246b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26015c;
+    public String f25247c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f26016d;
+    public int f25248d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26017e;
+    public String f25249e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26018f;
+    public String f25250f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26019g;
+    public String f25251g;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f26015c)) {
+            if (TextUtils.isEmpty(this.f25247c)) {
                 return false;
             }
-            return this.f26016d == 2 ? (TextUtils.isEmpty(this.f26017e) || TextUtils.isEmpty(this.f26018f) || TextUtils.isEmpty(this.f26019g)) ? false : true : (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f26014b)) ? false : true;
+            return this.f25248d == 2 ? (TextUtils.isEmpty(this.f25249e) || TextUtils.isEmpty(this.f25250f) || TextUtils.isEmpty(this.f25251g)) ? false : true : (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f25246b)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -65,15 +65,15 @@ public class d {
             return;
         }
         this.a = jSONObject.optString("pic");
-        this.f26014b = jSONObject.optString("picNight");
-        this.f26015c = jSONObject.optString("scheme");
+        this.f25246b = jSONObject.optString("picNight");
+        this.f25247c = jSONObject.optString("scheme");
         int optInt = jSONObject.optInt("type", 1);
-        this.f26016d = optInt;
+        this.f25248d = optInt;
         if (optInt != 2 || (optJSONObject = jSONObject.optJSONObject("extra")) == null) {
             return;
         }
-        this.f26017e = optJSONObject.optString("title");
-        this.f26018f = optJSONObject.optString("content");
-        this.f26019g = optJSONObject.optString("imageUrl");
+        this.f25249e = optJSONObject.optString("title");
+        this.f25250f = optJSONObject.optString("content");
+        this.f25251g = optJSONObject.optString("imageUrl");
     }
 }

@@ -14,10 +14,10 @@ public class a implements c.a.r0.e.a.b {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10535b;
+    public int f10307b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10536c;
+    public boolean f10308c;
 
     public a(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a implements c.a.r0.e.a.b {
                 return;
             }
         }
-        this.f10535b = -1;
+        this.f10307b = -1;
         c(context);
     }
 
@@ -42,8 +42,8 @@ public class a implements c.a.r0.e.a.b {
     public void a() {
         b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f10536c && (bVar = this.a) != null && bVar.c()) {
-            this.f10536c = false;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f10308c && (bVar = this.a) != null && bVar.c()) {
+            this.f10308c = false;
             if (this.a.b()) {
                 g();
             } else {
@@ -56,10 +56,10 @@ public class a implements c.a.r0.e.a.b {
     public void b(int i2) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f10536c || (bVar = this.a) == null || !bVar.c()) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f10308c || (bVar = this.a) == null || !bVar.c()) {
             return;
         }
-        this.f10536c = true;
+        this.f10308c = true;
         if (this.a.b()) {
             e(i2);
         } else {
@@ -78,7 +78,7 @@ public class a implements c.a.r0.e.a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             int g2 = this.a.g();
-            this.f10535b = g2;
+            this.f10307b = g2;
             if (g2 != -1) {
                 c.a.r0.e.a.d.b f2 = c.a.r0.e.a.h.a.f();
                 int i3 = f2.a;
@@ -87,14 +87,14 @@ public class a implements c.a.r0.e.a.b {
                 }
                 int a = f2.a() <= 0 ? 10000000 : f2.a();
                 int i4 = i3;
-                this.a.h(this.f10535b, 0, i4, -1, -1, -1);
-                this.a.h(this.f10535b, 2, i4, i3, -1, -1);
+                this.a.h(this.f10307b, 0, i4, -1, -1, -1);
+                this.a.h(this.f10307b, 2, i4, i3, -1, -1);
                 int i5 = a;
-                this.a.h(this.f10535b, 4, i5, -1, -1, -1);
-                this.a.h(this.f10535b, 6, i5, a, -1, -1);
-                this.a.h(this.f10535b, 15, i3, i3, i3, i3);
-                this.a.h(this.f10535b, 17, a, a, a, a);
-                this.a.e(this.f10535b, i2);
+                this.a.h(this.f10307b, 4, i5, -1, -1, -1);
+                this.a.h(this.f10307b, 6, i5, a, -1, -1);
+                this.a.h(this.f10307b, 15, i3, i3, i3, i3);
+                this.a.h(this.f10307b, 17, a, a, a, a);
+                this.a.e(this.f10307b, i2);
             }
         }
     }
@@ -109,7 +109,7 @@ public class a implements c.a.r0.e.a.b {
             }
             int a = f2.a() <= 0 ? 10000000 : f2.a();
             int f3 = this.a.f(i3, a, i3, a);
-            this.f10535b = f3;
+            this.f10307b = f3;
             if (f3 != -1) {
                 this.a.e(f3, i2);
             }
@@ -119,20 +119,20 @@ public class a implements c.a.r0.e.a.b {
     public final void f() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (i2 = this.f10535b) == -1) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (i2 = this.f10307b) == -1) {
             return;
         }
         this.a.d(i2);
-        this.a.j(this.f10535b);
+        this.a.j(this.f10307b);
     }
 
     public final void g() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (i2 = this.f10535b) == -1) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (i2 = this.f10307b) == -1) {
             return;
         }
         this.a.d(i2);
-        this.a.i(this.f10535b);
+        this.a.i(this.f10307b);
     }
 }

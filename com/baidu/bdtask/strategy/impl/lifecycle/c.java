@@ -60,14 +60,14 @@ public final class c extends a {
                     t.Q(subTaskState.getTaskInfo(), 400);
                 }
             } else if (b(subTaskState).isVisitAction()) {
-                SubTaskState k2 = a().k(b(subTaskState).getSingleKey());
-                if (k2 != null) {
-                    k2.reset2Running(false);
+                SubTaskState k = a().k(b(subTaskState).getSingleKey());
+                if (k != null) {
+                    k.reset2Running(false);
                 }
             } else {
-                SubTaskState k3 = a().k(b(subTaskState).getSingleKey());
-                if (k3 != null) {
-                    k3.reset2Running(true);
+                SubTaskState k2 = a().k(b(subTaskState).getSingleKey());
+                if (k2 != null) {
+                    k2.reset2Running(true);
                 }
             }
         }

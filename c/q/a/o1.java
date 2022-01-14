@@ -19,25 +19,23 @@ public class o1 implements o0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31380e;
+    public String f30397e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f31381f;
+    public Context f30398f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31382g;
+    public boolean f30399g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f31383h;
+    public boolean f30400h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f31384i;
+    public boolean f30401i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Info f31385j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public j3 f31386k;
+    public Info f30402j;
+    public j3 k;
     public PBInterstitialListener l;
     public a5 m;
     public long n;
@@ -59,15 +57,15 @@ public class o1 implements o0 {
             }
         }
         this.o = new v0(this, Looper.getMainLooper());
-        this.f31381f = context;
-        this.f31380e = str;
+        this.f30398f = context;
+        this.f30397e = str;
     }
 
     @Override // c.q.a.o0
     public void a(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
-            if (TextUtils.equals(str, this.f31385j.getId() + this.f31380e)) {
+            if (TextUtils.equals(str, this.f30402j.getId() + this.f30397e)) {
                 char c2 = 65535;
                 int hashCode = str2.hashCode();
                 if (hashCode != -1122984843) {
@@ -97,10 +95,10 @@ public class o1 implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, info) == null) {
             boolean z = false;
-            this.f31384i = false;
-            this.f31385j = info;
+            this.f30401i = false;
+            this.f30402j = info;
             this.n = System.currentTimeMillis();
-            if (e() && this.f31385j.getType() == 21) {
+            if (e() && this.f30402j.getType() == 21) {
                 z = true;
             }
             if (z) {
@@ -108,11 +106,11 @@ public class o1 implements o0 {
                     this.l.onLoaded();
                     return;
                 }
-                j3 j3Var = new j3(this.f31381f);
-                this.f31386k = j3Var;
+                j3 j3Var = new j3(this.f30398f);
+                this.k = j3Var;
                 j3Var.a = new h1(this);
-                this.f31386k.a(this.f31385j.getLoad(), this.f31385j);
-                this.o.sendEmptyMessageDelayed(11, this.f31385j.getWt() * 1000);
+                this.k.a(this.f30402j.getLoad(), this.f30402j);
+                this.o.sendEmptyMessageDelayed(11, this.f30402j.getWt() * 1000);
                 return;
             }
             this.l.onFail(PBError.PID_TYPE_ERROR);
@@ -122,18 +120,18 @@ public class o1 implements o0 {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31382g && !this.f31384i && e() && !this.f31385j.isShown() && this.f31385j.isEffective() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30399g && !this.f30401i && e() && !this.f30402j.isShown() && this.f30402j.isEffective() : invokeV.booleanValue;
     }
 
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31385j != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30402j != null : invokeV.booleanValue;
     }
 
     public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e() && this.f31385j.getType() == 21 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e() && this.f30402j.getType() == 21 : invokeV.booleanValue;
     }
 }

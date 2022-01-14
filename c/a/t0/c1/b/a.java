@@ -33,12 +33,12 @@ public class a {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new c.a.t0.c1.a.a(tbPageContext, c.a.t0.c1.c.a.f15731h, tbPageContext.getUniqueId()));
+        arrayList.add(new c.a.t0.c1.a.a(tbPageContext, c.a.t0.c1.c.a.f15334h, tbPageContext.getUniqueId()));
         c.a.t0.c1.a.c cVar = new c.a.t0.c1.a.c(tbPageContext, c.a.t0.c1.c.b.l, tbPageContext.getUniqueId());
         this.a = cVar;
         arrayList.add(cVar);
-        arrayList.add(new c.a.t0.c1.a.b(tbPageContext, c.a.t0.c1.c.a.f15730g, tbPageContext.getUniqueId()));
-        arrayList.add(new c.a.t0.c1.a.d(tbPageContext, c.a.t0.c1.c.a.f15732i, tbPageContext.getUniqueId()));
+        arrayList.add(new c.a.t0.c1.a.b(tbPageContext, c.a.t0.c1.c.a.f15333g, tbPageContext.getUniqueId()));
+        arrayList.add(new c.a.t0.c1.a.d(tbPageContext, c.a.t0.c1.c.a.f15335i, tbPageContext.getUniqueId()));
         bdTypeListView.addAdapters(arrayList);
     }
 

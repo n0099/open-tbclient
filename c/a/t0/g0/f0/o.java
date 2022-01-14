@@ -14,28 +14,26 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class o extends BaseCardInfo implements q {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final BdUniqueId f18248k;
+    public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18249e;
+    public boolean f17803e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f18250f;
+    public boolean f17804f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18251g;
+    public String f17805g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<n> f18252h;
+    public List<n> f17806h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18253i;
+    public int f17807i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f18254j;
+    public int f17808j;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +48,7 @@ public class o extends BaseCardInfo implements q {
                 return;
             }
         }
-        f18248k = BdUniqueId.gen();
+        k = BdUniqueId.gen();
     }
 
     public o() {
@@ -66,15 +64,15 @@ public class o extends BaseCardInfo implements q {
                 return;
             }
         }
-        this.f18249e = true;
-        this.f18250f = true;
+        this.f17803e = true;
+        this.f17804f = true;
     }
 
     @Override // c.a.t0.g0.f0.q
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f18249e = z;
+            this.f17803e = z;
         }
     }
 
@@ -82,14 +80,14 @@ public class o extends BaseCardInfo implements q {
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18253i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17807i : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f18248k : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // c.a.t0.g0.f0.q
@@ -106,7 +104,7 @@ public class o extends BaseCardInfo implements q {
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f18250f = z;
+            this.f17804f = z;
         }
     }
 }

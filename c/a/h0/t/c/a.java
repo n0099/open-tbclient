@@ -20,40 +20,40 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<C0144a> f3735b;
+    public List<C0152a> f3681b;
 
     /* renamed from: c.a.h0.t.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0144a {
+    public static class C0152a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f3736b;
+        public int f3682b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f3737c;
+        public String f3683c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f3738d;
+        public String f3684d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f3739e;
+        public String f3685e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f3740f;
+        public String f3686f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Long f3741g;
+        public Long f3687g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f3742h;
+        public int f3688h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f3743i;
+        public String f3689i;
 
-        public C0144a() {
+        public C0152a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,17 +73,17 @@ public class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("display_name", this.f3737c);
-                    jSONObject.put("pay_text", this.f3738d);
-                    jSONObject.put("icon", this.f3740f);
-                    jSONObject.put("valid_info", this.f3739e);
-                    jSONObject.put("host_marketing_detail", this.f3743i);
-                    jSONObject.put("available_par_money", this.f3741g);
-                    jSONObject.put("is_selected", this.f3742h);
-                    jSONObject.put("style", this.f3736b);
+                    jSONObject.put("display_name", this.f3683c);
+                    jSONObject.put("pay_text", this.f3684d);
+                    jSONObject.put("icon", this.f3686f);
+                    jSONObject.put("valid_info", this.f3685e);
+                    jSONObject.put("host_marketing_detail", this.f3689i);
+                    jSONObject.put("available_par_money", this.f3687g);
+                    jSONObject.put("is_selected", this.f3688h);
+                    jSONObject.put("style", this.f3682b);
                     jSONObject.put("type", this.a);
                 } catch (JSONException e2) {
-                    if (h.f3680d) {
+                    if (h.f3626d) {
                         e2.printStackTrace();
                     }
                 }
@@ -96,12 +96,12 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CouponItem{type=" + this.a + ", style=" + this.f3736b + ", displayName='" + this.f3737c + ExtendedMessageFormat.QUOTE + ", payText='" + this.f3738d + ExtendedMessageFormat.QUOTE + ", validInfo='" + this.f3739e + ExtendedMessageFormat.QUOTE + ", icon='" + this.f3740f + ExtendedMessageFormat.QUOTE + ", cutMoney=" + this.f3741g + ", isSelected=" + this.f3742h + ", hostMarketingDetail='" + this.f3743i + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "CouponItem{type=" + this.a + ", style=" + this.f3682b + ", displayName='" + this.f3683c + ExtendedMessageFormat.QUOTE + ", payText='" + this.f3684d + ExtendedMessageFormat.QUOTE + ", validInfo='" + this.f3685e + ExtendedMessageFormat.QUOTE + ", icon='" + this.f3686f + ExtendedMessageFormat.QUOTE + ", cutMoney=" + this.f3687g + ", isSelected=" + this.f3688h + ", hostMarketingDetail='" + this.f3689i + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
 
-        public C0144a(JSONObject jSONObject) {
+        public C0152a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,14 +119,14 @@ public class a {
             if (jSONObject == null) {
                 return;
             }
-            this.f3737c = jSONObject.optString("display_name");
-            this.f3738d = jSONObject.optString("pay_text");
-            this.f3740f = jSONObject.optString("icon");
-            this.f3739e = jSONObject.optString("valid_info");
-            this.f3743i = jSONObject.optString("host_marketing_detail");
-            this.f3741g = Long.valueOf(jSONObject.optLong("available_par_money"));
-            this.f3742h = jSONObject.optInt("is_selected");
-            this.f3736b = jSONObject.optInt("style");
+            this.f3683c = jSONObject.optString("display_name");
+            this.f3684d = jSONObject.optString("pay_text");
+            this.f3686f = jSONObject.optString("icon");
+            this.f3685e = jSONObject.optString("valid_info");
+            this.f3689i = jSONObject.optString("host_marketing_detail");
+            this.f3687g = Long.valueOf(jSONObject.optLong("available_par_money"));
+            this.f3688h = jSONObject.optInt("is_selected");
+            this.f3682b = jSONObject.optInt("style");
             this.a = jSONObject.optInt("type");
         }
     }
@@ -149,14 +149,14 @@ public class a {
         if (jSONArray == null) {
             return;
         }
-        this.f3735b = new ArrayList();
+        this.f3681b = new ArrayList();
         int length = jSONArray.length();
         for (int i4 = 0; i4 < length; i4++) {
             JSONObject jSONObject = (JSONObject) jSONArray.opt(i4);
             if (jSONObject != null) {
-                this.f3735b.add(new C0144a(jSONObject));
+                this.f3681b.add(new C0152a(jSONObject));
             }
         }
-        this.a = this.f3735b.size() > 1;
+        this.a = this.f3681b.size() > 1;
     }
 }

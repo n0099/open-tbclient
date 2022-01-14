@@ -26,37 +26,37 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<n> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d0 f20991b;
+    public final d0 f20428b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LongSparseArray<ThreadInfo> f20992c;
+    public LongSparseArray<ThreadInfo> f20429c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<ThreadInfo> f20993d;
+    public List<ThreadInfo> f20430d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f20994e;
+    public BdUniqueId f20431e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f20995f;
+    public d f20432f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f20996g;
+    public CustomMessageListener f20433g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.d.c.g.a f20997h;
+    public final c.a.d.c.g.a f20434h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CustomMessageListener f20998i;
+    public final CustomMessageListener f20435i;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,22 +94,22 @@ public class b {
                 if (g2 == 0 || g3 == 0) {
                     return;
                 }
-                c.a.d.f.m.e.a().removeCallbacks(this.a.f20995f);
+                c.a.d.f.m.e.a().removeCallbacks(this.a.f20432f);
                 b bVar = this.a;
-                bVar.f20995f = new d(bVar, g3, g2);
-                c.a.d.f.m.e.a().postDelayed(this.a.f20995f, 500L);
+                bVar.f20432f = new d(bVar, g3, g2);
+                c.a.d.f.m.e.a().postDelayed(this.a.f20432f, 500L);
             }
         }
     }
 
     /* renamed from: c.a.t0.o1.h.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1269b extends c.a.d.c.g.a {
+    /* loaded from: classes8.dex */
+    public class C1283b extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1269b(b bVar, int i2, int i3) {
+        public C1283b(b bVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -142,7 +142,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,7 +176,7 @@ public class b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (StringUtils.isNull(str) || ListUtils.isEmpty(this.a.a) || ListUtils.isEmpty(this.a.f20993d)) {
+                if (StringUtils.isNull(str) || ListUtils.isEmpty(this.a.a) || ListUtils.isEmpty(this.a.f20430d)) {
                     return;
                 }
                 Iterator it = this.a.a.iterator();
@@ -190,13 +190,13 @@ public class b {
                         if (bVar.getThreadData() != null && bVar.getThreadData().v1() != null && bVar.getThreadData().v1().equals(str)) {
                             it.remove();
                             c.a.t0.o1.h.k.c.b(this.a.a);
-                            this.a.f20991b.z(new ArrayList(this.a.a));
+                            this.a.f20428b.A(new ArrayList(this.a.a));
                             break;
                         }
                     }
                 }
                 long g2 = c.a.d.f.m.b.g(str, 0L);
-                Iterator it2 = this.a.f20993d.iterator();
+                Iterator it2 = this.a.f20430d.iterator();
                 while (it2.hasNext()) {
                     ThreadInfo threadInfo = (ThreadInfo) it2.next();
                     if (threadInfo != null && (l = threadInfo.tid) != null && l.longValue() == g2) {
@@ -208,19 +208,19 @@ public class b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f20999e;
+        public long f20436e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f21000f;
+        public long f20437f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f21001g;
+        public final /* synthetic */ b f20438g;
 
         public d(b bVar, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -237,22 +237,22 @@ public class b {
                     return;
                 }
             }
-            this.f21001g = bVar;
-            this.f20999e = j2;
-            this.f21000f = j3;
+            this.f20438g = bVar;
+            this.f20436e = j2;
+            this.f20437f = j3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int k2 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
+                int k = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
                 int i2 = c.a.d.f.p.n.i(TbadkCoreApplication.getInst());
                 float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                 int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                requestGetMyPostNetMessage.setTag(this.f21001g.f20994e);
-                requestGetMyPostNetMessage.setParams(this.f20999e, this.f21000f, 0L, k2, i2, f2, i3);
+                requestGetMyPostNetMessage.setTag(this.f20438g.f20431e);
+                requestGetMyPostNetMessage.setParams(this.f20436e, this.f20437f, 0L, k, i2, f2, i3);
                 MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             }
         }
@@ -273,12 +273,12 @@ public class b {
                 return;
             }
         }
-        this.f20992c = new LongSparseArray<>();
-        this.f20996g = new a(this, 2921030);
-        this.f20997h = new C1269b(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
-        this.f20998i = new c(this, 2921031);
+        this.f20429c = new LongSparseArray<>();
+        this.f20433g = new a(this, 2921030);
+        this.f20434h = new C1283b(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
+        this.f20435i = new c(this, 2921031);
         this.a = list;
-        this.f20991b = d0Var;
+        this.f20428b = d0Var;
     }
 
     public void g(List<ThreadInfo> list) {
@@ -289,7 +289,7 @@ public class b {
         Iterator<ThreadInfo> it = list.iterator();
         while (it.hasNext()) {
             ThreadInfo next = it.next();
-            if (next != null && this.f20992c.get(next.tid.longValue()) != null) {
+            if (next != null && this.f20429c.get(next.tid.longValue()) != null) {
                 it.remove();
             }
         }
@@ -297,32 +297,32 @@ public class b {
 
     public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f20995f == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f20432f == null) {
             return;
         }
-        c.a.d.f.m.e.a().removeCallbacks(this.f20995f);
+        c.a.d.f.m.e.a().removeCallbacks(this.f20432f);
     }
 
     public void i(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.f20994e = bdUniqueId;
-            this.f20996g.setTag(bdUniqueId);
-            this.f20996g.setSelfListener(false);
-            this.f20997h.setTag(bdUniqueId);
-            this.f20997h.getHttpMessageListener().setSelfListener(true);
-            this.f20997h.getSocketMessageListener().setSelfListener(true);
-            this.f20998i.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.f20996g);
-            MessageManager.getInstance().registerListener(this.f20997h);
-            MessageManager.getInstance().registerListener(this.f20998i);
+            this.f20431e = bdUniqueId;
+            this.f20433g.setTag(bdUniqueId);
+            this.f20433g.setSelfListener(false);
+            this.f20434h.setTag(bdUniqueId);
+            this.f20434h.getHttpMessageListener().setSelfListener(true);
+            this.f20434h.getSocketMessageListener().setSelfListener(true);
+            this.f20435i.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.f20433g);
+            MessageManager.getInstance().registerListener(this.f20434h);
+            MessageManager.getInstance().registerListener(this.f20435i);
         }
     }
 
     public void j(List<ThreadInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f20993d = list;
+            this.f20430d = list;
         }
     }
 }

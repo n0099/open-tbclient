@@ -12,13 +12,13 @@ public class a {
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f60518b;
+    public final long f58224b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f60519c;
+    public final long f58225c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f60520d;
+    public final long f58226d;
 
     public a(long j2, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class a {
             }
         }
         this.a = j2;
-        this.f60518b = j3;
-        this.f60519c = j4;
-        this.f60520d = j5;
+        this.f58224b = j3;
+        this.f58225c = j4;
+        this.f58226d = j5;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwai.filedownloader.e.f.a("range[%d, %d) current offset[%d]", Long.valueOf(this.a), Long.valueOf(this.f60519c), Long.valueOf(this.f60518b)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwai.filedownloader.e.f.a("range[%d, %d) current offset[%d]", Long.valueOf(this.a), Long.valueOf(this.f58225c), Long.valueOf(this.f58224b)) : (String) invokeV.objValue;
     }
 }

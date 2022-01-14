@@ -9,8 +9,8 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import c.a.l.b0;
 import c.a.s0.k0.h;
-import c.a.s0.s.g0.b;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.h0.b;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.x0;
 import c.a.t0.i3.a;
 import c.a.t0.w3.j0.e;
@@ -85,9 +85,9 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
     private void doAgreeAndDisagree(boolean z, JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), jSONObject, str}) == null) {
-            d2 d2Var = new d2();
-            d2Var.b3(jSONObject);
-            AgreeData B = d2Var.B();
+            e2 e2Var = new e2();
+            e2Var.b3(jSONObject);
+            AgreeData B = e2Var.B();
             int i2 = 1;
             if (z) {
                 TbPageContext pageContext = TbadkApplication.getInst().getCurrentActivity() != null ? ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext() : null;
@@ -141,9 +141,9 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 sendMesage(i2, B);
             }
             e eVar = new e();
-            eVar.f25551b = B;
-            if (d2Var.L() != null) {
-                B.nid = d2Var.L().oriUgcNid;
+            eVar.f24836b = B;
+            if (e2Var.L() != null) {
+                B.nid = e2Var.L().oriUgcNid;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, eVar));
             dispatchMutiProcessAgree(B, AgreeEvent.IS_THREAD);
@@ -267,10 +267,10 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
     public void getRecnbarShow(TiebaUtilityComponentsAuto.Result<TiebaUtilityComponentsAuto.ComponentsBoolResult> result) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, result) == null) {
-            b j2 = b.j();
-            boolean g2 = j2.g("recnbar" + TbadkCoreApplication.getCurrentAccount(), false);
+            b k = b.k();
+            boolean h2 = k.h("recnbar" + TbadkCoreApplication.getCurrentAccount(), false);
             TiebaUtilityComponentsAuto.ComponentsBoolResult componentsBoolResult = new TiebaUtilityComponentsAuto.ComponentsBoolResult();
-            componentsBoolResult.setResult(Boolean.valueOf(g2));
+            componentsBoolResult.setResult(Boolean.valueOf(h2));
             result.success(componentsBoolResult);
         }
     }
@@ -299,9 +299,9 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         int round2 = result2.get("width") != null ? Math.round(Float.parseFloat(String.valueOf(result2.get("width")))) : 0;
         if (result2.get("item") != null) {
             JSONObject optJSONObject = new JSONObject((HashMap) result2.get("item")).optJSONObject("item");
-            d2 d2Var = new d2();
-            d2Var.b3(optJSONObject);
-            x0 negFeedBackData = d2Var.getNegFeedBackData();
+            e2 e2Var = new e2();
+            e2Var.b3(optJSONObject);
+            x0 negFeedBackData = e2Var.getNegFeedBackData();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
                 ViewGroup viewGroup = (ViewGroup) currentActivity.getWindow().getDecorView().findViewById(16908290);
@@ -366,10 +366,10 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                     }
                 });
                 this.mNegFeedBackItem.onBindDataToView(negFeedBackData);
-                int k2 = n.k(tbPageContextSupport.getPageContext().getPageActivity());
+                int k = n.k(tbPageContextSupport.getPageContext().getPageActivity());
                 if (Build.VERSION.SDK_INT >= 11) {
                     this.mNegFeedBackItem.a().setY(round - n.d(tbPageContextSupport.getPageContext().getPageActivity(), 16.0f));
-                    this.mNegFeedBackItem.a().setX((k2 - round2) - n.d(tbPageContextSupport.getPageContext().getPageActivity(), 20.0f));
+                    this.mNegFeedBackItem.a().setX((k - round2) - n.d(tbPageContextSupport.getPageContext().getPageActivity(), 20.0f));
                 }
                 viewGroup.addView(this.mNegFeedBackItem.a(), this.mNegFeedBackItem.b());
                 this.mNegFeedBackItem.a().setVisibility(4);

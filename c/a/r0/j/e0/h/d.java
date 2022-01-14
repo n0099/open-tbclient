@@ -13,10 +13,10 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<long[]> f11212b;
+    public List<long[]> f10963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11213c;
+    public String f10964c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "[ videoPath = " + this.a + "; clipPath = " + this.f11213c + "; clipList = " + this.f11212b + " ]";
+            return "[ videoPath = " + this.a + "; clipPath = " + this.f10964c + "; clipList = " + this.f10963b + " ]";
         }
         return (String) invokeV.objValue;
     }

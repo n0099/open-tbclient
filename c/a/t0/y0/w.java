@@ -20,36 +20,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class w extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.s0.f.a> f26571e;
+    public List<c.a.s0.f.a> f25783e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26572f;
+    public String f25784f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f26573g;
+    public Context f25785g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.s0.d0.b f26574h;
+    public c.a.s0.d0.b f25786h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f26575i;
+    public int f25787i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f26576j;
+    public int f25788j;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements c.a.s0.c0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f26577e;
+        public final /* synthetic */ ViewGroup f25789e;
 
         public a(w wVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -66,31 +66,31 @@ public class w extends BaseAdapter {
                     return;
                 }
             }
-            this.f26577e = viewGroup;
+            this.f25789e = viewGroup;
         }
 
         @Override // c.a.s0.c0.b
         public void imageLoaded(c.a.d.n.d.a aVar, String str, boolean z) {
             HeadImageView headImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (headImageView = (HeadImageView) this.f26577e.findViewWithTag(str)) == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (headImageView = (HeadImageView) this.f25789e.findViewWithTag(str)) == null || aVar == null) {
                 return;
             }
             headImageView.invalidate();
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HeadImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f26578b;
+        public TextView f25790b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f26579c;
+        public ImageView f25791c;
 
         public b(w wVar) {
             Interceptable interceptable = $ic;
@@ -128,10 +128,10 @@ public class w extends BaseAdapter {
                 return;
             }
         }
-        this.f26573g = context;
-        this.f26574h = new c.a.s0.d0.b();
-        this.f26576j = (int) this.f26573g.getResources().getDimension(R.dimen.ds120);
-        this.f26575i = c.a.d.f.p.n.k(this.f26573g) / 2;
+        this.f25785g = context;
+        this.f25786h = new c.a.s0.d0.b();
+        this.f25788j = (int) this.f25785g.getResources().getDimension(R.dimen.ds120);
+        this.f25787i = c.a.d.f.p.n.k(this.f25785g) / 2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -141,11 +141,11 @@ public class w extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<c.a.s0.f.a> list = this.f26571e;
+            List<c.a.s0.f.a> list = this.f25783e;
             if (list == null || i2 < 0 || i2 >= list.size()) {
                 return null;
             }
-            return this.f26571e.get(i2);
+            return this.f25783e.get(i2);
         }
         return (c.a.s0.f.a) invokeI.objValue;
     }
@@ -153,8 +153,8 @@ public class w extends BaseAdapter {
     public void b(List<c.a.s0.f.a> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
-            this.f26571e = list;
-            this.f26572f = str;
+            this.f25783e = list;
+            this.f25784f = str;
         }
     }
 
@@ -163,7 +163,7 @@ public class w extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<c.a.s0.f.a> list = this.f26571e;
+            List<c.a.s0.f.a> list = this.f25783e;
             if (list != null) {
                 return list.size();
             }
@@ -188,12 +188,12 @@ public class w extends BaseAdapter {
             if (view != null) {
                 bVar = (b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f26573g).inflate(R.layout.collect_album_list_item, viewGroup, false);
+                view = LayoutInflater.from(this.f25785g).inflate(R.layout.collect_album_list_item, viewGroup, false);
                 bVar = new b(this, null);
                 bVar.a = (HeadImageView) view.findViewById(R.id.item_head);
-                bVar.f26578b = (TextView) view.findViewById(R.id.item_name);
+                bVar.f25790b = (TextView) view.findViewById(R.id.item_name);
                 ImageView imageView = (ImageView) view.findViewById(R.id.item_arrow);
-                bVar.f26579c = imageView;
+                bVar.f25791c = imageView;
                 SkinManager.setImageResource(imageView, R.drawable.icon_site_ok);
                 view.setTag(bVar);
             }
@@ -205,32 +205,32 @@ public class w extends BaseAdapter {
             if (item != null) {
                 if (!TextUtils.isEmpty(item.g())) {
                     item.g();
-                    String s = c.a.d.f.p.n.s(bVar.f26578b.getPaint(), item.g(), this.f26575i);
-                    bVar.f26578b.setText(s + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
+                    String s = c.a.d.f.p.n.s(bVar.f25790b.getPaint(), item.g(), this.f25787i);
+                    bVar.f25790b.setText(s + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
                 } else {
-                    bVar.f26578b.setText("");
+                    bVar.f25790b.setText("");
                 }
                 String b2 = item.b();
-                if (!TextUtils.isEmpty(b2) && b2.equals(this.f26572f)) {
-                    bVar.f26579c.setVisibility(0);
+                if (!TextUtils.isEmpty(b2) && b2.equals(this.f25784f)) {
+                    bVar.f25791c.setVisibility(0);
                 } else {
-                    bVar.f26579c.setVisibility(8);
+                    bVar.f25791c.setVisibility(8);
                 }
                 ImageFileInfo e2 = item.e();
                 if (e2 != null) {
                     e2.clearPageActions();
-                    int i3 = this.f26576j;
+                    int i3 = this.f25788j;
                     e2.addPageAction(c.a.s0.d0.i.d.g(i3, i3));
-                    c.a.d.n.d.a c2 = this.f26574h.c(e2, false);
+                    c.a.d.n.d.a c2 = this.f25786h.c(e2, false);
                     bVar.a.setTag(e2.toCachedKey(false));
                     if (c2 != null) {
                         bVar.a.invalidate();
                     } else {
-                        this.f26574h.e(e2, new a(this, viewGroup), false, false);
+                        this.f25786h.e(e2, new a(this, viewGroup), false, false);
                     }
                 }
             } else {
-                bVar.f26578b.setText("");
+                bVar.f25790b.setText("");
             }
             return view;
         }

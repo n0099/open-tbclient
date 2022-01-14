@@ -28,30 +28,30 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f9060g;
+    public static final boolean f8862g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f9061h;
+    public static final String[] f8863h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Map<String, String> f9062i;
+    public static final Map<String, String> f8864i;
     public transient /* synthetic */ FieldHolder $fh;
     public d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.d2.e f9063b;
+    public c.a.r0.a.d2.e f8865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanAppActivity f9064c;
+    public SwanAppActivity f8866c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PaymentManager f9065d;
+    public PaymentManager f8867d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9066e;
+    public String f8868e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9067f;
+    public String f8869f;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
@@ -59,13 +59,13 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9068e;
+        public final /* synthetic */ JSONObject f8870e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9069f;
+        public final /* synthetic */ String f8871f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f9070g;
+        public final /* synthetic */ i f8872g;
 
         public a(i iVar, JSONObject jSONObject, String str) {
             Interceptable interceptable = $ic;
@@ -82,9 +82,9 @@ public class i {
                     return;
                 }
             }
-            this.f9070g = iVar;
-            this.f9068e = jSONObject;
-            this.f9069f = str;
+            this.f8872g = iVar;
+            this.f8870e = jSONObject;
+            this.f8871f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -94,12 +94,12 @@ public class i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.f9070g.p(this.f9068e, this.f9069f);
+                    this.f8872g.p(this.f8870e, this.f8871f);
                     return;
                 }
                 c.a.r0.a.e0.d.i("SwanAppThirdPayment", "authorize fail");
-                n.H(false, this.f9070g.f9067f, n.m("", "authorize fail"));
-                this.f9070g.i(new c.a.r0.a.u.h.b(iVar.b(), c.a.r0.a.h2.c.d.f(iVar.b())));
+                n.H(false, this.f8872g.f8869f, n.m("", "authorize fail"));
+                this.f8872g.i(new c.a.r0.a.u.h.b(iVar.b(), c.a.r0.a.h2.c.d.f(iVar.b())));
             }
         }
     }
@@ -110,13 +110,13 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9071e;
+        public final /* synthetic */ String f8873e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9072f;
+        public final /* synthetic */ JSONObject f8874f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f9073g;
+        public final /* synthetic */ i f8875g;
 
         public b(i iVar, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -133,9 +133,9 @@ public class i {
                     return;
                 }
             }
-            this.f9073g = iVar;
-            this.f9071e = str;
-            this.f9072f = jSONObject;
+            this.f8875g = iVar;
+            this.f8873e = str;
+            this.f8874f = jSONObject;
         }
 
         @Override // c.a.r0.a.m.a
@@ -143,16 +143,16 @@ public class i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    n.J(this.f9073g.f9067f, true, false);
-                    n.S("success", 13, this.f9071e);
-                    this.f9073g.l(this.f9072f);
+                    n.J(this.f8875g.f8869f, true, false);
+                    n.S("success", 13, this.f8873e);
+                    this.f8875g.l(this.f8874f);
                     return;
                 }
                 c.a.r0.a.e0.d.i("SwanAppThirdPayment", "login fail");
-                n.H(false, this.f9073g.f9067f, n.m("", "login error"));
-                n.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 13, this.f9071e);
-                n.J(this.f9073g.f9067f, false, false);
-                this.f9073g.i(new c.a.r0.a.u.h.b(5, "login error"));
+                n.H(false, this.f8875g.f8869f, n.m("", "login error"));
+                n.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 13, this.f8873e);
+                n.J(this.f8875g.f8869f, false, false);
+                this.f8875g.i(new c.a.r0.a.u.h.b(5, "login error"));
             }
         }
     }
@@ -164,7 +164,7 @@ public class i {
         public final /* synthetic */ JSONObject a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ i f9074b;
+        public final /* synthetic */ i f8876b;
 
         public c(i iVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -181,7 +181,7 @@ public class i {
                     return;
                 }
             }
-            this.f9074b = iVar;
+            this.f8876b = iVar;
             this.a = jSONObject;
         }
 
@@ -209,7 +209,7 @@ public class i {
                         jSONObject.remove(EnterDxmPayServiceAction.SERVICE_STATUS_CODE);
                     } catch (JSONException e3) {
                         e2 = e3;
-                        if (i.f9060g) {
+                        if (i.f8862g) {
                             Log.getStackTraceString(e2);
                         }
                         if (obj != null) {
@@ -218,11 +218,11 @@ public class i {
                         }
                         if (i2 != 1) {
                         }
-                        String j2 = i.j(i2, this.f9074b.f9064c);
-                        if (TextUtils.equals("WeChat", this.f9074b.f9066e)) {
+                        String j2 = i.j(i2, this.f8876b.f8866c);
+                        if (TextUtils.equals("WeChat", this.f8876b.f8868e)) {
                             i2 = 0;
                         }
-                        this.f9074b.i(new c.a.r0.a.u.h.b(i2, j2, jSONObject));
+                        this.f8876b.i(new c.a.r0.a.u.h.b(i2, j2, jSONObject));
                     }
                 } catch (JSONException e4) {
                     jSONObject = jSONObject2;
@@ -232,32 +232,32 @@ public class i {
                     try {
                         jSONObject.put("returnData", new JSONObject(String.valueOf(obj)));
                     } catch (JSONException e5) {
-                        if (i.f9060g) {
+                        if (i.f8862g) {
                             Log.getStackTraceString(e5);
                         }
                         try {
                             jSONObject.put("returnData", obj);
                         } catch (JSONException e6) {
-                            if (i.f9060g) {
+                            if (i.f8862g) {
                                 Log.getStackTraceString(e6);
                             }
                         }
                     }
                 }
                 if (i2 != 0) {
-                    n.H(true, this.f9074b.f9067f, this.f9074b.k(str, this.a));
+                    n.H(true, this.f8876b.f8869f, this.f8876b.k(str, this.a));
                 } else {
                     c.a.r0.a.e0.d.i("SwanAppThirdPayment", "pay not success: code:" + i2 + ", result: " + str);
-                    n.H(false, this.f9074b.f9067f, this.f9074b.k(str, this.a));
+                    n.H(false, this.f8876b.f8869f, this.f8876b.k(str, this.a));
                 }
                 if (i2 != 1) {
-                    n.K(this.f9074b.f9067f, "result", i2);
+                    n.K(this.f8876b.f8869f, "result", i2);
                 }
-                String j22 = i.j(i2, this.f9074b.f9064c);
-                if (TextUtils.equals("WeChat", this.f9074b.f9066e) && i2 == 1) {
+                String j22 = i.j(i2, this.f8876b.f8866c);
+                if (TextUtils.equals("WeChat", this.f8876b.f8868e) && i2 == 1) {
                     i2 = 0;
                 }
-                this.f9074b.i(new c.a.r0.a.u.h.b(i2, j22, jSONObject));
+                this.f8876b.i(new c.a.r0.a.u.h.b(i2, j22, jSONObject));
             }
         }
     }
@@ -280,12 +280,12 @@ public class i {
                 return;
             }
         }
-        f9060g = c.a.r0.a.k.a;
-        f9061h = new String[]{"dealId", "appKey", "totalAmount", "tpOrderId", "rsaSign", "dealTitle", PolyActivity.CHOSEN_CHANNEL_KEY, "payInfo", "tradeNo", "mchIdMd5"};
+        f8862g = c.a.r0.a.k.a;
+        f8863h = new String[]{"dealId", "appKey", "totalAmount", "tpOrderId", "rsaSign", "dealTitle", PolyActivity.CHOSEN_CHANNEL_KEY, "payInfo", "tradeNo", "mchIdMd5"};
         HashMap hashMap = new HashMap();
-        f9062i = hashMap;
+        f8864i = hashMap;
         hashMap.put("WeChat", "thirdPayWechatH5");
-        f9062i.put("Alipay", "thirdPayAlipay");
+        f8864i.put("Alipay", "thirdPayAlipay");
     }
 
     public i(@NonNull c.a.r0.a.d2.e eVar, @NonNull SwanAppActivity swanAppActivity, @NonNull d dVar) {
@@ -303,11 +303,11 @@ public class i {
                 return;
             }
         }
-        this.f9067f = "thirdPayUnknown";
-        this.f9063b = eVar;
-        this.f9064c = swanAppActivity;
+        this.f8869f = "thirdPayUnknown";
+        this.f8865b = eVar;
+        this.f8866c = swanAppActivity;
         this.a = dVar;
-        this.f9065d = new PaymentManager();
+        this.f8867d = new PaymentManager();
     }
 
     public static String j(int i2, Context context) {
@@ -362,18 +362,18 @@ public class i {
     public final void l(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            n.K(this.f9067f, "intoPayment", 0);
+            n.K(this.f8869f, "intoPayment", 0);
             try {
-                e.z(this.f9063b, jSONObject);
+                e.z(this.f8865b, jSONObject);
                 jSONObject.put(PolyActivity.TRADE_TYPE, PolyActivity.DIRECT_PAY_TRADE_TYPE);
                 jSONObject.put(PolyActivity.PANEL_TYPE_KEY, PolyActivity.NONE_PANEL_TYPE);
             } catch (JSONException e2) {
-                if (f9060g) {
+                if (f8862g) {
                     Log.getStackTraceString(e2);
                 }
             }
             c.a.r0.a.e0.d.b("SwanAppThirdPayment", "orderInfo to nuomi: " + jSONObject);
-            this.f9065d.j(this.f9064c, jSONObject, null, new c(this, jSONObject));
+            this.f8867d.j(this.f8866c, jSONObject, null, new c(this, jSONObject));
         }
     }
 
@@ -385,7 +385,7 @@ public class i {
             if (jSONObject == null) {
                 return new c.a.r0.a.u.h.b(202, "parse orderInfo fail");
             }
-            for (String str : f9061h) {
+            for (String str : f8863h) {
                 Object opt = jSONObject.opt(str);
                 if (opt == null) {
                     return new c.a.r0.a.u.h.b(202, str + " is necessary");
@@ -407,18 +407,18 @@ public class i {
     public void n(@Nullable JSONObject jSONObject, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, jSONObject, str) == null) {
-            n.K(this.f9067f, "create", 0);
+            n.K(this.f8869f, "create", 0);
             c.a.r0.a.u.h.b m = m(jSONObject);
             if (m != null) {
                 c.a.r0.a.e0.d.i("SwanAppThirdPayment", "orderInfo param error: " + m);
-                n.H(false, this.f9067f, n.m("", "orderInfo param error"));
+                n.H(false, this.f8869f, n.m("", "orderInfo param error"));
                 i(m);
                 return;
             }
             String optString = jSONObject.optString(PolyActivity.CHOSEN_CHANNEL_KEY);
-            this.f9066e = optString;
-            String str2 = f9062i.get(optString);
-            this.f9067f = str2;
+            this.f8868e = optString;
+            String str2 = f8864i.get(optString);
+            this.f8869f = str2;
             if (TextUtils.isEmpty(str2)) {
                 c.a.r0.a.e0.d.i("SwanAppThirdPayment", "orderInfo param error: chosen channel error");
                 n.H(false, "thirdPayUnknown", n.m("", "orderInfo param error: chosen channel error"));
@@ -432,28 +432,28 @@ public class i {
     public final void o(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, str) == null) {
-            this.f9063b.d0().g(this.f9064c, "scope_request_thirdpayment", new a(this, jSONObject, str));
+            this.f8865b.d0().g(this.f8866c, "scope_request_thirdpayment", new a(this, jSONObject, str));
         }
     }
 
     public final void p(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, jSONObject, str) == null) {
-            if (!c.a.f0.a.a().b(this.f9064c)) {
-                SwanAppActivity swanAppActivity = this.f9064c;
+            if (!c.a.f0.a.a().b(this.f8866c)) {
+                SwanAppActivity swanAppActivity = this.f8866c;
                 c.a.r0.a.c2.b.f.e.g(swanAppActivity, swanAppActivity.getText(c.a.r0.a.h.aiapps_wx_not_install_toast_msg)).G();
                 n.H(false, "wechatH5Action", n.m("", "Error: wechat not install. "));
                 i(new c.a.r0.a.u.h.b(1002, "had not installed WeChat"));
                 return;
             }
-            n.K(this.f9067f, "login", 0);
-            if (this.f9063b.M().e(this.f9064c)) {
-                n.J(this.f9067f, true, true);
+            n.K(this.f8869f, "login", 0);
+            if (this.f8865b.M().e(this.f8866c)) {
+                n.J(this.f8869f, true, true);
                 l(jSONObject);
                 return;
             }
             n.S("show", 13, str);
-            this.f9063b.M().f(this.f9064c, null, new b(this, str, jSONObject));
+            this.f8865b.M().f(this.f8866c, null, new b(this, str, jSONObject));
         }
     }
 }

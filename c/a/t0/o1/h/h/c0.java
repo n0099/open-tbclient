@@ -26,23 +26,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c0 extends c.a.d.n.e.a<c.a.t0.o1.h.j.h, CardViewHolder<b>> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements c.a.d.n.e.w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f21036e;
+        public final /* synthetic */ b f20472e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c0 f21037f;
+        public final /* synthetic */ c0 f20473f;
 
         public a(c0 c0Var, b bVar) {
             Interceptable interceptable = $ic;
@@ -59,23 +59,23 @@ public class c0 extends c.a.d.n.e.a<c.a.t0.o1.h.j.h, CardViewHolder<b>> {
                     return;
                 }
             }
-            this.f21037f = c0Var;
-            this.f21036e = bVar;
+            this.f20473f = c0Var;
+            this.f20472e = bVar;
         }
 
         @Override // c.a.d.n.e.w
         public void b(View view, c.a.d.n.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || view == null || (bVar = this.f21036e) == null || c.a.d.f.p.m.isEmpty(bVar.p)) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || view == null || (bVar = this.f20472e) == null || c.a.d.f.p.m.isEmpty(bVar.p)) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c12885"));
-            UrlManager.getInstance().dealOneLink(this.f21037f.m, new String[]{this.f21036e.p});
+            UrlManager.getInstance().dealOneLink(this.f20473f.m, new String[]{this.f20472e.p});
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b extends c.a.t0.g0.b<c.a.t0.o1.h.j.h> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,10 +149,10 @@ public class c0 extends c.a.d.n.e.a<c.a.t0.o1.h.j.h, CardViewHolder<b>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
                 if (hVar != null) {
-                    s(hVar.f21108f, hVar.f21107e);
+                    s(hVar.f20544f, hVar.f20543e);
                     this.m.setPlaceHolder(2);
-                    this.m.startLoad(hVar.f21109g, 10, false);
-                    this.p = hVar.f21110h;
+                    this.m.startLoad(hVar.f20545g, 10, false);
+                    this.p = hVar.f20546h;
                 }
                 l(i(), TbadkCoreApplication.getInst().getSkinType());
             }

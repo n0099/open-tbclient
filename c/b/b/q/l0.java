@@ -16,25 +16,25 @@ public class l0<T> {
     public T[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Comparator<? super T> f28285b;
+    public Comparator<? super T> f27428b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28286c;
+    public int f27429c;
 
     /* renamed from: d  reason: collision with root package name */
-    public T[] f28287d;
+    public T[] f27430d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28288e;
+    public int f27431e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28289f;
+    public int f27432f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int[] f28290g;
+    public final int[] f27433g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int[] f28291h;
+    public final int[] f27434h;
 
     public l0() {
         Interceptable interceptable = $ic;
@@ -49,11 +49,11 @@ public class l0<T> {
                 return;
             }
         }
-        this.f28286c = 7;
-        this.f28289f = 0;
-        this.f28287d = (T[]) new Object[256];
-        this.f28290g = new int[40];
-        this.f28291h = new int[40];
+        this.f27429c = 7;
+        this.f27432f = 0;
+        this.f27430d = (T[]) new Object[256];
+        this.f27433g = new int[40];
+        this.f27434h = new int[40];
     }
 
     /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:21:0x003d -> B:5:0x0006 */
@@ -292,7 +292,7 @@ public class l0<T> {
     public void c(T[] tArr, Comparator<T> comparator, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(1048576, this, tArr, comparator, i2, i3) == null) {
-            this.f28289f = 0;
+            this.f27432f = 0;
             n(tArr.length, i2, i3);
             int i4 = i3 - i2;
             if (i4 < 2) {
@@ -303,8 +303,8 @@ public class l0<T> {
                 return;
             }
             this.a = tArr;
-            this.f28285b = comparator;
-            this.f28288e = 0;
+            this.f27428b = comparator;
+            this.f27431e = 0;
             int l = l(i4);
             do {
                 int b2 = b(tArr, i2, i3, comparator);
@@ -320,9 +320,9 @@ public class l0<T> {
             } while (i4 != 0);
             i();
             this.a = null;
-            this.f28285b = null;
-            T[] tArr2 = this.f28287d;
-            int i6 = this.f28288e;
+            this.f27428b = null;
+            T[] tArr2 = this.f27430d;
+            int i6 = this.f27431e;
             for (int i7 = 0; i7 < i6; i7++) {
                 tArr2[i7] = null;
             }
@@ -333,8 +333,8 @@ public class l0<T> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.f28288e = Math.max(this.f28288e, i2);
-            if (this.f28287d.length < i2) {
+            this.f27431e = Math.max(this.f27431e, i2);
+            if (this.f27430d.length < i2) {
                 int i3 = (i2 >> 1) | i2;
                 int i4 = i3 | (i3 >> 2);
                 int i5 = i4 | (i4 >> 4);
@@ -343,9 +343,9 @@ public class l0<T> {
                 if (i7 >= 0) {
                     i2 = Math.min(i7, this.a.length >>> 1);
                 }
-                this.f28287d = (T[]) new Object[i2];
+                this.f27430d = (T[]) new Object[i2];
             }
-            return this.f28287d;
+            return this.f27430d;
         }
         return (T[]) ((Object[]) invokeI.objValue);
     }
@@ -353,29 +353,29 @@ public class l0<T> {
     public final void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            int[] iArr = this.f28290g;
+            int[] iArr = this.f27433g;
             int i3 = iArr[i2];
-            int[] iArr2 = this.f28291h;
+            int[] iArr2 = this.f27434h;
             int i4 = iArr2[i2];
             int i5 = i2 + 1;
             int i6 = iArr[i5];
             int i7 = iArr2[i5];
             iArr2[i2] = i4 + i7;
-            if (i2 == this.f28289f - 3) {
+            if (i2 == this.f27432f - 3) {
                 int i8 = i2 + 2;
                 iArr[i5] = iArr[i8];
                 iArr2[i5] = iArr2[i8];
             }
-            this.f28289f--;
+            this.f27432f--;
             T[] tArr = this.a;
-            int f2 = f(tArr[i6], tArr, i3, i4, 0, this.f28285b);
+            int f2 = f(tArr[i6], tArr, i3, i4, 0, this.f27428b);
             int i9 = i3 + f2;
             int i10 = i4 - f2;
             if (i10 == 0) {
                 return;
             }
             T[] tArr2 = this.a;
-            int e2 = e(tArr2[(i9 + i10) - 1], tArr2, i6, i7, i7 - 1, this.f28285b);
+            int e2 = e(tArr2[(i9 + i10) - 1], tArr2, i6, i7, i7 - 1, this.f27428b);
             if (e2 == 0) {
                 return;
             }
@@ -391,7 +391,7 @@ public class l0<T> {
         if (r1[r0 - 2] <= (r1[r0] + r1[r0 - 1])) goto L14;
      */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
-        r1 = r5.f28291h;
+        r1 = r5.f27434h;
      */
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0038, code lost:
         if (r1[r0 - 1] >= r1[r0 + 1]) goto L19;
@@ -411,18 +411,18 @@ public class l0<T> {
             return;
         }
         while (true) {
-            int i2 = this.f28289f;
+            int i2 = this.f27432f;
             if (i2 <= 1) {
                 return;
             }
             int i3 = i2 - 2;
             if (i3 >= 1) {
-                int[] iArr = this.f28291h;
+                int[] iArr = this.f27434h;
             }
             if (i3 >= 2) {
-                int[] iArr2 = this.f28291h;
+                int[] iArr2 = this.f27434h;
             }
-            int[] iArr3 = this.f28291h;
+            int[] iArr3 = this.f27434h;
             if (iArr3[i3] > iArr3[i3 + 1]) {
                 return;
             }
@@ -436,13 +436,13 @@ public class l0<T> {
             return;
         }
         while (true) {
-            int i2 = this.f28289f;
+            int i2 = this.f27432f;
             if (i2 <= 1) {
                 return;
             }
             int i3 = i2 - 2;
             if (i3 > 0) {
-                int[] iArr = this.f28291h;
+                int[] iArr = this.f27434h;
                 if (iArr[i3 - 1] < iArr[i3 + 1]) {
                     i3--;
                 }
@@ -612,8 +612,8 @@ public class l0<T> {
                 System.arraycopy(tArr, (i18 - i19) + 1, tArr, i20 + 1, i19);
                 tArr[i20] = d2[i15];
             } else {
-                Comparator<? super T> comparator = this.f28285b;
-                int i21 = this.f28286c;
+                Comparator<? super T> comparator = this.f27428b;
+                int i21 = this.f27429c;
                 loop0: while (true) {
                     int i22 = 0;
                     int i23 = 0;
@@ -664,7 +664,7 @@ public class l0<T> {
                 if (i21 < 1) {
                     i21 = 1;
                 }
-                this.f28286c = i21;
+                this.f27429c = i21;
                 if (i13 == 1) {
                     int i27 = i6 - i19;
                     System.arraycopy(tArr, (i18 - i19) + 1, tArr, i27 + 1, i19);
@@ -851,8 +851,8 @@ public class l0<T> {
                 tArr[i14 + i16] = d2[0];
                 return;
             }
-            Comparator<? super T> comparator = this.f28285b;
-            int i18 = this.f28286c;
+            Comparator<? super T> comparator = this.f27428b;
+            int i18 = this.f27429c;
             int i19 = 0;
             loop0: while (true) {
                 int i20 = 0;
@@ -902,7 +902,7 @@ public class l0<T> {
             if (i18 < i7) {
                 i18 = 1;
             }
-            this.f28286c = i18;
+            this.f27429c = i18;
             if (i13 == i7) {
                 System.arraycopy(tArr, i15, tArr, i6, i16);
                 tArr[i6 + i16] = d2[i19];
@@ -917,11 +917,11 @@ public class l0<T> {
     public final void m(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            int[] iArr = this.f28290g;
-            int i4 = this.f28289f;
+            int[] iArr = this.f27433g;
+            int i4 = this.f27432f;
             iArr[i4] = i2;
-            this.f28291h[i4] = i3;
-            this.f28289f = i4 + 1;
+            this.f27434h[i4] = i3;
+            this.f27432f = i4 + 1;
         }
     }
 }

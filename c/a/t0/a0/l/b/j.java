@@ -52,10 +52,10 @@ public class j extends c.a.d.n.e.a<m, CardViewHolder<c.a.t0.a0.l.h.a>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f15284e;
+        public final /* synthetic */ m f14906e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f15285f;
+        public final /* synthetic */ j f14907f;
 
         public a(j jVar, m mVar) {
             Interceptable interceptable = $ic;
@@ -72,15 +72,15 @@ public class j extends c.a.d.n.e.a<m, CardViewHolder<c.a.t0.a0.l.h.a>> {
                     return;
                 }
             }
-            this.f15285f = jVar;
-            this.f15284e = mVar;
+            this.f14907f = jVar;
+            this.f14906e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f15285f.f0(this.f15284e);
+                this.f14907f.f0(this.f14906e);
             }
         }
     }
@@ -122,7 +122,7 @@ public class j extends c.a.d.n.e.a<m, CardViewHolder<c.a.t0.a0.l.h.a>> {
         public final /* synthetic */ TbPageContext a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ j f15286b;
+        public final /* synthetic */ j f14908b;
 
         public c(j jVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -139,7 +139,7 @@ public class j extends c.a.d.n.e.a<m, CardViewHolder<c.a.t0.a0.l.h.a>> {
                     return;
                 }
             }
-            this.f15286b = jVar;
+            this.f14908b = jVar;
             this.a = tbPageContext;
         }
 
@@ -147,9 +147,9 @@ public class j extends c.a.d.n.e.a<m, CardViewHolder<c.a.t0.a0.l.h.a>> {
         public void onPermissionsGranted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = this.f15286b.o ? this.f15286b.p : "0";
-                String str2 = this.f15286b.o ? this.f15286b.q : null;
-                String str3 = this.f15286b.o ? this.f15286b.r : null;
+                String str = this.f14908b.o ? this.f14908b.p : "0";
+                String str2 = this.f14908b.o ? this.f14908b.q : null;
+                String str3 = this.f14908b.o ? this.f14908b.r : null;
                 MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
                 c.a.d.f.i.a.n().j(false);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.a.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
@@ -159,7 +159,7 @@ public class j extends c.a.d.n.e.a<m, CardViewHolder<c.a.t0.a0.l.h.a>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), m.f15318f);
+        super(tbPageContext.getPageActivity(), m.f14939f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -196,7 +196,7 @@ public class j extends c.a.d.n.e.a<m, CardViewHolder<c.a.t0.a0.l.h.a>> {
         this.s = aVar.p();
         n0();
         aVar.v(8);
-        aVar.w(this.f3299e.getResources().getString(R.string.ala_person_center_publish_live));
+        aVar.w(this.f3258e.getResources().getString(R.string.ala_person_center_publish_live));
         aVar.l(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -205,7 +205,7 @@ public class j extends c.a.d.n.e.a<m, CardViewHolder<c.a.t0.a0.l.h.a>> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, mVar) == null) || mVar == null || mVar.g() == null) {
             return;
         }
-        c.a.s0.s.g0.b.j().t(c.a.s0.s.g0.b.n("live_publish_live_has_showed"), true);
+        c.a.s0.s.h0.b.k().u(c.a.s0.s.h0.b.o("live_publish_live_has_showed"), true);
         o0(this.s, null, false);
         j0();
         TiebaStatic.log("c13618");
@@ -276,7 +276,7 @@ public class j extends c.a.d.n.e.a<m, CardViewHolder<c.a.t0.a0.l.h.a>> {
                     return;
                 }
                 if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
-                    n.L(this.m.getPageActivity(), R.string.plugin_config_not_found);
+                    n.M(this.m.getPageActivity(), R.string.plugin_config_not_found);
                 } else {
                     i0(this.m);
                 }
@@ -311,8 +311,8 @@ public class j extends c.a.d.n.e.a<m, CardViewHolder<c.a.t0.a0.l.h.a>> {
             return;
         }
         this.t = true;
-        if (!c.a.s0.s.g0.b.j().g(c.a.s0.s.g0.b.n("live_publish_live_has_showed"), false)) {
-            c.a.s0.s.g0.b.j().t(c.a.s0.s.g0.b.n("live_publish_live_has_showed"), true);
+        if (!c.a.s0.s.h0.b.k().h(c.a.s0.s.h0.b.o("live_publish_live_has_showed"), false)) {
+            c.a.s0.s.h0.b.k().u(c.a.s0.s.h0.b.o("live_publish_live_has_showed"), true);
             o0(this.s, null, true);
             return;
         }

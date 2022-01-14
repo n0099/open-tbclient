@@ -27,16 +27,16 @@ public class b0 extends BaseFunNativeAd {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final NativeUnifiedADData f29141b;
+    public final NativeUnifiedADData f28250b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ChannelNativeAds f29142c;
+    public final ChannelNativeAds f28251c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final MediaView f29143d;
+    public final MediaView f28252d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final o f29144e;
+    public final o f28253e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b0(NativeUnifiedADData nativeUnifiedADData, MediaView mediaView, String str, Ssp.Pid pid, o oVar) {
@@ -57,31 +57,31 @@ public class b0 extends BaseFunNativeAd {
                 return;
             }
         }
-        this.f29141b = nativeUnifiedADData;
-        this.f29143d = mediaView;
-        this.f29142c = ChannelNativeAds.createGdt(nativeUnifiedADData);
-        this.f29144e = oVar;
+        this.f28250b = nativeUnifiedADData;
+        this.f28252d = mediaView;
+        this.f28251c = ChannelNativeAds.createGdt(nativeUnifiedADData);
+        this.f28253e = oVar;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
     public ChannelNativeAds getChannelNativeAds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29142c : (ChannelNativeAds) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28251c : (ChannelNativeAds) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
     public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29141b.getDesc() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28250b.getDesc() : (String) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
     public String getIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29141b.getIconUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28250b.getIconUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
@@ -90,11 +90,11 @@ public class b0 extends BaseFunNativeAd {
         String imgUrl;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> imgList = this.f29141b.getImgList();
+            List<String> imgList = this.f28250b.getImgList();
             if (imgList == null) {
                 imgList = new ArrayList<>();
             }
-            if (imgList.isEmpty() && (imgUrl = this.f29141b.getImgUrl()) != null) {
+            if (imgList.isEmpty() && (imgUrl = this.f28250b.getImgUrl()) != null) {
                 imgList.add(imgUrl);
             }
             return imgList;
@@ -107,8 +107,8 @@ public class b0 extends BaseFunNativeAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f29141b.isAppAd()) {
-                int appStatus = this.f29141b.getAppStatus();
+            if (this.f28250b.isAppAd()) {
+                int appStatus = this.f28250b.getAppStatus();
                 if (appStatus != 0) {
                     if (appStatus != 1) {
                         if (appStatus != 2 && appStatus != 4) {
@@ -132,14 +132,14 @@ public class b0 extends BaseFunNativeAd {
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29141b.getTitle() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28250b.getTitle() : (String) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
     public View getVideoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29143d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28252d : (View) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
@@ -147,7 +147,7 @@ public class b0 extends BaseFunNativeAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
             if (viewGroup instanceof NativeAdContainer) {
-                this.f29144e.b(context, this.f29141b, this.mSid, (NativeAdContainer) viewGroup, this.f29143d, list, funAdInteractionListener, this.f29142c.getGdtADStatusChangeListener());
+                this.f28253e.b(context, this.f28250b, this.mSid, (NativeAdContainer) viewGroup, this.f28252d, list, funAdInteractionListener, this.f28251c.getGdtADStatusChangeListener());
                 return;
             }
             LogPrinter.e("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer", new Object[0]);

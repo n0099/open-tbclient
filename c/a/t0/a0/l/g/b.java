@@ -22,16 +22,16 @@ public class b {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AlaRefreshScoreModel f15324b;
+    public AlaRefreshScoreModel f14945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f15325c;
+    public c f14946c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f15326d;
+    public CustomMessageListener f14947d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f15327e;
+    public CustomMessageListener f14948e;
 
     /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
@@ -72,13 +72,13 @@ public class b {
 
     /* renamed from: c.a.t0.a0.l.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0935b extends CustomMessageListener {
+    public class C0948b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0935b(b bVar, int i2) {
+        public C0948b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -102,10 +102,10 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f15325c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f14946c == null) {
                 return;
             }
-            this.a.f15325c.a(true);
+            this.a.f14946c.a(true);
         }
     }
 
@@ -129,11 +129,11 @@ public class b {
                 return;
             }
         }
-        this.f15326d = new a(this, 2001227);
-        this.f15327e = new C0935b(this, AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA);
+        this.f14947d = new a(this, 2001227);
+        this.f14948e = new C0948b(this, AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA);
         this.a = tbPageContext;
-        tbPageContext.registerListener(this.f15326d);
-        this.a.registerListener(this.f15327e);
+        tbPageContext.registerListener(this.f14947d);
+        this.a.registerListener(this.f14948e);
     }
 
     public void c(long j2) {
@@ -144,7 +144,7 @@ public class b {
                 return;
             }
             if (j3 > 200000000) {
-                n.M(TbadkCoreApplication.getInst(), this.a.getResources().getString(R.string.ala_toast_gift_exceeding_limit_msg, 20L));
+                n.N(TbadkCoreApplication.getInst(), this.a.getResources().getString(R.string.ala_toast_gift_exceeding_limit_msg, 20L));
                 return;
             }
             if (j3 % 1000 != 0) {
@@ -159,12 +159,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                if (this.f15324b == null) {
+                if (this.f14945b == null) {
                     AlaRefreshScoreModel alaRefreshScoreModel = new AlaRefreshScoreModel();
-                    this.f15324b = alaRefreshScoreModel;
+                    this.f14945b = alaRefreshScoreModel;
                     alaRefreshScoreModel.initListener();
                 }
-                this.f15324b.refreshCurUserScores();
+                this.f14945b.refreshCurUserScores();
                 return true;
             }
             return false;
@@ -175,7 +175,7 @@ public class b {
     public void e(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f15325c = cVar;
+            this.f14946c = cVar;
         }
     }
 }

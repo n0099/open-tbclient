@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class b extends c.a.s0.x.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC1205b a;
+    public InterfaceC1219b a;
 
     /* loaded from: classes7.dex */
     public class a implements c.a.s0.x.b {
@@ -28,10 +28,10 @@ public class b extends c.a.s0.x.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.m4.o.a f20074e;
+        public final /* synthetic */ c.a.t0.m4.o.a f19545e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f20075f;
+        public final /* synthetic */ b f19546f;
 
         public a(b bVar, c.a.t0.m4.o.a aVar) {
             Interceptable interceptable = $ic;
@@ -48,29 +48,29 @@ public class b extends c.a.s0.x.c {
                     return;
                 }
             }
-            this.f20075f = bVar;
-            this.f20074e = aVar;
+            this.f19546f = bVar;
+            this.f19545e = aVar;
         }
 
         @Override // c.a.s0.x.b
         public void onAction(c.a.s0.x.a aVar) {
             c.a.t0.m4.o.a aVar2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (aVar2 = this.f20074e) == null || aVar2.a() == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (aVar2 = this.f19545e) == null || aVar2.a() == null || aVar == null) {
                 return;
             }
             int i2 = aVar.a;
             if (i2 == 4) {
-                this.f20074e.u((String) aVar.f14519c);
+                this.f19545e.u((String) aVar.f14180c);
             } else if (i2 == 7) {
-                this.f20074e.getContext().showToast(i.over_limit_tip);
+                this.f19545e.getContext().showToast(i.over_limit_tip);
             } else if (i2 != 8) {
             } else {
-                this.f20074e.y();
-                if (this.f20075f.h(this.f20074e.getContext(), 25066)) {
-                    this.f20074e.o();
-                    if (this.f20075f.a != null) {
-                        this.f20075f.a.a(this.f20074e.l());
+                this.f19545e.y();
+                if (this.f19546f.h(this.f19545e.getContext(), 25066)) {
+                    this.f19545e.o();
+                    if (this.f19546f.a != null) {
+                        this.f19546f.a.a(this.f19545e.l());
                     }
                 }
             }
@@ -79,7 +79,7 @@ public class b extends c.a.s0.x.c {
 
     /* renamed from: c.a.t0.m4.o.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC1205b {
+    public interface InterfaceC1219b {
         void a(String str);
     }
 
@@ -136,7 +136,7 @@ public class b extends c.a.s0.x.c {
         m findToolById = a2.findToolById(5);
         if (findToolById != null) {
             findToolById.e(false);
-            findToolById.f14531d = 0;
+            findToolById.f14191d = 0;
         }
         a2.addTool(new c(a2.getContext()));
         a2.build();
@@ -144,11 +144,11 @@ public class b extends c.a.s0.x.c {
         a2.hide();
     }
 
-    public e g(Context context, InterfaceC1205b interfaceC1205b) {
+    public e g(Context context, InterfaceC1219b interfaceC1219b) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, interfaceC1205b)) == null) {
-            this.a = interfaceC1205b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, interfaceC1219b)) == null) {
+            this.a = interfaceC1219b;
             return super.a(context);
         }
         return (e) invokeLL.objValue;

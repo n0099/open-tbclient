@@ -14,34 +14,32 @@ public class m {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14529b;
+    public String f14189b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14530c;
+    public int f14190c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14531d;
+    public int f14191d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14532e;
+    public int f14192e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14533f;
+    public int f14193f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14534g;
+    public boolean f14194g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14535h;
+    public boolean f14195h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14536i;
+    public boolean f14196i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f14537j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public n f14538k;
+    public int f14197j;
+    public n k;
     public int l;
     public boolean m;
     public int[] n;
@@ -64,12 +62,12 @@ public class m {
                 return;
             }
         }
-        this.f14536i = true;
+        this.f14196i = true;
         this.m = false;
         this.q = true;
-        this.f14529b = str;
-        this.f14530c = i2;
-        this.f14537j = i3;
+        this.f14189b = str;
+        this.f14190c = i2;
+        this.f14197j = i3;
     }
 
     public boolean a() {
@@ -130,11 +128,11 @@ public class m {
                 return;
             }
         }
-        this.f14536i = true;
+        this.f14196i = true;
         this.m = false;
         this.q = true;
-        this.f14529b = str;
-        this.f14530c = i2;
+        this.f14189b = str;
+        this.f14190c = i2;
         this.a = context;
     }
 
@@ -153,12 +151,12 @@ public class m {
                 return;
             }
         }
-        this.f14536i = true;
+        this.f14196i = true;
         this.m = false;
         this.q = true;
-        this.f14529b = str;
-        this.f14530c = i2;
+        this.f14189b = str;
+        this.f14190c = i2;
         this.a = context;
-        this.f14537j = i3;
+        this.f14197j = i3;
     }
 }

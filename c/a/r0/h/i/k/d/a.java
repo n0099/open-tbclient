@@ -36,42 +36,40 @@ import java.util.concurrent.Executors;
 public final class a implements c.a.r0.h.i.k.f.d, c.a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
-
-    /* renamed from: k  reason: collision with root package name */
-    public static a f10694k;
+    public static a k;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f10695b;
+    public ExecutorService f10460b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ConcurrentHashMap<String, Object> f10696c;
+    public final ConcurrentHashMap<String, Object> f10461c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<DownloadInfo> f10697d;
+    public final List<DownloadInfo> f10462d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f10698e;
+    public final Context f10463e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f10699f;
+    public final e f10464f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a.r0.h.i.k.f.b f10700g;
+    public final c.a.r0.h.i.k.f.b f10465g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.r0.h.i.k.c.a f10701h;
+    public final c.a.r0.h.i.k.c.a f10466h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ConcurrentHashMap<Uri, BroadcastReceiver> f10702i;
+    public ConcurrentHashMap<Uri, BroadcastReceiver> f10467i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ConcurrentHashMap<Uri, Timer> f10703j;
+    public ConcurrentHashMap<Uri, Timer> f10468j;
 
     /* renamed from: c.a.r0.h.i.k.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0686a extends BroadcastReceiver {
+    public class C0695a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a this$0;
@@ -79,7 +77,7 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
         public final /* synthetic */ String val$packageName;
         public final /* synthetic */ Uri val$uri;
 
-        public C0686a(a aVar, String str, d dVar, Uri uri) {
+        public C0695a(a aVar, String str, d dVar, Uri uri) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,16 +115,16 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f10704e;
+        public final /* synthetic */ d f10469e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f10705f;
+        public final /* synthetic */ Context f10470f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Uri f10706g;
+        public final /* synthetic */ Uri f10471g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f10707h;
+        public final /* synthetic */ a f10472h;
 
         public b(a aVar, d dVar, Context context, Uri uri) {
             Interceptable interceptable = $ic;
@@ -143,18 +141,18 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
                     return;
                 }
             }
-            this.f10707h = aVar;
-            this.f10704e = dVar;
-            this.f10705f = context;
-            this.f10706g = uri;
+            this.f10472h = aVar;
+            this.f10469e = dVar;
+            this.f10470f = context;
+            this.f10471g = uri;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10704e.a(Boolean.FALSE);
-                this.f10707h.l(this.f10705f, this.f10706g);
+                this.f10469e.a(Boolean.FALSE);
+                this.f10472h.l(this.f10470f, this.f10471g);
             }
         }
     }
@@ -165,10 +163,10 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Timer f10708e;
+        public final /* synthetic */ Timer f10473e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f10709f;
+        public final /* synthetic */ a f10474f;
 
         public c(a aVar, Timer timer) {
             Interceptable interceptable = $ic;
@@ -185,19 +183,19 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
                     return;
                 }
             }
-            this.f10709f = aVar;
-            this.f10708e = timer;
+            this.f10474f = aVar;
+            this.f10473e = timer;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (Map.Entry entry : this.f10709f.f10702i.entrySet()) {
-                    a aVar = this.f10709f;
-                    aVar.l(aVar.f10698e, (Uri) entry.getKey());
+                for (Map.Entry entry : this.f10474f.f10467i.entrySet()) {
+                    a aVar = this.f10474f;
+                    aVar.l(aVar.f10463e, (Uri) entry.getKey());
                 }
-                this.f10708e.cancel();
+                this.f10473e.cancel();
             }
         }
     }
@@ -243,24 +241,24 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
                 return;
             }
         }
-        this.f10702i = new ConcurrentHashMap<>();
-        this.f10703j = new ConcurrentHashMap<>();
-        this.f10698e = context;
+        this.f10467i = new ConcurrentHashMap<>();
+        this.f10468j = new ConcurrentHashMap<>();
+        this.f10463e = context;
         if (aVar == null) {
-            this.f10701h = new c.a.r0.h.i.k.c.a();
+            this.f10466h = new c.a.r0.h.i.k.c.a();
         } else {
-            this.f10701h = aVar;
+            this.f10466h = aVar;
         }
-        if (this.f10701h.a() == null) {
-            this.f10700g = new c.a.r0.h.i.k.e.a(context, this.f10701h);
+        if (this.f10466h.a() == null) {
+            this.f10465g = new c.a.r0.h.i.k.e.a(context, this.f10466h);
         } else {
-            this.f10700g = this.f10701h.a();
+            this.f10465g = this.f10466h.a();
         }
-        this.f10697d = new ArrayList();
-        this.f10696c = new ConcurrentHashMap<>();
-        this.f10700g.b();
-        this.f10695b = Executors.newFixedThreadPool(this.f10701h.b());
-        this.f10699f = new c.a.r0.h.i.k.d.b(this.f10700g);
+        this.f10462d = new ArrayList();
+        this.f10461c = new ConcurrentHashMap<>();
+        this.f10465g.b();
+        this.f10460b = Executors.newFixedThreadPool(this.f10466h.b());
+        this.f10464f = new c.a.r0.h.i.k.d.b(this.f10465g);
     }
 
     public static synchronized c.a.r0.h.i.k.f.d m(Context context, c.a.r0.h.i.k.c.a aVar) {
@@ -269,10 +267,10 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, aVar)) == null) {
             synchronized (a.class) {
-                if (f10694k == null) {
-                    f10694k = new a(context, aVar);
+                if (k == null) {
+                    k = new a(context, aVar);
                 }
-                aVar2 = f10694k;
+                aVar2 = k;
             }
             return aVar2;
         }
@@ -300,10 +298,10 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
                     return;
                 }
                 downloadInfo.setStatus(DownloadState.DELETED.value());
-                this.f10696c.remove(downloadInfo.getId());
-                this.f10697d.remove(downloadInfo);
-                this.f10700g.delete(downloadInfo);
-                this.f10699f.b(downloadInfo);
+                this.f10461c.remove(downloadInfo.getId());
+                this.f10462d.remove(downloadInfo);
+                this.f10465g.delete(downloadInfo);
+                this.f10464f.b(downloadInfo);
                 new File(downloadInfo.getPath()).delete();
             }
         }
@@ -314,7 +312,7 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) {
             synchronized (this) {
-                this.f10697d.add(downloadInfo);
+                this.f10462d.add(downloadInfo);
                 p(downloadInfo);
             }
         }
@@ -338,14 +336,14 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
                 k();
-                if (this.f10700g != null) {
-                    this.f10700g.close();
+                if (this.f10465g != null) {
+                    this.f10465g.close();
                 }
-                if (this.f10695b != null) {
-                    this.f10695b.shutdownNow();
-                    this.f10695b = null;
+                if (this.f10460b != null) {
+                    this.f10460b.shutdownNow();
+                    this.f10460b = null;
                 }
-                f10694k = null;
+                k = null;
             }
         }
     }
@@ -356,8 +354,8 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
         if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
             synchronized (this) {
                 g.c(downloadInfo.getPath(), false);
-                this.f10696c.remove(downloadInfo.getId());
-                this.f10697d.remove(downloadInfo);
+                this.f10461c.remove(downloadInfo.getId());
+                this.f10462d.remove(downloadInfo);
                 q();
             }
         }
@@ -376,12 +374,12 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addDataScheme("package");
                 intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-                C0686a c0686a = new C0686a(this, str, dVar, uri);
-                appContext.registerReceiver(c0686a, intentFilter);
+                C0695a c0695a = new C0695a(this, str, dVar, uri);
+                appContext.registerReceiver(c0695a, intentFilter);
                 Timer timer = new Timer();
                 timer.schedule(new b(this, dVar, appContext, uri), 60000L);
-                this.f10702i.put(uri, c0686a);
-                this.f10703j.put(uri, timer);
+                this.f10467i.put(uri, c0695a);
+                this.f10468j.put(uri, timer);
             }
         }
     }
@@ -394,7 +392,7 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             synchronized (this) {
                 downloadInfo = null;
-                Iterator<DownloadInfo> it = this.f10697d.iterator();
+                Iterator<DownloadInfo> it = this.f10462d.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -406,7 +404,7 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
                     }
                 }
                 if (downloadInfo == null) {
-                    downloadInfo = this.f10700g.c(str);
+                    downloadInfo = this.f10465g.c(str);
                 }
             }
             return downloadInfo;
@@ -425,11 +423,11 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
     public final void l(Context context, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, context, uri) == null) {
-            BroadcastReceiver remove = this.f10702i.remove(uri);
+            BroadcastReceiver remove = this.f10467i.remove(uri);
             if (remove != null) {
                 context.unregisterReceiver(remove);
             }
-            Timer remove2 = this.f10703j.remove(uri);
+            Timer remove2 = this.f10468j.remove(uri);
             if (remove2 != null) {
                 remove2.cancel();
             }
@@ -455,8 +453,8 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, downloadInfo) == null) {
             downloadInfo.setStatus(DownloadState.DOWNLOAD_PAUSED.value());
-            this.f10696c.remove(downloadInfo.getId());
-            this.f10699f.b(downloadInfo);
+            this.f10461c.remove(downloadInfo.getId());
+            this.f10464f.b(downloadInfo);
             q();
         }
     }
@@ -464,15 +462,15 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
     public final void p(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, downloadInfo) == null) {
-            if (this.f10696c.size() >= this.f10701h.b()) {
+            if (this.f10461c.size() >= this.f10466h.b()) {
                 downloadInfo.setStatus(DownloadState.WAIT.value());
-                this.f10699f.b(downloadInfo);
+                this.f10464f.b(downloadInfo);
                 return;
             }
-            c.a.r0.h.i.k.d.c cVar = new c.a.r0.h.i.k.d.c(this.f10695b, this.f10699f, downloadInfo, this);
-            this.f10696c.put(downloadInfo.getId(), cVar);
+            c.a.r0.h.i.k.d.c cVar = new c.a.r0.h.i.k.d.c(this.f10460b, this.f10464f, downloadInfo, this);
+            this.f10461c.put(downloadInfo.getId(), cVar);
             downloadInfo.setStatus(DownloadState.PREPARE_DOWNLOAD.value());
-            this.f10699f.b(downloadInfo);
+            this.f10464f.b(downloadInfo);
             cVar.c();
         }
     }
@@ -480,7 +478,7 @@ public final class a implements c.a.r0.h.i.k.f.d, c.a {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            for (DownloadInfo downloadInfo : this.f10697d) {
+            for (DownloadInfo downloadInfo : this.f10462d) {
                 if (downloadInfo.getStatus() == DownloadState.WAIT.value()) {
                     p(downloadInfo);
                     return;

@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g extends c.a.d.n.e.a<c.a.t0.o2.c.f, InterestedForumStyleATitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,8 +68,8 @@ public class g extends c.a.d.n.e.a<c.a.t0.o2.c.f, InterestedForumStyleATitleView
                 return;
             }
         }
-        this.f3299e = context;
-        this.f3302h = bdUniqueId;
+        this.f3258e = context;
+        this.f3261h = bdUniqueId;
         V(new a(this));
     }
 
@@ -88,10 +88,10 @@ public class g extends c.a.d.n.e.a<c.a.t0.o2.c.f, InterestedForumStyleATitleView
         View inflate;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            if (c.a.s0.b.d.D()) {
-                inflate = LayoutInflater.from(this.f3299e).inflate(R.layout.item_interested_forum_style_a_title, viewGroup, false);
+            if (c.a.s0.b.d.A()) {
+                inflate = LayoutInflater.from(this.f3258e).inflate(R.layout.item_interested_forum_style_a_title, viewGroup, false);
             } else {
-                inflate = c.a.s0.b.d.F() ? LayoutInflater.from(this.f3299e).inflate(R.layout.item_interested_forum_style_b_title, viewGroup, false) : null;
+                inflate = c.a.s0.b.d.C() ? LayoutInflater.from(this.f3258e).inflate(R.layout.item_interested_forum_style_b_title, viewGroup, false) : null;
             }
             return new InterestedForumStyleATitleViewHolder(inflate);
         }
@@ -128,7 +128,7 @@ public class g extends c.a.d.n.e.a<c.a.t0.o2.c.f, InterestedForumStyleATitleView
             d2.v(R.color.CAM_X0105);
             d2.z(R.dimen.T_X06);
             d2.A(R.string.F_X02);
-            if (c.a.s0.b.d.F()) {
+            if (c.a.s0.b.d.C()) {
                 c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(interestedForumStyleATitleViewHolder.mInterestedTitleRootview);
                 d3.n(R.string.J_X14);
                 d3.f(R.color.CAM_X0201);

@@ -21,29 +21,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdTypeRecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<c.a.d.n.e.a> f21373b;
+    public final List<c.a.d.n.e.a> f20809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<n> f21374c;
+    public List<n> f20810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f21375d;
+    public g f20811d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f21376e;
+    public e f20812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f21377f;
+    public f f20813f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f21378g;
+    public c f20814g;
 
     public a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
@@ -60,24 +60,24 @@ public class a {
                 return;
             }
         }
-        this.f21373b = new ArrayList();
+        this.f20809b = new ArrayList();
         d(context, bdTypeRecyclerView);
     }
 
     public void a(int i2, c.a.t0.o2.c.c cVar, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), cVar, Integer.valueOf(i3)}) == null) {
-            new c.a.t0.o2.d.a().a(i2, cVar, i3, this.f21374c, this.a);
+            new c.a.t0.o2.d.a().a(i2, cVar, i3, this.f20810c, this.a);
         }
     }
 
     public void b(boolean z) {
         List<n> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (list = this.f21374c) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (list = this.f20810c) == null || list.size() <= 0) {
             return;
         }
-        for (n nVar : this.f21374c) {
+        for (n nVar : this.f20810c) {
             if (nVar != null && (nVar instanceof d)) {
                 d dVar = (d) nVar;
                 dVar.u(z);
@@ -90,20 +90,20 @@ public class a {
     public List<n> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21374c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20810c : (List) invokeV.objValue;
     }
 
     public final void d(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, bdTypeRecyclerView) == null) {
-            this.f21375d = new g(context, c.a.t0.o2.c.f.f21420g);
-            this.f21376e = new e(context, d.m);
-            this.f21377f = new f(context, c.a.t0.o2.c.e.f21416h);
-            this.f21373b.add(this.f21375d);
-            this.f21373b.add(this.f21376e);
-            this.f21373b.add(this.f21377f);
+            this.f20811d = new g(context, c.a.t0.o2.c.f.f20853g);
+            this.f20812e = new e(context, d.m);
+            this.f20813f = new f(context, c.a.t0.o2.c.e.f20849h);
+            this.f20809b.add(this.f20811d);
+            this.f20809b.add(this.f20812e);
+            this.f20809b.add(this.f20813f);
             this.a = bdTypeRecyclerView;
-            bdTypeRecyclerView.addAdapters(this.f21373b);
+            bdTypeRecyclerView.addAdapters(this.f20809b);
         }
     }
 
@@ -111,9 +111,9 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<n> list = this.f21374c;
+            List<n> list = this.f20810c;
             if (list != null && list.size() > 0) {
-                for (n nVar : this.f21374c) {
+                for (n nVar : this.f20810c) {
                     if (nVar != null && (nVar instanceof d) && ((d) nVar).l()) {
                         return true;
                     }
@@ -128,11 +128,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<n> list = this.f21374c;
+            List<n> list = this.f20810c;
             if (list == null || list.size() <= 0) {
                 return false;
             }
-            for (n nVar : this.f21374c) {
+            for (n nVar : this.f20810c) {
                 if (nVar != null && (nVar instanceof d) && !((d) nVar).l()) {
                     return false;
                 }
@@ -145,15 +145,15 @@ public class a {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            g gVar = this.f21375d;
+            g gVar = this.f20811d;
             if (gVar != null) {
                 gVar.H();
             }
-            e eVar = this.f21376e;
+            e eVar = this.f20812e;
             if (eVar != null) {
                 eVar.H();
             }
-            f fVar = this.f21377f;
+            f fVar = this.f20813f;
             if (fVar != null) {
                 fVar.H();
             }
@@ -174,7 +174,7 @@ public class a {
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f21377f.e0(bVar);
+            this.f20813f.e0(bVar);
         }
     }
 
@@ -184,24 +184,24 @@ public class a {
             return;
         }
         List<n> b2 = new c.a.t0.o2.d.a().b(list);
-        if (ListUtils.isEmpty(this.f21374c)) {
-            this.f21374c = b2;
+        if (ListUtils.isEmpty(this.f20810c)) {
+            this.f20810c = b2;
         } else {
-            this.f21374c.addAll(b2);
+            this.f20810c.addAll(b2);
         }
-        if (ListUtils.isEmpty(this.f21374c)) {
+        if (ListUtils.isEmpty(this.f20810c)) {
             return;
         }
-        this.a.setData(this.f21374c);
-        this.f21378g.a();
+        this.a.setData(this.f20810c);
+        this.f20814g.a();
     }
 
     public void k(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.f21378g = cVar;
-            this.f21376e.g0(cVar);
-            this.f21377f.f0(cVar);
+            this.f20814g = cVar;
+            this.f20812e.g0(cVar);
+            this.f20813f.f0(cVar);
         }
     }
 }

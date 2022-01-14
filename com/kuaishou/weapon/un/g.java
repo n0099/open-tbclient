@@ -19,34 +19,32 @@ public class g {
     public static final String a = "MIUI";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f57218b = "EMUI";
+    public static final String f55054b = "EMUI";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f57219c = "FLYME";
+    public static final String f55055c = "FLYME";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f57220d = "OPPO";
+    public static final String f55056d = "OPPO";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f57221e = "SMARTISAN";
+    public static final String f55057e = "SMARTISAN";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f57222f = "VIVO";
+    public static final String f55058f = "VIVO";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f57223g = "QIKU";
+    public static final String f55059g = "QIKU";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f57224h = "360";
+    public static final String f55060h = "360";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f57225i = "OnePlus";
+    public static final String f55061i = "OnePlus";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f57226j = "SAMSUNG";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final String f57227k = "ro.miui.ui.version.name";
+    public static final String f55062j = "SAMSUNG";
+    public static final String k = "ro.miui.ui.version.name";
     public static final String l = "ro.build.version.emui";
     public static final String m = "ro.build.version.opporom";
     public static final String n = "ro.smartisan.version";
@@ -111,8 +109,8 @@ public class g {
                                 s = b7;
                                 if (TextUtils.isEmpty(b7)) {
                                     String upperCase2 = b(q).toUpperCase();
-                                    String str3 = f57226j;
-                                    if (!upperCase2.contains(f57226j)) {
+                                    String str3 = f55062j;
+                                    if (!upperCase2.contains(f55062j)) {
                                         String str4 = Build.DISPLAY;
                                         s = str4;
                                         str3 = "FLYME";
@@ -126,7 +124,7 @@ public class g {
                                 }
                                 upperCase = "SMARTISAN";
                             } else {
-                                upperCase = f57225i;
+                                upperCase = f55061i;
                             }
                         } else {
                             upperCase = "MIUI";
@@ -240,7 +238,7 @@ public class g {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a("QIKU") || a(f57224h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a("QIKU") || a(f55060h) : invokeV.booleanValue;
     }
 
     public static boolean d() {
@@ -292,7 +290,7 @@ public class g {
     public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? a(f57225i) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? a(f55061i) : invokeV.booleanValue;
     }
 
     public static boolean j() {
@@ -304,7 +302,7 @@ public class g {
     public static boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? a(f57226j) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? a(f55062j) : invokeV.booleanValue;
     }
 
     public static boolean l() {

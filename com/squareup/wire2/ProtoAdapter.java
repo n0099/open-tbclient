@@ -1032,7 +1032,7 @@ public abstract class ProtoAdapter<E> {
         public final ProtoAdapter<K> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ProtoAdapter<V> f61627b;
+        public final ProtoAdapter<V> f59293b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public p(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
@@ -1054,7 +1054,7 @@ public abstract class ProtoAdapter<E> {
                 }
             }
             this.a = protoAdapter;
-            this.f61627b = protoAdapter2;
+            this.f59293b = protoAdapter2;
         }
 
         public Map.Entry<K, V> a(c.n.a.c cVar) {
@@ -1073,7 +1073,7 @@ public abstract class ProtoAdapter<E> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, entry) == null) {
                 this.a.encodeWithTag(dVar, 1, entry.getKey());
-                this.f61627b.encodeWithTag(dVar, 2, entry.getValue());
+                this.f59293b.encodeWithTag(dVar, 2, entry.getValue());
             }
         }
 
@@ -1083,7 +1083,7 @@ public abstract class ProtoAdapter<E> {
         public int encodedSize(Map.Entry<K, V> entry) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, entry)) == null) ? this.a.encodedSizeWithTag(1, entry.getKey()) + this.f61627b.encodedSizeWithTag(2, entry.getValue()) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, entry)) == null) ? this.a.encodedSizeWithTag(1, entry.getKey()) + this.f59293b.encodedSizeWithTag(2, entry.getValue()) : invokeL.intValue;
         }
 
         @Override // com.squareup.wire2.ProtoAdapter
@@ -1129,22 +1129,22 @@ public abstract class ProtoAdapter<E> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
                 long c2 = cVar.c();
-                K k2 = null;
+                K k = null;
                 V v = null;
                 while (true) {
                     int f2 = cVar.f();
                     if (f2 == -1) {
                         break;
                     } else if (f2 == 1) {
-                        k2 = this.a.a.decode(cVar);
+                        k = this.a.a.decode(cVar);
                     } else if (f2 == 2) {
-                        v = this.a.f61627b.decode(cVar);
+                        v = this.a.f59293b.decode(cVar);
                     }
                 }
                 cVar.d(c2);
-                if (k2 != null) {
+                if (k != null) {
                     if (v != null) {
-                        return Collections.singletonMap(k2, v);
+                        return Collections.singletonMap(k, v);
                     }
                     throw new IllegalStateException("Map entry with null value");
                 }

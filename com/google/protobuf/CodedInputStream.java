@@ -452,7 +452,7 @@ public final class CodedInputStream {
             for (int i2 = 0; i2 < 64; i2 += 7) {
                 byte readRawByte = readRawByte();
                 j2 |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
-                if ((readRawByte & ByteCompanionObject.MIN_VALUE) == 0) {
+                if ((readRawByte & 128) == 0) {
                     return j2;
                 }
             }

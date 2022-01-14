@@ -20,25 +20,23 @@ public class i implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14469e;
+    public String f14132e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14470f;
+    public String f14133f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14471g;
+    public String f14134g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14472h;
+    public int f14135h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14473i;
+    public int f14136i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f14474j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f14475k;
+    public String f14137j;
+    public String k;
     public List<h> l;
     public String m;
     public boolean n;
@@ -79,13 +77,13 @@ public class i implements c.a.d.n.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f14469e = jSONObject.optString("user_id");
-        this.f14470f = jSONObject.optString("name_show");
-        this.f14471g = jSONObject.optString("user_portrait");
-        this.f14472h = jSONObject.optInt("user_gender");
-        this.f14473i = jSONObject.optInt("user_age", 0);
-        this.f14474j = jSONObject.optString("user_constellation");
-        this.f14475k = jSONObject.optString("distance");
+        this.f14132e = jSONObject.optString("user_id");
+        this.f14133f = jSONObject.optString("name_show");
+        this.f14134g = jSONObject.optString("user_portrait");
+        this.f14135h = jSONObject.optInt("user_gender");
+        this.f14136i = jSONObject.optInt("user_age", 0);
+        this.f14137j = jSONObject.optString("user_constellation");
+        this.k = jSONObject.optString("distance");
         JSONArray optJSONArray = jSONObject.optJSONArray("favorite_forum_list");
         if (optJSONArray != null && optJSONArray.length() != 0) {
             this.l = new ArrayList();

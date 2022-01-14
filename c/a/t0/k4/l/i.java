@@ -30,25 +30,23 @@ public class i implements h.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MediaPlayer f19526e;
+    public MediaPlayer f19024e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19527f;
+    public int f19025f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19528g;
+    public String f19026g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f19529h;
+    public String f19027h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19530i;
+    public boolean f19028i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f19531j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f19532k;
+    public Context f19029j;
+    public boolean k;
     public c.a.t0.h2.g l;
 
     /* loaded from: classes7.dex */
@@ -58,10 +56,10 @@ public class i implements h.b {
         public final /* synthetic */ c.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MusicData f19533b;
+        public final /* synthetic */ MusicData f19030b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ i f19534c;
+        public final /* synthetic */ i f19031c;
 
         public a(i iVar, c.a aVar, MusicData musicData) {
             Interceptable interceptable = $ic;
@@ -78,22 +76,22 @@ public class i implements h.b {
                     return;
                 }
             }
-            this.f19534c = iVar;
+            this.f19031c = iVar;
             this.a = aVar;
-            this.f19533b = musicData;
+            this.f19030b = musicData;
         }
 
         @Override // c.a.t0.k4.i.f.a.b
         public void a(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a.f19490d == this.f19534c.f19527f) {
-                this.f19534c.f19532k = false;
-                this.a.f19488b.setVisibility(4);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a.f18989d == this.f19031c.f19025f) {
+                this.f19031c.k = false;
+                this.a.f18987b.setVisibility(4);
                 this.a.a.setDrawBorder(true);
                 this.a.a.invalidate();
-                n.M(TbadkCoreApplication.getInst(), str);
-                if (this.f19534c.l != null) {
-                    this.f19534c.l.b(3, str);
+                n.N(TbadkCoreApplication.getInst(), str);
+                if (this.f19031c.l != null) {
+                    this.f19031c.l.b(3, str);
                 }
             }
         }
@@ -101,24 +99,24 @@ public class i implements h.b {
         @Override // c.a.t0.k4.i.f.a.b
         public void b() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.f19490d == this.f19534c.f19527f) {
-                this.f19534c.f19532k = false;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.f18989d == this.f19031c.f19025f) {
+                this.f19031c.k = false;
                 this.a.a.setDrawBorder(true);
                 this.a.a.invalidate();
-                this.a.f19488b.setVisibility(4);
+                this.a.f18987b.setVisibility(4);
             }
         }
 
         @Override // c.a.t0.k4.i.f.a.b
         public void c(String str, String str2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && this.a.f19490d == this.f19534c.f19527f) {
-                this.f19534c.f19532k = false;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && this.a.f18989d == this.f19031c.f19025f) {
+                this.f19031c.k = false;
                 if (!TextUtils.isEmpty(str2)) {
                     str = str2;
                 }
-                this.f19534c.o(str, this.f19533b);
-                this.a.f19488b.setVisibility(4);
+                this.f19031c.o(str, this.f19030b);
+                this.a.f18987b.setVisibility(4);
                 this.a.a.setDrawBorder(true);
                 this.a.a.invalidate();
             }
@@ -132,7 +130,7 @@ public class i implements h.b {
         public final /* synthetic */ MusicData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ i f19535b;
+        public final /* synthetic */ i f19032b;
 
         public b(i iVar, MusicData musicData) {
             Interceptable interceptable = $ic;
@@ -149,7 +147,7 @@ public class i implements h.b {
                     return;
                 }
             }
-            this.f19535b = iVar;
+            this.f19032b = iVar;
             this.a = musicData;
         }
 
@@ -157,9 +155,9 @@ public class i implements h.b {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                n.M(TbadkCoreApplication.getInst(), str);
-                if (this.f19535b.l != null) {
-                    this.f19535b.l.b(3, str);
+                n.N(TbadkCoreApplication.getInst(), str);
+                if (this.f19032b.l != null) {
+                    this.f19032b.l.b(3, str);
                 }
             }
         }
@@ -178,7 +176,7 @@ public class i implements h.b {
                 if (!TextUtils.isEmpty(str2)) {
                     str = str2;
                 }
-                this.f19535b.o(str, this.a);
+                this.f19032b.o(str, this.a);
             }
         }
     }
@@ -189,7 +187,7 @@ public class i implements h.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f19536e;
+        public final /* synthetic */ i f19033e;
 
         public c(i iVar) {
             Interceptable interceptable = $ic;
@@ -206,15 +204,15 @@ public class i implements h.b {
                     return;
                 }
             }
-            this.f19536e = iVar;
+            this.f19033e = iVar;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f19536e.f19526e.setLooping(true);
-                this.f19536e.f19526e.start();
+                this.f19033e.f19024e.setLooping(true);
+                this.f19033e.f19024e.start();
             }
         }
     }
@@ -225,7 +223,7 @@ public class i implements h.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f19537e;
+        public final /* synthetic */ i f19034e;
 
         public d(i iVar) {
             Interceptable interceptable = $ic;
@@ -242,7 +240,7 @@ public class i implements h.b {
                     return;
                 }
             }
-            this.f19537e = iVar;
+            this.f19034e = iVar;
         }
 
         @Override // android.media.MediaPlayer.OnErrorListener
@@ -250,8 +248,8 @@ public class i implements h.b {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3)) == null) {
-                if (this.f19537e.l != null) {
-                    c.a.t0.h2.g gVar = this.f19537e.l;
+                if (this.f19034e.l != null) {
+                    c.a.t0.h2.g gVar = this.f19034e.l;
                     gVar.b(4, "what-->" + i2 + "  extra-->" + i3);
                     return false;
                 }
@@ -281,35 +279,35 @@ public class i implements h.b {
         if (kVar != null) {
             this.l = kVar.get();
         }
-        this.f19531j = activity;
+        this.f19029j = activity;
     }
 
     public void f(EditVideoActivityConfig editVideoActivityConfig) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, editVideoActivityConfig) == null) || TextUtils.isEmpty(this.f19529h) || TextUtils.isEmpty(this.f19528g)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, editVideoActivityConfig) == null) || TextUtils.isEmpty(this.f19027h) || TextUtils.isEmpty(this.f19026g)) {
             return;
         }
-        editVideoActivityConfig.addMusicInfo(this.f19529h, this.f19528g, this.f19527f);
+        editVideoActivityConfig.addMusicInfo(this.f19027h, this.f19026g, this.f19025f);
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19529h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19027h : (String) invokeV.objValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19532k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
     public void i(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            this.f19530i = false;
-            this.f19529h = str;
-            this.f19528g = str2;
+            this.f19028i = false;
+            this.f19027h = str;
+            this.f19026g = str2;
             o(str, null);
         }
     }
@@ -326,30 +324,30 @@ public class i implements h.b {
             q();
         } else if (i2 != 2) {
         } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CloudMusicActivityConfig(this.f19531j, 25032)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CloudMusicActivityConfig(this.f19029j, 25032)));
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f19530i = true;
-            MediaPlayer mediaPlayer = this.f19526e;
+            this.f19028i = true;
+            MediaPlayer mediaPlayer = this.f19024e;
             if (mediaPlayer == null || !mediaPlayer.isPlaying()) {
                 return;
             }
-            this.f19526e.pause();
+            this.f19024e.pause();
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f19530i = false;
-            MediaPlayer mediaPlayer = this.f19526e;
+            this.f19028i = false;
+            MediaPlayer mediaPlayer = this.f19024e;
             if (mediaPlayer != null) {
                 mediaPlayer.start();
-                this.f19526e.seekTo(0);
+                this.f19024e.seekTo(0);
             }
         }
     }
@@ -357,44 +355,44 @@ public class i implements h.b {
     public void m(int i2) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (mediaPlayer = this.f19526e) == null || mediaPlayer.getDuration() <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (mediaPlayer = this.f19024e) == null || mediaPlayer.getDuration() <= 0) {
             return;
         }
         if (i2 < 0) {
             i2 = 0;
         }
-        if (i2 > this.f19526e.getDuration()) {
-            i2 %= this.f19526e.getDuration();
+        if (i2 > this.f19024e.getDuration()) {
+            i2 %= this.f19024e.getDuration();
         }
-        this.f19526e.seekTo(i2);
-        this.f19526e.start();
+        this.f19024e.seekTo(i2);
+        this.f19024e.start();
     }
 
     public void n() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (mediaPlayer = this.f19526e) != null && mediaPlayer.isPlaying()) {
-            this.f19526e.pause();
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (mediaPlayer = this.f19024e) != null && mediaPlayer.isPlaying()) {
+            this.f19024e.pause();
         }
     }
 
     public final void o(String str, MusicData musicData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, musicData) == null) || this.f19530i) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, musicData) == null) || this.f19028i) {
             return;
         }
-        if (this.f19526e == null) {
+        if (this.f19024e == null) {
             MediaPlayer mediaPlayer = new MediaPlayer();
-            this.f19526e = mediaPlayer;
+            this.f19024e = mediaPlayer;
             mediaPlayer.setAudioStreamType(3);
         }
         try {
-            this.f19529h = str;
-            this.f19526e.reset();
-            this.f19526e.setDataSource(str);
-            this.f19526e.prepare();
-            this.f19526e.setOnPreparedListener(new c(this));
-            this.f19526e.setOnErrorListener(new d(this));
+            this.f19027h = str;
+            this.f19024e.reset();
+            this.f19024e.setDataSource(str);
+            this.f19024e.prepare();
+            this.f19024e.setOnPreparedListener(new c(this));
+            this.f19024e.setOnErrorListener(new d(this));
         } catch (Exception e2) {
             e2.printStackTrace();
             r(str, musicData);
@@ -413,23 +411,23 @@ public class i implements h.b {
         if (!(interceptable == null || interceptable.invokeLL(1048587, this, obj, musicData) == null) || musicData == null || TextUtils.isEmpty(musicData.resource)) {
             return;
         }
-        MediaPlayer mediaPlayer = this.f19526e;
+        MediaPlayer mediaPlayer = this.f19024e;
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            this.f19526e.stop();
+            this.f19024e.stop();
         }
-        this.f19532k = false;
-        this.f19528g = musicData.id;
+        this.k = false;
+        this.f19026g = musicData.id;
         String f2 = c.a.t0.k4.i.f.a.g().f(musicData.resource);
         if (obj != null && (obj instanceof c.a)) {
-            this.f19527f = ((c.a) obj).f19490d;
+            this.f19025f = ((c.a) obj).f18989d;
         }
         if (TextUtils.isEmpty(f2)) {
             if (obj instanceof c.a) {
                 c.a aVar = (c.a) obj;
-                aVar.f19488b.setVisibility(0);
+                aVar.f18987b.setVisibility(0);
                 aVar.a.setDrawBorder(false);
                 aVar.a.invalidate();
-                this.f19532k = true;
+                this.k = true;
                 c.a.t0.k4.i.f.a.g().e(musicData.id, musicData.resource, new a(this, aVar, musicData));
                 return;
             }
@@ -442,23 +440,23 @@ public class i implements h.b {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            MediaPlayer mediaPlayer = this.f19526e;
+            MediaPlayer mediaPlayer = this.f19024e;
             if (mediaPlayer != null) {
                 if (mediaPlayer.isPlaying()) {
-                    this.f19526e.stop();
+                    this.f19024e.stop();
                 }
-                this.f19526e.release();
-                this.f19526e = null;
+                this.f19024e.release();
+                this.f19024e = null;
             }
-            this.f19529h = null;
-            this.f19528g = null;
+            this.f19027h = null;
+            this.f19026g = null;
         }
     }
 
     public final void r(String str, MusicData musicData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, str, musicData) == null) {
-            this.f19529h = null;
+            this.f19027h = null;
             q();
             if (str.startsWith("/")) {
                 File file = new File(str);

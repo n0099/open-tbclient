@@ -17,7 +17,7 @@ public final class f {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static LruCache<String, Object> f7077b;
+    public static LruCache<String, Object> f6925b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -83,7 +83,7 @@ public final class f {
                 if (TextUtils.isEmpty(str)) {
                     return config;
                 }
-                CONFIG config2 = (CONFIG) f7077b.get(str);
+                CONFIG config2 = (CONFIG) f6925b.get(str);
                 if (config2 == null) {
                     return config;
                 }
@@ -104,7 +104,7 @@ public final class f {
                     if (a) {
                         String str2 = "putConfig key: " + str;
                     }
-                    f7077b.put(str, config);
+                    f6925b.put(str, config);
                 }
             }
         }
@@ -123,6 +123,6 @@ public final class f {
                 return;
             }
         }
-        f7077b = new LruCache<>(10);
+        f6925b = new LruCache<>(10);
     }
 }

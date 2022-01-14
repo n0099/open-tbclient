@@ -35,7 +35,7 @@ public class e implements j1 {
         public final /* synthetic */ SwanAppActivity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10565b;
+        public final /* synthetic */ String f10337b;
 
         public a(e eVar, SwanAppActivity swanAppActivity, String str) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class e implements j1 {
                 }
             }
             this.a = swanAppActivity;
-            this.f10565b = str;
+            this.f10337b = str;
         }
 
         @Override // c.a.r0.a.c2.b.e.b.a
         public void a(c.a.r0.a.c2.b.e.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                c.a.r0.a.j1.d.e.a.d(bVar.c(), this.a, this.f10565b);
+                c.a.r0.a.j1.d.e.a.d(bVar.c(), this.a, this.f10337b);
             }
         }
     }
@@ -72,7 +72,7 @@ public class e implements j1 {
         public final /* synthetic */ SwanAppActivity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f10566b;
+        public final /* synthetic */ e f10338b;
 
         public b(e eVar, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class e implements j1 {
                     return;
                 }
             }
-            this.f10566b = eVar;
+            this.f10338b = eVar;
             this.a = swanAppActivity;
         }
 
@@ -97,7 +97,7 @@ public class e implements j1 {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10566b.a.j();
+                this.f10338b.a.j();
                 this.a.unregisterCallback(this);
             }
         }
@@ -222,11 +222,11 @@ public class e implements j1 {
         if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
             eVar.a = "tool";
-            eVar.f8161f = c.a.r0.a.d2.d.J().getAppId();
-            eVar.f8158c = "miniapp";
-            eVar.f8162g = "text";
-            eVar.f8157b = str;
-            eVar.f8160e = str2;
+            eVar.f7981f = c.a.r0.a.d2.d.J().getAppId();
+            eVar.f7978c = "miniapp";
+            eVar.f7982g = "text";
+            eVar.f7977b = str;
+            eVar.f7980e = str2;
             if (!TextUtils.isEmpty(str3)) {
                 eVar.a("query", str3);
             }

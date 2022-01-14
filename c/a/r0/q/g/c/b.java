@@ -37,19 +37,19 @@ public abstract class b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("bundle_id", fVar.f11761g);
-            contentValues.put("category", Integer.valueOf(fVar.f11762h));
-            contentValues.put("version_name", fVar.f11764j);
-            contentValues.put("version_code", Long.valueOf(fVar.f11763i));
-            contentValues.put("size", Long.valueOf(fVar.f11765k));
+            contentValues.put("bundle_id", fVar.f11494g);
+            contentValues.put("category", Integer.valueOf(fVar.f11495h));
+            contentValues.put("version_name", fVar.f11497j);
+            contentValues.put("version_code", Long.valueOf(fVar.f11496i));
+            contentValues.put("size", Long.valueOf(fVar.k));
             contentValues.put(PackageTable.MD5, fVar.l);
             contentValues.put("sign", fVar.m);
             contentValues.put(TTDownloadField.TT_DOWNLOAD_URL, fVar.n);
             contentValues.put(PackageTable.FILE_PATH, fVar.a);
-            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(fVar.f11756b));
-            contentValues.put("create_time", Long.valueOf(fVar.f11757c));
-            contentValues.put("update_time", Long.valueOf(fVar.f11758d));
-            contentValues.put("state", Integer.valueOf(fVar.f11759e));
+            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(fVar.f11489b));
+            contentValues.put("create_time", Long.valueOf(fVar.f11490c));
+            contentValues.put("update_time", Long.valueOf(fVar.f11491d));
+            contentValues.put("state", Integer.valueOf(fVar.f11492e));
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -78,20 +78,20 @@ public abstract class b<T> {
                 if (TextUtils.isEmpty(string)) {
                     return false;
                 }
-                fVar.f11761g = string;
-                fVar.f11762h = cursor.getInt(columnIndex2);
-                fVar.f11764j = cursor.getString(columnIndex3);
-                fVar.f11763i = cursor.getLong(columnIndex4);
-                fVar.f11765k = cursor.getLong(columnIndex5);
+                fVar.f11494g = string;
+                fVar.f11495h = cursor.getInt(columnIndex2);
+                fVar.f11497j = cursor.getString(columnIndex3);
+                fVar.f11496i = cursor.getLong(columnIndex4);
+                fVar.k = cursor.getLong(columnIndex5);
                 fVar.l = cursor.getString(columnIndex6);
                 fVar.m = cursor.getString(columnIndex7);
                 fVar.n = cursor.getString(columnIndex8);
                 fVar.a = cursor.getString(columnIndex10);
-                fVar.f11756b = cursor.getLong(columnIndex11);
-                fVar.f11757c = cursor.getLong(columnIndex12);
-                fVar.f11758d = cursor.getLong(columnIndex13);
-                fVar.f11760f = cursor.getLong(columnIndex9);
-                fVar.f11759e = cursor.getInt(columnIndex14);
+                fVar.f11489b = cursor.getLong(columnIndex11);
+                fVar.f11490c = cursor.getLong(columnIndex12);
+                fVar.f11491d = cursor.getLong(columnIndex13);
+                fVar.f11493f = cursor.getLong(columnIndex9);
+                fVar.f11492e = cursor.getInt(columnIndex14);
                 return true;
             }
             return false;

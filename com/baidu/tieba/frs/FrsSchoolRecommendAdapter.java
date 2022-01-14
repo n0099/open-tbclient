@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import c.a.s0.s.q.t1;
 import c.a.s0.s.q.u1;
-import c.a.t0.d1.c3.d;
+import c.a.t0.d1.d3.d;
 import c.a.t0.d1.k;
 import c.a.t0.d1.k1;
 import c.a.t0.d1.x;
@@ -80,7 +80,7 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.x = new d(this.o, this.f3303i);
+            this.x = new d(this.o, this.f3262i);
             return new FrsSchoolRecommendViewHolder(this, this.x);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;

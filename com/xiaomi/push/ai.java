@@ -52,7 +52,7 @@ public class ai {
         }
 
         /* renamed from: a */
-        public abstract String mo236a();
+        public abstract String mo248a();
     }
 
     /* loaded from: classes4.dex */
@@ -154,7 +154,7 @@ public class ai {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
             synchronized (this.f112a) {
-                scheduledFuture = this.f113a.get(aVar.mo236a());
+                scheduledFuture = this.f113a.get(aVar.mo248a());
             }
             return scheduledFuture;
         }
@@ -176,7 +176,7 @@ public class ai {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m194a(a aVar) {
+    public boolean m206a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) ? b(aVar, 0) : invokeL.booleanValue;
@@ -201,7 +201,7 @@ public class ai {
             if (aVar == null || a(aVar) != null) {
                 return false;
             }
-            String a2 = a(aVar.mo236a());
+            String a2 = a(aVar.mo248a());
             aj ajVar = new aj(this, aVar, z, a2);
             if (!z) {
                 long abs = Math.abs(System.currentTimeMillis() - this.f111a.getLong(a2, 0L)) / 1000;
@@ -212,7 +212,7 @@ public class ai {
             try {
                 ScheduledFuture<?> scheduleAtFixedRate = this.f114a.scheduleAtFixedRate(ajVar, i3, i2, TimeUnit.SECONDS);
                 synchronized (this.f112a) {
-                    this.f113a.put(aVar.mo236a(), scheduleAtFixedRate);
+                    this.f113a.put(aVar.mo248a(), scheduleAtFixedRate);
                 }
                 return true;
             } catch (Exception e2) {
@@ -224,7 +224,7 @@ public class ai {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m195a(String str) {
+    public boolean m207a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
@@ -249,7 +249,7 @@ public class ai {
             }
             ScheduledFuture<?> schedule = this.f114a.schedule(new ak(this, aVar), i2, TimeUnit.SECONDS);
             synchronized (this.f112a) {
-                this.f113a.put(aVar.mo236a(), schedule);
+                this.f113a.put(aVar.mo248a(), schedule);
             }
             return true;
         }

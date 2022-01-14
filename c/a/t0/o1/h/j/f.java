@@ -1,6 +1,6 @@
 package c.a.t0.o1.h.j;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.x0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,16 +18,16 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.Personalized.UserFollowLive;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f extends c.a.s0.s.q.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f21104f;
+    public static final BdUniqueId f20540f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<AlaLiveInfo> f21105e;
+    public List<AlaLiveInfo> f20541e;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class f extends c.a.s0.s.q.a {
                 return;
             }
         }
-        f21104f = BdUniqueId.gen();
+        f20540f = BdUniqueId.gen();
     }
 
     public f() {
@@ -58,13 +58,13 @@ public class f extends c.a.s0.s.q.a {
                 return;
             }
         }
-        this.f21105e = new ArrayList();
+        this.f20541e = new ArrayList();
     }
 
     public List<AlaLiveInfo> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21105e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20541e : (List) invokeV.objValue;
     }
 
     @Override // c.a.s0.s.q.a
@@ -78,20 +78,20 @@ public class f extends c.a.s0.s.q.a {
     }
 
     @Override // c.a.s0.s.q.a
-    public d2 getThreadData() {
+    public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (d2) invokeV.objValue;
+        return (e2) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f21104f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f20540f : (BdUniqueId) invokeV.objValue;
     }
 
     public StatisticItem i() {
@@ -110,11 +110,11 @@ public class f extends c.a.s0.s.q.a {
     public void k(UserFollowLive userFollowLive) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, userFollowLive) == null) {
-            this.f21105e.clear();
+            this.f20541e.clear();
             if (userFollowLive == null || userFollowLive._switch.intValue() == 0 || ListUtils.isEmpty(userFollowLive.user_follow_live)) {
                 return;
             }
-            this.f21105e.addAll(userFollowLive.user_follow_live);
+            this.f20541e.addAll(userFollowLive.user_follow_live);
         }
     }
 }

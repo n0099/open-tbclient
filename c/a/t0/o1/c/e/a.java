@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends c.a.d.n.e.a<c.a.t0.g0.f0.j, CardViewHolder<c.a.t0.g0.j>> implements c.a.t0.t.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,15 +32,15 @@ public class a extends c.a.d.n.e.a<c.a.t0.g0.f0.j, CardViewHolder<c.a.t0.g0.j>> 
     public d0 q;
 
     /* renamed from: c.a.t0.o1.c.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1252a extends d0<c.a.t0.g0.f0.j> {
+    /* loaded from: classes8.dex */
+    public class C1266a extends d0<c.a.t0.g0.f0.j> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f20707b;
+        public final /* synthetic */ a f20155b;
 
-        public C1252a(a aVar) {
+        public C1266a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +55,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.g0.f0.j, CardViewHolder<c.a.t0.g0.j>> 
                     return;
                 }
             }
-            this.f20707b = aVar;
+            this.f20155b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,11 +63,11 @@ public class a extends c.a.d.n.e.a<c.a.t0.g0.f0.j, CardViewHolder<c.a.t0.g0.j>> 
         /* renamed from: d */
         public void a(View view, c.a.t0.g0.f0.j jVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) || view == null || this.f20707b.o == null || this.f20707b.o.j() == null || jVar == null || jVar.getThreadData() == null || StringUtils.isNull(jVar.getThreadData().v1())) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) || view == null || this.f20155b.o == null || this.f20155b.o.j() == null || jVar == null || jVar.getThreadData() == null || StringUtils.isNull(jVar.getThreadData().v1())) {
                 return;
             }
-            c.a.t0.o1.c.c.b(view, jVar, view == this.f20707b.o.J() ? 1 : 2);
-            if (view == this.f20707b.o.p.getCommentContainer() || view == this.f20707b.o.q.getCommentContainer()) {
+            c.a.t0.o1.c.c.b(view, jVar, view == this.f20155b.o.J() ? 1 : 2);
+            if (view == this.f20155b.o.p.getCommentContainer() || view == this.f20155b.o.q.getCommentContainer()) {
                 StatisticItem statisticItem = new StatisticItem("c12942");
                 statisticItem.param("obj_locate", 7);
                 statisticItem.param("obj_type", 5);
@@ -104,7 +104,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.g0.f0.j, CardViewHolder<c.a.t0.g0.j>> 
                 return;
             }
         }
-        this.q = new C1252a(this);
+        this.q = new C1266a(this);
         this.n = tbPageContext;
     }
 

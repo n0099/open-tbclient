@@ -21,7 +21,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bundle f5971e;
+    public Bundle f5840e;
 
     /* loaded from: classes.dex */
     public static final class a extends c<a> {
@@ -106,7 +106,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) {
-            c.a.r0.a.f1.e.f.a.f5968f.d(this, str, strArr);
+            c.a.r0.a.f1.e.f.a.f5837f.d(this, str, strArr);
             return (SelfT) a();
         }
         return (SelfT) invokeLL.objValue;
@@ -117,7 +117,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (q()) {
-                this.f5971e.remove(str);
+                this.f5840e.remove(str);
             }
             return (SelfT) a();
         }
@@ -129,9 +129,9 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (!q()) {
-                this.f5971e = new Bundle();
+                this.f5840e = new Bundle();
             }
-            return this.f5971e;
+            return this.f5840e;
         }
         return (Bundle) invokeV.objValue;
     }
@@ -147,7 +147,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (q()) {
-                this.f5971e.clear();
+                this.f5840e.clear();
             }
             return (SelfT) a();
         }
@@ -157,7 +157,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
     public boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? q() && this.f5971e.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? q() && this.f5840e.containsKey(str) : invokeL.booleanValue;
     }
 
     public boolean d(String str) {
@@ -176,43 +176,43 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
     public Bundle f(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5969g.a(this, str) : (Bundle) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5838g.a(this, str) : (Bundle) invokeL.objValue;
     }
 
     public float g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5966d.a(this, str).floatValue() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5835d.a(this, str).floatValue() : invokeL.floatValue;
     }
 
     public float h(String str, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048586, this, str, f2)) == null) ? c.a.r0.a.f1.e.f.a.f5966d.b(this, str, Float.valueOf(f2)).floatValue() : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048586, this, str, f2)) == null) ? c.a.r0.a.f1.e.f.a.f5835d.b(this, str, Float.valueOf(f2)).floatValue() : invokeLF.floatValue;
     }
 
     public int i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5964b.a(this, str).intValue() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5833b.a(this, str).intValue() : invokeL.intValue;
     }
 
     public int j(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i2)) == null) ? c.a.r0.a.f1.e.f.a.f5964b.b(this, str, Integer.valueOf(i2)).intValue() : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i2)) == null) ? c.a.r0.a.f1.e.f.a.f5833b.b(this, str, Integer.valueOf(i2)).intValue() : invokeLI.intValue;
     }
 
     public long k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5965c.a(this, str).longValue() : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5834c.a(this, str).longValue() : invokeL.longValue;
     }
 
     public long l(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048590, this, str, j2)) == null) ? c.a.r0.a.f1.e.f.a.f5965c.b(this, str, Long.valueOf(j2)).longValue() : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048590, this, str, j2)) == null) ? c.a.r0.a.f1.e.f.a.f5834c.b(this, str, Long.valueOf(j2)).longValue() : invokeLJ.longValue;
     }
 
     @Nullable
@@ -221,7 +221,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             try {
-                return (T) c.a.r0.a.f1.e.f.a.f5970h.a(this, str);
+                return (T) c.a.r0.a.f1.e.f.a.f5839h.a(this, str);
             } catch (TypeCastException unused) {
                 return null;
             }
@@ -233,26 +233,26 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
     public String n(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5967e.a(this, str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5836e.a(this, str) : (String) invokeL.objValue;
     }
 
     public String o(@Nullable String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, str2)) == null) ? c.a.r0.a.f1.e.f.a.f5967e.b(this, str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, str2)) == null) ? c.a.r0.a.f1.e.f.a.f5836e.b(this, str, str2) : (String) invokeLL.objValue;
     }
 
     @Nullable
     public String[] p(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5968f.a(this, str) : (String[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) ? c.a.r0.a.f1.e.f.a.f5837f.a(this, str) : (String[]) invokeL.objValue;
     }
 
     public final boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f5971e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f5840e != null : invokeV.booleanValue;
     }
 
     public SelfT s(Bundle bundle) {
@@ -283,7 +283,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             synchronized (this) {
-                bundle = q() ? this.f5971e.toString() : SchemeCollecter.CLASSIFY_EMPTY;
+                bundle = q() ? this.f5840e.toString() : SchemeCollecter.CLASSIFY_EMPTY;
             }
             return bundle;
         }
@@ -294,7 +294,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, str, bundle)) == null) {
-            c.a.r0.a.f1.e.f.a.f5969g.d(this, str, bundle);
+            c.a.r0.a.f1.e.f.a.f5838g.d(this, str, bundle);
             return (SelfT) a();
         }
         return (SelfT) invokeLL.objValue;
@@ -314,7 +314,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048601, this, str, f2)) == null) {
-            c.a.r0.a.f1.e.f.a.f5966d.d(this, str, Float.valueOf(f2));
+            c.a.r0.a.f1.e.f.a.f5835d.d(this, str, Float.valueOf(f2));
             return (SelfT) a();
         }
         return (SelfT) invokeLF.objValue;
@@ -324,7 +324,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048602, this, str, i2)) == null) {
-            c.a.r0.a.f1.e.f.a.f5964b.d(this, str, Integer.valueOf(i2));
+            c.a.r0.a.f1.e.f.a.f5833b.d(this, str, Integer.valueOf(i2));
             return (SelfT) a();
         }
         return (SelfT) invokeLI.objValue;
@@ -334,7 +334,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048603, this, str, j2)) == null) {
-            c.a.r0.a.f1.e.f.a.f5965c.d(this, str, Long.valueOf(j2));
+            c.a.r0.a.f1.e.f.a.f5834c.d(this, str, Long.valueOf(j2));
             return (SelfT) a();
         }
         return (SelfT) invokeLJ.objValue;
@@ -344,7 +344,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, str, parcelable)) == null) {
-            c.a.r0.a.f1.e.f.a.f5970h.d(this, str, parcelable);
+            c.a.r0.a.f1.e.f.a.f5839h.d(this, str, parcelable);
             return (SelfT) a();
         }
         return (SelfT) invokeLL.objValue;
@@ -354,7 +354,7 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, str, str2)) == null) {
-            c.a.r0.a.f1.e.f.a.f5967e.d(this, str, str2);
+            c.a.r0.a.f1.e.f.a.f5836e.d(this, str, str2);
             return (SelfT) a();
         }
         return (SelfT) invokeLL.objValue;
@@ -376,6 +376,6 @@ public abstract class c<SelfT extends c<SelfT>> implements f<SelfT> {
             }
         }
         new z0();
-        this.f5971e = bundle;
+        this.f5840e = bundle;
     }
 }

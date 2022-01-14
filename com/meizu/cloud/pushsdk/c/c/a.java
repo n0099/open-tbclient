@@ -13,37 +13,37 @@ public class a {
     public final List<com.meizu.cloud.pushsdk.c.a.b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f61008b;
+    public final long f58699b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f61009c;
+    public final String f58700c;
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractC2152a<T extends AbstractC2152a<T>> {
+    public static abstract class AbstractC2169a<T extends AbstractC2169a<T>> {
         public List<com.meizu.cloud.pushsdk.c.a.b> a = new LinkedList();
 
         /* renamed from: b  reason: collision with root package name */
-        public long f61010b = System.currentTimeMillis();
+        public long f58701b = System.currentTimeMillis();
 
         /* renamed from: c  reason: collision with root package name */
-        public String f61011c = e.b();
+        public String f58702c = e.b();
 
         public abstract T a();
 
         public T a(long j2) {
-            this.f61010b = j2;
+            this.f58701b = j2;
             return a();
         }
     }
 
-    public a(AbstractC2152a<?> abstractC2152a) {
-        d.a(abstractC2152a.a);
-        d.a(abstractC2152a.f61011c);
-        d.a(!abstractC2152a.f61011c.isEmpty(), "eventId cannot be empty");
-        this.a = abstractC2152a.a;
-        this.f61008b = abstractC2152a.f61010b;
-        this.f61009c = abstractC2152a.f61011c;
+    public a(AbstractC2169a<?> abstractC2169a) {
+        d.a(abstractC2169a.a);
+        d.a(abstractC2169a.f58702c);
+        d.a(!abstractC2169a.f58702c.isEmpty(), "eventId cannot be empty");
+        this.a = abstractC2169a.a;
+        this.f58699b = abstractC2169a.f58701b;
+        this.f58700c = abstractC2169a.f58702c;
     }
 
     public c a(c cVar) {
@@ -57,10 +57,10 @@ public class a {
     }
 
     public long b() {
-        return this.f61008b;
+        return this.f58699b;
     }
 
     public String c() {
-        return this.f61009c;
+        return this.f58700c;
     }
 }

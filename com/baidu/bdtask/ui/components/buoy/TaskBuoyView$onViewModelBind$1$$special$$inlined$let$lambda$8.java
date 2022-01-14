@@ -56,7 +56,7 @@ public final class TaskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$8
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.this$0.a.S()) {
             this.this$0.a.u = false;
             this.this$0.a.getContentView().setVisibility(0);
-            ProgressBar progressBar = this.this$0.a.f34082h;
+            ProgressBar progressBar = this.this$0.a.f32996h;
             if (progressBar != null) {
                 progressBar.setVisibility(8);
             }

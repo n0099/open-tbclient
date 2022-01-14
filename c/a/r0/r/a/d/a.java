@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final InterfaceC0796a a;
+    public static final InterfaceC0805a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.r.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0796a {
+    public interface InterfaceC0805a {
         void a(LayoutInflater layoutInflater, e eVar);
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements InterfaceC0796a {
+    public static class b implements InterfaceC0805a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,7 +40,7 @@ public class a {
             }
         }
 
-        @Override // c.a.r0.r.a.d.a.InterfaceC0796a
+        @Override // c.a.r0.r.a.d.a.InterfaceC0805a
         public void a(LayoutInflater layoutInflater, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, eVar) == null) {
@@ -68,7 +68,7 @@ public class a {
             }
         }
 
-        @Override // c.a.r0.r.a.d.a.b, c.a.r0.r.a.d.a.InterfaceC0796a
+        @Override // c.a.r0.r.a.d.a.b, c.a.r0.r.a.d.a.InterfaceC0805a
         public void a(LayoutInflater layoutInflater, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, eVar) == null) {
@@ -96,7 +96,7 @@ public class a {
             }
         }
 
-        @Override // c.a.r0.r.a.d.a.c, c.a.r0.r.a.d.a.b, c.a.r0.r.a.d.a.InterfaceC0796a
+        @Override // c.a.r0.r.a.d.a.c, c.a.r0.r.a.d.a.b, c.a.r0.r.a.d.a.InterfaceC0805a
         public void a(LayoutInflater layoutInflater, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, eVar) == null) {

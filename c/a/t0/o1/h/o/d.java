@@ -10,16 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends c.a.l.a<c.a.s0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.t0.o1.k.c.d.a f21150j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f21151k;
+    public c.a.t0.o1.k.c.d.a f20592j;
+    public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context, TbPageContext<?> tbPageContext) {
@@ -39,15 +37,15 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
                 return;
             }
         }
-        this.f21151k = 3;
-        this.f21150j = new c.a.t0.o1.k.c.d.a(tbPageContext);
+        this.k = 3;
+        this.f20592j = new c.a.t0.o1.k.c.d.a(tbPageContext);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21150j.p() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20592j.p() : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,14 +54,14 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
     public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof c.a.t0.o1.k.c.c.a)) {
-            this.f21150j.k((c.a.t0.o1.k.c.c.a) aVar);
+            this.f20592j.k((c.a.t0.o1.k.c.c.a) aVar);
         }
     }
 
     public void o(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.f21150j.n(bdUniqueId);
+            this.f20592j.n(bdUniqueId);
         }
     }
 
@@ -71,11 +69,11 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            if (this.f21151k != i2) {
-                this.f21150j.l(tbPageContext, i2);
+            if (this.k != i2) {
+                this.f20592j.l(tbPageContext, i2);
                 l(f(), 3);
             }
-            this.f21151k = i2;
+            this.k = i2;
         }
     }
 }

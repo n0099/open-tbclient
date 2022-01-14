@@ -21,13 +21,13 @@ public class g extends c.a.r0.m.l.a<c.a.r0.a.i1.c.f> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements b.InterfaceC0778b {
+    public class a implements b.InterfaceC0787b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.i1.c.f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.i1.b f11616b;
+        public final /* synthetic */ c.a.r0.a.i1.b f11355b;
 
         public a(g gVar, c.a.r0.a.i1.c.f fVar, c.a.r0.a.i1.b bVar) {
             Interceptable interceptable = $ic;
@@ -45,15 +45,15 @@ public class g extends c.a.r0.m.l.a<c.a.r0.a.i1.c.f> {
                 }
             }
             this.a = fVar;
-            this.f11616b = bVar;
+            this.f11355b = bVar;
         }
 
-        @Override // c.a.r0.m.o.b.InterfaceC0778b
+        @Override // c.a.r0.m.o.b.InterfaceC0787b
         public void onAnimationEnd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!TextUtils.isEmpty(this.a.C)) {
-                    this.f11616b.c(this.a.C, null);
+                    this.f11355b.c(this.a.C, null);
                 }
                 c.a.r0.a.e0.d.i("map", "TranslateMarkerAction animation end");
             }
@@ -110,14 +110,14 @@ public class g extends c.a.r0.m.l.a<c.a.r0.a.i1.c.f> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, fVar, bVar, eVar)) == null) {
             c.a.r0.a.e0.d.i("map", "TranslateMarkerAction start");
-            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(fVar.f5422g);
+            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(fVar.f5309g);
             if (!(A instanceof c.a.r0.a.p.e.b)) {
                 c.a.r0.a.e0.d.c("map", "WebViewManager is null");
                 return false;
             }
-            c.a.r0.m.o.c d2 = c.a.r0.m.c.b().c((c.a.r0.a.p.e.b) A).d(fVar.f5421f);
+            c.a.r0.m.o.c d2 = c.a.r0.m.c.b().c((c.a.r0.a.p.e.b) A).d(fVar.f5308f);
             if (d2 == null) {
-                c.a.r0.a.e0.d.c("map", "can not find map by id " + fVar.f5421f);
+                c.a.r0.a.e0.d.c("map", "can not find map by id " + fVar.f5308f);
                 return false;
             }
             return g(fVar, d2, bVar);
@@ -131,7 +131,7 @@ public class g extends c.a.r0.m.l.a<c.a.r0.a.i1.c.f> {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, fVar, cVar, bVar)) == null) {
             if (fVar.isValid()) {
                 c.a.r0.a.i1.c.h.c cVar2 = fVar.E;
-                LatLng latLng = new LatLng(cVar2.f7374e, cVar2.f7375f);
+                LatLng latLng = new LatLng(cVar2.f7214e, cVar2.f7215f);
                 List<c.a.r0.m.o.b> I = cVar.I(fVar.D);
                 c.a.r0.a.e0.d.i("map", "TranslateMarkerAction animation start");
                 if (I != null) {

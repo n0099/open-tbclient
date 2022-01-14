@@ -53,13 +53,13 @@ public final class d {
     public static String a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f12204b = -1;
+    public static int f11920b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f12205c = 1;
+    public static int f11921c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f12206d;
+    public static int f11922d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -1285,18 +1285,18 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) {
-            int i2 = f12206d;
+            int i2 = f11922d;
             if (i2 > 0) {
                 return i2;
             }
             try {
-                f12206d = new StatFs("/data").getBlockSize();
+                f11922d = new StatFs("/data").getBlockSize();
             } catch (IllegalArgumentException unused) {
             }
-            if (f12206d <= 0) {
-                f12206d = 8192;
+            if (f11922d <= 0) {
+                f11922d = 8192;
             }
-            return f12206d;
+            return f11922d;
         }
         return invokeV.intValue;
     }
@@ -1325,7 +1325,7 @@ public final class d {
             }
             int lastIndexOf = str.lastIndexOf(File.separator);
             int length = str.length();
-            return (lastIndexOf == f12204b || length <= lastIndexOf) ? str : str.substring(lastIndexOf + f12205c, length);
+            return (lastIndexOf == f11920b || length <= lastIndexOf) ? str : str.substring(lastIndexOf + f11921c, length);
         }
         return (String) invokeL.objValue;
     }
@@ -1336,7 +1336,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, str)) == null) {
             String s = s(str);
-            return (TextUtils.isEmpty(s) || (lastIndexOf = s.lastIndexOf(".")) == f12204b || lastIndexOf == s.length() + (-1)) ? "" : s.substring(lastIndexOf + 1);
+            return (TextUtils.isEmpty(s) || (lastIndexOf = s.lastIndexOf(".")) == f11920b || lastIndexOf == s.length() + (-1)) ? "" : s.substring(lastIndexOf + 1);
         }
         return (String) invokeL.objValue;
     }

@@ -6,7 +6,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.s0.s.i0.n.a;
+import c.a.s0.s.j0.n.a;
+import c.a.t0.m3.b;
+import c.a.t0.m3.d;
+import c.a.t0.m3.e;
+import c.a.t0.m3.f;
+import c.a.t0.m3.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +19,6 @@ import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,25 +29,23 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f49720e;
+    public ImageView f47852e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f49721f;
+    public TextView f47853f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49722g;
+    public TextView f47854g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49723h;
+    public TextView f47855h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49724i;
+    public TextView f47856i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f49725j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TBSpecificationBtn f49726k;
+    public TextView f47857j;
+    public TBSpecificationBtn k;
     public int l;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -70,18 +72,18 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.youngster_introduce, this);
-            this.f49720e = (ImageView) findViewById(R.id.img_youngster_introduce);
-            this.f49721f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
-            this.f49722g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
-            this.f49723h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
-            this.f49724i = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
-            this.f49725j = (TextView) findViewById(R.id.txt_youngster_introduce_content4);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.btn_youngster_open);
-            this.f49726k = tBSpecificationBtn;
+            LinearLayout.inflate(getContext(), f.youngster_introduce, this);
+            this.f47852e = (ImageView) findViewById(e.img_youngster_introduce);
+            this.f47853f = (TextView) findViewById(e.txt_youngster_introduce_title);
+            this.f47854g = (TextView) findViewById(e.txt_youngster_introduce_content1);
+            this.f47855h = (TextView) findViewById(e.txt_youngster_introduce_content2);
+            this.f47856i = (TextView) findViewById(e.txt_youngster_introduce_content3);
+            this.f47857j = (TextView) findViewById(e.txt_youngster_introduce_content4);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(e.btn_youngster_open);
+            this.k = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(new a());
-            this.f49726k.setText(getContext().getString(R.string.youngster_settings_open_title));
-            this.f49726k.setOnClickListener(this);
+            this.k.setText(getContext().getString(g.youngster_settings_open_title));
+            this.k.setOnClickListener(this);
             onChangeSkinType();
         }
     }
@@ -89,20 +91,20 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f49720e.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setViewTextColor(this.f49721f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f49722g, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f49723h, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f49724i, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f49725j, R.color.CAM_X0107);
-            this.f49726k.changeSkinType();
+            this.f47852e.setImageDrawable(WebPManager.getMaskDrawable(d.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setViewTextColor(this.f47853f, b.CAM_X0105);
+            SkinManager.setViewTextColor(this.f47854g, b.CAM_X0107);
+            SkinManager.setViewTextColor(this.f47855h, b.CAM_X0107);
+            SkinManager.setViewTextColor(this.f47856i, b.CAM_X0107);
+            SkinManager.setViewTextColor(this.f47857j, b.CAM_X0107);
+            this.k.changeSkinType();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this.f49726k) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this.k) {
             YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(getContext());
             youngsterPasswordActivityConfig.setYoungsterPasswordPageType(1);
             youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(this.l);

@@ -8,15 +8,15 @@ import com.ss.android.socialbase.downloader.downloader.DownloadService;
 public class h extends com.ss.android.socialbase.downloader.downloader.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f62525e = "h";
+    public static final String f60166e = "h";
 
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.o
     public void a(Intent intent, int i2, int i3) {
         if (com.ss.android.socialbase.downloader.c.a.a()) {
-            com.ss.android.socialbase.downloader.c.a.b(f62525e, "onStartCommand");
+            com.ss.android.socialbase.downloader.c.a.b(f60166e, "onStartCommand");
         }
         if (!com.ss.android.socialbase.downloader.i.a.a(262144)) {
-            this.f62295b = true;
+            this.f59949b = true;
         }
         e();
     }
@@ -24,10 +24,10 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.o
     public void c() {
         if (com.ss.android.socialbase.downloader.i.a.a(262144)) {
-            this.f62295b = true;
-            this.f62297d = false;
+            this.f59949b = true;
+            this.f59951d = false;
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.b(f62525e, "onStartCommandOnMainThread");
+                com.ss.android.socialbase.downloader.c.a.b(f60166e, "onStartCommandOnMainThread");
             }
         }
     }
@@ -44,6 +44,6 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
     @Override // com.ss.android.socialbase.downloader.downloader.a
     public void stopService(Context context, ServiceConnection serviceConnection) {
         context.stopService(new Intent(context, DownloadService.class));
-        this.f62295b = false;
+        this.f59949b = false;
     }
 }

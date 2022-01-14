@@ -12,10 +12,10 @@ public class c implements Runnable {
     public final /* synthetic */ long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d.c f34800b;
+    public final /* synthetic */ d.c f33678b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ d f34801c;
+    public final /* synthetic */ d f33679c;
 
     public c(d dVar, long j2, d.c cVar) {
         Interceptable interceptable = $ic;
@@ -32,9 +32,9 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f34801c = dVar;
+        this.f33679c = dVar;
         this.a = j2;
-        this.f34800b = cVar;
+        this.f33678b = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -46,7 +46,7 @@ public class c implements Runnable {
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            this.f34801c.b(this.f34800b);
+            this.f33679c.b(this.f33678b);
         }
     }
 }

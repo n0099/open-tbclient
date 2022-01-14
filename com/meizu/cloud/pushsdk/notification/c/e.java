@@ -18,18 +18,18 @@ public class e {
     public final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f61123b;
+    public final File f58810b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61124c;
+    public String f58811c;
 
     public e(String str, String str2) {
         this.a = new File(str);
         File file = new File(str2);
-        this.f61123b = file;
-        this.f61124c = file.getAbsolutePath();
+        this.f58810b = file;
+        this.f58811c = file.getAbsolutePath();
         c.k.a.a.a.d("ZipExtractTask", "Extract mInput file = " + this.a.toString());
-        c.k.a.a.a.d("ZipExtractTask", "Extract mOutput file = " + this.f61123b.toString());
+        c.k.a.a.a.d("ZipExtractTask", "Extract mOutput file = " + this.f58810b.toString());
     }
 
     private int a(InputStream inputStream, OutputStream outputStream) {
@@ -123,7 +123,7 @@ public class e {
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0049, code lost:
         r7 = r13.split("/")[0];
-        c.k.a.a.a.d("ZipExtractTask", "Extract temp directory=" + r18.f61123b + "/" + r7);
+        c.k.a.a.a.d("ZipExtractTask", "Extract temp directory=" + r18.f58810b + "/" + r7);
      */
     /* JADX WARN: Removed duplicated region for block: B:74:0x01e8  */
     /*
@@ -174,7 +174,7 @@ public class e {
                     if (name != null && name.contains(Constants.PATH_PARENT)) {
                         throw new Exception("unsecurity zip file");
                     }
-                    File file = new File(this.f61123b, name);
+                    File file = new File(this.f58810b, name);
                     if (!file.getParentFile().exists()) {
                         if (file.getParentFile().mkdirs()) {
                             str2 = "Make Destination directory=" + file.getParentFile().getAbsolutePath();
@@ -187,9 +187,9 @@ public class e {
                     new FileOutputStream(file).close();
                 }
             }
-            String str4 = this.f61123b + "/" + str3;
-            if (!this.f61124c.equals(str4)) {
-                a.a(str4, this.f61124c);
+            String str4 = this.f58810b + "/" + str3;
+            if (!this.f58811c.equals(str4)) {
+                a.a(str4, this.f58811c);
                 z = true;
             }
             try {
@@ -311,7 +311,7 @@ public class e {
         long currentThreadTimeMillis2222222 = SystemClock.currentThreadTimeMillis();
         c.k.a.a.a.d("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222222 - currentThreadTimeMillis));
         if (z) {
-            a.b(this.f61123b + "/" + str3);
+            a.b(this.f58810b + "/" + str3);
         }
         b();
         return j3;

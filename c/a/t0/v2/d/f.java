@@ -48,34 +48,32 @@ public class f implements c.a.t0.u2.b {
     public ArrayList<c.a.d.n.e.n> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UserData f25285b;
+    public UserData f24578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Duxiaoman f25286c;
+    public Duxiaoman f24579c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.j1.b f25287d;
+    public c.a.t0.j1.b f24580d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<BannerImage> f25288e;
+    public List<BannerImage> f24581e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PersonUserGodInfo f25289f;
+    public PersonUserGodInfo f24582f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f25290g;
+    public d f24583g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h f25291h;
+    public h f24584h;
 
     /* renamed from: i  reason: collision with root package name */
-    public h f25292i;
+    public h f24585i;
 
     /* renamed from: j  reason: collision with root package name */
-    public h f25293j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public h f25294k;
+    public h f24586j;
+    public h k;
     public i l;
     public PersonMoreData m;
     public n n;
@@ -109,19 +107,19 @@ public class f implements c.a.t0.u2.b {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, personalResIdl) == null) || personalResIdl == null || personalResIdl.data == null) {
             return;
         }
-        if (this.f25285b == null) {
-            this.f25285b = new UserData();
+        if (this.f24578b == null) {
+            this.f24578b = new UserData();
         }
-        this.f25285b.parserProtobuf(personalResIdl.data.user);
+        this.f24578b.parserProtobuf(personalResIdl.data.user);
         i iVar = new i();
         this.l = iVar;
-        iVar.f25308e = this.f25285b;
+        iVar.f24599e = this.f24578b;
         this.a.add(iVar);
         g();
         k();
         c.a.t0.k3.a.v().K(true);
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-            TbadkCoreApplication.getCurrentAccountObj().setSex(this.f25285b.getSex());
+            TbadkCoreApplication.getCurrentAccountObj().setSex(this.f24578b.getSex());
         }
     }
 
@@ -133,8 +131,8 @@ public class f implements c.a.t0.u2.b {
         }
         this.l = new i();
         DataRes dataRes = profileResIdl.data;
-        this.f25288e = dataRes.banner;
-        this.f25286c = dataRes.duxiaoman;
+        this.f24581e = dataRes.banner;
+        this.f24579c = dataRes.duxiaoman;
         t(dataRes.user, dataRes.user_god_info);
         q(profileResIdl.data.tbbookrack);
         r(profileResIdl.data.uc_card);
@@ -151,64 +149,64 @@ public class f implements c.a.t0.u2.b {
     public void c(boolean z) {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (hVar = this.f25293j) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (hVar = this.f24586j) == null) {
             return;
         }
         if (hVar.m == null) {
             hVar.m = new j();
         }
-        this.f25293j.m.a = z;
+        this.f24586j.m.a = z;
     }
 
     public void d(boolean z) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (dVar = this.f25290g) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (dVar = this.f24583g) == null) {
             return;
         }
-        dVar.f25282i = z;
+        dVar.f24575i = z;
     }
 
     public void e(boolean z) {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (hVar = this.f25294k) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (hVar = this.k) == null) {
             return;
         }
         if (hVar.m == null) {
             hVar.m = new j();
         }
-        this.f25294k.m.a = z;
+        this.k.m.a = z;
     }
 
     public void f(boolean z) {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (hVar = this.f25291h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (hVar = this.f24584h) == null) {
             return;
         }
         if (hVar.m == null) {
             hVar.m = new j();
         }
-        this.f25291h.m.a = z;
+        this.f24584h.m.a = z;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            d dVar = this.f25290g;
+            d dVar = this.f24583g;
             if (dVar != null) {
                 this.a.add(dVar);
-            } else if (this.f25285b == null) {
+            } else if (this.f24578b == null) {
             } else {
                 d dVar2 = new d();
-                this.f25290g = dVar2;
-                dVar2.f25278e = this.f25285b.getFansNum();
-                this.f25290g.f25279f = this.f25285b.getConcern_num();
-                this.f25290g.f25280g = this.f25285b.getLike_bars();
-                this.f25290g.f25281h = this.f25285b.getThreadNum();
-                d dVar3 = this.f25290g;
-                dVar3.f25283j = this.f25285b;
+                this.f24583g = dVar2;
+                dVar2.f24571e = this.f24578b.getFansNum();
+                this.f24583g.f24572f = this.f24578b.getConcern_num();
+                this.f24583g.f24573g = this.f24578b.getLike_bars();
+                this.f24583g.f24574h = this.f24578b.getThreadNum();
+                d dVar3 = this.f24583g;
+                dVar3.f24576j = this.f24578b;
                 this.a.add(dVar3);
             }
         }
@@ -217,31 +215,31 @@ public class f implements c.a.t0.u2.b {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (c.a.s0.s.g0.b.j().k("key_create_center_entrance_switch", 0) == 0) {
+            if (c.a.s0.s.h0.b.k().l("key_create_center_entrance_switch", 0) == 0) {
                 return;
             }
             g gVar = new g();
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < 4; i2++) {
                 g.a aVar = new g.a();
-                aVar.f25298b = this.q[i2];
+                aVar.f24590b = this.q[i2];
                 if (i2 == 1) {
-                    UserData userData = this.f25285b;
+                    UserData userData = this.f24578b;
                     if (userData != null && userData.isNewGod()) {
-                        aVar.f25299c = TbadkCoreApplication.getInst().getString(R.string.god_examination);
+                        aVar.f24591c = TbadkCoreApplication.getInst().getString(R.string.god_examination);
                         aVar.a = 5;
                     } else {
-                        aVar.f25299c = TbadkCoreApplication.getInst().getString(R.string.god_authentication);
+                        aVar.f24591c = TbadkCoreApplication.getInst().getString(R.string.god_authentication);
                         aVar.a = 2;
                     }
                 } else {
-                    aVar.f25299c = TbadkCoreApplication.getInst().getString(this.p[i2]);
+                    aVar.f24591c = TbadkCoreApplication.getInst().getString(this.p[i2]);
                     aVar.a = this.r[i2];
                 }
                 arrayList.add(aVar);
             }
             gVar.g(arrayList);
-            gVar.f25297f = this.f25285b;
+            gVar.f24589f = this.f24578b;
             this.a.add(gVar);
         }
     }
@@ -251,10 +249,10 @@ public class f implements c.a.t0.u2.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4)) == null) {
             h hVar = new h();
-            hVar.f25301f = i2;
-            hVar.f25304i = TbadkCoreApplication.getInst().getString(i3);
-            hVar.f25300e = i4;
-            UserData userData = this.f25285b;
+            hVar.f24593f = i2;
+            hVar.f24596i = TbadkCoreApplication.getInst().getString(i3);
+            hVar.f24592e = i4;
+            UserData userData = this.f24578b;
             if (userData != null) {
                 hVar.l = userData;
             }
@@ -268,10 +266,10 @@ public class f implements c.a.t0.u2.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)})) == null) {
             h hVar = new h();
-            hVar.f25301f = i2;
-            hVar.f25304i = str;
-            hVar.f25300e = i3;
-            UserData userData = this.f25285b;
+            hVar.f24593f = i2;
+            hVar.f24596i = str;
+            hVar.f24592e = i3;
+            UserData userData = this.f24578b;
             if (userData != null) {
                 hVar.l = userData;
             }
@@ -283,128 +281,128 @@ public class f implements c.a.t0.u2.b {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.f25291h == null) {
+            if (this.f24584h == null) {
                 h i2 = i(R.drawable.icon_mask_wo_list_collect24_svg, R.string.my_mark, 16);
-                this.f25291h = i2;
-                i2.f25302g = true;
+                this.f24584h = i2;
+                i2.f24594g = true;
                 i2.m = new j();
             }
-            this.a.add(this.f25291h);
+            this.a.add(this.f24584h);
             h i3 = i(R.drawable.icon_mask_wo_list_history24_svg, R.string.my_history, 17);
-            i3.f25302g = true;
-            i3.f25305j = true;
+            i3.f24594g = true;
+            i3.f24597j = true;
             this.a.add(i3);
             h i4 = i(R.drawable.icon_mask_wo_list_group24_svg, R.string.my_groups, 22);
-            i4.f25305j = true;
-            i4.f25302g = true;
-            c.a.t0.j1.b bVar = this.f25287d;
-            if (bVar != null && bVar.a() && !TextUtils.isEmpty(this.f25287d.f18679b)) {
+            i4.f24597j = true;
+            i4.f24594g = true;
+            c.a.t0.j1.b bVar = this.f24580d;
+            if (bVar != null && bVar.a() && !TextUtils.isEmpty(this.f24580d.f18215b)) {
                 h i5 = i(R.drawable.icon_mask_wo_list_shop24_svg, R.string.person_my_store_title, 46);
-                i5.f25302g = true;
-                i5.f25306k = this.f25287d.f18679b;
+                i5.f24594g = true;
+                i5.k = this.f24580d.f18215b;
                 this.a.add(i5);
             }
             h i6 = i(R.drawable.icon_mask_wo_list_youqianhua24_svg, R.string.borrow_cash, 37);
-            i6.f25302g = true;
+            i6.f24594g = true;
             i6.m = new j();
-            if (!c.a.s0.s.g0.b.j().g("key_has_borrow_cash_clicked", false)) {
+            if (!c.a.s0.s.h0.b.k().h("key_has_borrow_cash_clicked", false)) {
                 i6.m.a = true;
             }
-            i6.m.f25315h = true;
+            i6.m.f24606h = true;
             this.a.add(i6);
             if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
                 h i7 = i(R.drawable.icon_mask_wo_list_game24_svg, R.string.lite_game_center, 44);
-                i7.f25302g = true;
-                i7.f25306k = "tiebaclient://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/index/index?_baiduboxapp=%7B%22from%22%3A%223000000000000000%22%2C%22ext%22%3A%7B%7D%7D";
+                i7.f24594g = true;
+                i7.k = "tiebaclient://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/index/index?_baiduboxapp=%7B%22from%22%3A%223000000000000000%22%2C%22ext%22%3A%7B%7D%7D";
                 this.a.add(i7);
             }
-            if (c.a.s0.s.g0.b.j().k("baidu_financial_display", 1) == 1) {
+            if (c.a.s0.s.h0.b.k().l("baidu_financial_display", 1) == 1) {
                 h i8 = i(R.drawable.icon_mask_wo_list_duxiaoman24_svg, R.string.baidu_financial, 41);
-                i8.f25302g = true;
-                if (!c.a.s0.s.g0.b.j().g("key_baidu_financial_has_clicked", false)) {
+                i8.f24594g = true;
+                if (!c.a.s0.s.h0.b.k().h("key_baidu_financial_has_clicked", false)) {
                     j jVar = new j();
                     i8.m = jVar;
                     jVar.a = true;
                 }
                 this.a.add(i8);
             }
-            Duxiaoman duxiaoman = this.f25286c;
+            Duxiaoman duxiaoman = this.f24579c;
             if (duxiaoman != null && duxiaoman.is_end.intValue() != 1) {
                 h i9 = i(R.drawable.icon_mask_wo_list_sign24_svg, R.string.person_center_sign_packet, 45);
-                i9.f25302g = true;
-                i9.f25306k = "https://tieba.baidu.com/mo/q/duxiaoman/index?noshare=1";
-                int intValue = this.f25286c.total_cash.intValue();
+                i9.f24594g = true;
+                i9.k = "https://tieba.baidu.com/mo/q/duxiaoman/index?noshare=1";
+                int intValue = this.f24579c.total_cash.intValue();
                 if (intValue > 0) {
                     j jVar2 = new j();
-                    jVar2.f25310c = TbadkCoreApplication.getInst().getString(R.string.sign_cash_num, new Object[]{String.format("%.2f", Double.valueOf(intValue / 100.0d))});
-                    jVar2.f25311d = "https://tieba.baidu.com/mo/q/duxiaoman/index?noshare=1";
+                    jVar2.f24601c = TbadkCoreApplication.getInst().getString(R.string.sign_cash_num, new Object[]{String.format("%.2f", Double.valueOf(intValue / 100.0d))});
+                    jVar2.f24602d = "https://tieba.baidu.com/mo/q/duxiaoman/index?noshare=1";
                     i9.m = jVar2;
                 }
                 this.a.add(i9);
             }
             h i10 = i(R.drawable.icon_mask_wo_list_task24_svg, R.string.person_task_center_entrance, 43);
-            i10.f25302g = true;
+            i10.f24594g = true;
             this.a.add(i10);
             h i11 = i(R.drawable.icon_mask_wo_list_member24_svg, R.string.member_center, 12);
-            i11.f25302g = true;
+            i11.f24594g = true;
             this.a.add(i11);
             h i12 = i(R.drawable.icon_mask_wo_list_gift24_svg, R.string.my_gift, 10);
-            this.f25292i = i12;
+            this.f24585i = i12;
             i12.m = new j();
-            this.f25292i.f25302g = true;
-            String formatNumForTdouDisPlay = StringHelper.formatNumForTdouDisPlay(this.f25285b.getTDouNum());
+            this.f24585i.f24594g = true;
+            String formatNumForTdouDisPlay = StringHelper.formatNumForTdouDisPlay(this.f24578b.getTDouNum());
             if (CurrencySwitchUtil.isYyIsConvert()) {
-                formatNumForTdouDisPlay = CurrencyHelper.getFormatOverBaiwanNum(this.f25285b.getTDouNum());
+                formatNumForTdouDisPlay = CurrencyHelper.getFormatOverBaiwanNum(this.f24578b.getTDouNum());
             }
-            j jVar3 = this.f25292i.m;
-            jVar3.f25310c = formatNumForTdouDisPlay;
-            jVar3.f25312e = CurrencySwitchUtil.getMoneyIcon();
-            this.a.add(this.f25292i);
+            j jVar3 = this.f24585i.m;
+            jVar3.f24601c = formatNumForTdouDisPlay;
+            jVar3.f24603e = CurrencySwitchUtil.getMoneyIcon();
+            this.a.add(this.f24585i);
             h i13 = i(R.drawable.icon_mask_wo_list_cardbag24_svg, R.string.card_box, 18);
-            i13.f25302g = true;
+            i13.f24594g = true;
             this.a.add(i13);
             h i14 = i(R.drawable.icon_mask_wo_list_diamond24_svg, R.string.blue_diamond, 11);
-            i14.f25302g = true;
-            MembershipUserInfo membershipUserInfo = this.f25285b.membershipInfo;
+            i14.f24594g = true;
+            MembershipUserInfo membershipUserInfo = this.f24578b.membershipInfo;
             if (membershipUserInfo != null) {
-                i14.f25306k = membershipUserInfo.mLink;
+                i14.k = membershipUserInfo.mLink;
             }
             this.a.add(i14);
             boolean f2 = TbadkCoreApplication.getInst().getActivityPrizeData().f();
             String e2 = TbadkCoreApplication.getInst().getActivityPrizeData().e();
             if (f2 && !StringUtils.isNull(e2)) {
                 h j2 = j(R.drawable.icon_mine_list_logingift, e2, 38);
-                this.f25293j = j2;
-                j2.f25305j = true;
+                this.f24586j = j2;
+                j2.f24597j = true;
                 j2.m = new j();
-                this.a.add(this.f25293j);
+                this.a.add(this.f24586j);
                 TiebaStatic.log(new StatisticItem("c12597"));
             } else {
-                i14.f25305j = true;
+                i14.f24597j = true;
             }
             h i15 = i(R.drawable.icon_mask_wo_list_topic24_svg, R.string.hot_topic, 30);
-            i15.f25302g = true;
+            i15.f24594g = true;
             this.a.add(i15);
             if (MessageManager.getInstance().findTask(2921431) != null) {
                 h i16 = i(R.drawable.icon_mask_wo_list_live24_svg, R.string.ala_live, 25);
-                i16.f25302g = true;
-                i16.f25305j = true;
+                i16.f24594g = true;
+                i16.f24597j = true;
                 this.a.add(i16);
             }
             h i17 = i(R.drawable.icon_mask_wo_list_serve24_svg, R.string.person_service_centre, 31);
-            this.f25294k = i17;
-            i17.f25305j = true;
-            i17.f25302g = true;
+            this.k = i17;
+            i17.f24597j = true;
+            i17.f24594g = true;
             this.a.add(i17);
             h i18 = i(R.drawable.icon_mask_wo_list_exempt24_svg, R.string.baidu_singkil, 39);
-            i18.f25302g = true;
+            i18.f24594g = true;
             this.a.add(i18);
             if (this.m == null) {
                 this.m = new PersonMoreData();
             }
             h i19 = i(R.drawable.icon_pure_wo_list_more24_svg, R.string.person_center_more, 33);
-            i19.f25302g = true;
-            i19.f25303h = true;
+            i19.f24594g = true;
+            i19.f24595h = true;
             i19.n = OrmObject.bundleWithObject(this.m);
             i19.m = new j();
             List<PersonMoreItemData> list = this.m.mUrlMaps;
@@ -420,7 +418,7 @@ public class f implements c.a.t0.u2.b {
                     sb.deleteCharAt(sb.length() - 1);
                 }
                 if (!TextUtils.isEmpty(sb.toString())) {
-                    i19.m.f25309b = o(R.string.person_center_more_desc, sb.toString());
+                    i19.m.f24600b = o(R.string.person_center_more_desc, sb.toString());
                 }
             }
             this.a.add(i19);
@@ -457,17 +455,17 @@ public class f implements c.a.t0.u2.b {
                 return;
             }
             this.n = new n();
-            if (ListUtils.isEmpty(this.f25288e)) {
+            if (ListUtils.isEmpty(this.f24581e)) {
                 return;
             }
-            for (int i2 = 0; i2 < this.f25288e.size(); i2++) {
+            for (int i2 = 0; i2 < this.f24581e.size(); i2++) {
                 a aVar = new a();
-                aVar.d(this.f25288e.get(i2));
+                aVar.d(this.f24581e.get(i2));
                 if (!c.a.d.f.p.m.isEmpty(aVar.c())) {
-                    this.n.f25326e.add(aVar);
+                    this.n.f24617e.add(aVar);
                 }
             }
-            if (this.n.f25326e.size() > 0) {
+            if (this.n.f24617e.size() > 0) {
                 this.a.add(this.n);
             }
         }
@@ -488,7 +486,7 @@ public class f implements c.a.t0.u2.b {
     public UserData p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f25285b : (UserData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f24578b : (UserData) invokeV.objValue;
     }
 
     public final void q(TbBookrack tbBookrack) {
@@ -529,25 +527,25 @@ public class f implements c.a.t0.u2.b {
     public final void t(User user, UserGodInfo userGodInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, user, userGodInfo) == null) {
-            if (this.f25285b == null) {
-                this.f25285b = new UserData();
+            if (this.f24578b == null) {
+                this.f24578b = new UserData();
             }
-            this.f25285b.parserProtobuf(user);
-            if (this.f25289f == null && userGodInfo != null) {
-                this.f25289f = new PersonUserGodInfo();
+            this.f24578b.parserProtobuf(user);
+            if (this.f24582f == null && userGodInfo != null) {
+                this.f24582f = new PersonUserGodInfo();
             }
             if (userGodInfo != null && (userGodInfo.god_type.intValue() == 2 || userGodInfo.god_type.intValue() == 1)) {
-                this.f25285b.setIsBigV(true);
-                this.f25289f.parserProtobuf(userGodInfo);
+                this.f24578b.setIsBigV(true);
+                this.f24582f.parserProtobuf(userGodInfo);
             }
-            this.l.f25308e = this.f25285b;
+            this.l.f24599e = this.f24578b;
         }
     }
 
     public void u(UserPendantData userPendantData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, userPendantData) == null) {
-            this.f25285b.setPendantData(userPendantData);
+            this.f24578b.setPendantData(userPendantData);
         }
     }
 }

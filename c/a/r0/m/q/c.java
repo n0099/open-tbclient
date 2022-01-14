@@ -19,10 +19,10 @@ public abstract class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11674b;
+    public String f11412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11675c;
+    public boolean f11413c;
 
     public c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public abstract class c {
                 return;
             }
         }
-        this.f11675c = false;
+        this.f11413c = false;
         this.a = str2;
-        this.f11674b = str3;
+        this.f11412b = str3;
     }
 
     public String a() {
@@ -53,20 +53,20 @@ public abstract class c {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11675c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11413c : invokeV.booleanValue;
     }
 
     public boolean c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? q0.t(context.getApplicationContext(), this.f11674b) != null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? q0.t(context.getApplicationContext(), this.f11412b) != null : invokeL.booleanValue;
     }
 
     public void d(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, context, latLng, latLng2, str, str2) == null) {
-            if (!c(context) && this.f11675c) {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(BaseConstants.MARKET_PREFIX + this.f11674b));
+            if (!c(context) && this.f11413c) {
+                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(BaseConstants.MARKET_PREFIX + this.f11412b));
                 intent.addFlags(268435456);
                 context.startActivity(intent);
                 return;

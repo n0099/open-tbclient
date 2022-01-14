@@ -112,7 +112,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoRecommentPlayActivity f50759e;
+        public final /* synthetic */ VideoRecommentPlayActivity f48832e;
 
         public b(VideoRecommentPlayActivity videoRecommentPlayActivity) {
             Interceptable interceptable = $ic;
@@ -129,14 +129,14 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f50759e = videoRecommentPlayActivity;
+            this.f48832e = videoRecommentPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50759e.finish();
+                this.f48832e.finish();
             }
         }
     }
@@ -244,7 +244,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.mVideoDataList)) {
-                n.L(this, i.net_error);
+                n.M(this, i.net_error);
                 finish();
                 return;
             }
@@ -393,7 +393,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             if (getIntent() != null) {
-                if (getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.g().i("MainTabActivity")) {
+                if (getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.f().h("MainTabActivity")) {
                     this.mIsFromSchema = true;
                 }
                 this.mFrom = getIntent().getStringExtra("from");
@@ -418,7 +418,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            DanmuProgressManager.f50775b.a().b();
+            DanmuProgressManager.f48848b.a().b();
             c.a.t0.k.a aVar = this.mNEGFeedBackManager;
             if (aVar != null) {
                 aVar.h();

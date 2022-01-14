@@ -17,7 +17,7 @@ public class h extends c.a.r0.i.e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppDownloadNetworkStateReceiver f10941c;
+    public AppDownloadNetworkStateReceiver f10698c;
 
     static {
         InterceptResult invokeClinit;
@@ -62,12 +62,12 @@ public class h extends c.a.r0.i.e.a {
                 bVar.onFail(202, "params may be error");
                 return null;
             }
-            if (this.f10941c == null) {
-                this.f10941c = new AppDownloadNetworkStateReceiver();
+            if (this.f10698c == null) {
+                this.f10698c = new AppDownloadNetworkStateReceiver();
             }
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            c.a.r0.a.c1.a.c().registerReceiver(this.f10941c, intentFilter);
+            c.a.r0.a.c1.a.c().registerReceiver(this.f10698c, intentFilter);
             bVar.a(null);
             return null;
         }

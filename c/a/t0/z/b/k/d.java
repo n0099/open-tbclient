@@ -34,7 +34,7 @@ public class d implements j {
     public j.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f26741b;
+    public CustomMessageListener f25947b;
 
     /* loaded from: classes9.dex */
     public class a extends CustomMessageListener {
@@ -127,9 +127,9 @@ public class d implements j {
                 return;
             }
         }
-        this.f26741b = new a(this, 2921366);
+        this.f25947b = new a(this, 2921366);
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.f26741b);
+        MessageManager.getInstance().registerListener(this.f25947b);
     }
 
     @Override // c.a.r0.a.c1.d.j

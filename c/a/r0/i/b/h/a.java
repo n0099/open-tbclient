@@ -32,12 +32,12 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f10978c;
+    public static volatile a f10735c;
     public transient /* synthetic */ FieldHolder $fh;
     public SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10979b;
+    public String f10736b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class a {
                 return;
             }
         }
-        this.f10979b = "com.baidu.gamenow";
+        this.f10736b = "com.baidu.gamenow";
         this.a = KVStorageFactory.getSharedPreferences("gamecenter_install_notification", 0);
     }
 
@@ -60,14 +60,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f10978c == null) {
+            if (f10735c == null) {
                 synchronized (a.class) {
-                    if (f10978c == null) {
-                        f10978c = new a();
+                    if (f10735c == null) {
+                        f10735c = new a();
                     }
                 }
             }
-            return f10978c;
+            return f10735c;
         }
         return (a) invokeV.objValue;
     }
@@ -197,7 +197,7 @@ public class a {
                 string = appContext.getString(c.a.r0.i.a.aiapps_content_notification1);
             }
             try {
-                b.c(appContext, Long.valueOf(download.getId().longValue()).intValue(), format, TextUtils.equals(download.getKeyByUser(), this.f10979b) ? appContext.getString(c.a.r0.i.a.aiapps_gamenow_notification) : string, b.b(applicationIcon), System.currentTimeMillis(), broadcast, str, download.getKeyByUser());
+                b.c(appContext, Long.valueOf(download.getId().longValue()).intValue(), format, TextUtils.equals(download.getKeyByUser(), this.f10736b) ? appContext.getString(c.a.r0.i.a.aiapps_gamenow_notification) : string, b.b(applicationIcon), System.currentTimeMillis(), broadcast, str, download.getKeyByUser());
             } catch (Exception e2) {
                 e = e2;
                 if (c.a.r0.a.k.a) {

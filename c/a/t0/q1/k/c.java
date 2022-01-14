@@ -24,13 +24,13 @@ public class c {
     public TbPageContext<HotTopicDetailActivity> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f22106b;
+    public View f21505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22107c;
+    public String f21506c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f22108d;
+    public String f21507d;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -38,7 +38,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f22109e;
+        public final /* synthetic */ c f21508e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -55,15 +55,15 @@ public class c {
                     return;
                 }
             }
-            this.f22109e = cVar;
+            this.f21508e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.t0.m2.c.g(this.f22109e.a, "c14391");
-                this.f22109e.c();
+                c.a.t0.m2.c.g(this.f21508e.a, "c14391");
+                this.f21508e.c();
             }
         }
     }
@@ -84,36 +84,36 @@ public class c {
             }
         }
         this.a = tbPageContext;
-        this.f22106b = view;
+        this.f21505b = view;
         if (view instanceof TextView) {
             HotTopicDetailView.setWriteViewStyle((TextView) view, SkinManager.getColor(c.a.t0.q1.b.CAM_X0302));
         }
-        this.f22106b.setOnClickListener(new a(this));
+        this.f21505b.setOnClickListener(new a(this));
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || WriteActivityConfig.isAsyncWriting() || this.f22107c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || WriteActivityConfig.isAsyncWriting() || this.f21506c == null) {
             return;
         }
-        String format = StringUtils.isNull(this.f22108d) ? null : String.format(TbadkCoreApplication.getInst().getString(h.hot_topic_detail_write_name), this.f22108d);
+        String format = StringUtils.isNull(this.f21507d) ? null : String.format(TbadkCoreApplication.getInst().getString(h.hot_topic_detail_write_name), this.f21507d);
         WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.a.getPageActivity());
         newInstance.setIntentAction(IntentAction.ActivityForResult);
         newInstance.setRequestCode(25065);
-        newInstance.setType(9).setForumId("0").setTopicId(String.valueOf(this.f22107c)).setFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL).setCallFrom("1").setTitle(format).send();
+        newInstance.setType(9).setForumId("0").setTopicId(String.valueOf(this.f21506c)).setFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL).setCallFrom("1").setTitle(format).send();
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f22108d = str;
+            this.f21507d = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f22107c = str;
+            this.f21506c = str;
         }
     }
 }

@@ -16,7 +16,7 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     public h<R, T> a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.network.a.b f58098b = new com.kwad.sdk.core.network.a.b();
+    public final com.kwad.sdk.core.network.a.b f55901b = new com.kwad.sdk.core.network.a.b();
 
     private void a(@NonNull R r) {
         h<R, T> hVar = this.a;
@@ -53,47 +53,47 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @Override // com.kwad.sdk.core.network.a
     public void a(R r, c cVar) {
         if (cVar == null) {
-            f fVar = f.f58089c;
+            f fVar = f.f55893c;
             a(r, fVar.n, fVar.o);
-            this.f58098b.a("responseBase is null");
+            this.f55901b.a("responseBase is null");
             com.kwad.sdk.core.d.a.e("Networking", "request responseBase is null");
-        } else if (TextUtils.isEmpty(cVar.f58087b) || cVar.a != 200) {
+        } else if (TextUtils.isEmpty(cVar.f55891b) || cVar.a != 200) {
             a(r, cVar.a, "网络错误");
-            com.kwad.sdk.core.network.a.b bVar = this.f58098b;
-            bVar.a("httpCodeError:" + cVar.a + ":" + cVar.f58087b);
+            com.kwad.sdk.core.network.a.b bVar = this.f55901b;
+            bVar.a("httpCodeError:" + cVar.a + ":" + cVar.f55891b);
             StringBuilder sb = new StringBuilder();
             sb.append("request responseBase httpCodeError:");
             sb.append(cVar.a);
             com.kwad.sdk.core.d.a.e("Networking", sb.toString());
         } else {
             try {
-                a(r.a(), cVar.f58087b);
-                T b2 = b(cVar.f58087b);
-                this.f58098b.d();
+                a(r.a(), cVar.f55891b);
+                T b2 = b(cVar.f55891b);
+                this.f55901b.d();
                 if (b2.isResultOk()) {
                     if (!b2.isDataEmpty()) {
                         a((i<R, T>) r, (R) b2);
                         return;
                     }
-                    f fVar2 = f.f58091e;
+                    f fVar2 = f.f55895e;
                     a(r, fVar2.n, fVar2.o);
                     return;
                 }
                 a(r, b2.result, b2.errorMsg);
-                com.kwad.sdk.core.network.a.b bVar2 = this.f58098b;
+                com.kwad.sdk.core.network.a.b bVar2 = this.f55901b;
                 bVar2.a("serverCodeError:" + b2.result + ":" + b2.errorMsg);
             } catch (Exception e2) {
-                f fVar3 = f.f58090d;
+                f fVar3 = f.f55894d;
                 a(r, fVar3.n, fVar3.o);
                 com.kwad.sdk.core.d.a.b(e2);
-                com.kwad.sdk.core.network.a.b bVar3 = this.f58098b;
+                com.kwad.sdk.core.network.a.b bVar3 = this.f55901b;
                 bVar3.a("parseDataError:" + e2.getMessage());
             }
         }
     }
 
     public void a(@NonNull h<R, T> hVar) {
-        this.f58098b.a();
+        this.f55901b.a();
         this.a = hVar;
         d();
     }
@@ -125,7 +125,7 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
                 try {
                     r = b();
                     try {
-                        this.f58098b.b();
+                        this.f55901b.b();
                         a((i<R, T>) r);
                         if (com.ksad.download.c.b.a(KsAdSDKImpl.get().getContext())) {
                             try {
@@ -134,28 +134,28 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
                                 cVar = g() ? proxyForHttp.doPost(a, r.c(), r.e()) : proxyForHttp.doPost(a, r.c(), r.d());
                             } catch (Exception e3) {
                                 com.kwad.sdk.core.d.a.b(e3);
-                                this.f58098b.a("requestError:" + e3.getMessage());
+                                this.f55901b.a("requestError:" + e3.getMessage());
                             }
-                            this.f58098b.c();
+                            this.f55901b.c();
                             try {
                                 a((i<R, T>) r, cVar);
                             } catch (Exception e4) {
-                                this.f58098b.a("onResponseError:" + e4.getMessage());
+                                this.f55901b.a("onResponseError:" + e4.getMessage());
                                 com.kwad.sdk.core.d.a.b(e4);
                             }
                         } else {
-                            a(r, f.f58089c.n, f.f58089c.o);
+                            a(r, f.f55893c.n, f.f55893c.o);
                         }
                     } catch (Exception e5) {
                         e2 = e5;
                         try {
-                            this.f58098b.a("requestError:" + e2.getMessage());
+                            this.f55901b.a("requestError:" + e2.getMessage());
                         } catch (Exception unused) {
                         }
                         com.kwad.sdk.core.d.a.a(e2);
                         if (c() && com.kwad.sdk.core.config.b.ap()) {
-                            this.f58098b.a(r.a(), r.b());
-                            this.f58098b.e();
+                            this.f55901b.a(r.a(), r.b());
+                            this.f55901b.e();
                         }
                         return;
                     }
@@ -164,8 +164,8 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
                     gVar2 = gVar;
                     try {
                         if (c() && com.kwad.sdk.core.config.b.ap()) {
-                            this.f58098b.a(gVar2.a(), gVar2.b());
-                            this.f58098b.e();
+                            this.f55901b.a(gVar2.a(), gVar2.b());
+                            this.f55901b.e();
                         }
                     } catch (Exception unused2) {
                     }
@@ -177,14 +177,14 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
             } catch (Throwable th2) {
                 th = th2;
                 if (c()) {
-                    this.f58098b.a(gVar2.a(), gVar2.b());
-                    this.f58098b.e();
+                    this.f55901b.a(gVar2.a(), gVar2.b());
+                    this.f55901b.e();
                 }
                 throw th;
             }
             if (c() && com.kwad.sdk.core.config.b.ap()) {
-                this.f58098b.a(r.a(), r.b());
-                this.f58098b.e();
+                this.f55901b.a(r.a(), r.b());
+                this.f55901b.e();
             }
         } catch (Exception unused3) {
         }

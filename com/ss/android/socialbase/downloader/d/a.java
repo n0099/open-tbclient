@@ -141,12 +141,12 @@ public class a {
         try {
             JSONObject jSONObject2 = new JSONObject();
             try {
-                q k2 = com.ss.android.socialbase.downloader.downloader.c.k();
-                if (k2 != null) {
-                    str2 = k2.b();
+                q k = com.ss.android.socialbase.downloader.downloader.c.k();
+                if (k != null) {
+                    str2 = k.b();
                     str3 = a(str2);
-                    str4 = k2.a();
-                    i3 = k2.c();
+                    str4 = k.a();
+                    i3 = k.c();
                 } else {
                     str2 = "";
                     str3 = str2;

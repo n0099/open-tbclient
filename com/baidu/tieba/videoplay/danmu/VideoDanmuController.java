@@ -11,7 +11,7 @@ import android.view.ViewConfiguration;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.s0.s.q.b1;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.m0.f.d.e.h;
 import c.a.t0.m4.i;
 import c.a.t0.s2.u.f.l0;
@@ -85,34 +85,32 @@ public final class VideoDanmuController {
     public final TbPageContext<BaseFragmentActivity> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BdUniqueId f50792b;
+    public final BdUniqueId f48864b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final View f50793c;
+    public final View f48865c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f50794d;
+    public final int f48866d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final VideoItemData f50795e;
+    public final VideoItemData f48867e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f50796f;
+    public final int f48868f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f50797g;
+    public final int f48869g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f50798h;
+    public final int f48870h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f50799i;
+    public final int f48871i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f50800j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final int f50801k;
+    public final int f48872j;
+    public final int k;
     public final int l;
     public final int m;
     public final int n;
@@ -181,7 +179,7 @@ public final class VideoDanmuController {
 
     /* loaded from: classes12.dex */
     public interface c {
-        boolean a(d2 d2Var);
+        boolean a(e2 e2Var);
     }
 
     /* loaded from: classes12.dex */
@@ -190,7 +188,7 @@ public final class VideoDanmuController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoDanmuController f50802e;
+        public final /* synthetic */ VideoDanmuController f48873e;
 
         public d(VideoDanmuController videoDanmuController) {
             Interceptable interceptable = $ic;
@@ -207,14 +205,14 @@ public final class VideoDanmuController {
                     return;
                 }
             }
-            this.f50802e = videoDanmuController;
+            this.f48873e = videoDanmuController;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) ? (motionEvent == null || this.f50802e.C(motionEvent) == null) ? false : true : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) ? (motionEvent == null || this.f48873e.C(motionEvent) == null) ? false : true : invokeL.booleanValue;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
@@ -224,11 +222,11 @@ public final class VideoDanmuController {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2)) == null) {
                 Intrinsics.checkNotNullParameter(e2, "e");
-                c.a.t0.m0.e.b C = this.f50802e.C(e2);
-                if ((C != null && C.g() == 8) || (B = this.f50802e.B()) == null) {
+                c.a.t0.m0.e.b C = this.f48873e.C(e2);
+                if ((C != null && C.g() == 8) || (B = this.f48873e.B()) == null) {
                     return false;
                 }
-                return B.a(C == null ? null : C.l(), this.f50802e.F());
+                return B.a(C == null ? null : C.l(), this.f48873e.F());
             }
             return invokeL.booleanValue;
         }
@@ -290,7 +288,7 @@ public final class VideoDanmuController {
                         }
                         this.a.y = false;
                     }
-                    if (c.a.s0.b.d.e0()) {
+                    if (c.a.s0.b.d.f0()) {
                         ArrayList<PostData> F2 = pbData.F();
                         Long valueOf = F2 == null ? null : Long.valueOf(F2.size());
                         Intrinsics.checkNotNull(valueOf);
@@ -304,8 +302,8 @@ public final class VideoDanmuController {
                             return;
                         }
                         this.a.Y(true);
-                        if (this.a.r != this.a.f50799i) {
-                            if (this.a.r == this.a.f50798h) {
+                        if (this.a.r != this.a.f48871i) {
+                            if (this.a.r == this.a.f48870h) {
                                 this.a.U();
                             }
                         } else {
@@ -351,7 +349,7 @@ public final class VideoDanmuController {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
-                if (responsedMessage.getOrginalMessage().getTag() != this.a.f50792b) {
+                if (responsedMessage.getOrginalMessage().getTag() != this.a.f48864b) {
                     return;
                 }
                 PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) responsedMessage;
@@ -360,7 +358,7 @@ public final class VideoDanmuController {
                     this.a.w = false;
                     return;
                 }
-                d2 O = pbData.O();
+                e2 O = pbData.O();
                 if (O != null) {
                     this.a.H.X(O);
                 }
@@ -390,21 +388,21 @@ public final class VideoDanmuController {
         Intrinsics.checkNotNullParameter(rootView, "rootView");
         Intrinsics.checkNotNullParameter(videoItemData, "videoItemData");
         this.a = pageContext;
-        this.f50792b = videoFragmentUniqueId;
-        this.f50793c = rootView;
-        this.f50794d = i2;
-        this.f50795e = videoItemData;
-        this.f50796f = i3;
-        this.f50797g = 4;
-        this.f50798h = 1;
-        this.f50799i = 2;
-        this.f50800j = 9;
-        this.f50801k = 1800;
+        this.f48864b = videoFragmentUniqueId;
+        this.f48865c = rootView;
+        this.f48866d = i2;
+        this.f48867e = videoItemData;
+        this.f48868f = i3;
+        this.f48869g = 4;
+        this.f48870h = 1;
+        this.f48871i = 2;
+        this.f48872j = 9;
+        this.k = 1800;
         this.l = 500;
         this.m = 2;
         this.n = 100;
         this.q = UtilHelper.getDimenPixelSize(c.a.t0.m4.d.T_X06);
-        this.r = this.f50799i;
+        this.r = this.f48871i;
         this.s = ViewConfiguration.get(this.a.getPageActivity()).getScaledTouchSlop();
         this.y = true;
         this.z = new RectF();
@@ -504,8 +502,8 @@ public final class VideoDanmuController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             this.z.set(motionEvent.getX() - this.s, motionEvent.getY() - this.s, motionEvent.getX() + this.s, motionEvent.getY() + this.s);
-            List<c.a.t0.m0.e.a> k2 = this.D.k(this.z);
-            c.a.t0.m0.e.a aVar = k2 == null ? null : (c.a.t0.m0.e.a) CollectionsKt___CollectionsKt.firstOrNull((List<? extends Object>) k2);
+            List<c.a.t0.m0.e.a> k = this.D.k(this.z);
+            c.a.t0.m0.e.a aVar = k == null ? null : (c.a.t0.m0.e.a) CollectionsKt___CollectionsKt.firstOrNull((List<? extends Object>) k);
             if (aVar == null) {
                 return null;
             }
@@ -547,7 +545,7 @@ public final class VideoDanmuController {
         c.a.t0.m0.a b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            b2 = r1.b((r43 & 1) != 0 ? r1.a : 0, (r43 & 2) != 0 ? r1.f19682b : 0L, (r43 & 4) != 0 ? r1.f19683c : 0L, (r43 & 8) != 0 ? r1.f19684d : 0L, (r43 & 16) != 0 ? r1.f19685e : 0.0f, (r43 & 32) != 0 ? r1.f19686f : 0.0f, (r43 & 64) != 0 ? r1.f19687g : 0.0f, (r43 & 128) != 0 ? r1.f19688h : 0.0f, (r43 & 256) != 0 ? r1.f19689i : false, (r43 & 512) != 0 ? r1.f19690j : 0, (r43 & 1024) != 0 ? r1.f19691k : false, (r43 & 2048) != 0 ? r1.l : false, (r43 & 4096) != 0 ? r1.m : 0, (r43 & 8192) != 0 ? r1.n : 0, (r43 & 16384) != 0 ? r1.o : 0, (r43 & 32768) != 0 ? r1.p : 0, (r43 & 65536) != 0 ? r1.q : 0, (r43 & 131072) != 0 ? r1.r : 0, (r43 & 262144) != 0 ? r1.s : 0, (r43 & 524288) != 0 ? r1.t : 0, (r43 & 1048576) != 0 ? r1.u : null, (r43 & 2097152) != 0 ? this.G.v : null);
+            b2 = r1.b((r43 & 1) != 0 ? r1.a : 0, (r43 & 2) != 0 ? r1.f19174b : 0L, (r43 & 4) != 0 ? r1.f19175c : 0L, (r43 & 8) != 0 ? r1.f19176d : 0L, (r43 & 16) != 0 ? r1.f19177e : 0.0f, (r43 & 32) != 0 ? r1.f19178f : 0.0f, (r43 & 64) != 0 ? r1.f19179g : 0.0f, (r43 & 128) != 0 ? r1.f19180h : 0.0f, (r43 & 256) != 0 ? r1.f19181i : false, (r43 & 512) != 0 ? r1.f19182j : 0, (r43 & 1024) != 0 ? r1.k : false, (r43 & 2048) != 0 ? r1.l : false, (r43 & 4096) != 0 ? r1.m : 0, (r43 & 8192) != 0 ? r1.n : 0, (r43 & 16384) != 0 ? r1.o : 0, (r43 & 32768) != 0 ? r1.p : 0, (r43 & 65536) != 0 ? r1.q : 0, (r43 & 131072) != 0 ? r1.r : 0, (r43 & 262144) != 0 ? r1.s : 0, (r43 & 524288) != 0 ? r1.t : 0, (r43 & 1048576) != 0 ? r1.u : null, (r43 & 2097152) != 0 ? this.G.v : null);
             this.G = b2;
             this.D.A(b2);
         }
@@ -556,7 +554,7 @@ public final class VideoDanmuController {
     public final void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.H.setUniqueId(this.f50792b);
+            this.H.setUniqueId(this.f48864b);
             K();
             l0.b().p(this.H.Y(), this.H.d0());
             J();
@@ -567,7 +565,7 @@ public final class VideoDanmuController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.H.E0(new e(this));
-            this.I.setTag(this.f50792b);
+            this.I.setTag(this.f48864b);
             MessageManager.getInstance().registerListener(this.I);
         }
     }
@@ -575,14 +573,14 @@ public final class VideoDanmuController {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            PbCommentFloatActivityConfig createNormalCfg = new PbCommentFloatActivityConfig(this.a.getPageActivity()).createNormalCfg(this.f50795e.getThreadId(), this.f50795e.post_id, "");
-            createNormalCfg.setForumId(this.f50795e.forum_id);
-            createNormalCfg.setForumName(this.f50795e.forum_name);
+            PbCommentFloatActivityConfig createNormalCfg = new PbCommentFloatActivityConfig(this.a.getPageActivity()).createNormalCfg(this.f48867e.getThreadId(), this.f48867e.post_id, "");
+            createNormalCfg.setForumId(this.f48867e.forum_id);
+            createNormalCfg.setForumName(this.f48867e.forum_name);
             createNormalCfg.setVideo_source("nani_midpage");
-            createNormalCfg.setBjhData(this.f50795e.baijiahaoData);
-            int i2 = this.f50796f;
+            createNormalCfg.setBjhData(this.f48867e.baijiahaoData);
+            int i2 = this.f48868f;
             createNormalCfg.setFromPageType((i2 == 3 || i2 == 4) ? 1 : 2);
-            createNormalCfg.setFromVideoPageType(this.f50796f);
+            createNormalCfg.setFromVideoPageType(this.f48868f);
             createNormalCfg.setForceInterceptStimeStat(true);
             this.H.initWithIntent(createNormalCfg.getIntent());
             this.H.G0(2);
@@ -617,7 +615,7 @@ public final class VideoDanmuController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, key) == null) {
             Intrinsics.checkNotNullParameter(key, "key");
-            TiebaStatic.log(c.a.t0.m4.m.c.b(key, this.f50795e.thread_id, this.f50796f));
+            TiebaStatic.log(c.a.t0.m4.m.c.b(key, this.f48867e.thread_id, this.f48868f));
         }
     }
 
@@ -643,7 +641,7 @@ public final class VideoDanmuController {
     public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.r = this.f50799i;
+            this.r = this.f48871i;
             this.D.q();
         }
     }
@@ -653,8 +651,8 @@ public final class VideoDanmuController {
         if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || this.D.j() <= 0) {
             return;
         }
-        DanmuProgressManager a2 = DanmuProgressManager.f50775b.a();
-        String str = this.f50795e.video_url;
+        DanmuProgressManager a2 = DanmuProgressManager.f48848b.a();
+        String str = this.f48867e.video_url;
         Intrinsics.checkNotNullExpressionValue(str, "videoItemData.video_url");
         a2.d(str, this.D.j());
     }
@@ -662,7 +660,7 @@ public final class VideoDanmuController {
     public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.r = this.f50799i;
+            this.r = this.f48871i;
             S();
             this.D.s();
             this.o = null;
@@ -676,10 +674,10 @@ public final class VideoDanmuController {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && TbSingleton.getInstance().isDanmuSwitchOpen() && this.G.w()) {
             if (!this.E) {
-                this.r = this.f50798h;
+                this.r = this.f48870h;
                 return;
             }
-            this.r = this.f50798h;
+            this.r = this.f48870h;
             this.D.x(this.G);
             l0.b().p(this.H.Y(), this.H.d0());
         }
@@ -692,7 +690,7 @@ public final class VideoDanmuController {
             if (danmu.length() == 0) {
                 return;
             }
-            this.D.v(new c.a.t0.m0.e.b(Random.Default.nextLong(), this.D.j() + this.l, danmu, danmu, 1, this.q, this.a.getPageActivity().getResources().getColor(c.a.t0.m4.c.CAM_X0201), this.f50800j, 8, this.m, null, new PostData(), 0, 0.0f, 13312, null));
+            this.D.v(new c.a.t0.m0.e.b(Random.Default.nextLong(), this.D.j() + this.l, danmu, danmu, 1, this.q, this.a.getPageActivity().getResources().getColor(c.a.t0.m4.c.CAM_X0201), this.f48872j, 8, this.m, null, new PostData(), 0, 0.0f, 13312, null));
         }
     }
 
@@ -721,7 +719,7 @@ public final class VideoDanmuController {
         c.a.t0.m0.a b2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && TbSingleton.getInstance().isDanmuSwitchOpen()) {
-            b2 = r2.b((r43 & 1) != 0 ? r2.a : 0, (r43 & 2) != 0 ? r2.f19682b : 0L, (r43 & 4) != 0 ? r2.f19683c : 0L, (r43 & 8) != 0 ? r2.f19684d : 0L, (r43 & 16) != 0 ? r2.f19685e : 0.0f, (r43 & 32) != 0 ? r2.f19686f : 0.0f, (r43 & 64) != 0 ? r2.f19687g : 0.0f, (r43 & 128) != 0 ? r2.f19688h : 0.0f, (r43 & 256) != 0 ? r2.f19689i : false, (r43 & 512) != 0 ? r2.f19690j : 0, (r43 & 1024) != 0 ? r2.f19691k : true, (r43 & 2048) != 0 ? r2.l : false, (r43 & 4096) != 0 ? r2.m : 0, (r43 & 8192) != 0 ? r2.n : 0, (r43 & 16384) != 0 ? r2.o : 0, (r43 & 32768) != 0 ? r2.p : 0, (r43 & 65536) != 0 ? r2.q : 0, (r43 & 131072) != 0 ? r2.r : 0, (r43 & 262144) != 0 ? r2.s : 0, (r43 & 524288) != 0 ? r2.t : 0, (r43 & 1048576) != 0 ? r2.u : null, (r43 & 2097152) != 0 ? this.G.v : null);
+            b2 = r2.b((r43 & 1) != 0 ? r2.a : 0, (r43 & 2) != 0 ? r2.f19174b : 0L, (r43 & 4) != 0 ? r2.f19175c : 0L, (r43 & 8) != 0 ? r2.f19176d : 0L, (r43 & 16) != 0 ? r2.f19177e : 0.0f, (r43 & 32) != 0 ? r2.f19178f : 0.0f, (r43 & 64) != 0 ? r2.f19179g : 0.0f, (r43 & 128) != 0 ? r2.f19180h : 0.0f, (r43 & 256) != 0 ? r2.f19181i : false, (r43 & 512) != 0 ? r2.f19182j : 0, (r43 & 1024) != 0 ? r2.k : true, (r43 & 2048) != 0 ? r2.l : false, (r43 & 4096) != 0 ? r2.m : 0, (r43 & 8192) != 0 ? r2.n : 0, (r43 & 16384) != 0 ? r2.o : 0, (r43 & 32768) != 0 ? r2.p : 0, (r43 & 65536) != 0 ? r2.q : 0, (r43 & 131072) != 0 ? r2.r : 0, (r43 & 262144) != 0 ? r2.s : 0, (r43 & 524288) != 0 ? r2.t : 0, (r43 & 1048576) != 0 ? r2.u : null, (r43 & 2097152) != 0 ? this.G.v : null);
             this.G = b2;
             this.D.A(b2);
         }
@@ -737,7 +735,7 @@ public final class VideoDanmuController {
             this.x = true;
             this.G.D();
             M();
-            this.r = this.f50799i;
+            this.r = this.f48871i;
         }
     }
 
@@ -745,7 +743,7 @@ public final class VideoDanmuController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, fVar) == null) {
             this.G.D();
-            this.r = this.f50798h;
+            this.r = this.f48870h;
             N(fVar);
         }
     }
@@ -753,7 +751,7 @@ public final class VideoDanmuController {
     public final void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.r = this.f50799i;
+            this.r = this.f48871i;
             S();
             this.D.z();
             this.u = 0L;
@@ -764,8 +762,8 @@ public final class VideoDanmuController {
     public final void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            DanmuProgressManager a2 = DanmuProgressManager.f50775b.a();
-            String str = this.f50795e.video_url;
+            DanmuProgressManager a2 = DanmuProgressManager.f48848b.a();
+            String str = this.f48867e.video_url;
             Intrinsics.checkNotNullExpressionValue(str, "videoItemData.video_url");
             this.D.u(a2.c(str));
         }
@@ -784,7 +782,7 @@ public final class VideoDanmuController {
         if (interceptable == null || interceptable.invokeL(1048605, this, list) == null) {
             int i2 = 1;
             int i3 = 0;
-            if ((list == null || list.isEmpty()) || TextUtils.isEmpty(this.f50795e.author_info.user_id)) {
+            if ((list == null || list.isEmpty()) || TextUtils.isEmpty(this.f48867e.author_info.user_id)) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
@@ -794,13 +792,13 @@ public final class VideoDanmuController {
                 if (postData.A() != i2) {
                     String A = A(postData.N());
                     if (!TextUtils.isEmpty(A)) {
-                        if (Intrinsics.areEqual(postData.t().getUserId(), this.f50795e.author_info.user_id)) {
+                        if (Intrinsics.areEqual(postData.t().getUserId(), this.f48867e.author_info.user_id)) {
                             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(Intrinsics.stringPlus("楼主", A));
                             float[] y = c.a.s0.s.u.a.y(i.J_X04);
                             int dimenPixelSize3 = UtilHelper.getDimenPixelSize(c.a.t0.m4.d.T_X10);
                             dimenPixelSize2 = UtilHelper.getDimenPixelSize(c.a.t0.m4.d.M_W_X002);
                             int dimenPixelSize4 = UtilHelper.getDimenPixelSize(c.a.t0.m4.d.tbds6);
-                            c.a.s0.s.i0.r.a aVar = new c.a.s0.s.i0.r.a(c.a.t0.m4.c.CAM_X0302, (int) y[i3], dimenPixelSize3, c.a.t0.m4.c.CAM_X0101, 0, 0, 0);
+                            c.a.s0.s.j0.r.a aVar = new c.a.s0.s.j0.r.a(c.a.t0.m4.c.CAM_X0302, (int) y[i3], dimenPixelSize3, c.a.t0.m4.c.CAM_X0101, 0, 0, 0);
                             aVar.a(dimenPixelSize2);
                             aVar.b(dimenPixelSize4);
                             spannableStringBuilder.setSpan(aVar, i3, 2, 17);
@@ -816,18 +814,18 @@ public final class VideoDanmuController {
                             str = A;
                             f2 = 0.0f;
                             int i5 = i4 + 1;
-                            arrayList.add(new c.a.t0.m0.e.b(Random.Default.nextLong(), this.v, str.toString(), str, 1, this.q, color, this.f50800j, 1, i5, null, postData, 0, f2, 5120, null));
-                            this.v += this.f50801k;
-                            i4 = i5 % this.f50797g;
+                            arrayList.add(new c.a.t0.m0.e.b(Random.Default.nextLong(), this.v, str.toString(), str, 1, this.q, color, this.f48872j, 1, i5, null, postData, 0, f2, 5120, null));
+                            this.v += this.k;
+                            i4 = i5 % this.f48869g;
                             i2 = 1;
                             i3 = 0;
                         }
                         f2 = dimenPixelSize + dimenPixelSize2;
                         str = str2;
                         int i52 = i4 + 1;
-                        arrayList.add(new c.a.t0.m0.e.b(Random.Default.nextLong(), this.v, str.toString(), str, 1, this.q, color, this.f50800j, 1, i52, null, postData, 0, f2, 5120, null));
-                        this.v += this.f50801k;
-                        i4 = i52 % this.f50797g;
+                        arrayList.add(new c.a.t0.m0.e.b(Random.Default.nextLong(), this.v, str.toString(), str, 1, this.q, color, this.f48872j, 1, i52, null, postData, 0, f2, 5120, null));
+                        this.v += this.k;
+                        i4 = i52 % this.f48869g;
                         i2 = 1;
                         i3 = 0;
                     }

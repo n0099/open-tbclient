@@ -42,7 +42,7 @@ public class ao {
     public String f901a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63814b;
+    public String f61416b;
 
     static {
         InterceptResult invokeClinit;
@@ -164,7 +164,7 @@ public class ao {
             a = context.getApplicationContext();
             NotificationManager a2 = a();
             Boolean bool = (Boolean) com.xiaomi.push.bh.a((Object) a2, "isSystemConditionProviderEnabled", "xmsf_fake_condition_provider_path");
-            m640a("fwk is support.init:" + bool);
+            m652a("fwk is support.init:" + bool);
             boolean booleanValue = bool != null ? bool.booleanValue() : false;
             f900a = booleanValue;
             if (booleanValue) {
@@ -174,20 +174,20 @@ public class ao {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m640a(String str) {
+    public static void m652a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m122a("NMHelper:" + str);
+            com.xiaomi.channel.commonutils.logger.b.m134a("NMHelper:" + str);
         }
     }
 
     @TargetApi(26)
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m641a() {
+    public static boolean m653a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (com.xiaomi.push.l.m587a() && aq.a(a).a(hk.aZ.a(), true)) {
+            if (com.xiaomi.push.l.m599a() && aq.a(a).a(hk.aZ.a(), true)) {
                 return f900a;
             }
             return false;
@@ -196,12 +196,12 @@ public class ao {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m642a(Context context) {
+    public static boolean m654a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             a(context);
-            return m641a();
+            return m653a();
         }
         return invokeL.booleanValue;
     }
@@ -210,23 +210,23 @@ public class ao {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) {
-            return a(m641a() ? "mipush|%s|%s" : "mipush_%s_%s", this.f901a, str);
+            return a(m653a() ? "mipush|%s|%s" : "mipush_%s_%s", this.f901a, str);
         }
         return (String) invokeL.objValue;
     }
 
     @TargetApi(26)
     /* renamed from: a  reason: collision with other method in class */
-    public NotificationChannel m643a(String str) {
+    public NotificationChannel m655a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             NotificationChannel notificationChannel = null;
             try {
-                if (m641a()) {
-                    List<NotificationChannel> m647a = m647a();
-                    if (m647a != null) {
-                        for (NotificationChannel notificationChannel2 : m647a) {
+                if (m653a()) {
+                    List<NotificationChannel> m659a = m659a();
+                    if (m659a != null) {
+                        for (NotificationChannel notificationChannel2 : m659a) {
                             if (str.equals(notificationChannel2.getId())) {
                                 notificationChannel = notificationChannel2;
                                 break;
@@ -237,7 +237,7 @@ public class ao {
                     notificationChannel = a().getNotificationChannel(str);
                 }
             } catch (Exception e2) {
-                m640a("getNotificationChannel error" + e2);
+                m652a("getNotificationChannel error" + e2);
             }
             return notificationChannel;
         }
@@ -245,24 +245,24 @@ public class ao {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Context m644a() {
+    public Context m656a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : (Context) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m645a() {
+    public String m657a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f901a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m646a(String str) {
+    public String m658a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.isEmpty(str) ? b() : com.xiaomi.push.l.m587a() ? b(str) : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.isEmpty(str) ? b() : com.xiaomi.push.l.m599a() ? b(str) : str : (String) invokeL.objValue;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -273,7 +273,7 @@ public class ao {
         */
     @android.annotation.TargetApi(26)
     /* renamed from: a  reason: collision with other method in class */
-    public java.util.List<android.app.NotificationChannel> m647a() {
+    public java.util.List<android.app.NotificationChannel> m659a() {
         /*
             r8 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.xiaomi.push.service.ao.$ic
@@ -281,7 +281,7 @@ public class ao {
         L4:
             java.lang.String r0 = r8.f901a
             r1 = 0
-            boolean r2 = m641a()     // Catch: java.lang.Exception -> L7c
+            boolean r2 = m653a()     // Catch: java.lang.Exception -> L7c
             if (r2 == 0) goto L3f
             int r2 = a(r0)     // Catch: java.lang.Exception -> L7c
             r3 = -1
@@ -318,7 +318,7 @@ public class ao {
             java.util.List r1 = r2.getNotificationChannels()     // Catch: java.lang.Exception -> L7c
             java.lang.String r2 = "mipush_%s_%s"
         L49:
-            boolean r3 = com.xiaomi.push.l.m587a()     // Catch: java.lang.Exception -> L7c
+            boolean r3 = com.xiaomi.push.l.m599a()     // Catch: java.lang.Exception -> L7c
             if (r3 == 0) goto L91
             if (r1 == 0) goto L91
             java.util.ArrayList r3 = new java.util.ArrayList     // Catch: java.lang.Exception -> L7c
@@ -348,7 +348,7 @@ public class ao {
             r2.append(r3)
             r2.append(r0)
             java.lang.String r0 = r2.toString()
-            m640a(r0)
+            m652a(r0)
         L91:
             return r1
         L92:
@@ -360,7 +360,7 @@ public class ao {
             java.util.List r1 = (java.util.List) r1
             return r1
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.xiaomi.push.service.ao.m647a():java.util.List");
+        throw new UnsupportedOperationException("Method not decompiled: com.xiaomi.push.service.ao.m659a():java.util.List");
     }
 
     public void a(int i2) {
@@ -368,20 +368,20 @@ public class ao {
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             String str = this.f901a;
             try {
-                if (!m641a()) {
+                if (!m653a()) {
                     a().cancel(i2);
                     return;
                 }
                 int a2 = com.xiaomi.push.i.a();
-                String packageName = m644a().getPackageName();
+                String packageName = m656a().getPackageName();
                 if (Build.VERSION.SDK_INT >= 30) {
                     com.xiaomi.push.bh.b(f898a, "cancelNotificationWithTag", str, packageName, null, Integer.valueOf(i2), Integer.valueOf(a2));
                 } else {
                     com.xiaomi.push.bh.b(f898a, "cancelNotificationWithTag", str, null, Integer.valueOf(i2), Integer.valueOf(a2));
                 }
-                m640a("cancel succ:" + i2);
+                m652a("cancel succ:" + i2);
             } catch (Exception e2) {
-                m640a("cancel error" + e2);
+                m652a("cancel error" + e2);
             }
         }
     }
@@ -393,7 +393,7 @@ public class ao {
             NotificationManager a2 = a();
             try {
                 int i3 = Build.VERSION.SDK_INT;
-                if (m641a()) {
+                if (m653a()) {
                     if (i3 >= 19) {
                         notification.extras.putString("xmsf_target_package", str);
                     }
@@ -414,7 +414,7 @@ public class ao {
         if (interceptable == null || interceptable.invokeL(1048583, this, notificationChannel) == null) {
             String str = this.f901a;
             try {
-                if (m641a()) {
+                if (m653a()) {
                     int a2 = a(str);
                     if (a2 != -1) {
                         com.xiaomi.push.bh.b(f898a, "createNotificationChannelsForPackage", str, Integer.valueOf(a2), a(Arrays.asList(notificationChannel)));
@@ -423,7 +423,7 @@ public class ao {
                     a().createNotificationChannel(notificationChannel);
                 }
             } catch (Exception e2) {
-                m640a("createNotificationChannel error" + e2);
+                m652a("createNotificationChannel error" + e2);
             }
         }
     }
@@ -442,13 +442,13 @@ public class ao {
                     a(notificationChannel);
                 }
             } catch (Exception e2) {
-                m640a("updateNotificationChannel error " + e2);
+                m652a("updateNotificationChannel error " + e2);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m648a(String str) {
+    public boolean m660a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
@@ -464,10 +464,10 @@ public class ao {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (TextUtils.isEmpty(this.f63814b)) {
-                this.f63814b = b("default");
+            if (TextUtils.isEmpty(this.f61416b)) {
+                this.f61416b = b("default");
             }
-            return this.f63814b;
+            return this.f61416b;
         }
         return (String) invokeV.objValue;
     }
@@ -475,12 +475,12 @@ public class ao {
     public String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) ? m641a() ? str : str2 : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) ? m653a() ? str : str2 : (String) invokeLL.objValue;
     }
 
     @TargetApi(23)
     /* renamed from: b  reason: collision with other method in class */
-    public List<StatusBarNotification> m649b() {
+    public List<StatusBarNotification> m661b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -488,19 +488,19 @@ public class ao {
             NotificationManager a2 = a();
             ArrayList arrayList = null;
             try {
-                if (m641a()) {
+                if (m653a()) {
                     int a3 = com.xiaomi.push.i.a();
                     if (a3 != -1) {
                         arrayList = (List) a(com.xiaomi.push.bh.a(f898a, "getAppActiveNotifications", str, Integer.valueOf(a3)));
                     }
                 } else {
                     StatusBarNotification[] activeNotifications = a2.getActiveNotifications();
-                    boolean m587a = com.xiaomi.push.l.m587a();
+                    boolean m599a = com.xiaomi.push.l.m599a();
                     if (activeNotifications != null && activeNotifications.length > 0) {
                         ArrayList arrayList2 = new ArrayList();
                         try {
                             for (StatusBarNotification statusBarNotification : activeNotifications) {
-                                if (!m587a || str.equals(ap.a(statusBarNotification.getNotification()))) {
+                                if (!m599a || str.equals(ap.a(statusBarNotification.getNotification()))) {
                                     arrayList2.add(statusBarNotification);
                                 }
                             }
@@ -508,7 +508,7 @@ public class ao {
                         } catch (Exception e2) {
                             e = e2;
                             arrayList = arrayList2;
-                            m640a("getActiveNotifications error " + e);
+                            m652a("getActiveNotifications error " + e);
                             return arrayList;
                         }
                     }

@@ -33,25 +33,23 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f45240e;
+    public TextView f43594e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f45241f;
+    public TextView f43595f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f45242g;
+    public TextView f43596g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f45243h;
+    public View f43597h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f45244i;
+    public FrameLayout f43598i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MultiLineEllipsizeTextView f45245j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public EMTextView f45246k;
+    public MultiLineEllipsizeTextView f43599j;
+    public EMTextView k;
     public String l;
     public boolean m;
 
@@ -83,7 +81,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements q {
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.f45246k.setVisibility((z || this.a.m) ? 0 : 8);
+                this.a.k.setVisibility((z || this.a.m) ? 0 : 8);
             }
         }
     }
@@ -94,7 +92,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemRecentUpdateLayout f45247e;
+        public final /* synthetic */ CardItemRecentUpdateLayout f43600e;
 
         public b(CardItemRecentUpdateLayout cardItemRecentUpdateLayout) {
             Interceptable interceptable = $ic;
@@ -111,24 +109,24 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements q {
                     return;
                 }
             }
-            this.f45247e = cardItemRecentUpdateLayout;
+            this.f43600e = cardItemRecentUpdateLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                CardItemRecentUpdateLayout cardItemRecentUpdateLayout = this.f45247e;
+                CardItemRecentUpdateLayout cardItemRecentUpdateLayout = this.f43600e;
                 cardItemRecentUpdateLayout.m = !cardItemRecentUpdateLayout.m;
-                if (!this.f45247e.m) {
-                    this.f45247e.f45246k.setText(i1.expand);
-                    this.f45247e.f45245j.setMaxLines(3);
+                if (!this.f43600e.m) {
+                    this.f43600e.k.setText(i1.expand);
+                    this.f43600e.f43599j.setMaxLines(3);
                     return;
                 }
-                this.f45247e.f45246k.setText(i1.fold);
-                this.f45247e.f45245j.setMaxLines(Integer.MAX_VALUE);
-                this.f45247e.f45245j.setText(this.f45247e.l);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c.a.s0.s.i0.p.b(10)));
+                this.f43600e.k.setText(i1.fold);
+                this.f43600e.f43599j.setMaxLines(Integer.MAX_VALUE);
+                this.f43600e.f43599j.setText(this.f43600e.l);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c.a.s0.s.j0.p.b(10)));
             }
         }
     }
@@ -158,32 +156,32 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(g1.card_item_recent_update, this);
-            this.f45240e = (TextView) findViewById(f1.item_recent_update_title);
-            this.f45241f = (TextView) findViewById(f1.item_recent_update_version_code);
-            this.f45242g = (TextView) findViewById(f1.item_recent_update_date);
-            this.f45243h = findViewById(f1.item_recent_update_spilt_line);
-            this.f45244i = (FrameLayout) findViewById(f1.item_recent_update_log);
+            this.f43594e = (TextView) findViewById(f1.item_recent_update_title);
+            this.f43595f = (TextView) findViewById(f1.item_recent_update_version_code);
+            this.f43596g = (TextView) findViewById(f1.item_recent_update_date);
+            this.f43597h = findViewById(f1.item_recent_update_spilt_line);
+            this.f43598i = (FrameLayout) findViewById(f1.item_recent_update_log);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(context);
-            this.f45245j = multiLineEllipsizeTextView;
+            this.f43599j = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
-            MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f45245j;
+            MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f43599j;
             multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(i1.expand))));
-            c d2 = c.d(this.f45245j);
+            c d2 = c.d(this.f43599j);
             d2.z(d1.T_X06);
             d2.w(d1.M_T_X002);
-            this.f45245j.setPadding(n.f(context, d1.M_W_X005), 0, 0, n.f(context, d1.M_H_X005));
-            this.f45244i.addView(this.f45245j, new LinearLayout.LayoutParams(-1, -2));
-            this.f45245j.setOnTextMeasuredCallback(new a(this));
+            this.f43599j.setPadding(n.f(context, d1.M_W_X005), 0, 0, n.f(context, d1.M_H_X005));
+            this.f43598i.addView(this.f43599j, new LinearLayout.LayoutParams(-1, -2));
+            this.f43599j.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(context);
-            this.f45246k = eMTextView;
+            this.k = eMTextView;
             eMTextView.setText(i1.expand);
-            c.d(this.f45245j).z(d1.T_X06);
-            this.f45246k.setPadding(n.f(context, d1.M_W_X005), n.f(context, d1.M_H_X005), 0, n.f(context, d1.M_H_X005));
-            this.f45246k.setVisibility(8);
+            c.d(this.f43599j).z(d1.T_X06);
+            this.k.setPadding(n.f(context, d1.M_W_X005), n.f(context, d1.M_H_X005), 0, n.f(context, d1.M_H_X005));
+            this.k.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
-            this.f45244i.addView(this.f45246k, layoutParams);
-            this.f45246k.setOnClickListener(new b(this));
+            this.f43598i.addView(this.k, layoutParams);
+            this.k.setOnClickListener(new b(this));
         }
     }
 
@@ -194,22 +192,22 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements q {
             c d2 = c.d(this);
             d2.n(i1.J_X06);
             d2.f(c1.CAM_X0201);
-            c d3 = c.d(this.f45240e);
+            c d3 = c.d(this.f43594e);
             d3.A(i1.F_X02);
             d3.v(c1.CAM_X0105);
-            c d4 = c.d(this.f45241f);
+            c d4 = c.d(this.f43595f);
             d4.A(i1.F_X01);
             d4.v(c1.CAM_X0108);
-            c d5 = c.d(this.f45242g);
+            c d5 = c.d(this.f43596g);
             d5.A(i1.F_X01);
             d5.v(c1.CAM_X0108);
-            c d6 = c.d(this.f45245j);
+            c d6 = c.d(this.f43599j);
             d6.A(i1.F_X01);
             d6.v(c1.CAM_X0105);
-            c d7 = c.d(this.f45246k);
+            c d7 = c.d(this.k);
             d7.A(i1.F_X01);
             d7.v(c1.CAM_X0304);
-            c.d(this.f45243h).f(c1.CAM_X0111);
+            c.d(this.f43597h).f(c1.CAM_X0111);
         }
     }
 
@@ -220,9 +218,9 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements q {
         }
         String str = recentUpdate.log;
         this.l = str;
-        this.f45245j.setText(str);
-        this.f45241f.setText(recentUpdate.version);
-        this.f45242g.setText(recentUpdate.update_time);
+        this.f43599j.setText(str);
+        this.f43595f.setText(recentUpdate.version);
+        this.f43596g.setText(recentUpdate.update_time);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

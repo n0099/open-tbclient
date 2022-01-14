@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.s0.s.i0.n.a;
+import c.a.s0.s.j0.n.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
@@ -26,16 +26,16 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f45812e;
+    public Context f44135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f45813f;
+    public ImageView f44136f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f45814g;
+    public TextView f44137g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f45815h;
+    public TBSpecificationBtn f44138h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernNotLoginLayout(Context context) {
@@ -62,27 +62,27 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.concern_not_login_layout, (ViewGroup) this, true);
-            this.f45812e = context;
-            this.f45813f = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
+            this.f44135e = context;
+            this.f44136f = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
             TextView textView = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
-            this.f45814g = textView;
+            this.f44137g = textView;
             textView.setTextSize(0, n.f(context, R.dimen.T_X06));
-            this.f45815h = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
+            this.f44138h = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
             a aVar = new a();
-            this.f45815h.setText(context.getResources().getString(R.string.concern_login_and_see_more));
-            this.f45815h.setTextSize(R.dimen.T_X05);
-            this.f45815h.setTextHorizontalCenter(true);
-            this.f45815h.setConfig(aVar);
-            this.f45815h.setOnClickListener(this);
+            this.f44138h.setText(context.getResources().getString(R.string.concern_login_and_see_more));
+            this.f44138h.setTextSize(R.dimen.T_X05);
+            this.f44138h.setTextHorizontalCenter(true);
+            this.f44138h.setConfig(aVar);
+            this.f44138h.setOnClickListener(this);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setImageResource(this.f45813f, R.drawable.new_pic_emotion_09);
-            SkinManager.setViewTextColor(this.f45814g, R.color.CAM_X0107);
-            TBSpecificationBtn tBSpecificationBtn = this.f45815h;
+            SkinManager.setImageResource(this.f44136f, R.drawable.new_pic_emotion_09);
+            SkinManager.setViewTextColor(this.f44137g, R.color.CAM_X0107);
+            TBSpecificationBtn tBSpecificationBtn = this.f44138h;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.changeSkinType();
             }
@@ -93,7 +93,7 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view.getId() == R.id.tv_concern_login_and_see_more) {
-            ViewHelper.checkUpIsLogin(this.f45812e);
+            ViewHelper.checkUpIsLogin(this.f44135e);
             HomePageStatic.a = true;
         }
     }

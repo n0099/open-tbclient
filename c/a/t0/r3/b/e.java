@@ -27,7 +27,7 @@ public class e extends CustomMessageListener {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final c f22475b;
+    public final c f21856b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(@NonNull b bVar, @NonNull c cVar) {
@@ -48,7 +48,7 @@ public class e extends CustomMessageListener {
             }
         }
         this.a = bVar;
-        this.f22475b = cVar;
+        this.f21856b = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,7 +77,7 @@ public class e extends CustomMessageListener {
                 this.a.f();
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 5).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.e())));
                 if (this.a.e() || DeviceInfoUtil.isHuaWeiP40Pro()) {
-                    this.f22475b.a();
+                    this.f21856b.a();
                 }
             }
         }

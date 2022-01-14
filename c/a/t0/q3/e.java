@@ -17,12 +17,12 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f22351c;
+    public static final String f21735c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetWork f22352b;
+    public NetWork f21736b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class e {
                 return;
             }
         }
-        f22351c = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+        f21735c = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
     }
 
     public e() {
@@ -53,13 +53,13 @@ public class e {
                 return;
             }
         }
-        this.f22352b = null;
+        this.f21736b = null;
     }
 
     public void a() {
         NetWork netWork;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (netWork = this.f22352b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (netWork = this.f21736b) == null) {
             return;
         }
         netWork.cancelNetConnect();
@@ -69,7 +69,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NetWork netWork = this.f22352b;
+            NetWork netWork = this.f21736b;
             if (netWork != null) {
                 return netWork.getErrorString();
             }
@@ -82,7 +82,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetWork netWork = this.f22352b;
+            NetWork netWork = this.f21736b;
             if (netWork != null) {
                 return netWork.getNetContext().getResponse().isRequestSuccess();
             }
@@ -104,15 +104,15 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             String id = currentAccountObj != null ? currentAccountObj.getID() : null;
-            NetWork netWork = new NetWork(f22351c);
-            this.f22352b = netWork;
+            NetWork netWork = new NetWork(f21735c);
+            this.f21736b = netWork;
             netWork.addPostData("user_id", id);
-            this.f22352b.addPostData("forum_ids", str);
-            this.f22352b.addPostData("authsid", this.a);
-            this.f22352b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.f22352b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.f22352b.setNeedSig(true);
-            return this.f22352b.postNetData();
+            this.f21736b.addPostData("forum_ids", str);
+            this.f21736b.addPostData("authsid", this.a);
+            this.f21736b.getNetContext().getRequest().mNeedBackgroundLogin = true;
+            this.f21736b.getNetContext().getRequest().mIsNeedTbs = true;
+            this.f21736b.setNeedSig(true);
+            return this.f21736b.postNetData();
         }
         return (String) invokeL.objValue;
     }
@@ -121,13 +121,13 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            NetWork netWork = new NetWork(f22351c);
-            this.f22352b = netWork;
+            NetWork netWork = new NetWork(f21735c);
+            this.f21736b = netWork;
             netWork.addPostData("authsid", this.a);
-            this.f22352b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.f22352b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.f22352b.setNeedSig(true);
-            return this.f22352b.postNetData();
+            this.f21736b.getNetContext().getRequest().mNeedBackgroundLogin = true;
+            this.f21736b.getNetContext().getRequest().mIsNeedTbs = true;
+            this.f21736b.setNeedSig(true);
+            return this.f21736b.postNetData();
         }
         return (String) invokeV.objValue;
     }

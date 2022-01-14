@@ -33,7 +33,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         public final /* synthetic */ XiaomiOAuthFuture a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ XiaomiSSOLoginActivity f39361b;
+        public final /* synthetic */ XiaomiSSOLoginActivity f38060b;
 
         /* loaded from: classes10.dex */
         public class a implements Runnable {
@@ -63,28 +63,28 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.f39361b.o.a();
+                    this.a.f38060b.o.a();
                 }
             }
         }
 
         /* renamed from: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity$b$b  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class RunnableC1829b implements Runnable {
+        public class RunnableC1845b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f39362b;
+            public final /* synthetic */ String f38061b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f39363c;
+            public final /* synthetic */ String f38062c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ b f39364d;
+            public final /* synthetic */ b f38063d;
 
-            public RunnableC1829b(b bVar, String str, String str2, String str3) {
+            public RunnableC1845b(b bVar, String str, String str2, String str3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,17 +99,17 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                         return;
                     }
                 }
-                this.f39364d = bVar;
+                this.f38063d = bVar;
                 this.a = str;
-                this.f39362b = str2;
-                this.f39363c = str3;
+                this.f38061b = str2;
+                this.f38062c = str3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f39364d.f39361b.o.a(this.a, this.f39362b, this.f39363c);
+                    this.f38063d.f38060b.o.a(this.a, this.f38061b, this.f38062c);
                 }
             }
         }
@@ -142,7 +142,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.f39361b.o.a();
+                    this.a.f38060b.o.a();
                 }
             }
         }
@@ -162,7 +162,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f39361b = xiaomiSSOLoginActivity;
+            this.f38060b = xiaomiSSOLoginActivity;
             this.a = xiaomiOAuthFuture;
         }
 
@@ -176,7 +176,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                         new Handler(Looper.getMainLooper()).post(new a(this));
                         return;
                     }
-                    new Handler(Looper.getMainLooper()).post(new RunnableC1829b(this, xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
+                    new Handler(Looper.getMainLooper()).post(new RunnableC1845b(this, xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
                 } catch (OperationCanceledException e2) {
                     new Handler(Looper.getMainLooper()).post(new c(this));
                     Log.e(e2);
@@ -303,7 +303,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 XiaomiSSOLoginActivity xiaomiSSOLoginActivity = this.a;
-                xiaomiSSOLoginActivity.a(((BaseSSOLoginActivity) xiaomiSSOLoginActivity).f39350g);
+                xiaomiSSOLoginActivity.a(((BaseSSOLoginActivity) xiaomiSSOLoginActivity).f38049g);
             }
         }
     }

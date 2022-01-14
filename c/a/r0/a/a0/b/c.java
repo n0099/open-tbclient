@@ -105,10 +105,10 @@ public class c extends a {
                 canvas.drawARGB(0, 0, 0, 0);
                 canvas.translate(-this.o, -this.p);
                 view.draw(canvas);
-                Bitmap k2 = k(createBitmap);
-                str = Base64.encodeToString(i(k2), 2);
-                i3 = k2.getWidth();
-                i2 = k2.getHeight();
+                Bitmap k = k(createBitmap);
+                str = Base64.encodeToString(i(k), 2);
+                i3 = k.getWidth();
+                i2 = k.getHeight();
             } else {
                 c.a.r0.a.e0.d.b("canvasGetImageData", "canvas size is invalid.");
                 str = "";

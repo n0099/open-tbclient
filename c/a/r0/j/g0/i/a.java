@@ -13,13 +13,13 @@ public class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11271b;
+    public String f11021b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11272c;
+    public int f11022c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f11273d;
+    public int f11023d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class a extends d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("url", this.f11271b);
-                jSONObject.put("errCode", this.f11272c);
-                jSONObject.put("net", this.f11273d);
+                jSONObject.put("url", this.f11021b);
+                jSONObject.put("errCode", this.f11022c);
+                jSONObject.put("net", this.f11023d);
                 jSONObject.put("errMsg", this.a);
             } catch (JSONException unused) {
             }

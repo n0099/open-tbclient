@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Renderable implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6701586807666461858L;

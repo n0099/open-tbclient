@@ -18,7 +18,7 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<DressItemData> f15892b;
+    public List<DressItemData> f15487b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class a {
     public List<DressItemData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15892b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15487b : (List) invokeV.objValue;
     }
 
     public void c(ThemePendantInMain themePendantInMain) {
@@ -52,9 +52,9 @@ public class a {
             return;
         }
         this.a = themePendantInMain.pendant_category;
-        this.f15892b = new ArrayList();
+        this.f15487b = new ArrayList();
         for (ThemeBgProp themeBgProp : themePendantInMain.props) {
-            this.f15892b.add(new DressItemData(themeBgProp));
+            this.f15487b.add(new DressItemData(themeBgProp));
         }
     }
 }

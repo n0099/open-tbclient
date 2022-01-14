@@ -7,18 +7,18 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60747b;
+    public String f58447b;
 
     public c(int i2, String str) {
         this.a = i2;
-        this.f60747b = str;
+        this.f58447b = str;
     }
 
     public String toString() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("code", this.a);
-            jSONObject.put("body", this.f60747b);
+            jSONObject.put("body", this.f58447b);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

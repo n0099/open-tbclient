@@ -14,17 +14,17 @@ public final class y {
     public static final y a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final y f37144b;
+    public static final y f35921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final y f37145c;
+    public static final y f35922c;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ y[] f37146e;
+    public static final /* synthetic */ y[] f35923e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f37147d;
+    public final int f35924d;
 
     static {
         InterceptResult invokeClinit;
@@ -40,10 +40,10 @@ public final class y {
             }
         }
         a = new y("DEFAULT", 0, 1);
-        f37144b = new y("INDOOR", 1, 2);
+        f35921b = new y("INDOOR", 1, 2);
         y yVar = new y("STREET", 2, 3);
-        f37145c = yVar;
-        f37146e = new y[]{a, f37144b, yVar};
+        f35922c = yVar;
+        f35923e = new y[]{a, f35921b, yVar};
     }
 
     public y(String str, int i2, int i3) {
@@ -64,7 +64,7 @@ public final class y {
                 return;
             }
         }
-        this.f37147d = i3;
+        this.f35924d = i3;
     }
 
     public static y valueOf(String str) {
@@ -76,6 +76,6 @@ public final class y {
     public static y[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f37146e.clone() : (y[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f35923e.clone() : (y[]) invokeV.objValue;
     }
 }

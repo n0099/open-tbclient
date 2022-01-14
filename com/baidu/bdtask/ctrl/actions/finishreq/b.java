@@ -22,7 +22,7 @@ public final class b {
     public final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f34038b;
+    public Set<String> f32952b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class b {
             }
         }
         this.a = new a();
-        this.f34038b = new CopyOnWriteArraySet();
+        this.f32952b = new CopyOnWriteArraySet();
     }
 
     public final Function2<Function1<? super c.a.j.h.a.a, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super c.a.j.h.a.a, Unit>, Function1<c.a.j.h.a.a, Unit>>> b() {

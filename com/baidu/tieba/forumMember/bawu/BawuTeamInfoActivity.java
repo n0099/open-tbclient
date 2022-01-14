@@ -83,7 +83,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BawuTeamInfoActivity f44662e;
+        public final /* synthetic */ BawuTeamInfoActivity f43019e;
 
         public b(BawuTeamInfoActivity bawuTeamInfoActivity) {
             Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                     return;
                 }
             }
-            this.f44662e = bawuTeamInfoActivity;
+            this.f43019e = bawuTeamInfoActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f44662e.refreshData();
+                this.f43019e.refreshData();
             }
         }
     }

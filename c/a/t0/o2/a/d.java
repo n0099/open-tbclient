@@ -28,27 +28,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends c.a.t0.o2.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.o2.c.b f21365e;
+        public final /* synthetic */ c.a.t0.o2.c.b f20801e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f21366f;
+        public final /* synthetic */ b f20802f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f21367g;
+        public final /* synthetic */ int f20803g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f21368h;
+        public final /* synthetic */ d f20804h;
 
         public a(d dVar, c.a.t0.o2.c.b bVar, b bVar2, int i2) {
             Interceptable interceptable = $ic;
@@ -65,47 +65,47 @@ public class d extends c.a.t0.o2.a.a {
                     return;
                 }
             }
-            this.f21368h = dVar;
-            this.f21365e = bVar;
-            this.f21366f = bVar2;
-            this.f21367g = i2;
+            this.f20804h = dVar;
+            this.f20801e = bVar;
+            this.f20802f = bVar2;
+            this.f20803g = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.t0.o2.c.b bVar = this.f21365e;
+                c.a.t0.o2.c.b bVar = this.f20801e;
                 bVar.l(!bVar.g());
-                this.f21368h.g(this.f21366f, this.f21365e);
-                this.f21368h.d(this.f21365e);
-                d dVar = this.f21368h;
-                a.InterfaceC1286a interfaceC1286a = dVar.f21350h;
-                if (interfaceC1286a != null) {
-                    interfaceC1286a.onSelectCountChanged(dVar.f21347e);
+                this.f20804h.g(this.f20802f, this.f20801e);
+                this.f20804h.d(this.f20801e);
+                d dVar = this.f20804h;
+                a.InterfaceC1300a interfaceC1300a = dVar.f20786h;
+                if (interfaceC1300a != null) {
+                    interfaceC1300a.onSelectCountChanged(dVar.f20783e);
                 }
-                if (this.f21365e.g()) {
+                if (this.f20801e.g()) {
                     StatisticItem statisticItem = new StatisticItem("c13682");
                     statisticItem.param("obj_type", 2);
                     statisticItem.param("obj_locate", 1);
-                    statisticItem.param("obj_source", this.f21367g);
+                    statisticItem.param("obj_source", this.f20803g);
                     TiebaStatic.log(statisticItem);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public LinearLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f21369b;
+        public TbImageView f20805b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f21370c;
+        public TextView f20806c;
 
         public b(View view) {
             Interceptable interceptable = $ic;
@@ -123,12 +123,12 @@ public class d extends c.a.t0.o2.a.a {
                 }
             }
             this.a = (LinearLayout) view.findViewById(R.id.interest_selection_rootview);
-            this.f21369b = (TbImageView) view.findViewById(R.id.interest_icon);
-            this.f21370c = (TextView) view.findViewById(R.id.interest_text);
-            int k2 = (n.k(TbadkCoreApplication.getInst()) / 4) + n.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-            this.a.setLayoutParams(new LinearLayout.LayoutParams(k2, k2));
-            int i4 = k2 / 3;
-            this.f21369b.setLayoutParams(new LinearLayout.LayoutParams(i4, i4));
+            this.f20805b = (TbImageView) view.findViewById(R.id.interest_icon);
+            this.f20806c = (TextView) view.findViewById(R.id.interest_text);
+            int k = (n.k(TbadkCoreApplication.getInst()) / 4) + n.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+            this.a.setLayoutParams(new LinearLayout.LayoutParams(k, k));
+            int i4 = k / 3;
+            this.f20805b.setLayoutParams(new LinearLayout.LayoutParams(i4, i4));
         }
     }
 
@@ -174,23 +174,23 @@ public class d extends c.a.t0.o2.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, bVar2) == null) {
             if (bVar2.g()) {
-                TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0302).setShapeRadius(n.f(this.f21348f, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0807).setShadowSide(ShadowDrawable.ALL).setShadowRadius(n.f(this.f21348f, R.dimen.tbds20)).setOffsetX(0).setOffsetY(n.f(this.f21348f, R.dimen.tbds10)).into(bVar.a);
-                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(bVar.f21370c);
+                TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0302).setShapeRadius(n.f(this.f20784f, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0807).setShadowSide(ShadowDrawable.ALL).setShadowRadius(n.f(this.f20784f, R.dimen.tbds20)).setOffsetX(0).setOffsetY(n.f(this.f20784f, R.dimen.tbds10)).into(bVar.a);
+                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(bVar.f20806c);
                 d2.v(R.color.CAM_X0313);
                 d2.A(R.dimen.T_X06);
-                if (bVar.f21369b.getBdImage() == null || StringUtils.isNull(bVar.f21369b.getBdImage().q())) {
+                if (bVar.f20805b.getBdImage() == null || StringUtils.isNull(bVar.f20805b.getBdImage().q())) {
                     return;
                 }
-                bVar.f21369b.setImageBitmap(f(bVar.f21369b.getBdImage().p(), -1));
+                bVar.f20805b.setImageBitmap(f(bVar.f20805b.getBdImage().p(), -1));
                 return;
             }
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0201).setShapeRadius(n.f(this.f21348f, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(n.f(this.f21348f, R.dimen.tbds20)).setOffsetX(0).setOffsetY(n.f(this.f21348f, R.dimen.tbds10)).into(bVar.a);
-            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(bVar.f21370c);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0201).setShapeRadius(n.f(this.f20784f, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(n.f(this.f20784f, R.dimen.tbds20)).setOffsetX(0).setOffsetY(n.f(this.f20784f, R.dimen.tbds10)).into(bVar.a);
+            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(bVar.f20806c);
             d3.v(R.color.CAM_X0105);
             d3.A(R.dimen.T_X06);
-            bVar.f21369b.setImageBitmap(null);
-            bVar.f21369b.setPlaceHolder(1);
-            bVar.f21369b.startLoad(bVar2.a(), 25, false);
+            bVar.f20805b.setImageBitmap(null);
+            bVar.f20805b.setPlaceHolder(1);
+            bVar.f20805b.startLoad(bVar2.a(), 25, false);
         }
     }
 
@@ -201,17 +201,17 @@ public class d extends c.a.t0.o2.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f21348f).inflate(R.layout.list_item_interest_selection_style_b, viewGroup, false);
+                view = LayoutInflater.from(this.f20784f).inflate(R.layout.list_item_interest_selection_style_b, viewGroup, false);
                 bVar = new b(view);
                 view.setTag(bVar);
             } else {
                 bVar = (b) view.getTag();
             }
-            c.a.t0.o2.c.b bVar2 = this.f21349g.get(i2);
+            c.a.t0.o2.c.b bVar2 = this.f20785g.get(i2);
             if (bVar2 == null) {
                 return view;
             }
-            bVar.f21370c.setText(bVar2.b());
+            bVar.f20806c.setText(bVar2.b());
             g(bVar, bVar2);
             view.setOnClickListener(new a(this, bVar2, bVar, i2));
             return view;

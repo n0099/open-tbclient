@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -31,13 +31,13 @@ public class r0 {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f23641b;
+    public static final int f22987b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f23642c;
+    public static final int[] f22988c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static TextView f23643d;
+    public static TextView f22989d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,8 +54,8 @@ public class r0 {
             }
         }
         a = c.a.d.f.p.n.f(TbadkCoreApplication.getInst().getContext(), c.a.t0.s2.g.tbds10);
-        f23641b = c.a.d.f.p.n.f(TbadkCoreApplication.getInst().getContext(), c.a.t0.s2.g.tbds8);
-        f23642c = new int[]{c.a.t0.s2.l.reply_hint_text_1, c.a.t0.s2.l.reply_hint_text_2, c.a.t0.s2.l.reply_hint_text_3};
+        f22987b = c.a.d.f.p.n.f(TbadkCoreApplication.getInst().getContext(), c.a.t0.s2.g.tbds8);
+        f22988c = new int[]{c.a.t0.s2.l.reply_hint_text_1, c.a.t0.s2.l.reply_hint_text_2, c.a.t0.s2.l.reply_hint_text_3};
     }
 
     public static void a(int i2, String str, TextView textView, TextView textView2, ImageView imageView, UserIconBox userIconBox, UserIconBox userIconBox2) {
@@ -66,7 +66,7 @@ public class r0 {
         int measureText = (int) textView.getPaint().measureText(str);
         int width = textView2.getVisibility() == 8 ? 0 : textView2.getWidth() + a;
         int width2 = imageView.getVisibility() == 8 ? 0 : imageView.getWidth() + a;
-        int width3 = (i2 - (userIconBox2.getVisibility() == 8 ? 0 : (userIconBox2.getWidth() + f23641b) + a)) - measureText;
+        int width3 = (i2 - (userIconBox2.getVisibility() == 8 ? 0 : (userIconBox2.getWidth() + f22987b) + a)) - measureText;
         int i3 = width2 + width;
         if (width3 > (userIconBox.getVisibility() != 8 ? userIconBox.getWidth() + a : 0) + i3) {
             return;
@@ -86,27 +86,27 @@ public class r0 {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f23642c[new Random().nextInt(f23642c.length)] : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f22988c[new Random().nextInt(f22988c.length)] : invokeV.intValue;
     }
 
-    public static SpannableString c(d2 d2Var) {
+    public static SpannableString c(e2 e2Var) {
         InterceptResult invokeL;
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, e2Var)) == null) {
+            if (e2Var == null) {
                 return null;
             }
-            if (d2Var.K() == 1) {
+            if (e2Var.K() == 1) {
                 string = TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.yuanchuang);
             } else {
-                string = d2Var.K() == 2 ? TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.shoufa) : "";
+                string = e2Var.K() == 2 ? TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.shoufa) : "";
             }
             if (TextUtils.isEmpty(string)) {
                 return null;
             }
             SpannableString spannableString = new SpannableString(new StringBuilder(string).toString());
-            spannableString.setSpan(new c.a.s0.s.i0.r.a(c.a.t0.s2.f.CAM_X0204, UtilHelper.getDimenPixelSize(c.a.t0.s2.g.tbds5), UtilHelper.getDimenPixelSize(c.a.t0.s2.g.tbds26), c.a.t0.s2.f.CAM_X0105, UtilHelper.getDimenPixelSize(c.a.t0.s2.g.tbds8), UtilHelper.getDimenPixelSize(c.a.t0.s2.g.tbds9), UtilHelper.getDimenPixelSize(c.a.t0.s2.g.tbds13)), 0, spannableString.length(), 17);
+            spannableString.setSpan(new c.a.s0.s.j0.r.a(c.a.t0.s2.f.CAM_X0204, UtilHelper.getDimenPixelSize(c.a.t0.s2.g.tbds5), UtilHelper.getDimenPixelSize(c.a.t0.s2.g.tbds26), c.a.t0.s2.f.CAM_X0105, UtilHelper.getDimenPixelSize(c.a.t0.s2.g.tbds8), UtilHelper.getDimenPixelSize(c.a.t0.s2.g.tbds9), UtilHelper.getDimenPixelSize(c.a.t0.s2.g.tbds13)), 0, spannableString.length(), 17);
             return spannableString;
         }
         return (SpannableString) invokeL.objValue;
@@ -176,13 +176,13 @@ public class r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, spannableStringBuilder)) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
-            int k2 = c.a.d.f.p.n.k(context) - (c.a.d.f.p.n.f(context, c.a.t0.s2.g.tbds44) * 2);
+            int k = c.a.d.f.p.n.k(context) - (c.a.d.f.p.n.f(context, c.a.t0.s2.g.tbds44) * 2);
             int contentSize = TbConfig.getContentSize();
             try {
-                if (f23643d == null) {
-                    f23643d = new TextView(TbadkCoreApplication.getInst().getContext());
+                if (f22989d == null) {
+                    f22989d = new TextView(TbadkCoreApplication.getInst().getContext());
                 }
-                TextView textView = f23643d;
+                TextView textView = f22989d;
                 if (textView.getLayoutParams() == null) {
                     textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 }
@@ -190,7 +190,7 @@ public class r0 {
                 textView.setTextSize(0, contentSize);
                 textView.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
                 textView.getPaint().setFakeBoldText(true);
-                textView.measure(View.MeasureSpec.makeMeasureSpec(k2, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+                textView.measure(View.MeasureSpec.makeMeasureSpec(k, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
                 return textView.getLayout();
             } catch (Exception e2) {
                 e2.printStackTrace();

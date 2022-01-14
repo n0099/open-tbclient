@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import c.a.s0.b.d;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -36,7 +36,7 @@ public class HeadPendantClickableView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener mOnClickListener;
-    public d2 q;
+    public e2 q;
     public Context r;
     public View.OnClickListener s;
 
@@ -46,7 +46,7 @@ public class HeadPendantClickableView extends HeadPendantView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HeadPendantClickableView f41775e;
+        public final /* synthetic */ HeadPendantClickableView f40336e;
 
         public a(HeadPendantClickableView headPendantClickableView) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class HeadPendantClickableView extends HeadPendantView {
                     return;
                 }
             }
-            this.f41775e = headPendantClickableView;
+            this.f40336e = headPendantClickableView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -74,27 +74,27 @@ public class HeadPendantClickableView extends HeadPendantView {
             String str4;
             String str5;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f41775e.q == null || this.f41775e.q.J() == null || StringUtils.isNull(this.f41775e.q.J().getName_show()) || StringUtils.isNull(this.f41775e.q.J().getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f40336e.q == null || this.f40336e.q.J() == null || StringUtils.isNull(this.f40336e.q.J().getName_show()) || StringUtils.isNull(this.f40336e.q.J().getUserId())) {
                 return;
             }
-            if (this.f41775e.q.b2) {
-                if (this.f41775e.q.r1() == 69) {
+            if (this.f40336e.q.a2) {
+                if (this.f40336e.q.r1() == 69) {
                     str5 = YYLiveUtil.SOURCE_HOME_RECOMMEND_LIVE_HEAD;
                 } else {
-                    str5 = this.f41775e.q.r1() == 40 ? YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
+                    str5 = this.f40336e.q.r1() == 40 ? YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
                 }
                 str = str5;
                 str2 = AddFriendActivityConfig.TYPE_HOME_HEAD;
-            } else if (this.f41775e.q.a2()) {
-                if (this.f41775e.q.r1() == 69) {
+            } else if (this.f40336e.q.a2()) {
+                if (this.f40336e.q.r1() == 69) {
                     str4 = YYLiveUtil.SOURCE_HOME_CONCERN_LIVE_HEAD;
                 } else {
-                    str4 = this.f41775e.q.r1() == 40 ? YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
+                    str4 = this.f40336e.q.r1() == 40 ? YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
                 }
                 str = str4;
                 str2 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
-            } else if (this.f41775e.q.isFromFrs()) {
-                if (this.f41775e.q.r1() == 69) {
+            } else if (this.f40336e.q.isFromFrs()) {
+                if (this.f40336e.q.r1() == 69) {
                     str3 = YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB;
                 } else {
                     str3 = YYLiveUtil.SOURCE_FRS_LIVE_HEAD_ + TbSingleton.getInstance().getFrsCurTabType();
@@ -105,19 +105,19 @@ public class HeadPendantClickableView extends HeadPendantView {
                 str = YYLiveUtil.SOURCE_NOT_DEFINE;
                 str2 = "";
             }
-            AlaInfoData alaInfo = this.f41775e.q.J().getAlaInfo();
+            AlaInfoData alaInfo = this.f40336e.q.J().getAlaInfo();
             if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
-                TbPageContext tbPageContext = this.f41775e.getTbPageContext();
+                TbPageContext tbPageContext = this.f40336e.getTbPageContext();
                 YyExtData yyExtData = alaInfo.mYyExtData;
                 YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, str);
-                HeadPendantClickableView headPendantClickableView = this.f41775e;
-                headPendantClickableView.j(headPendantClickableView.q.v1(), String.valueOf(this.f41775e.q.U()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                HeadPendantClickableView headPendantClickableView = this.f40336e;
+                headPendantClickableView.j(headPendantClickableView.q.v1(), String.valueOf(this.f40336e.q.U()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
             } else {
-                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f41775e.r, this.f41775e.q.J().getUserId(), this.f41775e.q.J().getName_show(), this.f41775e.q.a0(), str2, this.f41775e.q.v1(), this.f41775e.q.G0());
-                personInfoActivityConfig.setIsVideoThread(this.f41775e.q.t1() != null);
-                if (this.f41775e.q.W0() != 1) {
-                    if (this.f41775e.q.W0() != 2) {
-                        if (this.f41775e.q.W0() == 5) {
+                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f40336e.r, this.f40336e.q.J().getUserId(), this.f40336e.q.J().getName_show(), this.f40336e.q.a0(), str2, this.f40336e.q.v1(), this.f40336e.q.G0());
+                personInfoActivityConfig.setIsVideoThread(this.f40336e.q.t1() != null);
+                if (this.f40336e.q.W0() != 1) {
+                    if (this.f40336e.q.W0() != 2) {
+                        if (this.f40336e.q.W0() == 5) {
                             personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL);
                         }
                     } else {
@@ -128,8 +128,8 @@ public class HeadPendantClickableView extends HeadPendantView {
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
             }
-            if (this.f41775e.s != null) {
-                this.f41775e.s.onClick(view);
+            if (this.f40336e.s != null) {
+                this.f40336e.s.onClick(view);
             }
         }
     }
@@ -205,25 +205,25 @@ public class HeadPendantClickableView extends HeadPendantView {
         }
     }
 
-    public void setData(d2 d2Var) {
+    public void setData(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, d2Var) == null) {
-            setData(d2Var, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, e2Var) == null) {
+            setData(e2Var, false);
         }
     }
 
-    public void setData(d2 d2Var, boolean z) {
+    public void setData(e2 e2Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, d2Var, z) == null) || d2Var == null || d2Var.J() == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, e2Var, z) == null) || e2Var == null || e2Var.J() == null) {
             return;
         }
-        this.q = d2Var;
-        MetaData J = d2Var.J();
+        this.q = e2Var;
+        MetaData J = e2Var.J();
         setContentDescription(J.getName_show() + this.r.getString(R.string.somebodys_portrait));
         getHeadView().setUserId(J.getUserId());
         getHeadView().setUserName(J.getUserName());
         getHeadView().setUrl(J.getAvater());
-        if (J.isDefaultAvatar && d.w0()) {
+        if (J.isDefaultAvatar && d.u0()) {
             getHeadView().startLoad(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
         } else if (!StringUtils.isNull(J.getAvater()) && J.getAvater().startsWith("http")) {
             getHeadView().startLoad(J.getAvater(), 10, false);
@@ -272,8 +272,8 @@ public class HeadPendantClickableView extends HeadPendantView {
         if (!(interceptable == null || interceptable.invokeLZ(1048582, this, metaData, z) == null) || metaData == null) {
             return;
         }
-        d2 d2Var = new d2();
-        d2Var.B3(metaData);
-        setData(d2Var, z);
+        e2 e2Var = new e2();
+        e2Var.B3(metaData);
+        setData(e2Var, z);
     }
 }

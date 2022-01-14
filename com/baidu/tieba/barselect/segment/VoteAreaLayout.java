@@ -31,22 +31,22 @@ public class VoteAreaLayout extends CardBasicLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f43844e;
+    public Context f42250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RoundAndShadowLinearLayout f43845f;
+    public RoundAndShadowLinearLayout f42251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f43846g;
+    public View f42252g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43847h;
+    public TextView f42253h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TrapezoidButton f43848i;
+    public TrapezoidButton f42254i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f43849j;
+    public TextView f42255j;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -54,10 +54,10 @@ public class VoteAreaLayout extends CardBasicLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f43850e;
+        public final /* synthetic */ f f42256e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VoteAreaLayout f43851f;
+        public final /* synthetic */ VoteAreaLayout f42257f;
 
         public a(VoteAreaLayout voteAreaLayout, f fVar) {
             Interceptable interceptable = $ic;
@@ -74,29 +74,29 @@ public class VoteAreaLayout extends CardBasicLayout {
                     return;
                 }
             }
-            this.f43851f = voteAreaLayout;
-            this.f43850e = fVar;
+            this.f42257f = voteAreaLayout;
+            this.f42256e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             f fVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f43851f.f43844e instanceof Activity) && ViewHelper.checkUpIsLogin(this.f43851f.f43844e)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f42257f.f42250e instanceof Activity) && ViewHelper.checkUpIsLogin(this.f42257f.f42250e)) {
                 new StatisticItem(TbadkCoreStatisticKey.KEY_VOTE_BUTTON).eventStat();
-                if (this.f43851f.mElectionData == null || (fVar = this.f43850e) == null || fVar.a() == null) {
+                if (this.f42257f.mElectionData == null || (fVar = this.f42256e) == null || fVar.a() == null) {
                     return;
                 }
-                if (this.f43850e.a().a()) {
-                    if (this.f43850e.c() == 0 || this.f43850e.g() == null) {
+                if (this.f42256e.a().a()) {
+                    if (this.f42256e.c() == 0 || this.f42256e.g() == null) {
                         return;
                     }
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.f43851f.mElectionData.l(), this.f43850e.c(), this.f43851f.mElectionData.k(), 1);
-                    commitVoteReqMsg.setTag(this.f43850e.g());
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.f42257f.mElectionData.l(), this.f42256e.c(), this.f42257f.mElectionData.k(), 1);
+                    commitVoteReqMsg.setTag(this.f42256e.g());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                     return;
                 }
-                n.L(TbadkCoreApplication.getInst(), R.string.has_not_other_ticket);
+                n.M(TbadkCoreApplication.getInst(), R.string.has_not_other_ticket);
             }
         }
     }
@@ -126,19 +126,19 @@ public class VoteAreaLayout extends CardBasicLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RoundAndShadowLinearLayout roundAndShadowLinearLayout = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
-            this.f43845f = roundAndShadowLinearLayout;
-            roundAndShadowLinearLayout.setRadius(n.f(this.f43844e, R.dimen.tbds8));
-            this.f43847h = (TextView) findViewById(R.id.vote_num);
-            this.f43848i = (TrapezoidButton) findViewById(R.id.vote_button);
-            this.f43849j = (TextView) findViewById(R.id.vote_button_tv);
-            this.f43846g = findViewById(R.id.button_container);
+            this.f42251f = roundAndShadowLinearLayout;
+            roundAndShadowLinearLayout.setRadius(n.f(this.f42250e, R.dimen.tbds8));
+            this.f42253h = (TextView) findViewById(R.id.vote_num);
+            this.f42254i = (TrapezoidButton) findViewById(R.id.vote_button);
+            this.f42255j = (TextView) findViewById(R.id.vote_button_tv);
+            this.f42252g = findViewById(R.id.button_container);
         }
     }
 
     public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f43844e = getContext();
+            this.f42250e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(0);
@@ -153,10 +153,10 @@ public class VoteAreaLayout extends CardBasicLayout {
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f43847h, R.color.CAM_X0303, 1, i2);
-            SkinManager.setBackgroundColorWithAlpha(this.f43846g, R.color.CAM_X0303, 0.2f, i2);
-            SkinManager.setViewTextColor(this.f43849j, R.color.CAM_X0101, 1, i2);
-            SkinManager.setBackgroundResource(this.f43849j, R.drawable.bar_select_bg_gradient, i2);
+            SkinManager.setViewTextColor(this.f42253h, R.color.CAM_X0303, 1, i2);
+            SkinManager.setBackgroundColorWithAlpha(this.f42252g, R.color.CAM_X0303, 0.2f, i2);
+            SkinManager.setViewTextColor(this.f42255j, R.color.CAM_X0101, 1, i2);
+            SkinManager.setBackgroundResource(this.f42255j, R.drawable.bar_select_bg_gradient, i2);
         }
     }
 
@@ -166,14 +166,14 @@ public class VoteAreaLayout extends CardBasicLayout {
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, fVar) == null) {
             super.setData(i2, fVar);
             if (this.mData != null && this.mElectionData != null && this.status >= 0) {
-                TextView textView = this.f43847h;
+                TextView textView = this.f42253h;
                 textView.setText(StringHelper.numFormatOverWan(this.mElectionData.m()) + "票");
-                this.f43849j.setOnClickListener(new a(this, fVar));
+                this.f42255j.setOnClickListener(new a(this, fVar));
                 if (this.mElectionData.n()) {
-                    this.f43849j.setEnabled(false);
+                    this.f42255j.setEnabled(false);
                     return;
                 } else {
-                    this.f43849j.setEnabled(true);
+                    this.f42255j.setEnabled(true);
                     return;
                 }
             }

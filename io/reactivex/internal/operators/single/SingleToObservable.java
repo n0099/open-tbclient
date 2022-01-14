@@ -27,7 +27,7 @@ public final class SingleToObservable<T> extends Observable<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f64611d;
+        public Disposable f62187d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SingleToObservableObserver(Observer<? super T> observer) {
@@ -54,7 +54,7 @@ public final class SingleToObservable<T> extends Observable<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.dispose();
-                this.f64611d.dispose();
+                this.f62187d.dispose();
             }
         }
 
@@ -69,8 +69,8 @@ public final class SingleToObservable<T> extends Observable<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) && DisposableHelper.validate(this.f64611d, disposable)) {
-                this.f64611d = disposable;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) && DisposableHelper.validate(this.f62187d, disposable)) {
+                this.f62187d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

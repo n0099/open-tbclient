@@ -17,40 +17,38 @@ import com.sina.weibo.sdk.utils.WbAuthConstants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 5287;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f32975b = 5288;
+    public static int f31928b = 5288;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f32976c = "https://info.tuisong.baidu.com";
+    public static String f31929c = "https://info.tuisong.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f32977d = "/setter";
+    public static String f31930d = "/setter";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f32978e = "/v2/setter";
+    public static String f31931e = "/v2/setter";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f32979f = "/getter";
+    public static String f31932f = "/getter";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f32980g = "/v2/getter";
+    public static String f31933g = "/v2/getter";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f32981h = "/bccs/upload";
+    public static String f31934h = "/bccs/upload";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f32982i = "https://ack.tuisong.baidu.com";
+    public static String f31935i = "https://ack.tuisong.baidu.com";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f32983j = "/click";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static String f32984k = "api.tuisong.baidu.com";
+    public static String f31936j = "/click";
+    public static String k = "api.tuisong.baidu.com";
     public static String[] l = null;
     public static String m = "sa.tuisong.baidu.com";
     public static String[] n;
@@ -77,14 +75,14 @@ public final class g {
     public static int a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? m.o(context) ? f32975b : a : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? m.o(context) ? f31928b : a : invokeL.intValue;
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return "http://" + f32984k;
+            return "http://" + k;
         }
         return (String) invokeV.objValue;
     }
@@ -93,7 +91,7 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return "https://" + f32984k;
+            return "https://" + k;
         }
         return (String) invokeV.objValue;
     }
@@ -110,7 +108,7 @@ public final class g {
             }
             try {
                 int parseInt = Integer.parseInt(a2.substring(a2.length() - 1));
-                f32984k = l[parseInt % 10];
+                k = l[parseInt % 10];
                 m = n[parseInt % 10];
                 return;
             } catch (Exception e2) {
@@ -154,7 +152,7 @@ public final class g {
                 if (property.startsWith("http://")) {
                     property = property.replace("http://", "");
                 }
-                f32984k = property;
+                k = property;
             }
             String property2 = properties.getProperty("socket_server");
             if (!TextUtils.isEmpty(property2)) {
@@ -162,16 +160,16 @@ public final class g {
             }
             String property3 = properties.getProperty("data_update_server");
             if (!TextUtils.isEmpty(property3)) {
-                f32976c = property3;
+                f31929c = property3;
             }
             String property4 = properties.getProperty("push_ack_server");
             if (!TextUtils.isEmpty(property4)) {
-                f32982i = property4;
+                f31935i = property4;
             }
             if (m.o(context)) {
                 String property5 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property5)) {
-                    f32975b = Integer.parseInt(property5);
+                    f31928b = Integer.parseInt(property5);
                 }
             } else {
                 String property6 = properties.getProperty("socket_server_port");
@@ -182,7 +180,7 @@ public final class g {
             if (e.a == 0) {
                 String property7 = properties.getProperty(Constants.API_KEY);
                 if (TextUtils.equals(properties.getProperty(EmotionResourceInfo.JSON_KEY_PKG_NAME), context.getPackageName()) && !TextUtils.isEmpty(property7)) {
-                    e.f32928b = property7;
+                    e.f31883b = property7;
                 }
             }
             o = true;
@@ -196,7 +194,7 @@ public final class g {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f32984k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? k : (String) invokeV.objValue;
     }
 
     public static String c(Context context) {

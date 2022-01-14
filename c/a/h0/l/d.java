@@ -30,10 +30,10 @@ public abstract class d<K, V> {
         this.a = i.c();
     }
 
-    public V a(K k2) {
+    public V a(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) ? this.a.get(k2) : (V) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.a.get(k) : (V) invokeL.objValue;
     }
 
     public Map<K, V> b() {
@@ -48,10 +48,10 @@ public abstract class d<K, V> {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Map) invokeV.objValue;
     }
 
-    public void d(K k2, V v) {
+    public void d(K k, V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, k2, v) == null) {
-            this.a.put(k2, v);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, k, v) == null) {
+            this.a.put(k, v);
         }
     }
 

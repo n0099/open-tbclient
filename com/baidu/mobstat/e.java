@@ -98,7 +98,7 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        k.f38144b.a(System.currentTimeMillis(), str);
+        k.f36893b.a(System.currentTimeMillis(), str);
     }
 
     public synchronized void a(Context context, boolean z) {

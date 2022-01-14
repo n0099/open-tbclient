@@ -28,21 +28,21 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.r2.h.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0529a implements a.b {
+    public class C0538a implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UnitedSchemeEntity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8851b;
+        public final /* synthetic */ CallbackHandler f8656b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ m f8852c;
+        public final /* synthetic */ m f8657c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f8853d;
+        public final /* synthetic */ a f8658d;
 
-        public C0529a(a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m mVar) {
+        public C0538a(a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m mVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,17 +57,17 @@ public class a extends z {
                     return;
                 }
             }
-            this.f8853d = aVar;
+            this.f8658d = aVar;
             this.a = unitedSchemeEntity;
-            this.f8851b = callbackHandler;
-            this.f8852c = mVar;
+            this.f8656b = callbackHandler;
+            this.f8657c = mVar;
         }
 
         @Override // c.a.r0.a.r2.h.a.b
         public void a(float[] fArr) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, fArr) == null) && fArr != null && fArr.length == 3) {
-                this.f8853d.k(this.a, this.f8851b, this.f8852c, fArr);
+                this.f8658d.k(this.a, this.f8656b, this.f8657c, fArr);
             }
         }
     }
@@ -128,7 +128,7 @@ public class a extends z {
                 }
                 d.i("StartDeviceMotionAction", "startSensor===");
                 m mVar = new m("deviceMotionChange", optParamsAsJo, optString);
-                if (!c.a.r0.a.r2.h.a.h().l(i2, new C0529a(this, unitedSchemeEntity, callbackHandler, mVar))) {
+                if (!c.a.r0.a.r2.h.a.h().l(i2, new C0538a(this, unitedSchemeEntity, callbackHandler, mVar))) {
                     d.c("StartDeviceMotionAction", "start system sensor fail");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "start system sensor fail");
                     return false;
@@ -153,7 +153,7 @@ public class a extends z {
             dArr[0] = Math.toDegrees(d2);
             dArr[1] = Math.toDegrees(-fArr[2]);
             dArr[2] = Math.toDegrees(-fArr[1]);
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "deviceMotionChange: " + Arrays.toString(dArr);
             }
             try {

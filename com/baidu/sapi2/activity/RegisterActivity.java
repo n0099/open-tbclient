@@ -190,7 +190,7 @@ public class RegisterActivity extends BaseActivity {
                 public final /* synthetic */ WebAuthListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ RegisterActivity f39328b;
+                public final /* synthetic */ RegisterActivity f38028b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -207,7 +207,7 @@ public class RegisterActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f39328b = this;
+                    this.f38028b = this;
                     this.a = webAuthListener;
                 }
 
@@ -227,13 +227,13 @@ public class RegisterActivity extends BaseActivity {
                 public void onFailed(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                        this.f39328b.t.setResultCode(i2);
-                        this.f39328b.t.setResultMsg(str);
+                        this.f38028b.t.setResultCode(i2);
+                        this.f38028b.t.setResultMsg(str);
                         WebAuthListener webAuthListener2 = this.a;
                         if (webAuthListener2 != null) {
-                            webAuthListener2.onFailure(this.f39328b.t);
+                            webAuthListener2.onFailure(this.f38028b.t);
                         }
-                        this.f39328b.finish();
+                        this.f38028b.finish();
                         CoreViewRouter.getInstance().release();
                     }
                 }
@@ -243,17 +243,17 @@ public class RegisterActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountType) == null) {
                         super.onSuccess(accountType);
-                        this.f39328b.t.accountType = accountType;
-                        this.f39328b.t.setResultCode(0);
+                        this.f38028b.t.accountType = accountType;
+                        this.f38028b.t.setResultCode(0);
                         WebAuthListener webAuthListener2 = this.a;
                         if (webAuthListener2 != null) {
-                            webAuthListener2.onSuccess(this.f39328b.t);
+                            webAuthListener2.onSuccess(this.f38028b.t);
                         }
                         WebRegDTO webRegDTO = CoreViewRouter.getInstance().getWebRegDTO();
                         if (webRegDTO == null || !webRegDTO.finishActivityAfterSuc) {
                             return;
                         }
-                        this.f39328b.finish();
+                        this.f38028b.finish();
                         CoreViewRouter.getInstance().release();
                     }
                 }

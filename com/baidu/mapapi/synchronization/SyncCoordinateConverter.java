@@ -18,7 +18,7 @@ public class SyncCoordinateConverter {
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoordType f36891b;
+    public CoordType f35676b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -131,10 +131,10 @@ public class SyncCoordinateConverter {
             if (this.a == null) {
                 return null;
             }
-            if (this.f36891b == null) {
-                this.f36891b = CoordType.BD09LL;
+            if (this.f35676b == null) {
+                this.f35676b = CoordType.BD09LL;
             }
-            int i2 = a.a[this.f36891b.ordinal()];
+            int i2 = a.a[this.f35676b.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return null;
@@ -160,7 +160,7 @@ public class SyncCoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
-            this.f36891b = coordType;
+            this.f35676b = coordType;
             return this;
         }
         return (SyncCoordinateConverter) invokeL.objValue;

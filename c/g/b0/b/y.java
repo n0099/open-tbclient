@@ -32,13 +32,13 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f29184b;
+        public boolean f28293b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnifiedInterstitialAD[] f29185c;
+        public final /* synthetic */ UnifiedInterstitialAD[] f28294c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ y f29186d;
+        public final /* synthetic */ y f28295d;
 
         public a(y yVar, UnifiedInterstitialAD[] unifiedInterstitialADArr) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
                     return;
                 }
             }
-            this.f29186d = yVar;
-            this.f29185c = unifiedInterstitialADArr;
+            this.f28295d = yVar;
+            this.f28294c = unifiedInterstitialADArr;
         }
 
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
@@ -64,8 +64,8 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f29186d.onAdClicked(this.f29184b);
-                this.f29184b = true;
+                this.f28295d.onAdClicked(this.f28293b);
+                this.f28293b = true;
             }
         }
 
@@ -74,7 +74,7 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LogPrinter.d();
-                this.f29186d.onAdClose();
+                this.f28295d.onAdClose();
             }
         }
 
@@ -83,7 +83,7 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f29186d.onAdShow(this.f29185c[0], this.a);
+                this.f28295d.onAdShow(this.f28294c[0], this.a);
                 this.a = true;
             }
         }
@@ -117,7 +117,7 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, adError) == null) {
                 LogPrinter.e("onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.f29186d.onError(adError.getErrorCode(), adError.getErrorMsg());
+                this.f28295d.onError(adError.getErrorCode(), adError.getErrorMsg());
             }
         }
 
@@ -125,7 +125,7 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
         public void onRenderFail() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.f29186d.onError(0, "renderFail");
+                this.f28295d.onError(0, "renderFail");
             }
         }
 
@@ -133,7 +133,7 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
         public void onRenderSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.f29186d.onAdLoaded((y) this.f29185c[0]);
+                this.f28295d.onAdLoaded((y) this.f28294c[0]);
             }
         }
 

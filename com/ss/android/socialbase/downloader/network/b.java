@@ -11,25 +11,25 @@ public class b {
     public static volatile boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f62618b = "b";
+    public static final String f60255b = "b";
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f62619g = -1;
+    public static long f60256g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f62620h;
+    public static volatile b f60257h;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k f62621c = k.a();
+    public final k f60258c = k.a();
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicInteger f62622d = new AtomicInteger();
+    public final AtomicInteger f60259d = new AtomicInteger();
 
     /* renamed from: e  reason: collision with root package name */
-    public final a f62623e = new a(com.ss.android.socialbase.downloader.h.e.a());
+    public final a f60260e = new a(com.ss.android.socialbase.downloader.h.e.a());
 
     /* renamed from: f  reason: collision with root package name */
-    public long f62624f;
+    public long f60261f;
 
     /* loaded from: classes3.dex */
     public class a extends Handler {
@@ -56,14 +56,14 @@ public class b {
     }
 
     public static b a() {
-        if (f62620h == null) {
+        if (f60257h == null) {
             synchronized (b.class) {
-                if (f62620h == null) {
-                    f62620h = new b();
+                if (f60257h == null) {
+                    f60257h = new b();
                 }
             }
         }
-        return f62620h;
+        return f60257h;
     }
 
     public static long d() {
@@ -76,11 +76,11 @@ public class b {
 
     public void b() {
         try {
-            String str = f62618b;
-            com.ss.android.socialbase.downloader.c.a.c(str, "startSampling: mSamplingCounter = " + this.f62622d);
-            if (this.f62622d.getAndIncrement() == 0) {
-                this.f62623e.a();
-                this.f62624f = SystemClock.uptimeMillis();
+            String str = f60255b;
+            com.ss.android.socialbase.downloader.c.a.c(str, "startSampling: mSamplingCounter = " + this.f60259d);
+            if (this.f60259d.getAndIncrement() == 0) {
+                this.f60260e.a();
+                this.f60261f = SystemClock.uptimeMillis();
             }
         } catch (Throwable unused) {
         }
@@ -88,10 +88,10 @@ public class b {
 
     public void c() {
         try {
-            String str = f62618b;
-            com.ss.android.socialbase.downloader.c.a.c(str, "stopSampling: mSamplingCounter = " + this.f62622d);
-            if (this.f62622d.decrementAndGet() == 0) {
-                this.f62623e.b();
+            String str = f60255b;
+            com.ss.android.socialbase.downloader.c.a.c(str, "stopSampling: mSamplingCounter = " + this.f60259d);
+            if (this.f60259d.decrementAndGet() == 0) {
+                this.f60260e.b();
                 g();
             }
         } catch (Throwable unused) {
@@ -107,15 +107,15 @@ public class b {
             } else {
                 mobileRxBytes = TrafficStats.getMobileRxBytes();
             }
-            long j2 = mobileRxBytes - f62619g;
-            if (f62619g >= 0) {
+            long j2 = mobileRxBytes - f60256g;
+            if (f60256g >= 0) {
                 synchronized (this) {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    this.f62621c.a(j2, uptimeMillis - this.f62624f);
-                    this.f62624f = uptimeMillis;
+                    this.f60258c.a(j2, uptimeMillis - this.f60261f);
+                    this.f60261f = uptimeMillis;
                 }
             }
-            f62619g = mobileRxBytes;
+            f60256g = mobileRxBytes;
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -123,6 +123,6 @@ public class b {
 
     public void g() {
         f();
-        f62619g = -1L;
+        f60256g = -1L;
     }
 }

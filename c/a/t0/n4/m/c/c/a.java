@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.bean.LocalAlbumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LocalAlbumInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f20520b;
+    public boolean f19971b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20521c;
+    public int f19972c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a {
                 return;
             }
         }
-        this.f20521c = -1;
+        this.f19972c = -1;
     }
 
     public LocalAlbumInfo a() {
@@ -44,19 +44,19 @@ public class a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20520b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19971b : invokeV.booleanValue;
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f20520b = z;
+            this.f19971b = z;
         }
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20521c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19972c : invokeV.intValue;
     }
 }

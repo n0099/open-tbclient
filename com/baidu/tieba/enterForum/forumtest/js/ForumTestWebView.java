@@ -33,25 +33,23 @@ public class ForumTestWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebViewClient f44157e;
+    public WebViewClient f42543e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f44158f;
+    public h f42544f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f44159g;
+    public c f42545g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f44160h;
+    public e f42546h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f44161i;
+    public d f42547i;
 
     /* renamed from: j  reason: collision with root package name */
-    public f f44162j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public g f44163k;
+    public f f42548j;
+    public g k;
     public c.a.t0.u0.e.a.c l;
     public c.a.t0.u0.e.a.a mJsBridge;
 
@@ -131,8 +129,8 @@ public class ForumTestWebView extends WebView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                if (this.a.f44161i != null) {
-                    this.a.f44161i.onPageFinished(webView, str);
+                if (this.a.f42547i != null) {
+                    this.a.f42547i.onPageFinished(webView, str);
                 }
             }
         }
@@ -142,8 +140,8 @@ public class ForumTestWebView extends WebView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
-                if (this.a.f44160h != null) {
-                    this.a.f44160h.a(webView, str);
+                if (this.a.f42546h != null) {
+                    this.a.f42546h.a(webView, str);
                 }
             }
         }
@@ -170,8 +168,8 @@ public class ForumTestWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
-                if (this.a.f44159g != null) {
-                    return this.a.f44159g.shouldOverrideUrlLoading(webView, str);
+                if (this.a.f42545g != null) {
+                    return this.a.f42545g.shouldOverrideUrlLoading(webView, str);
                 }
                 return super.shouldOverrideUrlLoading(webView, str);
             }
@@ -307,8 +305,8 @@ public class ForumTestWebView extends WebView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048582, this, webView, i2) == null) {
                 super.onProgressChanged(webView, i2);
-                if (this.a.f44162j != null) {
-                    this.a.f44162j.a(webView, i2);
+                if (this.a.f42548j != null) {
+                    this.a.f42548j.a(webView, i2);
                 }
             }
         }
@@ -318,8 +316,8 @@ public class ForumTestWebView extends WebView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) {
                 super.onReceivedTitle(webView, str);
-                if (this.a.f44163k != null) {
-                    this.a.f44163k.a(str);
+                if (this.a.k != null) {
+                    this.a.k.a(str);
                 }
             }
         }
@@ -355,13 +353,13 @@ public class ForumTestWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.destroy();
-            this.f44157e = null;
-            this.f44158f = null;
-            this.f44159g = null;
-            this.f44160h = null;
-            this.f44161i = null;
-            this.f44162j = null;
-            this.f44163k = null;
+            this.f42543e = null;
+            this.f42544f = null;
+            this.f42545g = null;
+            this.f42546h = null;
+            this.f42547i = null;
+            this.f42548j = null;
+            this.k = null;
             this.l = null;
         }
     }
@@ -386,10 +384,10 @@ public class ForumTestWebView extends WebView {
             setScrollBarStyle(33554432);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
             WebViewClient bVar2 = new b(this);
-            this.f44157e = bVar2;
+            this.f42543e = bVar2;
             setWebViewClient(bVar2);
             h hVar = new h(this, null);
-            this.f44158f = hVar;
+            this.f42544f = hVar;
             setWebChromeClient(hVar);
             c.a.t0.u0.e.a.a aVar = new c.a.t0.u0.e.a.a();
             this.mJsBridge = aVar;

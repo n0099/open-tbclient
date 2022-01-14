@@ -8,9 +8,8 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.IDyeConfig;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
+import com.baidu.searchbox.performance.speed.SpeedRuntime;
 import com.baidu.searchbox.taskmanager.SmartLaunchTaskManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SmartLaunchStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -380,7 +379,7 @@ public class SmartLaunchStats {
                                 String unused = SmartLaunchStats.TAG;
                             }
                             return true;
-                        } else if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                        } else if (SpeedRuntime.getSpeedContext().isAdShowing()) {
                             if (SmartLaunchStats.DEBUG) {
                                 String unused2 = SmartLaunchStats.TAG;
                             }
@@ -388,7 +387,7 @@ public class SmartLaunchStats {
                         } else if (SmartLaunchStats.sIdleTaskStartTimeStamp == -1) {
                             SmartLaunchStats.setIdleTaskStartTime(System.currentTimeMillis());
                             LaunchedTaskSpeedStats.getInstance().endStatistics();
-                            new SmartLaunchTaskManager().schedule(TbadkCoreApplication.getInst());
+                            new SmartLaunchTaskManager().schedule(SpeedRuntime.getAppContext());
                             if (SmartLaunchStats.DEBUG) {
                                 String unused3 = SmartLaunchStats.TAG;
                                 String str = "set idle time! tti:" + SmartLaunchStats.sFirstAvailableTime;

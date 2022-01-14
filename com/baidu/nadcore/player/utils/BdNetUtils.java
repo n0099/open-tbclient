@@ -6,9 +6,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.b0.b;
-import c.a.c0.e.a;
-import c.a.c0.h0.t;
+import c.a.c0.e0.b;
+import c.a.c0.h.a;
+import c.a.c0.k0.o;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -186,10 +186,10 @@ public class BdNetUtils {
     public static void i(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, context, str) == null) {
-            StringBuilder sb = new StringBuilder(context.getString(t.nad_player_message_network_3g));
+            StringBuilder sb = new StringBuilder(context.getString(o.nad_player_message_network_3g));
             if (!TextUtils.isEmpty(str)) {
                 sb.append("，\n");
-                sb.append(context.getString(t.nad_video_net_tip_size_toast));
+                sb.append(context.getString(o.nad_video_net_tip_size_toast));
                 sb.append(str);
                 sb.append("MB");
             }

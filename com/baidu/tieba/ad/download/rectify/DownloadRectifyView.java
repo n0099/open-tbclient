@@ -27,25 +27,23 @@ public class DownloadRectifyView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f43270e;
+    public ImageView f41722e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f43271f;
+    public TbImageView f41723f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43272g;
+    public TextView f41724g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43273h;
+    public TextView f41725h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f43274i;
+    public TextView f41726i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f43275j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f43276k;
+    public TextView f41727j;
+    public TextView k;
     public TextView l;
     public TextView m;
     public FrameLayout n;
@@ -56,10 +54,10 @@ public class DownloadRectifyView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.b f43277e;
+        public final /* synthetic */ c.b f41728e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadRectifyView f43278f;
+        public final /* synthetic */ DownloadRectifyView f41729f;
 
         public a(DownloadRectifyView downloadRectifyView, c.b bVar) {
             Interceptable interceptable = $ic;
@@ -76,17 +74,17 @@ public class DownloadRectifyView extends RelativeLayout {
                     return;
                 }
             }
-            this.f43278f = downloadRectifyView;
-            this.f43277e = bVar;
+            this.f41729f = downloadRectifyView;
+            this.f41728e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                Context context = this.f43278f.getContext();
-                c.b bVar = this.f43277e;
-                z.d(context, bVar.f13636b, null, null, bVar.f13637c);
+                Context context = this.f41729f.getContext();
+                c.b bVar = this.f41728e;
+                z.d(context, bVar.f13320b, null, null, bVar.f13321c);
             }
         }
     }
@@ -97,10 +95,10 @@ public class DownloadRectifyView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a f43279e;
+        public final /* synthetic */ c.a f41730e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadRectifyView f43280f;
+        public final /* synthetic */ DownloadRectifyView f41731f;
 
         public b(DownloadRectifyView downloadRectifyView, c.a aVar) {
             Interceptable interceptable = $ic;
@@ -117,17 +115,17 @@ public class DownloadRectifyView extends RelativeLayout {
                     return;
                 }
             }
-            this.f43280f = downloadRectifyView;
-            this.f43279e = aVar;
+            this.f41731f = downloadRectifyView;
+            this.f41730e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                Context context = this.f43280f.getContext();
-                c.a aVar = this.f43279e;
-                z.d(context, aVar.f13634b, null, null, aVar.f13635c);
+                Context context = this.f41731f.getContext();
+                c.a aVar = this.f41730e;
+                z.d(context, aVar.f13318b, null, null, aVar.f13319c);
             }
         }
     }
@@ -157,16 +155,16 @@ public class DownloadRectifyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.webview_download_audit_view, this);
-            this.f43270e = (ImageView) inflate.findViewById(R.id.im_close);
+            this.f41722e = (ImageView) inflate.findViewById(R.id.im_close);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.iv_app_logo);
-            this.f43271f = tbImageView;
+            this.f41723f = tbImageView;
             tbImageView.setRadius(n.d(context, 9.0f));
-            this.f43271f.setConrers(15);
-            this.f43272g = (TextView) inflate.findViewById(R.id.tv_app_name);
-            this.f43273h = (TextView) inflate.findViewById(R.id.tv_app_size);
-            this.f43274i = (TextView) inflate.findViewById(R.id.tv_version);
-            this.f43275j = (TextView) inflate.findViewById(R.id.tv_company_name);
-            this.f43276k = (TextView) inflate.findViewById(R.id.tv_privacy);
+            this.f41723f.setConrers(15);
+            this.f41724g = (TextView) inflate.findViewById(R.id.tv_app_name);
+            this.f41725h = (TextView) inflate.findViewById(R.id.tv_app_size);
+            this.f41726i = (TextView) inflate.findViewById(R.id.tv_version);
+            this.f41727j = (TextView) inflate.findViewById(R.id.tv_company_name);
+            this.k = (TextView) inflate.findViewById(R.id.tv_privacy);
             this.l = (TextView) inflate.findViewById(R.id.tv_permission);
             this.m = (TextView) inflate.findViewById(R.id.tv_download_tip);
             this.n = (FrameLayout) inflate.findViewById(R.id.download_view_container);
@@ -176,22 +174,22 @@ public class DownloadRectifyView extends RelativeLayout {
     public void bindData(c.a.t0.v.g.j.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (aVar != null && aVar.f25206b != null) {
-                this.m.setText(aVar.f25207c);
+            if (aVar != null && aVar.f24502b != null) {
+                this.m.setText(aVar.f24503c);
                 this.m.setVisibility(aVar.a != 2 ? 0 : 8);
-                c cVar = aVar.f25206b;
-                this.f43271f.startLoad(cVar.f13625b, 30, false);
-                this.f43272g.setText(cVar.f13626c);
-                this.f43273h.setText(cVar.f13632i);
-                this.f43275j.setText(cVar.f13627d);
-                this.f43274i.setText(cVar.f13629f);
-                c.b bVar = cVar.f13630g;
-                if (bVar != null && !TextUtils.isEmpty(bVar.f13636b) && !TextUtils.isEmpty(bVar.a)) {
-                    this.f43276k.setText(bVar.a);
-                    this.f43276k.setOnClickListener(new a(this, bVar));
+                c cVar = aVar.f24502b;
+                this.f41723f.startLoad(cVar.f13309b, 30, false);
+                this.f41724g.setText(cVar.f13310c);
+                this.f41725h.setText(cVar.f13316i);
+                this.f41727j.setText(cVar.f13311d);
+                this.f41726i.setText(cVar.f13313f);
+                c.b bVar = cVar.f13314g;
+                if (bVar != null && !TextUtils.isEmpty(bVar.f13320b) && !TextUtils.isEmpty(bVar.a)) {
+                    this.k.setText(bVar.a);
+                    this.k.setOnClickListener(new a(this, bVar));
                 }
-                c.a aVar2 = cVar.f13631h;
-                if (aVar2 == null || TextUtils.isEmpty(aVar2.f13634b) || TextUtils.isEmpty(aVar2.a)) {
+                c.a aVar2 = cVar.f13315h;
+                if (aVar2 == null || TextUtils.isEmpty(aVar2.f13318b) || TextUtils.isEmpty(aVar2.a)) {
                     return;
                 }
                 this.l.setText(aVar2.a);
@@ -212,7 +210,7 @@ public class DownloadRectifyView extends RelativeLayout {
     public void setOnCloseClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f43270e.setOnClickListener(onClickListener);
+            this.f41722e.setOnClickListener(onClickListener);
         }
     }
 

@@ -80,34 +80,32 @@ public class BdVideoAd implements Serializable {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f38333b;
+        public String f37120b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f38334c;
+        public String f37121c;
 
         /* renamed from: d  reason: collision with root package name */
-        public JSONObject f38335d;
+        public JSONObject f37122d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f38336e;
+        public String f37123e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f38337f;
+        public String f37124f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f38338g;
+        public String f37125g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f38339h;
+        public String f37126h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f38340i;
+        public String f37127i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f38341j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public Object f38342k;
+        public int f37128j;
+        public Object k;
         public Object l;
 
         public b() {
@@ -124,29 +122,29 @@ public class BdVideoAd implements Serializable {
                 }
             }
             this.a = false;
-            this.f38333b = "";
-            this.f38334c = "";
-            this.f38335d = null;
-            this.f38336e = "";
-            this.f38337f = "";
-            this.f38338g = "";
-            this.f38339h = "";
-            this.f38340i = "detail";
-            this.f38341j = -1;
-            this.f38342k = null;
+            this.f37120b = "";
+            this.f37121c = "";
+            this.f37122d = null;
+            this.f37123e = "";
+            this.f37124f = "";
+            this.f37125g = "";
+            this.f37126h = "";
+            this.f37127i = "detail";
+            this.f37128j = -1;
+            this.k = null;
         }
 
         public BdVideoAd a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BdVideoAd(this.a, this.f38333b, this.f38334c, this.f38335d, this.f38336e, this.f38337f, this.f38338g, this.f38339h, this.f38340i, this.f38341j, this.f38342k, this.l, null) : (BdVideoAd) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BdVideoAd(this.a, this.f37120b, this.f37121c, this.f37122d, this.f37123e, this.f37124f, this.f37125g, this.f37126h, this.f37127i, this.f37128j, this.k, this.l, null) : (BdVideoAd) invokeV.objValue;
         }
 
         public b b(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                this.f38342k = obj;
+                this.k = obj;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -178,16 +176,16 @@ public class BdVideoAd implements Serializable {
                 }
             }
             this.a = bdVideoAd.suffixAdEnable;
-            this.f38333b = bdVideoAd.tpl;
-            this.f38334c = bdVideoAd.pd;
-            this.f38335d = bdVideoAd.extRequest;
-            this.f38336e = bdVideoAd.page;
-            this.f38337f = bdVideoAd.type;
-            this.f38338g = bdVideoAd.channelId;
-            this.f38339h = bdVideoAd.channelTitle;
-            this.f38340i = bdVideoAd.source;
-            this.f38341j = bdVideoAd.pos;
-            this.f38342k = bdVideoAd.mAdVideoTailFrameData;
+            this.f37120b = bdVideoAd.tpl;
+            this.f37121c = bdVideoAd.pd;
+            this.f37122d = bdVideoAd.extRequest;
+            this.f37123e = bdVideoAd.page;
+            this.f37124f = bdVideoAd.type;
+            this.f37125g = bdVideoAd.channelId;
+            this.f37126h = bdVideoAd.channelTitle;
+            this.f37127i = bdVideoAd.source;
+            this.f37128j = bdVideoAd.pos;
+            this.k = bdVideoAd.mAdVideoTailFrameData;
             this.l = bdVideoAd.userInfoData;
         }
     }

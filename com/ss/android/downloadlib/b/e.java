@@ -2,7 +2,7 @@ package com.ss.android.downloadlib.b;
 
 import com.ss.android.socialbase.downloader.a.a;
 /* loaded from: classes3.dex */
-public class e implements a.InterfaceC2180a {
+public class e implements a.InterfaceC2197a {
     public long a;
 
     /* loaded from: classes3.dex */
@@ -10,12 +10,12 @@ public class e implements a.InterfaceC2180a {
         public static e a = new e();
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2180a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2197a
     public void b() {
         this.a = System.currentTimeMillis();
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2180a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2197a
     public void c() {
     }
 

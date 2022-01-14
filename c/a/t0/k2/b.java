@@ -39,7 +39,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f19204b;
+    public static b f18714b;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
 
@@ -82,7 +82,7 @@ public class b {
                 if (list.isEmpty()) {
                     return;
                 }
-                c.a.s0.s.g0.b.j().x("collect_update_time_key", new JSONArray((Collection) list).toString());
+                c.a.s0.s.h0.b.k().y("collect_update_time_key", new JSONArray((Collection) list).toString());
                 b.b().g();
             }
         }
@@ -90,11 +90,11 @@ public class b {
 
     /* renamed from: c.a.t0.k2.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1150b implements Comparator<Calendar> {
+    public class C1164b implements Comparator<Calendar> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1150b(b bVar) {
+        public C1164b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,14 +147,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f19204b == null) {
+            if (f18714b == null) {
                 synchronized (b.class) {
-                    if (f19204b == null) {
-                        f19204b = new b();
+                    if (f18714b == null) {
+                        f18714b = new b();
                     }
                 }
             }
-            return f19204b;
+            return f18714b;
         }
         return (b) invokeV.objValue;
     }
@@ -163,11 +163,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long l = c.a.s0.s.g0.b.j().l("collect_request_time_key", -1L);
-            if (l == -1) {
+            long m = c.a.s0.s.h0.b.k().m("collect_request_time_key", -1L);
+            if (m == -1) {
                 return true;
             }
-            long currentTimeMillis = System.currentTimeMillis() - l;
+            long currentTimeMillis = System.currentTimeMillis() - m;
             return currentTimeMillis > 0 && TimeUnit.MILLISECONDS.toDays(currentTimeMillis) >= 1;
         }
         return invokeV.booleanValue;
@@ -177,14 +177,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String p = c.a.s0.s.g0.b.j().p("collect_update_time_key", null);
-            if (TextUtils.isEmpty(p)) {
+            String q = c.a.s0.s.h0.b.k().q("collect_update_time_key", null);
+            if (TextUtils.isEmpty(q)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             Calendar calendar = Calendar.getInstance();
             try {
-                JSONArray jSONArray = new JSONArray(p);
+                JSONArray jSONArray = new JSONArray(q);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     String optString = jSONArray.optString(i2);
@@ -208,7 +208,7 @@ public class b {
             if (arrayList.isEmpty()) {
                 return null;
             }
-            Collections.sort(arrayList, new C1150b(this));
+            Collections.sort(arrayList, new C1164b(this));
             Calendar calendar3 = (Calendar) arrayList.get(0);
             Calendar calendar4 = (Calendar) arrayList.get(arrayList.size() - 1);
             if (arrayList.size() == 1 || calendar3.after(calendar) || calendar4.before(calendar)) {
@@ -239,7 +239,7 @@ public class b {
             if (this.a) {
                 z = false;
             }
-            c.a.s0.s.g0.b.j().t("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
+            c.a.s0.s.h0.b.k().u("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
         }
     }
 
@@ -271,7 +271,7 @@ public class b {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.s0.s.g0.b.j().w("collect_request_time_key", System.currentTimeMillis());
+            c.a.s0.s.h0.b.k().x("collect_request_time_key", System.currentTimeMillis());
         }
     }
 }

@@ -6,10 +6,10 @@ public class h extends Exception {
     public Throwable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62137b;
+    public int f59791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62138c;
+    public int f59792c;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
@@ -37,11 +37,11 @@ public class h extends Exception {
             str4 = "caused by: " + th;
         }
         sb.append(str4);
-        this.f62137b = -1;
-        this.f62138c = -1;
+        this.f59791b = -1;
+        this.f59792c = -1;
         if (gVar != null) {
-            this.f62137b = gVar.c();
-            this.f62138c = gVar.f();
+            this.f59791b = gVar.c();
+            this.f59792c = gVar.f();
         }
         this.a = th;
     }

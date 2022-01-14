@@ -12,7 +12,7 @@ public final class k implements Runnable {
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f63088b;
+    public final /* synthetic */ e f60710b;
 
     public k(e eVar, String str) {
         Interceptable interceptable = $ic;
@@ -29,12 +29,12 @@ public final class k implements Runnable {
                 return;
             }
         }
-        this.f63088b = eVar;
+        this.f60710b = eVar;
         this.a = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-        r0 = r4.f63088b.d(r4.a);
+        r0 = r4.f60710b.d(r4.a);
      */
     @Override // java.lang.Runnable
     /*

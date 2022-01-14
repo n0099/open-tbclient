@@ -15,29 +15,29 @@ public class a {
     public Application a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f62175b;
+    public c f59829b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<InterfaceC2180a> f62176c;
+    public final List<InterfaceC2197a> f59830c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f62177d;
+    public int f59831d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Activity> f62178e;
+    public WeakReference<Activity> f59832e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f62179f;
+    public volatile int f59833f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f62180g;
+    public volatile boolean f59834g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Application.ActivityLifecycleCallbacks f62181h;
+    public final Application.ActivityLifecycleCallbacks f59835h;
 
     /* renamed from: com.ss.android.socialbase.downloader.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC2180a {
+    public interface InterfaceC2197a {
         @MainThread
         void b();
 
@@ -56,30 +56,30 @@ public class a {
 
     private Object[] d() {
         Object[] array;
-        synchronized (this.f62176c) {
-            array = this.f62176c.size() > 0 ? this.f62176c.toArray() : null;
+        synchronized (this.f59830c) {
+            array = this.f59830c.size() > 0 ? this.f59830c.toArray() : null;
         }
         return array;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f62179f = 1;
+        this.f59833f = 1;
         Object[] d2 = d();
         if (d2 != null) {
             for (Object obj : d2) {
-                ((InterfaceC2180a) obj).b();
+                ((InterfaceC2197a) obj).b();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.f62179f = 0;
+        this.f59833f = 0;
         Object[] d2 = d();
         if (d2 != null) {
             for (Object obj : d2) {
-                ((InterfaceC2180a) obj).c();
+                ((InterfaceC2197a) obj).c();
             }
         }
     }
@@ -108,10 +108,10 @@ public class a {
     }
 
     public a() {
-        this.f62176c = new ArrayList();
-        this.f62179f = -1;
-        this.f62180g = false;
-        this.f62181h = new Application.ActivityLifecycleCallbacks() { // from class: com.ss.android.socialbase.downloader.a.a.1
+        this.f59830c = new ArrayList();
+        this.f59833f = -1;
+        this.f59834g = false;
+        this.f59835h = new Application.ActivityLifecycleCallbacks() { // from class: com.ss.android.socialbase.downloader.a.a.1
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityCreated(Activity activity, Bundle bundle) {
             }
@@ -122,18 +122,18 @@ public class a {
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityPaused(Activity activity) {
-                a.this.f62180g = true;
-                if (a.this.f62177d != 0 || activity == null) {
+                a.this.f59834g = true;
+                if (a.this.f59831d != 0 || activity == null) {
                     return;
                 }
-                a.this.f62177d = activity.hashCode();
+                a.this.f59831d = activity.hashCode();
             }
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityResumed(Activity activity) {
-                int i2 = a.this.f62177d;
-                a.this.f62180g = false;
-                a.this.f62177d = activity != null ? activity.hashCode() : i2;
+                int i2 = a.this.f59831d;
+                a.this.f59834g = false;
+                a.this.f59831d = activity != null ? activity.hashCode() : i2;
                 if (i2 == 0) {
                     a.this.e();
                 }
@@ -145,10 +145,10 @@ public class a {
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStarted(Activity activity) {
-                a.this.f62178e = new WeakReference(activity);
-                int i2 = a.this.f62177d;
-                a.this.f62177d = activity != null ? activity.hashCode() : i2;
-                a.this.f62180g = false;
+                a.this.f59832e = new WeakReference(activity);
+                int i2 = a.this.f59831d;
+                a.this.f59831d = activity != null ? activity.hashCode() : i2;
+                a.this.f59834g = false;
                 if (i2 == 0) {
                     a.this.e();
                 }
@@ -156,38 +156,38 @@ public class a {
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStopped(Activity activity) {
-                if (activity != null && activity.hashCode() == a.this.f62177d) {
-                    a.this.f62177d = 0;
+                if (activity != null && activity.hashCode() == a.this.f59831d) {
+                    a.this.f59831d = 0;
                     a.this.f();
                 }
-                a.this.f62180g = false;
+                a.this.f59834g = false;
             }
         };
     }
 
-    /* JADX WARN: Type inference failed for: r0v2, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [int, boolean] */
     public boolean b() {
-        int i2 = this.f62179f;
+        int i2 = this.f59833f;
         int i3 = i2;
         if (i2 == -1) {
             ?? g2 = g();
-            this.f62179f = g2;
+            this.f59833f = g2;
             i3 = g2;
         }
         return i3 == 1;
     }
 
     public boolean c() {
-        return b() && !this.f62180g;
+        return b() && !this.f59834g;
     }
 
     public static a a() {
         return b.a;
     }
 
-    public void b(InterfaceC2180a interfaceC2180a) {
-        synchronized (this.f62176c) {
-            this.f62176c.remove(interfaceC2180a);
+    public void b(InterfaceC2197a interfaceC2197a) {
+        synchronized (this.f59830c) {
+            this.f59830c.remove(interfaceC2197a);
         }
     }
 
@@ -197,23 +197,23 @@ public class a {
                 if (this.a == null) {
                     Application application = (Application) context;
                     this.a = application;
-                    application.registerActivityLifecycleCallbacks(this.f62181h);
+                    application.registerActivityLifecycleCallbacks(this.f59835h);
                 }
             }
         }
     }
 
     public void a(c cVar) {
-        this.f62175b = cVar;
+        this.f59829b = cVar;
     }
 
-    public void a(InterfaceC2180a interfaceC2180a) {
-        if (interfaceC2180a == null) {
+    public void a(InterfaceC2197a interfaceC2197a) {
+        if (interfaceC2197a == null) {
             return;
         }
-        synchronized (this.f62176c) {
-            if (!this.f62176c.contains(interfaceC2180a)) {
-                this.f62176c.add(interfaceC2180a);
+        synchronized (this.f59830c) {
+            if (!this.f59830c.contains(interfaceC2197a)) {
+                this.f59830c.add(interfaceC2197a);
             }
         }
     }

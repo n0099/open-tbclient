@@ -12,7 +12,7 @@ public class l {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f10300b;
+    public Map<String, String> f10076b;
 
     /* loaded from: classes6.dex */
     public interface a {
